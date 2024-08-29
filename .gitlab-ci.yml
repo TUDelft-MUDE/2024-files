@@ -12,7 +12,7 @@ deploy-draft:
     - |
       curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-draft \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-CsyDoiQ9pt7WhSXEQEEJ" \
+        -H "X-Gitlab-Token: glpat-NcaXHVmXiYGebEyAoGe_" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
@@ -33,7 +33,7 @@ deploy-production:
     - |
       curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-CsyDoiQ9pt7WhSXEQEEJ" \
+        -H "X-Gitlab-Token: glpat-NcaXHVmXiYGebEyAoGe_" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
