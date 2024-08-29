@@ -3,6 +3,9 @@ image: alpine:latest
 stages:
   - deploy
 
+before_script:
+  - apk add --no-cache curl
+
 deploy-draft:
   stage: deploy
   script:
