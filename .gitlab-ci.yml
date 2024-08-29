@@ -1,0 +1,80 @@
+image: ruby:3.2.2-bookworm
+
+stages:
+  - build
+  - deploy
+
+variables:
+  LC_ALL: C.UTF-8
+
+build-page:
+  stage: build
+  variables:
+    JEKYLL_ENV: ${{ CI_COMMIT_BRANCH == "publish" && "production" || "development" }}
+  before_script:
+    - gem install bundler
+    - bundle install
+    - chmod +x ./build-page.sh
+  script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "publish" ]; then
+        echo "Running on publish branch"
+        ./build-page.sh "/" true
+      elif [ "$CI_COMMIT_BRANCH" == "main" ]; then
+        echo "Running on main branch"
+        ./build-page.sh "/2024/draft" false
+      else
+        echo "Running on other branches"
+        ./build-page.sh "/draft" false
+      fi
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "publish"
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
+      when: always
+
+deploy-draft:
+  stage: deploy
+  needs: ["build-page"]
+  script:
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-draft \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: glpat-CsyDoiQ9pt7WhSXEQEEJ" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "main"
+          }
+        }'
+  environment:
+    name: draft
+    url: https://mude.citg.tudelft.nl/2024/files/draft
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
+      when: always
+
+deploy-production:
+  stage: deploy
+  needs: ["build-page"]
+  script:
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: glpat-CsyDoiQ9pt7WhSXEQEEJ" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "publish"
+          }
+        }'
+  environment:
+    name: production
+    url: https://mude.citg.tudelft.nl/files/2024
+  rules:
+    - if: $CI_COMMIT_BRANCH == "publish" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
+      when: always
