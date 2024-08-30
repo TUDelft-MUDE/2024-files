@@ -10,7 +10,7 @@ deploy-draft:
   stage: deploy
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-draft \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-students-draft \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
@@ -20,18 +20,29 @@ deploy-draft:
             "ref": "main"
           }
         }'
-  environment:
-    name: draft
-    url: https://mude.citg.tudelft.nl/2024/files/draft
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-teachers-draft \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "main"
+          }
+        }'
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/students/**/*
+        - src/teachers/**/*
       when: always
 
 deploy-production:
   stage: deploy
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-students \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
@@ -41,9 +52,20 @@ deploy-production:
             "ref": "publish"
           }
         }'
-  environment:
-    name: production
-    url: https://mude.citg.tudelft.nl/files/2024
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-teachers \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "publish"
+          }
+        }'
   rules:
-    - if: $CI_COMMIT_BRANCH == "publish" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
+    - if: $CI_COMMIT_BRANCH == "publish"
+      changes:
+        - src/students/**/*
+        - src/teachers/**/*
       when: always
