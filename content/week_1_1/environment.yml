@@ -1,0 +1,14 @@
+name: mude-   
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - jupyter
+  - ipykernel
+  - conda-forge::pandoc=3.3
+  - conda-forge::miktex
+  - pip
+  - pip:
+    - otter-grader
