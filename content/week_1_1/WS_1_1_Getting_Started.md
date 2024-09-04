@@ -12,7 +12,7 @@ Once your software is installed (as described in the book and `README.md` file) 
 3. Open a CLI and use it to navigate to your working directory (see note below).
 4. Create a `conda` environment by executing the command `conda env create -f environment.yml` (see note below)
 5. Activate environment via the CLI by executing `conda activate mude-base`
-6. Confirm that Python was installed correctly by checking that `python --version` returns 3.12 (you may need to try `python3 --version`)
+6. Confirm that Python was installed correctly by checking that `python --version` returns 3.11 (you may need to try `python3 --version`)
 
 Once you have completed these steps, you are ready to proceed with the Programming Assignment, PA 1.1 in file `PA
 
