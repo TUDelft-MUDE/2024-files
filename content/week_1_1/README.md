@@ -2,6 +2,8 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/2024): Week 1.1, 2024.*
 
+_Files for this workshop are available for download via the GitLab repository: [`gitlab.tudelft.nl/mude/2024-week-1-1`](https://gitlab.tudelft.nl/mude/2024-week-1-1) (click blue "Code" button, then download this repository as "zip"; unzip the files in your **working directory**)._
+
 This GitLab repository contains files needed for Week 1.1 activities (Friday's Group Assignment are separate). It includes:
 - this `README.md` overview
 - a Markdown file for Workshop 1.1, `WS_1_1_Warming_Up.md`
