@@ -50,9 +50,7 @@ Once you have a GitHub account, you can complete the survey using [this link](ht
 
 Once you have a GitHub account, you are able to Access the assignment by clicking on this link and following the steps described below:
 
-Link to accept PA 1.3: []()
-
-1. Click the link
+1. Click the link here: [classroom.github.com/a/uD26Nc0v](https://classroom.github.com/a/uD26Nc0v)
 2. Authorize GitHub Access
 3. Join the classroom and identify yourself by finding your Student ID Number in the list of "Identifiers". If your ID is not there, you can "skip this step" (username will be used for repo name)
 4. Click "Accept this assignment"
