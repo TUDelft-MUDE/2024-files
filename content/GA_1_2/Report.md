@@ -62,7 +62,7 @@ Write your answer here.
 
 **Question 9**
 
-_Test your learning for this week! Do Exercise 2 on the [Q1 Exam from 2023](https://mude.citg.tudelft.nl/2024/files/Exams/23_Q1.html)._
+_Test your learning for this week! Do **Exercise 2** on the **Q1 Exam from 2023**, which you can download using [this link](https://mude.citg.tudelft.nl/2024/files/Exams/23_Q1.pdf)._
 
 You can write your answer on a separate piece of paper; it is good practice for the exam.
 
