@@ -4,29 +4,25 @@
 
 _This assignment is to be turned in by uploading files to GitHub (as done with PA 1.3, but for the GA 1.3 repository)._
 
-
-
-
-
-The files in this Group Assignment (GA) are set up to prepare you for a "real" project next week, which you will have to submit for feedback and part of your Assignment Portfolio grade. There are three critical files to be aware of:
+There are several files to be aware of in this GA:
 
 1. `README.md`: this file, which contains and introduction and instructions.
 2. `Analysis.ipynb`: a Jupyter notebook which contains the primary analysis to complete during the in-class session.
 3. `Report.md`: a Markdown file containing questions about the findings of Analysis, as well additional questions to check your understanding of the topic for this week.
+4. `functions.py`: a Python file that defines plotting functions for the last Task of the notebook
+5. Auxiliary files: a `data` subdirectory that contains `csv` files.
 
-You are expected to read and _work through each of the above files sequentially._ complete all tasks in the Analysis notebook and answer all questions in the Report by 12:30. You should leave the cell outputs in the notebook.
+You are expected to read and work through `README`, `Analysis` and `Report` sequentially. Complete all tasks in the Analysis notebook and answer all questions in the Report by 12:30. You should leave the cell outputs in the notebook.
 
-_Note that this week the GA does not need to be turned in. However, we still recommend you edit the files and save your work._
+### Submission
 
-We recommend you keep the Workshop assignment from this week (WS 1.2) handy to complete this assignment!
+**COMING SOON**
 
 ### Working Method
 
-We recommend that you select the computers of two group members to record your work: one computer for the `Analysis.ipynb`, the other for the `Report.md`. To collaborate we recommend an app like WhatsApp to send text and code (_this week only!_); it is not ideal, but next week we will learn a _much_ better way to collaborate!
+**COMING SOON**
 
-## Introduction
-
-# Background
+## Assignment Context
 
 There are numerous subsurface processes that give rise to observable subsidence at the surface. These processes can be categorized into two main categories: 'deep' subsidence and 'shallow' subsidence. 'Deep' subsidence stems from processes occurring in the deeper subsurface layers (e.g., deeper than 0.5 kilometers below the surface). For instance, extracting gas from a reservoir leads to compaction of the deeper layers, which then results in subsidence of the Earth's surface. On the other hand, 'shallow' subsidence arises from activities within the upper layers of the subsurface. When the groundwater table drops, it triggers shrinkage and oxidation of organic material above the ground water level. Additionally, processes like consolidation and creep contribute to shallow subsidence. Conversely, when the groundwater level rises, a portion of the subsidence becomes reversible, as the layers swell due to the increased water content.
 
