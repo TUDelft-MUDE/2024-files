@@ -12,23 +12,11 @@ _We don't expect long answers; be as concise as possible (just a few sentences m
 
 **Question 1**
 
+Explain what the groundwater interpolation accomplished and why we had to do it.
 
+_**TO DO** for now See solution in notebook_
 
-**Question 2**
-
-
-**Question 3**
-
-
-
-**Question 4**
-
-
-**Question 5**
-
-
-
-**Question 6**
+**Question**
 
 Interpretation questions:
 
