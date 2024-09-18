@@ -24,6 +24,30 @@ We recommend you keep the Workshop assignment from this week (WS 1.2) handy to c
 
 We recommend that you select the computers of two group members to record your work: one computer for the `Analysis.ipynb`, the other for the `Report.md`. To collaborate we recommend an app like WhatsApp to send text and code (_this week only!_); it is not ideal, but next week we will learn a _much_ better way to collaborate!
 
+## Introduction
+
+# Background
+
+There are numerous subsurface processes that give rise to observable subsidence at the surface. These processes can be categorized into two main categories: 'deep' subsidence and 'shallow' subsidence. 'Deep' subsidence stems from processes occurring in the deeper subsurface layers (e.g., deeper than 0.5 kilometers below the surface). For instance, extracting gas from a reservoir leads to compaction of the deeper layers, which then results in subsidence of the Earth's surface. On the other hand, 'shallow' subsidence arises from activities within the upper layers of the subsurface. When the groundwater table drops, it triggers shrinkage and oxidation of organic material above the ground water level. Additionally, processes like consolidation and creep contribute to shallow subsidence. Conversely, when the groundwater level rises, a portion of the subsidence becomes reversible, as the layers swell due to the increased water content.
+
+In the Green Heart region in the Netherlands a lot of 'shallow' subsidence occurs. In the typical polder landscape the groundwater table is kept blow a certain level, causing peat layers to oxidize and shrink resulting in subsidence. Also, since the ground water level is highly variable over the year (due to changes in temperature and precipitation), this results in highly variable ground movements which can be quite significant. 
+
+In the context of our assignment, we investigate the observed deformation of a recently constructed road in the <a href="https://www.groenehart.nl/the-green-heart-of-holland" target="_blank"> Green Heart</a> Region. It's reasonable to anticipate that when a heavy structure is built on top of a 'soft' soil layer, additional subsidence may occur due to compaction in the upper surface layers. Over time, as the sediment settles, this extra compaction will diminish. However, it is still expected to observe some up and down movement related due to changing ground water levels. 
+
+### Data
+
+The input data for this assignment are two different deformation time series for a (hypothetical) road in the Green heart in the Netherlands. We assume that the road was built in 2016. We will have a look at <a href="https://en.wikipedia.org/wiki/Interferometric_synthetic-aperture_radar" target="_blank"> InSAR</a> (Interferometric Synthetic Aperture Radar) data and <a href="https://en.wikipedia.org/wiki/Satellite_navigation" target="_blank"> GNSS</a> (Global Navigation Satellite System) data.
+
+With InSAR we can retrieve displacements from time series of radar images. In this exercise we will consider displacement time series from Sentinel-1 from 2017 till 2019. More information on the Sentinel-1 mission can be found <a href="https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-1" target="_blank">here</a>.
+
+In the project repository on GitLab, you will find three data files for this assignment:
+- `gnss_observations.csv`
+- `insar_observations.csv`
+- `groundwter_levels.csv`. 
+
+Note that all files consist of two columns, one for the dates and one for the observations. 
+
+In the GNSS and InSAR files the observations are observed vertical displacements (units of m). Groundwater levels are in units of mm.
 
 **Once you have read everything above, continue with the `Analysis.ipynb`**
 
