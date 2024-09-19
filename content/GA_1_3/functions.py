@@ -6,21 +6,14 @@ from scipy.stats import norm
 def plot_model(d, alt_model=None):
     """Time Series of observations with model and CI.
     
-    Observations and times should be ndarrays with same length.
+    Uses dict as input defined from existing values in dict
+    Outputs figure and axes objects.
 
-    Input is a dictionary with the following keysx/values:
-      times: observation times
-      y: observations
-      y_hat: model values
-      y_CI: confidence interval
-      data_type: string (e.g. 'GNSS', 'InSAR')
-
-      alt_model: tuple to add a line to the plot, 3 elements:
-        - string: array with the times
-        - list or ndarray with times (x-axis)
-        - list or ndarray with model values (y-axis)
-        - e.g., alt_model=('model 2', [...], [...])
-
+    alt_model: tuple to add a line to the plot, 3 elements:
+      - string: array with the times
+      - list or ndarray with times (x-axis)
+      - list or ndarray with model values (y-axis)
+      - e.g., alt_model=('model 2', [...], [...])
     """
     
     times = d['times']
@@ -38,7 +31,7 @@ def plot_model(d, alt_model=None):
                     (y_hat + CI_y),
                     facecolor='orange',
                     alpha=0.4,
-                    label = 'Confidence Region')
+                    label = f'{(1-d['alpha'])*100:.1f}%' + ' Confidence Region')
     
     if alt_model is not None:
         ax.plot(alt_model[1],
@@ -55,7 +48,11 @@ def plot_model(d, alt_model=None):
 
 
 def plot_residual(d):
-    """Time Series of observations with model and CI."""
+    """Time Series of residuals and CI.
+    
+    Uses dict as input defined from existing values in dict
+    Outputs figure and axes objects.
+    """
     
     times = d['times']
     e_hat = d['e_hat']
@@ -67,7 +64,7 @@ def plot_residual(d):
     ax.plot(times, e_hat, 'o', markeredgecolor='black', label='Residual')
     ax.plot(times, -CI_res,
              '--', color='orange', 
-             label = 'Confidence Region')
+             label = f'{(1-d['alpha'])*100:.1f}%' + ' Confidence Region')
     ax.plot(times, +CI_res,
              '--', color='orange')
     
@@ -80,7 +77,11 @@ def plot_residual(d):
 
 
 def plot_residual_histogram(d):
-    """Time Series of observations with model and CI."""
+    """Histogram of residuals with Normal PDF.
+    
+    Uses dict as input defined from existing values in dict
+    Outputs figure and axes objects.
+    """
     
     e_hat = d['e_hat']
     data_type = d['data_type']
