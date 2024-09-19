@@ -7523,6 +7523,17 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f27a991">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> don't forget to read the "Assignment Context" section of the README, it contains important information to understand this analysis.</p></div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=181ccfd5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7532,15 +7543,11 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sc</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
-
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
-<span class="kn">from</span> <span class="nn">scipy.stats.distributions</span> <span class="kn">import</span> <span class="n">chi2</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
 
 <span class="kn">from</span> <span class="nn">functions</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -8157,7 +8164,7 @@ where $\Sigma_{Y}$ is the covariance matrix of the observables' vector.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_insar</span><span class="p">[</span><span class="s1">'Sigma_Y] = YOUR_CODE_HERE</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_insar</span><span class="p">[</span><span class="s1">'Sigma_Y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
 <span class="n">model_gnss</span><span class="p">[</span><span class="s1">'Sigma_Y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
 </pre></div>
 </div>
@@ -8192,6 +8199,18 @@ where $\Sigma_{Y}$ is the covariance matrix of the observables' vector.</p>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c5bd4bad">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p><strong>Note on code implementation</strong>: you'll see that the functions in this assignment use a dictionary; this greatly reduces the number of input/output variables needed in a function. However, it can make the code inside the function more difficult to read due to the key syntax (e.g., <code>dict['variable_1']</code> versus <code>variable
+_1</code>). To make this assignment easier for you to implement we have split these functions into three parts: 1) define variables from the dictionary, 2) perform analysis, 3) add results to the dictionary. Note that this is not the most efficient way to write this code; it is done here specifically for clarity and to help you focus on writing the equations properly and understanding the meaning of each term.</p></div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d85b1826">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8203,22 +8222,9 @@ where $\Sigma_{Y}$ is the covariance matrix of the observables' vector.</p>
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">BLUE</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Calculate the Best Linear Unbiased Estimator</span>
 <span class="sd">    </span>
-<span class="sd">    Write a docstring here (an explanation of your function).</span>
-<span class="sd">    </span>
-<span class="sd">    Function to calculate the Best Linear Unbiased Estimator</span>
-<span class="sd">    </span>
-<span class="sd">    Input is a dictionary with the following keys/values:</span>
-<span class="sd">        A = A matrix (mxn)</span>
-<span class="sd">        y = vector with obervations (mx1)</span>
-<span class="sd">        Sigma_Y = Varaiance covariance matrix of the observations (mxm)</span>
-<span class="sd">    </span>
-<span class="sd">    Output is the same dictionary with the following keys/values added:</span>
-<span class="sd">        x_hat = vector with the estimates (nx1)</span>
-<span class="sd">        Sigma_X_hat = variance-covariance matrix of the unknown parameters (nxn)</span>
-
-<span class="sd">    Note: it is not necessary to define the intermediate variables that are already</span>
-<span class="sd">          in the dictionary, however, it is done here for clarity so you can focus</span>
-<span class="sd">          on writing the equations properly.</span>
+<span class="sd">    Uses dict as input/output:</span>
+<span class="sd">      - inputs defined from existing values in dict</span>
+<span class="sd">      - outputs defined as new values in dict</span>
 <span class="sd">    """</span>
 
     <span class="n">y</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'y'</span><span class="p">]</span>
@@ -8368,7 +8374,7 @@ Do the values that you just estimated make sense? Explain, using quantitative re
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ef41ce8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8b5550cc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8377,7 +8383,7 @@ Do the values that you just estimated make sense? Explain, using quantitative re
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 6.1:</b>
-<p>Complete the function below to help us compute the confidence intervals, then apply the function.</p>
+<p>Complete the function below to help us compute the confidence intervals, then apply the function. Use a confidence interval of 96% in your analysis.</p>
 <p><em>Hint: it can be used in exactly the same way as the <code>BLUE</code> function above, although it has one extra input.</em></p>
 </p>
 </div>
@@ -8395,18 +8401,19 @@ Do the values that you just estimated make sense? Explain, using quantitative re
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_CI</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Compute the confidence intervals.</span>
 <span class="sd">    </span>
-<span class="sd">    Input alpha is a float that defines the confidence level.</span>
-
-<span class="sd">    As with BLUE, complete the equations for the CI.</span>
+<span class="sd">    Uses dict as input/output:</span>
+<span class="sd">      - inputs defined from existing values in dict</span>
+<span class="sd">      - outputs defined as new values in dict</span>
 <span class="sd">    """</span>
 
     <span class="n">std_e_hat</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'std_e_hat'</span><span class="p">]</span>
     <span class="n">std_y</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'std_y'</span><span class="p">]</span>
 
-    <span class="n">k99</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
     <span class="n">CI_y</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
     <span class="n">CI_res</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
 
+    <span class="n">d</span><span class="p">[</span><span class="s1">'alpha'</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'CI_y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_y</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'CI_res'</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_res</span>
 
@@ -8471,7 +8478,7 @@ Do the values that you just estimated make sense? Explain, using quantitative re
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 6.2:</b>
-<p>Read the contents of file <code>figures.py</code> and identify what it is doing: you should be able to recognize that they use our model dictionary as an input and create three different figures. Note also that the function to create the figures have already been imported at the top of this notebook.</p>
+<p>Read the contents of file <code>functions.py</code> and identify what it is doing: you should be able to recognize that they use our model dictionary as an input and create three different figures. Note also that the function to create the figures have already been imported at the top of this notebook.</p>
 <p>Use the functions provided to visualize the results of our two models.</p>
 </p>
 </div>

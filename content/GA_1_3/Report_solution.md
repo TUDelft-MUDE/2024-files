@@ -2,29 +2,33 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.3, Friday, Sep 20, 2024.*
 
-_This assignment is to be turned in by uploading files to GitHub (as done with PA 1.3, but for the GA 1.3 repository)._
-
-_Most of the questions require you to finish `Analysis.ipynb` first, but depending on how you allocate tasks between group members, it is possible to work on this in parallel. Make sure you save time for peer reviewing each others work before completing the assignment!_
-
-_We don't expect long answers; be as concise as possible (just a few sentences max, usually); however, it is critical to support your arguments with qualitative observations (e.g., describe specific figures) and quantitative evidence (report results of calculations, values, etc) from `Analysis.ipynb` whenever possible._
+_Remember to read the grading and submission instructions in the `README.md` file thoroughly before finalizing your answers in this document!_
 
 ## Questions
 
 **Question 1**
 
-Explain what the groundwater interpolation accomplished and why we had to do it.
+Give a short explanation about the data and the models we created. Include brief statements about the data, including an explanation of the groundwater interpolation step and why it was necessary.
+
+_Your answer should only be a few sentences long, and be sure to use quantitative information! You do not need to reproduce the model, but it would be useful to do things like confirm the number of models, model parameters, observations, etc. You can use bullet lists to summarize and state interesting information._
 
 _**TO DO** for now See solution in notebook_
 
-**Question**
+**Question 2**
 
-Interpretation questions:
+Describe what the confidence intervals are and mention specifically the type of information that is included in the algorithm to calculate. Make observations about the CI's for each model, and explain why all of the data points are not contained within the interval, even though the value is close to 100%.
 
-- When you plot the residuals vs time, do you see any systematic effect? Give your interpretation for any discrepancy between observations and the model.
-- What is the mean value of the residuals?
-- What is the standard deviation of the residuals?
-- What can you conclude when you compare the histogram of the data with the computed normal distribution? 
-- Did you use quantitative results in your answers?
+_Hint: which uncertainties are propagated into the CI? Are the intervals uniform for the entire time series?_
+
+**Solution**
+
+**TO DO** - new in 2024
+
+**Question 3**
+
+Do you see any systematic effects in the residuals for each model? Make a few relevant observations about the residuals and the , do you see any systematic effect? Give your interpretation for any discrepancy between observations and the model.
+
+_It may be useful to include qualitative and quantitative observations about the residuals, for example, the histogram/PDF comparison and the moments of the residuals._
 
 **Solution**
     
@@ -41,10 +45,9 @@ Moreover, when reviewing the results for GNSS we see only a few outliers (residu
     
 All of these observations indicate that the model is generally good, but misses some important characteristics in the data. Perhaps we should consider adding a bit of complexity (Part 2!).
 
+**Question 4**
 
-**Question**
-
-Compare the results you found for the InSAR observations and the GNSS observations in the questions above. Discuss the differences between the results. Be quantitative!
+Compare the results you found for the InSAR observations and the GNSS observations. Discuss the differences between the results. Be quantitative!
 
 **Solution**
 
@@ -65,6 +68,10 @@ The GNSS data seems to have some outliers in the beginning and therefore the mod
 
 Also, when reviewing the residuals for both datasets, it seems that the model that we use is maybe too simple since we miss part of the signal. 
     
+
+**Last Question: How did things go? (Optional)**
+
+_Use this space to let us know if you ran into any challenges while working on this GA, and if you have any feedback to report._
 
 **End of file.**
 
