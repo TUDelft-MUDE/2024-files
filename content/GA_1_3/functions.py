@@ -2,6 +2,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
+import ipywidgets as widgets
+from ipywidgets import interact
 
 def plot_model(d, alt_model=None):
     """Time Series of observations with model and CI.
@@ -88,7 +90,7 @@ def plot_residual_histogram(d):
 
     fig, ax = plt.subplots(figsize = (7,5))
     
-    ax.hist(e_hat, bins = 40, density=True,  edgecolor='black')
+    ax.hist(e_hat, density=True,  edgecolor='black')
     x = np.linspace(np.min(e_hat), np.max(e_hat), num=100);
     ax.plot(x,
             norm.pdf(x, loc=0.0, scale = np.std(e_hat)),
@@ -105,3 +107,43 @@ def plot_residual_histogram(d):
 
 
     return fig, ax
+
+def xhat_slider_plot(A, y, t, Sigma_y=None):
+    """Interactive plot of the solution space for x_hat."""
+    n, k = A.shape
+
+    if Sigma_y is None:
+        Sigma_y = np.eye(n)
+    xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A) @ A.T @ np.linalg.inv(Sigma_y) @ y
+    Sigma_xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A)
+    std_xhat = np.sqrt(np.diag(Sigma_xhat))
+
+    sliders = {}
+    for i in range(k):
+        sliders[f'xhat_{i}'] = widgets.FloatSlider(value=xhat[i],
+                                                   min=xhat[i] - 10*std_xhat[i],
+                                                   max=xhat[i] + 10*std_xhat[i],
+                                                   step=0.1*std_xhat[i],
+                                                   description=f'xhat_{i}')
+
+    def update_plot(**kwargs):
+        xhat_values = np.array([kwargs[f'xhat_{i}'] for i in range(k)])
+        y_fit = A @ xhat_values
+        W = np.linalg.inv(Sigma_y)
+        ss_res = (y - y_fit).T @ W @ (y - y_fit)
+
+        plt.figure(figsize=(10, 5))
+        plt.plot(t, y, 'o', label='data')
+        plt.plot(t, y_fit, label='y_fit')
+        plt.title(f'Mean of squared residuals: {ss_res:.2f}')
+        plt.ylabel('y')
+        plt.xlabel('t')
+        plt.grid()
+        plt.legend()
+        plt.show()
+
+    interact(update_plot, **sliders)
+
+# Example usage
+# A, y, t should be defined before calling this function
+# xhat_slider_plot(A, y, t)
