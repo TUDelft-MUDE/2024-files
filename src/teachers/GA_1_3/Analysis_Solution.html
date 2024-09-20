@@ -7719,7 +7719,7 @@ new_key exists and has value: new_value
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">gnss</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'./data/gnss_observations.csv'</span><span class="p">)</span>
@@ -7968,7 +7968,7 @@ Last value =   -117.268
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">days_gnss</span><span class="p">,</span>  <span class="n">years_gnss</span>  <span class="o">=</span> <span class="n">to_days_years</span><span class="p">(</span><span class="n">times_gnss</span><span class="p">)</span>
@@ -8009,7 +8009,7 @@ Last value =   -117.268
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># YOUR_CODE_HERE</span>
@@ -8243,11 +8243,10 @@ Describe the datasets based on the figure above and your observations from the p
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-2:-Set-up-linear-functional-model">Task 2: Set-up linear functional model<a class="anchor-link" href="#Task-2:-Set-up-linear-functional-model">¶</a></h2><p>We want to investigate how we could model the observed displacements of the road. Because the road is built in the Green Heart we expect that the observed displacements are related to the groundwater level. Furthermore, we assume that the displacements can be modeled using a constant velocity. The model is defined as 
+<h2 id="Task-2:-Set-up-linear-functional-model">Task 2: Set-up linear functional model<a class="anchor-link" href="#Task-2:-Set-up-linear-functional-model">¶</a></h2><p>We want to investigate how we could model the observed displacements of the road. Because the road is built in the Green Heart we expect that the observed displacements are related to the groundwater level. Furthermore, we assume that the displacements can be modeled using a constant velocity. The model is defined as</p>
 $$
 d = d_0 + vt + k \ \textrm{GW},
-$$
-where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater level (that we assume to be deterministic).</p>
+$$<p>where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater level (that we assume to be deterministic).</p>
 <p>Therefore, the model has 3 unknowns:</p>
 <ol>
 <li>$d_0$, as the initial displacement at $t_0$;</li>
@@ -8792,7 +8791,7 @@ _1</code>). To make this assignment easier for you to implement we have split th
     <span class="n">e_hat</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_hat</span>
 
     <span class="n">Sigma_Y_hat</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">Sigma_X_hat</span> <span class="o">@</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">std_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Sigma_Y_hat</span><span class="o">.</span><span class="n">diagonal</span><span class="p">())</span>
+    <span class="n">std_Y_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Sigma_Y_hat</span><span class="o">.</span><span class="n">diagonal</span><span class="p">())</span>
 
     <span class="n">Sigma_e_hat</span> <span class="o">=</span> <span class="n">Sigma_Y</span> <span class="o">-</span> <span class="n">Sigma_Y_hat</span>
     <span class="n">std_e_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Sigma_e_hat</span><span class="o">.</span><span class="n">diagonal</span><span class="p">())</span>
@@ -8802,7 +8801,7 @@ _1</code>). To make this assignment easier for you to implement we have split th
     <span class="n">d</span><span class="p">[</span><span class="s1">'y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'e_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">e_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'Sigma_Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">Sigma_Y_hat</span>
-    <span class="n">d</span><span class="p">[</span><span class="s1">'std_y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">std_y</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">'std_Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">std_Y_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'Sigma_e_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">Sigma_e_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'std_e_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">std_e_hat</span>
 
@@ -9063,7 +9062,7 @@ The standard deviation for the GNSS-estimated GW factor is 0.035 [-]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_CI</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
@@ -9075,7 +9074,7 @@ The standard deviation for the GNSS-estimated GW factor is 0.035 [-]
 <span class="sd">    """</span>
 
     <span class="n">std_e_hat</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'std_e_hat'</span><span class="p">]</span>
-    <span class="n">std_y</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'std_y'</span><span class="p">]</span>
+    <span class="n">std_Y_hat</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'std_Y_hat'</span><span class="p">]</span>
 
     <span class="c1"># k = YOUR_CODE_HERE</span>
     <span class="c1"># CI_y = YOUR_CODE_HERE</span>
@@ -9083,11 +9082,11 @@ The standard deviation for the GNSS-estimated GW factor is 0.035 [-]
 
     <span class="c1"># SOLUTION:</span>
     <span class="n">k</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">alpha</span><span class="p">)</span>
-    <span class="n">CI_y</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">std_y</span>
+    <span class="n">CI_Y_hat</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">std_Y_hat</span>
     <span class="n">CI_res</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">std_e_hat</span>
 
     <span class="n">d</span><span class="p">[</span><span class="s1">'alpha'</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span>
-    <span class="n">d</span><span class="p">[</span><span class="s1">'CI_y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_y</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">'CI_Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_Y_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'CI_res'</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_res</span>
 
     <span class="k">return</span> <span class="n">d</span>
@@ -9101,7 +9100,7 @@ The standard deviation for the GNSS-estimated GW factor is 0.035 [-]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># model_insar = YOUR_CODE_HERE</span>
@@ -9131,7 +9130,7 @@ The standard deviation for the GNSS-estimated GW factor is 0.035 [-]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Keys and Values (type) for model_insar:"</span><span class="p">)</span>
@@ -9164,11 +9163,11 @@ x_hat            --&gt;    &lt;class 'numpy.ndarray'&gt;
 y_hat            --&gt;    &lt;class 'numpy.ndarray'&gt;
 e_hat            --&gt;    &lt;class 'numpy.ndarray'&gt;
 Sigma_Y_hat      --&gt;    &lt;class 'numpy.ndarray'&gt;
-std_y            --&gt;    &lt;class 'numpy.ndarray'&gt;
+std_Y_hat        --&gt;    &lt;class 'numpy.ndarray'&gt;
 Sigma_e_hat      --&gt;    &lt;class 'numpy.ndarray'&gt;
 std_e_hat        --&gt;    &lt;class 'numpy.ndarray'&gt;
 alpha            --&gt;    &lt;class 'float'&gt;
-CI_y             --&gt;    &lt;class 'numpy.ndarray'&gt;
+CI_Y_hat         --&gt;    &lt;class 'numpy.ndarray'&gt;
 CI_res           --&gt;    &lt;class 'numpy.ndarray'&gt;
 
 Keys and Values (type) for model_gnss:
@@ -9183,11 +9182,11 @@ x_hat            --&gt;    &lt;class 'numpy.ndarray'&gt;
 y_hat            --&gt;    &lt;class 'numpy.ndarray'&gt;
 e_hat            --&gt;    &lt;class 'numpy.ndarray'&gt;
 Sigma_Y_hat      --&gt;    &lt;class 'numpy.ndarray'&gt;
-std_y            --&gt;    &lt;class 'numpy.ndarray'&gt;
+std_Y_hat        --&gt;    &lt;class 'numpy.ndarray'&gt;
 Sigma_e_hat      --&gt;    &lt;class 'numpy.ndarray'&gt;
 std_e_hat        --&gt;    &lt;class 'numpy.ndarray'&gt;
 alpha            --&gt;    &lt;class 'float'&gt;
-CI_y             --&gt;    &lt;class 'numpy.ndarray'&gt;
+CI_Y_hat         --&gt;    &lt;class 'numpy.ndarray'&gt;
 CI_res           --&gt;    &lt;class 'numpy.ndarray'&gt;
 </pre>
 </div>
@@ -9227,7 +9226,7 @@ CI_res           --&gt;    &lt;class 'numpy.ndarray'&gt;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># _, _ = plot_model(YOUR_CODE_HERE)</span>
@@ -9263,7 +9262,7 @@ CI_res           --&gt;    &lt;class 'numpy.ndarray'&gt;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># _, _ = plot_residual(YOUR_CODE_HERE)</span>
@@ -9350,7 +9349,7 @@ The standard deviation of the GNSS residuals is 15.393 mm
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <p>$\textbf{Solution: the True Model}$</p>
-<p>The data used in this exercise was generated using Monte Carlo Simulation. It is added to the plots here to illustrate where and how our models differ (it is your job to interpret "why").</p>
+<p>The data used in this exercise was generated primarily using Monte Carlo Simulation (but some data were modified "by hand). It is added to the plots here to illustrate where and how our models differ (it is your job to interpret "why").</p>
 </p>
 </div>
 </div>
