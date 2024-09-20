@@ -7524,13 +7524,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f27a991">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b3ec533b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> don't forget to read the "Assignment Context" section of the README, it contains important information to understand this analysis.</p></div>
+<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Notes:</b>
+<ul>
+<li>Don't forget to read the "Assignment Context" section of the README, it contains important information to understand this analysis.</li>
+<li>The Markdown questions and answers in this notebook are <em>not</em> graded; they are to help you make observations and describe results, which will eventually go in your <code>Report.md</code>.</li>
+</ul>
+</p></div>
 </div>
 </div>
 </div>
@@ -8239,7 +8244,7 @@ _1</code>). To make this assignment easier for you to implement we have split th
     <span class="n">e_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
 
     <span class="n">Sigma_Y_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-    <span class="n">std_y</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
+    <span class="n">std_Y_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
 
     <span class="n">Sigma_e_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
     <span class="n">std_e_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
@@ -8249,7 +8254,7 @@ _1</code>). To make this assignment easier for you to implement we have split th
     <span class="n">d</span><span class="p">[</span><span class="s1">'y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'e_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">e_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'Sigma_Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">Sigma_Y_hat</span>
-    <span class="n">d</span><span class="p">[</span><span class="s1">'std_y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">std_y</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">'std_Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">std_Y_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'Sigma_e_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">Sigma_e_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'std_e_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">std_e_hat</span>
 
@@ -8407,14 +8412,14 @@ Do the values that you just estimated make sense? Explain, using quantitative re
 <span class="sd">    """</span>
 
     <span class="n">std_e_hat</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'std_e_hat'</span><span class="p">]</span>
-    <span class="n">std_y</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'std_y'</span><span class="p">]</span>
+    <span class="n">std_Y_hat</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">'std_Y_hat'</span><span class="p">]</span>
 
     <span class="n">k</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-    <span class="n">CI_y</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
+    <span class="n">CI_Y_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
     <span class="n">CI_res</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
 
     <span class="n">d</span><span class="p">[</span><span class="s1">'alpha'</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span>
-    <span class="n">d</span><span class="p">[</span><span class="s1">'CI_y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_y</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">'CI_Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_Y_hat</span>
     <span class="n">d</span><span class="p">[</span><span class="s1">'CI_res'</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_res</span>
 
     <span class="k">return</span> <span class="n">d</span>
