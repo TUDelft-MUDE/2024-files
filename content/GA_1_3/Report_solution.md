@@ -12,7 +12,11 @@ Give a short explanation about the data and the models we created. Include brief
 
 _Your answer should only be a few sentences long, and be sure to use quantitative information! You do not need to reproduce the model, but it would be useful to do things like confirm the number of models, model parameters, observations, etc. You can use bullet lists to summarize and state interesting information._
 
-_**TO DO** for now See solution in notebook_
+**Solution**
+
+Three data sets were used. We had InSAR data, GNSS and waterlevel data. InSAR and GNSS were used as observations and waterlevel was used as parameter. Two models were made using BLUE, one using InSAR and the other using GNSS as observations. All three datasets are reported in mm. The standard deviation of InSAR and GNSS is assumed to be 2 mm and 15 mm respectively. 
+
+InSAR has 730 observations and GNSS 61, groundwater has 25. To use the groundwater data it is linearly interpolated to get 730 and 61 values for both models. This is necessary since for each observation we need a value for each parameter.
 
 **Question 2**
 
@@ -22,7 +26,9 @@ _Hint: which uncertainties are propagated into the CI? Are the intervals uniform
 
 **Solution**
 
-**TO DO** - new in 2024
+Confidence intervals are a useful way to report uncertainty. They are based on theoretical distribution. Using the first and second moments (i.e. mean and std. dev.), we can create confidence intervals based on a specific critical value. When our sample size is large enough and our assumptions that our random variable is distributed randomly, we will see that the number of data points in our CI is (almost) equal to our critical value (96%).
+
+However in this case our residuals are not distributed normally and our data sets (especially the GNSS) which will mean our CI's are not the truth. However, it can still be a useful tool to analyze our (propagation of ) uncertainty 
 
 **Question 3**
 
