@@ -12,44 +12,64 @@ Give a short explanation about the data and the models we created. Include brief
 
 _Your answer should only be a few sentences long, and be sure to use quantitative information! You do not need to reproduce the model, but it would be useful to do things like confirm the number of models, model parameters, observations, etc. You can use bullet lists to summarize and state interesting information._
 
+_We copy the LaTeX equation for the model here, in case you would like to refer to it in your Report._
+
+$$
+d = d_0 + vt + k \ \textrm{GW},
+$$
+
 **Solution**
 
-Three data sets were used. We had InSAR data, GNSS and waterlevel data. InSAR and GNSS were used as observations and waterlevel was used as parameter. Two models were made using BLUE, one using InSAR and the other using GNSS as observations. All three datasets are reported in mm. The standard deviation of InSAR and GNSS is assumed to be 2 mm and 15 mm respectively. 
+_Note that you were not expected to write this much in your own solution!_
 
-InSAR has 730 observations and GNSS 61, groundwater has 25. To use the groundwater data it is linearly interpolated to get 730 and 61 values for both models. This is necessary since for each observation we need a value for each parameter.
+Three data sets were used. We had InSAR and GNSS data (both satellite observations of the ground surface) and groundwater level data. InSAR and GNSS were used as observations and groundwater level was used as a (deterministic!) parameter. Two models were made using BLUE, one using InSAR and the other using GNSS as observations.
+
+InSAR has 730 observations and GNSS 61, groundwater has 25. The standard deviation of each InSAR and GNSS measurement is assumed to be 2 mm and 15 mm, respectively. All three datasets are converted to mm when used in the Analysis notebook (satellite data is converted from m).
+
+The model has three parameters, each of which are linear with respect to the computed displacement of the ground surface:
+- initial displacement, $d_0$ mm
+- rate of displacement as a function of time, $v$ mm/day
+- displacement due to the current groundwater level, $k$ $\textrm{mm}^2$
+
+$$
+d = d_0 + v\ t + k \ \textrm{GW},
+$$
+
+Note in particular the differences between each term: $d_0$ and $k\ \textrm{GW}$ are constant in time, whereas $v\ t$ is not. The term $k\ \textrm{GW}$ is unique as it changes directly with the groundwater level; the relationship with time is thus non-linear, but deterministic.
+
+To construct the model we need a parameter value for each observation (GNSS/InSAR); this is problematic as we only have 25 groundwater measurements. Luckily the groundwater level changes relatively slowly so we can interpolate (linearly) between the observations. This allows us to have 730 and 61 values that match the other datasets, which are used to construct the two models. 
 
 **Question 2**
 
-Describe what the confidence intervals are and mention specifically the type of information that is included in the algorithm to calculate. Make observations about the CI's for each model, and explain why all of the data points are not contained within the interval, even though the value is close to 100%.
+Two types of confidence intervals are used in this assignment. Describe what the confidence intervals are and mention specifically the type of information that is included in the algorithm to calculate them. Make observations about the CI's for each model. Explain why, even though the $\alpha$ value is small (i.e., the CI is close to 100%), in the time series plots many of the data are _not_ contained within the CI, whereas they _are_ contained within the CI for the residual plots.
 
-_Hint: which uncertainties are propagated into the CI? Are the intervals uniform for the entire time series?_
+_Hint: Are the intervals uniform for the entire time series? Which uncertainties are propagated into each type of CI?_
 
 **Solution**
 
-Confidence intervals are a useful way to report uncertainty. They are based on theoretical distribution. Using the first and second moments (i.e. mean and std. dev.), we can create confidence intervals based on a specific critical value. When our sample size is large enough and our assumptions that our random variable is distributed randomly, we will see that the number of data points in our CI is (almost) equal to our critical value (96%).
+Confidence intervals are a useful way to report uncertainty and are based on an assumed theoretical distribution around a quantity of interest; in this case we assume a Normal distribution about each model prediction, $\hat{y}_i$, as well as each residual, $y_i-\hat{y}_i$. Using the first and second moments (i.e. mean and std. dev.), we can create confidence intervals based on a specific critical value, $\alpha$. When our sample size is large enough and our assumptions that our random variable is distributed randomly are reasonably correct, we will see that the fraction of data points in our CI is (almost) equal to our critical value.
 
-However in this case our residuals are not distributed normally and our data sets (especially the GNSS) which will mean our CI's are not the truth. However, it can still be a useful tool to analyze our (propagation of ) uncertainty 
+The two confidence intervals are different because of the way the covariance matrices $\Sigma_{\hat{Y}}$ and $\Sigma_{\hat{\epsilon}}$ are calculated, and the information that they represent. Even though both incorporate uncertainty of the observations, $\Sigma_{Y}$, the confidence interval of each model prediction $\hat{y}_i$ is based on the uncertainty of the model _parameters_, which is what the CI in the time series plot illustrates.
 
 **Question 3**
 
-Do you see any systematic effects in the residuals for each model? Make a few relevant observations about the residuals and the , do you see any systematic effect? Give your interpretation for any discrepancy between observations and the model.
+Do you see any systematic effects in the residuals for each model? Make a few relevant observations about the residuals. Give your interpretation for any discrepancy between observations and the model.
 
 _It may be useful to include qualitative and quantitative observations about the residuals, for example, the histogram/PDF comparison and the moments of the residuals._
 
 **Solution**
-    
-_Note: here we plotted the true model as well, which you did not have._
-    
-- The mean value and standard deviation of the InSAR residuals is 0.0 mm and 3.115 mm. 
-- The mean value and standard deviation of the GNSS residuals is 0.0 mm and 15.393 mm.
-    
-First of all, for InSAR almost all residuals are within the 99% confidence bounds, indicating that the quality that we assumed for the observations was good. 
+
+The mean value and standard deviation of the InSAR residuals is 0.0 mm and 3.115 mm.
+
+The mean value and standard deviation of the GNSS residuals is 0.0 mm and 15.393 mm.
+
+After examining the residual plots, for InSAR almost all residuals are within the confidence bounds, indicating that the quality that we assumed for the observations was good.
     
 The fitted model seems to follow the observations relatively well, but does not capture the signal completely. This can especially be seen in the residual plot with the confidence bounds. You see that the residuals are not completely centered around zero but that we still see some 'signal' where the model underpredicts at the ends and overpredicts in the middle. Although the values are negative, we can see that the residual plot removes the trend described by the model and illustrates the "over" and "under" aspect quite clearly. 
     
-Moreover, when reviewing the results for GNSS we see only a few outliers (residuals outside the 99% confidence bounds), which is logical given the 99% limit. Furthermore, the left side of the plot have many more observations that are below the confidence bound; this can also be seen in the left tail of the GNSS histogram, which is slightly asymmetric.
+Moreover, when reviewing the results for GNSS we see only a few outliers (residuals outside the confidence bounds), which is logical given the high limit (low $\alpha$). Furthermore, the left side of the plot has many more observations that are below the confidence bound; this can also be seen in the left tail of the GNSS histogram, which is slightly asymmetric.
     
-All of these observations indicate that the model is generally good, but misses some important characteristics in the data. Perhaps we should consider adding a bit of complexity (Part 2!).
+All of these observations indicate that the model is generally good, but misses some important characteristics in the data. Perhaps we should consider adding a bit of complexity (we will do this next week!).
 
 **Question 4**
 
@@ -57,23 +77,33 @@ Compare the results you found for the InSAR observations and the GNSS observatio
 
 **Solution**
 
-Estimated parameters, hence fitted model, is different. 
+The estimated parameters, hence the fitted model, are different.
+
+| Model | $d_0$ [mm] | $v$ [mm/day] | $k$ [$-$] |
+| :---: | :---: | :---: | :---: |
+| InSAR | 9.174 | -0.0243 | 0.202 |
+| GNSS | 1.181 | -0.0209 | 0.16 |
     
-Factors that have an impact are
+Factors that have an impact are:
     
 - precision of the observations
-    
 - number of observations
-    
 - outliers in the GNSS data
+
+The precision (standard deviation) of each parameter is:
+
+| Model | $\sigma_{d_0}$ [mm] | $\sigma_{v}$ [mm/day] | $\sigma_{k}$ [$-$] |
+| :---: | :---: | :---: | :---: |
+| InSAR | 2.128 | 0.0012 | 0.016 |
+| GNSS | 4.467 | 0.0026 | 0.035 |
     
-    
-Although the quality of the GNSS data is lower compared to InSAR (15 mm vs 2 mm), the precision of the estimated parameters is only a factor 2 worse. Here we see the effect of 'more' data points: the much lower precision of the observations is somewhat compensated by the much higher number of observations.
+Although the quality of the GNSS data is lower compared to InSAR (15 mm vs 2 mm), the precision of the estimated parameters is only a factor 2 worse. Here we see the effect of "more" data points: the much lower precision of the observations is somewhat compensated by the much higher number of observations.
 
 The GNSS data seems to have some outliers in the beginning and therefore the model fit is maybe not so good compared to InSAR. 
 
 Also, when reviewing the residuals for both datasets, it seems that the model that we use is maybe too simple since we miss part of the signal. 
-    
+
+_Note: in the solution we plotted the true model as well, which you did not have. This makes it easier to see where the data have some outliers; in fact this was the "manually" adjusted values that deviate from the rest, which were generated randomly using a Monte Carlo Simulation with Normally distributed noise._
 
 **Last Question: How did things go? (Optional)**
 

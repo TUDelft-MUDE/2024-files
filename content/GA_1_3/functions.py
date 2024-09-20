@@ -19,7 +19,7 @@ def plot_model(d, alt_model=None):
     times = d['times']
     y = d['y']
     y_hat = d['y_hat']
-    CI_y = d['CI_y']
+    CI_Y_hat = d['CI_Y_hat']
     data_type = d['data_type']
 
     fig, ax = plt.subplots(figsize = (15,5))
@@ -27,8 +27,8 @@ def plot_model(d, alt_model=None):
     ax.plot(times, y, 'k+',  label = 'Observations')
     ax.plot(times, y_hat,  label = 'Fitted model')
     ax.fill_between(times,
-                    (y_hat - CI_y), 
-                    (y_hat + CI_y),
+                    (y_hat - CI_Y_hat), 
+                    (y_hat + CI_Y_hat),
                     facecolor='orange',
                     alpha=0.4,
                     label = f'{(1-d['alpha'])*100:.1f}%' + ' Confidence Region')

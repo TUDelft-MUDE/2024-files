@@ -12,19 +12,26 @@ Give a short explanation about the data and the models we created. Include brief
 
 _Your answer should only be a few sentences long, and be sure to use quantitative information! You do not need to reproduce the model, but it would be useful to do things like confirm the number of models, model parameters, observations, etc. You can use bullet lists to summarize and state interesting information._
 
+_We copy the LaTeX equation for the model here, in case you would like to refer to it in your Report._
+
+$$
+d = d_0 + vt + k \ \textrm{GW},
+$$
+
 _Write your answer here._
 
 **Question 2**
 
-Describe what the confidence intervals are and mention specifically the type of information that is included in the algorithm to calculate. Make observations about the CI's for each model, and explain why all of the data points are not contained within the interval, even though the value is close to 100%.
+Two types of confidence intervals are used in this assignment. Describe what the confidence intervals are and mention specifically the type of information that is included in the algorithm to calculate them. Make observations about the CI's for each model. Explain why, even though the $\alpha$ value is small (i.e., the CI is close to 100%), in the time series plots many of the data are _not_ contained within the CI, whereas they _are_ contained within the CI for the residual plots.
 
-_Hint: which uncertainties are propagated into the CI? Are the intervals uniform for the entire time series?_
+_Hint: Are the intervals uniform for the entire time series? Which uncertainties are propagated into each type of CI?_
+
 
 _Write your answer here._
 
 **Question 3**
 
-Do you see any systematic effects in the residuals for each model? Make a few relevant observations about the residuals and the , do you see any systematic effect? Give your interpretation for any discrepancy between observations and the model.
+Do you see any systematic effects in the residuals for each model? Make a few relevant observations about the residuals. Give your interpretation for any discrepancy between observations and the model.
 
 _It may be useful to include qualitative and quantitative observations about the residuals, for example, the histogram/PDF comparison and the moments of the residuals._
 
@@ -33,6 +40,7 @@ _Write your answer here._
 **Question 4**
 
 Compare the results you found for the InSAR observations and the GNSS observations. Discuss the differences between the results. Be quantitative!
+
 
 _Write your answer here._
 
