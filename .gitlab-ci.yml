@@ -10,7 +10,7 @@ deploy-draft-students:
   stage: deploy
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/files-deploy-students-draft \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students-draft \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
@@ -30,7 +30,7 @@ deploy-teachers:
   stage: deploy
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-teachers \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-teachers \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
@@ -50,7 +50,7 @@ deploy-production-students:
   stage: deploy
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-students \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
