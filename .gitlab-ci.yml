@@ -6,7 +6,7 @@ stages:
 before_script:
   - apk add --no-cache curl
 
-deploy-draft:
+deploy-draft-students:
   stage: deploy
   script:
     - |
@@ -20,8 +20,17 @@ deploy-draft:
             "ref": "main"
           }
         }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/students/**/*
+      when: always
+
+deploy-teachers:
+  stage: deploy
+  script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-teachers-draft \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-teachers \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
@@ -34,11 +43,10 @@ deploy-draft:
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - src/students/**/*
         - src/teachers/**/*
       when: always
 
-deploy-production:
+deploy-production-students:
   stage: deploy
   script:
     - |
@@ -52,20 +60,8 @@ deploy-production:
             "ref": "publish"
           }
         }'
-    - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-deploy-teachers \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "publish"
-          }
-        }'
   rules:
     - if: $CI_COMMIT_BRANCH == "publish"
       changes:
         - src/students/**/*
-        - src/teachers/**/*
       when: always
