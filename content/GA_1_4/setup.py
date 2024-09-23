@@ -68,12 +68,14 @@ m2 = get_CI(m2, 0.04)
 
 # Save models
 
-with open(get_path_aux('m1.pickle'), 'wb') as file:
-    pickle.dump(m1, file)
-print('\nModel 1 saved as m1.pickle\n')
-model_summary(m1)
+m1_blue = m1
+with open(get_path_aux('m1_blue.pickle'), 'wb') as file:
+    pickle.dump(m1_blue, file)
+print('\nModel 1 saved as m1_blue.pickle\n')
+model_summary(m1_blue)
 
-with open(get_path_aux('m2.pickle'), 'wb') as file:
-    pickle.dump(m2, file)
-print('\nModel 2 saved as m2.pickle\n')
-model_summary(m2)
+m2_blue = m2
+with open(get_path_aux('m2_blue.pickle'), 'wb') as file:
+    pickle.dump(m2_blue, file)
+print('\nModel 2 saved as m2_blue.pickle\n')
+model_summary(m2_blue)
