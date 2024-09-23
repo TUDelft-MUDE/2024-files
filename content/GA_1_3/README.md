@@ -2,7 +2,7 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.3, Friday, Sep 20, 2024.*
 
-_A link to access this GA will be provided in class on Friday morning. It will work the same way as PA 1.3 (on GitHub)._
+_You can access this assignment with the following link: [classroom.github.com/a/TyoROBvM](https://classroom.github.com/a/TyoROBvM)._
 
 There are several files to be aware of:
 
