@@ -1,4 +1,5 @@
-
+import os
+import pickle
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -109,45 +110,73 @@ def plot_residual_histogram(d):
 
     return fig, ax
 
-def xhat_slider_plot(A, y, t, Sigma_y=None):
-    """Interactive plot of the solution space for x_hat."""
-    n, k = A.shape
+def update_plot(x0, x1, x2, x3, m):
+    plt.figure(figsize=(15,5))
+    plt.plot(m['times'], m['y'], 'o', label=m['data_type'])
+    plt.ylabel('Displacement [mm]')
+    plt.xlabel('Time')
+    
+    if x3 is None:
+        y_fit = m['A'] @ [x0, x1, x2]
+        if (x0 == 0) & (x1 == 0) & (x2 == 1):
+            plt.plot(m['times'], y_fit, 'r', label='Groundwater data', linewidth=2)
+        else:
+            plt.plot(m['times'], y_fit, 'r', label='Fit', linewidth=2)
+    else:
+        y_fit = m['A'] @ [x0, x1, x2, x3]
+        if (x0 == 0) & (x1 == 0) & (x2 == 0) & (x3 == 1):
+            plt.plot(m['times'], y_fit, 'r', label='Groundwater data', linewidth=2)
+        else:
+            plt.plot(m['times'], y_fit, 'r', label='Fit', linewidth=2)
+    
 
-    if Sigma_y is None:
-        Sigma_y = np.eye(n)
-    xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A) @ A.T @ np.linalg.inv(Sigma_y) @ y
-    Sigma_xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A)
-    std_xhat = np.sqrt(np.diag(Sigma_xhat))
+    W = np.linalg.inv(m['Sigma_Y'])
+    ss_res = (m['y'] - y_fit).T @ W @ (m['y'] - y_fit)
+    plt.title(f'Mean of squared residuals: {ss_res:.0f}')
+    plt.ylim(-150, 30)
+    plt.grid()
+    plt.legend()
+    plt.show()
 
-    sliders = {}
-    for i in range(k):
-        sliders[f'xhat_{i}'] = widgets.FloatSlider(value=xhat[i],
-                                                   min=xhat[i] - 10*std_xhat[i],
-                                                   max=xhat[i] + 10*std_xhat[i],
-                                                   step=0.1*std_xhat[i],
-                                                   description=f'xhat_{i}')
+# def xhat_slider_plot(A, y, t, Sigma_y=None):
+#     """Interactive plot of the solution space for x_hat."""
+#     n, k = A.shape
 
-    def update_plot(**kwargs):
-        xhat_values = np.array([kwargs[f'xhat_{i}'] for i in range(k)])
-        y_fit = A @ xhat_values
-        W = np.linalg.inv(Sigma_y)
-        ss_res = (y - y_fit).T @ W @ (y - y_fit)
+#     if Sigma_y is None:
+#         Sigma_y = np.eye(n)
+#     xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A) @ A.T @ np.linalg.inv(Sigma_y) @ y
+#     Sigma_xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A)
+#     std_xhat = np.sqrt(np.diag(Sigma_xhat))
 
-        plt.figure(figsize=(10, 5))
-        plt.plot(t, y, 'o', label='data')
-        plt.plot(t, y_fit, label='y_fit')
-        plt.title(f'Mean of squared residuals: {ss_res:.2f}')
-        plt.ylabel('y')
-        plt.xlabel('t')
-        plt.grid()
-        plt.legend()
-        plt.show()
+#     sliders = {}
+#     for i in range(k):
+#         sliders[f'xhat_{i}'] = widgets.FloatSlider(value=xhat[i],
+#                                                    min=xhat[i] - 10*std_xhat[i],
+#                                                    max=xhat[i] + 10*std_xhat[i],
+#                                                    step=0.1*std_xhat[i],
+#                                                    description=f'xhat_{i}')
 
-    interact(update_plot, **sliders)
+#     def update_plot(**kwargs):
+#         xhat_values = np.array([kwargs[f'xhat_{i}'] for i in range(k)])
+#         y_fit = A @ xhat_values
+#         W = np.linalg.inv(Sigma_y)
+#         ss_res = (y - y_fit).T @ W @ (y - y_fit)
 
-# Example usage
-# A, y, t should be defined before calling this function
-# xhat_slider_plot(A, y, t)
+#         plt.figure(figsize=(10, 5))
+#         plt.plot(t, y, 'o', label='data')
+#         plt.plot(t, y_fit, label='y_fit')
+#         plt.title(f'Mean of squared residuals: {ss_res:.2f}')
+#         plt.ylabel('y')
+#         plt.xlabel('t')
+#         plt.grid()
+#         plt.legend()
+#         plt.show()
+
+#     interact(update_plot, **sliders)
+
+# # Example usage
+# # A, y, t should be defined before calling this function
+# # xhat_slider_plot(A, y, t)
 
 def to_days_years(times):
     '''Convert the observation times to days and years.'''
@@ -213,3 +242,11 @@ def model_summary(d):
         print(f'    x_{i} = {d["x_hat"][i]:6.3f}'
               + f'  +/- {np.sqrt(d["Sigma_X_hat"][i,i]):6.3f}')
     print('----------------\n')
+
+def load_pickle_file(filename):
+    directory = os.path.join(os.path.dirname(__file__), 'auxiliary_files')
+    filepath = os.path.join(directory, filename)
+    # Load the data from the pickle file
+    with open(os.path.normpath(filepath), 'rb') as file:
+        data = pickle.load(file)
+    return data
