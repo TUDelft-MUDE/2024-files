@@ -2,13 +2,13 @@ import os
 import pickle
 import numpy as np
 from scipy import interpolate
-from scipy.stats import norm
 import pandas as pd
 import matplotlib.pyplot as plt
-
 from functions import *
 
 np.set_printoptions(precision=3)
+
+# Initialize models and working directory
 
 m1 = {'data_type': 'InSAR',
       'model_type': 'BLUE'}
@@ -21,10 +21,11 @@ def get_path_aux(filename):
     filepath = os.path.join(directory, filename)
     return os.path.normpath(filepath)
 
+
+# Load and process data
+
 insar = pd.read_csv(get_path_aux('insar_observations.csv'))
-
 gnss = pd.read_csv(get_path_aux('gnss_observations.csv'))
-
 gw = pd.read_csv(get_path_aux('groundwater_levels.csv'))
 
 m1['times'] = pd.to_datetime(insar['times'])
@@ -40,36 +41,32 @@ y_gw = (gw['observations[mm]']).to_numpy()
 days_gw,    years_gw    = to_days_years(times_gw)
 
 interp = interpolate.interp1d(days_gw, y_gw)
-
 m1['groundwater'] = interp(m1['days'])
 m2['groundwater'] = interp(m2['days'])
+
 
 # INSAR
 
 m1['A'] = np.ones((len(m1['times']), 3))
 m1['A'][:,1] = m1['days']
 m1['A'][:,2] = m1['groundwater']
-
 m1['std'] = 2 #mm
-
 m1['Sigma_Y'] = np.identity(len(m1['times']))*m1['std']**2
-
 m1 = BLUE(m1)
-
 m1 = get_CI(m1, 0.04)
+
 
 # GNSS
 
 m2['A'] = np.ones((len(m2['times']), 3))
 m2['A'][:,1] = m2['days']
 m2['A'][:,2] = m2['groundwater']
-
 m2['std'] = 15 #mm
-
 m2['Sigma_Y'] = np.identity(len(m2['times']))*m2['std']**2
-
 m2 = BLUE(m2)
 m2 = get_CI(m2, 0.04)
+
+# Save models
 
 with open(get_path_aux('m1.pickle'), 'wb') as file:
     pickle.dump(m1, file)
