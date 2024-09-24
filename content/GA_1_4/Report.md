@@ -38,15 +38,14 @@ _Write your answer here._
 
 **Question 5**
 
-In order to get a better fit to the data (smaller residuals) for this case study, which of the following strategies could help? (elaborate on your answer)
-<ol>
-    <li>better observations?</li>
-    <li>a more complicated geophysical model?</li>
-    <li>better initial values?</li>
-    <li>more observations?</li>
-</ol>
+In order to get a better fit to the data (smaller residuals) for this case study, which of the following strategies could help? Elaborate on your answer with one or two sentences each.
 
-Data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?
+1. better observations?
+2. a more complicated geophysical model?
+3. better initial values?
+4. more observations?
+
+In your answer, keep in mind that data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?
 
 _Write your answer here._
 
