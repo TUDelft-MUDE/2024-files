@@ -53,7 +53,7 @@ Give your interpretation for any discrepancy between observations and the model.
 
 **Solution**
 
-Both models converged. With InSAR it took only 5, with GNSS 8 iterations. This can be declared by the difference in precision and number of observations.
+Both models converged after around 3 iterations. 
 
 The precision of the estimated offset $\hat{d}_0$ and $\hat{k}$ with InSAR is approximately 2 mm and 0.02, respectively. With GNSS the precision of those parameters is approximately a factor 2 worse due to the higher noise in the data. However, due to the high number of observations, the precision is still rather good. Note that the outliers do not have an impact on the precision, since the covariance matrix does not depend on the data (and outliers are non-random errors that are not accounted for in the covariance matrix). Precision of parameters is good if compared to estimated values, except for $a$ (std of 21, 79 days, while estimated value is 180, 224 days for InSAR and GNSS respectively). 
 
