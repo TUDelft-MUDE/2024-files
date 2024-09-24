@@ -223,9 +223,10 @@ def get_CI(d, alpha):
     """
 
     d['k'] = norm.ppf(1 - 0.5*alpha)
-    d['CI_y'] = d['k']*d['std_y']
+    d['CI_Y'] = d['k']*d['std_y']
     d['CI_res'] = d['k']*d['std_e_hat']
-    d['CI_y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
+    d['CI_Y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
+    d['alpha'] = alpha
 
     return d
 
