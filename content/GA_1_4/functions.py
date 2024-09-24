@@ -22,7 +22,7 @@ def plot_model(d, alt_model=None):
     
     times = d['times']
     y = d['y']
-    y_hat = d['y_hat']
+    y_hat = d['Y_hat']
     CI_Y_hat = d['CI_Y_hat']
     data_type = d['data_type']
 
@@ -139,7 +139,7 @@ def model_widget(x0, x1, x2, x3, m):
     if 'Sigma_Y' in m:
         W = np.linalg.inv(m['Sigma_Y'])
         ss_res = (m['y'] - y_fit).T @ W @ (m['y'] - y_fit)
-        plt.title(f'Mean of squared residuals: {ss_res:.0f}')
+        plt.title(f'Normalized squared residuals: {ss_res:.0f}')
     else:
         plt.title('Sigma_Y not yet defined in dictionary')
     
@@ -147,6 +147,79 @@ def model_widget(x0, x1, x2, x3, m):
     plt.grid()
     plt.legend()
     plt.show()
+
+def to_days_years(times):
+    '''Convert the observation times to days and years.'''
+    
+    times_datetime = pd.to_datetime(times)
+    time_diff = (times_datetime - times_datetime[0])
+    days_diff = (time_diff / np.timedelta64(1,'D')).astype(int)
+    
+    days = days_diff.to_numpy()
+    years = days/365
+    
+    return days, years
+
+def BLUE(d):
+    """Calculate the Best Linear Unbiased Estimator
+    
+    Uses dict as input/output:
+      - inputs defined from existing values in dict
+      - outputs defined as new values in dict
+    """
+
+    d['Sigma_X_hat'] = (np.linalg.inv(d['A'].T
+                        @ np.linalg.inv(d['Sigma_Y'])
+                        @ d['A']))
+    d['X_hat'] = (d['Sigma_X_hat']
+                  @ d['A'].T
+                  @ np.linalg.inv(d['Sigma_Y'])
+                  @ d['y'])
+    d['Y_hat'] = d['A'] @ d['X_hat']
+    d['e_hat'] = d['y'] - d['Y_hat']
+    d['Sigma_Y_hat'] = d['A'] @ d['Sigma_X_hat'] @ d['A'].T
+    d['Sigma_e_hat'] = d['Sigma_Y'] - d['Sigma_Y_hat']
+    d['std_e_hat'] = np.sqrt(d['Sigma_e_hat'].diagonal())
+
+    return d
+
+def get_CI(d, alpha):
+    """Compute the confidence intervals.
+    
+    Uses dict as input/output:
+      - inputs defined from existing values in dict
+      - outputs defined as new values in dict
+    """
+
+    d['k'] = norm.ppf(1 - 0.5*alpha)
+    d['CI_Y'] = d['k']*d['std_Y']
+    d['CI_res'] = d['k']*d['std_e_hat']
+    d['CI_Y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
+    d['alpha'] = alpha
+
+    return d
+
+def model_summary(d):
+    """Print the model summary."""
+
+    print('Summary of Model')
+    print('----------------')
+    print('  Data type:', d['data_type'])
+    print('  Model type:', d['model_type'])
+    print('  Number of observations:', len(d['times']))
+    print('  Model parameters:')
+    for i in range(len(d['X_hat'])):
+        print(f'    X_hat_{i} = {d["X_hat"][i]:6.3f}'
+              + f'  +/- {np.sqrt(d["Sigma_X_hat"][i,i]):6.3f}')
+    print('----------------\n')
+
+def load_pickle_file(filename):
+    directory = os.path.join(os.path.dirname(__file__), 'auxiliary_files')
+    filepath = os.path.join(directory, filename)
+    # Load the data from the pickle file
+    with open(os.path.normpath(filepath), 'rb') as file:
+        data = pickle.load(file)     
+    return data
 
 # def xhat_slider_plot(A, y, t, Sigma_y=None):
 #     """Interactive plot of the solution space for x_hat."""
@@ -187,77 +260,3 @@ def model_widget(x0, x1, x2, x3, m):
 # # Example usage
 # # A, y, t should be defined before calling this function
 # # xhat_slider_plot(A, y, t)
-
-def to_days_years(times):
-    '''Convert the observation times to days and years.'''
-    
-    times_datetime = pd.to_datetime(times)
-    time_diff = (times_datetime - times_datetime[0])
-    days_diff = (time_diff / np.timedelta64(1,'D')).astype(int)
-    
-    days = days_diff.to_numpy()
-    years = days/365
-    
-    return days, years
-
-def BLUE(d):
-    """Calculate the Best Linear Unbiased Estimator
-    
-    Uses dict as input/output:
-      - inputs defined from existing values in dict
-      - outputs defined as new values in dict
-    """
-
-    d['Sigma_X_hat'] = (np.linalg.inv(d['A'].T
-                        @ np.linalg.inv(d['Sigma_Y'])
-                        @ d['A']))
-    d['x_hat'] = (d['Sigma_X_hat']
-                  @ d['A'].T
-                  @ np.linalg.inv(d['Sigma_Y'])
-                  @ d['y'])
-    d['y_hat'] = d['A'] @ d['x_hat']
-    d['e_hat'] = d['y'] - d['y_hat']
-    d['Sigma_Y_hat'] = d['A'] @ d['Sigma_X_hat'] @ d['A'].T
-    d['std_y'] = np.sqrt(d['Sigma_Y_hat'].diagonal())
-    d['Sigma_e_hat'] = d['Sigma_Y'] - d['Sigma_Y_hat']
-    d['std_e_hat'] = np.sqrt(d['Sigma_e_hat'].diagonal())
-
-    return d
-
-def get_CI(d, alpha):
-    """Compute the confidence intervals.
-    
-    Uses dict as input/output:
-      - inputs defined from existing values in dict
-      - outputs defined as new values in dict
-    """
-
-    d['k'] = norm.ppf(1 - 0.5*alpha)
-    d['CI_Y'] = d['k']*d['std_y']
-    d['CI_res'] = d['k']*d['std_e_hat']
-    d['CI_Y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
-    d['alpha'] = alpha
-
-    return d
-
-def model_summary(d):
-    """Print the model summary."""
-
-    print('Summary of Model')
-    print('----------------')
-    print('  Data type:', d['data_type'])
-    print('  Model type:', d['model_type'])
-    print('  Number of observations:', len(d['times']))
-    print('  Model parameters:')
-    for i in range(len(d['x_hat'])):
-        print(f'    x_{i} = {d["x_hat"][i]:6.3f}'
-              + f'  +/- {np.sqrt(d["Sigma_X_hat"][i,i]):6.3f}')
-    print('----------------\n')
-
-def load_pickle_file(filename):
-    directory = os.path.join(os.path.dirname(__file__), 'auxiliary_files')
-    filepath = os.path.join(directory, filename)
-    # Load the data from the pickle file
-    with open(os.path.normpath(filepath), 'rb') as file:
-        data = pickle.load(file)
-    return data
