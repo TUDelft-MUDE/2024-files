@@ -68,32 +68,30 @@ Give an explanation of test statistic used to test which model (linear, non-line
 **Solution**
 
 The null hypothesis is that we assume that the linear model is correct, the alternative hypothesis that the model is incorrect.
+
 The test statistic is the difference of the weighted squared norms of residuals, and has a Chi squared distribution with 1 degree of freedom, since there is 1 extra parameter in the alternative hypothesis model as compared to the null hypothesis.
 
-- For InSAR the test statistic is 115.5 which is significantly larger than the critical value 7.9. Therefore, the exponential model is accepted in favor of the linear one. 
+- For InSAR the test statistic is 95.6 which is significantly larger than the critical value 7.9. Therefore, the exponential model is accepted in favor of the linear one. 
 
-- For GNSS the outcomes is different: test statistic is equal to 6.4, which is smaller than the critical value 7.9, resulting in acceptance of the null hypothesis (i.e., linear model). The reason is that the GNSS data is much noisier and contains many outliers, such that an exponential trend cannot be distinguished.
+- For GNSS the outcomes is different: test statistic is equal to 7.8, which is slightly smaller than the critical value 7.9, resulting in acceptance of the null hypothesis (i.e., linear model). The reason is that the GNSS data is much noisier and contains many outliers, such that an exponential trend cannot be distinguished.
 
 **Question 5**
 
-In order to get a better fit to the data (smaller residuals) for this case study, which of the following strategies could help? (elaborate on your answer)
-<ol>
-    <li>better observations?</li>
-    <li>a more complicated geophysical model?</li>
-    <li>better initial values?</li>
-    <li>more observations?</li>
-</ol>
+In order to get a better fit to the data (smaller residuals) for this case study, which of the following strategies could help? Elaborate on your answer with one or two sentences each.
 
-Data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?
+1. better observations?
+2. a more complicated geophysical model?
+3. better initial values?
+4. more observations?
+
+In your answer, keep in mind that data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?
 
 **Solution**
 
-<ol>
-    <li>better observations will help, and should result in smaller residuals.</li>
-    <li>a more complicated geophysical model will help if it is able to capture the signal. However, since we don't see any systematic effects in the InSAR residuals, it is not expected that much gain can be expected. Including more parameters in the model will help to get smaller residuals, but is there still a geophysical explanation...?</li>
-    <li>better initial values won't help, since solution converged to valid results.</li>
-    <li>more observations generally helps, as long as they are not corrupted by outliers or systematic effects.</li>
-</ol> 
+1. better observations will help, and should result in smaller residuals.
+1. a more complicated geophysical model will help if it is able to capture the signal. However, since we don't see any systematic effects in the InSAR residuals, it is not expected that much gain can be expected. Including more parameters in the model will help to get smaller residuals, but is there still a geophysical explanation...?
+1. better initial values won't help, since solution converged to valid results.
+1. more observations generally helps, as long as they are not corrupted by outliers or systematic effects.
 
 Use the observations together (i.e., estimate the unknown parameters using the GNSS and InSAR observations at the same time, which would result in 791 observations). With BLUE we would of course apply proper weights, taking into account the different precision.
 

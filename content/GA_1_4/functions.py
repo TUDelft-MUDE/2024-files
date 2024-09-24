@@ -110,7 +110,7 @@ def plot_residual_histogram(d):
 
     return fig, ax
 
-def update_plot(x0, x1, x2, x3, m):
+def model_widget(x0, x1, x2, x3, m):
     plt.figure(figsize=(15,5))
     plt.plot(m['times'], m['y'], 'o', label=m['data_type'])
     plt.ylabel('Displacement [mm]')
@@ -119,20 +119,30 @@ def update_plot(x0, x1, x2, x3, m):
     if x3 is None:
         y_fit = m['A'] @ [x0, x1, x2]
         if (x0 == 0) & (x1 == 0) & (x2 == 1):
-            plt.plot(m['times'], y_fit, 'r', label='Groundwater data', linewidth=2)
+            plt.plot(m['times'], y_fit, 'r', label='Groundwater Interpolation', linewidth=2)
         else:
             plt.plot(m['times'], y_fit, 'r', label='Fit', linewidth=2)
     else:
-        y_fit = m['A'] @ [x0, x1, x2, x3]
-        if (x0 == 0) & (x1 == 0) & (x2 == 0) & (x3 == 1):
-            plt.plot(m['times'], y_fit, 'r', label='Groundwater data', linewidth=2)
+        functional_model = m['functional_model']
+        x_hat = (x0, x1, x2, x3)
+        y_fit = functional_model(x_hat, m)
+        if (x0 == 0) & (x1 == 0) & (x2 == 10) & (x3 == 1):
+            plt.plot(m['times'], y_fit, 'r', label='Groundwater Interpolation', linewidth=2)
         else:
             plt.plot(m['times'], y_fit, 'r', label='Fit', linewidth=2)
     
+    plt.plot(m['groundwater_data']['times'],
+             m['groundwater_data']['y'],
+             'ro', label='Groundwater Data',
+             markeredgecolor='black', markeredgewidth=1)
 
-    W = np.linalg.inv(m['Sigma_Y'])
-    ss_res = (m['y'] - y_fit).T @ W @ (m['y'] - y_fit)
-    plt.title(f'Mean of squared residuals: {ss_res:.0f}')
+    if 'Sigma_Y' in m:
+        W = np.linalg.inv(m['Sigma_Y'])
+        ss_res = (m['y'] - y_fit).T @ W @ (m['y'] - y_fit)
+        plt.title(f'Mean of squared residuals: {ss_res:.0f}')
+    else:
+        plt.title('Sigma_Y not yet defined in dictionary')
+    
     plt.ylim(-150, 30)
     plt.grid()
     plt.legend()
@@ -223,9 +233,10 @@ def get_CI(d, alpha):
     """
 
     d['k'] = norm.ppf(1 - 0.5*alpha)
-    d['CI_y'] = d['k']*d['std_y']
+    d['CI_Y'] = d['k']*d['std_y']
     d['CI_res'] = d['k']*d['std_e_hat']
-    d['CI_y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
+    d['CI_Y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
+    d['alpha'] = alpha
 
     return d
 
