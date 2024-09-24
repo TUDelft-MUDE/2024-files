@@ -36,14 +36,19 @@ m2['times'] = pd.to_datetime(gnss['times'])
 m2['y'] = (gnss['observations[m]']).to_numpy()*1000
 m2['days'], years_gnss  = to_days_years(m2['times'])
 
-times_gw = pd.to_datetime(gw['times'])
-y_gw = (gw['observations[mm]']).to_numpy()
-days_gw,    years_gw    = to_days_years(times_gw)
+groundwater_data = {}
+groundwater_data['times'] = pd.to_datetime(gw['times'])
+groundwater_data['y'] = (gw['observations[mm]']).to_numpy()
+groundwater_data['days'], _  = to_days_years(groundwater_data['times'])
 
-interp = interpolate.interp1d(days_gw, y_gw)
+
+interp = interpolate.interp1d(groundwater_data['days'],
+                              groundwater_data['y'])
 m1['groundwater'] = interp(m1['days'])
 m2['groundwater'] = interp(m2['days'])
 
+m1['groundwater_data'] = groundwater_data
+m2['groundwater_data'] = groundwater_data
 
 # INSAR
 
