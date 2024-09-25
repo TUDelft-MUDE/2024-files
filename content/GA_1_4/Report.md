@@ -2,6 +2,8 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.4, Friday, Sep 27, 2024.*
 
+Remember there are "Tips for Writing the Report" in the [GA 1.3 README](https://mude.citg.tudelft.nl/2024/files/GA_1_3/README.html).
+
 ## Questions
 
 **Question 1**
@@ -18,25 +20,19 @@ _Write your answer here._
 
 **Question 2**
 
-In the assignment you chose initial values for the non-linear model parameters. Justify your decision.
-Explain how and why you define the criterion to stop the iteration of a Gauss-Newton iteration algorithm. 
+Report the Gauss-Newton interation convergence criteria, describe how quickly convergence was realized and comment on the quality of the estimation with InSAR and GNSS. Give your interpretation for any discrepancy between observations and the model.
+
+Include a Markdown table that summarizes the estimated parameters and their precision for both models.
 
 _Write your answer here._
 
 **Question 3**
 
-Report the convergence and quality of the estimation with InSAR and GNSS.
-Give your interpretation for any discrepancy between observations and the model.
-
-_Write your answer here._
-
-**Question 4**
-
 Give an explanation of test statistic used to test which model (linear, non-linear) fits data better. What is the null hypothesis $H_0$ and alternative hypothesis $H_a$ in this test? What is the distribution of test statistic? Compare the test outcomes with InSAR and GNSS and interpret the results.
 
 _Write your answer here._
 
-**Question 5**
+**Question 4**
 
 In order to get a better fit to the data (smaller residuals) for this case study, which of the following strategies could help? Elaborate on your answer with one or two sentences each.
 
@@ -48,7 +44,6 @@ In order to get a better fit to the data (smaller residuals) for this case study
 In your answer, keep in mind that data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?
 
 _Write your answer here._
-
 
 **Last Question: How did things go? (Optional)**
 

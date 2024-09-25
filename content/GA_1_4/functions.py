@@ -209,8 +209,11 @@ def model_summary(d):
     print('  Number of observations:', len(d['times']))
     print('  Model parameters:')
     for i in range(len(d['X_hat'])):
-        print(f'    X_hat_{i} = {d["X_hat"][i]:6.3f}'
-              + f'  +/- {np.sqrt(d["Sigma_X_hat"][i,i]):6.3f}')
+        print(f'    X_hat_{i} = {d["X_hat"][i]:8.3f}'
+              + f'  +/- {np.sqrt(d["Sigma_X_hat"][i,i]):6.3f}'
+              + f'  (c.o.v. '
+              + f'{(np.sqrt(d["Sigma_X_hat"][i,i])
+                    /d["X_hat"][i]):6.3f})')
     print('----------------\n')
 
 def load_pickle_file(filename):
@@ -220,43 +223,3 @@ def load_pickle_file(filename):
     with open(os.path.normpath(filepath), 'rb') as file:
         data = pickle.load(file)     
     return data
-
-# def xhat_slider_plot(A, y, t, Sigma_y=None):
-#     """Interactive plot of the solution space for x_hat."""
-#     n, k = A.shape
-
-#     if Sigma_y is None:
-#         Sigma_y = np.eye(n)
-#     xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A) @ A.T @ np.linalg.inv(Sigma_y) @ y
-#     Sigma_xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A)
-#     std_xhat = np.sqrt(np.diag(Sigma_xhat))
-
-#     sliders = {}
-#     for i in range(k):
-#         sliders[f'xhat_{i}'] = widgets.FloatSlider(value=xhat[i],
-#                                                    min=xhat[i] - 10*std_xhat[i],
-#                                                    max=xhat[i] + 10*std_xhat[i],
-#                                                    step=0.1*std_xhat[i],
-#                                                    description=f'xhat_{i}')
-
-#     def update_plot(**kwargs):
-#         xhat_values = np.array([kwargs[f'xhat_{i}'] for i in range(k)])
-#         y_fit = A @ xhat_values
-#         W = np.linalg.inv(Sigma_y)
-#         ss_res = (y - y_fit).T @ W @ (y - y_fit)
-
-#         plt.figure(figsize=(10, 5))
-#         plt.plot(t, y, 'o', label='data')
-#         plt.plot(t, y_fit, label='y_fit')
-#         plt.title(f'Mean of squared residuals: {ss_res:.2f}')
-#         plt.ylabel('y')
-#         plt.xlabel('t')
-#         plt.grid()
-#         plt.legend()
-#         plt.show()
-
-#     interact(update_plot, **sliders)
-
-# # Example usage
-# # A, y, t should be defined before calling this function
-# # xhat_slider_plot(A, y, t)
