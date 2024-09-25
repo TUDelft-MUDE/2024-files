@@ -7840,7 +7840,7 @@ $$
 <p>In the code you will first need to choose the initial values <code>d_init, a_init, r_init</code>. Hint: for the choice of <code>d_init</code> = $d_{[0]}$ have a look at the plot with the observations (remember it is the base level of the aquifer before the rain starts). Using the intuition you gained from the plot from the functional model (Task 0), find appropriate initial values for $a$ and $r$ by comparing the graph you get with the observations.</p>
 <p>Next we will set the stochastic model, and initialize some other variables needed for the <code>while</code>-loop, where the actual Gauss-Newton iteration takes place. Try to see if you can follow the steps above, and fill in the missing code, where you have to compute</p>
 <ul>
-<li>the observed-minus-computed observations <code>Delta_y_i</code> $=\Delta y_{[i]}$,</li>
+<li>the observed-minus-computed observations <code>Delta_y_i_i</code> $=\Delta y_{[i]}$,</li>
 <li>the estimate <code>Delta_x_hat_i</code>$=\Delta\hat{\mathrm{x}}_{[i]}$,</li>
 <li><code>x_norm</code>$=\Delta \hat{\mathrm{x}}_{[i]}^T \mathrm{N}_{[i]} \Delta \hat{\mathrm{x}}_{[i]}$</li>
 </ul>
@@ -7883,9 +7883,9 @@ $$
 
     <span class="n">y_comp_i</span> <span class="o">=</span> <span class="n">compute_y</span><span class="p">(</span><span class="n">x_hat_i</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">],</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
     
-    <span class="n">Delta_y</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
+    <span class="n">Delta_y_i</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
     
-    <span class="n">J_i</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">((</span><span class="n">d_init</span><span class="p">,</span> <span class="n">a_init</span><span class="p">,</span> <span class="n">r_init</span><span class="p">),</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
+    <span class="n">J_i</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">x_hat_i</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">],</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
     <span class="n">N_i</span> <span class="o">=</span> <span class="n">J_i</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">inv_Sigma_Y</span> <span class="o">@</span> <span class="n">J_i</span>
     
     <span class="n">Delta_x_hat_i</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
