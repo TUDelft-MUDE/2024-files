@@ -37,7 +37,7 @@ The redundancy of the non-linear model using InSAR data is 57, and using GNSS da
 
 **Question 2**
 
-Report the Gauss-Newton interation convergence criteria, describe how quickly convergence was realized and comment on the quality of the estimation with InSAR and GNSS. Give your interpretation for any discrepancy between observations and the model.
+Report the Gauss-Newton iteration convergence criteria and describe how quickly convergence was realized. Also comment on the quality of the estimation with InSAR and GNSS. Give your interpretation for any discrepancy between observations and the model.
 
 Include a Markdown table that summarizes the estimated parameters and their precision for both models.
 
@@ -80,23 +80,35 @@ The test statistic is the difference of the weighted squared norms of residuals,
 
 **Question 4**
 
-In order to get a better fit to the data (smaller residuals) for this case study, which of the following strategies could help? Elaborate on your answer with one or two sentences each.
+In order to get a better fit to the data (smaller residuals) for this case study, consider the following strategies and determine whether or not each one could help. Use the Markdown table provided to state "Yes" or "No", then elaborate on your answer with one or two sentences each in the last column.
 
 1. better observations?
 2. a more complicated geophysical model?
 3. better initial values?
 4. more observations?
+5. combining observations?
 
 In your answer, keep in mind that data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?
 
+_Fill in your answer in this table:_
+
+| No. | Answer | Elaboration |
+| :---: | :---: | :----- |
+| 1 |  |  |
+| 2 |  |  |
+| 3 |  |  |
+| 4 |  |  |
+
 **Solution**
 
-1. better observations will help, and should result in smaller residuals.
-1. a more complicated geophysical model will help if it is able to capture the signal. However, since we don't see any systematic effects in the InSAR residuals, it is not expected that much gain can be expected. Including more parameters in the model will help to get smaller residuals, but is there still a geophysical explanation...?
-1. better initial values won't help, since solution converged to valid results.
-1. more observations generally helps, as long as they are not corrupted by outliers or systematic effects.
 
-Use the observations together (i.e., estimate the unknown parameters using the GNSS and InSAR observations at the same time, which would result in 791 observations). With BLUE we would of course apply proper weights, taking into account the different precision.
+| No. | Answer | Elaboration |
+| :---: | :---: | :----- |
+| 1 | Yes | Reducing the precision of the observations will definitely help. |
+| 2 | No | A more complicated geophysical model will help if it is able to capture the signal. However, since we don't see any systematic effects in the InSAR residuals, it is not expected that much gain can be expected for this case. Including more parameters in the model may help to get smaller residuals, but it might be artificial and prone to error if extrapolated. |
+| 3 | No | Better initial values won't help, since solution converged to valid results |
+| 4 | Yes | More observations generally help, as long as they are not corrupted by outliers or systematic effects. |
+| 5 | Yes | Estimating the unknown parameters using the GNSS and InSAR observations at the same time, which would result in 791 observations could work. With BLUE we would of course apply proper weights, taking into account the different precision. |
 
 _Disclaimer: the outliers in the GNSS data were added manually, and do not necessarily represent reality, which means that you cannot conclude from this assignment that InSAR is better than GNSS. Without the outliers, GNSS would have given you different results and then the larger noise would be compensated by the higher sampling rate._
 
