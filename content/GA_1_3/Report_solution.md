@@ -24,12 +24,12 @@ _Note that you were not expected to write this much in your own solution!_
 
 Three data sets were used. We had InSAR and GNSS data (both satellite observations of the ground surface) and groundwater level data. InSAR and GNSS were used as observations and groundwater level was used as a (deterministic!) parameter. Two models were made using BLUE, one using InSAR and the other using GNSS as observations.
 
-InSAR has 730 observations and GNSS 61, groundwater has 25. The standard deviation of each InSAR and GNSS measurement is assumed to be 2 mm and 15 mm, respectively. All three datasets are converted to mm when used in the Analysis notebook (satellite data is converted from m).
+InSAR has 61 observations and GNSS 730, groundwater has 25. The standard deviation of each InSAR and GNSS measurement is assumed to be 2 mm and 15 mm, respectively. All three datasets are converted to mm when used in the Analysis notebook (satellite data is converted from m).
 
 The model has three parameters, each of which are linear with respect to the computed displacement of the ground surface:
 - initial displacement, $d_0$ mm
 - rate of displacement as a function of time, $v$ mm/day
-- displacement due to the current groundwater level, $k$ $\textrm{mm}^2$
+- displacement response due to the current groundwater level, $k$ 
 
 $$
 d = d_0 + v\ t + k \ \textrm{GW},

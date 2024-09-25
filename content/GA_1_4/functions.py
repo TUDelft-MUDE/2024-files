@@ -1,4 +1,5 @@
-
+import os
+import pickle
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -21,7 +22,7 @@ def plot_model(d, alt_model=None):
     
     times = d['times']
     y = d['y']
-    y_hat = d['y_hat']
+    y_hat = d['Y_hat']
     CI_Y_hat = d['CI_Y_hat']
     data_type = d['data_type']
 
@@ -109,45 +110,43 @@ def plot_residual_histogram(d):
 
     return fig, ax
 
-def xhat_slider_plot(A, y, t, Sigma_y=None):
-    """Interactive plot of the solution space for x_hat."""
-    n, k = A.shape
+def model_widget(x0, x1, x2, x3, m):
+    plt.figure(figsize=(15,5))
+    plt.plot(m['times'], m['y'], 'o', label=m['data_type'])
+    plt.ylabel('Displacement [mm]')
+    plt.xlabel('Time')
+    
+    if x3 is None:
+        y_fit = m['A'] @ [x0, x1, x2]
+        if (x0 == 0) & (x1 == 0) & (x2 == 1):
+            plt.plot(m['times'], y_fit, 'r', label='Groundwater Interpolation', linewidth=2)
+        else:
+            plt.plot(m['times'], y_fit, 'r', label='Fit', linewidth=2)
+    else:
+        functional_model = m['functional_model']
+        x_hat = (x0, x1, x2, x3)
+        y_fit = functional_model(x_hat, m)
+        if (x0 == 0) & (x1 == 0) & (x2 == 10) & (x3 == 1):
+            plt.plot(m['times'], y_fit, 'r', label='Groundwater Interpolation', linewidth=2)
+        else:
+            plt.plot(m['times'], y_fit, 'r', label='Fit', linewidth=2)
+    
+    plt.plot(m['groundwater_data']['times'],
+             m['groundwater_data']['y'],
+             'ro', label='Groundwater Data',
+             markeredgecolor='black', markeredgewidth=1)
 
-    if Sigma_y is None:
-        Sigma_y = np.eye(n)
-    xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A) @ A.T @ np.linalg.inv(Sigma_y) @ y
-    Sigma_xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_y) @ A)
-    std_xhat = np.sqrt(np.diag(Sigma_xhat))
-
-    sliders = {}
-    for i in range(k):
-        sliders[f'xhat_{i}'] = widgets.FloatSlider(value=xhat[i],
-                                                   min=xhat[i] - 10*std_xhat[i],
-                                                   max=xhat[i] + 10*std_xhat[i],
-                                                   step=0.1*std_xhat[i],
-                                                   description=f'xhat_{i}')
-
-    def update_plot(**kwargs):
-        xhat_values = np.array([kwargs[f'xhat_{i}'] for i in range(k)])
-        y_fit = A @ xhat_values
-        W = np.linalg.inv(Sigma_y)
-        ss_res = (y - y_fit).T @ W @ (y - y_fit)
-
-        plt.figure(figsize=(10, 5))
-        plt.plot(t, y, 'o', label='data')
-        plt.plot(t, y_fit, label='y_fit')
-        plt.title(f'Mean of squared residuals: {ss_res:.2f}')
-        plt.ylabel('y')
-        plt.xlabel('t')
-        plt.grid()
-        plt.legend()
-        plt.show()
-
-    interact(update_plot, **sliders)
-
-# Example usage
-# A, y, t should be defined before calling this function
-# xhat_slider_plot(A, y, t)
+    if 'Sigma_Y' in m:
+        W = np.linalg.inv(m['Sigma_Y'])
+        ss_res = (m['y'] - y_fit).T @ W @ (m['y'] - y_fit)
+        plt.title(f'Normalized squared residuals: {ss_res:.0f}')
+    else:
+        plt.title('Sigma_Y not yet defined in dictionary')
+    
+    plt.ylim(-150, 30)
+    plt.grid()
+    plt.legend()
+    plt.show()
 
 def to_days_years(times):
     '''Convert the observation times to days and years.'''
@@ -172,14 +171,13 @@ def BLUE(d):
     d['Sigma_X_hat'] = (np.linalg.inv(d['A'].T
                         @ np.linalg.inv(d['Sigma_Y'])
                         @ d['A']))
-    d['x_hat'] = (d['Sigma_X_hat']
+    d['X_hat'] = (d['Sigma_X_hat']
                   @ d['A'].T
                   @ np.linalg.inv(d['Sigma_Y'])
                   @ d['y'])
-    d['y_hat'] = d['A'] @ d['x_hat']
-    d['e_hat'] = d['y'] - d['y_hat']
+    d['Y_hat'] = d['A'] @ d['X_hat']
+    d['e_hat'] = d['y'] - d['Y_hat']
     d['Sigma_Y_hat'] = d['A'] @ d['Sigma_X_hat'] @ d['A'].T
-    d['std_y'] = np.sqrt(d['Sigma_Y_hat'].diagonal())
     d['Sigma_e_hat'] = d['Sigma_Y'] - d['Sigma_Y_hat']
     d['std_e_hat'] = np.sqrt(d['Sigma_e_hat'].diagonal())
 
@@ -194,9 +192,10 @@ def get_CI(d, alpha):
     """
 
     d['k'] = norm.ppf(1 - 0.5*alpha)
-    d['CI_y'] = d['k']*d['std_y']
+    d['CI_Y'] = d['k']*d['std_Y']
     d['CI_res'] = d['k']*d['std_e_hat']
-    d['CI_y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
+    d['CI_Y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
+    d['alpha'] = alpha
 
     return d
 
@@ -209,7 +208,18 @@ def model_summary(d):
     print('  Model type:', d['model_type'])
     print('  Number of observations:', len(d['times']))
     print('  Model parameters:')
-    for i in range(len(d['x_hat'])):
-        print(f'    x_{i} = {d["x_hat"][i]:6.3f}'
-              + f'  +/- {np.sqrt(d["Sigma_X_hat"][i,i]):6.3f}')
+    for i in range(len(d['X_hat'])):
+        print(f'    X_hat_{i} = {d["X_hat"][i]:8.3f}'
+              + f'  +/- {np.sqrt(d["Sigma_X_hat"][i,i]):6.3f}'
+              + f'  (c.o.v. '
+              + f'{(np.sqrt(d["Sigma_X_hat"][i,i])
+                    /d["X_hat"][i]):6.3f})')
     print('----------------\n')
+
+def load_pickle_file(filename):
+    directory = os.path.join(os.path.dirname(__file__), 'auxiliary_files')
+    filepath = os.path.join(directory, filename)
+    # Load the data from the pickle file
+    with open(os.path.normpath(filepath), 'rb') as file:
+        data = pickle.load(file)     
+    return data
