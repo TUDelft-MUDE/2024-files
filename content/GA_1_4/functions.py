@@ -60,16 +60,16 @@ def plot_residual(d):
     
     times = d['times']
     e_hat = d['e_hat']
-    CI_res = d['CI_res']
+    CI_e_hat = d['CI_e_hat']
     data_type = d['data_type']
 
     fig, ax = plt.subplots(figsize = (15,5))
 
     ax.plot(times, e_hat, 'o', markeredgecolor='black', label='Residual')
-    ax.plot(times, -CI_res,
+    ax.plot(times, - CI_e_hat,
              '--', color='orange', 
              label = f'{(1-d["alpha"])*100:.1f}%' + ' Confidence Region')
-    ax.plot(times, +CI_res,
+    ax.plot(times, + CI_e_hat,
              '--', color='orange')
     
     ax.legend()
@@ -193,7 +193,7 @@ def get_CI(d, alpha):
 
     d['k'] = norm.ppf(1 - 0.5*alpha)
     d['CI_Y'] = d['k']*d['std_Y']
-    d['CI_res'] = d['k']*d['std_e_hat']
+    d['CI_e_hat'] = d['k']*d['std_e_hat']
     d['CI_Y_hat'] = d['k']*np.sqrt(d['Sigma_Y_hat'].diagonal())
     d['alpha'] = alpha
 
