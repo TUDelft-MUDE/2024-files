@@ -1,0 +1,43 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }} #https://stackoverflow.com/questions/62334460/git-history-in-a-github-action
+        fetch-depth: 0
+    - name: Check for merge request
+      id: check-merge
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check whether merge request has been performed
+        setup-command:
+        command: if git log --oneline --all | grep Merge; then echo "merge found"; else echo "No merge found"; exit 1; fi
+        timeout: 10
+        max-score: 10
+    - name: Check notebook
+      id: check-notebook
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check notebook
+        setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel pip
+        command: jupyter nbconvert --execute PA_1_5.ipynb --to html
+        timeout: 10
+        max-score: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        CHECK-MERGE_RESULTS: "${{steps.check-merge.outputs.result}}"
+        CHECK-NOTEBOOK_RESULTS: "${{steps.check-notebook.outputs.result}}"
+      with:
+        runners: check-merge,check-notebook
