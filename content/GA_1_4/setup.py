@@ -55,8 +55,8 @@ m2['groundwater_data'] = groundwater_data
 m1['A'] = np.ones((len(m1['times']), 3))
 m1['A'][:,1] = m1['days']
 m1['A'][:,2] = m1['groundwater']
-m1['std'] = 2 #mm
-m1['Sigma_Y'] = np.identity(len(m1['times']))*m1['std']**2
+m1['std_Y'] = 2 #mm
+m1['Sigma_Y'] = np.identity(len(m1['times']))*m1['std_Y']**2
 m1 = BLUE(m1)
 m1 = get_CI(m1, 0.04)
 
@@ -66,8 +66,8 @@ m1 = get_CI(m1, 0.04)
 m2['A'] = np.ones((len(m2['times']), 3))
 m2['A'][:,1] = m2['days']
 m2['A'][:,2] = m2['groundwater']
-m2['std'] = 15 #mm
-m2['Sigma_Y'] = np.identity(len(m2['times']))*m2['std']**2
+m2['std_Y'] = 15 #mm
+m2['Sigma_Y'] = np.identity(len(m2['times']))*m2['std_Y']**2
 m2 = BLUE(m2)
 m2 = get_CI(m2, 0.04)
 
