@@ -223,3 +223,44 @@ def load_pickle_file(filename):
     with open(os.path.normpath(filepath), 'rb') as file:
         data = pickle.load(file)     
     return data
+
+def plot_gauss_newton(iteration, model):
+    x_hat_i = model['x_hat_all_iterations']
+    times = model['times']
+    y = model['y']
+    y_hat = model['functional_model']((x_hat_i[iteration, :]), model)
+    plt.figure(figsize=(16,4))
+    plt.plot(times, y_hat , linewidth=4,
+             label='Gauss Newton fit', color='black')
+    plt.plot(times, y, 'co', mec='black',
+             markersize=10, label='Observations',
+             alpha=0.5)
+    plt.legend()
+    plt.xlabel('Time [days]')
+    plt.ylabel('Water level [m]')
+    plt.title(f'Iteration = {iteration}')
+    plt.grid()
+    plt.show()
+
+def plot2(iteration, x_hat_i):
+    params = [f'x_{i}' for i in range(x_hat_i.shape[1])]
+    
+    fig, ax = plt.subplots(1,len(params), figsize=(16,4))
+    for i in range(len(params)):
+        ax[i].plot(x_hat_i[:, i].T, linewidth=4)
+        ax[i].set_title(f'Convergence of {params[i]}')
+        ax[i].set_xlabel(f'Number of iterations')
+        ax[i].set_ylabel(f'{params[i]}')
+
+    for i in range(len(params)):
+        ax[i].plot(iteration, x_hat_i[iteration, i], 'ro')
+    plt.show()
+
+def plot_nonlin_LS(model):
+    '''Plot the iterations of the non-linear least squares.'''
+    iteration = model['iterations_completed']
+    y = model['y']
+    i = widgets.IntSlider(min=0, max=iteration, step=1, value=0, interval=1000)
+    interact(plot_gauss_newton, iteration=i, model=widgets.fixed(model));    
+    interact(plot2, iteration=i, x_hat_i=widgets.fixed(model['x_hat_all_iterations']));
+
