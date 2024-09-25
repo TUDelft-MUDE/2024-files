@@ -7601,10 +7601,10 @@ $$\mathbb{E}\left[L(t_i)\right] = d + H(t_i-t_{0}) \cdot p\cdot r \left(1-\exp\l
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Part-0:-Set-Up-and-Understand-Functions">Part 0: Set Up and Understand Functions<a class="anchor-link" href="#Part-0:-Set-Up-and-Understand-Functions">¶</a></h2><p>As described at the top of the notebook, our functional model is no longer a linear system of equations. This means we can no longer use a simple A matrix to evaluate it. Instead, we will use a Python function. Recall that the general form of the functional model is $\mathrm{Y}=q(\mathrm{x})$, where $\mathrm{x}$ represents the vector of model parameters. Note also that to implement this model in practice often additional (deterministic!) parameters are required. This can be written in a Python function with the following form of input arguments:</p>
-<pre><code>Y = functional_model(x, &lt;auxiliary_arguments&gt;)
+<h2 id="Part-0:-Set-Up-and-Understand-Functions">Part 0: Set Up and Understand Functions<a class="anchor-link" href="#Part-0:-Set-Up-and-Understand-Functions">¶</a></h2><p>As described at the top of the notebook, our functional model is no longer a linear system of equations. This means we can no longer use a simple A matrix to evaluate it. Instead, we will use a Python function. Recall that the general form of the functional model is $\mathrm{Y}=q(\mathrm{x}) + \epsilon$, where $\mathrm{x}$ represents the vector of model parameters. Note also that to implement this model in practice often additional (deterministic!) parameters are required. This can be written in a Python function with the following form of input arguments:</p>
+<pre><code>y_comp = compute_y(x, &lt;auxiliary_arguments&gt;)
 </code></pre>
-<p>Where <code>&lt;auxiliary_arguments&gt;</code> will be different in type and/or number on a case-by-case basis. Your code will generally be more compact and adaptable to other cases if the parameters are specified in a list, array or tuple.</p>
+<p>Where the name <code>compute_y()</code> is used to indicate that this is not the functional model, as the Python function does not include the random errors. The &lt;auxiliary_arguments&gt;` will be different in type and/or number on a case-by-case basis. Your code will generally be more compact and adaptable to other cases if the parameters are specified in a list, array or tuple.</p>
 </div>
 </div>
 </div>
@@ -7632,7 +7632,7 @@ $$\mathbb{E}\left[L(t_i)\right] = d + H(t_i-t_{0}) \cdot p\cdot r \left(1-\exp\l
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">functional_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Functional model, q: response due to rain event.</span>
 <span class="sd">    </span>
 <span class="sd">    Inputs:</span>
@@ -7666,7 +7666,7 @@ $$\mathbb{E}\left[L(t_i)\right] = d + H(t_i-t_{0}) \cdot p\cdot r \left(1-\exp\l
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Solution:</b>
-<p>As described in the docstring there are three parameters of interest (d, a and r) which are stored in a tuple. There are two auxiliary arguments: 1) times, which are the times when observations were made or, if the model is to be used for predictions, any time, and 2) deterministic parameters to define the rainfall event that is to be evaluated (also entered as a tuple).</p>
+<p>As described in the docstring there are three unkown parameters of interest (d, a and r) which are stored in a tuple. There are two auxiliary arguments (known parameters): 1) times, which are the times when observations were made or, if the model is to be used for predictions, any time, and 2) deterministic parameters to define the rainfall event that is to be evaluated (also entered as a tuple).</p>
 </p>
 </div>
 </div>
@@ -7721,7 +7721,7 @@ $$\mathbb{E}\left[L(t_i)\right] = d + H(t_i-t_{0}) \cdot p\cdot r \left(1-\exp\l
 
 <span class="n">test_n_days</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">test_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">test_n_days</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="n">test_h_t</span> <span class="o">=</span> <span class="n">functional_model</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">),</span> <span class="n">test_times</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">test_h_t</span> <span class="o">=</span> <span class="n">compute_y</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">),</span> <span class="n">test_times</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_times</span><span class="p">,</span> <span class="n">test_h_t</span><span class="p">,</span><span class="s1">'r-'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time [days]'</span><span class="p">)</span>
@@ -7903,7 +7903,7 @@ $$
 <p>In the code you will first need to choose the initial values <code>d_init, a_init, r_init</code>. Hint: for the choice of <code>d_init</code> = $d_{[0]}$ have a look at the plot with the observations (remember it is the base level of the aquifer before the rain starts). Using the intuition you gained from the plot from the functional model (Task 0), find appropriate initial values for $a$ and $r$ by comparing the graph you get with the observations.</p>
 <p>Next we will set the stochastic model, and initialize some other variables needed for the <code>while</code>-loop, where the actual Gauss-Newton iteration takes place. Try to see if you can follow the steps above, and fill in the missing code, where you have to compute</p>
 <ul>
-<li>the observed-minus-computed observations <code>Delta_y</code> $=\Delta y_{[i]}$,</li>
+<li>the observed-minus-computed observations <code>Delta_y_i</code> $=\Delta y_{[i]}$,</li>
 <li>the estimate <code>Delta_x_hat_i</code>$=\Delta\hat{\mathrm{x}}_{[i]}$,</li>
 <li><code>x_norm</code>$=\Delta \hat{\mathrm{x}}_{[i]}^T \mathrm{N}_{[i]} \Delta \hat{\mathrm{x}}_{[i]}$</li>
 </ul>
@@ -7949,24 +7949,20 @@ $$
 
 <span class="k">while</span> <span class="n">x_norm</span> <span class="o">&gt;=</span> <span class="mf">1e-12</span> <span class="ow">and</span> <span class="n">iteration</span> <span class="o">&lt;</span> <span class="n">max_iter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
 
-    <span class="n">y_comp_i</span> <span class="o">=</span> <span class="n">functional_model</span><span class="p">((</span><span class="n">d_init</span><span class="p">,</span> <span class="n">a_init</span><span class="p">,</span> <span class="n">r_init</span><span class="p">),</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
+    <span class="n">y_comp_i</span> <span class="o">=</span> <span class="n">compute_y</span><span class="p">(</span><span class="n">x_hat_i</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">],</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
     
-    <span class="c1"># Delta_y = YOUR_CODE_HERE</span>
+    <span class="c1"># Delta_y_i = YOUR_CODE_HERE</span>
     <span class="c1"># SOLUTION:</span>
-    <span class="n">Delta_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_comp_i</span>
+    <span class="n">Delta_y_i</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_comp_i</span>
     
-    <span class="n">J_i</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">((</span><span class="n">d_init</span><span class="p">,</span> <span class="n">a_init</span><span class="p">,</span> <span class="n">r_init</span><span class="p">),</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
+    <span class="n">J_i</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">x_hat_i</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">],</span> <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
     <span class="n">N_i</span> <span class="o">=</span> <span class="n">J_i</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">inv_Sigma_Y</span> <span class="o">@</span> <span class="n">J_i</span>
     
     <span class="c1"># Delta_x_hat_i = YOUR_CODE_HERE</span>
     <span class="c1"># SOLUTION:</span>
-    <span class="n">Delta_x_hat_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">N_i</span><span class="p">)</span> <span class="o">@</span> <span class="n">J_i</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">inv_Sigma_Y</span> <span class="o">@</span> <span class="n">Delta_y</span>
+    <span class="n">Delta_x_hat_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">N_i</span><span class="p">)</span> <span class="o">@</span> <span class="n">J_i</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">inv_Sigma_Y</span> <span class="o">@</span> <span class="n">Delta_y_i</span>
     
-    <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">iteration</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">iteration</span><span class="p">]</span> <span class="o">+</span> <span class="n">Delta_x_hat_i</span>
-
-    <span class="n">d_init</span> <span class="o">=</span> <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">iteration</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-    <span class="n">a_init</span> <span class="o">=</span> <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">iteration</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-    <span class="n">r_init</span> <span class="o">=</span> <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">iteration</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">x_hat_i</span><span class="p">[:,</span> <span class="n">iteration</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_hat_i</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">]</span> <span class="o">+</span> <span class="n">Delta_x_hat_i</span>
 
     <span class="c1"># x_norm = YOUR_CODE_HERE</span>
     <span class="c1"># SOLUTION:</span>
@@ -8091,11 +8087,11 @@ Redundancy:		 22
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># y_hat = YOUR_CODE_HERE</span>
 
 <span class="c1"># SOLUTION:</span>
-<span class="n">y_hat</span> <span class="o">=</span> <span class="n">functional_model</span><span class="p">((</span><span class="n">x_hat_i</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">iteration</span><span class="p">],</span>
-                         <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">iteration</span><span class="p">],</span>
-                         <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">iteration</span><span class="p">]</span>
-                         <span class="p">),</span>
-                        <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">compute_y</span><span class="p">((</span><span class="n">x_hat_i</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">iteration</span><span class="p">],</span>
+                   <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">iteration</span><span class="p">],</span>
+                   <span class="n">x_hat_i</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">iteration</span><span class="p">]</span>
+                   <span class="p">),</span>
+                  <span class="n">times</span><span class="p">,</span> <span class="n">rain_event</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_days</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
