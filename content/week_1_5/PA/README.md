@@ -17,10 +17,11 @@ Notes:
 - This PA actually involves 3 repositories: the one created for this assignment, the ice repository and your own personal fork of the ice repository, which you will create.
 
 You will pass this PA if:
-1. Your notebook `PA_1_5_zzzzz.ipynb` runs without errors.
-2. Your repository contains a file `my_figure.svg` located in subdirectory `figures`
-3. You update this `README.md` file to include a figure.
-4. You successfully merged a pull request from your own branch.
-5. You successfully created a pull request to the ice repo.
+1. For the python and markdown topics of this PA. 
+  - Your notebook `PA_1_5_zzzzz.ipynb` runs without errors.
+  - Your repository contains a file `my_figure.svg` located in subdirectory `figures`
+  - You update the `myfigure.md` file to include a figure.
+2. For the branching part of this PA: you successfully merged a pull request from your own branch.
+3. For the forking part of this PA: You successfully created a pull request to the ice repo.
 
- Instructions for checks 1-3 are in `PA_1_5_...ipynb`. Instructions for check 4 are in this file and instructions for check 5 are in the ice repo. You can verify that you passed checks 1-4 by looking for the green circle in this repository. It runs automatically just like last week when you uploaded your notebook. For the ice repository (check 2), a green circle should emerge in the pull request you make to the ice repo.
+You can verify that you passed checks 1-4 by looking for the green circle in this repository. It runs automatically just like last week when you uploaded your notebook. For the ice repository (check 2), you'll pass when your pull request is accepted (this requires some manual actions from your teachers on your pull request) and you see your bet in the bet in ... .
