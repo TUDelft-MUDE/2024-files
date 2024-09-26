@@ -43,7 +43,14 @@ In order to get a better fit to the data (smaller residuals) for this case study
 
 In your answer, keep in mind that data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?
 
-_Write your answer here._
+_Fill in your answer in this table:_
+
+| No. | Answer | Elaboration |
+| :---: | :---: | :----- |
+| 1 |  |  |
+| 2 |  |  |
+| 3 |  |  |
+| 4 |  |  |
 
 **Last Question: How did things go? (Optional)**
 
