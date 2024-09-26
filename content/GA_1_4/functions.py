@@ -123,9 +123,9 @@ def model_widget(x0, x1, x2, x3, m):
         else:
             plt.plot(m['times'], y_fit, 'r', label='Fit', linewidth=2)
     else:
-        functional_model = m['functional_model']
+        compute_y = m['compute_y']
         x_hat = (x0, x1, x2, x3)
-        y_fit = functional_model(x_hat, m)
+        y_fit = compute_y(x_hat, m)
         if (x0 == 0) & (x1 == 0) & (x2 == 10) & (x3 == 1):
             plt.plot(m['times'], y_fit, 'r', label='Groundwater Interpolation', linewidth=2)
         else:
@@ -239,7 +239,7 @@ def plot_model_specific_iteration(iteration, model):
     x_hat_i = model['x_hat_all_iterations']
     times = model['times']
     y = model['y']
-    y_hat = model['functional_model']((x_hat_i[iteration, :]), model)
+    y_hat = model['compute_y']((x_hat_i[iteration, :]), model)
     plt.figure(figsize=(16,4))
     plt.plot(times, y_hat , linewidth=4,
              label='Gauss Newton fit', color='black')
