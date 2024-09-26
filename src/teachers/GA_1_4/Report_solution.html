@@ -392,7 +392,7 @@ The data sets of ground surface observations are the same and include InSAR and 
 </ul>
 <p>The redundancy of the non-linear model using InSAR data is 57, and using GNSS data is 726.</p>
 <p><strong>Question 2</strong></p>
-<p>Report the Gauss-Newton interation convergence criteria, describe how quickly convergence was realized and comment on the quality of the estimation with InSAR and GNSS. Give your interpretation for any discrepancy between observations and the model.</p>
+<p>Report the Gauss-Newton iteration convergence criteria and describe how quickly convergence was realized. Also comment on the quality of the estimation with InSAR and GNSS. Give your interpretation for any discrepancy between observations and the model.</p>
 <p>Include a Markdown table that summarizes the estimated parameters and their precision for both models.</p>
 <p><strong>Solution</strong></p>
 <p>For the stop-criterion we used the &quot;weighted squared norm&quot; of $\Delta \hat{\mathrm{x}}<em>{[i]}$, with the inverse covariance matrix $\Sigma</em>{\hat{X}}^{-1}$ as the weight matrix. In this way we account for different precision of the parameters (high precision means we want the deviation to be smaller), as well as different order of magnitudes of the parameters.</p>
@@ -477,22 +477,84 @@ The data sets of ground surface observations are the same and include InSAR and 
 </li>
 </ul>
 <p><strong>Question 4</strong></p>
-<p>In order to get a better fit to the data (smaller residuals) for this case study, which of the following strategies could help? Elaborate on your answer with one or two sentences each.</p>
+<p>In order to get a better fit to the data (smaller residuals) for this case study, consider the following strategies and determine whether or not each one could help. Use the Markdown table provided to state &quot;Yes&quot; or &quot;No&quot;, then elaborate on your answer with one or two sentences each in the last column.</p>
 <ol>
 <li>better observations?</li>
 <li>a more complicated geophysical model?</li>
 <li>better initial values?</li>
 <li>more observations?</li>
+<li>combining observations?</li>
 </ol>
 <p>In your answer, keep in mind that data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?</p>
+<p><em>Fill in your answer in this table:</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:center">Answer</th>
+<th style="text-align:left">Elaboration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Solution</strong></p>
-<ol>
-<li>better observations will help, and should result in smaller residuals.</li>
-<li>a more complicated geophysical model will help if it is able to capture the signal. However, since we don't see any systematic effects in the InSAR residuals, it is not expected that much gain can be expected. Including more parameters in the model will help to get smaller residuals, but is there still a geophysical explanation...?</li>
-<li>better initial values won't help, since solution converged to valid results.</li>
-<li>more observations generally helps, as long as they are not corrupted by outliers or systematic effects.</li>
-</ol>
-<p>Use the observations together (i.e., estimate the unknown parameters using the GNSS and InSAR observations at the same time, which would result in 791 observations). With BLUE we would of course apply proper weights, taking into account the different precision.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:center">Answer</th>
+<th style="text-align:left">Elaboration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:left">Reducing the precision of the observations will definitely help.</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">No</td>
+<td style="text-align:left">A more complicated geophysical model will help if it is able to capture the signal. However, since we don't see any systematic effects in the InSAR residuals, it is not expected that much gain can be expected for this case. Including more parameters in the model may help to get smaller residuals, but it might be artificial and prone to error if extrapolated.</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">No</td>
+<td style="text-align:left">Better initial values won't help, since solution converged to valid results</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:left">More observations generally help, as long as they are not corrupted by outliers or systematic effects.</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:left">Estimating the unknown parameters using the GNSS and InSAR observations at the same time, which would result in 791 observations could work. With BLUE we would of course apply proper weights, taking into account the different precision.</td>
+</tr>
+</tbody>
+</table>
 <p><em>Disclaimer: the outliers in the GNSS data were added manually, and do not necessarily represent reality, which means that you cannot conclude from this assignment that InSAR is better than GNSS. Without the outliers, GNSS would have given you different results and then the larger noise would be compensated by the higher sampling rate.</em></p>
 <p><strong>Last Question: How did things go? (Optional)</strong></p>
 <p><em>Use this space to let us know if you ran into any challenges while working on this GA, and if you have any feedback to report.</em></p>
