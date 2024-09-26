@@ -224,7 +224,18 @@ def load_pickle_file(filename):
         data = pickle.load(file)     
     return data
 
-def plot_gauss_newton(iteration, model):
+def plot_model_specific_iteration(iteration, model):
+    '''Plot the model at a specific iteration.
+    
+    Input:
+        - iteration: integer
+        - model: dictionary
+
+    Used by widget plotting function:
+        - plot_convergence_interactive
+
+    Analogous to the plot_model function.
+    '''
     x_hat_i = model['x_hat_all_iterations']
     times = model['times']
     y = model['y']
@@ -242,7 +253,13 @@ def plot_gauss_newton(iteration, model):
     plt.grid()
     plt.show()
 
-def plot2(iteration, x_hat_i):
+def plot_parameter_convergence(iteration, x_hat_i):
+    '''Plot the convergence of the parameters.
+    
+    Intput:
+        - iteration: integer
+        - x_hat_i: widget values, x_hat at specific iteration
+    '''
     params = [f'x_{i}' for i in range(x_hat_i.shape[1])]
     
     fig, ax = plt.subplots(1,len(params), figsize=(16,4))
@@ -256,11 +273,20 @@ def plot2(iteration, x_hat_i):
         ax[i].plot(iteration, x_hat_i[iteration, i], 'ro')
     plt.show()
 
-def plot_nonlin_LS(model):
-    '''Plot the iterations of the non-linear least squares.'''
+def plot_convergence_interactive(model):
+    '''Interactive plot of the non-linear least squares iterations.
+    
+    Input: model dictionary
+
+    Uses two special functions:
+        - plot_model_specific_iteration
+        - plot_parameter_convergence
+    '''
     iteration = model['iterations_completed']
     y = model['y']
     i = widgets.IntSlider(min=0, max=iteration, step=1, value=0, interval=1000)
-    interact(plot_gauss_newton, iteration=i, model=widgets.fixed(model));    
-    interact(plot2, iteration=i, x_hat_i=widgets.fixed(model['x_hat_all_iterations']));
+    interact(plot_model_specific_iteration,
+             iteration=i, model=widgets.fixed(model));    
+    interact(plot_parameter_convergence,
+             iteration=i, x_hat_i=widgets.fixed(model['x_hat_all_iterations']));
 
