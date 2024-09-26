@@ -20,7 +20,7 @@ _Write your answer here._
 
 **Question 2**
 
-Report the Gauss-Newton interation convergence criteria, describe how quickly convergence was realized and comment on the quality of the estimation with InSAR and GNSS. Give your interpretation for any discrepancy between observations and the model.
+Report the Gauss-Newton interation convergence criteria, describe how quickly convergence was realized. Also comment on the quality of the estimation with InSAR and GNSS. Give your interpretation for any discrepancy between observations and the model.
 
 Include a Markdown table that summarizes the estimated parameters and their precision for both models.
 
@@ -34,12 +34,13 @@ _Write your answer here._
 
 **Question 4**
 
-In order to get a better fit to the data (smaller residuals) for this case study, which of the following strategies could help? Elaborate on your answer with one or two sentences each.
+In order to get a better fit to the data (smaller residuals) for this case study, consider the following strategies and determine whether or not each one could help. Use the Markdown table provided to state "Yes" or "No", then elaborate on your answer with one or two sentences each in the last column.
 
 1. better observations?
 2. a more complicated geophysical model?
 3. better initial values?
 4. more observations?
+5. combining observations?
 
 In your answer, keep in mind that data acquisition and processing comes with a price. Note that in a real situation you would not look at a time series of only one point. For Sentinel-1 data you may have to pay, collecting GNSS data at different locations also costs money. How will you monitor the deformation if you have both GNSS and InSAR data at your disposal?
 
