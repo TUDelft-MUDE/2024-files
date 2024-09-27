@@ -21,7 +21,7 @@ The grade for this assignment will be determined as follows (described below):
 Assignment submission, grading and working method are similar to last week with the following exceptions:
 
 1. You should clone the repo as done in the PA this week. You can select one group member to commit and push the changes back to the GitHub repo at the end of the session.
-2. If more than one team member wants to make commmits, make sure you first commit you local changes, then fetch and pull from GitHub before pushing your own changes.
+2. If more than one team member wants to make a commmit, make sure you first commit you local changes, then fetch and pull from GitHub before pushing your own changes.
 3. VS Code does not work well when all group members are editing the same file actively. When using live share we recommend that you use it primarily to follow each other and avoid frequently making edits simultaneously. For example, you can work on the Report questions separately and then have each member paste their work in one at a time to avoid glitches.
 
 ## Assignment Context

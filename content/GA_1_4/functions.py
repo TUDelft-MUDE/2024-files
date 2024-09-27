@@ -113,7 +113,7 @@ def plot_residual_histogram(d):
 def model_widget(x0, x1, x2, x3, m):
     plt.figure(figsize=(15,5))
     plt.plot(m['times'], m['y'], 'o', label=m['data_type'])
-    plt.ylabel('Displacement [mm]')
+    plt.ylabel('Displacement and Groundwater Elevation [mm]')
     plt.xlabel('Time')
     
     if x3 is None:
