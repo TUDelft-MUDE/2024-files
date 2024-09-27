@@ -17,8 +17,8 @@ Notes:
 You will pass this PA if:
 1. For the python and markdown topics of this PA.
   - Your notebook `PA_1_5_useful_tricks.ipynb` runs without errors.
-  - Your repository contains a file `my_figure.svg` located in subdirectory `figures`
-  - You update the `myfigure.md` file to include a figure.
+  - Your repository contains a file `my_figure.svg` located in subdirectory `/figures`
+  - You update the `myfigure.md` file to include a reference to the previous figure.
 2. For the branching part of this PA: you successfully merged a pull request from your own branch.
 3. For the forking part of this PA: You successfully created a pull request to the ice repo with your bet (it should be visible on`XXXXX pull request list on ICE REPO`_. It will accepted (this requires some manual actions from your teachers on your pull request) afterwards you see your bet in the bet in `XXXXXX`.
 
