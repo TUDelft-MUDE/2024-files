@@ -2,6 +2,8 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.4, Friday, Sep 27, 2024.*
 
+_You can access this assignment with the following link: [classroom.github.com/a/tbESnqNa](https://classroom.github.com/a/tbESnqNa)._
+
 GA 1.4 continues from where GA 1.3 left off by using the non-linear least squares method to create a non-linear model of the InSAR and GNSS satellite data to evaluate road deformation.
 
 There are several files to be aware of:
