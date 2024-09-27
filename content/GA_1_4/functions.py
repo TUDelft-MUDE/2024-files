@@ -212,8 +212,7 @@ def model_summary(d):
         print(f'    X_hat_{i} = {d["X_hat"][i]:8.3f}'
               + f'  +/- {np.sqrt(d["Sigma_X_hat"][i,i]):6.3f}'
               + f'  (c.o.v. '
-              + f'{(np.sqrt(d["Sigma_X_hat"][i,i])
-                    /d["X_hat"][i]):6.3f})')
+              + f'{(np.sqrt(d["Sigma_X_hat"][i,i])/d["X_hat"][i]):6.3f})')
     print('----------------\n')
 
 def load_pickle_file(filename):
