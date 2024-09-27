@@ -1,6 +1,8 @@
 # PA 1.5: MUDE-git-crossword and Ice prediction
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.5. Due: before Friday, October 4th, 2024.*
 
+_You can access this assignment with the following link: [classroom.github.com/a/cZistmoT](https://classroom.github.com/a/cZistmoT)._
+
 This PA consists of 4 parts:
 
 1. `PA_1_5_.useful_tricks.ipynb`: a notebook covering a few simple Python topics that are especially useful for the WS and GA assignments this week.
