@@ -18,7 +18,7 @@ Notes:
 
 You will pass this PA if:
 1. For the python and markdown topics of this PA.
-  - Your notebook `PA_1_5_zzzzz.ipynb` runs without errors.
+  - Your notebook `PA_1_5_useful_tricks.ipynb` runs without errors.
   - Your repository contains a file `my_figure.svg` located in subdirectory `figures`
   - You update the `myfigure.md` file to include a figure.
 2. For the branching part of this PA: you successfully merged a pull request from your own branch.

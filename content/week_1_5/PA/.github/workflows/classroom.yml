@@ -34,10 +34,30 @@ jobs:
         command: jupyter nbconvert --execute PA_1_5_useful_tricks.ipynb --to html
         timeout: 10
         max-score: 10
+    - name: check for figure in myfigure.md
+      id: check-figure
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check for figure in myfigure.md
+        setup-command: 
+        command: if grep -q '!\[' myfigure.md; then echo "Figure found in myfigure.md"; else echo "No figure found in myfigure.md"; exit 1; fi
+        timeout: 10
+        max-score: 10
+    - name: check for 'my_figure.svg' in \figures\
+      id: check-figure-sub
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check for 'my_figure.svg' in \figures\
+        setup-command: 
+        command: if test -f figures/my_figure.svg; then echo "Figure found in figures/my_figure.svg"; else echo "No figure found in figures/my_figure.svg"; exit 1; fi 
+        timeout: 10
+        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         CHECK-MERGE_RESULTS: "${{steps.check-merge.outputs.result}}"
         CHECK-NOTEBOOK_RESULTS: "${{steps.check-notebook.outputs.result}}"
+        CHECK-FIGURE_RESULTS: "${{steps.check-figure.outputs.result}}"
+        CHECK-FIGURE-SUB_RESULTS: "${{steps.check-figure-sub.outputs.result}}"
       with:
-        runners: check-merge,check-notebook
+        runners: check-merge,check-notebook,check-figure,check-figure-sub
