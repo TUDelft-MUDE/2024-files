@@ -7579,7 +7579,7 @@ $$<p>where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundw
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 0.1: </b>
-<p>Run the cell below to load two dictionaries (objects) into the Python variable space, <code>m1</code> and <code>m2</code>. You can uncomment and run the code to check the key:value pairs.</p>
+<p>Run the cell below to load two dictionaries (objects) into the Python variable space, <code>m1</code> and <code>m2</code>. You can run the code to check the key:value pairs.</p>
 </p>
 </div>
 </div>
@@ -7908,7 +7908,7 @@ alpha
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Part-1:-Set-up-Non-Linear-Functional-Model">Part 1: Set-up Non-Linear Functional Model<a class="anchor-link" href="#Part-1:-Set-up-Non-Linear-Functional-Model">¶</a></h2><p>In the model we fitted using BLUE, we only considered a linear velocity and a dependency on the groundwater level. However, when a heavy construction is built on 'soft' soil layers, compaction of the upper layers will be observed. This compaction is relatively large in the beginning but decreases when time passes. We can approach the behavior with a simplified model, assuming an exponential decay.</p>
+<h2 id="Part-1:-Set-up-Non-Linear-Model">Part 1: Set-up Non-Linear Model<a class="anchor-link" href="#Part-1:-Set-up-Non-Linear-Model">¶</a></h2><p>In the model we fitted using BLUE, we only considered a linear velocity and a dependency on the groundwater level. However, when a heavy construction is built on 'soft' soil layers, compaction of the upper layers will be observed. This compaction is relatively large in the beginning but decreases when time passes. We can approach the behavior with a simplified model, assuming an exponential decay.</p>
 <p><em>Please note that this is very simplified model that does not necessarily rely on relationships derived directly from physics principles.</em></p>
 <p>The new model is defined as
 $$
@@ -7923,7 +7923,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <li>$k$, as 'groundwater factor' that can be seen as the response of the layers due to changes in the groundwater level.</li>
 </ol>
 <p>It can be seen that the model is non-linear. We will therefore use non-linear least-squares to solve for the unknown parameters.</p>
-<h3 id="Computing-y:-Python-Implementation">Computing y: Python Implementation<a class="anchor-link" href="#Computing-y:-Python-Implementation">¶</a></h3><p>We will use a Python function to evaluate the non-linear function. Recall that the general form of the functional model is $\mathrm{E(Y)}=q(\mathrm{x})$, where $\mathrm{x}$ represents the vector of model parameters. Note also that to implement this model in practice often additional (deterministic!) parameters are required. This can be written in a Python function with the following form of input arguments:</p>
+<h3 id="Computing-y:-Python-Implementation">Computing y: Python Implementation<a class="anchor-link" href="#Computing-y:-Python-Implementation">¶</a></h3><p>We will use a Python function to evaluate the non-linear function. Recall that the general form of the model is $\mathrm{E(Y)}=q(\mathrm{x})$, where $\mathrm{x}$ represents the vector of model parameters. Note also that to implement this model in practice often additional (deterministic!) parameters are required. This can be written in a Python function with the following form of input arguments:</p>
 <pre><code>y_comp = compute_y(x, &lt;auxiliary_arguments&gt;)
 </code></pre>
 <p>Where <code>&lt;auxiliary_arguments&gt;</code> will be different in type and/or number on a case-by-case basis. Your code will generally be more compact and adaptable to other cases if the parameters are specified in a list, array or tuple.</p>
@@ -7940,7 +7940,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 1.1:</b>
-<p>Read the code below to understand the functional model (and fill in the missing parameter values). Be sure to understand which objects are the parameters of interest, and what the auxiliary arguments are (type and number).</p>
+<p>Read the code below to understand the model (and fill in the missing parameter values). Be sure to understand which objects are the parameters of interest, and what the auxiliary arguments are (type and number).</p>
 </p>
 </div>
 </div>
@@ -7954,8 +7954,8 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">functional_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Functional model, q: ground surface displacement.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Model, q: ground surface displacement.</span>
 
 <span class="sd">    Inputs:</span>
 <span class="sd">      x: tuple, list or array of parameters</span>
@@ -7965,7 +7965,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <span class="sd">    Outputs: ndarray of ground level</span>
 
 <span class="sd">    Note: "times" is not included as an argument because</span>
-<span class="sd">    the model is only configured to compute the functional</span>
+<span class="sd">    the model is only configured to compute the</span>
 <span class="sd">    model at times where the groundwater measurements have</span>
 <span class="sd">    been interpolated (i.e., the times of the satellite</span>
 <span class="sd">    observations). To use this model for prediction, the</span>
@@ -7989,8 +7989,8 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
     
     <span class="k">return</span> <span class="n">y_comp</span>
 
-<span class="n">m1</span><span class="p">[</span><span class="s1">'functional_model'</span><span class="p">]</span> <span class="o">=</span> <span class="n">functional_model</span>
-<span class="n">m2</span><span class="p">[</span><span class="s1">'functional_model'</span><span class="p">]</span> <span class="o">=</span> <span class="n">functional_model</span>
+<span class="n">m1</span><span class="p">[</span><span class="s1">'compute_y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_y</span>
+<span class="n">m2</span><span class="p">[</span><span class="s1">'compute_y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_y</span>
 </pre></div>
 </div>
 </div>
@@ -8112,7 +8112,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 1.4: </b>
-<p>Using a notebook, derive the partial derivatives of the non-linear functional model and then set up the Jacobian matrix for the non-linear least-squares by completing the function below.</p>
+<p>Using a notebook, derive the partial derivatives of the non-linear model and then set up the Jacobian matrix for the non-linear least-squares by completing the function below.</p>
 </p>
 </div>
 </div>
@@ -8127,9 +8127,9 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Compute Jacobian of the functional model.</span>
+<span class="w">    </span><span class="sd">"""Compute Jacobian of the model.</span>
 
-<span class="sd">    Functional model, q: ground surface displacement.</span>
+<span class="sd">    Model, q: ground surface displacement.</span>
 
 <span class="sd">    Inputs:</span>
 <span class="sd">      x: tuple, list or array of parameters</span>
@@ -8141,7 +8141,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <span class="sd">             - J1 through J4: derivative w.r.t. d, R, a, k</span>
 
 <span class="sd">    Note: "times" is not included as an argument because</span>
-<span class="sd">    the model is only configured to compute the functional</span>
+<span class="sd">    the model is only configured to compute the</span>
 <span class="sd">    model at times where the groundwater measurements have</span>
 <span class="sd">    been interpolated (i.e., the times of the satellite</span>
 <span class="sd">    observations). To use this model for prediction, the</span>
@@ -8155,7 +8155,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
     <span class="c1"># J2 = </span>
     <span class="c1"># J3 = </span>
     <span class="c1"># J4 = </span>
-    <span class="c1"># J_i = YOUR_CODE_HERE</span>
+    <span class="c1"># J = YOUR_CODE_HERE</span>
 
     <span class="c1"># SOLUTION</span>
     <span class="n">J1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">'days'</span><span class="p">]))</span>                              
@@ -8274,7 +8274,7 @@ The redundancy (GNSS) is 726
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>
 <b>Important Note about Implmentation</b>
-<p>The iteration scheme reuses the function <code>BLUE()</code> from last week, which has been included in the files <code>functions.py</code> (imported at the top of this notebook). During the iteration scheme, specific values of the dictionary are "repurposed" to create a <em>linear</em> system of equations. This facilitates the use of BLUE, which otherwise can only solve for <em>linear</em> functional models.</p>
+<p>The iteration scheme reuses the function <code>BLUE()</code> from last week, which has been included in the files <code>functions.py</code> (imported at the top of this notebook). During the iteration scheme, specific values of the dictionary are "repurposed" to create a <em>linear</em> system of equations. This facilitates the use of BLUE, which otherwise can only solve for <em>linear</em> models.</p>
 <p>After the iteration is completed successfully, the function should reset the "repurposed" values in the dictionary to their true value (i.e., values representing the non-linear system).</p></p></div>
 </div>
 </div>
@@ -8328,7 +8328,7 @@ The redundancy (GNSS) is 726
         <span class="c1"># J_i = YOUR_CODE_HERE</span>
 
         <span class="c1"># SOLUTION</span>
-        <span class="n">y_comp_i</span> <span class="o">=</span> <span class="n">functional_model</span><span class="p">(</span><span class="n">x_hat_i</span><span class="p">[</span><span class="n">iteration</span><span class="p">,</span> <span class="p">:],</span> <span class="n">d</span><span class="p">)</span>
+        <span class="n">y_comp_i</span> <span class="o">=</span> <span class="n">compute_y</span><span class="p">(</span><span class="n">x_hat_i</span><span class="p">[</span><span class="n">iteration</span><span class="p">,</span> <span class="p">:],</span> <span class="n">d</span><span class="p">)</span>
         <span class="n">Delta_y</span> <span class="o">=</span> <span class="n">y_obs</span> <span class="o">-</span> <span class="n">y_comp_i</span>
         <span class="n">J_i</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">x_hat_i</span><span class="p">[</span><span class="n">iteration</span><span class="p">,</span> <span class="p">:],</span> <span class="n">d</span><span class="p">)</span>
 
@@ -8632,7 +8632,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0701ba54">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0701ba54">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8640,11 +8640,48 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 <div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># initial_guess_alternative = initial_guess</span>
-<span class="c1"># print(initial_guess_alternative)</span>
-<span class="c1"># plot_convergence_interactive(gauss_newton_iteration(initial_guess_alternative, m1))</span>
-<span class="c1"># plot_convergence_interactive(gauss_newton_iteration(initial_guess_alternative, m2))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">initial_guess_alternative</span> <span class="o">=</span> <span class="n">initial_guess</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">initial_guess_alternative</span><span class="p">)</span>
+<span class="n">plot_convergence_interactive</span><span class="p">(</span><span class="n">gauss_newton_iteration</span><span class="p">(</span><span class="n">initial_guess_alternative</span><span class="p">,</span> <span class="n">m1</span><span class="p">))</span>
+<span class="n">plot_convergence_interactive</span><span class="p">(</span><span class="n">gauss_newton_iteration</span><span class="p">(</span><span class="n">initial_guess_alternative</span><span class="p">,</span> <span class="n">m2</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(9, -25, 300, 0.15)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>interactive(children=(IntSlider(value=0, description='iteration', max=7), Output()), _dom_classes=('widget-int…</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>interactive(children=(IntSlider(value=0, description='iteration', max=7), Output()), _dom_classes=('widget-int…</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>interactive(children=(IntSlider(value=0, description='iteration', max=10), Output()), _dom_classes=('widget-in…</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>interactive(children=(IntSlider(value=0, description='iteration', max=10), Output()), _dom_classes=('widget-in…</pre>
 </div>
 </div>
 </div>
@@ -8813,7 +8850,7 @@ Summary of Model
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3.2: Visualizing Results</b>
-<p>Create a plot of the model predictions and residuals, along with a confidence interval for each plot. Include also the empirical and theoretical distribution of residuals.</p>
+<p>Create a plot of the model predictions and residuals, along with a confidence interval of 96% for each plot. Include also the empirical and theoretical distribution of residuals.</p>
 <p>The file <code>functions.py</code> includes the functions <code>get_CI()</code>, <code>plot_model()</code>, <code>plot_residual()</code> and <code>plot_residual_histogram()</code> from GA 1.3 last week.</p>
 <p>Prior to using the functions you will need to compute the modeled displacements, $\hat{\mathrm{Y}}$ using a function defined previously in this notebook.</p>
 <p>You can choose your own significance level for the confidence interval.</p>
@@ -8886,7 +8923,7 @@ get_CI(d, alpha)
 <span class="c1"># plot_residual_histogram(YOUR_CODE_HERE);</span>
 
 <span class="c1"># SOLUTION:</span>
-<span class="n">m1</span><span class="p">[</span><span class="s1">'Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">functional_model</span><span class="p">(</span><span class="n">m1</span><span class="p">[</span><span class="s1">'X_hat'</span><span class="p">],</span> <span class="n">m1</span><span class="p">)</span>
+<span class="n">m1</span><span class="p">[</span><span class="s1">'Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_y</span><span class="p">(</span><span class="n">m1</span><span class="p">[</span><span class="s1">'X_hat'</span><span class="p">],</span> <span class="n">m1</span><span class="p">)</span>
 <span class="n">m1</span> <span class="o">=</span> <span class="n">get_CI</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
 <span class="n">plot_model</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
 <span class="n">plot_residual</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
@@ -8943,7 +8980,7 @@ The standard deviation of the InSAR residuals is 1.852 mm
 <span class="c1"># plot_residual_histogram(YOUR_CODE_HERE);</span>
 
 <span class="c1"># SOLUTION:</span>
-<span class="n">m2</span><span class="p">[</span><span class="s1">'Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">functional_model</span><span class="p">(</span><span class="n">m2</span><span class="p">[</span><span class="s1">'X_hat'</span><span class="p">],</span> <span class="n">m2</span><span class="p">)</span>
+<span class="n">m2</span><span class="p">[</span><span class="s1">'Y_hat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_y</span><span class="p">(</span><span class="n">m2</span><span class="p">[</span><span class="s1">'X_hat'</span><span class="p">],</span> <span class="n">m2</span><span class="p">)</span>
 <span class="n">m2</span> <span class="o">=</span> <span class="n">get_CI</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
 <span class="n">plot_model</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
 <span class="n">plot_residual</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
