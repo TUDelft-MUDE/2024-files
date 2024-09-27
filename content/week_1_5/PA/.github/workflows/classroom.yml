@@ -16,7 +16,7 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }} #https://stackoverflow.com/questions/62334460/git-history-in-a-github-action
         fetch-depth: 0
-    - name: Check for merge request
+    - name: Check whether merge request has been performed
       id: check-merge
       uses: classroom-resources/autograding-command-grader@v1
       with:
@@ -34,7 +34,7 @@ jobs:
         command: jupyter nbconvert --execute PA_1_5_useful_tricks.ipynb --to html
         timeout: 10
         max-score: 10
-    - name: check for figure in myfigure.md
+    - name: Check for figure in myfigure.md
       id: check-figure
       uses: classroom-resources/autograding-command-grader@v1
       with:
@@ -43,13 +43,13 @@ jobs:
         command: if grep -q '!\[' myfigure.md; then echo "Figure found in myfigure.md"; else echo "No figure found in myfigure.md"; exit 1; fi
         timeout: 10
         max-score: 10
-    - name: check for 'my_figure.svg' in \figures\
+    - name: Check for 'my_figure.svg' in \figures\
       id: check-figure-sub
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Check for 'my_figure.svg' in \figures\
         setup-command: 
-        command: if test -f figures/my_figure.svg; then echo "Figure found in figures/my_figure.svg"; else echo "No figure found in figures/my_figure.svg"; exit 1; fi 
+        command: if test -f figures/my_figure.svg; then echo "File figures/my_figure.svg found"; else echo "file figures/my_figure.svg not found"; exit 1; fi 
         timeout: 10
         max-score: 10
     - name: Autograding Reporter
