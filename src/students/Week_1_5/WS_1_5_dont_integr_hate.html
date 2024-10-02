@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>WS_1_5_student_version</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
+<title>WS_1_5_dont_integr_hate</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
 (function() {
   function addWidgetsRenderer() {
     var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
@@ -7540,7 +7540,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -7591,7 +7591,7 @@ $$I=\int_a^{b} f\left(x\right)\mathrm{d}x = \int_0^{3\pi} \left(20 \cos(x)+3x^2\
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Function definition</strong></p>
 <p>Let's define the python function</p>
-$$f\left(x\right) = \left(20 \cos x+3x^2\right)\mathrm{d}x$$
+$$f\left(x\right) = \left(20 \cos x+3x^2\right)$$
 </div>
 </div>
 </div>
@@ -7600,7 +7600,7 @@ $$f\left(x\right) = \left(20 \cos x+3x^2\right)\mathrm{d}x$$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define the function to be later integrated</span>
@@ -7786,7 +7786,7 @@ Use those limits to create an x array using <code>linspace(a,b,n)</code>,  where
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dac606c2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84f395cb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7794,7 +7794,7 @@ Use those limits to create an x array using <code>linspace(a,b,n)</code>,  where
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
 <p>
-<b>NOTE:</b> although list comprehensions may look more cumbersome here, it is important tool to learn, as in more complex code it can help make the algorithm easier to read and write.
+<b>NOTE:</b> although list comprehensions may look more cumbersome here, it is important tool to learn, as in more complex code it can help make the algorithm easier to read and write. In terms of computation time, list comprehensions are faster than "regular" for loops (both are native Python features), However, the third approach is actually the fastest in terms of numerical computation time, because Numpy ndarrays (not native Python) are optimized for efficient computation.
 </p>
 </div>
 </div>
@@ -7996,8 +7996,11 @@ $$I_{_{right}} \approx \sum_{i=1}^n f(x_i)\Delta x$$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Right Riemann sum visualization</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">]],</span> <span class="n">width</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">'edge'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">]],</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="s1">'16'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">]],</span>
+        <span class="n">width</span><span class="o">=</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">'edge'</span><span class="p">,</span>
+        <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">]],</span>
+         <span class="s1">'*'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="s1">'16'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
 <span class="c1">#Plot "continuous" function</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">,</span> <span class="n">f_high_resolution</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Right Riemann Sum'</span><span class="p">)</span>
