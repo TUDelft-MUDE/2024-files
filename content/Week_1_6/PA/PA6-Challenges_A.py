@@ -31,3 +31,5 @@ plt.show()
 
 if not (numerical_integral_trap - numerical_integral_simp)/numerical_integral_simp < 0.3:
     raise ValueError('The difference between the two methods is too high! ')
+if numerical_integral_simp < 0 and numerical_integral_trap < 0:
+    raise ValueError('The results should be positive!')
