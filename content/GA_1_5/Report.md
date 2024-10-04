@@ -22,7 +22,7 @@ _Write your answer here._
 
 **Question 3**
 
-Insert the image of your results showing the measurements and the three numerical derivatives. What can you conclude of the accuracy of the growth rate estimation? In this case, what are the two reasons that make CD more (much more) accurate than FE/BE?
+Insert the image of your results showing the measurements and the three numerical derivatives. What can you conclude of the accuracy of the growth rate estimation? In this case, what are the two reasons that make CD more (much more) accurate than FD/BD?
 
 _Insert image here_
 
