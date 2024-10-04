@@ -2,6 +2,9 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.5, Friday, Oct 4, 2024.*
 
+_You can access this assignment with the following link: [classroom.github.com/a/6VU2xhZR](https://classroom.github.com/a/6VU2xhZR)._
+
+
 GA 1.5 focuses on fundamentals of numerical analysis.
 
 There are several files to be aware of:
