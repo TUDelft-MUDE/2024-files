@@ -1,38 +1,30 @@
-# PA 1.5: MUDE-git-crossword and Ice prediction
+# PA 1.5: Boxes and Bugs
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.6. Due: before Friday, October 11th, 2024.*
 
 This PA consists of 4 parts:
 
-1. `PA_1_5_.useful_tricks.ipynb`: a notebook covering a few simple Python topics that are especially useful for the WS and GA assignments this week.
-2. [Programming for Week 1.5](https://mude.citg.tudelft.nl/2024/book/programming/week_1_5.html) (Online Textbook): read this chapter, which covers more Git topics: branching, forking, pull requests and merge conflicts
-3. `crossword.md`: file containing a crossword puzzle, which you will use to work on a separate branch and merge commits into the `main` branch.
-4. `predictions.txt`: a file in a _separate_ repository [github.com/iceclassic/mude-pa-1-5](https://github.com/iceclassic/mude-pa-1-5). where you will contribute a commit from your own fork of the separate repository
+1. [Programming for Week 1.6](https://mude.citg.tudelft.nl/2024/book/programming/week_1_6.html) (Online Textbook): read this chapter, which covers errors and error handling in Python.
+2. `PA_1_6_Boxes_and_Bugs.ipynb`: a notebook covering a few simple Python topics that are especially useful for the WS and GA assignments this week.
+3. Python file `script_test.py`: prints a simple statement to your CLI to confirm you have VS Code set up properly for executing Python scripts (instructions below).
+4. Various `*.py` files, each of which contains some code with a few bugs that you must find and solve using the Python traceback that is generated in the CLI after running them.
 
-Notes:
-- The notebook can be completed independently from the other parts; try to finish complete this before the Wednesday in-class session.
-- This PA actually involves 3 repositories: the one created for this assignment, the ice repository and your own personal fork of the ice repository, which you will create.
+## Running Python Scripts in VS Code
 
-## Ice Classic Repo
+So far we have mostly been using Jupyter notebooks, with a few examples of importing functions using `*.py` files. However, it is important to recognize that **Jupyter notebooks are not the only way to run Python code.** With your MUDE setup of conda and VS Code it is very easy to execute the contents of a `*.py` file directly, with output being generated in the command line interface. This workflow is called _scripting_ and the contents of the `*.py` files are referred to as scripts. 
 
-For Part 4 you will be making a prediction for the 2025 ice classic! The repo is: [github.com/iceclassic/mude-pa-1-5](https://github.com/iceclassic/mude-pa-1-5).
+Try running a script by opening `script_test.py` in the editor and clicking the triangular "Run Python files" button in the top right corner. You should see a simple message printed in the CLI. If this works, you are ready to read the Python traceback in the CLIE and debug the other `*.py` files in the repo and complete the PA.
 
-**To add your prediction,** find your GitHub username in the list in `predictions.txt` and enter a prediction in the format `(YYYY-MM-DD HH:MM:SS)` (year,month, day, hour minute, seconds). That's it! 
-
-- The repo already contains a figure that displays all of the historic breakup days and times, and the predictions of MUDE students will be added on top. Here is a direct link to the figure: [predictions.svg](https://github.com/iceclassic/test_pa15/blob/main/test.svg).
-- The repo is set up to automatically update the figure every time a commit is made. Note, however that it may take some time before your change is visible, as the instructors must approve the pull requests.
+If this does not work, ask an instructor for help during question hours.
 
 ## Grading Criteria
 
 You will pass this PA if:
-1. For the python and markdown topics of this PA.
-  - Your notebook `PA_1_5_useful_tricks.ipynb` runs without errors.
-  - Your repository contains a file `my_figure.svg` located in subdirectory `/figures`
-  - You update the `myfigure.md` file to include a reference to the previous figure.
-2. For the branching part of this PA: you successfully merged a pull request from your own branch.
-3. For the forking part of this PA: You successfully created a pull request to the ice repo with your bet (it should be visible on the [Pull Requests tab of the repo](https://github.com/iceclassic/mude-pa-1-5/pulls)). After your pull request is accepted (this requires some manual actions from your teachers on your pull request) you can confirm that your bet is approved by seeing it in the figure `guesses.svg`.
+1. Your notebook `PA_1_6_Boxes_and_Bugs.ipynb` runs without errors.
+2. All of the Python scripts in your repository run without errors.
 
-You can verify that you passed checks 1 and 2 by looking for the green circle in this repository. It runs automatically just like last week when you uploaded your notebook. Check 3 will be done manually by your teachers.
+You can verify that you passed both checks by looking for the green circle in this repository (the last workflow run).
 
+If your check is failing, view the Python traceback by going to the Actions tab, click the most recent workflow run, click the job (the box diagram) and expand and read the command line interface output.
 
 **End of file.**
 
