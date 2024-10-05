@@ -1,6 +1,9 @@
 # PA 1.6: Boxes and Bugs
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.6. Due: before Friday, October 11th, 2024.*
 
+
+_You can access this assignment with the following link: [classroom.github.com/a/WT3kcHGt](https://classroom.github.com/a/WT3kcHGt)._
+
 This PA consists of 4 parts:
 
 1. [Programming for Week 1.6](https://mude.citg.tudelft.nl/2024/book/programming/week_1_6.html) (Online Textbook): read this chapter, which covers errors and error handling in Python.

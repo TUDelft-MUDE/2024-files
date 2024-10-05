@@ -34,7 +34,7 @@ dh_dt_BD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1])
 dh_dt_CD = [(h_ice[i+1] - h_ice[i-1]) / (t_days[i+1] - t_days[i-1]) for i in range(0, len(t_days)-1)]
 
 # SOLUTION:
-# dh_dt_CD = [(h_ice[i+1] - h_ice[i]) / (t_days[i] - t_days[i-1]) for i in range(0, len(t_days)-1)]
+dh_dt_CD = [(h_ice[i+1] - h_ice[i]) / (t_days[i+1] - t_days[i]) for i in range(0, len(t_days)-1)]
 
 
 ## PLOTTING ##
