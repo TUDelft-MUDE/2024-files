@@ -17,9 +17,9 @@ print(f'Trapezoidal Integral: {numerical_integral_trap}')
 print(f'Simpson Integral: {numerical_integral_simp}')
 # Create a plot
 plt.figure((12, 6))
-plt.plot(x_data, y_data, label='Data with Noise', color='lightblue')
+plt.plot(x_data, y_data, label='Function', color='lightblue')
 # Plotting properties
-plt.title('Data Fitting and Integral Calculation with Areas')
+plt.title('Function')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.legend()
@@ -29,7 +29,10 @@ plt.ylim(-1, 1.5 y_data.max)
 plt.show()
 
 
-if not (numerical_integral_trap - numerical_integral_simp)/numerical_integral_simp < 0.3:
-    raise ValueError('The difference between the two methods is too high! ')
-if numerical_integral_simp < 0 and numerical_integral_trap < 0:
-    raise ValueError('The results should be positive!')
+difference = (numerical_integral_trap - numerical_integral_simp) / numerical_integral_simp
+if difference >= 0.05:
+    raise ValueError('The difference between the two methods is too high!')
+if numerical_integral_simp < 0:
+    raise ValueError('The result from the Simpson method should be positive!')
+if numerical_integral_trap < 0:
+    raise ValueError('The result from the trapezoidal method should be positive!')
