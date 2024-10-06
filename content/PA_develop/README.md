@@ -18,3 +18,9 @@ Q1, Week:
 3. x
 4. Intro to Git, Markdown Tables
 5. Git Branching, Markdown Figures, `plt.bar()`, list comprehension, asserts 
+
+
+Iterables:
+- 2023 was [week 2.3 (PA11)](https://mude.citg.tudelft.nl/2023/files/Week_2_3/PA11_solution.html)
+- add illustration of how range and arange are different (both are iterable; standard lib versus numpy; type range versus type ndarray)
+-  
