@@ -17,7 +17,7 @@ _You should describe your data with only a few sentences, and be sure to use qua
 
 Fit and assess the goodness of fit of the selected parametric distribution functions to the dataset. Use (at least) Kolmogorov-Smirnov test and one graphical technique. For the graphical technique, choose between the QQplot and logscale plot. Describe in a few sentences how the chosen parametric distribution functions performs.
 
-_Remember to use quantitative information!_
+_Remember to use quantitative information based on the goodness of fit metrics that you have used. Also, you can include some examples of the differences in the computed and observed non-exceedance probabilities._
 
 
 **Question 3**
@@ -26,7 +26,7 @@ Propagate the uncertainty through the equation to estimate wave forces, $F_h$, u
 
 **Question 4**
 
-Compare the simulated samples and the observations in a scatter plot. What are the differences? Is there anything you could improve in the analysis?
+Compare the simulated samples and the observations in a scatter plot. What are the differences? Is there anything you could improve in the analysis? Provide with recommendations to improve the performed analysis. They can be both about the univariate distributions and about the propagation of uncertainty method you have used.
 
 _Hint: Compute the correlation coefficient between H and T for both the observations and the simulated samples._
 
