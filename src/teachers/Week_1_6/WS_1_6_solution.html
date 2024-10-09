@@ -7531,7 +7531,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h2><p>This assignment is aimed to develop an understanding of the <strong>Ordinary Differential Equation (ODE)</strong>. There will be two sections about cooling and heating scenerios, corresponding to the first-order and the second-order ODEs. Please go through the text that follows and perform all steps outlined therein.</p>
-<h2 id="Section-1:-First-order-ODE">Section 1: First-order ODE<a class="anchor-link" href="#Section-1:-First-order-ODE">¶</a></h2><h3 id="1.1-Linear-ODE">1.1 Linear ODE<a class="anchor-link" href="#1.1-Linear-ODE">¶</a></h3><p>In the study of heat transfer, <strong>Newton's law of cooling</strong> is a physical law which states that the rate of heat loss of a body is directly proportional to the difference in the temperatures between the body and its environment. It can be expressed in the form of ODE, as below:</p>
+<h2 id="Part-1:-First-order-ODE">Part 1: First-order ODE<a class="anchor-link" href="#Part-1:-First-order-ODE">¶</a></h2><p>In the study of heat transfer, <strong>Newton's law of cooling</strong> is a physical law which states that the rate of heat loss of a body is directly proportional to the difference in the temperatures between the body and its environment. It can be expressed in the form of ODE, as below:</p>
 $$\frac{dT}{dt}=-k(T - T_s)$$<p>where $T$ is the temperature of the object at time $t$, $T_s$ is the temperature of the surrounding and assumed to be constant, and $k$ is the constant that characterizes the ability of the object to exchange the
 heat energy (unit 1/s), which depends on the specific material properties.</p>
 <p>Now, Let's consider an object with the initial temperature of  50°C in a surrounding environment with constant temperature at 20°C. The constant of heat exchange between the object and the environment is 0.5 $sec^-1$.</p>
@@ -7545,9 +7545,9 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 1:</b>
+<b>Task 1.1:</b>
 <p>Suppose the considered period of time is long enough (bring it to steady state), what will be the final temperature of the object?</p>
 <p><strong>Write your answer in the following markdown cell.</strong></p>
 </p>
@@ -7562,13 +7562,12 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>Your answers for Task 1:
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
 <p>
 <p>20°C</p>
 <p><em>This is because the body's temperature, $T$, will tend to the ambience temperature in the long term. The decrease will be abrupt at the beginning and will slow down as time passes $T(t=large) = T_s = 20°C$.</em></p>
 </p>
-</p></div>
+</div>
 </div>
 </div>
 </div>
@@ -7590,9 +7589,9 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 2:</b>
+<b>Task 1.2:</b>
 <p>Write the algebraic representation of the ODE using Explicit Euler.</p>
 </p>
 </div>
@@ -7606,9 +7605,9 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
 <p>
-Answer for Task 2:
+Answer for Task 1.2:
 <p>
 <p>$$ T_{i+1} = T_{i}-k(T_{i} - T_s)dt$$</p>
 <p>How to get there:</p>
@@ -7630,16 +7629,17 @@ $$<p>or from forward finite difference</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=579a9440">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fb6eda82">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 3:</b>
-<p>Compute the temperature evolution in the next 60 seconds. This task is defined in subtasks.</p>
+<b>Task 1.3:</b>
+<p>Compute the temperature evolution in the next 60 seconds.</p>
+<p><strong>Please complete the missing parts of the code in each step below, which is divided into 5 substeps (a through e).</strong></p>
 </p>
 </div>
 </div>
@@ -7652,9 +7652,10 @@ $$<p>or from forward finite difference</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 3.1:</b> The time step of 5 seconds is constant. Discretize the time points, the solution vector $T$ and define the initial condition.
+<b>Task 1.3a:</b>
+<p>The time step of 5 seconds is constant. Discretize the time points, the solution vector $T$ and define the initial condition.</p>
 </p>
 </div>
 </div>
@@ -7692,9 +7693,10 @@ $$<p>or from forward finite difference</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 3.2:</b> Implement your time discretization and find the solution from $t=0$ until $t=60$ sec.
+<b>Task 1.3b:</b>
+<p>Implement your time discretization and find the solution from $t=0$ until $t=60$ sec.</p>
 </p>
 </div>
 </div>
@@ -7739,9 +7741,9 @@ $$<p>or from forward finite difference</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 3.3:</b>
+<b>Task 1.3c:</b>
 <p>Try different time steps to check the stability of the calculation. At which value the solution is stable?</p>
 </p>
 </div>
@@ -7755,7 +7757,7 @@ $$<p>or from forward finite difference</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
 <p>
 <b>Answer:</b>
 <p>4 seconds is the limit between an unstable and a stable solution.</p>
@@ -7771,9 +7773,9 @@ $$<p>or from forward finite difference</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 3.4:</b>
+<b>Task 1.3d:</b>
 <p>Obtain the mathematical expression that proves your stability criteria.</p>
 </p>
 </div>
@@ -7787,7 +7789,7 @@ $$<p>or from forward finite difference</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
 <p> Answer
 <p>
 $$
@@ -7816,9 +7818,9 @@ Then $|k*dt| &lt; 2$, thus $dt &lt; 4$.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 3.5:</b>
+<b>Task 1.3e:</b>
 <p>Now, discretize the equation using Implicit (Backward) Euler. Can you find a time step that makes the problem unstable?</p>
 </p>
 </div>
@@ -7868,16 +7870,32 @@ Then $|k*dt| &lt; 2$, thus $dt &lt; 4$.</p>
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f534fb27">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<p>
+<b>Answer:</b>
+<p>No, you cannot! This method is unconditionally stable. (a good thing to remember for the exam)</p>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2109f010">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Section-2:-Second-order-ODE">Section 2: Second-order ODE<a class="anchor-link" href="#Section-2:-Second-order-ODE">¶</a></h2><h3 id="Background">Background<a class="anchor-link" href="#Background">¶</a></h3><p>The following 1D equation describes the steady state solution of the temperature along a pin that sticks out of a furnace. The rest of the pin is exposed to the ambient.</p>
+<h2 id="Part-2:-Second-order-ODE">Part 2: Second-order ODE<a class="anchor-link" href="#Part-2:-Second-order-ODE">¶</a></h2><p>The following 1D equation describes the steady state solution of the temperature along a pin that sticks out of a furnace. The rest of the pin is exposed to the ambient.</p>
 $$
 \frac{d^2T}{dx^2} -\alpha(T-T_s)=0
-$$<p>The ambient temperature is $T_s= 30^o$ C and the temperature at the wall is $250^o$ C. The length of the pint is 0.1m. Your grid should have a spatial step of 0.02 m. Finally, $\alpha=500$.</p>
+$$<p>The ambient temperature is $T_s= 30^o$ C and the temperature at the wall is $250^o$ C. The length of the pin is 0.1m. Your grid should have a spatial step of 0.02 m. Finally, $\alpha=500$.</p>
 </div>
 </div>
 </div>
@@ -7901,41 +7919,48 @@ $$<p>The ambient temperature is $T_s= 30^o$ C and the temperature at the wall is
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c739aaf1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c74adcb4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 5:</b>
-<p>Below we already provide the code structured that solves the equation with the above Dirichlet conditions and using a central difference approximation of the second derivative. Complete the code to complete the matrix and vectors. <strong>Write in paper (add the image) the matrix A, and the vectors T and b.</strong></p>
+<b>Task 2.1:</b>
+<p>This task has three parts: a) discretize the analytic expression into a system of equations using central differences, b) write the system of equations by hand (e.g., the matrices), and c) implement the discretized system of equations in a code cell.</p>
+<p><em>Parts 2.1b and 2.1c do not need to be completed in order; in fact, it may be useful to go back and forth between the two in order to understand the problem.</em></p>
 </p></div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=11009615">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0db7afc9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4133c6e2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p> Answer
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<p>Add the image.</p>
-<p><strong>For $i = 1$:</strong>
+<b>Task 2.1a:</b>
+<p>Discretize the analytic expression into a system of equations for a grid with 6 points using central differences.</p>
+<p><em>Write your answer by hand using paper/tablet and include the image below.</em></p>
+</p></div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ae1eb87">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<p> Answer for 2.1a and 2.1b
+<p>
+$$
+\frac{1}{\Delta x^2}(T_{i-1} - 2T_{i} + T_{i+1}) - \alpha T_{i} + \alpha T_s = 0
+$$<p><strong>For $i = 1$:</strong>
 The finite difference approximation for the first internal node is:</p>
 $$
 \frac{1}{\Delta x^2}(T_0 - 2T_1 + T_2) - \alpha T_1 + \alpha T_s = 0
@@ -7957,7 +7982,36 @@ $$
 $$<p>Notice that now we can plug in our other bc $T_5$ and rearrange the terms:</p>
 $$
 (T_3 - (2 + \alpha \Delta x^2) T_4 ) = -\alpha Ts \Delta x^2 -T_5 
-$$<p>We can now move the equations in the Ax=y form:</p>
+$$</p>
+</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=df2341fc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 2.1b:</b>
+<p>Write the system of equations by hand for a grid with 6 points. In other words, construct the matrix A and vectors T and b.</p>
+<p><em>Write your answer by hand using paper/tablet and include the image below.</em></p>
+</p></div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c8616d1c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<p>
+<p>The discretized equations are presented in Ax=y form:</p>
 $$
 \begin{bmatrix}
  -(2 + \alpha \Delta x^2) &amp; 1 &amp; 0 &amp; 0 \\
@@ -7978,7 +8032,32 @@ T_4
 -\alpha Ts \Delta x^2 -T_5
 \end{bmatrix}
 $$</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0c12775e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 2.1c:</b>
+<p>Implement the discretized system of equations in a code cell.</p>
+<p><em>We have already done this for you! Your task is to read the cell and make sure you understand how the matrices are implemented. Reading the code should help you formulate the matrices in Task 2.1b.</em></p>
 </p></div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=11009615">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
@@ -8062,9 +8141,9 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 6:</b>
+<b>Task 2.2:</b>
 <p>Copy the code above below and modify it to replace the Dirichlet condition at the right BC for a Neumann condition such that there $\frac{dT}{dx}=0$. Approximate the Neuman boundary $\frac{dT}{dx}=0$ by using the Backward difference for first order differential equation of first order accuracy.</p>
 <p>How does the temperature profile changes?</p>
 <p><strong>Remember to change the title of the plot to indicate that now the BC is of the Neumann type</strong></p>
@@ -8195,19 +8274,33 @@ $$
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0b47e9c2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ac255017">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 7:</b>
-<p>Now, instead of using the central difference for approximating the second derivative. Use the forward difference to replace the second derivative (first order accurate). <strong>Write the algebraic representation of the differential equation below.</strong></p>
-</p>
+<b>Task 2.3:</b>
+<p>Just as we did in Task 2.1, this task has three parts: a) discretize the analytic expression into a system of equations using <b>forward differences</b>, b) write the system of equations by hand (e.g., the matrices), and c) implement the discretized system of equations in a code cell.</p>
+</p></div>
 </div>
 </div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=104690ed">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 2.3a:</b>
+<p>Discretize the analytic expression into a system of equations for a grid with 6 points using <b>forward differences</b>.</p>
+<p><em>Write your answer by hand using paper/tablet and include the image below.</em></p>
+</p></div>
 </div>
 </div>
 </div>
@@ -8217,8 +8310,7 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p> Answer
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
 <p>
 Forward difference for second order differential equation:
 $$
@@ -8228,7 +8320,7 @@ The finite difference approximation for the first internal node is:</p>
 $$
 \frac{1}{\Delta x^2}(T_0 - 2T_1 + T_2) - \alpha T_0 + \alpha T_s = 0
 $$$$
--2T_1 +T_2 = -(1+alpha)T_0 - \alpha T_s \Delta x^2
+-2T_1 +T_2 = -(1+\alpha)T_0 - \alpha T_s \Delta x^2
 $$<p><strong>For $i = 1$:</strong>
 The finite difference approximation for the second internal node is:</p>
 $$
@@ -8251,24 +8343,23 @@ $$<p>Rearranging the terms:</p>
 $$
 (1 - \alpha \Delta x^2)T_3 - 2T_4 = -\alpha T_s \Delta x^2 -T_5
 $$</p>
-</p></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a4e0342e">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b12c86e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 8:</b>
-<p>Now, write the resulting matrix A, the vector T and the vector b.</p>
-</p>
-</div>
-</div>
+<b>Task 2.3b:</b>
+<p>Write the system of equations by hand for a grid with 6 points. In other words, construct the matrix A and vectors T and b.</p>
+<p><em>Write your answer by hand using paper/tablet and include the image below.</em></p>
+</p></div>
 </div>
 </div>
 </div>
@@ -8303,46 +8394,18 @@ $$
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b9ca660d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1b304504">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8cb492f8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p> Answer
+<div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<p>Add the image.</p>
-</p>
+<b>Task 2.3c:</b>
+<p>Implement the discretized system of equations in a code cell.</p>
+<p><b>This time we did not do it for you!</b> Copy the code from Task 2.1c and revise it to solve the system of equations using <b>Forward Differences</b>. Keep the Dirichlet conditions.</p>
 </p></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0640b43e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<p>
-<b>Task 9:</b>
-<p>Copy the code of task 5 below, modify it accordingly to your new discretization (using FD for the second derivative in space). Keep Dirichlet conditions.</p>
-<p>How different are the values of the temperature with respect to task 5? Which solution is expected to be more accurate?</p>
-</p>
-</div>
-</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1e783d3e">
@@ -8439,15 +8502,15 @@ The temperature at x=0.02 is: 168.04 [C]
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=64d693df">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=18d60370">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 9:</b>
+<b>Task 2.4:</b>
 <p>How much finer does your grid has to be in the forward difference implementation to get a similar value at x = 0.02 as in the central difference implementation? Vary your dx.</p>
 </p>
 </div>
@@ -8455,27 +8518,31 @@ The temperature at x=0.02 is: 168.04 [C]
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e771703c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ef65db5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>you can test this above make the temperature the same at x=0.02</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=031dca37">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
 <p>
-<b>Bonus note:</b>
-<p>The matrix inversion using numpy is one way to solve the system, another is the gauss_jordan written below and another one is the sparse matrix based method in the cell afterwards. Here, we will just have a brief comparison to see how these solvers perform when the matrix is large. Change dx to 0.0002 of the code in task 5 and run it. Now, you should have a matrix A with a high resolution that solves the second degree ODE. Test the time each method takes.</p>
+<p>You can test this above make the temperature the same at x=0.02</p>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b78e8e16">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<p>
+<b>Bonus Task</b>
+<p>The matrix inversion using numpy is one way to solve the system, another is the <code>gauss_jordan</code> method, written below, and another one is the sparse matrix-based method in the cell afterwards. Here, we will just have a brief comparison to see how these solvers perform when the matrix is large. Change <code>dx</code> to 0.0002 of the original code that solves the second degree ODE and test the time it takes by each method.</p>
 </p>
 </div>
 </div>
@@ -8579,11 +8646,27 @@ The temperature at x=0.02 is: 168.04 [C]
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>The time used by direct matrix inversion solution is  2.522e-03 sec
-The time used by Gauss-jordan solution is  2.020e-01 sec
-The time used by the sparse matrix solver is  3.001e-03 sec
+<pre>The time used by direct matrix inversion solution is  1.399e-03 sec
+The time used by Gauss-jordan solution is  1.411e-01 sec
+The time used by the sparse matrix solver is  1.286e-03 sec
 </pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d5b9189">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
+<p> Answer
+<p>
+<p>The sparse matrix is fastest, but we see that the Numpy implementation is also very fast! problem still small; Gauss-Jordan slow because...???</p>
+</p>
+</p></div>
 </div>
 </div>
 </div>
@@ -8619,7 +8702,7 @@ The time used by the sparse matrix solver is  3.001e-03 sec
 </div>
 </div>
 </div>
-</div></main>
+</div></div></div></div></div></div></div></main>
 </body>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
