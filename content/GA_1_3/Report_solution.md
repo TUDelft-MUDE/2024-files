@@ -47,9 +47,11 @@ _Hint: Are the intervals uniform for the entire time series? Which uncertainties
 
 **Solution**
 
-Confidence intervals are a useful way to report uncertainty and are based on an assumed theoretical distribution around a quantity of interest; in this case we assume a Normal distribution about each model prediction, $\hat{y}_i$, as well as each residual, $y_i-\hat{y}_i$. Using the first and second moments (i.e. mean and std. dev.), we can create confidence intervals based on a specific critical value, $\alpha$. When our sample size is large enough and our assumptions that our random variable is distributed randomly are reasonably correct, we will see that the fraction of data points in our CI is (almost) equal to our critical value.
+Confidence intervals are a useful way to report uncertainty and are based on an assumed theoretical distribution around a quantity of interest; in this case we assume a Normal distribution about each model prediction, $\hat{y}_i$, as well as each residual, $y_i-\hat{y}_i$. Using the first and second moments (i.e. mean and std. dev.), we can create confidence intervals based on a specific false alarm rate or significance level, $\alpha$. When our sample size is large enough and our assumptions that our random variable is distributed randomly are reasonably correct, we will see that the fraction of data points in our CI is (almost) equal to our critical value.
 
 The two confidence intervals are different because of the way the covariance matrices $\Sigma_{\hat{Y}}$ and $\Sigma_{\hat{\epsilon}}$ are calculated, and the information that they represent. Even though both incorporate uncertainty of the observations, $\Sigma_{Y}$, the confidence interval of each model prediction $\hat{y}_i$ is based on the uncertainty of the model _parameters_, which is what the CI in the time series plot illustrates.
+
+The reason why most of the data is not included in the first confidence interval is because it represents the confidence interval for the true but unknown change in deformation. As it is _not_ a confidence interval for the error in the observation data, the data points are not included in it.
 
 **Question 3**
 
