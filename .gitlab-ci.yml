@@ -57,11 +57,11 @@ deploy-production-students:
           "object_kind": "pipeline",
           "object_attributes": {
             "status": "success",
-            "ref": "publish"
+            "ref": "release"
           }
         }'
   rules:
-    - if: $CI_COMMIT_BRANCH == "publish"
+    - if: $CI_COMMIT_BRANCH == "release"
       changes:
         - src/students/**/*
       when: always

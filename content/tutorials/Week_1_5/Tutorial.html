@@ -3,34 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>WS_1_5_student_version</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
-(function() {
-  function addWidgetsRenderer() {
-    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
-    var scriptElement = document.createElement('script');
-    
-    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
-    
-    var widgetState;
-
-    // Fallback for older version:
-    try {
-      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
-
-      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
-        
-        var widgetRendererSrc = 'https://unpkg.com/@jupyter-js-widgets@*/dist/embed.js';
-        
-      }
-    } catch(e) {}
-
-    scriptElement.src = widgetRendererSrc;
-    document.body.appendChild(scriptElement);
-  }
-
-  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
-}());
-</script>
+<title>Tutorial</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7503,13 +7476,13 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6cf87eaa-cae9-436c-86f5-b64181df5850">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Workshop-5:-Exploring-Numerical-Summing-Schemes">Workshop 5: Exploring Numerical Summing Schemes<a class="anchor-link" href="#Workshop-5:-Exploring-Numerical-Summing-Schemes">¶</a></h1><h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 90px;right: 30px; margin: 0; border: 0">
+<h1 id="Week-1.5:-Programming-Tutorial">Week 1.5: Programming Tutorial<a class="anchor-link" href="#Week-1.5:-Programming-Tutorial">¶</a></h1><h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
 <style>
         .markdown {width:100%; position: relative}
         article { position: relative }
@@ -7519,115 +7492,70 @@ a.anchor-link {
 </h1>
 <h2 style="height: 10px">
 </h2>
-<p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>: Week 1.5, Wednesday, Oct 4, 2024.</em></p>
+<p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>: Week 1.5. September 30, 2024.</em></p>
+<p><em>This notebook was prepared by Berend Bouvy and used in an in-class demonstration on Monday.</em></p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=82cfc0b4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Problem-definition:-Numerical-Integration">Problem definition: Numerical Integration<a class="anchor-link" href="#Problem-definition:-Numerical-Integration">¶</a></h2><p>Integration can be used to solve differential equations and to calculate relevant quantities in diverse engineering and scientific problems. When analyzing experiments or numerical models results, a desired physical quantity may be expressed as an integral of measured/model quantities. Sometimes the analytical integration is known, then this is the most accurate and fastest solution, certainly better than computing it numerically. However, it is common that the analytic solution is unknown, then numerical integration is the way to go.</p>
-<p>You will use a function with a known integral to evaluate how precise numerical integration can be.</p>
+<h2 id="Objects">Objects<a class="anchor-link" href="#Objects">¶</a></h2>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=caebff09-a533-40aa-9115-985c78e45693">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">make_interp_spline</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.figsize'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Set the width and height of plots in inches</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'font.size'</span><span class="p">:</span> <span class="mi">13</span><span class="p">})</span>    <span class="c1"># Change this value to your desired font size</span>
+<span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a6773319">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=352f1493">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 1:</b>
-<p>Calculate and evaluate the following integral by hand:</p>
-$$I=\int_a^{b} f\left(x\right)\mathrm{d}x = \int_0^{3\pi} \left(20 \cos(x)+3x^2\right)\mathrm{d}x.$$<p>The result will be later used to explore how diverse numerical integration techniques work and their accuracy.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fea89e84">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Function definition</strong></p>
-<p>Let's define the python function</p>
-$$f\left(x\right) = \left(20 \cos x+3x^2\right)\mathrm{d}x$$
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=98e6e3b6">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define the function to be later integrated</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Objective: Create a variable of each type in Python</span>
+<span class="n">int_var</span> <span class="o">=</span> <span class="c1">#TODO: create an integer variable</span>
+<span class="n">float_var</span> <span class="o">=</span> <span class="c1">#TODO: create a float variable</span>
+<span class="n">bool_var</span> <span class="o">=</span> <span class="c1">#TODO: create a boolean variable</span>
+<span class="n">str_var</span> <span class="o">=</span> <span class="c1">#TODO: create a string variable</span>
+<span class="n">list_var</span> <span class="o">=</span> <span class="c1">#TODO: create a list variable</span>
+<span class="n">tuple_var</span> <span class="o">=</span> <span class="c1">#TODO: create a tuple variable</span>
+<span class="n">dict_var</span> <span class="o">=</span> <span class="c1">#TODO: create a dictionary variable</span>
+
+
+<span class="c1"># Asserts</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">int_var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected int but got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">int_var</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>            <span class="c1"># This will throw an error if the type is incorrect</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">float_var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected float but got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">float_var</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>    <span class="c1"># This will throw an error if the type is incorrect</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">bool_var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected bool but got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bool_var</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>        <span class="c1"># This will throw an error if the type is incorrect</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">str_var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected str but got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">str_var</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>            <span class="c1"># This will throw an error if the type is incorrect</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">list_var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected list but got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">list_var</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>        <span class="c1"># This will throw an error if the type is incorrect</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">tuple_var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected tuple but got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">tuple_var</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>    <span class="c1"># This will throw an error if the type is incorrect</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">dict_var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected dict but got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">dict_var</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>        <span class="c1"># This will throw an error if the type is incorrect</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd6b9447">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 2:</b>
-<p>Below, call the function f written above to evaluate it at x=0.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de1759f8">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7635,61 +7563,45 @@ $$f\left(x\right) = \left(20 \cos x+3x^2\right)\mathrm{d}x$$
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">f_at_x_equal_0</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># relative path vs absolute path</span>
+<span class="c1"># relative path: relative to the current working directory</span>
+<span class="c1"># absolute path: full path from the root directory</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"f evaluated at x=0 is:"</span> <span class="p">,</span> <span class="n">f_at_x_equal_0</span><span class="p">)</span>
+<span class="c1"># Create a variable that contains the current working directory using the os module</span>
+<span class="n">cwd</span> <span class="o">=</span> <span class="c1">#TODO: get the current working directory</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cwd</span><span class="p">)</span>
+
+<span class="c1"># Get all the files in the current working directory</span>
+<span class="n">files</span> <span class="o">=</span> <span class="c1">#TODO: get all the files in the current working directory</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+
+<span class="c1"># find path to data in data folder</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="c1">#TODO: find the path to the data folder</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+
+<span class="c1"># read the data using absolute path and relative path</span>
+<span class="n">data_abs</span> <span class="o">=</span> <span class="c1">#TODO: read the data using absolute path</span>
+<span class="n">data_rel</span> <span class="o">=</span> <span class="c1">#TODO: read the data using relative path</span>
+
+<span class="c1"># Asserts</span>
+<span class="k">assert</span> <span class="n">data_abs</span> <span class="o">==</span> <span class="n">data_rel</span><span class="p">,</span> <span class="s1">'Data read using absolute path and relative path are not the same'</span> <span class="c1"># This will throw an error if the data is not the same</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f3bbdf8c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>NOTE:</b> Calling f(x) is equivalent to evaluating it!
-</p>
+$$ H_n = \sum_{k=1}^{n} \frac{1}{k} $$
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1c3d671e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Define an x vector to evaluate the function</strong></p>
-<p>The function <code>f(x)</code> exists in "all space". However, the integration is bounded to the limits <code>a to b</code>, $I=\int_a^{b} f\left(x\right)\mathrm{d}x = \int_0^{3\pi} \left(20 \cos(x)+3x^2\right)\mathrm{d}x$.</p>
-<p><br/><br/>
-Use those limits to create an x array using <code>linspace(a,b,n)</code>,  where <code>a</code> is the limit to the left, <code>b</code> is the limit to the right and <code>n</code> is the number of points. Below you see the case with 5 points.</p>
-<img alt="No description has been provided for this image" src="linspace.jpg" style="height:100px"/>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=add4309b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 3:</b>
-<p>Define the intervals <code>a,b</code> and the number of points needed to have a subinterval length $\Delta x=\pi$.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4b85d2a4">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7697,618 +7609,106 @@ Use those limits to create an x array using <code>linspace(a,b,n)</code>,  where
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-<span class="n">number_of_points</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-
-<span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">)</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">x_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"x  = "</span><span class="p">,</span><span class="n">x_values</span><span class="p">)</span>
-
-
-
-<span class="c1"># test dx value</span>
-<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dx</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">,</span> <span class="s2">"Oops! dx is not equal to pi. Please check your values for a, b and number of points."</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ec5511fb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 4:</b>
-<p>How do the number of points and number of subintervals relate? Write a brief answer below.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=098d751a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>answer</strong>:</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1049c443">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Visualize a "continuous" function and list comprehension</strong></p>
-<p>For visualization purposes in the rest of the notebook, <code>f(x)</code> is here evaluated with high resolution. A "list comprehension" method is used for this purpose. <strong>Understanding "list comprehensions" is essential to solve the rest of the notebook</strong>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d17856b3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Visualize a "continuous" function and list comprehension</strong></p>
-<p>For visualization purposes in the rest of the notebook, <code>f(x)</code> is here evaluated with high resolution. A "list comprehension" method is used for this purpose, which is a special feature of the Python programming language (you learned about it in the PA!).</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12e2ea3d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<p>
-<b>Task 5:</b>
-<p>Three equivalent solutions to define <code>f_high_resolution</code> are shown below. The first one loops <code>x_high_resolution</code> and assigns its values to x, which is then used to evaluate f.</p>
-<p>The second one creates an index list based on the number of points contained in <code>x_high_resolution</code>, then loops it to evaluate f at each element of <code>x_high_resolution</code>.</p>
-<p>The third simply uses a function to evaluate the values.</p>
-<p>Which method do you find easier to read/write?</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dac606c2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>NOTE:</b> although list comprehensions may look more cumbersome here, it is important tool to learn, as in more complex code it can help make the algorithm easier to read and write.
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=65878405">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># To plot a smooth graph of the function</span>
-<span class="n">x_high_resolution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-
-<span class="n">f_high_resolution</span> <span class="o">=</span> <span class="p">[</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_high_resolution</span> <span class="p">]</span> <span class="c1">#first solution</span>
-
-<span class="n">f_high_resolution</span> <span class="o">=</span> <span class="p">[</span> <span class="n">f</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">))]</span> <span class="c1">#second solution</span>
-
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">harmonic_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    This function calculates the harmonic series of n</span>
+<span class="sd">    """</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="c1">#TODO: calculate the harmonic series of n</span>
+    <span class="k">return</span> <span class="n">result</span>
 
 <span class="c1"># Plotting</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">,</span> <span class="n">f_high_resolution</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="s1">'12'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">,</span> <span class="n">f_high_resolution</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Points evaluated'</span><span class="p">,</span><span class="s1">'Continuous function representation'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Function for approximation'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$f(x)$'</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9ef5459-2ffb-4bde-830c-646264c3648a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><b>The Left Riemann Sum</b></p>
-<p>This method approximates an integral by summing the area of rectangles defined with left points of the function:</p>
-$$I_{_{left}} \approx \sum_{i=0}^{n-1} f(x_i)\Delta x$$<p>From now on, you will use ten points to define the function.
-<br/><br/></p>
-<p>Let's look at the implementation of the Left Riemann sum following the same methods described in task 5. The differences are that (i) the index of the vector x ignores the last point, (ii) the multiplication by $\Delta x$ and (iii) the sum of the vector. Thus the result is not an array but a single number.<br>
-<br/><br/></br></p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=80eb6362">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 6:</b>
-<p>Scrutinize the correct implementations below. Why is it necessary to ignore the last point in x_values? What would happen if you include it?</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d3a75fe0-017b-4e8a-b729-68412a492854">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> 
-<span class="n">dx</span> <span class="o">=</span> <span class="n">x_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="c1">#TODO: create a list of n values from 1 to n</span>
+<span class="n">y</span> <span class="o">=</span> <span class="c1">#TODO: calculate the harmonic series of x, using list comprehension</span>
 
-<span class="c1"># Left Riemann summation: 1st option</span>
-<span class="n">I_left_riemann</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="p">)</span>  <span class="c1">#method 1</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Left Riemann Sum: </span><span class="si">{</span><span class="n">I_left_riemann</span><span class="si">:</span><span class="s2"> 0.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1">#TODO: plot x and y, with labels and title</span>
 
-<span class="c1"># Left Riemann summation: 2nd option</span>
-<span class="n">I_left_riemann</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="p">[</span> <span class="n">f</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">dx</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span>  <span class="c1">#method 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Left Riemann Sum: </span><span class="si">{</span><span class="n">I_left_riemann</span><span class="si">:</span><span class="s2"> 0.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=409b0530">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 7:</b>
-<p>Scrutinize the correct implementation below to visualize the bar plot (plt.bar) and location of the points (plt.plot with '*', in the line code below plt.bar) that define the height of each rectangle.</p>
-<br/>
-<br/>
-Tip: The bar plot requires one less element than the total number of points defining the function.  
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0c09dc12">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Visualization</span>
-<span class="c1"># Plot the rectangles and left corners of the elements in the riemann sum</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">width</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">'edge'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="s1">'16'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+<span class="c1"># asserts</span>
+<span class="k">assert</span> <span class="n">harmonic_series</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected 1 but got </span><span class="si">{</span><span class="n">harmonic_series</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>
+<span class="k">assert</span> <span class="n">harmonic_series</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.5</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected 1.5 but got </span><span class="si">{</span><span class="n">harmonic_series</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>
+<span class="k">assert</span> <span class="n">harmonic_series</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.8333333333333333</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected 1.8333333333333333 but got </span><span class="si">{</span><span class="n">harmonic_series</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>
 
-<span class="c1">#Plot "continuous" function</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">,</span> <span class="n">f_high_resolution</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Left Riemann Sum'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$f(x)$'</span><span class="p">);</span>
+<span class="c1"># save x, y data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="c1">#TODO: create a 2D array with x and y using np.column_stack()</span>
+<span class="c1">#TODO: save data to a csv file</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8906e8ab-9aa5-45db-a683-cd40a6729575">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>The Right Riemann Method</strong></p>
-<p>Similar to the left Riemann sum, this method is also algebraically simple to implement, and can be better suited to some situations, depending on the type of function you are trying to approximate. In this case, the subintervals are defined using the right-hand endpoints from the function and is represented by</p>
-$$I_{_{right}} \approx \sum_{i=1}^n f(x_i)\Delta x$$
+<p><a href="https://en.wikipedia.org/wiki/Fibonacci_sequence">Wikipedia: Fibonacci sequence</a></p>
+$$ F_n = F_{n-1} + F_{n-2} \quad \text{for} \quad n \geq 2 \quad \text{with} \quad F_0 = 0, \quad F_1 = 1$$
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0bbf4b11">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 8:</b>
-<p>Complete the code cell below for the right Riemman method..</p>
-<p>Tip: Consult the Left Riemann implementation above as a guide.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3073db6e-430c-4f17-ad88-a4f2892a55f1">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">I_right_riemann</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="p">[</span><span class="n">YOUR_CODE_HERE</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">YOUR_CODE_HERE</span><span class="p">]</span> <span class="p">)</span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    This function will return the n-th numbers of the fibonacci sequence</span>
+<span class="sd">    """</span>
+    <span class="c1">#TODO: calculate the n-th number of the fibonacci sequence</span>
+    <span class="k">return</span> <span class="n">result</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Right Riemann Sum: </span><span class="si">{</span><span class="n">I_right_riemann</span><span class="si">:</span><span class="s2"> 0.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># Asserts</span>
+<span class="k">assert</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected 0 but got </span><span class="si">{</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>    <span class="c1"># This will throw an error if the result is incorrect </span>
+<span class="k">assert</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected 1 but got </span><span class="si">{</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>    <span class="c1"># This will throw an error if the result is incorrect</span>
+<span class="k">assert</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected 1 but got </span><span class="si">{</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>    <span class="c1"># This will throw an error if the result is incorrect</span>
+<span class="k">assert</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'Expected 2 but got </span><span class="si">{</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>    <span class="c1"># This will throw an error if the result is incorrect</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0cf7e125">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 9:</b>
-<p>Complete the code cell below to visualize the right Riemman method.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c510d26b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Right Riemann sum visualization</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">]],</span> <span class="n">width</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">'edge'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">]],</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="s1">'16'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
-<span class="c1">#Plot "continuous" function</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">,</span> <span class="n">f_high_resolution</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Right Riemann Sum'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$f(x)$'</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24d26cbb-ab8f-435f-8238-0c22c0fce833">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Midpoint Method Approximation</strong></p>
-<p>For a function defined with constant steps (uniform $\Delta x$), the midpoint method approximates the integral taking the midpoint of the rectangle and splitting the width of the rectangle at this point.</p>
-$$I_{_{mid}} \approx \sum_{i=0}^{n-1} f\left(\frac{x_i+x_{i+1}}{2}\right)\Delta x $$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=13d1d689">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 10:</b>
-<p>Complete the code cell below to implement the midpoint sum below.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7ed26ad5-d2cb-450e-873d-5b21a596cedb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">I_midpoint</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">f</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">)])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Midpoint Sum: </span><span class="si">{</span><span class="n">I_midpoint</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fib_sequence</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    This function will return the first n numbers of the fibonacci sequence</span>
+<span class="sd">    """</span>
+    <span class="c1"># result = #TODO: calculate the first n numbers of the fibonacci sequence</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
 
-<span class="n">I_midpoint</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">f</span><span class="p">(</span><span class="n">x_at_the_middle</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span> <span class="k">for</span> <span class="n">x_at_the_middle</span> <span class="ow">in</span> <span class="n">YOUR_CODE_HERE</span> <span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Midpoint Sum: </span><span class="si">{</span><span class="n">I_midpoint</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># Asserts</span>
+<span class="k">assert</span> <span class="n">fib_sequence</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="p">[],</span> <span class="sa">f</span><span class="s1">'Expected [] but got </span><span class="si">{</span><span class="n">fib_sequence</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>                              <span class="c1"># This will throw an error if the result is incorrect</span>
+<span class="k">assert</span> <span class="n">fib_sequence</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'Expected [0] but got </span><span class="si">{</span><span class="n">fib_sequence</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>                            <span class="c1"># This will throw an error if the result is incorrect</span>
+<span class="k">assert</span> <span class="n">fib_sequence</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'Expected [0, 1] but got </span><span class="si">{</span><span class="n">fib_sequence</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>                      <span class="c1"># This will throw an error if the result is incorrect</span>
+<span class="k">assert</span> <span class="n">fib_sequence</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'Expected [0, 1, 1] but got </span><span class="si">{</span><span class="n">fib_sequence</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>                <span class="c1"># This will throw an error if the result is incorrect</span>
+<span class="k">assert</span> <span class="n">fib_sequence</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'Expected [0, 1, 1, 2] but got </span><span class="si">{</span><span class="n">fib_sequence</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>          <span class="c1"># This will throw an error if the result is incorrect</span>
+<span class="k">assert</span> <span class="n">fib_sequence</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'Expected [0, 1, 1, 2, 3] but got </span><span class="si">{</span><span class="n">fib_sequence</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span>    <span class="c1"># This will throw an error if the result is incorrect</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e685d8c3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 11:</b>
-<p>Complete the code cell below to visualize the midpoint method.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=370672eb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Midpoint sum visualization</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x_at_the_middle</span><span class="p">)</span> <span class="k">for</span> <span class="n">x_at_the_middle</span> <span class="ow">in</span> <span class="n">YOUR_CODE_HERE</span> <span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">'edge'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">YOUR_CODE_HERE</span><span class="p">],[</span><span class="n">f</span><span class="p">(</span><span class="n">x_at_the_middle</span><span class="p">)</span> <span class="k">for</span> <span class="n">x_at_the_middle</span> <span class="ow">in</span> <span class="n">YOUR_CODE_HERE</span><span class="p">],</span><span class="s1">'*'</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="s1">'16'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
-<span class="c1">#Plot "continuous" function</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">,</span> <span class="n">f_high_resolution</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Midpoint Sum'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$f(x)$'</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fcf6f8bc-5554-4309-81ce-0433fa947e34">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Trapezoidal Rule</strong></p>
-<p>This method requires two evaluations of the function $f$ for each 'rectangle', at its left and right corners. In fact, it does not represent a 'rectangle anymore' but a trapezoid. For a 1D case, it is a rectangle with a triangle on top.</p>
-$$I_{_{trapezoid}} \approx \sum_{i=0}^{n-1}\frac{f(x_i)+f(x_{i+1})}{2}\Delta x $$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=74bb23af">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 12:</b>
-<p>Complete the following code to implement the trapezoidal rule for the sum.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b6e68930-f1d8-4d7e-8162-8cd59f985be0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">I_trapezoidal</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">YOUR_CODE_HERE</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span> 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Trapezoidal Sum: </span><span class="si">{</span><span class="n">I_trapezoidal</span><span class="si">:</span><span class="s2"> 0.5e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5a3a195c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 13:</b>
-<p>To visualize the trapezoidal method a plt.bar is not used rather plt_fill_between. Revise the code cell below.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36cddace">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Trapezoidal sum</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]],</span> 
-                     <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">f</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])],</span> 
-                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-
-<span class="c1">#Plot "continuous" function</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_high_resolution</span><span class="p">,</span> <span class="n">f_high_resolution</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Trapezoidal Sum'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$f(x)$'</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=14295e08-e9db-4735-927d-715989b62b81">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Absolute errors in integral</strong></p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6b0720c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 14:</b>
-<p>Compute the absolute errors of each method. Are they similar to your expectatations? (i.e. corresponding to the orders of magnitude).</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=582e66ed-2016-4a84-a5f4-6d01d49671dc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate absolute errors</span>
-<span class="n">left_riemann_error</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-<span class="n">right_riemann_error</span> <span class="o">=</span>  <span class="n">YOUR_CODE_HERE</span>
-<span class="n">midpoint_error</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-<span class="n">trapezoidal_error</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-
-<span class="c1"># Print the results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Left Riemann Error: </span><span class="si">{</span><span class="n">left_riemann_error</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Right Riemann Error: </span><span class="si">{</span><span class="n">right_riemann_error</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Midpoint Error: </span><span class="si">{</span><span class="n">midpoint_error</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Trapezoidal Error: </span><span class="si">{</span><span class="n">trapezoidal_error</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ddc2f16f-7065-4829-aafc-91c95cc93aaf">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Simpson's Rule</strong></p>
-<p>Simpson's rule is a method that uses a quadratic approximation over an interval that allows the top bound of the area 'rectangle' to be defined by a polynomial. In general, it can be a better approximation for curved, but mathematically smooth functions. It also has the requirement that subintervals must be an even number, so this is something to be aware of when using it in practise. As a sum, it is defined as</p>
-$$\int^{b}_{a}f(x)\mathrm{d}x\approx \sum_{i=1}^{n/2}\frac{1}{3}(f(x_{2i-2})+4f(x_{2i-1})+f(x_{2i}))\Delta x$$<p>where $n$ must be an <em>even integer</em>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e0ed72e0-ced6-467c-8e01-a1b602a3613d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Challenge</b>
-<p>Take what you have seen in the other numerical implementation codes and implement Simpson's Rule for the same integral! A redefinition of x_values is done with 9 points instead of 10 as an uneven number of points is required to apply Simpson's Rule.</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ae169f8e-2d5a-4449-8c53-c8ca399af184">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define Simpson's Rule here</span>
-<span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">)</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>                      
-    
-<span class="n">simpson_integral</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span> <span class="n">YOUR_CODE_HERE</span> <span class="p">])</span> 
-
-<span class="c1"># Calculate the absolute error</span>
-<span class="n">simpson_error</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-
-<span class="c1"># Print the result and error</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Simpson's Rule Integral: </span><span class="si">{</span><span class="n">simpson_integral</span><span class="si">:</span><span class="s2"> 0.5e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Simpson's Rule Absolute Error: </span><span class="si">{</span><span class="n">simpson_error</span><span class="si">:</span><span class="s2"> 0.5e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8ffe7a1f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px">
-<p>
-<b>Task 15:</b>
-<p>Refine the number of points using the integration by left riemann until reaching a similar accuracy as for the trapezoidal rule. How much finer was your grid?</p>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=793cb6e5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=23b8f21d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8322,8 +7722,8 @@ $$\int^{b}_{a}f(x)\mathrm{d}x\approx \sum_{i=1}^{n/2}\frac{1}{3}(f(x_{2i-2})+4f(
         .markdown {width:100%; position: relative}
         article { position: relative }
     </style>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">
-<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="border-width:; width:88px; height:auto; padding-top:10px"/>
+<a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
+<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:; width:88px; height:auto; padding-top:10px"/>
 </a>
 <a href="https://www.tudelft.nl/en/ceg" rel="TU Delft">
 <img alt="TU Delft" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" style="border-width:0; width:100px; height:auto; padding-bottom:0px"/>
@@ -8333,7 +7733,7 @@ $$\int^{b}_{a}f(x)\mathrm{d}x\approx \sum_{i=1}^{n/2}\frac{1}{3}(f(x_{2i-2})+4f(
 </a>
 </h3>
 <span style="font-size: 75%">
-© Copyright 2023 <a href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595" rel="MUDE Team">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+© Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
 
 </span></div>
 </div>
@@ -8341,7 +7741,4 @@ $$\int^{b}_{a}f(x)\mathrm{d}x\approx \sum_{i=1}^{n/2}\frac{1}{3}(f(x_{2i-2})+4f(
 </div>
 </main>
 </body>
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
-</script>
 </html>
