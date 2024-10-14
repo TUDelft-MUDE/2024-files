@@ -14,17 +14,23 @@ stages:
   - process
   - deploy
 
-setup:
-  stage: setup
-  script:
+.install_dependencies:
+  before_script:
     - apt-get update && apt-get install -y curl
     - pip install jupytext nbconvert
+
+setup:
+  stage: setup
+  extends: .install_dependencies
+  script:
+    - echo "Dependencies installed successfully"
   artifacts:
     paths:
       - .pip-cache/
 
 process_notebooks:
   stage: process
+  extends: .install_dependencies
   script:
     - |
       for notebook in $(find ./src -name "*.ipynb"); do
@@ -76,8 +82,8 @@ create_sync_script:
     paths:
       - sync_notebooks.py
 
-deploy-draft-students:
-  stage: deploy
+.deploy_template:
+  extends: .install_dependencies
   script:
     - python sync_notebooks.py
     - |
@@ -85,6 +91,12 @@ deploy-draft-students:
         echo "Conflicts detected. Please review the .conflicts files."
         exit 1
       fi
+
+deploy-draft-students:
+  stage: deploy
+  extends: .deploy_template
+  script:
+    - !reference [.deploy_template, script]
     - |
       curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
         -H "Content-Type: application/json" \
@@ -104,13 +116,9 @@ deploy-draft-students:
 
 deploy-teachers:
   stage: deploy
+  extends: .deploy_template
   script:
-    - python sync_notebooks.py
-    - |
-      if [ -n "$(find . -name '*.conflicts')" ]; then
-        echo "Conflicts detected. Please review the .conflicts files."
-        exit 1
-      fi
+    - !reference [.deploy_template, script]
     - |
       curl -X POST "${WEBHOOK_URL}/files-sync-teachers" \
         -H "Content-Type: application/json" \
@@ -130,13 +138,9 @@ deploy-teachers:
 
 deploy-production-students:
   stage: deploy
+  extends: .deploy_template
   script:
-    - python sync_notebooks.py
-    - |
-      if [ -n "$(find . -name '*.conflicts')" ]; then
-        echo "Conflicts detected. Please review the .conflicts files."
-        exit 1
-      fi
+    - !reference [.deploy_template, script]
     - |
       curl -X POST "${WEBHOOK_URL}/files-sync-students" \
         -H "Content-Type: application/json" \
