@@ -12,7 +12,7 @@ How close is your approximation to the exact solution $x=3$ when your initial gu
 
 _Write your answer here._
 
-See notebook.
+Really close.
 
 **Question 2**
 
