@@ -17,7 +17,7 @@ stages:
 setup:
   stage: setup
   script:
-    - apk add --no-cache curl
+    - apt-get update && apt-get install -y curl
     - pip install jupytext nbconvert
   artifacts:
     paths:
