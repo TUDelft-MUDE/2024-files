@@ -30,9 +30,9 @@ _Note that an unstable condition is one that increases/decreases unbounded; an i
 
 _Sate the stability limit here._
 
-The limit was between 0.3 and 0.4.
+The stability limit seemed to be between 0.35s and 0.4s when looking at the beginning of the plot. However, the error remains bounded. So, under the strict definition of stability given above, there does not seem to be a limit if we extend the plot to include larger values of time in the x axis. The fact that the function is nonlinear, dependent on harmonic functions, makes it quite complicated to confidently state a limit.    
 
-Note also that the _implicit_ scheme also has issues when the time step becomes too big, however, this is due to the Newton-Raphson scheme not converging; it is not a stability issue. The solution is stable, but it is also _terrible._
+Note also that the _implicit_ scheme also has issues when the time step becomes too big. This is due to the Newton-Raphson scheme not converging; it is not a stability issue. In this case, the solution does not converge starting with dt=0.35s. The solution is unconditionally stable, but it is stoped at the very beginning. 
 
 ## Part 2: Diffusion equation in 1D
 
@@ -48,7 +48,7 @@ Add an image (or Latex equation) of your matrices $AT=b$ for both solution metho
 
 _Your answer here._
 
-See notebook.
+The A matrix is an identity matrix for the CDS-FDT case. The b vector is elaborated where the boundaries are implemented intrinsically. In the latter case, CDS-BDT, the matrix A is tridiagonal and the boundaries in the b vector are explicitly implemented. No iteration is required in the implicit scheme because the dependence on time is linear.  
 
 **Question 6**
 
@@ -65,6 +65,10 @@ From your results of task 3.4 you can observe a dependency on the parameter $\nu
 _Your answer should include a couple sentences as an explanation, as well as the values of $\Delta t$ at the limit of stability and the computation time for each approach (see last task of WS 1.6 solution for an example of tracking computation time in Python)._
 
 _Write your answer here_
+
+The dx could have been interpreted as dx=0.3/15=0.02m or dx=0.3/14=0.0214..m. If the former was used, the stability limit was at 50-51 seconds and for dx/2 it was about 13 seconds. If the later was used, the stability limit was 58-59 seconds and for dx/2 it was about 15 seconds. The computational time increases a lot since not only the grid contains more points when refining dx but also dt has to be reduced by a factor 3 (for this case). If the parameter $\nu \Delta t / \Delta x^2$ was printed, then a value of about 0.5 should have been found for both cases, if $\nu$ was not included, then a value about 127000 should have been found.
+
+The following contains Robert's text. 
 
 probably between 20 and 200 time steps (with original values of t0 and t_end)
 
@@ -90,6 +94,8 @@ _Write your answer here_
 Considering the non-linear ODE and the PDE results, would you say that Implicit methods are always better than Explicit methods? State "yes" or "no" and provide a brief explanation (2-3 sentences).
 
 _Insert image here_
+
+Explicit methods are not better than Implicit ones and viceversa. The former is easier to schematize and to program but it normally requires smaller time steps to retain its stability and a reasonable solution. The latter is more complex for non-linear problems but gives the flexibility of using larger time steps. However, under some cases, the iteration method may not converge neither posing also a limit to the usable time step.
 
 **Last Question: How did things go? (Optional)**
 
