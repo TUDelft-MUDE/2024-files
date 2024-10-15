@@ -11,8 +11,9 @@ cache:
 
 stages:
   - setup
-  - process
   - deploy
+  - process
+  - verify
 
 .install_dependencies:
   before_script:
@@ -27,6 +28,75 @@ setup:
   artifacts:
     paths:
       - .pip-cache/
+
+.deploy_template:
+  extends: .install_dependencies
+  stage: deploy
+  script:
+    - echo "Deploying files from src directory"
+
+deploy-draft-students:
+  extends: .deploy_template
+  script:
+    - !reference [.deploy_template, script]
+    - |
+      curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "main"
+          }
+        }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/students/**/*
+      when: always
+
+deploy-teachers:
+  extends: .deploy_template
+  script:
+    - !reference [.deploy_template, script]
+    - |
+      curl -X POST "${WEBHOOK_URL}/files-sync-teachers" \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "main"
+          }
+        }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/teachers/**/*
+      when: always
+
+deploy-production-students:
+  extends: .deploy_template
+  script:
+    - !reference [.deploy_template, script]
+    - |
+      curl -X POST "${WEBHOOK_URL}/files-sync-students" \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "release"
+          }
+        }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "release"
+      changes:
+        - src/students/**/*
+      when: always
 
 process_notebooks:
   stage: process
@@ -54,106 +124,37 @@ process_notebooks:
     paths:
       - clean/
 
-create_sync_script:
-  stage: process
-  script:
-    - |
-      cat << EOF > sync_notebooks.py
-      import os
-      import sys
-      import jupytext
-      from nbformat import read, write, NO_CONVERT
-      
-      def sync_notebooks(source_dir, clean_dir):
-          for root, _, files in os.walk(source_dir):
-              for file in files:
-                  if file.endswith('.ipynb'):
-                      source_path = os.path.join(root, file)
-                      clean_path = source_path.replace(source_dir, clean_dir)
-                      md_path = clean_path.replace('.ipynb', '.md')
-                      py_path = clean_path.replace('.ipynb', '.py')
-                      
-                      # Sync logic here (as before)
-      
-      if __name__ == "__main__":
-          sync_notebooks("./src", "./clean")
-      EOF
-  artifacts:
-    paths:
-      - sync_notebooks.py
-
-.deploy_template:
+verify_files:
+  stage: verify
   extends: .install_dependencies
   script:
-    - python sync_notebooks.py
     - |
-      if [ -n "$(find . -name '*.conflicts')" ]; then
-        echo "Conflicts detected. Please review the .conflicts files."
-        exit 1
-      fi
-
-deploy-draft-students:
-  stage: deploy
-  extends: .deploy_template
-  script:
-    - !reference [.deploy_template, script]
-    - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "main"
-          }
-        }'
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - src/students/**/*
-      when: always
-
-deploy-teachers:
-  stage: deploy
-  extends: .deploy_template
-  script:
-    - !reference [.deploy_template, script]
-    - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-teachers" \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "main"
-          }
-        }'
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - src/teachers/**/*
-      when: always
-
-deploy-production-students:
-  stage: deploy
-  extends: .deploy_template
-  script:
-    - !reference [.deploy_template, script]
-    - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-students" \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "release"
-          }
-        }'
-  rules:
-    - if: $CI_COMMIT_BRANCH == "release"
-      changes:
-        - src/students/**/*
-      when: always
+      echo "Checking Markdown and code-only files..."
+      for notebook in $(find ./clean -name "*.ipynb"); do
+        md_file="${notebook%.ipynb}.md"
+        py_file="${notebook%.ipynb}.py"
+        
+        if [ ! -f "$md_file" ]; then
+          echo "ERROR: Markdown file not found for $notebook"
+          exit 1
+        fi
+        
+        if [ ! -f "$py_file" ]; then
+          echo "ERROR: Python file not found for $notebook"
+          exit 1
+        fi
+        
+        echo "Checking content of $md_file"
+        if ! grep -q "# " "$md_file"; then
+          echo "WARNING: $md_file might be empty or not contain proper Markdown headers"
+        fi
+        
+        echo "Checking content of $py_file"
+        if ! grep -q "# %%" "$py_file"; then
+          echo "WARNING: $py_file might not contain proper cell separators"
+        fi
+      done
+      
+      echo "All files checked successfully"
+  dependencies:
+    - process_notebooks
