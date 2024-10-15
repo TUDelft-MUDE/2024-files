@@ -4,6 +4,7 @@ variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
   WEBHOOK_URL: "https://mude.citg.tudelft.nl/hooks"
   WEBHOOK_TOKEN: "glpat-Lohnt8MN6nWzpcwyhprL"
+  SYNC_SCRIPT_PATH: "/var/web_server/sync_notebooks.py"  # Update this to the actual path on your webserver
 
 cache:
   paths:
@@ -11,9 +12,9 @@ cache:
 
 stages:
   - setup
-  - deploy
   - process
-  - verify
+  - sync
+  - deploy
 
 .install_dependencies:
   before_script:
@@ -28,6 +29,42 @@ setup:
   artifacts:
     paths:
       - .pip-cache/
+
+process_notebooks:
+  stage: process
+  extends: .install_dependencies
+  script:
+    - |
+      for notebook in $(find ./src -name "*.ipynb"); do
+        # 1. Copy file to a parallel folder
+        clean_notebook=$(echo $notebook | sed 's/src/clean/')
+        mkdir -p $(dirname $clean_notebook)
+        cp $notebook $clean_notebook
+        
+        # 2. Strip cell outputs
+        jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace $clean_notebook
+        
+        # 3. Create a markdown-only .md file
+        jupytext --to md $clean_notebook
+        
+        # 4. Create a code-only .py file
+        jupytext --to py:percent $clean_notebook
+      done
+  artifacts:
+    paths:
+      - clean/
+
+sync_notebooks:
+  stage: sync
+  extends: .install_dependencies
+  script:
+    - python ${SYNC_SCRIPT_PATH} ./src ./clean
+  artifacts:
+    paths:
+      - src/
+      - clean/
+      - "**/*.conflicts"
+    when: always
 
 .deploy_template:
   extends: .install_dependencies
@@ -97,64 +134,3 @@ deploy-production-students:
       changes:
         - src/students/**/*
       when: always
-
-process_notebooks:
-  stage: process
-  extends: .install_dependencies
-  script:
-    - |
-      for notebook in $(find ./src -name "*.ipynb"); do
-        # Create parallel directory structure
-        parallel_dir=$(echo $notebook | sed 's/src/clean/')
-        mkdir -p $(dirname $parallel_dir)
-        
-        # Copy original notebook
-        cp $notebook $parallel_dir
-        
-        # Strip outputs
-        jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace $parallel_dir
-        
-        # Create Markdown version
-        jupytext --to md $parallel_dir
-        
-        # Create Python version
-        jupytext --to py:percent $parallel_dir
-      done
-  artifacts:
-    paths:
-      - clean/
-
-verify_files:
-  stage: verify
-  extends: .install_dependencies
-  script:
-    - |
-      echo "Checking Markdown and code-only files..."
-      for notebook in $(find ./clean -name "*.ipynb"); do
-        md_file="${notebook%.ipynb}.md"
-        py_file="${notebook%.ipynb}.py"
-        
-        if [ ! -f "$md_file" ]; then
-          echo "ERROR: Markdown file not found for $notebook"
-          exit 1
-        fi
-        
-        if [ ! -f "$py_file" ]; then
-          echo "ERROR: Python file not found for $notebook"
-          exit 1
-        fi
-        
-        echo "Checking content of $md_file"
-        if ! grep -q "# " "$md_file"; then
-          echo "WARNING: $md_file might be empty or not contain proper Markdown headers"
-        fi
-        
-        echo "Checking content of $py_file"
-        if ! grep -q "# %%" "$py_file"; then
-          echo "WARNING: $py_file might not contain proper cell separators"
-        fi
-      done
-      
-      echo "All files checked successfully"
-  dependencies:
-    - process_notebooks
