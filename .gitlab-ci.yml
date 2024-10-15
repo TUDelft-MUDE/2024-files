@@ -58,7 +58,14 @@ sync_notebooks:
   stage: sync
   extends: .install_dependencies
   script:
+    - echo "Executing sync script at ${SYNC_SCRIPT_PATH}"
+    - ls -l ${SYNC_SCRIPT_PATH}  # This will help verify the file exists and has correct permissions
     - python ${SYNC_SCRIPT_PATH} ./src ./clean
+    - |
+      if [ -n "$(find . -name '*.conflicts')" ]; then
+        echo "Conflicts detected. Please review the .conflicts files."
+        exit 1
+      fi
   artifacts:
     paths:
       - src/
