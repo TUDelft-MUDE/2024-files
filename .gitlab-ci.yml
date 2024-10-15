@@ -4,7 +4,6 @@ variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
   WEBHOOK_URL: "https://mude.citg.tudelft.nl/hooks"
   WEBHOOK_TOKEN: "glpat-Lohnt8MN6nWzpcwyhprL"
-  SYNC_SCRIPT_PATH: "/var/web_server/sync_notebooks.py"  # Update this to the actual path on your webserver
 
 cache:
   paths:
@@ -36,31 +35,91 @@ process_notebooks:
   script:
     - |
       for notebook in $(find ./src -name "*.ipynb"); do
-        # 1. Copy file to a parallel folder
         clean_notebook=$(echo $notebook | sed 's/src/clean/')
         mkdir -p $(dirname $clean_notebook)
         cp $notebook $clean_notebook
-        
-        # 2. Strip cell outputs
         jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace $clean_notebook
-        
-        # 3. Create a markdown-only .md file
         jupytext --to md $clean_notebook
-        
-        # 4. Create a code-only .py file
         jupytext --to py:percent $clean_notebook
       done
   artifacts:
     paths:
       - clean/
 
+create_sync_script:
+  stage: process
+  script:
+    - |
+      cat << EOF > sync_notebooks.py
+      import os
+      import sys
+      import jupytext
+      from nbformat import read, write, NO_CONVERT
+      import difflib
+
+      def sync_notebooks(source_dir, clean_dir):
+          for root, _, files in os.walk(source_dir):
+              for file in files:
+                  if file.endswith('.ipynb'):
+                      source_path = os.path.join(root, file)
+                      clean_path = source_path.replace(source_dir, clean_dir)
+                      md_path = clean_path.replace('.ipynb', '.md')
+                      py_path = clean_path.replace('.ipynb', '.py')
+                      
+                      # Regenerate parallel files if original nb changed
+                      if os.path.exists(source_path) and (not os.path.exists(clean_path) or 
+                                                          os.path.getmtime(source_path) > os.path.getmtime(clean_path)):
+                          print(f"Updating clean files from {source_path}")
+                          nb = read(source_path, as_version=NO_CONVERT)
+                          jupytext.write(nb, clean_path)
+                          jupytext.write(nb, md_path)
+                          jupytext.write(nb, py_path)
+                      
+                      # Check for edits in parallel files and update notebook
+                      elif os.path.exists(clean_path) and os.path.getmtime(clean_path) > os.path.getmtime(source_path):
+                          print(f"Checking for updates in clean files for {source_path}")
+                          source_nb = read(source_path, as_version=NO_CONVERT)
+                          clean_nb = jupytext.read(clean_path)
+                          
+                          if source_nb['cells'] != clean_nb['cells']:
+                              print(f"Conflicts detected in {file}")
+                              with open(f"{clean_path}.conflicts", 'w') as f:
+                                  f.write(f"Conflicts detected between {source_path} and {clean_path}\\n")
+                                  f.write("Diff:\\n")
+                                  for i, (s_cell, c_cell) in enumerate(zip(source_nb['cells'], clean_nb['cells'])):
+                                      if s_cell != c_cell:
+                                          f.write(f"Cell {i}:\\n")
+                                          diff = difflib.unified_diff(
+                                              s_cell['source'].splitlines(),
+                                              c_cell['source'].splitlines(),
+                                              fromfile='source',
+                                              tofile='clean',
+                                              lineterm=''
+                                          )
+                                          f.write('\\n'.join(diff))
+                                          f.write('\\n\\n')
+                          else:
+                              print(f"Updating source notebook from {clean_path}")
+                              write(clean_nb, source_path)
+
+      if __name__ == "__main__":
+          if len(sys.argv) != 3:
+              print("Usage: python sync_notebooks.py <source_dir> <clean_dir>")
+              sys.exit(1)
+          
+          source_dir = sys.argv[1]
+          clean_dir = sys.argv[2]
+          sync_notebooks(source_dir, clean_dir)
+      EOF
+  artifacts:
+    paths:
+      - sync_notebooks.py
+
 sync_notebooks:
   stage: sync
   extends: .install_dependencies
   script:
-    - echo "Executing sync script at ${SYNC_SCRIPT_PATH}"
-    - ls -l ${SYNC_SCRIPT_PATH}  # This will help verify the file exists and has correct permissions
-    - python ${SYNC_SCRIPT_PATH} ./src ./clean
+    - python sync_notebooks.py ./src ./clean
     - |
       if [ -n "$(find . -name '*.conflicts')" ]; then
         echo "Conflicts detected. Please review the .conflicts files."
@@ -74,7 +133,6 @@ sync_notebooks:
     when: always
 
 .deploy_template:
-  extends: .install_dependencies
   stage: deploy
   script:
     - echo "Deploying files from src directory"
