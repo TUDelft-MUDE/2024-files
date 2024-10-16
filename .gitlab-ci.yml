@@ -1,159 +1,101 @@
-image: python:3.9
+stages:
+  - build
+  - deploy
+  - cleanup
 
 variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
-  WEBHOOK_URL: "https://mude.citg.tudelft.nl/hooks"
-  WEBHOOK_TOKEN: "glpat-Lohnt8MN6nWzpcwyhprL"
+  # Disable TLS as we're using the host's Docker socket
+  DOCKER_TLS_CERTDIR: ""
 
-cache:
-  paths:
-    - .pip-cache/
-
-stages:
-  - setup
-  - process
-  - deploy
-
-.install_dependencies:
+build:
+  stage: build
+  image: docker:latest
   before_script:
-    - apt-get update && apt-get install -y curl
-    - pip install jupytext nbconvert
-
-setup:
-  stage: setup
-  extends: .install_dependencies
+    - docker info
+    - docker-compose --version
   script:
-    - echo "Dependencies installed successfully"
-  artifacts:
-    paths:
-      - .pip-cache/
+    - docker-compose build
+  tags:
+    - deploy # Use this tag if you have a runner with access to Docker socket
 
-process_notebooks:
-  stage: process
-  extends: .install_dependencies
+deploy-to-archive:
+  stage: deploy
+  image: docker:latest
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_COMMIT_BRANCH == "draft" && $CI_PIPELINE_SOURCE == "push"
+  before_script:
+    - apk add --no-cache rsync openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$DIDATA_DEPLOYER_SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
+    - 'echo "Current directory: $PWD"'
+    - ls -la
     - |
-      for notebook in $(find ./src -name "*.ipynb"); do
-        # Create parallel directory structure
-        parallel_dir=$(echo $notebook | sed 's/src/clean/')
-        mkdir -p $(dirname $parallel_dir)
-        
-        # Copy original notebook
-        cp $notebook $parallel_dir
-        
-        # Strip outputs
-        jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace $parallel_dir
-        
-        # Create Markdown version
-        jupytext --to md $parallel_dir
-        
-        # Create Python version
-        jupytext --to py:percent $parallel_dir
-      done
-  artifacts:
-    paths:
-      - clean/
-
-create_sync_script:
-  stage: process
-  script:
-    - |
-      cat << EOF > sync_notebooks.py
-      import os
-      import sys
-      import jupytext
-      from nbformat import read, write, NO_CONVERT
-      
-      def sync_notebooks(source_dir, clean_dir):
-          for root, _, files in os.walk(source_dir):
-              for file in files:
-                  if file.endswith('.ipynb'):
-                      source_path = os.path.join(root, file)
-                      clean_path = source_path.replace(source_dir, clean_dir)
-                      md_path = clean_path.replace('.ipynb', '.md')
-                      py_path = clean_path.replace('.ipynb', '.py')
-                      
-                      # Sync logic here (as before)
-      
-      if __name__ == "__main__":
-          sync_notebooks("./src", "./clean")
-      EOF
-  artifacts:
-    paths:
-      - sync_notebooks.py
-
-.deploy_template:
-  extends: .install_dependencies
-  script:
-    - python sync_notebooks.py
-    - |
-      if [ -n "$(find . -name '*.conflicts')" ]; then
-        echo "Conflicts detected. Please review the .conflicts files."
-        exit 1
+      if [ "$CI_PIPELINE_SOURCE" = "merge_request_event" ]; then
+        echo "This is a merge request. Skipping actual deployment, but running checks..."
+        exit 0
       fi
 
-deploy-draft-students:
-  stage: deploy
-  extends: .deploy_template
-  script:
-    - !reference [.deploy_template, script]
+    # Determine environment based on branch
     - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "main"
-          }
-        }'
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - src/students/**/*
-      when: always
+      if [ "$CI_COMMIT_BRANCH" == "main" ]; then
+        DEPLOY_DIR="/var/web_server/htdocs/didata"
+        COMPOSE_PROJECT_NAME="didata_production"
+        BACKEND_PORT=8000
+        REACT_APP_API_URL=https://edu01.citg.tudelft.nl/api
+      elif [ "$CI_COMMIT_BRANCH" == "draft" ]; then
+        DEPLOY_DIR="/var/web_server/htdocs/draft"
+        COMPOSE_PROJECT_NAME="didata_draft"
+        BACKEND_PORT=8001
+        REACT_APP_API_URL=https://edu01.citg.tudelft.nl/api
+      fi
 
-deploy-teachers:
-  stage: deploy
-  extends: .deploy_template
-  script:
-    - !reference [.deploy_template, script]
-    - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-teachers" \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "main"
-          }
-        }'
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - src/teachers/**/*
-      when: always
+    # Test SSH connection
+    - echo "Testing SSH connection..."
+    - ssh -v $DIDATA_SERVER_USER@$DIDATA_SERVER_ADDRESS "echo 'SSH connection successful'"
+    - echo "SSH test completed. Proceeding with rsync..."
 
-deploy-production-students:
-  stage: deploy
-  extends: .deploy_template
-  script:
-    - !reference [.deploy_template, script]
+    # Rsync to the appropriate directory based on branch
+    - 'rsync -avz --delete-after --exclude=".git/" --exclude=".cache/" --exclude="venv/" --exclude="frontend/node_modules/" --exclude=".env" . $DIDATA_SERVER_USER@$DIDATA_SERVER_ADDRESS:/tmp/didata_update/'
+
+    # SSH and deploy to the correct directory and Docker container
     - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-students" \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "release"
-          }
-        }'
-  rules:
-    - if: $CI_COMMIT_BRANCH == "release"
-      changes:
-        - src/students/**/*
-      when: always
+      ssh $DIDATA_SERVER_USER@$DIDATA_SERVER_ADDRESS "
+        sudo rsync -avz /tmp/didata_update/ $DEPLOY_DIR/ &&
+        sudo chown -R root:root $DEPLOY_DIR &&
+        sudo rm -rf /tmp/didata_update &&
+        sudo chmod 755 $DEPLOY_DIR &&
+        sudo chmod 600 $DEPLOY_DIR/.env &&  # Ensure this stays in the script, NOT in the .env file
+        sudo chmod +x $DEPLOY_DIR/build_and_deploy.sh &&
+        cd $DEPLOY_DIR &&
+        export COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT_NAME &&
+        export BACKEND_PORT=$BACKEND_PORT &&
+        export REACT_APP_API_URL=$REACT_APP_API_URL &&
+        sudo -E docker-compose --env-file .env build &&
+        sudo -E docker-compose --env-file .env up -d &&
+        echo 'Checking nginx html directory contents:' &&
+        sudo -E docker exec ${COMPOSE_PROJECT_NAME}-nginx-1 ls -R /usr/share/nginx/html
+        echo 'Checking environment variables...' &&
+        sudo -E docker-compose exec -T backend env &&
+        echo 'Checking Django secret key...' &&
+        sudo -E docker-compose exec -T backend sh -c 'export DJANGO_SETTINGS_MODULE=config.settings && python -c \"from django.conf import settings; print(f\\\"Django secret key: {settings.SECRET_KEY}\\\")\"' &&
+        echo 'Running migrations...' &&
+        sudo -E docker-compose exec -T backend python manage.py migrate
+      "
+
+  environment:
+    name: production
+    url: https://edu01.citg.tudelft.nl/
+
+cleanup:
+  stage: cleanup
+  image: docker:latest
+  script:
+    - docker system prune -a --volumes -f
+  when: manual
+  tags:
+    - deploy
