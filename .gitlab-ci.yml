@@ -1,104 +1,67 @@
-image: python:3.9
-
-variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
-  WEBHOOK_URL: "https://mude.citg.tudelft.nl/hooks"
-  WEBHOOK_TOKEN: "glpat-Lohnt8MN6nWzpcwyhprL"
-
-cache:
-  paths:
-    - .pip-cache/
+image: alpine:latest
 
 stages:
-  - check_changes
-  - process
   - deploy
 
-.install_dependencies:
-  before_script:
-    - apt-get update && apt-get install -y curl jq
-    - pip install jupytext nbconvert
+before_script:
+  - apk add --no-cache curl
 
-check_changes:
-  stage: check_changes
-  script:
-    - |
-      changes=$(git diff --name-only $CI_COMMIT_BEFORE_SHA $CI_COMMIT_SHA)
-      if echo "$changes" | grep -qvE "^src/"; then
-        echo "FULL_PROCESS=true" >> pipeline.env
-      else
-        echo "FULL_PROCESS=false" >> pipeline.env
-      fi
-      echo "$changes" > changed_files.txt
-  artifacts:
-    reports:
-      dotenv: pipeline.env
-    paths:
-      - changed_files.txt
-
-process_notebooks:
-  stage: process
-  extends: .install_dependencies
-  script:
-    - |
-      if [ "$FULL_PROCESS" = "true" ]; then
-        for notebook in $(find ./src -name "*.ipynb"); do
-          clean_notebook=$(echo $notebook | sed 's/src/clean/')
-          mkdir -p $(dirname $clean_notebook)
-          cp $notebook $clean_notebook
-          jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace $clean_notebook
-          jupytext --to md $clean_notebook
-          jupytext --to py:percent $clean_notebook
-        done
-      else
-        echo "Skipping full processing"
-      fi
-  artifacts:
-    paths:
-      - src/
-      - clean/
-
-deploy:
+deploy-draft-students:
   stage: deploy
-  extends: .install_dependencies
   script:
     - |
-      changed_files=$(cat changed_files.txt | jq -R -s -c 'split("\n")')
-      full_process=$FULL_PROCESS
-      
-      deploy_payload=$(jq -n \
-        --arg kind "pipeline" \
-        --arg status "success" \
-        --arg ref "$CI_COMMIT_REF_NAME" \
-        --argjson changes "$changed_files" \
-        --argjson full_process $full_process \
-        '{
-          object_kind: $kind,
-          object_attributes: {
-            status: $status,
-            ref: $ref
-          },
-          changes: $changes,
-          full_process: $full_process
-        }')
-      
-      if [[ "$CI_COMMIT_BRANCH" == "main" && "$changed_files" == *"src/students/"* ]]; then
-        curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
-          -H "Content-Type: application/json" \
-          -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-          -d "$deploy_payload"
-      fi
-      
-      if [[ "$CI_COMMIT_BRANCH" == "main" && "$changed_files" == *"src/teachers/"* ]]; then
-        curl -X POST "${WEBHOOK_URL}/files-sync-teachers" \
-          -H "Content-Type: application/json" \
-          -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-          -d "$deploy_payload"
-      fi
-      
-      if [[ "$CI_COMMIT_BRANCH" == "release" && "$changed_files" == *"src/students/"* ]]; then
-        curl -X POST "${WEBHOOK_URL}/files-sync-students" \
-          -H "Content-Type: application/json" \
-          -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-          -d "$deploy_payload"
-      fi
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students-draft \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "main"
+          }
+        }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/students/**/*
+      when: always
+
+deploy-teachers:
+  stage: deploy
+  script:
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-teachers \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "main"
+          }
+        }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/teachers/**/*
+      when: always
+
+deploy-production-students:
+  stage: deploy
+  script:
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "release"
+          }
+        }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "release"
+      changes:
+        - src/students/**/*
+      when: always
