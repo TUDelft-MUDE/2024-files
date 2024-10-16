@@ -12,15 +12,21 @@ How close is your approximation to the exact solution $x=3$ when your initial gu
 
 _Write your answer here._
 
-See notebook.
+The approximation was extremely close: 3.0000000149658455
+
+It takes more iterations because at that location the derivative is close to 0 and it first goes far away from the solution.
+
+Same solution as notebook task 1.3.
 
 **Question 2**
 
-Include a figure of your solution for dt=0.25 s (task 2.3). 
+Include a figure of your solution for $dt=0.25$ s (task 2.3). 
 
 _Your figure here._
 
-See notebook.
+![image](.\figures\dt_25.png)
+
+
 
 **Question 3**
 
@@ -30,9 +36,17 @@ _Note that an unstable condition is one that increases/decreases unbounded; an i
 
 _Sate the stability limit here._
 
-The limit was between 0.3 and 0.4.
+The stability limit seemed to be between 0.35s and 0.4s when looking at the beginning of the plot. 
 
-Note also that the _implicit_ scheme also has issues when the time step becomes too big, however, this is due to the Newton-Raphson scheme not converging; it is not a stability issue. The solution is stable, but it is also _terrible._
+However, the error remains bounded. So, under the strict definition of stability given above, there does not seem to be a limit if we extend the plot to include larger values of time in the x axis. The fact that the function is nonlinear, dependent on harmonic functions, makes it quite complicated to confidently state a limit.
+
+Note also that the implicit scheme also has issues when the time step becomes too big. This is due to the Newton-Raphson scheme not converging; it is not a stability issue. In this case, the solution does not converge starting with dt=0.35s. The solution is unconditionally stable, but it is stopped at the very beginning.
+
+Here are some images where $dt = 0.35$ and $dt = 0.4$ for the explicit scheme:
+
+![image2](.\figures\dt_35.png)
+
+![image3](.\figures\dt_4.png)
 
 ## Part 2: Diffusion equation in 1D
 
@@ -42,13 +56,69 @@ Add an image of the stencils and the algebraic expression of the differential eq
 
 _Insert image here._
 
+Stencils:
+
+![image3](.\figures\stencils.png)
+
+Equation for central difference in space:
+
+$$ 
+\frac{\partial T}{\partial t}\bigg|_i = \nu \frac{T_{i+1}-2T_i+T_{i-1}}{\Delta x^2}
+$$
+
+Equation for backward difference in time:
+
+$$ 
+T^{j+1}_{i} = T^j_i + \frac{\nu \Delta t}{\Delta x^2} \left(T^{j+1}_{i+1}-2T^{j+1}_i+T^{j+1}_{i-1}\right)
+$$
+
+
 **Question 5**
 
 Add an image (or Latex equation) of your matrices $AT=b$ for both solution methods. Describe the differences in a few short sentences.  
 
 _Your answer here._
 
-See notebook.
+CDS-FDT:
+
+$$
+
+placeholder
+
+$$
+
+
+CDS-BDT:
+
+$$
+AT = b\\
+
+T = \begin{bmatrix}
+T_1^{j+1} \\
+T_2^{j+1} \\
+\vdots \\
+T_{N-1}^{j+1}
+\end{bmatrix}\\
+\newline
+A = \begin{bmatrix}
+1+2\frac{\nu \Delta t}{\Delta x^2} & -\frac{\nu \Delta t}{\Delta x^2} & 0 & \cdots & 0 \\
+-\frac{\nu \Delta t}{\Delta x^2} & 1+2\frac{\nu \Delta t}{\Delta x^2} & -\frac{\nu \Delta t}{\Delta x^2} & \cdots & 0 \\
+0 & -\frac{\nu \Delta t}{\Delta x^2} & 1+2\frac{\nu \Delta t}{\Delta x^2} & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & 1+2\frac{\nu \Delta t}{\Delta x^2}
+\end{bmatrix}\\
+\newline
+b = \begin{bmatrix}
+T_1^j + \frac{\nu \Delta t}{\Delta x^2}T_0^j \\
+T_2^j \\
+\vdots \\
+T_{N-1}^j + \frac{\nu \Delta t}{\Delta x^2}T_N^j
+\end{bmatrix}
+
+
+$$
+
+The A matrix is an identity matrix for the CDS-FDT case. The b vector is elaborated where the boundaries are implemented intrinsically. In the latter case, CDS-BDT, the matrix A is tridiagonal and the boundaries in the b vector are explicitly implemented. No iteration is required in the implicit scheme because the dependence on time is linear.
 
 **Question 6**
 
@@ -56,7 +126,9 @@ Add an image of the results corresponding to Task 3.8 at t=1500 sec and at t=100
 
 _Insert image here._
 
-See notebook.
+![image4](.\figures\step1500.png)
+
+![image5](.\figures\step10000.png)
 
 **Question 7**
 
@@ -66,18 +138,11 @@ _Your answer should include a couple sentences as an explanation, as well as the
 
 _Write your answer here_
 
-probably between 20 and 200 time steps (with original values of t0 and t_end)
+- The dx could have been interpreted as $dx=0.3/15=0.02m$ or $dx=0.3/14=0.0214m$. 
+- If the former was used, the stability limit was at 50-51 seconds and for $dx/2$ it was about 13 seconds. 
+- If the latter was used, the stability limit was 58-59 seconds and for $dx/2$ it was about 15 seconds. 
 
-stability threshold for diffusion should be nu*\Delta t/\Delta x^2 = 0.5 (but we forgot the nu in the equation above, so students will report different ratios)
-
-a good answer would have been:
-- find a bad dt
-- change dx
-- find another bad dt
-- find that the ratio dt/dx^2 is about the same for both cases
-- (we point out in solution that if you *nu it is around 0.5)
-
-Isabel: grade based on the good answer and we will adjust.
+The computational time increases a lot since not only the grid contains more points when refining dx but also dt has to be reduced by a factor 3 (for this case). If the parameter νΔt/Δx2\nu \Delta t / \Delta x^2νΔt/Δx2 was printed, then a value of about 0.5 should have been found for both cases, if ν\nuν was not included, then a value about 127000 should have been found.
 
 **Question 8**
 
@@ -90,6 +155,15 @@ _Write your answer here_
 Considering the non-linear ODE and the PDE results, would you say that Implicit methods are always better than Explicit methods? State "yes" or "no" and provide a brief explanation (2-3 sentences).
 
 _Insert image here_
+
+No.
+
+Explicit methods are not better than Implicit ones and viceversa. 
+
+- The former is easier to schematize and to program but it normally requires smaller time steps to retain its stability and a reasonable solution. 
+- The latter is more complex for non-linear problems but gives the flexibility of using larger time steps. 
+- However, under some cases, the iteration method may not converge neither posing also a limit to the usable time step.
+
 
 **Last Question: How did things go? (Optional)**
 
