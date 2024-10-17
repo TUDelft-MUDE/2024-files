@@ -8,10 +8,17 @@ _Remember to read the grading and submission instructions in the `README.md` fil
 
 **Question 1**
 
-Give a short description of the provided dataset in statistical terms. Visualize the data and choose a parametric distribution function for each variable between the indicated ones: choose between Uniform and Gaussian distribution to model the water depth, and between Exponential and Gumbel for the water velocity. Justify your choice based on the previous description and visualization. 
+Give a short description of the provided dataset in statistical terms. Visualize the data and choose a parametric distribution function for each variable between the indicated ones: choose between Uniform and Gaussian distribution to model the water depth, and between Exponential and Gumbel for the velocity. Justify your choice based on the previous description and visualization. 
 
 _You should describe your data with only a few sentences, and be sure to use quantitative information! Refer to that description to choose the parametric distribution function. You can also include some plots that may support your reasoning._
 
+_Distribution chosen for **<VARIABLE_1>**:_ **your distribution here.**
+
+_Your justification here._
+
+_Distribution chosen for **<VARIABLE_2>**:_ **your distribution here.**
+
+_Your justification here._
 
 **Question 2**
 
@@ -22,14 +29,23 @@ _Remember to use quantitative information based on the goodness of fit metrics t
 
 **Question 3**
 
-Propagate the uncertainty through the equation to estimate discharge, $q$, using both observations and simulated samples. Discuss the differences between the two obtained distributions.
+Propagate the uncertainty through the equation to estimate the discharge, $q$, using both observations and simulated samples. Provide a bulleted list that summarizes differences between the two obtained distributions.
 
 **Question 4**
 
-Compare the simulated samples and the observations in a scatter plot. What are the differences? Is there anything you could improve in the analysis? Provide with recommendations to improve the performed analysis. They can be both about the univariate distributions and about the propagation of uncertainty method you have used.
+Compare the simulated samples and the observations in a scatter plot, then prepare a bulleted list that describes the differences. Is there anything you could improve in the analysis? Provide with recommendations to improve the performed analysis. They can be both about the univariate distributions and about the propagation of uncertainty method you have used.
 
-_Hint: Compute the correlation coefficient between $h$ and $u$ for both the observations and the simulated samples._
+_Hint: Compute the correlation coefficient between H and T for both the observations and the simulated samples._
 
+_Include your figure here. Be sure to use high contrast data symbols/colors and a legend to differentiate the two data sets clearly._
+
+- your
+- bulleted
+- list
+- here
+- include the value of correlation coefficient, $\rho$
+
+_Your recommendation here, based on the figure and observations above._
 
 **Last Question: How did things go? (Optional)**
 
