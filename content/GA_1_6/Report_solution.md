@@ -12,11 +12,9 @@ How close is your approximation to the exact solution $x=3$ when your initial gu
 
 _Write your answer here._
 
-The approximation was extremely close: 3.0000000149658455
+The solution found is  3.000000000008298  it took  11  iterations to converge. 
 
-It takes more iterations because at that location the derivative is close to 0 and it first goes far away from the solution.
-
-Same solution as notebook task 1.3.
+When the initial guess is close to 0, the slope will also be close to 0, and the first "improved" guess is 450.005, very far from the solution! Then, the slope at that point is more reasonable and approaches rapidly the solution.
 
 **Question 2**
 
@@ -60,18 +58,23 @@ Stencils:
 
 ![image3](.\figures\stencils.png)
 
-Equation for central difference in space:
+The algebraic expression and stencil using Forward Difference in time and Central Difference in space:
 
 $$ 
-\frac{\partial T}{\partial t}\bigg|_i = \nu \frac{T_{i+1}-2T_i+T_{i-1}}{\Delta x^2}
+T^{j+1}_{i} = T^j_i + \frac{\nu \Delta t}{\Delta x^2} \left(T^j_{i+1}-2T^j_i+T^j_{i-1}\right)
 $$
 
-Equation for backward difference in time:
+The algebraic expression and stencil of Backward Difference in time and Central Difference in space:
 
 $$ 
 T^{j+1}_{i} = T^j_i + \frac{\nu \Delta t}{\Delta x^2} \left(T^{j+1}_{i+1}-2T^{j+1}_i+T^{j+1}_{i-1}\right)
 $$
 
+and rewritten for convenience, unknowns from one side and knowns from the other:
+
+$$ 
+T^{j+1}_{i} - \frac{\nu \Delta t}{\Delta x^2} \left(T^{j+1}_{i+1}-2T^{j+1}_i+T^{j+1}_{i-1}\right)  = T^j_i 
+$$
 
 **Question 5**
 
@@ -82,8 +85,32 @@ _Your answer here._
 CDS-FDT:
 
 $$
+AT = b\\
+$$
 
-placeholder
+$$
+T = \begin{bmatrix}
+T_1^{j+1} \\
+T_2^{j+1} \\
+\vdots \\
+T_{n-1}^{j+1}
+\end{bmatrix}\\
+\newline
+A = \begin{bmatrix}
+1 & 0 & 0 & \cdots & 0 \\
+0 & 1 & 0 & \cdots & 0 \\
+0 & 0 & 1 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & 1
+\end{bmatrix}\\
+\newline
+b = \begin{bmatrix}
+T^j_1 + \frac{\nu \Delta t}{\Delta x^2} \left(T^j_{0}-2T^j_1+T^j_{2}\right) \\
+T^j_2 + \frac{\nu \Delta t}{\Delta x^2} \left(T^j_{1}-2T^j_2+T^j_{3}\right) \\
+\vdots \\
+T^j_{n-1} + \frac{\nu \Delta t}{\Delta x^2} \left(T^j_{n-2}-2T^j_{n-1}+T^j_{n}\right)
+\end{bmatrix}
+
 
 $$
 
@@ -92,7 +119,9 @@ CDS-BDT:
 
 $$
 AT = b\\
+$$
 
+$$
 T = \begin{bmatrix}
 T_1^{j+1} \\
 T_2^{j+1} \\
@@ -118,7 +147,7 @@ T_{N-1}^j + \frac{\nu \Delta t}{\Delta x^2}T_N^j
 
 $$
 
-The A matrix is an identity matrix for the CDS-FDT case. The b vector is elaborated where the boundaries are implemented intrinsically. In the latter case, CDS-BDT, the matrix A is tridiagonal and the boundaries in the b vector are explicitly implemented. No iteration is required in the implicit scheme because the dependence on time is linear.
+The A matrix is an identity matrix for the CDS-FDT case. The b vector is elaborated where the boundaries are implemented intrinsically. In the latter case, CDS-BDT, the matrix A is tridiagonal and the boundaries in the b vector are explicitly implemented. No iteration is required in the implicit scheme because the dependence on time is linear, a.k.a., the power of the unknowns is 1.
 
 **Question 6**
 
@@ -129,6 +158,8 @@ _Insert image here._
 ![image4](.\figures\step1500.png)
 
 ![image5](.\figures\step10000.png)
+
+At t=1500 sec a parabola connecting the Dirichlet BC are observed with a minimum value around x=0.15m. At t=10000 sec an almost straight line connecting the Dirichlet BC are observed, the steady state solution is almost reached around this moment.
 
 **Question 7**
 
@@ -142,13 +173,15 @@ _Write your answer here_
 - If the former was used, the stability limit was at 50-51 seconds and for $dx/2$ it was about 13 seconds. 
 - If the latter was used, the stability limit was 58-59 seconds and for $dx/2$ it was about 15 seconds. 
 
-The computational time increases a lot since not only the grid contains more points when refining dx but also dt has to be reduced by a factor 3 (for this case). If the parameter νΔt/Δx2\nu \Delta t / \Delta x^2νΔt/Δx2 was printed, then a value of about 0.5 should have been found for both cases, if ν\nuν was not included, then a value about 127000 should have been found.
+The computational time increases a lot since not only the grid contains more points when refining dx but also dt has to be reduced by a factor 3 (for this case). If the parameter $\nu \Delta t / \Delta x^2$ was printed, then a value of about 0.5 should have been found for both cases, if $\nu$ was not included, then a value about 127000 should have been found.
 
 **Question 8**
 
 For the implicit scheme, try to find a $\Delta t$ value for which the solution is not reasonable. State your result and explain.
 
 _Write your answer here_
+
+There does not seem to be a limitation of $\Delta t$, it can be quite large, even 1000 and it does reach the stable state. Its limitation would be related to the desired accuracy of the solution, as it still has an error related to the time step. However, as this was not a constraint, results are reasonable for absurdly large time steps. 
 
 **Question 9**
 
@@ -161,8 +194,7 @@ No.
 Explicit methods are not better than Implicit ones and viceversa. 
 
 - The former is easier to schematize and to program but it normally requires smaller time steps to retain its stability and a reasonable solution. 
-- The latter is more complex for non-linear problems but gives the flexibility of using larger time steps. 
-- However, under some cases, the iteration method may not converge neither posing also a limit to the usable time step.
+- The latter is more complex for non-linear problems but gives the flexibility of using larger time steps. However, under some cases, the iteration method may not converge neither posing also a limit to the usable time step.
 
 
 **Last Question: How did things go? (Optional)**
