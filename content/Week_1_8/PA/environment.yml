@@ -1,0 +1,21 @@
+name: mude-week-8
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pyvinecopulib
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - sympy
+  - seaborn
+  - scikit-learn
+  - threadpoolctl
+  - joblib
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+    - bivariate
