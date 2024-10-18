@@ -9,6 +9,7 @@ dependencies:
   - scipy
   - pandas
   - matplotlib
+  - sympy           # PA 1.8
   - seaborn         # avoid pip, for bivariate
   - scikit-learn    # avoid pip, for bivariate
   - threadpoolctl   # avoid pip, for scikit-learn
