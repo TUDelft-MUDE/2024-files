@@ -11,7 +11,7 @@ A few particular notes for specific data sets are identified with italics (_dish
 **Question 1**
 
 - Discharge best fit: h by Gaussian, u by Gumbel
-- Emissions best fit: H by Gaussian, C by uniform
+- Emissions best fit: C by uniform, H by Gaussian
 - Force best fit: H by exponential, T by Gumbel
 
 Avoid words such as “clearly” or “obviously” when choosing your distribution. State your assumption and provide arguments.
