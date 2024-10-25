@@ -1,4 +1,4 @@
-# README for Group Assignment 1.5
+# Feedback for Group Assignment 1.5
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.5, Friday, Oct 4, 2024.*
 
