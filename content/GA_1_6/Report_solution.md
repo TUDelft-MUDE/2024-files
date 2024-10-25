@@ -12,18 +12,19 @@ How close is your approximation to the exact solution $x=3$ when your initial gu
 
 _Write your answer here._
 
-Really close. The solution found is  3.000000000008298  it took  11  iterations to converge. When the initial guess is close to 0, the slope will also be close to 0, and the first "improved" guess is 450.005, very far from the solution! Then, the slope at that point is more reasonable and approaches rapidly the solution.  
+The solution found is  3.000000000008298  it took  11  iterations to converge. 
 
+When the initial guess is close to 0, the slope will also be close to 0, and the first "improved" guess is 450.005, very far from the solution! Then, the slope at that point is more reasonable and approaches rapidly the solution.
 
 **Question 2**
 
-Include a figure of your solution for dt=0.25 s (task 2.3). 
+Include a figure of your solution for $dt=0.25$ s (task 2.3). 
 
 _Your figure here._
 
-_See the plot, task 2.3, of the analysis solution notebook._
+![image](.\figures\dt_25.png)
 
-See notebook.
+
 
 **Question 3**
 
@@ -33,9 +34,17 @@ _Note that an unstable condition is one that increases/decreases unbounded; an i
 
 _Sate the stability limit here._
 
-The stability limit seemed to be between 0.35s and 0.4s when looking at the beginning of the plot. However, the error remains bounded. So, under the strict definition of stability given above, there does not seem to be a limit if we extend the plot to include larger values of time in the x axis. The fact that the function is nonlinear, dependent on harmonic functions, makes it quite complicated to confidently state a limit.    
+The stability limit seemed to be between 0.35s and 0.4s when looking at the beginning of the plot. 
 
-Note also that the _implicit_ scheme also has issues when the time step becomes too big. This is due to the Newton-Raphson scheme not converging; it is not a stability issue. In this case, the solution does not converge starting with dt=0.35s. The solution is unconditionally stable, but it is stoped at the very beginning. 
+However, the error remains bounded. So, under the strict definition of stability given above, there does not seem to be a limit if we extend the plot to include larger values of time in the x axis. The fact that the function is nonlinear, dependent on harmonic functions, makes it quite complicated to confidently state a limit.
+
+Note also that the implicit scheme also has issues when the time step becomes too big. This is due to the Newton-Raphson scheme not converging; it is not a stability issue. In this case, the solution does not converge starting with dt=0.35s. The solution is unconditionally stable, but it is stopped at the very beginning.
+
+Here are some images where $dt = 0.35$ and $dt = 0.4$ for the explicit scheme:
+
+![image2](.\figures\dt_35.png)
+
+![image3](.\figures\dt_4.png)
 
 ## Part 2: Diffusion equation in 1D
 
@@ -45,14 +54,15 @@ Add an image of the stencils and the algebraic expression of the differential eq
 
 _Insert image here._
 
+Stencils:
+
+![image3](.\figures\stencils.png)
+
 The algebraic expression and stencil using Forward Difference in time and Central Difference in space:
 
 $$ 
 T^{j+1}_{i} = T^j_i + \frac{\nu \Delta t}{\Delta x^2} \left(T^j_{i+1}-2T^j_i+T^j_{i-1}\right)
 $$
-
-_____o_____
-__o__o__o__ 
 
 The algebraic expression and stencil of Backward Difference in time and Central Difference in space:
 
@@ -66,22 +76,19 @@ $$
 T^{j+1}_{i} - \frac{\nu \Delta t}{\Delta x^2} \left(T^{j+1}_{i+1}-2T^{j+1}_i+T^{j+1}_{i-1}\right)  = T^j_i 
 $$
 
-__o__o__o__ 
-_____o_____
-
 **Question 5**
 
 Add an image (or Latex equation) of your matrices $AT=b$ for both solution methods. Describe the differences in a few short sentences.  
 
 _Your answer here._
 
-For the explicit scheme:
-
-For the explicit scheme:
+CDS-FDT:
 
 $$
 AT = b\\
+$$
 
+$$
 T = \begin{bmatrix}
 T_1^{j+1} \\
 T_2^{j+1} \\
@@ -107,16 +114,19 @@ T^j_{n-1} + \frac{\nu \Delta t}{\Delta x^2} \left(T^j_{n-2}-2T^j_{n-1}+T^j_{n}\r
 
 $$
 
-For the implicit scheme:
+
+CDS-BDT:
 
 $$
 AT = b\\
+$$
 
+$$
 T = \begin{bmatrix}
 T_1^{j+1} \\
 T_2^{j+1} \\
 \vdots \\
-T_{n-1}^{j+1}
+T_{N-1}^{j+1}
 \end{bmatrix}\\
 \newline
 A = \begin{bmatrix}
@@ -131,12 +141,13 @@ b = \begin{bmatrix}
 T_1^j + \frac{\nu \Delta t}{\Delta x^2}T_0^j \\
 T_2^j \\
 \vdots \\
-T_{n-1}^j + \frac{\nu \Delta t}{\Delta x^2}T_n^j
+T_{N-1}^j + \frac{\nu \Delta t}{\Delta x^2}T_N^j
 \end{bmatrix}
+
 
 $$
 
-The A matrix is an identity matrix for the CDS-FDT case. The b vector is elaborated where the boundaries are implemented intrinsically. In the latter case, CDS-BDT, the matrix A is tridiagonal and the boundaries in the b vector are plainly implemented. No iteration is required in the implicit scheme because the dependence on time and space is linear, a.k.a., the power of the unknowns is 1.  
+The A matrix is an identity matrix for the CDS-FDT case. The b vector is elaborated where the boundaries are implemented intrinsically. In the latter case, CDS-BDT, the matrix A is tridiagonal and the boundaries in the b vector are explicitly implemented. No iteration is required in the implicit scheme because the dependence on time is linear, a.k.a., the power of the unknowns is 1.
 
 **Question 6**
 
@@ -144,7 +155,11 @@ Add an image of the results corresponding to Task 3.8 at t=1500 sec and at t=100
 
 _Insert image here._
 
-See figure in the analysis solution notebook. At t=1500 sec a parabola connecting the Dirichlet BC are observed with a minimum value around x=0.15m. At t=10000 sec an almost straight line connecting the Dirichlet BC are observed, the steady state solution is almost reached around this moment. 
+![image4](.\figures\step1500.png)
+
+![image5](.\figures\step10000.png)
+
+At t=1500 sec a parabola connecting the Dirichlet BC are observed with a minimum value around x=0.15m. At t=10000 sec an almost straight line connecting the Dirichlet BC are observed, the steady state solution is almost reached around this moment.
 
 **Question 7**
 
@@ -154,7 +169,11 @@ _Your answer should include a couple sentences as an explanation, as well as the
 
 _Write your answer here_
 
-The dx could have been interpreted as dx=0.3/15=0.02m or dx=0.3/14=0.0214..m. If the former was used, the stability limit was at 50-51 seconds and for dx/2 it was about 13 seconds. If the later was used, the stability limit was 58-59 seconds and for dx/2 it was about 15 seconds. The computational time increases a lot since not only the grid contains more points when refining dx but also dt has to be reduced by a factor 3 (for this case). If the parameter $\nu \Delta t / \Delta x^2$ was printed, then a value of about 0.5 should have been found for both cases, if $\nu$ was not included, then a value about 127000 should have been found.
+- The dx could have been interpreted as $dx=0.3/15=0.02m$ or $dx=0.3/14=0.0214m$. 
+- If the former was used, the stability limit was at 50-51 seconds and for $dx/2$ it was about 13 seconds. 
+- If the latter was used, the stability limit was 58-59 seconds and for $dx/2$ it was about 15 seconds. 
+
+The computational time increases a lot since not only the grid contains more points when refining dx but also dt has to be reduced by a factor 3 (for this case). If the parameter $\nu \Delta t / \Delta x^2$ was printed, then a value of about 0.5 should have been found for both cases, if $\nu$ was not included, then a value about 127000 should have been found.
 
 **Question 8**
 
@@ -170,7 +189,13 @@ Considering the non-linear ODE and the PDE results, would you say that Implicit 
 
 _Insert image here_
 
-Explicit methods are not better than Implicit ones and viceversa, they both have advantages and disadvantages. The former is easier to schematize and to program but it normally requires smaller time steps to retain its stability and a reasonable solution. The latter is more complex for non-linear problems but gives the flexibility of using larger time steps. However, under some cases, the iteration method may not converge neither posing also a limit to the usable time step.
+No.
+
+Explicit methods are not better than Implicit ones and viceversa. 
+
+- The former is easier to schematize and to program but it normally requires smaller time steps to retain its stability and a reasonable solution. 
+- The latter is more complex for non-linear problems but gives the flexibility of using larger time steps. However, under some cases, the iteration method may not converge neither posing also a limit to the usable time step.
+
 
 **Last Question: How did things go? (Optional)**
 
