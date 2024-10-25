@@ -34,7 +34,7 @@ data_x1 = np.array(data[1,:])
 data_x2 = np.array(data[2,:])
 
 parameters1 = st.expon.fit_loc_scale(data_x1)
-dist_x1 = st.norm(*parameters1)
+dist_x1 = st.expon(*parameters1)
 
 parameters2 = st.gumbel_r.fit_loc_scale(data_x2)
 dist_x2 = st.gumbel_r(*parameters2)
