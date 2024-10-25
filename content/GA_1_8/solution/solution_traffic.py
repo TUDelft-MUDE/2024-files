@@ -41,7 +41,7 @@ data_x1 = np.array(data[0,:])
 data_x2 = np.array(data[1,:])
 
 parameters1 = st.uniform.fit_loc_scale(data_x1)
-dist_x1 = st.norm(*parameters1)
+dist_x1 = st.uniform(*parameters1)
 
 parameters2 = st.norm.fit_loc_scale(data_x2)
 dist_x2 = st.gumbel_r(*parameters2)
