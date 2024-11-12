@@ -7618,7 +7618,7 @@ Nx -&gt; Nx, Ny
 <b>Task 1.2:</b>
 <p>Write by hand for FMV the <code>advection_1D</code> equation, compute the convective fluxes of $\phi$ at the surfaces using a linear interpolation (central averaging). Then apply Forward Euler in time to the resulting ODE. Make sure you use the right indexing (maximum index should be <code>i</code>).</p>
 $$
-\frac{\partial \phi}{\partial t} = c\frac{\partial \phi}{\partial x} 
+\frac{\partial \phi}{\partial t} + c\frac{\partial \phi}{\partial x} = 0
 $$</p></div>
 </div>
 </div>
@@ -8138,7 +8138,7 @@ Change the Python variables that define the problem and check to see if the CFL 
 <b>Task 5:</b>
 Apply FVM by hand to the 2D advection equation. The volumes are rectangular. This is a good example of an exam problem.
 $$
-\frac{\partial \phi}{\partial t} = c_x\frac{\partial \phi}{\partial x} + c_y\frac{\partial \phi}{\partial y} 
+\frac{\partial \phi}{\partial t} + c_x\frac{\partial \phi}{\partial x} + c_y\frac{\partial \phi}{\partial y} = 0
 $$</p></div>
 </div>
 </div>
