@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 class Mesh:
-    def __init__(self, coordinates, side_length):
+    def __init__(self, coordinates, side_length, boundaries):
         self.coordinates = coordinates
         self.side_length = side_length
         self.triangles = None
@@ -13,6 +13,7 @@ class Mesh:
         self.kapsalon_coordinates = None
         self.refinement_number = 0
         self.check_initialization()
+        self.get_boundary_coordinates(boundaries)
 
     def try_triangles(self, triangles=None, triangle_id=None):
         if triangles is None:
@@ -43,6 +44,19 @@ class Mesh:
         self.triangles = triangles
         self.check_triangles(triangles=triangles, report=False)
         return triangles
+    
+    def get_boundary_coordinates(self, boundaries):
+        boundary_coordinates = []
+        boundary_types = []
+        for boundary in boundaries:
+            boundary_types.append(boundary[0])
+            coordinates_i = np.zeros((len(boundary[1]), 2))
+            for i in range(len(boundary[1])):
+                coordinates_i[i] = self.coordinates[boundary[1][i]]
+            boundary_coordinates.append(coordinates_i)
+        self.boundaries = boundary_coordinates
+        self.boundary_types = boundary_types
+        return boundary_coordinates
 
     def get_triangle_area(self, triangle_id, triangles):
         triangle = triangles[triangle_id]
@@ -122,6 +136,26 @@ class Mesh:
         # ax.set_ylim(0, 6)
         return fig
     
+    def plot_boundaries(self):
+        fig = self.plot_coordinates()
+        ax = fig.get_axes()[0]
+        for boundary in self.boundaries:
+            ax.plot(boundary[:, 0], boundary[:, 1], color='black', linestyle='-', linewidth=2)
+        ax.set_title('Boundaries')
+        return fig
+    
+    def plot_boundary_sides(self):
+        fig = self.plot_coordinates()
+        ax = fig.get_axes()[0]
+        boundary_sides = self.get_boundary_sides()
+        for side in boundary_sides:
+            start = self.coordinates[self.all_sides[side][0]]
+            end = self.coordinates[self.all_sides[side][1]]
+            ax.plot([start[0], end[0]], [start[1], end[1]],
+                color='black', linestyle='-', linewidth=2)
+        ax.set_title('Boundary Sides')
+        return fig
+    
     def plot_triangles(self, triangles=None, triangle_id=None):
         if triangles is None:
             assert self.triangles is not None, (
@@ -185,6 +219,41 @@ class Mesh:
         self.all_sides = sides
         return sides
     
+    def get_boundary_sides(self):
+        boundary_sides = []
+        boundary_types = []
+        for i, side in enumerate(self.all_sides):
+            on_line = False
+            side_coord = [self.coordinates[side[0]]]
+            side_coord.append(self.coordinates[side[1]])
+            for j, boundary in enumerate(self.boundaries):
+                if self.is_line_on_line(side_coord, boundary):
+                    boundary_sides.append(i)
+                    boundary_types.append(self.boundary_types[j])
+        self.boundary_sides = boundary_sides
+        self.boundary_side_types = boundary_types
+        return boundary_sides
+    
+    def is_line_on_line(self, line1, line2):
+        on_line = False
+        for i in range(len(line2) - 1):
+            if self.is_colinear(line1, [line2[i], line2[i+1]]):
+                on_line = True
+        return on_line
+        
+    def is_colinear(self, line1, line2):
+
+        if np.isclose(np.cross(line1[1] - line1[0], line2[1] - line2[0]), 0):
+            if np.isclose(np.cross(line2[0] - line1[0], line1[1] - line1[0]), 0):
+                if line1[0][0] <= max(line2[0][0], line2[1][0]) and line1[0][0] >= min(line2[0][0], line2[1][0]):
+                    if line1[0][1] <= max(line2[0][1], line2[1][1]) and line1[0][1] >= min(line2[0][1], line2[1][1]):
+                        if line1[1][0] <= max(line2[0][0], line2[1][0]) and line1[1][0] >= min(line2[0][0], line2[1][0]):
+                            if line1[1][1] <= max(line2[0][1], line2[1][1]) and line1[1][1] >= min(line2[0][1], line2[1][1]):
+                                return True
+        return False
+        
+
+
     def refine_mesh(self, report=True):
         assert self.triangles is not None, (
             'NO TRIANGLES DEFINED!\n'
