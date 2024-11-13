@@ -7580,7 +7580,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -7663,42 +7663,8 @@ Nx -&gt; Nx, Ny
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-1:-Implement-Central-Difference">Task 1: Implement Central Difference<a class="anchor-link" href="#Task-1:-Implement-Central-Difference">¶</a></h2><p>We are going to implement the central difference scheme as derived in the textbook; however, <strong>instead of implementing the system of equations in a matrix formulation</strong>, we will <em>loop over each of the finite volumes in the system,</em> one at a time.</p>
+<h2 id="Part-1:-Implement-Central-Difference">Part 1: Implement Central Difference<a class="anchor-link" href="#Part-1:-Implement-Central-Difference">¶</a></h2><p>We are going to implement the central difference scheme as derived in the textbook; however, <strong>instead of implementing the system of equations in a matrix formulation</strong>, we will <em>loop over each of the finite volumes in the system,</em> one at a time.</p>
 <p>Because we will want to watch the "pulse" travel over a long period of time, we will take advantage of the reverse-indexing of Python (i.e., the fact that an index <code>a[-3]</code>, for example, will access the third item from the end of the array or list). When taking the volumes to the left of the first volume in direction $x$, we can use the values of $phi$ from the "last" volumes in $x$ (the end of the array). All we need to do is shift the index for $phi_i$ such that we avoid a situation where <code>i+1</code> "breaks" the loop (because the maximum index is <code>i</code>). In other words, only volumes with index <code>i</code> or smaller should be used (e.g., instead of <code>i-1</code>, <code>i</code>,  and <code>i+1</code>, use <code>i-2</code>, <code>i-1</code> and <code>i</code>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=462bbd4d-18ba-453c-bb08-7d4cc04d6576">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<p>
-<b>Task 1.1:</b>
-<p><b>Read.</b> Read the code to understand the problem that has been set up for you. Check the arguments and return values; the docstrings are purposefully ommitted so you can focus on the code. You might as well re-read the instructions above one more time, as well (let's be honest, you probably just skimmed over it anyway...)</p>
-</p></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ba55cdd8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">widgets</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -7711,11 +7677,45 @@ Nx -&gt; Nx, Ny
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 1.2:</b>
+<b>Task 1.1:</b>
 <p>Write by hand for FMV the <code>advection_1D</code> equation, compute the convective fluxes of $\phi$ at the surfaces using a linear interpolation (central averaging). Then apply Forward Euler in time to the resulting ODE. Make sure you use the right indexing (maximum index should be <code>i</code>).</p>
 $$
 \frac{\partial \phi}{\partial t} + c\frac{\partial \phi}{\partial x} = 0
 $$</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a475d0d7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 1.2:</b>
+<p><b>Read.</b> Read the code to understand the problem that has been set up for you. Check the arguments and return values; the docstrings are purposefully ommitted so you can focus on the code. You might as well re-read the instructions above one more time, as well (let's be honest, you probably just skimmed over it anyway...)</p>
+</p></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b1465443">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">widgets</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7735,11 +7735,20 @@ $$</p></div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">initialize_1D</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    
+<span class="w">    </span><span class="sd">"""Initialize 1D advection simulation.</span>
+
+<span class="sd">    Arguments are defined elsewhere, except one keyword argument</span>
+<span class="sd">    defines the shape of the initial condition.</span>
+<span class="sd">    </span>
+<span class="sd">    square : bool</span>
+<span class="sd">      - specifies a square pulse if True</span>
+<span class="sd">      - specifies a Gaussian shape if False</span>
+<span class="sd">    """</span>
+
     <span class="n">dx</span> <span class="o">=</span> <span class="n">L</span><span class="o">/</span><span class="n">Nx</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Nt</span>
     
@@ -7759,7 +7768,7 @@ $$</p></div>
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">p_all</span>
 
 <span class="k">def</span> <span class="nf">advection_1D</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">central</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-
+<span class="w">    </span><span class="sd">"""Solve the advection problem."""</span>
     <span class="n">p_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nx</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">central</span><span class="p">:</span>
@@ -7772,7 +7781,8 @@ $$</p></div>
     
 <span class="k">def</span> <span class="nf">run_simulation_1D</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span>
                       <span class="n">central</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    
+<span class="w">    </span><span class="sd">"""Run sumulation by evaluating each time step."""</span>
+
     <span class="n">x</span><span class="p">,</span> <span class="n">p_all</span> <span class="o">=</span> <span class="n">initialize_1D</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="n">square</span><span class="p">)</span>
     
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nt</span><span class="p">):</span>
@@ -7782,6 +7792,7 @@ $$</p></div>
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">p_all</span>
     
 <span class="k">def</span> <span class="nf">plot_1D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Plot phi(x, t) at a given time step."""</span>
     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">())),</span>
                   <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>  
@@ -7792,6 +7803,7 @@ $$</p></div>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     
 <span class="k">def</span> <span class="nf">plot_1D_all</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Create animation of phi(x, t) for all t."""</span>
     <span class="n">check_variables_1D</span><span class="p">()</span>
     
     <span class="n">play</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="n">Nt</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -7804,6 +7816,10 @@ $$</p></div>
     <span class="k">return</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">slider</span><span class="p">])</span>
     
 <span class="k">def</span> <span class="nf">check_variables_1D</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Print current variable values.</span>
+<span class="sd">    </span>
+<span class="sd">    Students define CFL.</span>
+<span class="sd">    """</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Current variables values:'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'  p0 [---]: </span><span class="si">{</span><span class="n">p0</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'  c  [m/s]: </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
@@ -7815,7 +7831,11 @@ $$</p></div>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'  dt [ s ]: </span><span class="si">{</span><span class="n">dt</span><span class="si">:</span><span class="s1">0.2e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Using central difference?: </span><span class="si">{</span><span class="n">central</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Using square init. cond.?: </span><span class="si">{</span><span class="n">square</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'CFL: </span><span class="si">{</span><span class="n">c</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">dx</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">calculated_CFL</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">dx</span>
+    <span class="k">if</span> <span class="n">calculated_CFL</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'CFL not calculated yet.'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'CFL: </span><span class="si">{</span><span class="n">calculated_CFL</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7855,7 +7875,7 @@ $$</p></div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">case_create</span><span class="p">(</span><span class="n">p0</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">Nx</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
@@ -7906,7 +7926,7 @@ $$</p></div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="p">[]</span>
@@ -7948,7 +7968,7 @@ $$</p></div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">central</span><span class="p">,</span> <span class="n">square</span> <span class="o">=</span> <span class="n">case_set</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
@@ -8013,7 +8033,7 @@ CFL: 1.00e+00
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p0</span> <span class="o">=</span> <span class="mf">2.0</span>
@@ -8050,7 +8070,7 @@ CFL: 1.00e+00
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">check_variables_1D</span><span class="p">()</span>
@@ -8100,7 +8120,7 @@ CFL: 1.00e-01
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_1D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p_all</span><span class="p">)</span>
@@ -8137,7 +8157,7 @@ CFL: 1.00e-01
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_1D_all</span><span class="p">()</span>
@@ -8175,10 +8195,25 @@ CFL: 1.00e-01
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>HBox(children=(IntSlider(value=0, max=99999),))</pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=93554146">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 1.4:</b>
+If you have not already done so, modify the function above to calculate the CFL and rerun the cells to check the values. Can you explain the effect you see when running the animation from <code>plot_1D_all()</code>?
+</p></div>
 </div>
 </div>
 </div>
@@ -8189,7 +8224,7 @@ CFL: 1.00e-01
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-2:-Central-Difference-issues!">Task 2: Central Difference issues!<a class="anchor-link" href="#Task-2:-Central-Difference-issues!">¶</a></h2><p>The discretization is unstable (regardless of the time step used), largely due to weighting equally the influence by adjacent volumes in the fluxes. The hyperbolic nature of the equation implies that more weight should be given to the upstream/upwind $\phi$ values.</p>
+<h2 id="Part-2:-Central-Difference-issues!">Part 2: Central Difference issues!<a class="anchor-link" href="#Part-2:-Central-Difference-issues!">¶</a></h2><p>The discretization is unstable (regardless of the time step used), largely due to weighting equally the influence by adjacent volumes in the fluxes. The hyperbolic nature of the equation implies that more weight should be given to the upstream/upwind $\phi$ values.</p>
 <p>You might think that the initial abrupt edges of the square wave is responsible for the instability. You can test this by replacing the square pulse with a smooth one.</p>
 </div>
 </div>
@@ -8214,7 +8249,7 @@ Run the 1D simulation again using a smooth pulse. You can do this by changing th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">square</span><span class="o">=</span><span class="kc">False</span>
@@ -8254,7 +8289,7 @@ CFL: 1.00e-01
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>HBox(children=(IntSlider(value=0, max=99999),))</pre>
 </div>
@@ -8268,7 +8303,7 @@ CFL: 1.00e-01
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-3:-Upwind-scheme">Task 3: Upwind scheme<a class="anchor-link" href="#Task-3:-Upwind-scheme">¶</a></h2><p>More weight can be given to the upwind cells by choosing $\phi$ values for the East face $\phi_i$, and for the West face, use $\phi_{i-1}$. This holds true for positive flow directions. For negative flow directions, you should choose $\phi$ values for the East face $\phi_{i-1}$, and for the West face, use $\phi_{i}$. Note that this is less accurate than the central diffence approach but it will ensure stability.</p>
+<h2 id="Part-3:-Upwind-scheme">Part 3: Upwind scheme<a class="anchor-link" href="#Part-3:-Upwind-scheme">¶</a></h2><p>More weight can be given to the upwind cells by choosing $\phi$ values for the East face $\phi_i$, and for the West face, use $\phi_{i-1}$. This holds true for positive flow directions. For negative flow directions, you should choose $\phi$ values for the East face $\phi_{i-1}$, and for the West face, use $\phi_{i}$. Note that this is less accurate than the central diffence approach but it will ensure stability.</p>
 </div>
 </div>
 </div>
@@ -8292,7 +8327,7 @@ CFL: 1.00e-01
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">square</span><span class="o">=</span><span class="kc">True</span>
@@ -8334,7 +8369,7 @@ CFL: 1.00e-01
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>HBox(children=(IntSlider(value=0, max=99999),))</pre>
 </div>
@@ -8348,7 +8383,7 @@ CFL: 1.00e-01
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-4:-Stability-Analysis-and-False-Diffusion">Task 4: Stability Analysis and False Diffusion<a class="anchor-link" href="#Task-4:-Stability-Analysis-and-False-Diffusion">¶</a></h2><p>Now, let’s play with the code. In convective kinematics a von Neumann analysis on the advection equation suggests that the following must hold for stability:
+<h2 id="Part-4:-Stability-Analysis-and-False-Diffusion">Part 4: Stability Analysis and False Diffusion<a class="anchor-link" href="#Part-4:-Stability-Analysis-and-False-Diffusion">¶</a></h2><p>Now, let’s play with the code. In convective kinematics a von Neumann analysis on the advection equation suggests that the following must hold for stability:
 $$
 CFL = \frac{c \Delta t}{\Delta x} \leq 1
 $$</p>
@@ -8365,7 +8400,7 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 4:</b>
+<b>Task 4.1:</b>
 Change the Python variables that define the problem and check to see if the CFL predicts stability of the method. You are welcome to explore both discretization schemes and pulse types; there is no "right answer" to this question, except confirming that large CFL causes instability, and vice-versa.
 </p></div>
 </div>
@@ -8376,7 +8411,7 @@ Change the Python variables that define the problem and check to see if the CFL 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">choose_case</span> <span class="o">=</span> <span class="mi">5</span>
@@ -8405,7 +8440,7 @@ Change the Python variables that define the problem and check to see if the CFL 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">p_all</span> <span class="o">=</span> <span class="n">run_simulation_1D</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">central</span><span class="p">,</span> <span class="n">square</span><span class="p">)</span>
@@ -8444,7 +8479,7 @@ CFL: 2.00e-02
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[53]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>HBox(children=(IntSlider(value=0, max=9999),))</pre>
 </div>
@@ -8460,7 +8495,7 @@ CFL: 2.00e-02
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 4.1:</b>
+<b>Task 4.2:</b>
 <p>You probably found that for CFL equal to 1, the solution is exact: the wave propagates without deforming. However, a complex flow has variable speed in time and space. That is why in practice a conservative CFL value is chosen for the largest expected flow velocities. Make sure to test a CFL condition of 0.8 to visualize the impact on the numerical solution.</p>
 </p></div>
 </div>
@@ -8487,7 +8522,7 @@ CFL: 2.00e-02
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-5:-2D-Implementation-in-Python">Task 5: 2D Implementation in Python<a class="anchor-link" href="#Task-5:-2D-Implementation-in-Python">¶</a></h2>
+<h2 id="Part-5:-2D-Implementation-in-Python">Part 5: 2D Implementation in Python<a class="anchor-link" href="#Part-5:-2D-Implementation-in-Python">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8500,7 +8535,7 @@ CFL: 2.00e-02
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 5:</b>
+<b>Task 5.1:</b>
 Apply FVM by hand to the 2D advection equation. The volumes are rectangular. This is a good example of an exam problem.
 $$
 \frac{\partial \phi}{\partial t} + c_x\frac{\partial \phi}{\partial x} + c_y\frac{\partial \phi}{\partial y} = 0
@@ -8517,7 +8552,7 @@ $$</p></div>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 6:</b>
+<b>Task 5.2:</b>
 The code is set up in a very similar way to the 1D case above. Use it to explore how the advection problem works in 2D! In particular, see if you observe the effect called "numerical diffusion" --- when the numerical scheme causes the square pulse to "diffuse" into a bell shaped surface. Even though only the advection term was implmented!
 </p></div>
 </div>
@@ -8543,7 +8578,7 @@ The code is set up in a very similar way to the 1D case above. Use it to explore
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p0</span> <span class="o">=</span> <span class="mf">2.0</span>
@@ -8572,7 +8607,7 @@ The code is set up in a very similar way to the 1D case above. Use it to explore
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">initialize_2D</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span><span class="p">):</span>
@@ -8678,7 +8713,7 @@ The code is set up in a very similar way to the 1D case above. Use it to explore
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>&lt;&gt;:47: SyntaxWarning: invalid escape sequence '\p'
 &lt;&gt;:47: SyntaxWarning: invalid escape sequence '\p'
-C:\Users\rlanzafame\AppData\Local\Temp\ipykernel_18720\2412768473.py:47: SyntaxWarning: invalid escape sequence '\p'
+C:\Users\rlanzafame\AppData\Local\Temp\ipykernel_26208\2412768473.py:47: SyntaxWarning: invalid escape sequence '\p'
   ax.set_zlabel('$\phi$ [-]')
 </pre>
 </div>
@@ -8705,7 +8740,7 @@ Here you can check the Python variable assignments and visualize the initial con
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>
@@ -8775,7 +8810,7 @@ By default the central difference scheme is used, so you should see the numerica
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">p_all</span> <span class="o">=</span> <span class="n">run_simulation_2D</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">central</span><span class="p">)</span>
@@ -8820,7 +8855,7 @@ CFL, direction y: 2.50e-01
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>HBox(children=(IntSlider(value=0, max=999),))</pre>
 </div>
@@ -8847,7 +8882,7 @@ Switching to the upwind scheme gives a stable solution. Note the numerical diffu
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">p_all</span> <span class="o">=</span> <span class="n">run_simulation_2D</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Nt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">central</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -8892,7 +8927,7 @@ CFL, direction y: 2.50e-01
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>HBox(children=(IntSlider(value=0, max=999),))</pre>
 </div>
