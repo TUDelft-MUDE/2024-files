@@ -7720,6 +7720,21 @@ $$</p></div>
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=816c6eab">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 1.3:</b>
+<p>Implement the scheme in the function <code>advection_1D</code>. Make sure you use the right indexing (maximum index should be <code>i</code>).</p>
+</p></div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65abc948-f674-48b8-a752-2ae714525bb9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8203,21 +8218,6 @@ CFL: 1.00e-01
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=93554146">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<p>
-<b>Task 1.4:</b>
-If you have not already done so, modify the function above to calculate the CFL and rerun the cells to check the values. Can you explain the effect you see when running the animation from <code>plot_1D_all()</code>?
-</p></div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62204ce3-0e2f-4641-9615-3cc1d1fe4a24">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8308,7 +8308,7 @@ CFL: 1.00e-01
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f9ede995-1b14-453f-9bf2-69d84734f458">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d969cf1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8316,8 +8316,8 @@ CFL: 1.00e-01
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>Task 3:</b>
-<p>Derive the upwind scheme and apply Forward Euler to the resulting ODE. Then implment it in the function <code>advection_1D</code>. Re-run the analysis after setting the <code>central</code> flag to <code>False</code>.</p>
+<b>Task 3.1:</b>
+<p>Derive the upwind scheme and apply Forward Euler to the resulting ODE. Then implement it in the function <code>advection_1D</code>. Re-run the analysis after setting the <code>central</code> flag to <code>False</code>.</p>
 </p></div>
 </div>
 </div>
@@ -8377,13 +8377,68 @@ CFL: 1.00e-01
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c96ba55d-733b-4de6-9b5a-101a520031ee">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=37d4be76">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Part-4:-Stability-Analysis-and-False-Diffusion">Part 4: Stability Analysis and False Diffusion<a class="anchor-link" href="#Part-4:-Stability-Analysis-and-False-Diffusion">¶</a></h2><p>Now, let’s play with the code. In convective kinematics a von Neumann analysis on the advection equation suggests that the following must hold for stability:
+<div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 3.2:</b>
+<p>In the previous task you should have seen that the method is unstable. Experiment with different time step $\Delta t$ to see if you can find a limit above/below which the method is stable. Write down your $\Delta t$ values and whether or not they were stable, as we will reflect on them later.</p>
+</p></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=84aba5f3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># you can change variable values and rerun the analysis here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3aa5d98a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$\Delta t$</th>
+<th style="text-align:center">stable or unstable?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>SOLUTION NEEDED</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=77365343">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Part-4:-False-Diffusion">Part 4: False Diffusion<a class="anchor-link" href="#Part-4:-False-Diffusion">¶</a></h2><p>In the previous tasks, we saw how upwinding can be an effective way to handle the type of PDE we are studying (in this case hyperbolic). Now, we will consider <em>another</em> aspect of stability: that of the time integration scheme.</p>
+<p>Let’s play with the code. In convective kinematics a von Neumann analysis on the advection equation suggests that the following must hold for stability:
 $$
 CFL = \frac{c \Delta t}{\Delta x} \leq 1
 $$</p>
@@ -8392,7 +8447,7 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bcde4e4b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aa8b24c5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8401,8 +8456,35 @@ $$</p>
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 4.1:</b>
-Change the Python variables that define the problem and check to see if the CFL predicts stability of the method. You are welcome to explore both discretization schemes and pulse types; there is no "right answer" to this question, except confirming that large CFL causes instability, and vice-versa.
+If you have not already done so, modify the function above to calculate the CFL and run the function <code>check_variables_1D()</code> to check the values. Evaluate the CFL for the time steps you tried in Task 3.2 and write them below, along with the statement of whether or not the scheme was stable.
 </p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=38784716">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>Write your CFL values here, along with the result:</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CFL</th>
+<th style="text-align:center">$\Delta t$</th>
+<th style="text-align:center">stable or unstable?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -8487,7 +8569,7 @@ CFL: 2.00e-02
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9f952992">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bfd17cd8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8496,21 +8578,103 @@ CFL: 2.00e-02
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 4.2:</b>
-<p>You probably found that for CFL equal to 1, the solution is exact: the wave propagates without deforming. However, a complex flow has variable speed in time and space. That is why in practice a conservative CFL value is chosen for the largest expected flow velocities. Make sure to test a CFL condition of 0.8 to visualize the impact on the numerical solution.</p>
+<p>Now use the CFL to compute the time step $\Delta t$ that defines the boundary between the stable and unstable region. Then re-run the analysis for this value, as well as a value that is slightly above and below that threshold $\Delta t$.</p>
 </p></div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8d2ad587">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1f919d93">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># SOLUTION</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=99e5acac">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="So-you-think-everything-is-stable-and-perfect,-right?">So you think everything is stable and perfect, right?<a class="anchor-link" href="#So-you-think-everything-is-stable-and-perfect,-right?">¶</a></h3><p>Based on the previous task, it looks like we have a good handle on this problem, and are able to use the CFL to set up a reliable numerical scheme for all sorts of complex problems---right?!</p>
+<p><strong>WRONG!</strong></p>
+<p>Remember, in this problem we are dealing with single "wave" propagating at a <em>constant</em> speed. In practice we apply numerical schemes to more complex methods. For example, most problems consider <em>variable</em> speed/velocity in more than one dimension. When this is the case, the problem cannot be described by a single CFL value! As a rule of thumb, a modeller would then choose a conservative CFL value, determined by the largest expected flow velocities (in the case of a regular mesh).</p>
+<p>Let's apply this concept by using a CFL condition of 0.8 to visualize the impact on the numerical solution.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=788b5742">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 4.3:</b>
+<p>Find $\Delta t$ such that CFL is 0.8 and re-run the analysis. What do you observe?</p>
+<p><em>Make sure you look at the complete solution, not just the first few steps.</em></p>
+</p></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4cb62a90">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5c464589">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 4.4:</b>
+<p>Describe what you observe in the result of the previous task and state (yes/no) whether or not this should be expected, given the PDE we are solving. Explain your answer in a couple sentences.</p>
+</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d9a710a7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#FAE99E; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Solution:</b>
+<p>The phenomenon you saw in the previous task is <em>numerical</em>, or <em>false</em> diffusion.
+...</p>
+<p>No!</p>
+<ul>
+<li>we observe the wave diffuses</li>
+<li>our PDE only considers convection</li>
+<li>where does this come from?!</li>
+</ul>
+</p>
 </div>
 </div>
 </div>
