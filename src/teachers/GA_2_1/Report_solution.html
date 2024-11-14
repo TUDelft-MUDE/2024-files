@@ -373,23 +373,21 @@ code {
 <p><em>Write your answer here.</em></p>
 <p>ANSWER: SEE SOLUTION NOTEBOOK</p>
 <p><strong>Question 2</strong></p>
+<p>Given that in FVM the diffusion is computed as fluxes at the surfaces, what do you need to do in order to represent a Neumann boundary condition in the algebraic equation?</p>
+<p><em>For FVM, a Neumann Boundary Condition is implemented directly by identifying the side of the volume that is a boundary and replacing this contribution in the previous algebraic equation.</em></p>
+<p><strong>Question 3</strong></p>
 <p>Consider the <code>solve</code> method of the class <code>Mesh</code> and write an explanation about how the FVM is solved. Mention specifically how the time and space discretization is executed; mention specifically how the algorithm is <em>different</em> compared to the finite difference approach (for the spatial integration). Use excerpts from the code to illustrate your answer here (example syntax is provided below).</p>
 <p><em>Write your answer here.</em></p>
 <p>Example code block:</p>
 <pre class="hljs"><code><div>include relevant code in your answer!
 </div></code></pre>
 <p><em>You should adjust the tabs/margins and shorten things in order to focus on the key parts of the algorithm.</em></p>
-<p><strong>Question 3</strong></p>
-<p>Given that in FVM the diffusion is computed as fluxes at the surfaces, what do you need to do in order to implement a Neumann boundary condition?</p>
-<p><em>For FVM, a Neumann Boundary Condition is implemented directly by identifying the side of the volume that is a boundary and replacing this contribution in the previous algebraic equation.</em></p>
+<p>Note that instead of looping over x and y we loop over triangles. then pretty much everything is constant because the triangles are equilateral and equal size (and orthogonal).</p>
 <p><strong>Question 4</strong></p>
-<p>SOMETHING ABOUT RUNNING THE ANALYSES AND FINDING STABILITY LIMITS. MAKE A MARKDOWN TABLE TO SUMMARIZE SEVERAL VALUES OF TRIANGLES SIZES AS WELL AS INITIAL CONDITIONS AND BOUNDARY CONDITIONS.</p>
+<p>At the end of Part 2 you refined the mesh and saw that the original values for the time integration resulted in an unstable solution. Run the analysis a few more times and see if you can properly describe the situation. Use specific results from your experiments (summarized in a Markdown table), as well as the stability criteria presented in the book to provide your explanation.</p>
 <p><em>Write your answer here</em></p>
+<p>Something about size of the triangles, time step size and should also involve the diffusivity coefficient. Markdown table should show a clear break from stable to unstable.</p>
 <p><strong>Question 5</strong></p>
-<p><em>Write your answer here</em></p>
-<p><strong>Question 6</strong></p>
-<p><em>Write your answer here</em></p>
-<p><strong>Question 7</strong></p>
 <p>Computations in meshes with non-equilateral triangles have added error sources that would need to be corrected to have an accurate solution. What is the impact the approach you implemented for the cases of Task 3.2, 3.3 3.4?</p>
 <p><em>Write your answer here</em>
 <em>Task 3.2</em>

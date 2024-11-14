@@ -60,6 +60,8 @@ class Mesh:
                                     flux[i] = constant*self.boundary_side_types[idx][1]
                                 else:
                                     print(f'WARNING: triangle {triangle_id}, boundary side {idx}, side ({side[0]}, {side[1]}) not found in any side libraries!')
+                # unknowns[time_step+1, triangle_id] = unknowns[time_step, triangle_id]
+                # SOLUTION:
                 unknowns[time_step+1, triangle_id] = phi + np.sum(flux)
         self.unknowns = unknowns
         self.Nt = Nt

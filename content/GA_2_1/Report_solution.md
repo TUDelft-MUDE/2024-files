@@ -14,6 +14,12 @@ ANSWER: SEE SOLUTION NOTEBOOK
 
 **Question 2**
 
+Given that in FVM the diffusion is computed as fluxes at the surfaces, what do you need to do in order to represent a Neumann boundary condition in the algebraic equation?   
+
+_For FVM, a Neumann Boundary Condition is implemented directly by identifying the side of the volume that is a boundary and replacing this contribution in the previous algebraic equation._
+
+**Question 3**
+
 Consider the `solve` method of the class `Mesh` and write an explanation about how the FVM is solved. Mention specifically how the time and space discretization is executed; mention specifically how the algorithm is _different_ compared to the finite difference approach (for the spatial integration). Use excerpts from the code to illustrate your answer here (example syntax is provided below).
 
 _Write your answer here._
@@ -23,32 +29,20 @@ Example code block:
 ```
 include relevant code in your answer!
 ```
+
 _You should adjust the tabs/margins and shorten things in order to focus on the key parts of the algorithm._
 
-**Question 3**
-
-Given that in FVM the diffusion is computed as fluxes at the surfaces, what do you need to do in order to implement a Neumann boundary condition?   
-
-_For FVM, a Neumann Boundary Condition is implemented directly by identifying the side of the volume that is a boundary and replacing this contribution in the previous algebraic equation._
-
-
+Note that instead of looping over x and y we loop over triangles. then pretty much everything is constant because the triangles are equilateral and equal size (and orthogonal).
 
 **Question 4**
 
-SOMETHING ABOUT RUNNING THE ANALYSES AND FINDING STABILITY LIMITS. MAKE A MARKDOWN TABLE TO SUMMARIZE SEVERAL VALUES OF TRIANGLES SIZES AS WELL AS INITIAL CONDITIONS AND BOUNDARY CONDITIONS.
+At the end of Part 2 you refined the mesh and saw that the original values for the time integration resulted in an unstable solution. Run the analysis a few more times and see if you can properly describe the situation. Use specific results from your experiments (summarized in a Markdown table), as well as the stability criteria presented in the book to provide your explanation.
 
 _Write your answer here_
+
+Something about size of the triangles, time step size and should also involve the diffusivity coefficient. Markdown table should show a clear break from stable to unstable.
 
 **Question 5**
-
-_Write your answer here_
-
-**Question 6**
-
-
-_Write your answer here_
-
-**Question 7**
 
 Computations in meshes with non-equilateral triangles have added error sources that would need to be corrected to have an accurate solution. What is the impact the approach you implemented for the cases of Task 3.2, 3.3 3.4?
 
