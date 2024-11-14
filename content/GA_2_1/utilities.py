@@ -28,12 +28,19 @@ class Mesh:
 
         for time_step in range(Nt):
             for triangle_id, triangle in enumerate(self.triangles):
+
                 phi = unknowns[time_step, triangle_id]
                 flux = np.zeros(3)
                 for i in range(3):
                     side = [triangle[i], triangle[(i+1)%3]]
                     
                     side_id = None
+
+                    area = self.get_triangle_area(triangle_id, self.triangles)
+                    side_length = np.linalg.norm(self.coordinates[side[0]] - self.coordinates[side[1]])
+
+                    constant = D*dt*side_length/area
+
                     for idx, shared_side in enumerate(self.shared_sides):
                         if sorted(side) == sorted(shared_side[0]):
                             side_id = idx
@@ -42,19 +49,18 @@ class Mesh:
 
                     if side_id is not None:
                         phi_neighbor = unknowns[time_step, other_triangle_id]
-                        area = self.get_triangle_area(triangle_id, self.triangles)
-                        side_length = np.linalg.norm(self.coordinates[side[0]] - self.coordinates[side[1]])
+                        
                         centroid_distance = np.linalg.norm(self.centroids[other_triangle_id] - self.centroids[triangle_id])
-                        flux[i] = D*(phi_neighbor - phi)*side_length/centroid_distance/area
+                        flux[i] = constant*(phi_neighbor - phi)/centroid_distance
 
                     else:
                         for idx, boundary_side in enumerate(self.boundary_sides):
                             if sorted(side) == sorted(self.all_sides[boundary_side]):
                                 if self.boundary_side_types[idx][0] == 'Neumann':
-                                    flux[i] = self.boundary_side_types[idx][1]
+                                    flux[i] = constant*self.boundary_side_types[idx][1]
                                 else:
                                     print(f'WARNING: triangle {triangle_id}, boundary side {idx}, side ({side[0]}, {side[1]}) not found in any side libraries!')
-                unknowns[time_step+1, triangle_id] = phi + dt*np.sum(flux)
+                unknowns[time_step+1, triangle_id] = phi + np.sum(flux)
         self.unknowns = unknowns
         self.Nt = Nt
         self.t_final = t_final
