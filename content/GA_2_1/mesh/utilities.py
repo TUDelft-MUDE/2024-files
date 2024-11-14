@@ -50,16 +50,16 @@ class Mesh:
                     else:
                         for idx, boundary_side in enumerate(self.boundary_sides):
                             if sorted(side) == sorted(self.all_sides[boundary_side]):
-
                                 if self.boundary_side_types[idx][0] == 'Neumann':
-                                    flux[i] = 0
-                                break
-                            else:
-                                print(f'WARNING: side ({side[0]}, {side[1]}) not found in any side libraries!')
+                                    flux[i] = self.boundary_side_types[idx][1]
+                                else:
+                                    print(f'WARNING: triangle {triangle_id}, boundary side {idx}, side ({side[0]}, {side[1]}) not found in any side libraries!')
                 unknowns[time_step+1, triangle_id] = phi + dt*np.sum(flux)
         self.unknowns = unknowns
         self.Nt = Nt
         self.t_final = t_final
+        print('Solving complete!')
+        print(f'  t_final = {t_final}, Nt = {Nt}, D = {D}')
         return unknowns
                     
                 
