@@ -544,10 +544,6 @@ class Mesh:
             self.check_sides_in_triangles(i,
                                           self.shared_sides[i][0],
                                           self.shared_sides[i][1])
-        print('The sides you provided seem to be defined correctly!')
-        if len(self.shared_sides) != 10:
-            print('WARNING: You should have 10 shared sides'
-                           +f' --> currently only {len(self.shared_sides)}')
 
     def check_sides_in_triangles(self, side, vertices, triangle_id):
         triangle_1 = self.triangles[triangle_id[0]]
