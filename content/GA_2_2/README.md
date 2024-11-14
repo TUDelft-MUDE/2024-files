@@ -13,7 +13,7 @@ There are several files to be aware of:
 
 ## Primary Task
 
-Run the analysis in `the_big_M.ipynb`, inspect code (really read it!) and results, then answer the questions in `Report.md`.
+Run the analysis in `the_big_M.ipynb`, inspect the code (really **really** read it!) and results, then answer the questions in `Report.md`.
 
 Note that unlike other GA's, besides reading and understanding the contents, you don't have to do anything with the code in the notebook before reading the Report questions; this will then ask you to modify the notebook.
 
