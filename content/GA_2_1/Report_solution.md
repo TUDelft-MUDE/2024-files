@@ -130,7 +130,7 @@ Stated here; notebook also contains additional information.
 
 What would you do to correct the errors in the case of task 3.3? Describe your answer qualitatively, there is no need to make computations.
 
-_Tip: suppose that you also know the values of $\phi$ at the vertices. _
+For this question, assume that we have computed the values of $\phi$ at the vertices by interpolating using the values already found at the centroids of each neighbor volume.
 
 _Write your answer here_
 

@@ -8,7 +8,8 @@ There are several files to be aware of:
 
 1. `README.md`
 2. A notebook `Analysis.ipynb` and `Report.md` files for carrying out analysis and answering questions as done in Q1.
-3. A notebook `mesh_tips.ipynb` which provides explanation and examples for using the class `Mesh`, an understanding of which is critical for carrying out the necessary analysis
+3. A notebook `mesh_tips.ipynb` which provides explanation and examples for using the class `Mesh`, an understanding of which is critical for carrying out the necessary analysis.
+4. A file `utilities.py` that contains code to solve the FVM problem.
 
 The file `Analysis.ipynb` contains all instructions for completing the tasks for this assignment, divided into three Parts. Only the second part uses the files `utilities.py` and `mesh_tips.ipynb`.
 
