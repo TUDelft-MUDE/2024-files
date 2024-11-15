@@ -68,6 +68,12 @@ class Mesh:
         self.t_final = t_final
         print('Solving complete!')
         print(f'  t_final = {t_final}, Nt = {Nt}, D = {D}')
+        value = constant
+        print(r'Amplification factor =', constant)
+        print("max Temp",max(unknowns[-1, :]))
+        if constant<1:
+            print("stable")
+    
         return unknowns
                     
                 
