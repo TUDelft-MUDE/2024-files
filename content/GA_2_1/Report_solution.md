@@ -38,7 +38,7 @@ After each face is computed, the value of $\phi_{i}^{n+1}$ is computed as follow
 unknowns[time_step+1, triangle_id] = phi + np.sum(flux)
 ```
 
- As the volumes are equal-sized equilateral triangles, the code could have been made more efficient by only computing the areas, lengths and centroid-to-centroid difference _once_, outside of the loop for each triangle, but Robert ran out of time to do this.
+As the volumes are equal-sized equilateral triangles, the code could have been made more efficient by only computing the areas, lengths and centroid-to-centroid difference _once_, outside of the loop for each triangle, but Robert ran out of time to do this.
 
 **Question 2**
 
@@ -91,6 +91,8 @@ Note that for the workshop, which considered a 1D problem and a 2D problem with 
 At the end of Part 2 you refined the mesh and saw that the original values for the time integration resulted in an unstable solution. Run the analysis a few more times and see if you can properly describe the situation (specifically regarding stability). Use specific results from your experiments (summarized in a Markdown table), as well as the stability criteria presented in the book to provide your explanation.
 
 _Write your answer here_
+
+**Solution**
 
 Something about size of the triangles, time step size and should also involve the diffusivity coefficient. Markdown table should show a clear break from stable to unstable.
 
