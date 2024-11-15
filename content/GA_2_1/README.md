@@ -1,6 +1,8 @@
-# README for Group Assignment 2.2
+# README for Group Assignment 2.1
 
-*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.2, Friday, Nov 22, 2024.*
+*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.1, Friday, Nov 15, 2024.*
+
+_You can access this assignment with the following link: [classroom.github.com/a/OCrfG9X1](https://classroom.github.com/a/OCrfG9X1)._
 
 GA 2.1 applies the finite volume method (FVM) to a 2D problem with a fun geometry.
 

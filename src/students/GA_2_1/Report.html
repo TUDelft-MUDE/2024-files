@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>README.md</title>
+<title>Report.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,34 +365,44 @@ code {
           : 'default'
     });
   </script>
-<h1 id="readme-for-group-assignment-21">README for Group Assignment 2.1</h1>
+<h1 id="report-for-group-assignment-21">Report for Group Assignment 2.1</h1>
 <p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>: Week 2.1, Friday, Nov 15, 2024.</em></p>
-<p><em>You can access this assignment with the following link: <a href="https://classroom.github.com/a/OCrfG9X1">classroom.github.com/a/OCrfG9X1</a>.</em></p>
-<p>GA 2.1 applies the finite volume method (FVM) to a 2D problem with a fun geometry.</p>
-<p>There are several files to be aware of:</p>
-<ol>
-<li><code>README.md</code></li>
-<li>A notebook <code>Analysis.ipynb</code> and <code>Report.md</code> files for carrying out analysis and answering questions as done in Q1.</li>
-<li>A notebook <code>mesh_tips.ipynb</code> which provides explanation and examples for using the class <code>Mesh</code>, an understanding of which is critical for carrying out the necessary analysis.</li>
-<li>A file <code>utilities.py</code> that contains code to solve the FVM problem.</li>
-</ol>
-<p>The file <code>Analysis.ipynb</code> contains all instructions for completing the tasks for this assignment, divided into three Parts. Only the second part uses the files <code>utilities.py</code> and <code>mesh_tips.ipynb</code>.</p>
-<h2 id="task-overview">Task Overview</h2>
-<p>Here are a few tips to help you get through this assignment efficiently with your group members:</p>
-<ol>
-<li><em>Everyone</em> should do Part 1, which carries out the discretization and formulation of algebraic equations; skills that are essential for the exam!</li>
-<li>One subgroup can look at <code>mesh_tips.ipynb</code> to help with Part 2 of the notebook; select someone that got through the PA smoothly, as it is similar.</li>
-<li>Part 3 can be done independently and does not require any programming.</li>
-<li>For the Report, we recommend you wait until finishing Part 2 before starting to answer questions.</li>
-</ol>
-<h2 id="a-note-about-the-code">A note about the code</h2>
-<p>Note that you are not expected to understand the entire code like the syntax of the if statements and loops, or the way in which the boundaries or sides are defined and stored; however, you should be able to recognize high level steps of the algorithm, such as looping over triangles, sides, etc, and especially the time and &quot;space&quot; integration loops.</p>
-<h2 id="using-code-blocks-in-your-report">Using code blocks in your Report</h2>
-<p>Some of the questions in the Report ask you to reproduce code. This is easy to do with a Markdown &quot;code block&quot; which uses three &quot;backticks&quot;</p>
-<pre class="hljs"><code><div>code block
+<h2 id="questions">Questions</h2>
+<p><strong>Question 1</strong></p>
+<p>Which is the algebraic expression for computing $\phi_{i}^{n+1}$ for the case of three interior volumes? Write the expression here and reproduce the code that accomplishes this in the <code>Mesh</code> class. Be sure to indicate clearly which values of $\phi$ are for the volume of interest and the (arbitrary) &quot;neighbor&quot; volumes.</p>
+<p><em>Write your answer here.</em></p>
+<pre class="hljs"><code><div>reproduce code here
+--&gt; remember there are tips in the README!
 </div></code></pre>
-<p>You can also use single backticks for <code>inline code</code>. The backticks are usually found at the top left of your keyboard, along with the tilde. View this file in raw text mode to see what they look like.</p>
-<p>When including code in your answers you should adjust the tabs/margins and shorten things in order to focus on the key parts of the algorithm.</p>
+<p><strong>Question 2</strong></p>
+<p>Given that in FVM the diffusion is computed as fluxes at the surfaces, what do you need to do in order to represent a Neumann boundary condition in the algebraic equation? Include the line of code that accomplishes in the <code>Mesh</code> class, along with a brief explanation of the context.</p>
+<p><em>Write your answer here.</em></p>
+<pre class="hljs"><code><div>reproduce the code here
+</div></code></pre>
+<p><strong>Question 3</strong></p>
+<p>Consider the <code>solve</code> method of the class <code>Mesh</code> and write an explanation about how the FVM is solved. Mention specifically how the time and space discretization is executed; also mention specifically how the algorithm is <em>different</em> compared to the finite difference approach (for the spatial integration). Use excerpts from the code to illustrate your answer here (example syntax is provided below). There is no need to repeat the code and explanations provided in Questions 1 and 2.</p>
+<p><em>Write your answer here.</em></p>
+<p>Example code block:</p>
+<pre class="hljs"><code><div>include relevant code in your answer!
+</div></code></pre>
+<p><strong>Question 4</strong></p>
+<p>At the end of Part 2 you refined the mesh and saw that the original values for the time integration resulted in an unstable solution. Run the analysis a few more times and see if you can properly describe the situation (specifically regarding stability). Use specific results from your experiments (summarized in a Markdown table), as well as the stability criteria presented in the book to provide your explanation.</p>
+<p><em>Write your answer here</em></p>
+<p><strong>Question 5</strong></p>
+<p>Computations in meshes with non-equilateral triangles have added error sources that would need to be corrected to have an accurate solution. What is the impact the approach you implemented for the cases of Task 3.2, 3.3 3.4?</p>
+<p>Briefly state the source of error introduced by the geometry of the volumes considered in each task. You only need to write a few words each.</p>
+<p><em>Write your answer here</em></p>
+<ul>
+<li>Task 3.2:</li>
+<li>Task 3.3:</li>
+<li>Task 3.4:</li>
+</ul>
+<p><strong>Question 6</strong></p>
+<p>What would you do to correct the errors in the case of task 3.3? Describe your answer qualitatively, there is no need to make computations.</p>
+<p>_Tip: suppose that you also know the values of $\phi$ at the vertices. _</p>
+<p><em>Write your answer here</em></p>
+<p><strong>Last Question: How did things go? (Optional)</strong></p>
+<p><em>Use this space to let us know if you ran into any challenges while working on this GA, and if you have any feedback to report.</em></p>
 <p><strong>End of file.</strong></p>
 <span style="font-size: 75%">
 &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a>, TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
