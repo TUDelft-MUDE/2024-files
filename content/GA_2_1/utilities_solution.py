@@ -20,7 +20,7 @@ class Mesh:
         self.get_boundary_sides()
         self.set_initial_conditions()
 
-    def solve(self, t_final, Nt, D):
+    def solve(self, t_final, Nt, D,print_results=False):
         unknowns = np.zeros((Nt+1, len(self.triangles)))
         unknowns[0, :] = self.initial_conditions
 
@@ -67,14 +67,14 @@ class Mesh:
         self.Nt = Nt
         self.t_final = t_final
         print('Solving complete!')
+        
         print(f'  t_final = {t_final}, Nt = {Nt}, D = {D}')
-        value = constant
-        print(r'Amplification factor =', constant)
-        print("max Temp",max(unknowns[-1, :]))
-        if constant<1:
-            print("stable")
-    
-        return unknowns
+        stability_criteria = constant/centroid_distance
+        print(f'Stability Criteria (D*Delta_t*Surface/Volume/centroid_distance) ={stability_criteria:.3f}')
+        max_temp=max(unknowns[-1, :])
+        print(f"max Temp:{max_temp:.3e} C")
+      
+        return unknowns,stability_criteria,max_temp
                     
                 
 
