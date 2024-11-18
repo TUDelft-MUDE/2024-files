@@ -1,6 +1,17 @@
-# PA12 Information, Week 2.4
+# PA 2.4
 
 _[CEGM1000 MUDE](http://mude.citg.tudelft.nl/), Time Series Analysis, Week 4 of Quarter 2._
+
+
+
+- This week we will install the software Gurobi, which is required for optimization topic next week. This is to give you enough time to solve any problems with the installation. Next week we will learn how to use it.
+
+
+
+
+
+
+
 
 This week the programming assignment is based on three files:
 - `README.md`: instructions for PA12 and environment creation (this document)

@@ -2,6 +2,24 @@
 
 _[CEGM1000 MUDE](http://mude.citg.tudelft.nl/), Optimization, Week 5 of Quarter 2._
 
+
+
+updates for 2024:
+- environment stuff may be reduced
+- need to address optimizing the model and adding constraints
+- should probably also address the "running notebook cells out of order" issue directly
+- can remove pandas part if the rest is too big
+
+
+
+
+
+
+
+
+
+
+
 This week the programming assignment will illustrate some good practics for managing data sets in a git repostiroy. It is based on two files:
 - `README.md`: environment deletion and combining datasets with Git (this document).
 - `PA13_data_process.ipynb`: a brief intro to pandas to help us process and manage our data.
