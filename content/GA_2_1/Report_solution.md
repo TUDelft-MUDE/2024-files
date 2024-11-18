@@ -94,7 +94,9 @@ _Write your answer here_
 
 **Solution**
 
-The stability criteria given in the book for a 1D case reads $D \frac{\Delta t}{\Delta x^2}$ less than 0.5. This is a necessary condition for stability but it does not ensures stability, this is related to the boundary conditions and its implementation. However, we do expect that the stability critieria to be around that value. In this problem, a similar criteria can be found $D \frac{\Delta t * Surface}{Volume * centroid_distance }$  and it should be less than 0.5. 
+_Note: you were not expected to use this equation, as we did not provide it with the assignment; however, you were expected to make a similar set of calculations and comparisons, based on what was provided in the textbook._ 
+
+The stability criteria given in the book for a 1D case reads $D \frac{\Delta t}{\Delta x^2}$ less than 0.5. This is a necessary condition for stability but it does not ensure stability, this is related to the boundary conditions and its implementation. However, we do expect that the stability criteria that separates the stable and unstable region to be of the same order of magnitude. For our problem, the criteria can be computed as $D \frac{\Delta t * Surface}{Volume * centroid_distance }$  and it should be less than 0.5. 
 
 Starting with 
 
@@ -105,6 +107,8 @@ mesh.solve(20, 100, 50)
 ```
 
 This works find for the original mesh, but the solution is unstable for the refined mesh. The table below shows the stability criteria, the variation of the number of time steps and if the solution is stable or not. As you can see, the stable regime lies around 0.35, slightly lower than the necessary condition of stability derived in the book. 
+
+_See the notebooks `Analysis_solution.ipynb` for a figure illustrating these values._
 
 | Number of time steps      | Stability criteria | stable?     |
 | :---        |    :----:   |          ---: |
