@@ -1,0 +1,9 @@
+name: mude-ml
+dependencies:
+  - python=3.11
+  - numpy
+  - matplotlib
+  - pandas
+  - pip
+  - conda-forge::scikit-learn
+  - conda-forge::jupyterlab
