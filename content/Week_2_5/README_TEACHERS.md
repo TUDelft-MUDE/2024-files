@@ -4,6 +4,8 @@
 
 The book draft for this year is here (note the "draft" in the URL): [mude.citg.tudelft.nl/2024/book/draft/optimization/overview.html](https://mude.citg.tudelft.nl/2024/book/draft/optimization/overview.html). Access it with **username: teacher** and **password: access**.
 
+Note that this year I am including the Gurobi instructions in the book (paired with PA 1.4A, see below), and will also prepare a very brief overview for how to use it in a notebook (paired with PA 1.5, see below). The draft of these pages are here: [mude.citg.tudelft.nl/2024/book/draft/programming/gurobi.html#](https://mude.citg.tudelft.nl/2024/book/draft/programming/gurobi.html#).
+
 The book chapter from last year is here: [mude.citg.tudelft.nl/2023/book/optimization/overview.html](https://mude.citg.tudelft.nl/2023/book/optimization/overview.html)
 
 ## General Files
