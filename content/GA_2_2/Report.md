@@ -18,34 +18,47 @@ Please keep your solutions as **concise** as possible, and, where possible, answ
 
 ## Questions
 
-**Question 1: Boundary conditions**
-    
-- What boundary conditions are actively enforced? On which part of the boundary are they enforced?
-    
-On the remainder of the boundary, nothing is done in the implementation to enforce any boundary conditions. 
-    
-- Give a mathematical expression for the boundary condition that is naturally applied. **Also** describe an observation about the obtained solution that confirms that this boundary condition is indeed satisfied.
-    
-**Question 2: Integration scheme**
+**Question 1: Derivation**
 
--  Which integration schemes are used to compute the element contributions to the $\mathbf{K}$ and $\mathbf{M}$ matrices? Comment on the locations and weights of the integration points. 
+Follow the steps from strong form to discretized form to derive the expression $\mathbf{M}=\int_\Omega\mathbf{N}^T\mathbf{N}\,\mathrm{d}\Omega$ in the term $\mathbf{M}\dot{\mathbf{u}}$. You will only be assessed on how you deal with the term that contains the time derivative. The other terms exactly following the recipe outlined for the [Poisson equation in 2D](https://mude.citg.tudelft.nl/2024/book/fem/poisson2d.html) in the book. 
+
+**Question 2: Problem definition**
+
+Investigate the code and results to find out which problem is being solved. 
+
+- Give a mathematical description of the problem in terms of governing equation and boundary conditions. Be as specific as possible, indicating the values that are used as input to the calculation. 
+
+- In the final visualization contour lines are visible, connecting points that have the same temperature. As the solution evolves, these contour lines remain approximately perpendicular to the boundary. Which boundary condition does this observation relate to?
+
+
+**Question 3: Integration scheme**
+
+- In the `get_element_M` function, how many integration points are used and where in the triangles are they positioned? 
     
-- Which changes would you make to the code to evaluate the $\mathbf{M}$-matrix with a single integration point at the center of gravity of each element? Give your answer by indicating where you would replace existing code and typing out the new lines of code as **part of your answer in this report**.
+- In the `get_element_K` a simpler implementation is used. What is the essential difference between $\mathbf{K}_e$ and $\mathbf{M}_e$ that is the reason why this simpler implementation is valid for $\mathbf{K}_e$? (The subscript $_e$ is used to indicate the contribution to the matrix from a single element, or the *element matrix*). 
 
-**Question 3: Time step size dependence**
-
-Try increasing the step size $\Delta t$ and observing what happens when you rerun the code. 
-- What is the reason this code does not suffer from instability for large time steps? 
-
-Try decreasing the time step to very small numbers. If you make the time step small enough, some unphysical behavior can be observed in the solution, at least for initial time steps. 
-- What is the source of this behavior? 
-
-**Question 4: $\mathbf{B}$-matrix**
+**Question 4: Shape functions**
     
-Shape functions in the triangular element each have the form $N_i=a_ix+b_iy+c_i$ with $i\in[1,3]$. For every $i$, the coefficients $a_i, b_i, c_i$ are computed in the code to form the B-matrix. 
- - Why does the $\mathbf{B}$-matrix inside the element not depend on $x$ and $y$?
+Investigate the shape functions for the element with index 10 in the mesh. Use the `get_shape_functions_T3` function defined in the notebook to find expressions for the shape functions in that element and check that they satisfy the shape function properties. 
 
-- Give an expression for the $\mathbf{B}$-matrix in terms of these nine coefficients ($a_1, a_2, a_3, b_1, b_2, b_3, c_1, c_2, c_3$). 
+- What are the coordinates of the nodes of element 10? 
+
+- What are the shape functions of the element? 
+
+- Assert that the shape functions satisfy the partition of unity property:
+
+$$
+\sum_i N_i(\mathbf{x}) = 1
+$$
+
+- Assert for one of the shape functions that it satisfies the Kronecker delta property
+
+$$
+N_i(\mathbf{x}_j) = \begin{cases}
+  1, & i = j \\
+  0, & i\neq j
+\end{cases}
+$$
 
 **Last Question: How did things go? (Optional)**
 
