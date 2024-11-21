@@ -1,0 +1,13 @@
+name: mude-opt
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - pip
+  - jupyter
+  - ipykernel
+  - pip
+  - conda-forge::pymoo
+  - gurobi::gurobi

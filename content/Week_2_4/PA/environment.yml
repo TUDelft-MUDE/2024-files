@@ -1,0 +1,10 @@
+name: mude-PA12
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - matplotlib
+  - statsmodels
+  - pip
+  - conda-forge::jupyterlab
+  - gurobi::gurobi
