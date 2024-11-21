@@ -64,12 +64,12 @@ $$\nabla w^h = \mathbf{B}\mathbf{w}$$
 5. Substitute and take $\mathbf{u,w}$ out of the integral as they don't depend on $x$ and $y$
 
 $$
-\mathbf{w^T} \int_{\Omega} N^T N d\Omega \frac{\partial \mathbf{u}}{\partial t} + \mathbf{w^T} \int_{\Omega} \nu B^T B d\Omega \mathbf{u} =  \mathbf{w^T} \int_{\Gamma N}  N^T h d\Gamma_N + w^T \int_{\Omega} N^T q d\Omega
+\mathbf{w^T} \int_{\Omega} \mathbf{N}^T \mathbf{N} d\Omega \frac{\partial \mathbf{u}}{\partial t} + \mathbf{w^T} \int_{\Omega} \nu \mathbf{B}^T \mathbf{B} d\Omega \mathbf{u} =  \mathbf{w^T} \int_{\Gamma \mathbf{N}}  \mathbf{N}^T h d\Gamma_\mathbf{N} + \mathbf{w}^T \int_{\Omega} \mathbf{N}^T q d\Omega
 $$
 
-6. Eliminate $w^T$
+6. Eliminate $\mathbf{w}^T$
 
-$$ \int_{\Omega} N^T N  d\Omega  \frac{\partial \mathbf{u}}{\partial t}+  \int_{\Omega} \nu B^T B d\Omega \mathbf{u} =   \int_{\Gamma N}  N^T h d\Gamma_N + \int_{\Omega} N^T q d\Omega
+$$ \int_{\Omega} \mathbf{N}^T \mathbf{N}  d\Omega  \frac{\partial \mathbf{u}}{\partial t}+  \int_{\Omega} \nu \mathbf{B}^T \mathbf{B} d\Omega \mathbf{u} =   \int_{\Gamma \mathbf{N}}  \mathbf{N}^T h d\Gamma_\mathbf{N} + \int_{\Omega} \mathbf{N}^T q d\Omega
 $$
 
 
@@ -165,7 +165,7 @@ $$
 
 The derivatives $b_i$ and $c_i$ are constants because $N_i$ is linear, and the derivative removes the dependence on $x$ and $y$.
 
-The $\mathbf{B}$-matrix is therefore constant within a single element and does not vary with $x$ or $y$. This simplifies the computation of the stiffness matrix $\mathbf{K}_e$ because $\mathbf{B}^T \nu \mathbf{B}$ remains constant and only needs to be multiplied by the area of the triangle.
+The $\mathbf{B}$-matrix is therefore constant within a single element and does not vary with $x$ or $y$. This simplifies the computation of the stiffness matrix $\mathbf{K}$ because $\mathbf{B}^T \nu \mathbf{B}$ remains constant and only needs to be multiplied by the area of the triangle.
 
 
 **Question 4: Shape functions**
