@@ -104,35 +104,27 @@ The input values are:
 
 - $\nu = 1$,
 - $q = 15$,
-- $T_{\text{initial}} = 30$,
-- $\Delta t = 0.005$,
-- $n_t = 500$.
 
 Boundary conditions:
 
-Dirichlet boundary conditions: $u=10$ on the bottom left edge
-Homogeneous Neumann boundary conditions: $\nabla u\cdot\mathbf{n}=0$. 
-
-Mathematical Description
-$$
-\frac{\partial u}{\partial t} =  \Delta u + 15, \quad \in \Omega,
-$$
-
+Dirichlet boundary conditions: $u=10$ on the bottom right edge
 $$
 u(x, y, t) = 10, \quad \text{on } \Gamma_D,
 $$
 
+Homogeneous Neumann boundary conditions on remainder of the bondary
 $$
 \nabla u \cdot \mathbf{n} = 0, \quad \text{on } \Gamma_N,
 $$
 
+Initial conditions:
 $$
 u(x, y, 0) = 30, \quad \in \Omega.
 $$
 
 2. Which boundary condition does this observation relate to?
 
-- The neumman boundary
+- The homogeneous Neumman boundary condition
 
 **Question 3: Integration scheme**
 
@@ -147,7 +139,7 @@ $$
 
 1. 
 - 3 integration points
-- location At the midpoints of the triangle nodes
+- location at the midpoints of the triangle edges
 in the code:
 integration_locations = [(n1 + n2) / 2, (n2 + n3) / 2, (n3 + n1) / 2]
 
@@ -157,8 +149,6 @@ $$ \mathbf{M} = \int_{\Omega} \mathbf{N}^T \mathbf{N} \,d \Omega$$
 
 $$ \mathbf{K} = \int_{\Omega} \mathbf{B}^T \nu \mathbf{B} \,d \Omega$$
 
-
-The shape functions $N_i$ for a triangular element are linear functions:
 
 $$
 N_i = a_i + b_i x + c_i y, \quad i \in [1, 3],
@@ -175,35 +165,10 @@ $$
 
 The derivatives $b_i$ and $c_i$ are constants because $N_i$ is linear, and the derivative removes the dependence on $x$ and $y$.
 
-
-The $\mathbf{B}$-matrix contains the derivatives of the shape functions:
-
-$$
-\mathbf{B} =
-\begin{pmatrix}
-\frac{\partial N_1}{\partial x} & \frac{\partial N_2}{\partial x} & \frac{\partial N_3}{\partial x} \\
-\frac{\partial N_1}{\partial y} & \frac{\partial N_2}{\partial y} & \frac{\partial N_3}{\partial y}
-\end{pmatrix}.
-$$
-
-Substituting the constant derivatives:
-
-$$
-\mathbf{B} =
-\begin{pmatrix}
-b_1 & b_2 & b_3 \\
-c_1 & c_2 & c_3
-\end{pmatrix}.
-$$
-
-
-
-
-The values $b_i$ and $c_i$ are constants determined by the geometry of the triangle. Therefore, the $\mathbf{B}$-matrix is constant within a single element and does not vary with $x$ or $y$. This simplifies the computation of the stiffness matrix $\mathbf{K}_e$ because $\mathbf{B}^T \nu \mathbf{B}$ remains constant and only needs to be multiplied by the area of the triangle.
+The $\mathbf{B}$-matrix is therefore constant within a single element and does not vary with $x$ or $y$. This simplifies the computation of the stiffness matrix $\mathbf{K}_e$ because $\mathbf{B}^T \nu \mathbf{B}$ remains constant and only needs to be multiplied by the area of the triangle.
 
 
 **Question 4: Shape functions**
-    
 Investigate the shape functions for the element with index 10 in the mesh. Use the `get_shape_functions_T3` function defined in the notebook to find expressions for the shape functions in that element and check that they satisfy the shape function properties. 
 
 - What are the coordinates of the nodes of element 10? 
@@ -231,11 +196,12 @@ To find indices of the three nodes use connectivity[10]
 use the indices to get the coordinates from the nodes:
 
 Node indices of element 10: [132 256 257]
-Coordinates of the nodes of element 10: [[0.20846317 0.9231442  0.        ]
+Coordinates of the nodes of element 10: 
+[[0.20846317 0.9231442  0.        ]
  [0.17655435 0.9593241  0.        ]
  [0.15351043 0.91631447 0.        ]]
 
- 2. shape functions
+2. shape functions
 
  The get_shape_functions_T3 outputs the cooefcietns for each shape function in the form:
 
@@ -245,7 +211,7 @@ Coordinates of the nodes of element 10: [[0.20846317 0.9231442  0.        ]
  These coeffients are stored in an array coeffs
  Thes coeffients define the shape functions
 
- Shape function N_1(x, y) = 6.57856187723133 + 19.49565546710987 * x + -10.44548414598946 * y
+Shape function N_1(x, y) = 6.57856187723133 + 19.49565546710987 * x + -10.44548414598946 * y
 Shape function N_2(x, y) = -22.349512454627504 + -3.0958196475143356 * x + 24.909301124585856 * y
 Shape function N_3(x, y) = 16.770950577396174 + -16.399835819595534 * x + -14.463816978596396 * y
 
