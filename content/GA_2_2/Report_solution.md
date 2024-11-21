@@ -14,65 +14,277 @@ $$
 
 or by including an image with your (clearly written) handwriting. 
 
-### 1. Boundary conditions
+
+**Question 1: Derivation**
+
+Follow the steps from strong form to discretized form to derive the expression $\mathbf{M}=\int_\Omega\mathbf{N}^T\mathbf{N}\,\mathrm{d}\Omega$ in the term $\mathbf{M}\dot{\mathbf{u}}$. You will only be assessed on how you deal with the term that contains the time derivative. The other terms exactly following the recipe outlined for the [Poisson equation in 2D](https://mude.citg.tudelft.nl/2024/book/fem/poisson2d.html) in the book. 
 
 
-*1a. What boundary conditions are actively enforced? On which part of the boundary are they enforced?*
-
-***(1)*** Dirichlet boundary conditions: $u=10$ on the bottom left edge
-
-*1b. On the remainder of the boundary, nothing is done in the implementation to enforce any boundary conditions. Give a mathematical expression for the boundary condition that is naturally applied. Also describe an observation about the obtained solution that confirms that this boundary condition is indeed satisfied.*
-
-***(1)*** Homogeneous Neumann boundary conditions: $\nabla u\cdot\mathbf{n}=0$. 
-
-***(1)*** It can be observed that the gradient of the solution in perpendicular to the boundary is equal to zero. This is best observed from the 2D visualization, where iso-lines separating the different colours are normal to the boundary. 
 
 
-### 2. Integration scheme
-*2a. Which integration schemes are used to compute the element contributions to the $\mathbf{K}$ and $\mathbf{M}$ matrices? Comment on the locations and weights of the integration points.*
+**solution**
 
-***(1)*** For the $\mathbf{M}$-matrix: 3-points at the middle of the edges of the triangle, each with weight $A/3$ where $A$ is the element area
+Time dependent 2D Poisson equation:
 
-***(1)*** For the $\mathbf{K}$-matrix there is no location because $\mathbf{K}$ does not depend on position, there is a single integration point with weight $A$ (or the integrand is just multiplied with $A$)
- 
-*2b. Which changes would you make to the code to evaluate the $\mathbf{M}$-matrix with a single integration point at the center of gravity of each element (give your answer by indicating where you would replace existing code and typing out the new lines of code)*
+$$
+\frac{\partial u}{\partial t} = \nu \left(\frac{\partial^{2} u}{{\partial x}^{2}} + \frac{\partial^{2} u}{{\partial y}^{2}}\right) + q
+$$
 
-***(1)***
+$$
+\frac{\partial u}{\partial t} = \nu \nabla^{2} u   + q
+$$
 
-In the function `get_element_M`, change the lines that define `integration_locations` and `integration_weights`:
+1. integrate and introduce weight functions
 
-   `integration_locations = [(n1+n2+n3)/3]`
-   
-   `integration_weights = [element_area]`
+$$
+\int_{\Omega} w \frac{\partial u}{\partial t} d\Omega = \int_{\Omega} w \nu  \nabla^2 u d\Omega + \int_{\Omega} wq d\Omega
+$$
+
+2. Integration by parts: changing the second derivative, changing sign and introducing boundary condition
+
+$$
+\int_{\Omega} w \frac{\partial u}{\partial t} d\Omega = - \int_{\Omega} \nu \nabla w \cdot \nabla u  d\Omega + \int_{\Gamma}  w \mu \nabla u \cdot \bar{n} d\Gamma + \int_{\Omega} w q d\Omega
+$$
+
+3. substitute boundary condition (w= 0 on $\Gamma_D$ and $\mu \nabla u \cdot \mathbf{n}$ on $\Gamma_N$):
+
+$$\int_{\Omega} w \frac{\partial u}{\partial t} d\Omega + \int_{\Omega} \nu \nabla w \cdot \nabla u  d\Omega = \int_{\Gamma N}  w h d\Gamma_N + \int_{\Omega} w q d\Omega$$
+
+4. discretization:
+
+$$
+u^h = N\mathbf{u}
+$$ 
+$$w^h = N\mathbf{w}$$
 
 
-### 3. Time step size dependence
-*3a. Try increasing the step size $\Delta t$. What is the reason this code does not suffer from instability for large time steps?*
+$$\nabla u^h  = B\mathbf{u}$$
+$$\nabla w^h = B\mathbf{w}$$
 
-***(1)***
-The time-integration scheme is Euler backward.
+5. Substitute and take $\mathbf{u,w}$ out of the integral as they don't depend on x and y
 
-*3b. Try decreasing the time step to very small numbers. If you make the time step small enough, some unphysical behavior can be observed in the solution, at least for initial time steps. What is the source of this behavior?*
+$$
+\mathbf{w^T} \int_{\Omega} N^T N d\Omega \frac{\partial u}{\partial t} + \mathbf{w^T} \int_{\Omega} \nu B^T B d\Omega \mathbf{u} =  \mathbf{w^T} \int_{\Gamma N}  N^T h d\Gamma_N + w^T \int_{\Omega} N^T q d\Omega
+$$
 
-***(1)***
-For very small $t$, the solution initially has local high gradients. The mesh is not fine enough to resolve this accurately. With small $\Delta t$ the first time steps are in this domain. 
+6. "Devide" by $w^T$
 
-### 4. $\mathbf{B}$-matrix
+$$ \int_{\Omega} N^T N  d\Omega  \frac{\partial u}{\partial t}+  \int_{\Omega} \nu B^T B d\Omega \mathbf{u} =   \int_{\Gamma N}  N^T h d\Gamma_N + \int_{\Omega} N^T q d\Omega
+$$
+
+
+7. write as a system of equations:
+
+$$ 
+M \frac{\partial u}{\partial t} + \mathbf{K u} = \mathbf{q}$$ 
+
+$$ \mathbf{M \dot{u}} + \mathbf{K u} = \mathbf{q}$$
+
+
+**Question 2: Problem definition**
+
+Investigate the code and results to find out which problem is being solved. 
+
+- Give a mathematical description of the problem in terms of governing equation and boundary conditions. Be as specific as possible, indicating the values that are used as input to the calculation. 
+
+- In the final visualization contour lines are visible, connecting points that have the same temperature. As the solution evolves, these contour lines remain approximately perpendicular to the boundary. Which boundary condition does this observation relate to?
+
+**solution**
+
+1. Governing equations and boundary conditions:
+
+
+The governing equation is:
+
+$$
+\frac{\partial u}{\partial t} = \nu \Delta u + q,
+$$
+
+The input values are:
+
+- $\nu = 1$,
+- $q = 15$,
+- $T_{\text{initial}} = 30$,
+- $\Delta t = 0.005$,
+- $n_t = 500$.
+
+Boundary conditions:
+
+Dirichlet boundary conditions: $u=10$ on the bottom left edge
+Homogeneous Neumann boundary conditions: $\nabla u\cdot\mathbf{n}=0$. 
+
+Mathematical Description
+$$
+\frac{\partial u}{\partial t} =  \Delta u + 15, \quad \in \Omega,
+$$
+
+$$
+u(x, y, t) = 10, \quad \text{on } \Gamma_D,
+$$
+
+$$
+\nabla u \cdot \mathbf{n} = 0, \quad \text{on } \Gamma_N,
+$$
+
+$$
+u(x, y, 0) = 30, \quad \in \Omega.
+$$
+
+2. Which boundary condition does this observation relate to?
+
+- The neumman boundary
+
+**Question 3: Integration scheme**
+
+- In the `get_element_M` function, how many integration points are used and where in the triangles are they positioned? 
     
-*4a Shape functions in the triangular element each have the form $N_i=a_ix+b_iy+c_i$ with $i\in[1,3]$. For every $i$, the coefficients $a_i, b_i, c_i$ are computed in the code to form the B-matrix. Why does the $\mathbf{B}$-matrix inside the element not depend on $x$ and $y$?*
+- In the `get_element_K` a simpler implementation is used. What is the essential difference between $\mathbf{K}_e$ and $\mathbf{M}_e$ that is the reason why this simpler implementation is valid for $\mathbf{K}_e$? (The subscript $_e$ is used to indicate the contribution to the matrix from a single element, or the *element matrix*). 
 
-***(1)*** 
-The $\mathbf{B}$-matrix contains derivatives with respect to $x$ and $y$. Because there are only linear terms in $N_i$, these derivatives are not a function of $x$. 
 
-*4b Give an expression for the $\mathbf{B}$-matrix in terms of these nine coefficients ($a_1, a_2, a_3, b_1, b_2, b_3, c_1, c_2, c_3$).*
 
-***(1)***
+
+**solution**
+
+1. 
+- 3 integration points
+- location At the midpoints of the triangle nodes
+in the code:
+integration_locations = [(n1 + n2) / 2, (n2 + n3) / 2, (n3 + n1) / 2]
+
+2. 
+
+$$ \mathbf{M} = \int_{\Omega} \mathbf{N}^T \mathbf{N} \,d \Omega$$
+
+$$ \mathbf{K} = \int_{\Omega} \mathbf{B}^T \nu \mathbf{B} \,d \Omega$$
+
+
+The shape functions $N_i$ for a triangular element are linear functions:
+
 $$
-\mathbf{B} = \left[\begin{matrix}
-a_1 & a_2 & a_3 \\
-b_1 & b_2 & b_3
-\end{matrix}\right]
+N_i = a_i + b_i x + c_i y, \quad i \in [1, 3],
 $$
+
+where $a_i, b_i, c_i$ are constants determined by the geometry of the triangle. The shape functions $N_i$ vary linearly across the element because they depend on $x$ and $y$.
+
+
+Taking the derivative of $N_i$ with respect to $x$ and $y$ gives:
+
+$$
+\frac{\partial N_i}{\partial x} = b_i, \quad \frac{\partial N_i}{\partial y} = c_i.
+$$
+
+The derivatives $b_i$ and $c_i$ are constants because $N_i$ is linear, and the derivative removes the dependence on $x$ and $y$.
+
+
+The $\mathbf{B}$-matrix contains the derivatives of the shape functions:
+
+$$
+\mathbf{B} =
+\begin{pmatrix}
+\frac{\partial N_1}{\partial x} & \frac{\partial N_2}{\partial x} & \frac{\partial N_3}{\partial x} \\
+\frac{\partial N_1}{\partial y} & \frac{\partial N_2}{\partial y} & \frac{\partial N_3}{\partial y}
+\end{pmatrix}.
+$$
+
+Substituting the constant derivatives:
+
+$$
+\mathbf{B} =
+\begin{pmatrix}
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{pmatrix}.
+$$
+
+
+
+
+The values $b_i$ and $c_i$ are constants determined by the geometry of the triangle. Therefore, the $\mathbf{B}$-matrix is constant within a single element and does not vary with $x$ or $y$. This simplifies the computation of the stiffness matrix $\mathbf{K}_e$ because $\mathbf{B}^T \nu \mathbf{B}$ remains constant and only needs to be multiplied by the area of the triangle.
+
+
+**Question 4: Shape functions**
+    
+Investigate the shape functions for the element with index 10 in the mesh. Use the `get_shape_functions_T3` function defined in the notebook to find expressions for the shape functions in that element and check that they satisfy the shape function properties. 
+
+- What are the coordinates of the nodes of element 10? 
+
+- What are the shape functions of the element? 
+
+- Assert that the shape functions satisfy the partition of unity property:
+
+$$
+\sum_i N_i(\mathbf{x}) = 1
+$$
+
+- Assert for one of the shape functions that it satisfies the Kronecker delta property
+
+$$
+N_i(\mathbf{x}_j) = \begin{cases}
+  1, & i = j \\
+  0, & i\neq j
+\end{cases}
+$$
+
+**solution**
+1.
+To find indices of the three nodes use connectivity[10]
+use the indices to get the coordinates from the nodes:
+
+Node indices of element 10: [132 256 257]
+Coordinates of the nodes of element 10: [[0.20846317 0.9231442  0.        ]
+ [0.17655435 0.9593241  0.        ]
+ [0.15351043 0.91631447 0.        ]]
+
+ 2. shape functions
+
+ The get_shape_functions_T3 outputs the cooefcietns for each shape function in the form:
+
+ $$
+ N_i = a_i +b_i x+ c_iy
+ $$
+ These coeffients are stored in an array coeffs
+ Thes coeffients define the shape functions
+
+ Shape function N_1(x, y) = 6.57856187723133 + 19.49565546710987 * x + -10.44548414598946 * y
+Shape function N_2(x, y) = -22.349512454627504 + -3.0958196475143356 * x + 24.909301124585856 * y
+Shape function N_3(x, y) = 16.770950577396174 + -16.399835819595534 * x + -14.463816978596396 * y
+
+
+
+3. The partition of unity property for the shape functions is defined as:
+
+$$
+\sum_{i=1}^3 N_i(\mathbf{x}) = 1
+$$
+
+
+
+ Shape Functions:
+   - Each shape function is of the form:
+     $$
+     N_i(x, y) = a_i + b_i x + c_i y, \quad i \in [1, 3],
+     $$
+     where $a_i, b_i, c_i$ are the coefficients computed using the `get_shape_functions_T3` function.
+
+ Choose a Point Inside the Element:
+   - Select a test point $\mathbf{x} = (x, y)$ inside the element.
+
+Evaluate the Shape Functions at the Test Point:
+   - For each shape function $N_i$, compute its value at the test point:
+ $$
+N_i(\mathbf{x}) = a_i + b_i x + c_i y.
+$$
+
+ **Compute the Sum of Shape Functions**:
+   - Add the values of all shape functions at the test point:
+ $$\text{Sum} = \sum_{i=1}^3 N_i(\mathbf{x}).$$
+
+ **Assert the Partition of Unity**:
+   - Check if the sum equals $1$:
+$$
+\text{Assert: } \sum_{i=1}^3 N_i(\mathbf{x}) = 1.
+$$
+
 
 ## General Comments on the Assignment [optional]
 
