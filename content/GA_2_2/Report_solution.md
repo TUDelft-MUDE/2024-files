@@ -34,49 +34,49 @@ $$
 \frac{\partial u}{\partial t} = \nu \nabla^{2} u   + q
 $$
 
-1. integrate and introduce weight functions
+1. Integrate and introduce weight functions
 
 $$
 \int_{\Omega} w \frac{\partial u}{\partial t} d\Omega = \int_{\Omega} w \nu  \nabla^2 u d\Omega + \int_{\Omega} wq d\Omega
 $$
 
-2. Integration by parts: changing the second derivative, changing sign and introducing boundary condition
+2. Integration by parts: changing the second derivative, changing sign and introducing boundary condition (not necessary for the term with time-derivative)
 
 $$
 \int_{\Omega} w \frac{\partial u}{\partial t} d\Omega = - \int_{\Omega} \nu \nabla w \cdot \nabla u  d\Omega + \int_{\Gamma}  w \mu \nabla u \cdot \bar{n} d\Gamma + \int_{\Omega} w q d\Omega
 $$
 
-3. substitute boundary condition (w= 0 on $\Gamma_D$ and $\mu \nabla u \cdot \mathbf{n}$ on $\Gamma_N$):
+3. Substitute boundary condition (w= 0 on $\Gamma_D$ and $\mu \nabla u \cdot \mathbf{n}$ on $\Gamma_N$) (not necessary for the term with time-derivative):
 
 $$\int_{\Omega} w \frac{\partial u}{\partial t} d\Omega + \int_{\Omega} \nu \nabla w \cdot \nabla u  d\Omega = \int_{\Gamma N}  w h d\Gamma_N + \int_{\Omega} w q d\Omega$$
 
-4. discretization:
+4. Discretization:
 
 $$
-u^h = N\mathbf{u}
+u^h = \mathbf{N}\mathbf{u}
 $$ 
-$$w^h = N\mathbf{w}$$
+$$w^h = \mathbf{N}\mathbf{w}$$
 
 
-$$\nabla u^h  = B\mathbf{u}$$
-$$\nabla w^h = B\mathbf{w}$$
+$$\nabla u^h  = \mathbf{B}\mathbf{u}$$
+$$\nabla w^h = \mathbf{B}\mathbf{w}$$
 
-5. Substitute and take $\mathbf{u,w}$ out of the integral as they don't depend on x and y
+5. Substitute and take $\mathbf{u,w}$ out of the integral as they don't depend on $x$ and $y$
 
 $$
-\mathbf{w^T} \int_{\Omega} N^T N d\Omega \frac{\partial u}{\partial t} + \mathbf{w^T} \int_{\Omega} \nu B^T B d\Omega \mathbf{u} =  \mathbf{w^T} \int_{\Gamma N}  N^T h d\Gamma_N + w^T \int_{\Omega} N^T q d\Omega
+\mathbf{w^T} \int_{\Omega} N^T N d\Omega \frac{\partial \mathbf{u}}{\partial t} + \mathbf{w^T} \int_{\Omega} \nu B^T B d\Omega \mathbf{u} =  \mathbf{w^T} \int_{\Gamma N}  N^T h d\Gamma_N + w^T \int_{\Omega} N^T q d\Omega
 $$
 
-6. "Devide" by $w^T$
+6. Eliminate $w^T$
 
-$$ \int_{\Omega} N^T N  d\Omega  \frac{\partial u}{\partial t}+  \int_{\Omega} \nu B^T B d\Omega \mathbf{u} =   \int_{\Gamma N}  N^T h d\Gamma_N + \int_{\Omega} N^T q d\Omega
+$$ \int_{\Omega} N^T N  d\Omega  \frac{\partial \mathbf{u}}{\partial t}+  \int_{\Omega} \nu B^T B d\Omega \mathbf{u} =   \int_{\Gamma N}  N^T h d\Gamma_N + \int_{\Omega} N^T q d\Omega
 $$
 
 
 7. write as a system of equations:
 
 $$ 
-M \frac{\partial u}{\partial t} + \mathbf{K u} = \mathbf{q}$$ 
+\mathbf{M} \frac{\partial \mathbf{u}}{\partial t} + \mathbf{K u} = \mathbf{q}$$ 
 
 $$ \mathbf{M \dot{u}} + \mathbf{K u} = \mathbf{q}$$
 
