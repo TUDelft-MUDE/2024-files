@@ -9,13 +9,13 @@ There are several files to be aware of:
 1. `README.md`
 2. A notebook `the_big_M.ipynb` (equivalent to the previous `Analysis.ipynb` files)
 3. A `Report.md` file for answering questions
-4. File `big_M.msh` and `big_M_fine.msh`: define two FEM mesh' to use in the analysis
+4. File `big_M.msh` and `big_M_fine.msh`: two FEM meshes to use in the analysis. Only the first one is needed, but the second one can be tried as well by modifying a single line in the notebook. 
 
 ## Primary Task
 
 Run the analysis in `the_big_M.ipynb`, inspect the code (really **really** read it!) and results, then answer the questions in `Report.md`.
 
-Note that unlike other GA's, besides reading and understanding the contents, you don't have to do anything with the code in the notebook before reading the Report questions; this will then ask you to modify the notebook.
+Note that unlike other GA's, besides reading and understanding the contents, you don't have to do anything with the code in the notebook before reading the Report questions. The questions mostly focus on what is happening in the analysis. The provided finite element code is complete, but you will need to look at the details of the implementation to answer the questions. For the final question you will have to perform some additional operations in the notebook.
 
 ## Python environment
 
