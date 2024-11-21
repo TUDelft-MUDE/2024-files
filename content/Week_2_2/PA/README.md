@@ -1,6 +1,7 @@
 # PA 2.2: Love is Sparse
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.2. Due: before Friday, November 22nd, 2024.*
+_You can access this assignment with the following link: [classroom.github.com/a/yyIrSrxc](https://classroom.github.com/a/yyIrSrxc)._
 
 This assignment will introduce you to the concept of sparse matrices in Python and how they can be useful to speed up computations and reduce file sizes. This is especially important when using the numerical schemes we are learning about (FDM, FVM, FEM) to solve problems with a lot of unknowns at each time step. To accomplish this, we will be using the `scipy.sparse` library.
 
