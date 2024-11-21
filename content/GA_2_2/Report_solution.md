@@ -171,17 +171,17 @@ The $\mathbf{B}$-matrix is therefore constant within a single element and does n
 **Question 4: Shape functions**
 Investigate the shape functions for the element with index 10 in the mesh. Use the `get_shape_functions_T3` function defined in the notebook to find expressions for the shape functions in that element and check that they satisfy the shape function properties. 
 
-- What are the coordinates of the nodes of element 10? 
+1. What are the coordinates of the nodes of element 10? 
 
-- What are the shape functions of the element? 
+2. What are the shape functions of the element? 
 
-- Assert that the shape functions satisfy the partition of unity property:
+3. Assert that the shape functions satisfy the partition of unity property:
 
 $$
 \sum_i N_i(\mathbf{x}) = 1
 $$
 
-- Assert for one of the shape functions that it satisfies the Kronecker delta property
+4. Assert for one of the shape functions that it satisfies the Kronecker delta property
 
 $$
 N_i(\mathbf{x}_j) = \begin{cases}
@@ -191,41 +191,53 @@ N_i(\mathbf{x}_j) = \begin{cases}
 $$
 
 **solution**
-1.
-To find indices of the three nodes use connectivity[10]
-use the indices to get the coordinates from the nodes:
 
-Node indices of element 10: [132 256 257]
+*1. Find coordinates of element 10*
+
+- `nodes, connectivity = readGmsh('bigM.msh')` 
+
+`nodes` is an array of the coordinates of the nodes. 
+
+`connectivity` is an array of the nodes belonging to each element.
+
+
+Node indices of element 10: [ 55,  56, 265]
+
 Coordinates of the nodes of element 10: 
-[[0.20846317 0.9231442  0.        ]
- [0.17655435 0.9593241  0.        ]
- [0.15351043 0.91631447 0.        ]]
+| $N_i$ | x | y | z |
+|------------|--------------|--------------|--------------|
+| 1         | 0.1          | 1.0          | 0.0          |
+| 2          | 0.05         | 1.0          | 0.0          |
+| 3          | 0.07628505   | 0.94825032   | 0.0          |
 
-2. shape functions
+*2. shape functions*
 
- The get_shape_functions_T3 outputs the cooefcietns for each shape function in the form:
+ The `get_shape_functions_T3` outputs the coefficients for each shape function in the form:
 
  $$
  N_i = a_i +b_i x+ c_iy
  $$
- These coeffients are stored in an array coeffs
- Thes coeffients define the shape functions
 
-Shape function N_1(x, y) = 6.57856187723133 + 19.49565546710987 * x + -10.44548414598946 * y
-Shape function N_2(x, y) = -22.349512454627504 + -3.0958196475143356 * x + 24.909301124585856 * y
-Shape function N_3(x, y) = 16.770950577396174 + -16.399835819595534 * x + -14.463816978596396 * y
+ These coeffients are stored in an 3x3 mtrix coeffs
+ These coeffients define the shape functions
+
+For the 3 nodes of element 10 we get the following coeffients:
+
+| Node  | $a_i$            | $b_i$            | $c_i$            |
+|------------|--------------|--------------|--------------|
+| 1          | -11.15853885 | 20.0         | 10.15853885  |
+| 2          | -7.16525352  | -20.0        | 9.16525352   |
+| 3          | 19.32379237  | 0.0          | -19.32379237 |
 
 
 
-3. The partition of unity property for the shape functions is defined as:
+
+*3. Assert that the shape functions satisfy the partition of unity property*:
 
 $$
 \sum_{i=1}^3 N_i(\mathbf{x}) = 1
 $$
 
-
-
- Shape Functions:
    - Each shape function is of the form:
      $$
      N_i(x, y) = a_i + b_i x + c_i y, \quad i \in [1, 3],
@@ -233,23 +245,67 @@ $$
      where $a_i, b_i, c_i$ are the coefficients computed using the `get_shape_functions_T3` function.
 
  Choose a Point Inside the Element:
-   - Select a test point $\mathbf{x} = (x, y)$ inside the element.
+   - for example centroid $\frac{N_1 +N_2+N_3}{3}$
 
-Evaluate the Shape Functions at the Test Point:
-   - For each shape function $N_i$, compute its value at the test point:
- $$
-N_i(\mathbf{x}) = a_i + b_i x + c_i y.
-$$
+Evaluate the Shape Functions at the this Point.
+   - For each shape function $N_i$, compute its value at the test point
 
- **Compute the Sum of Shape Functions**:
+ Compute the Sum of Shape Functions:
    - Add the values of all shape functions at the test point:
  $$\text{Sum} = \sum_{i=1}^3 N_i(\mathbf{x}).$$
 
- **Assert the Partition of Unity**:
+` sum(coeff[0] + coeff[1] * centroid[0] + coeff[2] * centroid[1] for coeff in coeffs)`
+
+
+ Assert the Partition of Unity:
    - Check if the sum equals $1$:
 $$
 \text{Assert: } \sum_{i=1}^3 N_i(\mathbf{x}) = 1.
 $$
+
+
+```python
+# Get the coordinates of the nodes for element 10
+element_nodes = nodes[connectivity[9]]
+
+# Compute the shape function coefficients for element 10
+coeffs = get_shape_functions_T3(element_nodes[0], element_nodes[1], element_nodes[2])
+
+# Compute the centroid of the element
+centroid = element_nodes.mean(axis=0)
+
+# Evaluate the sum of the shape functions at the centroid
+partition_of_unity = sum(
+    coeff[0] + coeff[1] * centroid[0] + coeff[2] * centroid[1] for coeff in coeffs
+)
+
+# Print the result
+print(f"Sum of shape functions at the centroid: {partition_of_unity}")
+assert abs(partition_of_unity-1)< 1e-5,, "Partition of unity property not satisfied!"
+```
+
+*4. Assert for one of the shape functions that it satisfies the Kronecker delta property*
+
+For each shape function $N_i(x, y,z)$, calculate its value at the coordinates of each node $(x_j, y_j, z_j)$ then check if the shapefuction = 1
+
+```python
+# Extract coordinates of the nodes for element 10
+element_coords = nodes[connectivity[9]]
+
+# Compute shape function coefficients for element 10
+coeffs = get_shape_functions_T3(element_coords[0], element_coords[1], element_coords[2])
+
+# Verify Kronecker delta property
+for i in range(3):  
+    for j in range(3):  
+        x, y, z = element_coords[j]  
+        N_i_at_xj = coeffs[i][0] + coeffs[i][1] * x + coefffs[i][2] * y  
+        expected = 1.0 if i == j else 0.0  
+        print(f"N_{i+1}(x_{j+1}) = {N_i_at_xj}, Expected = {expected}")
+        assert np.isclose(N_i_at_xj, expected), f"Kronecker delta property failed for N_{i+1} at node {j+1}"
+        
+```
+
 
 
 ## General Comments on the Assignment [optional]
