@@ -1,4 +1,4 @@
-name: mude-PA12
+name: mude-week-2-5
 dependencies:
   - python=3.11
   - numpy
