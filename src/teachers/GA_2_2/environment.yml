@@ -1,0 +1,11 @@
+name: mude-week-2-2
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - jupyter
+  - ipykernel
+  - ipympl
+  - pip
