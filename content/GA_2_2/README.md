@@ -2,6 +2,8 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.2, Friday, Nov 22, 2024.*
 
+_You can access this assignment with the following link: [classroom.github.com/a/6gksW4N3](https://classroom.github.com/a/6gksW4N3)._
+
 GA 2.2 applies the finite element method (FEM) to a 2D problem with a fun geometry.
 
 There are several files to be aware of:
