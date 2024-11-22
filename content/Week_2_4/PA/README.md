@@ -9,23 +9,26 @@ _[CEGM1000 MUDE](http://mude.citg.tudelft.nl/), Time Series Analysis, Week 4 of 
 
 This week the programming assignment is based on three files:
 - `README.md`: instructions for PA12 and environment creation (this document)
-- `PA_2_$_A_gurobilicious.ipynb`: set-up of Gurobi software for Week 2.5 (optimization) with a new conda environment
+- `PA_2_4_A_gurobilicious.ipynb`: set-up of Gurobi software for Week 2.5 (optimization) with a new conda environment
 - `PA_2_4_B_axes_of_awesome.ipynb`: Python-related tools used in Week 2.4 for Time Series Analysis
-
+- a few extra files for the assignment to work properly: `alternation.svg`, `environment.yml`, `gurobitest.py`
 
 ## Instructions
 
-Read through this file (`README.md`). This `README.md` also includes a task on creating a new conda environment. Afterwards complete the tasks in notebooks `PA.2.4.A` and `PA.2.4.B`. Note that `PA.2.2.A` will refer you to the MUDE website, where you will find [instructions for setting up the Gurobi license file UPDATE LINK](https://mude.citg.tudelft.nl/software/gurobi/).
+Read through this file (`README.md`). This `README.md` also includes a task on creating a new conda environment. Afterwards complete the tasks in notebooks `PA_2_4_A` and `PA_2_4_B`. Note that `PA_2_4_A` will refer you to the MUDE website, where you will find [instructions for setting up the Gurobi license file UPDATE LINK](https://mude.citg.tudelft.nl/software/gurobi/).
 
-### Assessment criteria
+## Grading Criteria
 
-The assessment criteria for PA12 is specified in each notebook, respectively, but the general idea is to make sure both notebooks run without errors. In addition, notebook 2.2.A will generate a file `license.lic` that must be committed to your repository to confirm that the Gurobi software has been installed correctly on your computer.
+You will pass this PA if:
+1. Your notebook `PA_2_4_B_axis_of_awesome.ipynb` runs without errors.
+2. A file `license.lic` is committed to your repository
+3. The license file confirms you have installed the academic license of Gurobi version 12
+
+Note that we won't be checking your notebook A for errors, as this will not run on the autograder webserver as it does not have Gurobi installed.
 
 ## Python environments revisited
 
-Until now, we have been able to complete our work in MUDE with a few packages like `numpy` and `scipy` in our `mude` environment, which we create and manage with `conda`. In the previous quarter you also created a new environment, 'mude-week-8'. Please revisit the PA for week 1.7 if you need a refresher on this topic.
-
-This week, we will once again create a new environment in preparation for the week on Optimisation ahead. You may have noticed that the environments are always generated using a file called 'environment.yml'. This is just a text-based format (see below) where we can list the packages that we want to be included in our environment. We can then tell `conda` to create the environment based on the contents of the file! 
+Until now, we have been able to complete our work in MUDE with a few packages like `numpy` and `scipy` in our `mude` environment, which we create and manage with `conda`. In the previous quarter you also created a new environment, 'mude-week-8'. This week, we will once again create a new environment in preparation for the week on Optimisation ahead. You may have noticed that the environments are always generated using a file called 'environment.yml'. This is just a text-based format (see below) where we can list the packages that we want to be included in our environment. We can then tell `conda` to create the environment based on the contents of the file! 
 
 All we need to do to create an environment from a file is to write a list of what we want and then tell `conda` to read it. That's it!
 
