@@ -25,12 +25,11 @@ To run the code for this assignment **add a new Python package** to your `mude-b
 conda activate mude-base
 conda install ipympl
 ```
-Remember to install before running your notebook. If you did not do this, you may have to restart the kernel in your notebook.
+Remember to install _before_ running your notebook. If you did not do this, you may have to restart the kernel in your notebook.
 
 ## Task Overview
 
-...
-
+You may be able to divide work on the last two questions once the derivation and determination of boundary conditions is complete. Note that the first question in particular is essential exam practice and every group member should be able to complete it individually.
 
 **End of file.**
 
