@@ -2,6 +2,8 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.2, Friday, Nov 22, 2024.*
 
+_You can access this assignment with the following link: [classroom.github.com/a/6gksW4N3](https://classroom.github.com/a/6gksW4N3)._
+
 GA 2.2 applies the finite element method (FEM) to a 2D problem with a fun geometry.
 
 There are several files to be aware of:
@@ -9,13 +11,13 @@ There are several files to be aware of:
 1. `README.md`
 2. A notebook `the_big_M.ipynb` (equivalent to the previous `Analysis.ipynb` files)
 3. A `Report.md` file for answering questions
-4. File `big_M.msh` and `big_M_fine.msh`: define two FEM mesh' to use in the analysis
+4. File `big_M.msh` and `big_M_fine.msh`: two FEM meshes to use in the analysis. Only the first one is needed, but the second one can be tried as well by modifying a single line in the notebook. 
 
 ## Primary Task
 
 Run the analysis in `the_big_M.ipynb`, inspect the code (really **really** read it!) and results, then answer the questions in `Report.md`.
 
-Note that unlike other GA's, besides reading and understanding the contents, you don't have to do anything with the code in the notebook before reading the Report questions; this will then ask you to modify the notebook.
+Note that unlike other GA's, besides reading and understanding the contents, you don't have to do anything with the code in the notebook before reading the Report questions. The questions mostly focus on what is happening in the analysis. The provided finite element code is complete, but you will need to look at the details of the implementation to answer the questions. For the final question you will have to perform some additional operations in the notebook.
 
 ## Python environment
 
@@ -25,12 +27,13 @@ To run the code for this assignment **add a new Python package** to your `mude-b
 conda activate mude-base
 conda install ipympl
 ```
-Remember to install before running your notebook. If you did not do this, you may have to restart the kernel in your notebook.
+Remember to install _before_ running your notebook. If you did not do this, you may have to restart the kernel in your notebook.
+
+There are occasionally issues with the visualizations in VS Code. If you cannot see the animations, try uncommenting the cell magic lines (those beggining with `%matplotlib ...`). You can start a text search by using `CTRL+F`. 
 
 ## Task Overview
 
-...
-
+You may be able to divide work on the last two questions once the derivation and determination of boundary conditions is complete. Note that the first question in particular is essential exam practice and every group member should be able to complete it individually.
 
 **End of file.**
 
