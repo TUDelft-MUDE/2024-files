@@ -27,6 +27,8 @@ conda install ipympl
 ```
 Remember to install _before_ running your notebook. If you did not do this, you may have to restart the kernel in your notebook.
 
+There are occasionally issues with the visualizations in VS Code. If you cannot see the animations, try uncommenting the cell magic lines (those beggining with `%matplotlib ...`). You can start a text search by using `CTRL+F`. 
+
 ## Task Overview
 
 You may be able to divide work on the last two questions once the derivation and determination of boundary conditions is complete. Note that the first question in particular is essential exam practice and every group member should be able to complete it individually.
