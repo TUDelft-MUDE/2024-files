@@ -11,7 +11,7 @@ This week the programming assignment is based on three files:
 - `README.md`: instructions for PA12 and environment creation (this document)
 - `PA_2_4_A_gurobilicious.ipynb`: set-up of Gurobi software for Week 2.5 (optimization) with a new conda environment
 - `PA_2_4_B_axes_of_awesome.ipynb`: Python-related tools used in Week 2.4 for Time Series Analysis
-
+- a few extra files for the assignment to work properly: `alternation.svg`, `environment.yml`, `gurobitest.py`
 
 ## Instructions
 
