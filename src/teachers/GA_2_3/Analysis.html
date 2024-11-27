@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Analysis_solution</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
+<title>Analysis</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
 (function() {
   function addWidgetsRenderer() {
     var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
@@ -7509,7 +7509,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="GA-2.3:-Signal-Processing">GA 2.3: Signal Processing<a class="anchor-link" href="#GA-2.3:-Signal-Processing">¶</a></h1><h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
+<h1 id="GA-2.3:-Beam-Beats">GA 2.3: Beam Beats<a class="anchor-link" href="#GA-2.3:-Beam-Beats">¶</a></h1><h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
 <style>
         .markdown {width:100%; position: relative}
         article { position: relative }
@@ -7642,13 +7642,24 @@ $$<p>The result is taken from the last equation in Appendix A. We consider here 
 <span class="n">x</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f_c</span> <span class="o">*</span> <span class="n">t_vec</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_vec</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'signal'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$t \: [s]$'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$x(t) \: [V]$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$t \: [s]$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$x(t) \: [V]$'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">fr</span><span class="s1">'Sinusoidal signal with $A$=</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1"> V, $f_c$=</span><span class="si">{</span><span class="n">f_c</span><span class="si">}</span><span class="s1"> Hz and initial phase $\phi$=</span><span class="si">{</span><span class="n">phi</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> °'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>In addition to the code output above, write your answer in this Markdown cell.</strong></p>
 </div>
 </div>
 </div>
@@ -8136,7 +8147,7 @@ $$<p>Which means that the modulus of the Fourier coefficients is symmetric about
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Detrending">Detrending<a class="anchor-link" href="#Detrending">¶</a></h3><p>In this project the signal of interest is the damped, harmonic motion of the cantilever-beam. In addition the measurements may contain (unwanted) effects of the sensor (think of an offset, due to imperfect manufacturing and/or prior calibration, or a drift over time, for instance due to temperature changes in the electronics during the experiment). By detrending we mean to remove such effects, prior to our spectral analysis, so that we can start with a nice, zero mean signal. A-priori detrending is good practice and generally yields a cleaner spectrum.</p>
+<h3 id="Detrending">Detrending<a class="anchor-link" href="#Detrending">¶</a></h3><p>In this project the signal of interest is the damped, harmonic motion of the cantilever-beam. In addition the measurements may contain (unwanted) effects of the sensor (think of an offset, due to imperfect manufacturing and/or prior calibration, or a drift over time, for instance due to temperature changes in the electronics during the experiment). By detrending we mean to remove such effects, prior to our spectral analysis, so that we can start with a nice, zero mean signal. A-priori detrending is good practice and generally yields a cleaner spectrum. Next week (week 2.4 on Time Series Analysis) we cover the subject of removing unwanted effects from the signal in more detail, as to obtain a so-called <strong>stationary</strong> signal, meaning that the properties or characteristics of the signal (such as the mean) do not change over time, and, we provide practical means to “stationarize” a given or measured signal.</p>
 <p>There are built-in functions in Python to remove such an offset and/or trend (and you're free to use them). But, earlier in the MUDE, in week 1.3, you learned about least-squares parameter estimation, and that's what you can apply to do the detrending (and actually built-in functions just apply the very same principle). Next week, on Time Series Analysis, you will actually be covering (again) the estimation of a trend in a time series of measurements.
 As a re-cap for week 1.3: when a series of observations $y_1, …, y_m$ (in our case with $m=N$) is supposed or expected to exhibit a functional linear trend (a straight line in terms of a graph), this can be modelled as</p>
 $$
@@ -8332,7 +8343,7 @@ $$<p>with $x_1$ the offset at time $t_1$ (rather than $t=0$), and $x_2$ the slop
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'time [yr]'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'sea-level height [mm]'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Global Mean Sea-Level (GMSL) rise'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -8378,11 +8389,7 @@ $$<p>with $x_1$ the offset at time $t_1$ (rather than $t=0$), and $x_2$ the slop
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%;">
-<p>
-<b>End of task.</b>
-</p>
-</div>
+<p><strong>Write your answer(s) in this Markdown cell.</strong></p>
 </div>
 </div>
 </div>
@@ -8393,7 +8400,11 @@ $$<p>with $x_1$ the offset at time $t_1$ (rather than $t=0$), and $x_2$ the slop
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Write your answer(s) in this Markdown cell.</strong></p>
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%;">
+<p>
+<b>End of task.</b>
+</p>
+</div>
 </div>
 </div>
 </div>
