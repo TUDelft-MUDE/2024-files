@@ -81,13 +81,17 @@ update_repo:
     - git checkout -B $CI_COMMIT_REF_NAME
     - git pull origin $CI_COMMIT_REF_NAME
     
-    # Check if synced_files directory exists and has content
+    # Force git to track the synced_files directory
     - |
       if [ -d "synced_files" ]; then
         echo "synced_files directory exists. Contents:"
         ls -la synced_files/
-        git add synced_files/
-        if [ -n "$(git status --porcelain)" ]; then
+        
+        # Force add all files in synced_files
+        git add -f synced_files/
+        
+        # Check if there are changes to commit
+        if [ -n "$(git status --porcelain synced_files/)" ]; then
           echo "Changes detected, committing..."
           git commit -m "Update synced files [skip ci]"
           git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
