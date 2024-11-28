@@ -1,67 +1,84 @@
-image: alpine:latest
+image: python:3.9
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
+  WEBHOOK_URL: "https://mude.citg.tudelft.nl/hooks"
+  WEBHOOK_TOKEN: "glpat-Lohnt8MN6nWzpcwyhprL"
+  GIT_STRATEGY: clone
+
+cache:
+  paths:
+    - .pip-cache/
 
 stages:
+  - setup
+  - sync
+  - update_repo
   - deploy
 
-before_script:
-  - apk add --no-cache curl
+setup:
+  stage: setup
+  script:
+    - apt-get update && apt-get install -y curl git
+    - pip install jupytext nbconvert
+  artifacts:
+    paths:
+      - .pip-cache/
 
-deploy-draft-students:
+sync_notebooks:
+  stage: sync
+  script:
+    - mkdir -p synced_files
+    - |
+      for notebook in $(find ./src -name "*.ipynb"); do
+        relative_path=${notebook#./src/}
+        synced_dir="synced_files/$(dirname $relative_path)"
+        mkdir -p "$synced_dir"
+        
+        # Convert to various formats
+        jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb"
+        jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md"
+        jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py"
+        
+        # Strip outputs from the notebook
+        jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)"
+      done
+  artifacts:
+    paths:
+      - synced_files/
+
+update_repo:
+  stage: update_repo
+  script:
+    - git config user.name "GitLab CI"
+    - git config user.email "gitlab-ci@example.com"
+    - git add synced_files/
+    - |
+      if [ -n "$(git status --porcelain)" ]; then
+        git commit -m "Update synced files [skip ci]"
+        git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.com/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
+      else
+        echo "No changes to commit"
+      fi
+
+deploy:
   stage: deploy
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students-draft \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "main"
-          }
-        }'
+      for webhook in "files-sync-students-draft" "files-sync-teachers" "files-sync-students"; do
+        curl -X POST "${WEBHOOK_URL}/${webhook}" \
+          -H "Content-Type: application/json" \
+          -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+          -d '{
+            "object_kind": "pipeline",
+            "object_attributes": {
+              "status": "success",
+              "ref": "'"$CI_COMMIT_REF_NAME"'"
+            }
+          }'
+      done
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
       changes:
-        - src/students/**/*
-      when: always
-
-deploy-teachers:
-  stage: deploy
-  script:
-    - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-teachers \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "main"
-          }
-        }'
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - src/teachers/**/*
-      when: always
-
-deploy-production-students:
-  stage: deploy
-  script:
-    - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "release"
-          }
-        }'
-  rules:
-    - if: $CI_COMMIT_BRANCH == "release"
-      changes:
-        - src/students/**/*
+        - src/**/*
       when: always
