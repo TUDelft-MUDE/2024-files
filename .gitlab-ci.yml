@@ -10,6 +10,11 @@ cache:
   paths:
     - .pip-cache/
 
+.setup_env:
+  before_script:
+    - apt-get update && apt-get install -y curl git
+    - pip install jupytext nbconvert
+
 stages:
   - setup
   - sync
@@ -18,15 +23,16 @@ stages:
 
 setup:
   stage: setup
+  extends: .setup_env
   script:
-    - apt-get update && apt-get install -y curl git
-    - pip install jupytext nbconvert
+    - echo "Dependencies installed successfully"
   artifacts:
     paths:
       - .pip-cache/
 
 sync_notebooks:
   stage: sync
+  extends: .setup_env
   script:
     - mkdir -p synced_files
     - |
@@ -49,6 +55,7 @@ sync_notebooks:
 
 update_repo:
   stage: update_repo
+  extends: .setup_env
   script:
     - git config user.name "GitLab CI"
     - git config user.email "gitlab-ci@example.com"
@@ -56,13 +63,14 @@ update_repo:
     - |
       if [ -n "$(git status --porcelain)" ]; then
         git commit -m "Update synced files [skip ci]"
-        git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.com/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
+        git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
       else
         echo "No changes to commit"
       fi
 
 deploy:
   stage: deploy
+  extends: .setup_env
   script:
     - |
       for webhook in "files-sync-students-draft" "files-sync-teachers" "files-sync-students"; do
