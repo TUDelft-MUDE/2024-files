@@ -37,26 +37,42 @@ sync_notebooks:
     - mkdir -p synced_files
     - |
       for notebook in $(find ./src -name "*.ipynb"); do
-        relative_path=${notebook#./src/}
-        synced_dir="synced_files/$(dirname $relative_path)"
-        mkdir -p "$synced_dir"
-        
-        # Convert to various formats
-        jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb"
-        jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md"
-        jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py"
-        
-        # Strip outputs from the notebook
-        jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)"
+        if [ -f "$notebook" ]; then
+          echo "Processing $notebook"
+          relative_path=${notebook#./src/}
+          synced_dir="synced_files/$(dirname $relative_path)"
+          mkdir -p "$synced_dir"
+          
+          # Convert to various formats
+          jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb"
+          jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md"
+          jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py"
+          
+          # Strip outputs from the notebook
+          jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)"
+        else
+          echo "No notebooks found in src directory"
+          exit 1
+        fi
       done
+    - ls -la synced_files/  # Debug: show contents of synced_files
   artifacts:
     paths:
       - synced_files/
+    expire_in: 1 hour
+    when: on_success
 
 update_repo:
   stage: update_repo
   extends: .setup_env
+  dependencies:
+    - sync_notebooks
   script:
+    # Debug: show current directory contents
+    - ls -la
+    - echo "Current directory contents:"
+    - find . -type f
+    
     # Set up git configuration
     - git config --global user.name "GitLab CI"
     - git config --global user.email "gitlab-ci@example.com"
@@ -67,16 +83,20 @@ update_repo:
     
     # Check if synced_files directory exists and has content
     - |
-      if [ -d "synced_files" ] && [ "$(ls -A synced_files)" ]; then
+      if [ -d "synced_files" ]; then
+        echo "synced_files directory exists. Contents:"
+        ls -la synced_files/
         git add synced_files/
         if [ -n "$(git status --porcelain)" ]; then
+          echo "Changes detected, committing..."
           git commit -m "Update synced files [skip ci]"
           git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
+          echo "Changes pushed successfully"
         else
           echo "No changes to commit in synced_files"
         fi
       else
-        echo "No files found in synced_files directory"
+        echo "synced_files directory not found!"
         exit 1
       fi
 
