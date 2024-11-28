@@ -68,25 +68,65 @@ update_repo:
         echo "No changes to commit"
       fi
 
-deploy:
+deploy-draft-students:
   stage: deploy
   extends: .setup_env
   script:
     - |
-      for webhook in "files-sync-students-draft" "files-sync-teachers" "files-sync-students"; do
-        curl -X POST "${WEBHOOK_URL}/${webhook}" \
-          -H "Content-Type: application/json" \
-          -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
-          -d '{
-            "object_kind": "pipeline",
-            "object_attributes": {
-              "status": "success",
-              "ref": "'"$CI_COMMIT_REF_NAME"'"
-            }
-          }'
-      done
+      curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "main"
+          }
+        }'
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
+    - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - src/**/*
+        - src/students/**/*
+      when: always
+
+deploy-teachers:
+  stage: deploy
+  extends: .setup_env
+  script:
+    - |
+      curl -X POST "${WEBHOOK_URL}/files-sync-teachers" \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "main"
+          }
+        }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/teachers/**/*
+      when: always
+
+deploy-production-students:
+  stage: deploy
+  extends: .setup_env
+  script:
+    - |
+      curl -X POST "${WEBHOOK_URL}/files-sync-students" \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -d '{
+          "object_kind": "pipeline",
+          "object_attributes": {
+            "status": "success",
+            "ref": "release"
+          }
+        }'
+  rules:
+    - if: $CI_COMMIT_BRANCH == "release"
+      changes:
+        - src/students/**/*
       when: always
