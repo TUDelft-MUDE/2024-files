@@ -57,15 +57,27 @@ update_repo:
   stage: update_repo
   extends: .setup_env
   script:
-    - git config user.name "GitLab CI"
-    - git config user.email "gitlab-ci@example.com"
-    - git add synced_files/
+    # Set up git configuration
+    - git config --global user.name "GitLab CI"
+    - git config --global user.email "gitlab-ci@example.com"
+    
+    # Make sure we're on the correct branch
+    - git checkout -B $CI_COMMIT_REF_NAME
+    - git pull origin $CI_COMMIT_REF_NAME
+    
+    # Check if synced_files directory exists and has content
     - |
-      if [ -n "$(git status --porcelain)" ]; then
-        git commit -m "Update synced files [skip ci]"
-        git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
+      if [ -d "synced_files" ] && [ "$(ls -A synced_files)" ]; then
+        git add synced_files/
+        if [ -n "$(git status --porcelain)" ]; then
+          git commit -m "Update synced files [skip ci]"
+          git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
+        else
+          echo "No changes to commit in synced_files"
+        fi
       else
-        echo "No changes to commit"
+        echo "No files found in synced_files directory"
+        exit 1
       fi
 
 deploy-draft-students:
