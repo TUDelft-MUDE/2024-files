@@ -1,18 +1,117 @@
-image: alpine:latest
+image: python:3.9
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
+  WEBHOOK_URL: "https://mude.citg.tudelft.nl/hooks"
+  WEBHOOK_TOKEN: "glpat-Lohnt8MN6nWzpcwyhprL"
+  GIT_STRATEGY: clone
+
+cache:
+  paths:
+    - .pip-cache/
+
+.setup_env:
+  before_script:
+    - apt-get update && apt-get install -y curl git
+    - pip install jupytext nbconvert
 
 stages:
+  - setup
+  - sync
+  - update_repo
   - deploy
 
-before_script:
-  - apk add --no-cache curl
+setup:
+  stage: setup
+  extends: .setup_env
+  script:
+    - echo "Dependencies installed successfully"
+  artifacts:
+    paths:
+      - .pip-cache/
+
+sync_notebooks:
+  stage: sync
+  extends: .setup_env
+  script:
+    - mkdir -p synced_files
+    - |
+      for notebook in $(find ./src -name "*.ipynb"); do
+        if [ -f "$notebook" ]; then
+          echo "Processing $notebook"
+          relative_path=${notebook#./src/}
+          synced_dir="synced_files/$(dirname $relative_path)"
+          mkdir -p "$synced_dir"
+          
+          # Convert to various formats
+          jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb"
+          jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md"
+          jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py"
+          
+          # Strip outputs from the notebook
+          jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)"
+        else
+          echo "No notebooks found in src directory"
+          exit 1
+        fi
+      done
+    - ls -la synced_files/  # Debug: show contents of synced_files
+  artifacts:
+    paths:
+      - synced_files/
+    expire_in: 1 hour
+    when: on_success
+
+update_repo:
+  stage: update_repo
+  extends: .setup_env
+  dependencies:
+    - sync_notebooks
+  script:
+    # Debug: show current directory contents
+    - ls -la
+    - echo "Current directory contents:"
+    - find . -type f
+    
+    # Set up git configuration
+    - git config --global user.name "GitLab CI"
+    - git config --global user.email "gitlab-ci@example.com"
+    
+    # Make sure we're on the correct branch
+    - git checkout -B $CI_COMMIT_REF_NAME
+    - git pull origin $CI_COMMIT_REF_NAME
+    
+    # Force git to track the synced_files directory
+    - |
+      if [ -d "synced_files" ]; then
+        echo "synced_files directory exists. Contents:"
+        ls -la synced_files/
+        
+        # Force add all files in synced_files
+        git add -f synced_files/
+        
+        # Check if there are changes to commit
+        if [ -n "$(git status --porcelain synced_files/)" ]; then
+          echo "Changes detected, committing..."
+          git commit -m "Update synced files [skip ci]"
+          git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
+          echo "Changes pushed successfully"
+        else
+          echo "No changes to commit in synced_files"
+        fi
+      else
+        echo "synced_files directory not found!"
+        exit 1
+      fi
 
 deploy-draft-students:
   stage: deploy
+  extends: .setup_env
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students-draft \
+      curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
@@ -28,11 +127,12 @@ deploy-draft-students:
 
 deploy-teachers:
   stage: deploy
+  extends: .setup_env
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-teachers \
+      curl -X POST "${WEBHOOK_URL}/files-sync-teachers" \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
@@ -48,11 +148,12 @@ deploy-teachers:
 
 deploy-production-students:
   stage: deploy
+  extends: .setup_env
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students \
+      curl -X POST "${WEBHOOK_URL}/files-sync-students" \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
