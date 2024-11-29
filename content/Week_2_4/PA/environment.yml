@@ -6,5 +6,7 @@ dependencies:
   - matplotlib
   - statsmodels
   - pip
+  - pymoo
+  - networkx
   - conda-forge::jupyterlab
   - gurobi::gurobi
