@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>WS_2_4_Atmospheric_Pressure</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>WS_2_4_Feel_the_Pressure</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7492,7 +7492,7 @@ a.anchor-link {
 </h1>
 <h2 style="height: 10px">
 </h2>
-<p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>: Week 2.4, Time serie analysis. For: December 4, 2024</em></p>
+<p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>: Week 2.4, Time series analysis. For: December 4, 2024.</em></p>
 </div>
 </div>
 </div>
@@ -7503,9 +7503,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In this workshop we will analyze Atmospheric pressure data. The data is a time series of atmospheric pressure measurements over a period of 4 years, with measurements taken every 4 hours. The first column is the time in days, the second column is the atmospheric pressure in hPa.</p>
-<p>In this data we will analyze some time series data. We will first fit a functional model to the data in order to stationarize the data. Then we will fit an AR model to the residuals.</p>
-<p>We will start by loading the data and plotting it.</p>
+<p>In this workshop we will analyze Atmospheric pressure data. The data is a time series of atmospheric pressure measurements over a period of 2 years, with measurements taken every 4 hours. The first column is the time in days, the second column is the atmospheric pressure in hPa.</p>
+<p>In this workshop we will analyze the time series. We will first fit a functional model to the data in order to stationarize the data. Then we will address the remaining noise and establish a stochastic model by fitting an AR(1) model to the residuals.</p>
+<p>We begin by loading the data and plotting it.</p>
 </div>
 </div>
 </div>
@@ -7528,8 +7528,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Importing the required libraries</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
@@ -7547,15 +7546,13 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Reading the data from the file</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'atm_data.txt'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'atm_data.txt'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">)</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
 
 <span class="n">dt</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># Time step</span>
 <span class="n">fs</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># Sampling frequency</span>
 
-<span class="c1"># Plotting the data</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time [days]'</span><span class="p">)</span>
@@ -7574,12 +7571,12 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Part-1:-Finding-the-frequency-of-the-seasonal-pattern">Part 1: Finding the frequency of the seasonal pattern<a class="anchor-link" href="#Part-1:-Finding-the-frequency-of-the-seasonal-pattern">¶</a></h2><p>We clearly see that the data contains a seasonal pattern. We will start by fitting a functional model to the data in order to stationarize the data. To find the frequency of the seasonal pattern we will use the power spectrum of the data.</p>
+<h2 id="Part-1:-Finding-frequencies-of-periodic-patterns">Part 1: Finding frequencies of periodic patterns<a class="anchor-link" href="#Part-1:-Finding-frequencies-of-periodic-patterns">¶</a></h2><p>We clearly see that the data contains a seasonal pattern. We will start by fitting a functional model to the data in order to make the data stationary. To find the frequency of the seasonal pattern we will use the power spectrum of the data.</p>
 <p>The time series may be influenced by multiple periodic signals at different frequencies; therefore we will apply a method to find the dominant frequency, and then iteratively remove the corresponding signal from the data.</p>
-<p>We will create a function <code>find_frequency</code> that will take the data and an $\mathrm{A}$-matrix as input and return the frequency of the most dominant periodic signal.</p>
+<p>We will create a function <code>find_frequency</code> that will take the data and an $\mathrm{A}$-matrix as input and return the frequency of the most dominant periodic signal. Note that we cannot have an empty A-matrix when running the function for the first time. Therefore, we first define an A matrix for a linear model that accounts for an intercept and slope, with which <code>find_frequency</code> will then de-trend the time series.</p>
 <p>The function will look like this:</p>
 <ol>
-<li>Using the $\mathrm{A}$-matrix we will fit a model to the data using the BLUE method.</li>
+<li>Using the $\mathrm{A}$-matrix we will fit a model to the data using the least squares method.</li>
 <li>We will calculate the PSD of the residuals of the model.</li>
 <li>We will find the frequency of the most dominant periodic signal in the PSD.</li>
 <li>Optional: we can plot the power spectrum of the data with the highest peak.</li>
@@ -7594,7 +7591,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>We will write functions that return multiple parameters. We will use <code>_</code> to indicate that we are not interested in that parameter. For example, if we write <code>_, b = function(a)</code>, we are only interested in the second output of the function; The first output is not stored in a variable.</p>
+<h3 id="Create-the-necessary-functions">Create the necessary functions<a class="anchor-link" href="#Create-the-necessary-functions">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7605,7 +7602,26 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Part-1.1:-write-the-necessary-functions">Part 1.1: write the necessary functions<a class="anchor-link" href="#Part-1.1:-write-the-necessary-functions">¶</a></h3>
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 1.1:</b>
+<p>Read the code in the next Python cell study the contents until you understand what the functions are doing. Then complete the missing parts of the code.</p>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Tip:</b>
+We will write functions that return multiple parameters, but if we are not interested in defining a particular parameter we can use `_` to ignore it. For example, if we write <code>_, b = function(a)</code>, we only define the second output of the function; the first output is not stored in a variable.</p></div>
 </div>
 </div>
 </div>
@@ -7619,19 +7635,17 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_model</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''</span>
-<span class="sd">    Function to find the Best Linear Unbiased Estimator</span>
+<span class="sd">    Function to find the least squares solution of the data</span>
 <span class="sd">    data: input data</span>
 <span class="sd">    time: time vector</span>
 <span class="sd">    A: A-matrix to fit the data</span>
 <span class="sd">    plot: boolean to plot the results or not</span>
 <span class="sd">    '''</span>
 
-    <span class="c1"># Finding the coefficients</span>
     <span class="n">x_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># least squares solution</span>
     <span class="n">y_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># model prediction</span>
     <span class="n">e_hat</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># residuals</span>
 
-    <span class="c1"># Plotting the results</span>
     <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
@@ -7658,7 +7672,7 @@ a.anchor-link {
 <span class="sd">    Function to find the dominant frequency of the signal</span>
 <span class="sd">    data: input data</span>
 <span class="sd">    time: time vector</span>
-<span class="sd">    A: A-matrix to detrend the data</span>
+<span class="sd">    A: A-matrix to detrend the data (prior to spectral analysis)</span>
 <span class="sd">    fs: sampling frequency</span>
 <span class="sd">    plot: boolean to plot the psd or not</span>
 <span class="sd">    '''</span>
@@ -7668,9 +7682,12 @@ a.anchor-link {
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
     <span class="c1"># Finding the dominant frequency in e_hat</span>
-    <span class="n">freqs</span><span class="p">,</span> <span class="n">pxx</span> <span class="o">=</span> <span class="n">periodogram</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">'boxcar'</span><span class="p">,</span> <span class="n">nfft</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">return_onesided</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s1">'density'</span><span class="p">)</span>
+    <span class="n">freqs</span><span class="p">,</span> <span class="n">pxx</span> <span class="o">=</span> <span class="n">periodogram</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">'boxcar'</span><span class="p">,</span>
+                             <span class="n">nfft</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">return_onesided</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                             <span class="n">scaling</span><span class="o">=</span><span class="s1">'density'</span><span class="p">)</span>
 
     <span class="c1"># finding the dominant frequency and amplitude</span>
+    <span class="c1"># Note: there are many ways to do this</span>
     <span class="n">amplitude</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># Amplitude of the dominant frequency</span>
     <span class="n">dominant_frequency</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># Dominant frequency</span>
 
@@ -7678,7 +7695,7 @@ a.anchor-link {
     <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">e_hat</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">e_hat</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Residuals'</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Atmospheric Pressure [hPa]'</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
@@ -7707,10 +7724,12 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
-How can we use the find_frequency function to find the frequency of all periodic pattern in the data? i.e. how can we iteratively detect the frequencies in the data?
-(hint: we should try to remove frequencies from the data once we have detected them)
+<b>Task 1.2:</b>
+<p>How can we use the <code>find_frequency</code> function to find the frequency of all periodic pattern in the data? In other words, how can we iteratively detect the frequencies in the data?</p>
+<p>Write your answer in a bulleted list that describes the procedure in the Markdown cell below.</p>
+<p><em>Hint: we should try to remove frequencies from the data once we have detected them.</em></p>
 </p>
 </div>
 </div>
@@ -7723,7 +7742,41 @@ How can we use the find_frequency function to find the frequency of all periodic
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Part-1.2">Part 1.2<a class="anchor-link" href="#Part-1.2">¶</a></h3><p>Now we will run <code>find_frequency</code> repeatedly to find the frequencies in the data. For the first iteration we will use an $\mathrm{A}$-matrix that will remove a linear trend from the data. When we have found a frequency we will also remove the corresponding signal from the data in the next iteration.</p>
+<p><em>Your answer here:</em></p>
+<ul>
+<li>Step 1:</li>
+<li>Step 2:</li>
+<li>Step ...:</li>
+<li>Step n:</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Find-the-first-dominant-frequency">Find the first dominant frequency<a class="anchor-link" href="#Find-the-first-dominant-frequency">¶</a></h3><p>Now we will run <code>find_frequency</code> repeatedly to find the frequencies in the data. For the first iteration we will use an $\mathrm{A}$-matrix that will remove a linear trend from the data. When we have found a frequency we will also remove the corresponding signal from the data in the next iteration.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 1.3:</b>
+<p>Set up the $\mathrm{A}$-matrix for a linear trend, remove it from the data, then find the most dominant frequency and print the result.</p>
+<p>The default units of frequency are cumbersome to interpret, so you should convert the result to a better unit.</p>
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -7735,11 +7788,8 @@ How can we use the find_frequency function to find the frequency of all periodic
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Find the first dominant frequency</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># A-matrix for linear trend</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span> <span class="c1"># A-matrix for linear trend (intercept and slope)</span>
 <span class="n">dom_f</span> <span class="o">=</span> <span class="n">find_frequency</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">)</span>
-<span class="c1"># print the dominant frequency, do not forget to convert it to useful units</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dominant Frequency: </span><span class="si">{</span><span class="n">YOUR_CODE_HERE</span><span class="si">}</span><span class="s1"> [YOUR_CODE_HERE]'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7753,11 +7803,39 @@ How can we use the find_frequency function to find the frequency of all periodic
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 1.4:</b>
 <p>
-Looking back at the plot of the original time series, can you see the presence of the signal with this frequency?
+Look back at the plot of the original time series and confirm whether or not you can see the presence of the signal with the frequency found in the previous task. Write your answer in one sentence in the Markdown cell below.
 </p>
+</p></div>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>Your answer here.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 1.5:</b>
+<p>
+Find a second frequency by repeating the process. Before using <code>find_frequency</code> again, the linear trend and first periodic component should be accounted for.
+<p>Repeat this step until you have removed all dominant signals (you will have to determine when to stop).</p>
+<p>Print the frequencies of all periodic signals found in the data.</p>
+</p>
+</p></div>
 </div>
 </div>
 </div>
@@ -7769,8 +7847,7 @@ Looking back at the plot of the original time series, can you see the presence o
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Repeat the process till you have removed all the dominant frequencies</span>
-<span class="n">YOUR_CODE_HERE</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">YOUR_CODE_HERE</span> <span class="c1"># may be more than one line or more than one cell</span>
 </pre></div>
 </div>
 </div>
@@ -7783,13 +7860,13 @@ Looking back at the plot of the original time series, can you see the presence o
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 1.6:</b>
 <p>
-Describe the followed procedure above in your own words to explain how the dominant frequencies were determined. You can try with another iteration to see whether there is  periodic signal at another frequency that should be considered.
-<p>For each step: do you think the corresponding time series (residuals) is stationary? Explain.</p>
-<p>How would you decide when to stop?</p>
+Describe the number of steps taken in the previous task and explain in your own words how the dominant frequencies were determined (print them, if you did not already do so).
+<p>How did you decide when to stop?</p>
+<p>Is the final (detrended) time series (residuals) stationary? Explain.</p>
 </p>
-</div>
+</p></div>
 </div>
 </div>
 </div>
@@ -7800,12 +7877,48 @@ Describe the followed procedure above in your own words to explain how the domin
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Fitting-the-functional-model">Fitting the functional model<a class="anchor-link" href="#Fitting-the-functional-model">¶</a></h2><p>In the next cell we will fit the model to generate stationary residuals. Above we have used for each dominant frequency $f_i$ ($i=1,2$) the model:</p>
+<p><em>Your answer here.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Part-2:-Fitting-the-functional-model">Part 2: Fitting the functional model<a class="anchor-link" href="#Part-2:-Fitting-the-functional-model">¶</a></h2><p>In the next cell we will fit the model to generate stationary residuals. Above we have used for each dominant frequency $f_i$ ($i=1,2$) the model:</p>
 $$a_i  \cos(2\pi f_i  t) + b_i  \sin(2\pi f_i t)$$<p>However, to report the periodic signals we would like to have the amplitude, phase shift and the frequency of those signals, which can be recovered from:
 $$A_i  \cos(2\pi f_i  t + \theta_i)$$
 Where the amplitude $A_i = \sqrt{a_i^2 + b_i^2}$ and $\theta_i = \arctan(-b_i/a_i)$</p>
 <p>Note: in Section 4.1 book this was shown where the angular frequency $\omega = 2\pi f$ was used.</p>
-<p>If you want to compute the $\theta_i$ you can use the <code>np.arctan2</code> function. This function is a version of the arctan function that returns the angle in the correct quadrant. Using the <code>np.arctan</code> function will not give you the correct angle!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 2:</b>
+<p>
+<p>Complete the missing parts of the code cell below to create the functional model.</p>
+</p>
+</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>If you want to compute the $\theta_i$ you can use the <code>np.arctan2</code> function. This function is a version of the arctan function that returns the angle in the correct quadrant. Using the <code>np.arctan</code> function will not give you the correct angle!</p></div>
 </div>
 </div>
 </div>
@@ -7875,7 +7988,22 @@ Where the amplitude $A_i = \sqrt{a_i^2 + b_i^2}$ and $\theta_i = \arctan(-b_i/a_
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Part-3.1:-Plot-the-ACF-of-the-residuals">Part 3.1: Plot the ACF of the residuals<a class="anchor-link" href="#Part-3.1:-Plot-the-ACF-of-the-residuals">¶</a></h3><p>Use the <code>plot_acf</code> function to plot the ACF of the residuals.</p>
+<h3 id="Part-3.1:-Plot-the-ACF-of-the-residuals">Part 3.1: Plot the ACF of the residuals<a class="anchor-link" href="#Part-3.1:-Plot-the-ACF-of-the-residuals">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 3.1:</b>
+<p>
+<p>Use the <code>plot_acf</code> function to plot the ACF of the residuals.</p>
+</p>
+</p></div>
 </div>
 </div>
 </div>
@@ -7887,8 +8015,7 @@ Where the amplitude $A_i = \sqrt{a_i^2 + b_i^2}$ and $\theta_i = \arctan(-b_i/a_
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Lets start with the ACF plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">plot_acf</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Lags [days]'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -7904,11 +8031,11 @@ Where the amplitude $A_i = \sqrt{a_i^2 + b_i^2}$ and $\theta_i = \arctan(-b_i/a_
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 3.2:</b>
 <p>
-What do you conclude from this ACF?
+What can you conclude from this ACF?
 </p>
-</div>
+</p></div>
 </div>
 </div>
 </div>
@@ -7919,8 +8046,33 @@ What do you conclude from this ACF?
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Part-3.2:-write-a-function-to-fit-an-AR1-model-to-the-residuals">Part 3.2: write a function to fit an AR1 model to the residuals<a class="anchor-link" href="#Part-3.2:-write-a-function-to-fit-an-AR1-model-to-the-residuals">¶</a></h3><p>Write a function <code>AR1</code> that will take the stationary residuals as input and return the parameters of the AR1 model.
-Fit this model to the residuals and report the parameters.</p>
+<p><em>Your answer here.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Fit-an-AR(1)-model-to-the-residuals">Fit an AR(1) model to the residuals<a class="anchor-link" href="#Fit-an-AR(1)-model-to-the-residuals">¶</a></h3><p>First we write a function <code>AR1</code> that will take the stationary residuals as input and return the parameters of the AR1 model. Then we will fit this model to the residuals and report the parameters.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 3.3:</b>
+<p>
+Complete the missing parts of the code cell below.
+</p>
+</p></div>
 </div>
 </div>
 </div>
@@ -7940,14 +8092,15 @@ Fit this model to the residuals and report the parameters.</p>
 <span class="sd">    '''</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
     <span class="n">y_lag_1</span> <span class="o">=</span> <span class="n">YOUR_CODE_HERE</span>
-    <span class="c1"># np.atleast_2d is used to convert the 1D array to 2D array, as the fit_model function requires 2D array</span>
+    <span class="c1"># np.atleast_2d is used to convert the 1D array to 2D array,</span>
+    <span class="c1"># as the fit_model function requires 2D array</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">y_lag_1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> 
 
     <span class="n">x_hat</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">e_hat</span> <span class="o">=</span> <span class="n">fit_model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Original Data'</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Estimated Data'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Original Residuals'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Estimated Residuals'</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time [days]'</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Atmospheric Pressure [hPa]'</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Original Data vs Estimated Data'</span><span class="p">)</span>
@@ -7959,8 +8112,6 @@ Fit this model to the residuals and report the parameters.</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'phi = </span><span class="si">{</span><span class="n">x_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">x_hat</span><span class="p">,</span> <span class="n">e_hat</span>
-
-<span class="n">_</span><span class="p">,</span> <span class="n">e_hat2</span> <span class="o">=</span> <span class="n">AR1</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7973,9 +8124,23 @@ Fit this model to the residuals and report the parameters.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Part-3.3:-Fit-an-AR1-model-to-the-residuals">Part 3.3: Fit an AR1 model to the residuals<a class="anchor-link" href="#Part-3.3:-Fit-an-AR1-model-to-the-residuals">¶</a></h3><p>Fit an AR1 model to the residuals and report the parameters. 
-Finally, we will need to check if AR(1) model is a good fit to the residuals. There are many ways to check whether this is the case. We can use a testing procedure to compare different AR models, an example of this can be found in the book.</p>
-<p>However, today we will use a simpler method. If the AR(1) model is a good fit to the residuals, the residuals of the AR(1) model should be white noise. We will plot the ACF of the residuals of the AR(1) model to check if this is the case.</p>
+<h3 id="Fit-an-AR1-model-to-the-residuals">Fit an AR1 model to the residuals<a class="anchor-link" href="#Fit-an-AR1-model-to-the-residuals">¶</a></h3><p>Fit an AR(1) model to the residuals of the functional model (found in Part 2), then report the parameters. We will need to check if the AR(1) model is a good fit to the residuals, although there are many ways to check whether this is the case. We can use a testing procedure to compare different AR models, an example of this can be found in the book.</p>
+<p>Today is your lucky day: we will use a more simple method. If the AR(1) model is a good fit to the residuals, the residuals of the AR(1) model (output by the <code>AR1</code> function) should be white noise. We will plot the ACF of the residuals of the AR(1) model to check if this is the case.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 3.4:</b>
+<p>
+Complete the missing parts of the code cell below.
+</p>
+</p></div>
 </div>
 </div>
 </div>
@@ -7987,7 +8152,9 @@ Finally, we will need to check if AR(1) model is a good fit to the residuals. Th
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Lets start with the ACF plot</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">e_hat2</span> <span class="o">=</span> <span class="n">AR1</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">)</span>
+
+<span class="c1"># Lets start with the ACF plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">plot_acf</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -8003,10 +8170,10 @@ Finally, we will need to check if AR(1) model is a good fit to the residuals. Th
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 3.5:</b>
 <p>
 <ul>
-<li><p>What do you conclude from this ACF?</p>
+<li><p>What can you conclude from this ACF?</p>
 </li>
 <li><p>Is the AR(1) model a good fit to the residuals?</p>
 </li>
@@ -8014,7 +8181,7 @@ Finally, we will need to check if AR(1) model is a good fit to the residuals. Th
 </li>
 </ul>
 </p>
-</div>
+</p></div>
 </div>
 </div>
 </div>
@@ -8025,11 +8192,38 @@ Finally, we will need to check if AR(1) model is a good fit to the residuals. Th
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Part-4:-Report-the-results">Part 4: Report the results<a class="anchor-link" href="#Part-4:-Report-the-results">¶</a></h2><p>Now that we have found the periodic signals in the data and fitted an AR model to the residuals, we can report the results. By combining including the AR (noise) process, we get residuals that are white noise. When the model hat white noise residuals, we can also report the confidence intervals of the model.</p>
+<p><em>Your answer here.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Part-4:-Report-the-results">Part 4: Report the results<a class="anchor-link" href="#Part-4:-Report-the-results">¶</a></h2><p><em>This part is optional because it is not part of the book, and is not part of the exam material. However, it is a nice exercise to see how the uncertainty in our model parameters can be computed for situations where the observations are <strong>not</strong> independent. This is different from Q1 when we studied observation theory models with an assumption of independent observations. Maybe we will also (optionally) use this on Friday...</em></p>
+<p>Now that we have found the periodic signals in the data and fitted an AR model to the residuals, we can report the results. By combining including the AR (noise) process, we get residuals that are white noise. When the model hat white noise residuals, we can also report the confidence intervals of the model.</p>
 <p>We will use the unbiased estimate of the variance of the residuals to calculate the confidence intervals. The unbiased estimate of the variance is given by:</p>
 $$\hat{\sigma}^2 = \frac{1}{n-p} \sum_{t=1}^{n} \hat{e}_t^2$$<p>Where $n$ is the number of observations and $p$ is the number of parameters in the model.</p>
 <p>The covariance matrix of the parameters is given by:</p>
 $$\hat{\Sigma} = \hat{\sigma}^2 (\mathbf{A}^T \mathbf{A})^{-1}$$<p>Where $\mathbf{A}$ is the design matrix of the model.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 4.1:</b>
+<p>
+Complete the missing parts of the code cell below.
+</p>
+</p></div>
 </div>
 </div>
 </div>
@@ -8083,7 +8277,7 @@ $$\hat{\Sigma} = \hat{\sigma}^2 (\mathbf{A}^T \mathbf{A})^{-1}$$<p>Where $\mathb
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Task 4.2:</b>
 <p>
 <ul>
 <li><p>What can you say about the parameters, do the parameters make sense?</p>
@@ -8094,8 +8288,50 @@ $$\hat{\Sigma} = \hat{\sigma}^2 (\mathbf{A}^T \mathbf{A})^{-1}$$<p>Where $\mathb
 </li>
 </ul>
 </p>
+</p></div>
 </div>
 </div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>Your answer here.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>End of notebook.</strong></p>
+<h2 style="height: 60px">
+</h2>
+<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
+<style>
+        .markdown {width:100%; position: relative}
+        article { position: relative }
+    </style>
+<a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
+<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:; width:88px; height:auto; padding-top:10px"/>
+</a>
+<a href="https://www.tudelft.nl/en/ceg" rel="TU Delft">
+<img alt="TU Delft" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" style="border-width:0; width:100px; height:auto; padding-bottom:0px"/>
+</a>
+<a href="http://mude.citg.tudelft.nl/" rel="MUDE">
+<img alt="MUDE" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" style="border-width:0; width:100px; height:auto; padding-bottom:0px"/>
+</a>
+</h3>
+<span style="font-size: 75%">
+© Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
+
+</span></div>
 </div>
 </div>
 </div>
