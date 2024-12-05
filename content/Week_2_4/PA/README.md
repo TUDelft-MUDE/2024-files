@@ -2,16 +2,17 @@
 
 _[CEGM1000 MUDE](http://mude.citg.tudelft.nl/), Time Series Analysis, Week 4 of Quarter 2._
 
-
+_You can access this assignment with the following link: [classroom.github.com/a/lIxPUCXR](https://classroom.github.com/a/lIxPUCXR)._
 
 - This week we will install the software Gurobi, which is required for optimization topic next week. This is to give you enough time to solve any problems with the installation. Next week we will learn how to use it.
-
 
 This week the programming assignment is based on three files:
 - `README.md`: instructions for PA12 and environment creation (this document)
 - `PA_2_4_A_gurobilicious.ipynb`: set-up of Gurobi software for Week 2.5 (optimization) with a new conda environment
 - `PA_2_4_B_axes_of_awesome.ipynb`: Python-related tools used in Week 2.4 for Time Series Analysis
 - a few extra files for the assignment to work properly: `alternation.svg`, `environment.yml`, `gurobitest.py`
+
+**Note:** _the README instructions were updated on Nov 2 to have a better description of the environment creation, below._
 
 ## Instructions
 
@@ -46,10 +47,11 @@ In summary, as you can see from reading the file, we will set up an environment 
 
 The command for creating the environment is simple. Do the following:
 
-1. Open Anaconda Prompt (Windows) / your default terminal app (Mac)
-2. Navigate to your working directory (where this file and `environment.yml` is located)
-3. Execute this command: `conda env create -f environment.yml`
+1. Open the CLI (Terminal) in VS Code
+2. Confirm that the CLI prompt is in the same directory as the file `environment.yml`
+3. Execute this command: `conda env create -f environment.yml` (if you can't run `conda` commands in the Terminal, you need to add it to your environment path, see [here](https://mude.citg.tudelft.nl/2024/book/external/learn-programming/book/install/common/env_vars_windows.html#setting-the-path-variable))
 4. Keep reading this assignment as you wait (this may take several minutes)
+5. Remember to use this environment when you want to use Gurobi (e.g., PA 2.4A) by selecting it from the list of kernels in the top-right of a notebook in VS Code.
 
 Do you know why this takes so long? Because we are installing many packages at once! Keep an eye on the terminal window as this process is completed. First `conda` is collecting information about the dependencies, then it will _solve_ the environment; in other words, figure out which version of each package it should use. Once it is ready, it will present the list of packages and proceed with the "installation" (really just downloading `*.py` files and putting them in a folder on your computer) Note that the prompt may ask you to confirm that the installation should proceed, depending on your system settings. 
 

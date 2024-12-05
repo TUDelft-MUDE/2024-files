@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="pa-24">PA 2.4</h1>
+<p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>, Time Series Analysis, Week 4 of Quarter 2.</em></p>
+<p><em>You can access this assignment with the following link: <a href="https://classroom.github.com/a/lIxPUCXR">classroom.github.com/a/lIxPUCXR</a>.</em></p>
+<ul>
+<li>This week we will install the software Gurobi, which is required for optimization topic next week. This is to give you enough time to solve any problems with the installation. Next week we will learn how to use it.</li>
+</ul>
+<p>This week the programming assignment is based on three files:</p>
+<ul>
+<li><code>README.md</code>: instructions for PA12 and environment creation (this document)</li>
+<li><code>PA_2_4_A_gurobilicious.ipynb</code>: set-up of Gurobi software for Week 2.5 (optimization) with a new conda environment</li>
+<li><code>PA_2_4_B_axes_of_awesome.ipynb</code>: Python-related tools used in Week 2.4 for Time Series Analysis</li>
+<li>a few extra files for the assignment to work properly: <code>alternation.svg</code>, <code>environment.yml</code>, <code>gurobitest.py</code></li>
+</ul>
+<p><strong>Note:</strong> <em>the README instructions were updated on Nov 2 to have a better description of the environment creation, below.</em></p>
+<h2 id="instructions">Instructions</h2>
+<p>Read through this file (<code>README.md</code>). This <code>README.md</code> also includes a task on creating a new conda environment. Afterwards complete the tasks in notebooks <code>PA_2_4_A</code> and <code>PA_2_4_B</code>. Note that <code>PA_2_4_A</code> will refer you to the MUDE website, where you will find <a href="https://mude.citg.tudelft.nl/software/gurobi/">instructions for setting up the Gurobi license file UPDATE LINK</a>.</p>
+<h2 id="grading-criteria">Grading Criteria</h2>
+<p>You will pass this PA if:</p>
+<ol>
+<li>Your notebook <code>PA_2_4_B_axis_of_awesome.ipynb</code> runs without errors.</li>
+<li>A file <code>license.lic</code> is committed to your repository</li>
+<li>The license file confirms you have installed the academic license of Gurobi version 12</li>
+</ol>
+<p>Note that we won't be checking your notebook A for errors, as this will not run on the autograder webserver as it does not have Gurobi installed.</p>
+<h2 id="python-environments-revisited">Python environments revisited</h2>
+<p>Until now, we have been able to complete our work in MUDE with a few packages like <code>numpy</code> and <code>scipy</code> in our <code>mude</code> environment, which we create and manage with <code>conda</code>. In the previous quarter you also created a new environment, 'mude-week-8'. This week, we will once again create a new environment in preparation for the week on Optimisation ahead. You may have noticed that the environments are always generated using a file called 'environment.yml'. This is just a text-based format (see below) where we can list the packages that we want to be included in our environment. We can then tell <code>conda</code> to create the environment based on the contents of the file!</p>
+<p>All we need to do to create an environment from a file is to write a list of what we want and then tell <code>conda</code> to read it. That's it!</p>
+<h4 id="list-requirements-in-yml-file">List requirements in <code>*.yml</code> file</h4>
+<p>To write our list of requirements, we will use a file with a new (to us) file extension: the <code>*.yml</code> file (pronounced &quot;yah-mul&quot;). It is a text-readable file, that stands for &quot;Yet another Markup Language.&quot; You don't need to worry about this, except to recognize that this is one of <em>many</em> types of files that use a particular type of text formatting to give a computer specific instructions. It is very similar to the way Markdown formatting works.</p>
+<p>Take a look at the contents of the file <code>environment.yml</code> in this repository. Can you understand what is being described? For each section (<code>name</code> and <code>dependencies</code>) you should see that it uses a colon <code>:</code> to list the information. This will be processed by <code>conda</code> when creating the new environment.</p>
+<p>There is another special type of formatting with two colons <code>::</code>. This is how we tell <code>conda</code> to look on a specific <em>channel</em> for the particular package. Conda channels are the locations where packages are stored; you can think of them as a specific URL web address. This is where the creator of the package can manage and maintain its distribution (e.g., publishing new versions, installation information, etc). Conda packages are downloaded from these URL's, and if you know where a particular package is stored, you can give <code>conda</code> explicit instructions. For example, we can see that Gurobi is stored on the <code>gurobi</code> channel, because the URL is <code>https://anaconda.org/gurobi/gurobi</code> (note that Anaconda is an organization that provides a wide variety of software; the website anaconda.com is used to provide documentation and information about the organization, whereas anaconda.<strong>org</strong> is explicitly used for package distribution).  This is specified in the environment file using the <code>channel::package</code> notation. In the <code>*.yml</code> file, <code>gurobi::gurobi</code> is equivalent to using the command <code>conda install -c gurobi gurobi</code> in Anaconda prompt.</p>
+<p>In summary, as you can see from reading the file, we will set up an environment specifically for this assignment,  along with a number of dependency packages, two of which are installed from special conda channels.</p>
+<h4 id="create-environment-from-yml-file">Create environment from <code>*.yml</code> file</h4>
+<p>The command for creating the environment is simple. Do the following:</p>
+<ol>
+<li>Open the CLI (Terminal) in VS Code</li>
+<li>Confirm that the CLI prompt is in the same directory as the file <code>environment.yml</code></li>
+<li>Execute this command: <code>conda env create -f environment.yml</code> (if you can't run <code>conda</code> commands in the Terminal, you need to add it to your environment path, see <a href="https://mude.citg.tudelft.nl/2024/book/external/learn-programming/book/install/common/env_vars_windows.html#setting-the-path-variable">here</a>)</li>
+<li>Keep reading this assignment as you wait (this may take several minutes)</li>
+<li>Remember to use this environment when you want to use Gurobi (e.g., PA 2.4A) by selecting it from the list of kernels in the top-right of a notebook in VS Code.</li>
+</ol>
+<p>Do you know why this takes so long? Because we are installing many packages at once! Keep an eye on the terminal window as this process is completed. First <code>conda</code> is collecting information about the dependencies, then it will <em>solve</em> the environment; in other words, figure out which version of each package it should use. Once it is ready, it will present the list of packages and proceed with the &quot;installation&quot; (really just downloading <code>*.py</code> files and putting them in a folder on your computer) Note that the prompt may ask you to confirm that the installation should proceed, depending on your system settings.</p>
+<p>Once the environment is created, we can activate it, and also check that everything was installed properly. Try <code>conda env export -n ENV_NAME</code> to see what was installed by &quot;default.&quot; The list is very long, even though we only asked for a few packages!</p>
+<p>It is also interesting to try <code>conda env export --from-history</code> (make sure you activated it already), which shows the specific packages requested. Do you notice anything in particular when looking at the output? That's right, it's exactly the same as our file <code>environment.yml</code>! The only thing extra is that it identifies <code>default</code> as the conda channel (since we didn't specify anything else in the <code>*.yml</code> file).</p>
+<h2 id="next-steps">Next steps</h2>
+<p>Once you have successfully installed our new environment and you have activated it, you are ready to proceed with the rest of this assignment.</p>
+<p>We simply presented the instructions for creating an environment in this README; if you would like to read more about this, you should refer to the <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file">Anaconda documentation</a>. You can also read about creating an environment file on the same page <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually">here</a>, if interested.</p>
+<p><strong>End of file.</strong></p>
+<span style="font-size: 75%">
+&copy; Copyright 2023 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a>, TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a>.
+
+</body>
+</html>
