@@ -33,13 +33,17 @@ setup:
 sync_notebooks:
   stage: sync
   extends: .setup_env
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      changes:
+        - content/**/*
   script:
     - mkdir -p synced_files
     - |
-      for notebook in $(find ./src -name "*.ipynb"); do
+      for notebook in $(find ./content -name "*.ipynb"); do
         if [ -f "$notebook" ]; then
           echo "Processing $notebook"
-          relative_path=${notebook#./src/}
+          relative_path=${notebook#./content/}
           synced_dir="synced_files/$(dirname $relative_path)"
           mkdir -p "$synced_dir"
           
@@ -51,11 +55,10 @@ sync_notebooks:
           # Strip outputs from the notebook
           jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)"
         else
-          echo "No notebooks found in src directory"
+          echo "No notebooks found in content directory"
           exit 1
         fi
       done
-    - ls -la synced_files/  # Debug: show contents of synced_files
   artifacts:
     paths:
       - synced_files/
@@ -67,40 +70,23 @@ update_repo:
   extends: .setup_env
   dependencies:
     - sync_notebooks
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      changes:
+        - content/**/*
   script:
-    # Debug: show current directory contents
-    - ls -la
-    - echo "Current directory contents:"
-    - find . -type f
-    
-    # Set up git configuration
     - git config --global user.name "GitLab CI"
     - git config --global user.email "gitlab-ci@example.com"
-    
-    # Make sure we're on the correct branch
     - git checkout -B $CI_COMMIT_REF_NAME
     - git pull origin $CI_COMMIT_REF_NAME
-    
-    # Force git to track the synced_files directory
     - |
       if [ -d "synced_files" ]; then
-        echo "synced_files directory exists. Contents:"
-        ls -la synced_files/
-        
-        # Force add all files in synced_files
         git add -f synced_files/
-        
-        # Check if there are changes to commit
         if [ -n "$(git status --porcelain synced_files/)" ]; then
-          echo "Changes detected, committing..."
           git commit -m "Update synced files [skip ci]"
           git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
-          echo "Changes pushed successfully"
-        else
-          echo "No changes to commit in synced_files"
         fi
       else
-        echo "synced_files directory not found!"
         exit 1
       fi
 
@@ -122,7 +108,7 @@ deploy-draft-students:
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - src/students/**/*
+        - content/students/**/*
       when: always
 
 deploy-teachers:
@@ -143,7 +129,7 @@ deploy-teachers:
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - src/teachers/**/*
+        - content/teachers/**/*
       when: always
 
 deploy-production-students:
@@ -164,5 +150,5 @@ deploy-production-students:
   rules:
     - if: $CI_COMMIT_BRANCH == "release"
       changes:
-        - src/students/**/*
+        - content/students/**/*
       when: always
