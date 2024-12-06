@@ -39,26 +39,27 @@ sync_notebooks:
         - content/**/*
   script:
     - mkdir -p synced_files
+    - found_files=false
     - |
       for notebook in $(find ./content -name "*.ipynb"); do
         if [ -f "$notebook" ]; then
+          found_files=true
           echo "Processing $notebook"
           relative_path=${notebook#./content/}
           synced_dir="synced_files/$(dirname $relative_path)"
           mkdir -p "$synced_dir"
           
-          # Convert to various formats
           jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb"
           jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md"
           jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py"
           
-          # Strip outputs from the notebook
           jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)"
-        else
-          echo "No notebooks found in content directory"
-          exit 1
         fi
       done
+      if [ "$found_files" = false ]; then
+        echo "No notebooks found in content directory"
+        exit 0
+      fi
   artifacts:
     paths:
       - synced_files/
