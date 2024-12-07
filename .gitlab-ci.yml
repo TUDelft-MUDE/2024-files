@@ -38,10 +38,16 @@ sync_notebooks:
       changes:
         - content/**/*
   script:
+    # Clean up existing synced files directory
+    - rm -rf synced_files
     - mkdir -p synced_files
+    
+    # Create a manifest of all notebooks in content directory
+    - find ./content -name "*.ipynb" > notebooks_manifest.txt
+    
     - found_files=false
     - |
-      for notebook in $(find ./content -name "*.ipynb"); do
+      while IFS= read -r notebook || [ -n "$notebook" ]; do
         if [ -f "$notebook" ]; then
           found_files=true
           echo "Processing $notebook"
@@ -55,7 +61,8 @@ sync_notebooks:
           
           jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)"
         fi
-      done
+      done < notebooks_manifest.txt
+      
       if [ "$found_files" = false ]; then
         echo "No notebooks found in content directory"
         exit 0
@@ -63,6 +70,7 @@ sync_notebooks:
   artifacts:
     paths:
       - synced_files/
+      - notebooks_manifest.txt
     expire_in: 1 hour
     when: on_success
 
@@ -80,8 +88,26 @@ update_repo:
     - git config --global user.email "gitlab-ci@example.com"
     - git checkout -B $CI_COMMIT_REF_NAME
     - git pull origin $CI_COMMIT_REF_NAME
+    
+    # Remove files that no longer exist in content directory
     - |
       if [ -d "synced_files" ]; then
+        # Remove files that are not in the manifest
+        find synced_files -type f \( -name "*.ipynb" -o -name "*.md" -o -name "*.py" \) | while read synced_file; do
+          relative_path=${synced_file#synced_files/}
+          notebook_path="./content/${relative_path%.*}.ipynb"
+          if ! grep -Fq "$notebook_path" notebooks_manifest.txt; then
+            echo "Removing deleted file: $synced_file"
+            rm "$synced_file"
+            # Remove empty directories
+            dir=$(dirname "$synced_file")
+            while [ "$dir" != "synced_files" ] && [ -z "$(ls -A "$dir")" ]; do
+              rmdir "$dir"
+              dir=$(dirname "$dir")
+            done
+          fi
+        done
+        
         git add -f synced_files/
         if [ -n "$(git status --porcelain synced_files/)" ]; then
           git commit -m "Update synced files [skip ci]"
