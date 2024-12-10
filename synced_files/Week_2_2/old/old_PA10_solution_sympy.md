@@ -1,0 +1,304 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.16.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+# Programming Assignment 10: Love Is Sparse
+
+<h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
+    <style>
+        .markdown {width:100%; position: relative}
+        article { position: relative }
+    </style>
+    <img src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" style="width:100px" />
+    <img src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" style="width:100px" />
+</h1>
+<h2 style="height: 10px">
+</h2>
+
+*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.2. Due: complete this PA prior to class on Friday, Nov 24, 2023.*
+
+
+## Overview of Assignment
+
+This assignment will introduce you to the concept of sparse matrices in Python and how they can be useful to speed up computations and reduce file sizes. To this end, we will be using the `scipy.sparse` library.
+
+## Reading
+
+Keep the `scipy.sparse` [documentation](https://docs.scipy.org/doc/scipy/reference/sparse.html) handy. Some of the work you'll do is based off this [blog](https://www.sefidian.com/2021/04/28/python-scipy-sparse-matrices-explained/), so you may find it helpful. In addition, if you don't know what a byte is, you may want to read up on [Wikipdia here](https://en.wikipedia.org/wiki/Byte) (not all of it, as long as you recognize that it is a measure of storage space on a computer).The concepts you learn here are applied to the Finite Element Method in this [book chapter](https://mude.citg.tudelft.nl/book/fem/matrix.html), which you are expected to read during Week 2.2.
+
+**Note:** you probably skipped over all the links in the paragraph above. While we forgive you for your haste, just remember to revisit some of them if you are struggling to finish the questions below!
+
+## Assignment Criteria
+
+**You will pass this assignment as long as your respository fulfills the following criteria:**  
+
+- You have completed this notebook and it runs without errors
+
+```python
+import numpy as np
+import scipy.sparse as sparse
+import matplotlib.pyplot as plt
+import timeit
+```
+
+## Task 1: Why sparse?
+
+Some matrices have a lot of zeros, with such an example given below. When this is the case, the way we store the actual information of the matrix (the non-zero elements) can have a big impact on computation speed and storage demands. Formats which handle this by only storing non-zero elements are called sparse, and have very different internal representations of the data to the matrices you have been familiarized with in previous programming assignments.
+
+![Sparse matrix](images/sparse_matrix.png)
+
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 1:</b>   
+    
+- Create a function (`create_dense`) which returns a square matrix of arbitrary size. 
+- The function will take as input the size N (such that the matrix is N x N) and one float between 0 and 1, which represents the approximate fraction of the elements of the matrix which are non-zero (it doesn't have to be super accurate).
+    
+For now it just return a regular Numpy matrix. To do this, you can use <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.rand.html">numpy.random.rand</a> to create a random set of values between 0 and 1 and then threshold the entries with a simple boolean operator.
+</p>
+</div>
+
+```python
+# SOLUTION (a few things will be removed)
+def create_dense(size: int, percentage: float) -> np.array:
+    matrix = np.random.rand(size, size)
+    matrix[matrix > percentage] = 0
+    return matrix
+####
+```
+
+Now we will test that you set it up correctly:
+
+```python
+test_size = 1000
+test_percentage = 0.1
+matrix = create_dense(test_size, test_percentage)
+assert np.count_nonzero(matrix) < test_percentage*1.1*test_size**2
+```
+
+One of the reasons we are interested in sparse matrices
+
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 2:</b>   
+Use <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.nbytes.html">array.nbytes</a> to find out how much space a 1000x1000 matrix with 10% non-zero elements takes. Try to explain where this number came from! (Hint: the answer is in the assert statement)
+</p>
+</div>
+
+```python
+# Solution
+my_matrix_size = matrix.nbytes
+assert my_matrix_size == 8*test_size**2
+```
+
+Next we will explore how to use `scipy.sparse`, and how this reduces the data size of the matrix. The [ documentation](https://docs.scipy.org/doc/scipy/reference/sparse.html) gives us many different types of formats to choose from, so we'll explore two of them: BSR (Block Sparse Row) and CSR (Compressed Sparse Row). 
+
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 3:</b>   
+    Complete the code below to make a CSR and BSR matrix from the <code>matrix</code> variable.
+</p>
+</div>
+
+```python
+# SOLUTION
+csr_matrix = sparse.csr_array(matrix)
+bsr_matrix = sparse.bsr_array(matrix)
+```
+
+Let's compare the new storage requirements and see how much of an improvement we got (it should approach the value used above for `test_percentage`, but not reach it exactly):
+
+```python
+print(f"CSR matrix size: {csr_matrix.data.size} bytes")
+print(f"Compared to the normal matrix, CSR uses this fraction of space: {csr_matrix.data.nbytes/my_matrix_size:0.3f}")
+print(f"BSR matrix size: {bsr_matrix.data.size} bytes")
+print(f"Compared to the normal matrix, BSR uses this fraction of space: {bsr_matrix.data.nbytes/my_matrix_size:0.3f}")
+```
+
+## Task 2: [What is love?](https://www.youtube.com/watch?v=HEXWRTEbj1I)
+
+Let's look into a small example of how sparse matrices can also help improve calculation speeds. We'll study the mysterious case of a massive friend group with a concerning love circle and how we can predict how each person feels.
+
+
+We know there is a certain pecking order in this group, and neighbours in this order have a love-hate relationship which can be quantified with a simple differential equation:
+
+$$
+\begin{pmatrix}
+\frac{dn_1}{dt}\\
+\frac{dn_2}{dt} \\
+\end{pmatrix} 
+=
+\begin{pmatrix}
+0 & 1\\
+-1 & 0 \\
+\end{pmatrix} 
+\begin{pmatrix}
+n_1\\
+n_2 \\
+\end{pmatrix} 
+$$
+
+
+The state of any given person indicates how much they love the group in general. So in this case, person 2 doesn't like it when person 1 is happy. If we extend this to a four case scenario we'd get the following matrix:
+$$
+\begin{pmatrix}
+\frac{dn_1}{dt}\\
+\frac{dn_2}{dt}\\
+\frac{dn_3}{dt}\\
+\frac{dn_4}{dt}\\
+\end{pmatrix} 
+=
+\begin{pmatrix}
+0  & 1  & 0 & -1 \\
+-1 & 0  & 1 & 0  \\
+0  & -1 & 0 & 1  \\
+1  & 0  & -1 & 0  \\
+\end{pmatrix} 
+\begin{pmatrix}
+n_1 \\
+n_2 \\
+n_3 \\
+n_4 \\
+\end{pmatrix} 
+$$
+
+What happens if we extend it to even more people?
+
+Coincidentally this is very similar to how we use individual elements in the Finite Element Method! We can easily operationalize it using the method `ix_`, for which a simple example is provided in the code cell below (this example is generic to illustrate `ix_` usage and is not related to the love circle!):
+
+```python
+blank = np.zeros(shape=(4, 4))
+blueprint = np.array([[0, 0.5], 
+                      [1, 0.5]])
+
+for i in range(2):
+    # First argument will be used for rows
+    # Second for columns
+    blank[np.ix_([i*2, i*2 + 1], [1, 2])] = blueprint
+    
+print(blank)
+```
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 4:</b>   
+    Generate the matrix <code>relationship</code> for the differential equation for 1000 people. Use the <a href="https://numpy.org/doc/stable/reference/generated/numpy.ix_.html"><code>numpy.ix_</code></a> function to make your life easier. 
+</p>
+</div>
+
+```python
+N = 1000
+relationship = np.zeros(shape=(N, N))
+
+# SOLUTION
+general = np.array([[0, 1], [-1, 0]])
+
+for i in range(N):
+    relationship[np.ix_([i, (i+1)%N], [i, (i+1)%N])] = general
+##########
+```
+
+Finally, we are going to use the forward Euler method to simulate this differential equation for a total of 5 seconds over 1000 iterations. This has already been implemented in the `test` method.
+
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+<p>
+<b>Task 5:</b>   
+    Find the time it takes to evaluate the relationship using <code>timeit</code> by entering the function you wish to evaluate as a string. HINT: you have already learned how to convert a matrix into a sparse format, and the function is defined for you. Run the code cell and compare the performances of the different matrix formats. Which one is faster? How much space do they take?
+</p>
+</div>
+
+```python
+N_ITS = 1000
+T = 5 # Seconds
+dt = T/N_ITS
+
+def test(rel_matrix):
+    state = np.zeros(N); state[0] = 1
+    for i in range(N_ITS):
+        state = state + rel_matrix @ state * dt
+
+# SOLUTION (only the strings in timeit will be removed + matrix definitions)
+csr_matrix = sparse.csr_array(relationship)
+bsr_matrix = sparse.bsr_array(relationship)
+print(f"Standard: {timeit.timeit('test(relationship)', globals=globals(), number=10)/10:.4f}")
+print(f"CSR: {timeit.timeit('test(csr_matrix)', globals=globals(), number=10)/10:.4f}")
+print(f"BSR: {timeit.timeit('test(bsr_matrix)', globals=globals(), number=10)/10:.4f}")
+########
+    
+```
+
+One final consideration when using sparse matrices is that it can take a long time to generate them from a regular matrix. You can test this out by placing the matrix generation inside or outside the timeit code to compare their performances.
+
+
+You could also solve this problem using sympy! What would be the benefit of doing this? Check below how long it will take! You won't need timeit for this one...
+
+```python
+import sympy as sym
+```
+
+```python
+relationshipsym = sym.Matrix(relationship)
+```
+
+```python
+state = np.zeros(1000); state[0] = 1
+state = sym.Matrix(state)
+dt = sym.nsimplify(dt)
+```
+
+```python
+for i in range(N_ITS):
+    state = state + relationshipsym*state * dt
+```
+
+```python
+state[500]
+```
+
+What is the result for the 501th value using float values?
+
+```python
+state = np.zeros(N); state[0] = 1
+for i in range(N_ITS):
+    state = state + relationship @ state * dt
+state[500]
+```
+
+**End of notebook.**
+<h2 style="height: 60px">
+</h2>
+<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
+    <style>
+        .markdown {width:100%; position: relative}
+        article { position: relative }
+    </style>
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+    </a>
+    <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
+      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png"/>
+    </a>
+    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
+      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png"/>
+    </a>
+    
+</h3>
+<span style="font-size: 75%">
+&copy; Copyright 2023 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+
+

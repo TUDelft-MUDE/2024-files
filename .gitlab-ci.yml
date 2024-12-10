@@ -33,76 +33,120 @@ setup:
 sync_notebooks:
   stage: sync
   extends: .setup_env
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      changes:
+        - content/**/*
   script:
+    # Clean up existing synced files directory
+    - rm -rf synced_files
     - mkdir -p synced_files
+    
+    # Create a manifest of all notebooks in content directory
+    - find ./content -name "*.ipynb" > notebooks_manifest.txt
+    
+    # Create an error log file
+    - touch conversion_errors.log
+    
+    - found_files=false
     - |
-      for notebook in $(find ./src -name "*.ipynb"); do
+      while IFS= read -r notebook || [ -n "$notebook" ]; do
         if [ -f "$notebook" ]; then
+          found_files=true
           echo "Processing $notebook"
-          relative_path=${notebook#./src/}
+          relative_path=${notebook#./content/}
           synced_dir="synced_files/$(dirname $relative_path)"
           mkdir -p "$synced_dir"
           
-          # Convert to various formats
-          jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb"
-          jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md"
-          jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py"
-          
-          # Strip outputs from the notebook
-          jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)"
-        else
-          echo "No notebooks found in src directory"
-          exit 1
+          # Validate notebook JSON structure
+          if python -c "import json; json.load(open('$notebook'));" 2>/dev/null; then
+            # Try conversion with error handling
+            if jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log && \
+               jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log && \
+               jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log; then
+              
+              jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)" 2>>conversion_errors.log
+              echo "Successfully processed $notebook" >> conversion_errors.log
+            else
+              echo "Error processing $notebook - See conversion_errors.log for details" >&2
+              echo "Failed to convert $notebook" >> conversion_errors.log
+            fi
+          else
+            echo "Invalid or corrupted notebook: $notebook" >> conversion_errors.log
+            echo "Skipping invalid notebook: $notebook" >&2
+          fi
         fi
-      done
-    - ls -la synced_files/  # Debug: show contents of synced_files
+      done < notebooks_manifest.txt
+      
+      if [ "$found_files" = false ]; then
+        echo "No notebooks found in content directory"
+        echo "No notebooks found in content directory" >> conversion_errors.log
+      fi
+      
+      # Check if there were any conversion errors but some files were processed
+      if [ -s conversion_errors.log ] && [ -d "synced_files" ] && [ "$(ls -A synced_files)" ]; then
+        echo "Some files had conversion errors but others were processed successfully"
+        cat conversion_errors.log
+        exit 0
+      elif [ ! -d "synced_files" ] || [ ! "$(ls -A synced_files)" ]; then
+        echo "No files were successfully processed"
+        cat conversion_errors.log
+        exit 1
+      fi
   artifacts:
     paths:
       - synced_files/
+      - notebooks_manifest.txt
+      - conversion_errors.log
     expire_in: 1 hour
     when: on_success
+    reports:
+      junit: conversion_errors.log
 
 update_repo:
   stage: update_repo
   extends: .setup_env
   dependencies:
     - sync_notebooks
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      changes:
+        - content/**/*
   script:
-    # Debug: show current directory contents
-    - ls -la
-    - echo "Current directory contents:"
-    - find . -type f
-    
-    # Set up git configuration
     - git config --global user.name "GitLab CI"
     - git config --global user.email "gitlab-ci@example.com"
-    
-    # Make sure we're on the correct branch
     - git checkout -B $CI_COMMIT_REF_NAME
     - git pull origin $CI_COMMIT_REF_NAME
     
-    # Force git to track the synced_files directory
+    # Remove files that no longer exist in content directory
     - |
       if [ -d "synced_files" ]; then
-        echo "synced_files directory exists. Contents:"
-        ls -la synced_files/
+        # Remove files that are not in the manifest
+        find synced_files -type f \( -name "*.ipynb" -o -name "*.md" -o -name "*.py" \) | while read synced_file; do
+          relative_path=${synced_file#synced_files/}
+          notebook_path="./content/${relative_path%.*}.ipynb"
+          if ! grep -Fq "$notebook_path" notebooks_manifest.txt; then
+            echo "Removing deleted file: $synced_file"
+            rm "$synced_file"
+            # Remove empty directories
+            dir=$(dirname "$synced_file")
+            while [ "$dir" != "synced_files" ] && [ -z "$(ls -A "$dir")" ]; do
+              rmdir "$dir"
+              dir=$(dirname "$dir")
+            done
+          fi
+        done
         
-        # Force add all files in synced_files
         git add -f synced_files/
-        
-        # Check if there are changes to commit
         if [ -n "$(git status --porcelain synced_files/)" ]; then
-          echo "Changes detected, committing..."
           git commit -m "Update synced files [skip ci]"
           git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
-          echo "Changes pushed successfully"
-        else
-          echo "No changes to commit in synced_files"
         fi
       else
-        echo "synced_files directory not found!"
         exit 1
       fi
+
+# Deploy stages remain unchanged
 
 deploy-draft-students:
   stage: deploy
@@ -122,7 +166,7 @@ deploy-draft-students:
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - src/students/**/*
+        - content/students/**/*
       when: always
 
 deploy-teachers:
@@ -143,7 +187,7 @@ deploy-teachers:
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - src/teachers/**/*
+        - content/teachers/**/*
       when: always
 
 deploy-production-students:
@@ -164,5 +208,5 @@ deploy-production-students:
   rules:
     - if: $CI_COMMIT_BRANCH == "release"
       changes:
-        - src/students/**/*
+        - content/students/**/*
       when: always
