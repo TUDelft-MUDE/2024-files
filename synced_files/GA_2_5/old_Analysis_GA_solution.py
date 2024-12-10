@@ -30,9 +30,6 @@
 # *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.5. For: 15 December, 2023.*
 #
 
-# %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> during the in-class session some of the confusion was caused by code issues. Comments relevant to the code and notebooks as-used in the Friday in-class session are provided in boxes like this.</p></div>
-
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # ## Introduction
 #
@@ -71,19 +68,7 @@ from pymoo.optimize import minimize
 from pymoo.operators.sampling.rnd import BinaryRandomSampling
 from pymoo.operators.crossover.hux import HalfUniformCrossover #
 from pymoo.operators.mutation.bitflip import BitflipMutation
-
-# not used here but generally useful dependencies
-#from pymoo.core.problem import Problem
-#from pymoo.operators.mutation.pm import PolynomialMutation
-#from pymoo.operators.crossover.pntx import PointCrossover #
-#from pymoo.operators.crossover.sbx import SBX
-#from pymoo.operators.crossover.sbx import SimulatedBinaryCrossover
-#from pymoo.operators.crossover.pntx import Crossover
-#from pymoo.operators.repair.bounds_repair import BoundsRepair
-#from pymoo.core.repair import Repair
-
-# %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> the intention with the commented lines above was to illustrate possible crossover methods you could use, but unfortunately the pymoo documentation was not clear enough to indicate how they could have been used. The methods <code>SinglePointCrossover</code> and <code>TwoPointCrossover</code> (n<em>not</em> listed above!) could have been easily used, as these methods require no additional keyword arguments and would have worked “out of the box;” they were also illustrated with examples in the online textbook. We apologize for this oversight on our part.</p></div>
+from pymoo.operators.crossover.pntx import PointCrossover # 
 
 # %%
 # For visualization
@@ -327,17 +312,9 @@ def create_nd_matrix(ods_data, origins, destinations, nodes):
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Now that we have the required functions for reading and processing the data, let's define some problem parameters and prepare the input.
 
-# %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> the variables <code>extension_max_no</code> and <code>timelimit</code> were both defined here, but never used. <code>extension_max_no</code> is similar to the variable in notebook A with the same name; here it is superceded below by <code>Budget</code>.</p></div>
-
 # %% pycharm={"name": "#%%\n"}
 # define parameters, case study (network) list and the directory where their files are
 extension_factor = 1.5  # capacity after extension (1.5 means add 50%)
-extension_max_no = 20  # the number of links to add capacity to (simplified way of reprsenting a budget for investing)
-#it's the same to say that it's exactly this number of that this number is the max, that's because every investment brings travel time benefits 
-#even if just one car circulates.
-timelimit = 300 # seconds
-beta = 2  # parameter to use in link travel time function (explained later)
 
 networks = ['SiouxFalls']
 networks_dir = os.getcwd() +'/input/TransportationNetworks'
@@ -357,17 +334,6 @@ net_data, ods_data = net_dict[networks[0]], ods_dict[networks[0]]
 links = list(net_data['capacity'].keys())
 nodes = np.unique([list(edge) for edge in links])
 fftts = net_data['free_flow']
-
-# auxiliary parameters (dict format) to keep the problem linear (capacities as parameters rather than variables)
-cap_normal = {(i, j): cap for (i, j), cap in net_data['capacity'].items()}
-cap_extend = {(i, j): cap * extension_factor for (i, j), cap in net_data['capacity'].items()}
-
-# origins and destinations
-dests = np.unique([dest for (orig, dest) in list(ods_data.keys())])
-origs = np.unique([orig for (orig, dest) in list(ods_data.keys())])
-
-# demand in node-destination form
-demand = create_nd_matrix(ods_data, origs, dests, nodes)
 
 # %% [markdown]
 # ## Network Display
@@ -497,39 +463,37 @@ class NDP(ElementwiseProblem):
 # Now, let's initiate an instance of the problem based on the problem class we defined, and initiate the GA with its parameters. Note that depending on the problem size and the number of feasible links, you might need larger values for population and generation size to achieve good results or even feasible results. Of course this increases the computation times.
 
 # %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> was 10 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
-
-# %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>This:</b> <code>Budget</code> is the way the number of links was selected (unlike notebook A, which used <code>extension_max_no</code>). </p></div>
-
-# %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>This:</b> <code>Budget</code> is the way the number of links was selected (unlike notebook A, which used <code>extension_max_no</code>). The initial value of 76 was trivial, and the solution converged quickly. Numbers between 10 and 40 would have produced <em>much</em> more interesting results (see solution explanation).</p></div>
+# <div style="background-color:#ffa500; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 10 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
 
 # %% pycharm={"name": "#%%\n"}
-Budget = 76
+extension_max_no = 40
 pop_size = 10
 
 # initiate an instance of the problem with max number of selected links as budget constraint
-problem = NDP(budget=Budget)
+problem = NDP(budget=extension_max_no)
 
 # initiate the GA with parameters appropriate for binary variables
 method = GA(pop_size=pop_size,
             sampling=BinaryRandomSampling(),
             mutation=BitflipMutation(),
             crossover=HalfUniformCrossover()
+            # replace HalfUniformCrossover() by PointCrossover(2) for two-point crossover
             )
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Now we are ready to minimize the NDP problem using the GA method we defined.
 
+# %% [markdown]
+# <div style="background-color:#a6ffa6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Instructions:</b> Run the GA for 3 minutes initially to observe how the results converge and to understand the process of obtaining the final solution. Once you have familiarized yourself with the mechanism and the behavior of the algorithm, extend the maximum computation time to 10 minutes. Use the results from this extended run as the foundation for addressing the questions outlined in the report. </p></div>
+
 # %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> termination is set here as a keyword argument (see note above).</p></div>
+# <div style="background-color:#ffa500; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
 
 # %% pycharm={"name": "#%%\n"}
 
 opt_results = minimize(problem,
                method,
-               termination=("time", "00:05:00"), #5 minute maximum computation time
+               termination=("time", "00:03:00"), #this is maximum computation time
                seed=7,
                save_history=True,
                verbose=True,
