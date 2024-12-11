@@ -44,6 +44,8 @@ The company is operating with the following constraints, please formulate the ma
 - the projects of type 2 must be at least as many as the ones of type 1 
 - the profit of all projects together must be greater or equal than $250$ ($\beta$)
 
+**You may want to look at the linear optimisation example from the MUDE book**
+
 
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
@@ -136,14 +138,10 @@ YOUR_CODE_HERE
 
 Solve the model with an additional constraint: if project 1 is done then the impact of all projects together should be lower than $\gamma$ with $\gamma=130$.
 
-In the first cell you should add the constraint, then in a second cell optimize the model.
+Paste your model previous model, and call it <code>model2</code> to keep the results separated and add the new constraint. Then run your second model. 
 
 </p>
 </div>
-
-```python
-YOUR_CODE_HERE
-```
 
 ```python
 YOUR_CODE_HERE

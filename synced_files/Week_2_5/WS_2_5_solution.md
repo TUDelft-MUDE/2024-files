@@ -211,7 +211,7 @@ print("Optimal Objective function Value", model.objVal)
 
 Solve the model with an additional constraint: if project 1 is done then the impact of all projects together should be lower than $\gamma$ with $\gamma=130$.
 
-In the first cell you should add the constraint, then in a second cell optimize the model.
+Paste your model previous model, and call it <code>model2</code> to keep the results separated and add the new constraint. Then run your second model. 
 
 </p>
 </div>
@@ -220,24 +220,36 @@ In the first cell you should add the constraint, then in a second cell optimize 
 # YOUR_CODE_HERE
 
 # SOLUTION
+model2 = gp.Model("Project_Selection")
+x = model2.addVars(num_projects, vtype=gp.GRB.BINARY, name="x")
+model2.setObjective(sum(I[i] * x[i] for i in range(num_projects)),
+                   gp.GRB.MINIMIZE)
+model2.addConstr(x.sum() == 3, "Select_Projects")
+model2.addConstr((sum(x[i] for i in range(num_type2_projects, num_projects))
+                 - sum(x[i] for i in range(num_type1_projects)) >= 0),
+                 "Type_Constraint")
+model2.addConstr(sum(P[i] * x[i] for i in range(num_projects)) >= beta,
+                "Minimum_Profit")
 gamma = 130
-model.addConstr((sum(I[i] * x[i] for i in range(num_projects))
+model2.addConstr((sum(I[i] * x[i] for i in range(num_projects))
                  <= gamma * x[0]+ M * (1 - x[0])),
                  "Impact_Constraint") 
+
+
 ```
 
 ```python
 # YOUR_CODE_HERE
 
 # SOLUTION
-model.optimize()
+model2.optimize()
 
 print("Model structure:")        
 # see the model that you have built in a nice why to interpret
-model.display()  
+model2.display()  
 
 # Display the solution
-if model.status == gp.GRB.OPTIMAL:
+if model2.status == gp.GRB.OPTIMAL:
     print("Optimal Solution:")
     for i in range(num_projects):
         if x[i].x > 0.9:
@@ -246,7 +258,7 @@ else:
     print("No optimal solution found.")
 
     
-print("Optimal Objective function Value", model.objVal)   
+print("Optimal Objective function Value", model2.objVal)   
 ```
 
 **End of notebook.**
