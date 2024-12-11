@@ -44,8 +44,6 @@
 # - The company wants to do 3 out of the 6 projects
 # - the projects of type 2 must be at least as many as the ones of type 1 
 # - the profit of all projects together must be greater or equal than $250$ ($\beta$)
-#
-# <b>You are not allowed to use ChatGPT for this task otherwise you won’t learn ;)</b>
 
 # %% [markdown]
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
@@ -231,6 +229,7 @@ model2.addConstr((sum(x[i] for i in range(num_type2_projects, num_projects))
                  "Type_Constraint")
 model2.addConstr(sum(P[i] * x[i] for i in range(num_projects)) >= beta,
                 "Minimum_Profit")
+# added constraint
 gamma = 130
 model2.addConstr((sum(I[i] * x[i] for i in range(num_projects))
                  <= gamma * x[0]+ M * (1 - x[0])),

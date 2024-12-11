@@ -44,27 +44,6 @@
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
 
-# %% pycharm={"name": "#%%\n"}
-import pandas as pd
-import numpy as np
-import gurobipy as gp
-import matplotlib.pyplot as plt
-
-# Genetic algorithm dependencies. We are importing the pymoo functions that are imporant for applying GA (the package can also apply other methods)
-from pymoo.algorithms.soo.nonconvex.ga import GA
-from pymoo.core.problem import ElementwiseProblem
-from pymoo.optimize import minimize
-from pymoo.operators.sampling.rnd import BinaryRandomSampling
-from pymoo.operators.crossover.hux import HalfUniformCrossover #
-from pymoo.operators.mutation.bitflip import BitflipMutation
-from pymoo.operators.crossover.pntx import PointCrossover # 
-
-# %%
-# For visualization
-from utils.network_visualization import network_visualization
-from utils.network_visualization_highlight_link import network_visualization_highlight_links
-from utils.network_visualization_upgraded import network_visualization_upgraded
-
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # ## Genetic algorithm for NDP
 #
@@ -164,139 +143,42 @@ from utils.network_visualization_upgraded import network_visualization_upgraded
 # ![GAdiagram.png](./figs/GAdiagram.png)
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# ## Data preprocessing
+# ## Part 1: Data preprocessing
 #
-# Our data preprocessing steps are similar to the previous notebook. We use some networks from the well-known transportation networks for benchmarking repository as well as a small toy network for case studies of NDPs. the following functions read data from this repository and perform data preprocessing to have the input and the parameters required for our case studies.
+# The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is as table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
+
+# %%
+import pandas as pd
+import numpy as np
+import gurobipy as gp
+import matplotlib.pyplot as plt
+
+# Genetic algorithm dependencies. We are importing the pymoo functions that are imporant for applying GA (the package can also apply other methods)
+from pymoo.algorithms.soo.nonconvex.ga import GA
+from pymoo.core.problem import ElementwiseProblem
+from pymoo.optimize import minimize
+from pymoo.operators.sampling.rnd import BinaryRandomSampling
+from pymoo.operators.crossover.hux import HalfUniformCrossover 
+from pymoo.operators.mutation.bitflip import BitflipMutation
+from pymoo.operators.crossover.pntx import PointCrossover 
+
+
 
 # %% pycharm={"name": "#%%\n"}
 # import required packages
 import os
 import time
 
-# read network file
-def read_net(net_file):
-    """
-       read network file
-    """
-
-    net_data = pd.read_csv(net_file, skiprows=8, sep='\t')
-    # make sure all headers are lower case and without trailing spaces
-    trimmed = [s.strip().lower() for s in net_data.columns]
-    net_data.columns = trimmed
-    # And drop the silly first and last columns
-    net_data.drop(['~', ';'], axis=1, inplace=True)
-    # using dictionary to convert type of specific columns so taht we can assign very small (close to zero) possitive number to it.
-    convert_dict = {'free_flow_time': float,
-                    'capacity': float,
-                    'length': float,
-                    'power': float
-                    }
-    
-    net_data = net_data.astype(convert_dict)
-
-    # make sure everything makes sense (otherwise some solvers throw errors)
-    net_data.loc[net_data['free_flow_time'] <= 0, 'free_flow_time'] = 1e-6
-    net_data.loc[net_data['capacity'] <= 0, 'capacity'] = 1e-6
-    net_data.loc[net_data['length'] <= 0, 'length'] = 1e-6
-    net_data.loc[net_data['power'] <= 1, 'power'] = int(4)
-    net_data['init_node'] = net_data['init_node'].astype(int)
-    net_data['term_node'] = net_data['term_node'].astype(int)
-    net_data['b'] = net_data['b'].astype(float)
-
-    # extract features in dict format
-    links = list(zip(net_data['init_node'], net_data['term_node']))
-    caps = dict(zip(links, net_data['capacity']))
-    fftt = dict(zip(links, net_data['free_flow_time']))
-    lent = dict(zip(links, net_data['length']))
-    alpha = dict(zip(links, net_data['b']))
-    beta = dict(zip(links, net_data['power']))
-
-    net = {'capacity': caps, 'free_flow': fftt, 'length': lent, 'alpha': alpha, 'beta': beta}
-
-    return net
+# import required functions
+from utils.read import read_cases
+from utils.read import read_net
+from utils.read import read_od
+from utils.read import create_nd_matrix
 
 
-# read OD matrix (demand)
-def read_od(od_file):
-    """
-       read OD matrix
-    """
-
-    f = open(od_file, 'r')
-    all_rows = f.read()
-    blocks = all_rows.split('Origin')[1:]
-    matrix = {}
-    for k in range(len(blocks)):
-        orig = blocks[k].split('\n')
-        dests = orig[1:]
-        origs = int(orig[0])
-
-        d = [eval('{' + a.replace(';', ',').replace(' ', '') + '}') for a in dests]
-        destinations = {}
-        for i in d:
-            destinations = {**destinations, **i}
-        matrix[origs] = destinations
-    zones = max(matrix.keys())
-    od_dict = {}
-    for i in range(zones):
-        for j in range(zones):
-            demand = matrix.get(i + 1, {}).get(j + 1, 0)
-            if demand:
-                od_dict[(i + 1, j + 1)] = demand
-            else:
-                od_dict[(i + 1, j + 1)] = 0
-
-    return od_dict
-
-
-# read case study data
-def read_cases(networks, input_dir):
-    """
-       read case study data
-    """
-
-    # dictionaries for network and OD files
-    net_dict = {}
-    ods_dict = {}
-
-    # selected case studies
-    if networks:
-        cases = [case for case in networks]
-    else:
-        # all folders available (each one for one specific case)
-        cases = [x for x in os.listdir(input_dir) if os.path.isdir(os.path.join(input_dir, x))]
-
-    # iterate through cases and read network and OD
-    for case in cases:
-        mod = os.path.join(input_dir, case)
-        mod_files = os.listdir(mod)
-        for i in mod_files:
-            # read network
-            if i.lower()[-8:] == 'net.tntp':
-                net_file = os.path.join(mod, i)
-                net_dict[case] = read_net(net_file)
-            # read OD matrix
-            if 'TRIPS' in i.upper() and i.lower()[-5:] == '.tntp':
-                ods_file = os.path.join(mod, i)
-                ods_dict[case] = read_od(ods_file)
-
-    return net_dict, ods_dict
-
-
-# create node-destination demand matrix
-def create_nd_matrix(ods_data, origins, destinations, nodes):
-    # create node-destination demand matrix (not a regular OD!)
-    demand = {(n, d): 0 for n in nodes for d in destinations}
-    for r in origins:
-        for s in destinations:
-            if (r, s) in ods_data:
-                demand[r, s] = ods_data[r, s]
-    for s in destinations:
-        demand[s, s] = - sum(demand[j, s] for j in origins)
-
-    return demand
-
-
+# %% [markdown]
+# ### Network Display
+# We will use the same function we used in the previous notebook to visualize the network. 
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Now that we have the required functions for reading and processing the data, let's define some problem parameters and prepare the input.
@@ -325,8 +207,12 @@ nodes = np.unique([list(edge) for edge in links])
 fftts = net_data['free_flow']
 
 # %% [markdown]
-# ## Network Display
-# We will use the same function we used in the previous notebook to visualize the network. 
+#
+
+# %%
+from utils.network_visualization import network_visualization
+from utils.network_visualization_highlight_link import network_visualization_highlight_links
+from utils.network_visualization_upgraded import network_visualization_upgraded
 
 # %%
 coordinates_path = 'input/TransportationNetworks/SiouxFalls/SiouxFallsCoordinates.geojson'
