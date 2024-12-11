@@ -79,9 +79,6 @@ The demand of the network is given by an **OD matrix**, which will be constructe
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
 
 ```python
-# import required packages
-import os
-import time
 import gurobipy as gp
 import pandas as pd
 import numpy as np
@@ -89,6 +86,10 @@ from matplotlib import pyplot as plt
 ```
 
 ```python pycharm={"name": "#%%\n"}
+# import required packages
+import os
+import time
+
 # read network file
 def read_net(net_file):
     """
@@ -223,6 +224,19 @@ from utils.network_visualization_upgraded import network_visualization_upgraded
 ```
 
 ```python
+# We are using the SiouxFalls network which is one of the most used networks in transportation reseach: https://github.com/bstabler/TransportationNetworks/blob/master/SiouxFalls/Sioux-Falls-Network.pdf
+networks = ['SiouxFalls']
+networks_dir = 'input/TransportationNetworks'
+
+net_dict, ods_dict = read_cases(networks, networks_dir)
+net_data, ods_data = net_dict[networks[0]], ods_dict[networks[0]]
+
+## now let's prepare the data in a format readable by gurobi
+links = list(net_data['capacity'].keys())
+nodes = np.unique([list(edge) for edge in links])
+fftts = net_data['free_flow']
+
+# Visualise
 coordinates_path = 'input/TransportationNetworks/SiouxFalls/SiouxFallsCoordinates.geojson'
 G, pos = network_visualization(link_flow = fftts,coordinates_path= coordinates_path) 
 ```
@@ -285,40 +299,21 @@ Now that we have the required functions for reading and processing the data, let
 <!-- #endregion -->
 
 ```python
-# define parameters, case study (network) list and the directory where their files are
-extension_factor = 1.5  # capacity after extension (1.5 means add 50% of existing capacity)
-extension_max_no = 40  # max number of links to add capacity to (simplified budget limit)
+# define parameters
+extension_factor = 2  # capacity after extension
+extension_max_no = 40  # simplified budget limit
 timelimit = 300  # seconds
-beta = 2  # parameter to use in link travel time function (explained later)
+beta = 2  # explained later
 
-networks = ['SiouxFalls']
-networks_dir = 'input/TransportationNetworks'
-
-# prep data
-net_dict, ods_dict = read_cases(networks, networks_dir)
-# Let's load the network and demand (OD matrix) data of the first network (SiouxFalls) to two dictionaries for our first case study.
-# Reminding that we are using the SiouxFalls network which is one of the most used networks in transportation reserach: https://github.com/bstabler/TransportationNetworks/blob/master/SiouxFalls/Sioux-Falls-Network.pdf
-net_data, ods_data = net_dict[networks[0]], ods_dict[networks[0]]
-
-## now let's prepare the data in a format readable by gurobi
-
-# prep links, nodes, and free flow travel times
-links = list(net_data['capacity'].keys())
-nodes = np.unique([list(edge) for edge in links])
-fftts = net_data['free_flow']
-
-# auxiliary parameters (dict format) to keep the problem linear (capacities as parameters rather than variables)
-# this is the capacity of a road link in vehicles per hour without the expansion
+# auxiliary parameters 
 cap_normal = {(i, j): cap for (i, j), cap in net_data['capacity'].items()}
-#with the expansion
 cap_extend = {(i, j): cap * extension_factor for (i, j), cap in net_data['capacity'].items()}
 
 # origins and destinations
 origs = np.unique([orig for (orig, dest) in list(ods_data.keys())])
 dests = np.unique([dest for (orig, dest) in list(ods_data.keys())])
 
-# demand in node-destination form
-# an OD-matrix is built
+# OD-matrix is built
 demand = create_nd_matrix(ods_data, origs, dests, nodes)
 ```
 
@@ -330,14 +325,9 @@ First, let's build a gurobi model object and define some parameters based on the
 ## create a gurobi model object
 model = gp.Model()
 
-# define some important parameters for solving the model with gurobi
-model.params.TimeLimit = timelimit  # 300 seconds timelimit since it can take long to reduce the gap to zero (change and play around if you want)
-model.params.NonConvex = 2  # our problem is not convex as it is now, so we let gurobi know to use the right transformation and solutions
-#about convexity in optimization: a convex function will be a continuous functin that will have one minimum 
-#(or maximum depending on the problem), therefore in any point that you starting searching for a solution you can follow the gradient 
-#to search for that extreme point. Non-convex problems can have local minimum (or maximum) points that will make you stuck in the process 
-#of searching for the solution
-model.params.PreQLinearize = 1 # useful parameter to ask gurobi to try to linearize non-linear terms
+model.params.TimeLimit = timelimit  
+model.params.NonConvex = 2 
+model.params.PreQLinearize = 1
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
@@ -361,18 +351,12 @@ As you will see below in the code block, we have one extra set of variables call
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-## decision variables:
+# decision variables:
 
-# link selected (y_ij); i: a_node, j: b_node (selected links for capacity expansion)
 link_selected = model.addVars(links, vtype=gp.GRB.BINARY, name='y')
-
-# link flows (x_ij); i: a_node, j: b_node
 link_flow = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x')
-
-# link flows per destination s (xs_ijs); i: a_node, j: b_node, s: destination
 dest_flow = model.addVars(links, dests, vtype=gp.GRB.CONTINUOUS, name='xs')
 
-# link flow square (x2_ij); i: a_node, j: b_node (dummy variable for handling quadratic terms, you do not need to know this)
 link_flow_sqr = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x2')
 
 ```
@@ -417,14 +401,7 @@ Therefore, we use this equation to model our objective function in gurobi.
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-## objective function (total travel time)
-
-# total travel time = sum (link flow * link travel time)
-# link travel time = free flow travel time * (1 + (flow / capacity))
-# capacity = selected links *  base capacity + other links *  extended capacity
-# other links: 1 - selected links
-
-#note that this equation allows the number of vehicles to be greater than the capacity, this just adds more penalty in terms of travel time.
+# objective function (total travel time)
 
 model.setObjective(
     gp.quicksum(fftts[i, j] * link_flow[i, j] +
@@ -446,9 +423,7 @@ $ \sum_{(i,j) \in A}{ y_{ij}} = B $
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-## constraints
-
-# budget constraints, c_bgt is the name of the constraint
+# budget constraint
 c_bgt = model.addConstr(gp.quicksum(link_selected[i, j] for (i, j) in links) <= extension_max_no)
 ```
 
@@ -459,7 +434,7 @@ $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-# link flow conservation (destination flows and link flows), c_lfc is the name of the constraint
+# link flow conservation
 c_lfc = model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_flow[i, j] for (i, j) in links)
 ```
 
@@ -475,7 +450,7 @@ The figure gives an example:
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-# node flow conservation (demand), c_nfc is the name of the constraint
+# node flow conservation
 c_nfc = model.addConstrs(
     gp.quicksum(dest_flow[i, j, s] for j in nodes if (i, j) in links) -
     gp.quicksum(dest_flow[j, i, s] for j in nodes if (j, i) in links) == demand[i, s]
@@ -497,13 +472,12 @@ c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j
 ### Additional constraint for task 3
 
 <!-- #region id="0491cc69" -->
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> There are three constraints provided below for you to compare. <code>c_new2</code> is the "correct" solution based on the information provided in this assignment; however, it produces an unfeasible problem. The constraint <code>c_new1</code> is feasible, but double-counts capacity (a mistake). See extended solution (markdown file) for more information.</p></div>
+<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Do NOT run this cell in the first instance. You will need to revisit this cell for task 3. We first run the model without this constraint. In task 3, you will be asked to define this constraint and rerun the model. </p></div>
 <!-- #endregion -->
 
 ```python
-#Constrain the vehicles to the capacity of the road:
-#c_new1 = model.addConstrs(link_flow[i, j] <= cap_normal[i, j]+(link_selected[i, j]*cap_extend[i, j]) for (i, j) in links)
-c_new2 = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
+# constrain the vehicles to the capacity of the road:
+c_new = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
@@ -571,7 +545,6 @@ cap_normal = {(i, j): cap for (i, j), cap in net_data['capacity'].items()}
 cap_extend = {(i, j): cap * extension_factor for (i, j), cap in net_data['capacity'].items()}
 capacity = {(i, j): cap_normal[i, j] * (1 - links_selected[i, j]) + cap_extend[i, j] * links_selected[i, j]
             for (i, j) in links}
-
 ```
 
 ```python

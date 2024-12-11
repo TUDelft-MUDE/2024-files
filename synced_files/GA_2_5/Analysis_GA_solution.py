@@ -7,7 +7,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.16.4
 #   kernelspec:
-#     display_name: Python 3 (ipykernel)
+#     display_name: mude-week-2-5
 #     language: python
 #     name: python3
 # ---
@@ -42,24 +42,13 @@
 #
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# ## Libraries
-#
-# To run this notebook you need to have installed the following packages:
-# Pandas
-# Numpy
-# Matplotlib
-# Gurobipy
-# PyMOO
-#
-# Luckily, they're all part of this weeks environment!
+# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
 
 # %% pycharm={"name": "#%%\n"}
 import pandas as pd
 import numpy as np
 import gurobipy as gp
 import matplotlib.pyplot as plt
-
-#if you did not install pymoo yet, run the following in your Anaconda Prompt: conda install -c anaconda autograd
 
 # Genetic algorithm dependencies. We are importing the pymoo functions that are imporant for applying GA (the package can also apply other methods)
 from pymoo.algorithms.soo.nonconvex.ga import GA
@@ -463,7 +452,7 @@ class NDP(ElementwiseProblem):
 # Now, let's initiate an instance of the problem based on the problem class we defined, and initiate the GA with its parameters. Note that depending on the problem size and the number of feasible links, you might need larger values for population and generation size to achieve good results or even feasible results. Of course this increases the computation times.
 
 # %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa500; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 10 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
+# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 10 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
 
 # %% pycharm={"name": "#%%\n"}
 extension_max_no = 40
@@ -484,10 +473,10 @@ method = GA(pop_size=pop_size,
 # Now we are ready to minimize the NDP problem using the GA method we defined.
 
 # %% [markdown]
-# <div style="background-color:#a6ffa6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Instructions:</b> Run the GA for 3 minutes initially to observe how the results converge and to understand the process of obtaining the final solution. Once you have familiarized yourself with the mechanism and the behavior of the algorithm, extend the maximum computation time to 10 minutes. Use the results from this extended run as the foundation for addressing the questions outlined in the report. </p></div>
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Instructions:</b> Run the GA for 3 minutes initially to observe how the results converge and to understand the process of obtaining the final solution. Once you have familiarized yourself with the mechanism and the behavior of the algorithm, extend the maximum computation time to 10 minutes. Use the results from this extended run as the foundation for addressing the questions outlined in the report. </p></div>
 
 # %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa500; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
+# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
 
 # %% pycharm={"name": "#%%\n"}
 
