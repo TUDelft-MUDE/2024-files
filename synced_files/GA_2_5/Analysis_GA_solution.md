@@ -196,7 +196,7 @@ Now that we have the required functions for reading and processing the data, let
 
 ```python pycharm={"name": "#%%\n"}
 # define parameters
-extension_factor = 2.5  # capacity after extension (1.5 means add 50%)
+extension_factor = 2.5 
 
 networks = ['SiouxFalls']
 networks_dir = os.getcwd() +'/input/TransportationNetworks'
@@ -239,7 +239,7 @@ Here we wrap the code in a function so that we can use it later within the GA.
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=1.5):
+def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=2.5):
 
     # variables
     beta = 2
@@ -331,12 +331,12 @@ Now, let's initiate an instance of the problem based on the problem class we def
 <!-- #endregion -->
 
 <!-- #region id="0491cc69" -->
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 10 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 200 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
 extension_max_no = 40
-pop_size = 10
+pop_size = 200
 
 # initiate an instance of the problem with max number of selected links as budget constraint
 problem = NDP(budget=extension_max_no)
@@ -345,8 +345,7 @@ problem = NDP(budget=extension_max_no)
 method = GA(pop_size=pop_size,
             sampling=BinaryRandomSampling(),
             mutation=BitflipMutation(),
-            crossover=HalfUniformCrossover()
-            )
+            crossover=HalfUniformCrossover())
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
@@ -455,7 +454,7 @@ plot_results(number_of_individuals, optimal_values_along_generations)
 Same as the previous notebook we use link_flows, links_selected to visualize our results on the network.
 
 ```python
-travel_time, capacity, link_flows, links_selected= ta_qp(dvs=opt_results.X, net_data=net_data, ods_data=ods_data, extension_factor=1.5)
+travel_time, capacity, link_flows, links_selected= ta_qp(dvs=opt_results.X, net_data=net_data, ods_data=ods_data, extension_factor=2.5)
 ```
 
 ```python
