@@ -2,6 +2,8 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.5, Friday, Dec 13th, 2024.*
 
+_You can access this assignment with the following link: [classroom.github.com/a/8ARaIcZV](https://classroom.github.com/a/8ARaIcZV)._
+
 The focus of this assignment is on applying two different methods for optimization on a road network design problem. Part of the background material in the notebooks was already available in Chapter 5.11 in the textbook.
 
 ## Overview of material
