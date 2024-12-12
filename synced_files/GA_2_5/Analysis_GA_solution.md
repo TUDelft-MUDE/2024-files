@@ -156,6 +156,17 @@ The following is a diagram that shows what you are finally doing to solve the sa
 The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is as table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
 <!-- #endregion -->
 
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 1:</b> 
+
+Run the script below. 
+
+- The first two blocks imports all the required functions and packages
+- The next blocks visualises the network.
+</p>
+</div>
+
 ```python
 import pandas as pd
 import numpy as np
@@ -237,6 +248,14 @@ Now we are ready to build our models!
 In this section we build a Gurobi model to solve the Traffic Assignment sub-problems. The decision variables, objective function, and the constraints of this problem were described before.
 Here we wrap the code in a function so that we can use it later within the GA.
 <!-- #endregion -->
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 2.1:</b> 
+
+Run the scripts below all the way to the end. You do not have to change anything in the code for the first run. Take note of the convergence curve and the final network map. 
+</p>
+</div>
 
 ```python pycharm={"name": "#%%\n"}
 def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=2.5):
@@ -333,6 +352,15 @@ Now, let's initiate an instance of the problem based on the problem class we def
 <!-- #region id="0491cc69" -->
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 200 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
 <!-- #endregion -->
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 2.2:</b> 
+
+After running the whole script with no changes, come back to this task.
+As part of question 6, change the given parameters around and see how your convergence curve and network map changes. Unlike the LP notebook, you do not need to restart the notebook kernel!
+</p>
+</div>
 
 ```python pycharm={"name": "#%%\n"}
 extension_max_no = 40
