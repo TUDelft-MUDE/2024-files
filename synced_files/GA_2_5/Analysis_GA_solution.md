@@ -196,7 +196,7 @@ Now that we have the required functions for reading and processing the data, let
 
 ```python pycharm={"name": "#%%\n"}
 # define parameters
-extension_factor = 2  # capacity after extension (1.5 means add 50%)
+extension_factor = 2.5  # capacity after extension (1.5 means add 50%)
 
 networks = ['SiouxFalls']
 networks_dir = os.getcwd() +'/input/TransportationNetworks'
@@ -352,8 +352,6 @@ method = GA(pop_size=pop_size,
 <!-- #region pycharm={"name": "#%% md\n"} -->
 Now we are ready to minimize the NDP problem using the GA method we defined.
 <!-- #endregion -->
-
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Instructions:</b> Run the GA for 3 minutes initially to observe how the results converge and to understand the process of obtaining the final solution. Once you have familiarized yourself with the mechanism and the behavior of the algorithm, extend the maximum computation time to 10 minutes. Use the results from this extended run as the foundation for addressing the questions outlined in the report. </p></div> </p></div>
 
 <!-- #region id="0491cc69" -->
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
