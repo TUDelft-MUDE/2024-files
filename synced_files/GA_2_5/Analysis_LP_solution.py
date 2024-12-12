@@ -51,14 +51,14 @@
 #
 # $${t_{ij}} = t_{ij}^0\left( {1 + \alpha {{\left( {\cfrac{x_{ij}}{c_{ij}}} \right)}^\beta }} \right) \quad \left( {i,j} \right) \in A$$
 #
-# Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $_c{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are calibration parameters. More details are provided within the formulation section.
+# Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $c_{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are calibration parameters. More details are provided within the formulation section.
 #
 # Here, we assumme a simplified linear function where travel time grows linearly with the flow of vehicles on a road link, which will be described later in the notebook.
 #
 # ### 2. Route choice behavior
 # In order to assess the quality of the road capacity expansion problem, one must know what the effect of the added capacity is on travel time. The route choice behavior of drivers within congested networks often follows the so-called User Equilibrium (UE) principle where each traveller tries to minimize their own individual generalized travel time. 
 #
-# However, calculating the UE requires advanced methods which are not covered in the MUDE. Therefore, here we assume the route choice behaviour follows the so-called System Optimal (SO) principle, which implies that route choices are made in such a way that the total travel time is minimized (summed over all the drivers). That means that some cars will drive longer routes so that other cars can save time. But have in mind that in our road networks you can hardly obtain a system optimal traffic distribution!
+# However, calculating the UE requires advanced methods which are not covered in the MUDE. Therefore, here we assume the route choice behaviour follows the so-called System Optimal (SO) principle, which implies that route choices are made in such a way that the total travel time is minimized (summed over all the drivers). That means that some cars will drive longer routes so that other cars can save time. But have in mind that in real life road networks you can hardly obtain a system optimal traffic distribution!
 #
 #
 # Using the simplifcations and assumptions referred to above we can formulate an NDP and solve it using the branch and bound method (that you have studied before).
@@ -180,7 +180,7 @@ plt.show()
 
 # %%
 # define parameters
-extension_factor = 2  # capacity after extension
+extension_factor = 2.5  # capacity after extension
 extension_max_no = 40  # simplified budget limit
 timelimit = 300  # seconds
 beta = 2  # explained later
@@ -337,22 +337,17 @@ c_nfc = model.addConstrs(
 c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j] for (i, j) in links)
 
 # %% [markdown]
-# ### Additional constraint for task 3
+# ### Additional constraint for question 3
 
 # %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Do NOT run this cell in the first instance. You will need to revisit this cell for task 3. We first run the model without this constraint. In task 3, you will be asked to define this constraint and rerun the ENTIRE model. You should then restart the kernel and run again. </p></div>
+# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Do NOT run this cell in the first instance. We first run the model without this constraint. In task 3, you will be asked to define this constraint and rerun the ENTIRE model. You should then restart the kernel and run again. </p></div>
 
 # %%
 # constrain the vehicles to the capacity of the road:
-# c_new = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
-
-# %% [markdown] pycharm={"name": "#%% md\n"}
-# ## Part 3: Solving the model
-#
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Instructions:</b> Run the GA for 3 minutes initially to observe how the results converge and to understand the process of obtaining the final solution. Once you have familiarized yourself with the mechanism and the behavior of the algorithm, extend the maximum computation time to 10 minutes. Use the results from this extended run as the foundation for addressing the questions outlined in the report.
+c_new = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
 
 # %% [markdown]
-# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument in the code cello beneath the 'Part 2'heading.</p></div>
+# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument in the code cello beneath the 'Part 2' heading.</p></div>
 
 # %% pycharm={"name": "#%%\n"}
 #Next we are ready to solve the model
