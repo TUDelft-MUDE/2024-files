@@ -185,7 +185,7 @@ from utils.read import create_nd_matrix
 
 # %% pycharm={"name": "#%%\n"}
 # define parameters
-extension_factor = 2.5  # capacity after extension (1.5 means add 50%)
+extension_factor = 2.5 
 
 networks = ['SiouxFalls']
 networks_dir = os.getcwd() +'/input/TransportationNetworks'
@@ -223,7 +223,7 @@ G, pos = network_visualization(link_flow = fftts,coordinates_path= coordinates_p
 # Here we wrap the code in a function so that we can use it later within the GA.
 
 # %% pycharm={"name": "#%%\n"}
-def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=1.5):
+def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=2.5):
 
     # variables
     beta = 2
@@ -312,11 +312,11 @@ class NDP(ElementwiseProblem):
 # Now, let's initiate an instance of the problem based on the problem class we defined, and initiate the GA with its parameters. Note that depending on the problem size and the number of feasible links, you might need larger values for population and generation size to achieve good results or even feasible results. Of course this increases the computation times.
 
 # %% [markdown] id="0491cc69"
-# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 10 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
+# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 200 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
 
 # %% pycharm={"name": "#%%\n"}
 extension_max_no = 40
-pop_size = 10
+pop_size = 200
 
 # initiate an instance of the problem with max number of selected links as budget constraint
 problem = NDP(budget=extension_max_no)
@@ -325,8 +325,7 @@ problem = NDP(budget=extension_max_no)
 method = GA(pop_size=pop_size,
             sampling=BinaryRandomSampling(),
             mutation=BitflipMutation(),
-            crossover=HalfUniformCrossover()
-            )
+            crossover=HalfUniformCrossover())
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Now we are ready to minimize the NDP problem using the GA method we defined.
@@ -429,7 +428,7 @@ plot_results(number_of_individuals, optimal_values_along_generations)
 # Same as the previous notebook we use link_flows, links_selected to visualize our results on the network.
 
 # %%
-travel_time, capacity, link_flows, links_selected= ta_qp(dvs=opt_results.X, net_data=net_data, ods_data=ods_data, extension_factor=1.5)
+travel_time, capacity, link_flows, links_selected= ta_qp(dvs=opt_results.X, net_data=net_data, ods_data=ods_data, extension_factor=2.5)
 
 # %%
 # Plot results

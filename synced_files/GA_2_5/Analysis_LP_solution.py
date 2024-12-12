@@ -408,13 +408,6 @@ capacity = {(i, j): cap_normal[i, j] * (1 - links_selected[i, j]) + cap_extend[i
             for (i, j) in links}
 
 # %%
-# Plot results
-network_visualization_upgraded (G = G, pos=pos, link_flow=link_flows, capacity_new=capacity ,link_select=links_selected, labels='off')
-
-# %% [markdown]
-# If you wish to see the velues for the entire network you just need to turn on the labels and run the function again. 
-
-# %%
 # To see flow and capacity for the entire network
 network_visualization_upgraded (G = G, pos=pos, link_flow=link_flows, capacity_new=capacity ,link_select=links_selected, labels='on')
 
