@@ -47,14 +47,13 @@
 # The following (main) assumptions and simplifications are made to make the problem solvable using methods and algorithms that you have learned so far:
 #
 # ### 1. Link travel time function
-# Travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/hour) on that link and the capacity of the link (maximum of vehicles/hour). The most common function to calculate travel time on a link is the so-called Bureau of Public Roads (BPR) function, which is a polynomial (degree 4) function. 
-#
-# Here, we use a simplified linear function where travel time grows linearly with the flow of vehicles on a road link: 
+# Travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/hour) on that link and the capacity of the link (maximum of vehicles/hour). The most common function to calculate travel time on a link is the so-called Bureau of Public Roads (BPR) function, which is a polynomial (degree 4) function:
 #
 # $${t_{ij}} = t_{ij}^0\left( {1 + \alpha {{\left( {\cfrac{x_{ij}}{c_{ij}}} \right)}^\beta }} \right) \quad \left( {i,j} \right) \in A$$
 #
 # Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $_c{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are calibration parameters. More details are provided within the formulation section.
 #
+# Here, we assumme a simplified linear function where travel time grows linearly with the flow of vehicles on a road link, which will be described later in the notebook.
 #
 # ### 2. Route choice behavior
 # In order to assess the quality of the road capacity expansion problem, one must know what the effect of the added capacity is on travel time. The route choice behavior of drivers within congested networks often follows the so-called User Equilibrium (UE) principle where each traveller tries to minimize their own individual generalized travel time. 
@@ -72,7 +71,7 @@
 #
 # ## Part 1: Data preprocessing
 #
-# The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is as table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
+# The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is a table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
 
 # %%
 import gurobipy as gp
@@ -137,9 +136,7 @@ G, pos = network_visualization(link_flow = fftts,coordinates_path= coordinates_p
 # %% [markdown]
 # Here, the OD matrix is read.
 #
-# Note that, in order to speed up the optimisation process, we have lowered the demand in the network to 60% of its original level. You do not need to make any modifications to this part of the code!
-#
-# The first code block gives you a printout of the first 5 rows of the matrix. The second creates a visualisation for you.
+# The first code block gives you a printout of the first 5 rows of the matrix. The second creates a heatmap of the flow values inside the OD matrix.
 
 # %%
 import matplotlib.pyplot as plt
@@ -154,7 +151,7 @@ max_destination = max(key[1] for key in data.keys())
 od_matrix = pd.DataFrame(index=range(1, max_origin + 1), columns=range(1, max_destination + 1))
 
 for key, value in data.items():
-    od_matrix.loc[key[0], key[1]] = value*0.6
+    od_matrix.loc[key[0], key[1]] = value
 
 print("Origin-Destination Matrix:")
 print(od_matrix.head(5))
@@ -200,7 +197,7 @@ dests = np.unique([dest for (orig, dest) in list(ods_data.keys())])
 demand = create_nd_matrix(ods_data, origs, dests, nodes)
 
 # %% [markdown]
-# ## Initiate the Gurobi model
+# ### Initiate the Gurobi model
 #
 # First, let's build a gurobi model object and define some parameters based on the model type. We have a mixed integer quadratic program (MIQP), that's because the objective function has a quadratic term, which we want to transform to a mixed integer linear program (MILP) and solve using the branch and bound method. We discuss the transformations from quadratic to linear when we introduce quadratic terms.
 
@@ -213,7 +210,7 @@ model.params.NonConvex = 2
 model.params.PreQLinearize = 1
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# ## Decision variables
+# ### Decision variables
 #
 # We have a set of binary variables $y_{ij}$, these variables take the value 1 if link $(i,j)$ connecting node $i$ to node $j$ is selected for expansion, and 0 otherwise.
 #
@@ -242,11 +239,11 @@ link_flow_sqr = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x2')
 
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# ## Objective function
+# ### Objective function
 #
 # The objective function of the problem (in its simplest form), is the minimization of the total travel time on the network, that means that you multiply the flow of vehicles in each link by the corresponding travel time and sum over all links ($A$ is the collection of all links to simplify the notation):
 #
-# $Z = \sum_{(i,j) \in A}{ x_{ij} . t_{ij}} $
+# $Z = \sum_{(i,j)\in A}{ x_{ij} . t_{ij}} $
 #
 # The travel time $t_{ij}$ is a function of the flow on a link and can be expressed as follows (where beta is a parameter):
 #
@@ -276,7 +273,7 @@ link_flow_sqr = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x2')
 #   Z = \sum_{(i,j) \in A}{t^0_{ij} . x_{ij}} + \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij}} - \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij} . y_{ij}} + \sum_{(i,j) \in A}{t^0_{ij}.(\beta /c^1_{ij}) . x^2_{ij} . y_{ij}}  \\
 # \end{align}
 #
-# Therefore, we use this equation to model our objective function in gurobi.
+# Therefore, we use this equation to model our objective function in gurobi. You do not need to know fully understand this equation.
 #
 
 # %% pycharm={"name": "#%%\n"}
@@ -290,11 +287,11 @@ model.setObjective(
                 for (i, j) in links))
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# ## Constraints
+# ### Constraints
 #
 # We have four sets of constraints for this problem. Let's go through them one by one and add them to the model.
 #
-# ### 1. Budget constraint
+# #### 1. Budget constraint
 # We can only extend the capacity of certain number of links based on the available budget. So first, we have to make sure to limit the number of extended links to the max number that can be expanded:
 #
 # $ \sum_{(i,j) \in A}{ y_{ij}} = B $
@@ -304,7 +301,7 @@ model.setObjective(
 c_bgt = model.addConstr(gp.quicksum(link_selected[i, j] for (i, j) in links) <= extension_max_no)
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# ### 2. Link flow conservation constraints
+# #### 2. Link flow conservation constraints
 # We have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$. So we have to make sure that the sum of the flows over all destinations equals the flow on each link.
 # $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $
 
@@ -313,7 +310,7 @@ c_bgt = model.addConstr(gp.quicksum(link_selected[i, j] for (i, j) in links) <= 
 c_lfc = model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_flow[i, j] for (i, j) in links)
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# ### 3. Node flow conservation constraints
+# #### 3. Node flow conservation constraints
 # The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths. $d_is$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_ss$, which is all the demand that arrives at node $s$.
 #
 # $ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $
@@ -331,7 +328,7 @@ c_nfc = model.addConstrs(
 )
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# ### 4. Quadratic variable constraints (you do not need to fully understand this)
+# #### 4. Quadratic variable constraints (you do not need to fully understand this)
 # These are basically dummy equations to help gurobi model quadratic terms (that we defined as dummy variables earlier). So essentially instead of using $x^2_{ij}$ in the model, we define a new set of decision variables and define a set of constrains to set their value to $x^2_{ij}$. This let's Gurobi know these are quadratic terms and helps gurobi to replace it with variables and constraints required to keep the problem linear. This is not part of your learning goals! 
 #
 
@@ -343,14 +340,19 @@ c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j
 # ### Additional constraint for task 3
 
 # %% [markdown] id="0491cc69"
-# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Do NOT run this cell in the first instance. You will need to revisit this cell for task 3. We first run the model without this constraint. In task 3, you will be asked to define this constraint and rerun the model. </p></div>
+# <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Do NOT run this cell in the first instance. You will need to revisit this cell for task 3. We first run the model without this constraint. In task 3, you will be asked to define this constraint and rerun the ENTIRE model. You should then restart the kernel and run again. </p></div>
 
 # %%
 # constrain the vehicles to the capacity of the road:
-c_new = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
+# c_new = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # ## Part 3: Solving the model
+#
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Instructions:</b> Run the GA for 3 minutes initially to observe how the results converge and to understand the process of obtaining the final solution. Once you have familiarized yourself with the mechanism and the behavior of the algorithm, extend the maximum computation time to 10 minutes. Use the results from this extended run as the foundation for addressing the questions outlined in the report.
+
+# %% [markdown]
+# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument in the code cello beneath the 'Part 2'heading.</p></div>
 
 # %% pycharm={"name": "#%%\n"}
 #Next we are ready to solve the model
@@ -358,9 +360,6 @@ model.optimize()
 
 # %% [markdown]
 # Note that if you didn't find a solution, you can rerun the previous cell to continue the optimization for another 300 seconds (defined by `timelimit`).
-
-# %% [markdown] pycharm={"name": "#%% md\n"}
-# # Analysis
 
 # %% pycharm={"name": "#%%\n"}
 # fetch optimal decision variables and Objective Function values
@@ -376,10 +375,10 @@ for var in model.getVars():
     print(f"{var.varName}: {round(var.X, 3)}")  # print the optimal decision variable values.
 
 # %% [markdown]
-# ## Network Visualization
+# ### Network Visualization
 
 # %% [markdown]
-# ### 1. Network visualization with highlighted links
+# #### 1. Network visualization with highlighted links
 
 # %% [markdown]
 # Now, let's visualize the results showcasing congested traffic flows and the selected links for expansion. 
@@ -391,7 +390,7 @@ for var in model.getVars():
 network_visualization_highlight_links (G, pos, link_select=links_selected)
 
 # %% [markdown]
-# ### 2. Network visualization with upgraded links
+# #### 2. Network visualization with upgraded links
 #
 #
 

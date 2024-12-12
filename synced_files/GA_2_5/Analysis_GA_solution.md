@@ -162,7 +162,7 @@ import numpy as np
 import gurobipy as gp
 import matplotlib.pyplot as plt
 
-# Genetic algorithm dependencies. We are importing the pymoo functions that are imporant for applying GA (the package can also apply other methods)
+# Genetic algorithm dependencies
 from pymoo.algorithms.soo.nonconvex.ga import GA
 from pymoo.core.problem import ElementwiseProblem
 from pymoo.optimize import minimize
@@ -195,30 +195,21 @@ Now that we have the required functions for reading and processing the data, let
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-# define parameters, case study (network) list and the directory where their files are
+# define parameters
 extension_factor = 1.5  # capacity after extension (1.5 means add 50%)
 
 networks = ['SiouxFalls']
 networks_dir = os.getcwd() +'/input/TransportationNetworks'
 
-
 # prep data
 net_dict, ods_dict = read_cases(networks, networks_dir)
-
-# Let's load the network and demand (OD matrix) data of the first network (Sioux Falls) to two dictionaries for our first case study.
-# WE USE THE SAME NETWORK FROM THE FIRST NOTEBOOK: SIOUX FALLS
-# The network has 76 arcs in total
 net_data, ods_data = net_dict[networks[0]], ods_dict[networks[0]]
-
-## now let's prepare the data in a format readable by gurobi
 
 # prep links, nodes, and free flow travel times
 links = list(net_data['capacity'].keys())
 nodes = np.unique([list(edge) for edge in links])
 fftts = net_data['free_flow']
 ```
-
-
 
 ```python
 from utils.network_visualization import network_visualization
@@ -239,7 +230,9 @@ Now we are ready to build our models!
 <!-- #endregion -->
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
-### Modeling and solving the traffic assignment sub-problem with Gurobi
+## Part 2: Modeling and solving the traffic assignment sub-problem with Gurobi
+
+### Defining functions
 
 In this section we build a Gurobi model to solve the Traffic Assignment sub-problems. The decision variables, objective function, and the constraints of this problem were described before.
 Here we wrap the code in a function so that we can use it later within the GA.
@@ -248,14 +241,14 @@ Here we wrap the code in a function so that we can use it later within the GA.
 ```python pycharm={"name": "#%%\n"}
 def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=1.5):
 
-    # prep variables
+    # variables
     beta = 2
     links = list(net_data['capacity'].keys())
     nodes = np.unique([list(edge) for edge in links])
     fftts = net_data['free_flow']
     links_selected = dict(zip(links, dvs))
 
-    # define capacity
+    # capacity
     cap_normal = {(i, j): cap for (i, j), cap in net_data['capacity'].items()}
     cap_extend = {(i, j): cap * extension_factor for (i, j), cap in net_data['capacity'].items()}
     capacity = {(i, j): cap_normal[i, j] * (1 - links_selected[i, j]) + cap_extend[i, j] * links_selected[i, j]
@@ -264,37 +257,24 @@ def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=1.5):
     dests = np.unique([dest for (orig, dest) in list(ods_data.keys())])
     origs = np.unique([orig for (orig, dest) in list(ods_data.keys())])
 
-    # demand in node-destination form
     demand = create_nd_matrix(ods_data, origs, dests, nodes)
 
     ## create a gurobi model object
     model = gp.Model()
-    # just to avoid cluttering the notebook with unnecessary logging output
     model.Params.LogToConsole = 0
 
     ## decision variables:
-
-    # link flows (x_ij); i: a_node, j: b_node
     link_flow = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x')
-
-    # link flows per destination (xs_ijs); i: a_node, j: b_node, s: destination
     dest_flow = model.addVars(links, dests, vtype=gp.GRB.CONTINUOUS, name='xs')
 
     ## constraints
-
-    # node flow conservation (demand)
     model.addConstrs(
         gp.quicksum(dest_flow[i, j, s] for j in nodes if (i, j) in links) -
         gp.quicksum(dest_flow[j, i, s] for j in nodes if (j, i) in links) == demand[i, s]
         for i in nodes for s in dests
     )
 
-    # link flow conservation (destination flows and link flows)
     model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_flow[i, j] for (i, j) in links)
-
-    ## objective function (total travel time)
-    # total travel time = sum (link flow * link travel time)
-    # link travel time = free flow travel time * (1 + (flow / capacity))
 
     model.setObjective(
         gp.quicksum(link_flow[i, j] * (fftts[i, j] * (1 + (beta * link_flow[i, j]/capacity[i, j]))) for (i, j) in links))
@@ -314,7 +294,7 @@ def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=1.5):
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
-## Modeling with PyMOO
+### Modeling with PyMOO
 
 Let's define a model in MyMOO and deal with the links selection problem with the GA.
 <!-- #endregion -->
@@ -330,21 +310,16 @@ class NDP(ElementwiseProblem):
 
     def __init__(self, budget):
 
-        super().__init__(n_var=len(links),       # number of decision variables (i.e., number of links)
-                         n_obj=1,                # for now we use only one objective (total travel time)
-                         n_constr=1,             # one constraint for budget, that's because the GA shoud not create unfeasible solutions
-                         vtype=bool,             # binary decision variables
+        super().__init__(n_var=len(links),       
+                         n_obj=1,               
+                         n_constr=1,            
+                         vtype=bool,           
                         )
         self.budget = budget
 
     def _evaluate(self, decision_vars, out, *args, **kwargs):
-
-        # call TA to calculate the objective fucntion, meaning to do the evaluation of the solutions
+    
         total_travel_time,capacity, link_flows, links_selected = ta_qp(decision_vars)
-
-        # the budget constraint
-        # In the GA part the only variables are the binary decision variables, don't forget that the traffic assignment that 
-        # produces the travel time on the network is done in the evaluation of the solution
         g = sum(decision_vars) - self.budget
 
         out["F"] = total_travel_time
@@ -371,7 +346,6 @@ method = GA(pop_size=pop_size,
             sampling=BinaryRandomSampling(),
             mutation=BitflipMutation(),
             crossover=HalfUniformCrossover()
-            # replace HalfUniformCrossover() by PointCrossover(2) for two-point crossover
             )
 ```
 
@@ -379,7 +353,7 @@ method = GA(pop_size=pop_size,
 Now we are ready to minimize the NDP problem using the GA method we defined.
 <!-- #endregion -->
 
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Instructions:</b> Run the GA for 3 minutes initially to observe how the results converge and to understand the process of obtaining the final solution. Once you have familiarized yourself with the mechanism and the behavior of the algorithm, extend the maximum computation time to 10 minutes. Use the results from this extended run as the foundation for addressing the questions outlined in the report. </p></div>
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Instructions:</b> Run the GA for 3 minutes initially to observe how the results converge and to understand the process of obtaining the final solution. Once you have familiarized yourself with the mechanism and the behavior of the algorithm, extend the maximum computation time to 10 minutes. Use the results from this extended run as the foundation for addressing the questions outlined in the report. </p></div> </p></div>
 
 <!-- #region id="0491cc69" -->
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
@@ -478,7 +452,8 @@ number_of_individuals, optimal_values_along_generations = get_results(opt_result
 plot_results(number_of_individuals, optimal_values_along_generations)
 ```
 
-## Network Visualization
+### Network Visualization
+
 Same as the previous notebook we use link_flows, links_selected to visualize our results on the network.
 
 ```python
