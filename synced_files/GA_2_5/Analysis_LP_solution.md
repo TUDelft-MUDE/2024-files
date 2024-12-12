@@ -306,7 +306,7 @@ We have four sets of constraints for this problem. Let's go through them one by 
 #### 1. Budget constraint
 We can only extend the capacity of certain number of links based on the available budget. So first, we have to make sure to limit the number of extended links to the max number that can be expanded:
 
-$ \sum_{(i,j) \in A}{ y_{ij}} = B $
+$$ \sum_{(i,j) \in A}{ y_{ij}} \leq B $$
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
@@ -327,7 +327,7 @@ c_lfc = model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
 #### 3. Node flow conservation constraints
-The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths. $d_is$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_ss$, which is all the demand that arrives at node $s$.
+The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths. $d_{is}$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_{ss}$, which is all the demand that arrives at node $s$.
 
 $ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $
 
