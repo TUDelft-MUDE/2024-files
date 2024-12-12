@@ -71,7 +71,20 @@
 #
 # ## Part 1: Data preprocessing
 #
-# The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is a table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
+# The demand of the network is given by an **OD matrix** (origin-destination), which will be constructed below. The OD matrix is a table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
+
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+# <p>
+# <b>Task 1:</b> 
+#
+# Run the script below. 
+#
+# - The first two blocks imports all the required functions and packages
+# - The next blocks visualises the network.
+# - The last block loads the OD matrix and visualises it in a heatmap.
+# </p>
+# </div>
 
 # %%
 import gurobipy as gp
@@ -178,6 +191,16 @@ plt.show()
 #
 # Now that we have the required functions for reading and processing the data, let's define some problem parameters and prepare the input. 
 
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+# <p>
+# <b>Task 2.1:</b> 
+#
+# Run the script below. Take some time to look at the defined parameters and try to relate them to what they represent. This will be useful for answering the questions later.
+#
+# </p>
+# </div>
+
 # %%
 # define parameters
 extension_factor = 2.5  # capacity after extension
@@ -200,6 +223,16 @@ demand = create_nd_matrix(ods_data, origs, dests, nodes)
 # ### Initiate the Gurobi model
 #
 # First, let's build a gurobi model object and define some parameters based on the model type. We have a mixed integer quadratic program (MIQP), that's because the objective function has a quadratic term, which we want to transform to a mixed integer linear program (MILP) and solve using the branch and bound method. We discuss the transformations from quadratic to linear when we introduce quadratic terms.
+
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+# <p>
+# <b>Task 2.2:</b> 
+#
+# Run the model setup below, which includes initiating the decision variables, objective function, and constraints. 
+#
+# </p>
+# </div>
 
 # %% pycharm={"name": "#%%\n"}
 ## create a gurobi model object
@@ -339,6 +372,16 @@ c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j
 # %% [markdown]
 # ### Additional constraint for question 3
 
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+# <p>
+# <b>Task 2.3:</b> 
+#
+# After running the whole model once for 300s, come back and set up a new constraint as instructed in the report. After doing this, reset your kernel and rerun the whole model, with this additional constraint.
+#
+# </p>
+# </div>
+
 # %% [markdown] id="0491cc69"
 # <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Do NOT run this cell in the first instance. We first run the model without this constraint. In task 3, you will be asked to define this constraint and rerun the ENTIRE model. You should then restart the kernel and run again. </p></div>
 
@@ -380,6 +423,16 @@ for var in model.getVars():
 # In this graph, we'll observe the network's topology using node coordinates and links. Our graph will be **directional** to represent the road network.
 #
 # Nodes are depicted in blue, while selected nodes and links are highlighted in pink and red.
+
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+# <p>
+# <b>Task 2.4:</b> 
+#
+# Run the visualisation scripts. Note that you can also view the printout of the labels if it is difficult to read. 
+#
+# </p>
+# </div>
 
 # %%
 network_visualization_highlight_links (G, pos, link_select=links_selected)
