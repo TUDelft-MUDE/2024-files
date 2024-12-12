@@ -67,16 +67,14 @@ Using the simplifcations and assumptions referred to above we can formulate an N
 
 <!-- #endregion -->
 
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
+
 <!-- #region pycharm={"name": "#%% md\n"} -->
 
 ## Part 1: Data preprocessing
 
-The following functions reads the data from from the input folder and performs data preprocessing.
-
-The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is as table that tells you how many cars go from node i to node j in an a given timeframe. The paths between the nodes are chosen by solving the optimization model.
+The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is as table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
 <!-- #endregion -->
-
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
 
 ```python
 import gurobipy as gp
@@ -90,119 +88,11 @@ from matplotlib import pyplot as plt
 import os
 import time
 
-# read network file
-def read_net(net_file):
-    """
-       read network file
-    """
-    net_data = pd.read_csv(net_file, skiprows=8, sep='\t')
-    trimmed = [s.strip().lower() for s in net_data.columns]
-    net_data.columns = trimmed
-    net_data.drop(['~', ';'], axis=1, inplace=True)
-    convert_dict = {'free_flow_time': float,
-                    'capacity': float,
-                    'length': float,
-                    'power': float
-                    }
-    
-    net_data = net_data.astype(convert_dict)
-
-    net_data.loc[net_data['free_flow_time'] <= 0, 'free_flow_time'] = 1e-6
-    net_data.loc[net_data['capacity'] <= 0, 'capacity'] = 1e-6
-    net_data.loc[net_data['length'] <= 0, 'length'] = 1e-6
-    net_data.loc[net_data['power'] <= 1, 'power'] = int(4)
-    net_data['init_node'] = net_data['init_node'].astype(int)
-    net_data['term_node'] = net_data['term_node'].astype(int)
-    net_data['b'] = net_data['b'].astype(float)
-
-    links = list(zip(net_data['init_node'], net_data['term_node']))
-    caps = dict(zip(links, net_data['capacity']))
-    fftt = dict(zip(links, net_data['free_flow_time']))
-    lent = dict(zip(links, net_data['length']))
-    alpha = dict(zip(links, net_data['b']))
-    beta = dict(zip(links, net_data['power']))
-
-    net = {'capacity': caps, 'free_flow': fftt, 'length': lent, 'alpha': alpha, 'beta': beta}
-
-    return net
-
-
-# read OD matrix
-def read_od(od_file):
-    """
-       read OD matrix
-    """
-    f = open(od_file, 'r')
-    all_rows = f.read()
-    blocks = all_rows.split('Origin')[1:]
-    matrix = {}
-
-    for k in range(len(blocks)):
-        orig = blocks[k].split('\n')
-        dests = orig[1:]
-        origs = int(orig[0])
-
-        d = [eval('{' + a.replace(';', ',').replace(' ', '') + '}') for a in dests]
-        destinations = {}
-
-        for i in d:
-            destinations = {**destinations, **i}
-        matrix[origs] = destinations
-
-    zones = max(matrix.keys())
-    od_dict = {}
-
-    for i in range(zones):
-        for j in range(zones):
-            demand = matrix.get(i + 1, {}).get(j + 1, 0)
-            if demand:
-                od_dict[(i + 1, j + 1)] = demand
-            else:
-                od_dict[(i + 1, j + 1)] = 0
-
-    return od_dict
-
-
-# read case study data, different case studies that have different demand and road network 
-def read_cases(networks, input_dir):
-    """
-       read case study data
-    """
-    net_dict = {}
-    ods_dict = {}
-
-    if networks:
-        cases = [case for case in networks]
-    else:
-        cases = [x for x in os.listdir(input_dir) if os.path.isdir(os.path.join(input_dir, x))]
-
-    for case in cases:
-        mod = os.path.join(input_dir, case)
-        mod_files = os.listdir(mod)
-
-        for i in mod_files:
-            if i.lower()[-8:] == 'net.tntp':
-                net_file = os.path.join(mod, i)
-                net_dict[case] = read_net(net_file)
-            if 'TRIPS' in i.upper() and i.lower()[-5:] == '.tntp':
-                ods_file = os.path.join(mod, i)
-                ods_dict[case] = read_od(ods_file)
-
-    return net_dict, ods_dict
-
-
-# create node-destination demand matrix (not a regular OD!)
-def create_nd_matrix(ods_data, origins, destinations, nodes):
-    demand = {(n, d): 0 for n in nodes for d in destinations}
-    for r in origins:
-        for s in destinations:
-            if (r, s) in ods_data:
-                demand[r, s] = ods_data[r, s]
-    for s in destinations:
-        demand[s, s] = - sum(demand[j, s] for j in origins)
-
-    return demand
-
+# import required functions
+from utils.read import read_cases
+from utils.read import read_net
+from utils.read import read_od
+from utils.read import create_nd_matrix
 ```
 
 ### Visualisation
@@ -300,7 +190,7 @@ Now that we have the required functions for reading and processing the data, let
 
 ```python
 # define parameters
-extension_factor = 2  # capacity after extension
+extension_factor = 1.5  # capacity after extension
 extension_max_no = 40  # simplified budget limit
 timelimit = 300  # seconds
 beta = 2  # explained later
