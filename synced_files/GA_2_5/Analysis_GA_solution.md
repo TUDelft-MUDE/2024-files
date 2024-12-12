@@ -196,7 +196,7 @@ Now that we have the required functions for reading and processing the data, let
 
 ```python pycharm={"name": "#%%\n"}
 # define parameters
-extension_factor = 1.5  # capacity after extension (1.5 means add 50%)
+extension_factor = 2  # capacity after extension (1.5 means add 50%)
 
 networks = ['SiouxFalls']
 networks_dir = os.getcwd() +'/input/TransportationNetworks'

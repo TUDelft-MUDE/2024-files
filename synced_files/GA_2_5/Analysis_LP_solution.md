@@ -187,7 +187,7 @@ Now that we have the required functions for reading and processing the data, let
 
 ```python
 # define parameters
-extension_factor = 1.5  # capacity after extension
+extension_factor = 2  # capacity after extension
 extension_max_no = 40  # simplified budget limit
 timelimit = 300  # seconds
 beta = 2  # explained later
