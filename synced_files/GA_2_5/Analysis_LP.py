@@ -391,9 +391,6 @@ c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j
 # constrain the vehicles to the capacity of the road:
 # c_new = YOUR_CODE_HERE
 
-# SOLUTION
-# c_new = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
-
 # %% [markdown]
 # <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument in the code cell above, which is beneath the 'Part 2' heading. </p></div>
 
