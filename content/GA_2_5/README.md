@@ -24,8 +24,8 @@ You can run all of the notebooks for today in the environment `mude-week-2-5` wh
 While there are two notebook this week, the programming portion is quite limited. The important thing is to interpret the output. As the models need to run for 5 minutes each, time management is very important. We suggest the following:
 
 - Start with `Analysis_LP`. Run through it once without changing any of the code. This is needed to answer question 1 and 2 in the report. 
-- Question 2 can be done independently while the model is running.
-- Question 3 should be done after the first run and you need to complete question 2 first.
+- Question 2 should be completed after the first run, but Question 3 can be done independently while you are waiting.
+- Question 4 should be done after the notebook is run with the constraint added, and you need to complete Question 3 first.
 - `Analysis_GA` should also be run once without any changes. This is needed to answer question 5. 
 - As you may want compare the solving times for the LP and GA, we recommend assigning one person to run both notebooks to ensure a consistent computing environment. 
 
