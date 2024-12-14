@@ -125,10 +125,19 @@ update_repo:
     # Remove files that no longer exist in content directory
     - |
       if [ -d "synced_files" ]; then
-        # Remove files that are not in the manifest
-        find synced_files -type f \( -name "*.ipynb" -o -name "*.md" -o -name "*.py" \) | while read synced_file; do
-          relative_path=${synced_file#synced_files/}
-          notebook_path="./content/${relative_path%.*}.ipynb"
+        # Remove files that are not in the manifest, with updated pattern to include _clean.py
+        find synced_files -type f \( -name "*.ipynb" -o -name "*.md" -o -name "*.py" -o -name "*_clean.py" \) | while read synced_file; do
+          # Special handling for _clean.py files
+          if [[ "$synced_file" == *"_clean.py" ]]; then
+            # Get the corresponding notebook path by removing _clean.py and adding .ipynb
+            notebook_path="./content/${synced_file#synced_files/}"
+            notebook_path="${notebook_path%_clean.py}.ipynb"
+          else
+            # Regular handling for other files
+            relative_path=${synced_file#synced_files/}
+            notebook_path="./content/${relative_path%.*}.ipynb"
+          fi
+          
           if ! grep -Fq "$notebook_path" notebooks_manifest.txt; then
             echo "Removing deleted file: $synced_file"
             rm "$synced_file"
