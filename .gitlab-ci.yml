@@ -38,6 +38,11 @@ sync_notebooks:
       changes:
         - content/**/*
   script:
+    # Add debug info
+    - echo "Starting sync with pipeline variables:"
+    - echo "CI_COMMIT_BRANCH: $CI_COMMIT_BRANCH"
+    - echo "CI_PIPELINE_SOURCE: $CI_PIPELINE_SOURCE"
+    
     # Clean up existing synced files directory
     - rm -rf synced_files
     - mkdir -p synced_files
@@ -98,6 +103,16 @@ sync_notebooks:
         exit 1
       fi
 
+      # Add error checking after sync
+    - |
+      if [ -d "synced_files" ] && [ "$(ls -A synced_files)" ]; then
+        echo "Files synced successfully:"
+        ls -R synced_files/
+      else
+        echo "No files were synced!"
+        exit 1
+      fi
+
 update_repo:
   stage: update_repo
   extends: .setup_env
@@ -145,20 +160,33 @@ deploy-draft-students:
   stage: deploy
   extends: .setup_env
   script:
-    # First copy files to match expected structure
-    - mkdir -p src/students
-    - cp -r synced_files/students/* src/students/
+    - echo "Current directory structure before copy:"
+    - ls -R
+    # Create src structure
+    - mkdir -p src/students/
     - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
+      if [ -d "synced_files" ]; then
+        echo "Copying files from synced_files to src..."
+        cp -r synced_files/* src/students/
+        echo "Files copied. New structure:"
+        ls -R src/
+      else
+        echo "synced_files directory not found!"
+        exit 1
+      fi
+    # Send webhook with proper payload
+    - |
+      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
             "status": "success",
-            "ref": "main"
+            "ref": "'"${CI_COMMIT_REF_NAME}"'"
           }
-        }'
+        }' 2>&1)
+      echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
