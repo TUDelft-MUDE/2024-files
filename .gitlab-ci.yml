@@ -152,60 +152,119 @@ update_repo:
 
 deploy-draft-students:
   stage: deploy
+  extends: .setup_env
+  dependencies:
+    - sync_notebooks
   script:
+    # Debug directory structure
+    - echo "Current directory contents:"
+    - ls -la
+    
+    # Create necessary directory structure
+    - mkdir -p src/students
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students-draft \
+      if [ -d "synced_files" ]; then
+        echo "Copying files from synced_files to src/students..."
+        cp -r synced_files/* src/students/
+        echo "Files copied. New structure:"
+        ls -R src/
+      else
+        echo "synced_files directory not found!"
+        exit 1
+      fi
+    
+    # Send webhook with verbose output
+    - |
+      echo "Sending webhook..."
+      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
             "status": "success",
             "ref": "main"
           }
-        }'
+        }' 2>&1)
+      echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - src/students/**/*
+        - content/students/**/*
       when: always
+  artifacts:
+    paths:
+      - src/
+    expire_in: 1 hour
 
 deploy-teachers:
   stage: deploy
+  extends: .setup_env
+  dependencies:
+    - sync_notebooks
   script:
+    - mkdir -p src/teachers
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-teachers \
+      if [ -d "synced_files" ]; then
+        cp -r synced_files/* src/teachers/
+      else
+        echo "synced_files directory not found!"
+        exit 1
+      fi
+    - |
+      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-teachers" \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
             "status": "success",
             "ref": "main"
           }
-        }'
+        }' 2>&1)
+      echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
-        - src/teachers/**/*
+        - content/teachers/**/*
       when: always
+  artifacts:
+    paths:
+      - src/
+    expire_in: 1 hour
 
 deploy-production-students:
   stage: deploy
+  extends: .setup_env
+  dependencies:
+    - sync_notebooks
   script:
+    - mkdir -p src/students
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students \
+      if [ -d "synced_files" ]; then
+        cp -r synced_files/* src/students/
+      else
+        echo "synced_files directory not found!"
+        exit 1
+      fi
+    - |
+      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-students" \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
+        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
             "status": "success",
             "ref": "release"
           }
-        }'
+        }' 2>&1)
+      echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "release"
       changes:
-        - src/students/**/*
+        - content/students/**/*
       when: always
+  artifacts:
+    paths:
+      - src/
+    expire_in: 1 hour
