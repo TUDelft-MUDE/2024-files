@@ -189,13 +189,7 @@ deploy-draft-students:
       echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - content/students/**/*
       when: always
-  artifacts:
-    paths:
-      - src/
-    expire_in: 1 hour
 
 deploy-teachers:
   stage: deploy
@@ -225,13 +219,7 @@ deploy-teachers:
       echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - content/teachers/**/*
       when: always
-  artifacts:
-    paths:
-      - src/
-    expire_in: 1 hour
 
 deploy-production-students:
   stage: deploy
@@ -261,10 +249,4 @@ deploy-production-students:
       echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "release"
-      changes:
-        - content/students/**/*
       when: always
-  artifacts:
-    paths:
-      - src/
-    expire_in: 1 hour
