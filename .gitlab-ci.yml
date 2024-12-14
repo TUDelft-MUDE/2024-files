@@ -40,8 +40,8 @@ sync_notebooks:
   script:
     # Add debug info
     - echo "Starting sync with pipeline variables:"
-    - echo "CI_COMMIT_BRANCH: $CI_COMMIT_BRANCH"
-    - echo "CI_PIPELINE_SOURCE: $CI_PIPELINE_SOURCE"
+    - echo "CI_COMMIT_BRANCH:"" $CI_COMMIT_BRANCH"
+    - echo "CI_PIPELINE_SOURCE:"" $CI_PIPELINE_SOURCE"
     
     # Clean up existing synced files directory
     - rm -rf synced_files
