@@ -120,33 +120,53 @@ sync_notebooks:
           mkdir -p "$synced_dir"
           
           if python -c "import json; json.load(open('$notebook'));" 2>/dev/null; then
-            if jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log && \
-               jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log && \
-               jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log && \
-               jupytext --to script "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb})_clean.py" 2>>conversion_errors.log; then
+            # Generate regular versions
+            jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log
+            jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log
+            jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log
+            
+            # Generate version without code comments
+            clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
+            jupytext --to py:percent "$notebook" -o "$clean_file" 2>>conversion_errors.log
+            
+            # Post-process clean file to remove only inline code comments
+            if [ -f "$clean_file" ]; then
+              awk '
+                # Keep cell markers and markdown
+                /^# ---/ {print; next}
+                /^# %%/ {print; next}
+                /^# %% \[markdown\]/ {in_markdown=1; print; next}
+                in_markdown && /^#/ {print; next}
+                /^# %%/ {in_markdown=0}
+
+                # Remove inline comments but keep the code
+                {
+                  # Split line at first # that is not part of a string
+                  in_string = 0
+                  quote = ""
+                  for(i=1; i<=length($0); i++) {
+                    c = substr($0,i,1)
+                    if(c == "\"" || c == "\"") {
+                      if(!in_string) {
+                        in_string = 1
+                        quote = c
+                      } else if(quote == c) {
+                        in_string = 0
+                      }
+                    }
+                    if(c == "#" && !in_string) {
+                      print substr($0,1,i-1)
+                      next
+                    }
+                  }
+                  print
+                }
+              ' "$clean_file" > "${clean_file}.tmp" && mv "${clean_file}.tmp" "$clean_file"
               
-              # Selective cleaning of _clean.py files
-              clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
-              if [ -f "$clean_file" ]; then
-                # Remove jupytext metadata
-                sed -i '/^# ---/,/# ---/d' "$clean_file"
-                # Remove jupyter markers
-                sed -i '/^# %%/d' "$clean_file"
-                sed -i '/^# \+/d' "$clean_file"
-                sed -i '/^# -/d' "$clean_file"
-                # Remove inline code comments (comments that appear after code)
-                sed -i 's/\(.*\)#.*$/\1/' "$clean_file"
-                # Remove empty lines at start and collapse multiple empty lines
-                sed -i '/./,$!d' "$clean_file"
-                sed -i '/^$/N;/^\n$/D' "$clean_file"
-                # Keep markdown section headers (lines starting with "# %")
-                echo "Cleaned $clean_file"
-              fi
+              # Remove extra blank lines
+              sed -i '/^[[:space:]]*$/N;/^\n$/D' "$clean_file"
               
-              echo "Successfully processed $notebook" >> conversion_errors.log
-            else
-              echo "Error processing $notebook - See conversion_errors.log for details" >&2
-              echo "Failed to convert $notebook" >> conversion_errors.log
+              echo "Created comment-free version of $notebook"
             fi
           else
             echo "Invalid or corrupted notebook: $notebook" >> conversion_errors.log
