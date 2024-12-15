@@ -1,12 +1,4 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown] id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945"
-
-# %% id="4fc6e87d-c66e-43df-a937-e969acc409f8"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -15,26 +7,17 @@ from scipy.stats import probplot
 
 plt.rcParams.update({'font.size': 14})
 
-# %% [markdown]
-
-# %%
 def stefan(constant, H0, Ts, Tfr, time):
     return np.sqrt(constant*time*abs(Ts-Tfr) + H0**2)
 
-# %%
 print('Ice thickness: ' +
       f'{stefan(1.44*10**(-8), 0.15, 261, 273, 3*24*3600):.3f} m')
 
-# %% [markdown]
-
-# %% [markdown] id="bfadcf3f-4578-4809-acdb-625ab3a71f27"
-
-# %%
 def H_taylor(mu_H0, mu_iT, sigma_H0, sigma_iT):
     """ Taylor series approximation of mean and std of H"""
     
-    
-    YOUR_CODE_HERE 
+    # Write your own preliminary variables here
+    YOUR_CODE_HERE # Probably more than one line
 
     mu_H = YOUR_CODE_HERE
     sigma_H = YOUR_CODE_HERE
@@ -53,7 +36,7 @@ def samples_plot(N, mu_H0, mu_iT, sigma_H0, sigma_iT):
     H0_samples = YOUR_CODE_HERE
     iT_samples = YOUR_CODE_HERE
 
-    
+    # negative values of ice thickness not physically possible
     count_negative_iT = sum(iT_samples < 0)
     if count_negative_iT > 0:
         iT_samples[iT_samples < 0] = 0
@@ -64,7 +47,7 @@ def samples_plot(N, mu_H0, mu_iT, sigma_H0, sigma_iT):
     mu_H = YOUR_CODE_HERE
     sigma_H = YOUR_CODE_HERE
     
-    
+    # Plot histogram
     xmin = 0.0
     xmax = 0.5
     x = np.linspace(xmin, xmax, 100)
@@ -88,7 +71,7 @@ def samples_plot(N, mu_H0, mu_iT, sigma_H0, sigma_iT):
                     + '\n' + f'mean = {mu_H:.3e}' 
                     f'm and std = {sigma_H:.3e} m')
     
-    
+    # Add probability plot in right-side panel
     probplot(YOUR_CODE_HERE, dist = norm, fit = True, plot = ax[1])
     
     ax[1].legend(['Generated samples', 'Normal fit'])
@@ -97,13 +80,6 @@ def samples_plot(N, mu_H0, mu_iT, sigma_H0, sigma_iT):
     
     return mu_H, sigma_H, h_samples
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% colab={"base_uri": "https://localhost:8080/", "height": 425} id="55ff8dd6-86ef-401a-9a56-02551c348698" outputId="3add4ee9-1054-4726-dc4f-72dca5c1c6c8"
 mu_iT = 10
 sigma_iT = 4
 mu_H0 = 0.20
@@ -134,13 +110,6 @@ print('  \N{GREEK SMALL LETTER SIGMA}',
       f'{sigma_H_simulated:.3f}', 'm')
 print('\n')
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 for N in [5, 50, 500, 5000, 50000]:
     mu_H_simulated, sigma_H_simulated, h_samp = samples_plot(N,
                                                              mu_H0,
@@ -151,16 +120,8 @@ for N in [5, 50, 500, 5000, 50000]:
     print(f'    mean = {mu_H_simulated:.3f} m')
     print(f'    std = {sigma_H_simulated:.3f} m\n')
 
-# %% [markdown]
-
-# %%
-
 for i in np.linspace(0.1, 0.4, 10):
     print(f'for an ice thickness of {i:5.2f} m --> ' +
           f'{100*sum(h_samp <= i)/len(h_samp):8.4f}% of samples, ' +
           f'{100*norm.cdf(i, mu_H, sigma_H):8.4f}% of distribution')
-
-# %% [markdown]
-
-# %% [markdown]
 

@@ -1,25 +1,8 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import numpy as np
 import matplotlib.pylab as plt
 import pandas as pd
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 data=pd.read_csv(filepath_or_buffer='justIce.csv',index_col=0)
 data.index = pd.to_datetime(data.index, format="%Y-%m-%d")
 
@@ -29,11 +12,6 @@ plt.xlabel('Year')
 plt.ylabel('Ice thickness [cm]')
 plt.grid()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 data_2021 = data.loc['2021']
 
 plt.figure(figsize=(15,4))
@@ -42,23 +20,11 @@ plt.xlabel('Date')
 plt.ylabel('Ice thickness [cm]')
 plt.grid()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 h_ice = (data_2021.to_numpy()).ravel()
 t_days = ((data_2021.index - data_2021.index[0]).days).to_numpy()
 
 dh_dt_FD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 fig, ax1 = plt.subplots(figsize=(15,4))
 
 ax1.scatter(t_days[:-1], dh_dt_FD,
@@ -81,15 +47,11 @@ ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
 
-# %% [markdown]
-
-# %%
-
 dh_dt_BD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 
 fig, ax1 = plt.subplots(figsize=(15,4))
 
-            
+            # color='red', marker='o', label='dh_dt_BE Backward Difference')
 
 ax1.scatter(t_days[:-1], dh_dt_FD,
             color='blue', marker='o', label='dh_dt_FD Forward Difference')
@@ -112,10 +74,6 @@ handles2, labels2 = ax2.get_legend_handles_labels()
 ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
-
-# %% [markdown]
-
-# %%
 
 dh_dt_CD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 
@@ -143,26 +101,6 @@ ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 x = np.linspace(-3*np.pi, 5*np.pi, 400)
 
 def f(x):
@@ -172,10 +110,6 @@ plt.plot(x, f(x), color='b', linewidth=2)
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title("Plot of $f(x) = 2cos(x) + sin(x)$");
-
-# %% [markdown]
-
-# %%
 
 def f_1(x):
     return -2 * np.sin(x) + np.cos(x)
@@ -189,19 +123,12 @@ def f_3(x):
 def f_4(x):
     return 2 * np.cos(x) + np.sin(x)
 
-# %% [markdown]
-
-# %%
-
 x0 = np.pi
 taylor_1 = f(x0) + f_1(x0)*(x - x0)
 taylor_2 = taylor_1 + f_2(x0)*(x - x0)**2/2
 taylor_3 = taylor_2 + f_3(x0)*(x - x0)**3/6
 taylor_4 = taylor_3 + f_4(x0)*(x - x0)**4/24
 
-# %% [markdown]
-
-# %%
 plt.figure(figsize=(10, 6))
 
 plt.plot(x, f(x),
@@ -228,12 +155,6 @@ plt.ylim(-10,10)
 plt.grid(True)
 plt.show();
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 error_1 = np.abs(f(x) - taylor_1)
 error_2 = np.abs(f(x) - taylor_2)
 error_3 = np.abs(f(x) - taylor_3)
@@ -259,20 +180,6 @@ plt.legend()
 plt.grid(True)
 plt.show();
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 def f2D(x, y):
     return np.sin(2*x) + np.cos(y)
 
@@ -289,12 +196,6 @@ def taylor2D(x, y):
 
 def taylor2D(x, y):
     return -1 + 2*(x - x0) + (y - x0)**2/2
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 
 x = np.linspace(-2+x0, 2+x0, 100)
 y = np.linspace(-2+y0, 2+y0, 100)
@@ -318,12 +219,6 @@ plt.legend()
 plt.title('Original Function vs. Taylor Approximation')
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 error_2d = np.abs(Z_orig - Z_approx)
 
 fig = plt.figure(figsize=(9,9))
@@ -334,6 +229,4 @@ ax.set_ylabel('Y')
 ax.set_zlabel('Absolute Error')
 plt.title('Absolute Error between $f(x, y)$ and Taylor Approximation')
 plt.show()
-
-# %% [markdown]
 

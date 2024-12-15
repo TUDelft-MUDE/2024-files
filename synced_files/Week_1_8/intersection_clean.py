@@ -1,15 +1,8 @@
-# ---
-
-# ---
-
-# %%
 import numpy as np
 from scipy import stats
 import pyvinecopulib as pv
 import matplotlib.pyplot as plt
 import matplotlib
-
-# %%
 
 def joint_exceedance(rho):
     x = [4, 6]

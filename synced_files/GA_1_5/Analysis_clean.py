@@ -1,25 +1,8 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import numpy as np
 import matplotlib.pylab as plt
 import pandas as pd
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 data=pd.read_csv(filepath_or_buffer='justIce.csv',index_col=0)
 data.index = pd.to_datetime(data.index, format="%Y-%m-%d")
 
@@ -29,11 +12,6 @@ plt.xlabel('Year')
 plt.ylabel('Ice thickness [cm]')
 plt.grid()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 data_2021 = data.loc['2021']
 
 plt.figure(figsize=(15,4))
@@ -42,23 +20,11 @@ plt.xlabel('Date')
 plt.ylabel('Ice thickness [cm]')
 plt.grid()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 h_ice = (data_2021.to_numpy()).ravel()
 t_days = ((data_2021.index - data_2021.index[0]).days).to_numpy()
 
 dh_dt_FD = YOUR_CODE_HERE
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 fig, ax1 = plt.subplots(figsize=(15,4))
 
 ax1.scatter(YOUR_CODE_HERE, dh_dt_FD,
@@ -81,9 +47,6 @@ ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
 
-# %% [markdown]
-
-# %%
 dh_dt_BD = YOUR_CODE_HERE
 
 fig, ax1 = plt.subplots(figsize=(15,4))
@@ -110,9 +73,6 @@ ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
 
-# %% [markdown]
-
-# %%
 dh_dt_CD = YOUR_CODE_HERE
 
 fig, ax1 = plt.subplots(figsize=(15,4))
@@ -140,21 +100,6 @@ ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 x = np.linspace(-3*np.pi, 5*np.pi, 400)
 
 def f(x):
@@ -165,9 +110,6 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title("Plot of $f(x) = 2cos(x) + sin(x)$");
 
-# %% [markdown]
-
-# %%
 def f_1(x):
     return YOUR_CODE_HERE
 
@@ -180,18 +122,12 @@ def f_3(x):
 def f_4(x):
     return YOUR_CODE_HERE
 
-# %% [markdown]
-
-# %%
 x0 = YOUR_CODE_HERE
 taylor_1 = YOUR_CODE_HERE
 taylor_2 = YOUR_CODE_HERE
 taylor_3 = YOUR_CODE_HERE
 taylor_4 = YOUR_CODE_HERE
 
-# %% [markdown]
-
-# %%
 plt.figure(figsize=(10, 6))
 
 plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE,
@@ -218,11 +154,6 @@ plt.ylim(-10,10)
 plt.grid(True)
 plt.show();
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 error_1 = YOUR_CODE_HERE
 error_2 = YOUR_CODE_HERE
 error_3 = YOUR_CODE_HERE
@@ -248,17 +179,6 @@ plt.legend()
 plt.grid(True)
 plt.show();
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def f2D(x, y):
     return YOUR_CODE_HERE
 
@@ -267,12 +187,6 @@ y0 = YOUR_CODE_HERE
 
 def taylor2D(x, y):
     return (YOUR_CODE_HERE)
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 
 x = np.linspace(-2+x0, 2+x0, 100)
 y = np.linspace(-2+y0, 2+y0, 100)
@@ -296,11 +210,6 @@ plt.legend()
 plt.title('Original Function vs. Taylor Approximation')
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 error_2d = YOUR_CODE_HERE
 
 fig = plt.figure(figsize=(9,9))
@@ -311,6 +220,4 @@ ax.set_ylabel('Y')
 ax.set_zlabel('Absolute Error')
 plt.title('Absolute Error between $f(x, y)$ and Taylor Approximation')
 plt.show()
-
-# %% [markdown]
 

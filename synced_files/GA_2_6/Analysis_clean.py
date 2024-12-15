@@ -1,38 +1,4 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import time
 import pickle
 import numpy as np
@@ -43,11 +9,6 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 file_path = r"data/features_BAK.pk" 
 with open(file_path, 'rb') as handle:
     features = pickle.load(handle)
@@ -56,66 +17,26 @@ file_path = r"data/targets_BAK.pk"
 with open(file_path, 'rb') as handle:
     targets = pickle.load(handle)
 
-# %% [markdown]
-
-# %%
 print('Dimensions of features (X):', features.shape)
 print('Dimensions of targets  (t):', targets.shape)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %%
 X_train, X_val_test, t_train, t_val_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=42)
 X_val, X_test, t_val, t_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=24)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 scaler_diameters = MinMaxScaler()
 scaler_diameters.fit(X_train)
 
 normalized_X_train = scaler_diameters.transform(X_train)
 normalized_X_val = scaler_diameters.transform(X_val)
 
-# %% [markdown]
-
-# %%
 scaler_pressures = MinMaxScaler()
 scaler_pressures.fit(t_train)
 
 normalized_t_train = scaler_pressures.transform(t_train)
 normalized_t_val = scaler_pressures.transform(t_val)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 model = MLPRegressor(YOUR_CODE_HERE, YOUR_CODE_HERE)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def get_mini_batches(X, t, batch_size):
     """
     This function generates mini-batches from the given input data and labels.
@@ -128,12 +49,12 @@ def get_mini_batches(X, t, batch_size):
     Returns:
     list: A list of tuples where each tuple contains a mini-batch of the input data and the corresponding targets.
     """
-    
+    # Generate permutations
     perm = np.random.permutation(len(X))
     X_train_perm = X[perm]
     t_train_perm = t[perm]
     
-    
+    # Generate mini-batches
     X_batches = []
     t_batches = []
     for i in range(0, len(X_train_perm), batch_size):
@@ -142,16 +63,10 @@ def get_mini_batches(X, t, batch_size):
 
     return list(zip(X_batches, t_batches))
 
-# %% [markdown]
-
-# %%
 learning_rate = 0.001
 n_epochs = 20
 batch_size = 64
 
-# %% [markdown]
-
-# %%
 def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate):
     train_loss_list = []
     val_loss_list = []
@@ -159,32 +74,27 @@ def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val,
     
     for epoch in range(n_epochs):
         
-        
+        # Generate mini-batches
         mini_batches = get_mini_batches(YOUR_CODE_HERE)
         
-        
+        # Train model on mini-batches
         for X_batch, t_batch in mini_batches:
             YOUR_CODE_HERE
         
-        YOUR_CODE_HERE 
+        YOUR_CODE_HERE # Hint: may be more than one line
 
-        
+        # Store loss values
         train_loss_list.append(train_loss)
         val_loss_list.append(val_loss)
 
-        
+        # Print training progress
         print(f"Epoch {epoch+1}/{n_epochs} - Train Loss: {train_loss_list[-1]:.4f} - Val Loss: {val_loss:.4f}")
         
     return train_loss_list, val_loss_list
 
-# %%
 train_loss_list, val_loss_list = train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate)
 
-# %% [markdown]
-
-# %%
-
-plt.figure(figsize=(8, 6))  
+plt.figure(figsize=(8, 6))  # Set the figure size
 
 x_axis = list(range(len(train_loss_list)))
 
@@ -206,23 +116,9 @@ plt.yticks(fontsize=12)
 plt.gca().set_facecolor('#f2f2f2')
 plt.show()
 
-# %% [markdown]
-
-# %%
 model.score(YOUR_CODE_HERE, YOUR_CODE_HERE)
 
-# %%
 model.score(YOUR_CODE_HERE, YOUR_CODE_HERE)
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %% [markdown]
-
-# %%
 
 layer_sizes = [10, 20, 50, 100] 
 layer_numbers = [1, 2, 3, 4]
@@ -231,14 +127,14 @@ val_loss_grid = np.zeros((len(layer_sizes), len(layer_numbers)))
 
 for i, lsize in enumerate(layer_sizes):
     
-    
+    # Loop over all numbers of hidden layers
     for j, lnumber in enumerate(layer_numbers):
     
-        
+        # get tuple of hidden layer sizes
         layers = (lsize,) * lnumber
         print("Training NN with hidden layers:  {}".format(layers))
         
-        
+        # Create the ANN model with the given hidden layer sizes and activation function
         model = MLPRegressor(hidden_layer_sizes=layers, activation='tanh')
         
         _,  val_loss_list = train_model(model, 
@@ -258,12 +154,6 @@ for i, lsize in enumerate(layer_sizes):
 min_size, min_number = np.unravel_index(np.argmin(val_loss_grid), val_loss_grid.shape)
 print("\n\nModel with {} layers and {} neurons per layer gave lowest loss of {:.4e}".format(layer_numbers[min_number], layer_sizes[min_size], val_loss_grid[min_size, min_number]))
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 layers = (layer_sizes[min_size],) * layer_numbers[min_number]
 model = MLPRegressor(hidden_layer_sizes=layers, activation='tanh')
 
@@ -277,11 +167,6 @@ _,  val_loss_list = train_model(model,
                                 learning_rate=0.001
                                 )
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import matplotlib.pyplot as plt
 
 rows = layer_sizes
@@ -301,36 +186,17 @@ plt.ylabel('Number of Neurons')
 plt.title('Validation Loss Grid')
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 normalized_X_test = scaler_diameters.transform(X_test)
 normalized_t_test = scaler_pressures.transform(t_test)
 
-# %%
 model.score(normalized_X_test, normalized_t_test)
 
-# %% [markdown]
-
-# %%
 estimated_pressure = scaler_pressures.inverse_transform(model.predict(normalized_X_test))
 error = t_test - estimated_pressure
 
-# %%
 node_ID = 0
 error_node = error[:, node_ID]
 
-# %% [markdown]
-
-# %%
 fig, ax = plt.subplots()
 
 ax.hist(error_node, bins='auto', color='#0504aa', alpha=0.7, rwidth=0.85)
@@ -350,13 +216,6 @@ ax.set_title(f'Error of node {node_ID} across test scenarios', pad=15, color='#3
 
 fig.tight_layout()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 start_time = time.time()
 y_pred_test = model.predict(X_test)
 total_time = time.time() - start_time
@@ -366,28 +225,10 @@ num_test_sims = len(y_pred_test)
 data_driven_exec_time_per_sim = total_time/num_test_sims
 print(f'Data-driven model took {data_driven_exec_time_per_sim:.7f} seconds for {num_test_sims} scenarios')
 
-# %% [markdown]
-
-# %%
 original_time_per_sim = 0.04
 
 speed_up = np.round(original_time_per_sim/data_driven_exec_time_per_sim, 2)
 print('The data-driven model is', speed_up,'times faster than original simulator per scenario.')
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 YOUR_CODE_HERE 
-
-# %% [markdown]
-
-# %% [markdown]
 

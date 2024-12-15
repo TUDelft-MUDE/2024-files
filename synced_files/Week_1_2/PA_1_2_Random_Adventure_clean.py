@@ -1,25 +1,7 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 
 A = np.array([[1, 1], 
               [2, 2], 
@@ -27,33 +9,16 @@ A = np.array([[1, 1],
               [4, 4]])
 A.shape
 
-# %% [markdown]
-
-# %%
 scale = np.array([YOUR_CODE_HERE])
 
-# %% [markdown]
-
-# %%
 A = A.T
 scale @ A
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 A = YOUR_CODE_HERE
 
-# %% [markdown]
-
-# %%
-plt.plot(A[0, :], A[1, :], 'ko') 
+plt.plot(A[0, :], A[1, :], 'ko') # Same as plt.plot(*A)
 plt.show()
 
-# %% [markdown]
-
-# %%
 empty = np.zeros(shape=(2, 2))
 shear = np.ones(shape=(2, 2))
 
@@ -66,25 +31,14 @@ print(shear)
 print()
 print(line_A)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 identity = np.eye(N = A.shape[0])
 
-truth_array = identity @ A == A 
+truth_array = identity @ A == A # This is actually an array with some boolean values
 assert (identity @ A == A).all()
 
 scale_2 = 2 * identity
 assert (scale_2 == scale).all()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 reflect = np.array([[0, 1], [1, 0]])
 result = YOUR_CODE_HERE
 
@@ -92,13 +46,6 @@ plt.plot(*result, "or")
 plt.plot(*line_A, "ob")
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 data_x = np.linspace(0, 100, num=100)
 data_y = data_x * 5 + 2 + np.random.random(size = (100,))
 
@@ -108,7 +55,7 @@ def fit_a_line_to_data(data_x, data_y):
     return slope, intercept
 
 def fit_a_line_to_data_2(data_x, data_y):
-    
+    ## Complete the function here ##
     A = np.array([YOUR_CODE_HERE, np.ones(len(data_x))]).T
     [slope, intercept] = np.linalg.solve(A.T @ A, YOUR_CODE_HERE)
     return slope, intercept
@@ -122,53 +69,26 @@ plt.plot(data_x, slope1*data_x + intercept1, "b")
 plt.plot(data_x, slope2*data_x + intercept2, "r")
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 N = 1000
 A = np.random.random(size = (2, N))
 plt.plot(*A, "ok")
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 A = np.random.normal(YOUR_CODE_HERE, YOUR_CODE_HERE, size = (2, N))
 plt.plot(*A, "ok")
 plt.show()
 
-# %% [markdown]
-
-# %%
 X = norm(loc = 0, scale = 1)
 print(X.stats())
 
-# %% [markdown]
-
-# %%
 p_x_lt_0 = YOUR_CODE_HERE
 
-# %% [markdown]
-
-# %%
 p_x_gt_1 = YOUR_CODE_HERE
 
-# %% [markdown]
-
-# %%
 x = np.linspace(-10, 10, num=1000)
 plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE)
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def create_sample(N):
     "Create N samples each of height and width."
     height = np.array(norm.rvs(YOUR_CODE_HERE))
@@ -197,20 +117,9 @@ def plot_data_and_pdf(data, mean, std):
     plt.ylabel("")
     plt.show()
 
-# %% [markdown]
-
-# %%
 N = 500
 height, width = create_sample(N)
 area = compute_area(height, width)
 area_mean, area_std = area_mean_std(area)
 plot_data_and_pdf(area, area_mean, area_std)
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
 

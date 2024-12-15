@@ -1,22 +1,7 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %%
 import numpy as np
 from matplotlib import pyplot as plt
 
-# %% [markdown]
-
-# %%
 t = np.arange(0,20,1)
 xt = np.concatenate((np.zeros(8), np.ones(4), np.zeros(8)))
 
@@ -26,11 +11,6 @@ plt.xticks(ticks=np.arange(0,21,5), labels=np.arange(0,21,5))
 plt.xlabel('time [s]')
 plt.ylabel('xn');
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 abs_fft = np.abs(np.fft.fft(xt))
 index_fft = np.arange(0,20,1)
 plt.plot(index_fft, abs_fft, 'o')
@@ -51,9 +31,6 @@ plt.xlabel('fft-index')
 plt.ylabel('$|X_k|$')
 plt.stem(index_fft, abs_fft);
 
-# %% [markdown]
-
-# %%
 abs_fft = np.abs(np.fft.fft(xt))
 plt.stem(index_fft, abs_fft)
 plt.plot(index_fft, abs_fft, 'o')
@@ -73,11 +50,6 @@ plt.xlim(-2,21)
 plt.xlabel('fft-index')
 plt.ylabel('$|X_k|$');
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 abs_fft_shift = np.abs(np.fft.fftshift(np.fft.fft(xt)))
 freq = np.arange(-0.5, 0.5, 0.05)
 plt.stem(freq, abs_fft_shift)
@@ -85,11 +57,6 @@ plt.plot(freq, abs_fft_shift, 'o')
 plt.ylabel('|Xk|')
 plt.xlabel('frequency [Hz]');
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 N=len(xt)
 abs_fft = np.abs(np.fft.fft(xt))
 freq = np.arange(0.0, 1.0, 0.05)
@@ -97,16 +64,6 @@ plt.plot(freq[:int(N/2)], abs_fft[:int(N/2)], 'o')
 plt.stem(freq[:int(N/2)], abs_fft[:int(N/2)])
 plt.ylabel('$|X_k|$')
 plt.xlabel('frequency [Hz]');
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 
 fc=3
 fs=10
@@ -121,8 +78,6 @@ plt.plot(t,xt, marker = 'o')
 plt.xlabel('time [s]')
 plt.ylabel('xn');
 
-# %%
-
 abs_fft = np.abs(np.fft.fft(xt))
 freq=np.arange(0,fs,1/T)
 plt.stem(freq, abs_fft)
@@ -130,14 +85,10 @@ plt.plot(freq, abs_fft, 'o')
 plt.ylabel('|Xk|')
 plt.xlabel('frequency [Hz]');
 
-# %%
-
 abs_fft = np.abs(np.fft.fft(xt))
 freq=np.arange(0,fs,1/T)
 plt.stem(freq[:int(N/2)], abs_fft[:int(N/2)])
 plt.plot(freq[:int(N/2)], abs_fft[:int(N/2)], 'o')
 plt.ylabel('|Xk|')
 plt.xlabel('frequency [Hz]');
-
-# %% [markdown]
 

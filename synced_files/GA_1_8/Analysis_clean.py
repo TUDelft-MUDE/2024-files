@@ -1,12 +1,4 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
@@ -14,36 +6,10 @@ import scipy.stats as st
 from helper import plot_contour
 from helper import Bivariate
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %%
-
-# %%
 bivar_dist = Bivariate(YOUR_CODE_HERE, YOUR_CODE_HERE, YOUR_CODE_HERE)
 
 plot_contour(YOUR_CODE_HERE, YOUR_CODE_HERE, data=data)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %%
 region_example = np.array([[0, 5, 12, 20, 28, 30],
                            [5, 20, 0, 18, 19, 12]])
 
@@ -51,23 +17,6 @@ plot_contour(bivar_dist, [0, 30, 0, 30],
              case=[23, 13],
              region=region_example);
 
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 plot_values = np.linspace(sample_Z.min(), sample_Z.max(), 30)
 fig, ax = plt.subplots(1)
 ax.hist([YOUR_CODE_HERE, YOUR_CODE_HERE],
@@ -79,18 +28,12 @@ ax.set_xlabel('$Z(X_1,X_2)$')
 ax.set_xlabel('Empirical Density [--]')
 ax.set_title('Comparison of Distributions of $Z$');
 
-# %% [markdown]
-
-# %%
 def ecdf(var):
-    x = np.sort(var) 
-    n = x.size 
+    x = np.sort(var) # sort the values from small to large
+    n = x.size # determine the number of datapoints
     y = np.arange(1, n+1) / (n + 1)
     return [y, x]
 
-# %% [markdown]
-
-# %%
 fig, axes = plt.subplots(1, 1, figsize=(8, 5))
 
 axes.step(YOUR_CODE_HERE, YOUR_CODE_HERE, 
@@ -104,9 +47,6 @@ axes.set_yscale('log')
 axes.legend()
 axes.grid()
 
-# %% [markdown]
-
-# %%
 fig, axes = plt.subplots(1, 1, figsize=(8, 5))
 
 axes.step(YOUR_CODE_HERE, YOUR_CODE_HERE, 
@@ -119,8 +59,4 @@ axes.set_title('Comparison: CDF (log scale expands upper tail)')
 axes.set_yscale('log')
 axes.legend()
 axes.grid()
-
-# %% [markdown] id="0491cc69"
-
-# %% [markdown]
 

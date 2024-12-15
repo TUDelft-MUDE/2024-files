@@ -1,27 +1,16 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
 from scipy.stats import chi2
 from scipy.signal import periodogram
 
-# %%
 data = np.loadtxt('atm_data.txt', delimiter=',')
 time = data[:, 0]
 data = data[:, 1]
 
-dt = YOUR_CODE_HERE 
-fs = YOUR_CODE_HERE 
+dt = YOUR_CODE_HERE # Time step
+fs = YOUR_CODE_HERE # Sampling frequency
 
 plt.figure(figsize=(10, 3))
 plt.plot(time, data)
@@ -30,15 +19,6 @@ plt.ylabel('Atmospheric Pressure [hPa]')
 plt.title('2 year of atmospheric pressure data')
 plt.grid(True)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def fit_model(data, time, A, plot=False):
     '''
     Function to find the least squares solution of the data
@@ -48,9 +28,9 @@ def fit_model(data, time, A, plot=False):
     plot: boolean to plot the results or not
     '''
 
-    x_hat = YOUR_CODE_HERE 
-    y_hat = YOUR_CODE_HERE 
-    e_hat = YOUR_CODE_HERE 
+    x_hat = YOUR_CODE_HERE # least squares solution
+    y_hat = YOUR_CODE_HERE # model prediction
+    e_hat = YOUR_CODE_HERE # residuals
 
     if plot:
         plt.figure(figsize=(10, 5))
@@ -82,22 +62,22 @@ def find_frequency(data, time, A, fs, plot=True):
     fs: sampling frequency
     plot: boolean to plot the psd or not
     '''
-    
+    # Detrending the data
     _, _, e_hat= fit_model(data, time, A)
 
     N = len(data)
 
-    
+    # Finding the dominant frequency in e_hat
     freqs, pxx = periodogram(YOUR_CODE_HERE, fs=YOUR_CODE_HERE, window='boxcar',
                              nfft=N, return_onesided=False,
                              scaling='density')
 
-    
-    
-    amplitude = YOUR_CODE_HERE 
-    dominant_frequency = YOUR_CODE_HERE 
+    # finding the dominant frequency and amplitude
+    # Note: there are many ways to do this
+    amplitude = YOUR_CODE_HERE # Amplitude of the dominant frequency
+    dominant_frequency = YOUR_CODE_HERE # Dominant frequency
 
-    
+    # Plotting the PSD
     if plot:
         plt.figure(figsize=(10, 5))
         plt.subplot(211)
@@ -119,39 +99,12 @@ def find_frequency(data, time, A, fs, plot=True):
 
     return dominant_frequency
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-A = YOUR_CODE_HERE 
+A = YOUR_CODE_HERE # A-matrix for linear trend (intercept and slope)
 dom_f = find_frequency(YOUR_CODE_HERE)
 print(f'Dominant Frequency: {YOUR_CODE_HERE} [YOUR_CODE_HERE]')
 
-# %% [markdown]
+YOUR_CODE_HERE # may be more than one line or more than one cell
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-YOUR_CODE_HERE 
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def rewrite_seasonal_comp(a_i, b_i):
     '''
     Function to rewrite the seasonal component in terms of sin and cos
@@ -166,9 +119,9 @@ A = YOUR_CODE_HERE
 
 x_hat, y_hat, e_hat = YOUR_CODE_HERE
 
-a_i = YOUR_CODE_HERE 
-b_i = YOUR_CODE_HERE 
-freqs = YOUR_CODE_HERE 
+a_i = YOUR_CODE_HERE # all the a_i coefficients
+b_i = YOUR_CODE_HERE # all the b_i coefficients
+freqs = YOUR_CODE_HERE # all the frequencies
 
 assert len(a_i) == len(b_i) == len(freqs), 'The number of coefficients do not match'
 
@@ -183,27 +136,11 @@ for a, b, f in zip(a_i, b_i, freqs):
     i = i + 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(YOUR_CODE_HERE, ax=ax, lags=20);
 ax.set_xlabel('Lags [days]')
 ax.grid()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def AR1(s, time, plot=True):
     '''
     Function to find the AR(1) model of the given data
@@ -212,8 +149,8 @@ def AR1(s, time, plot=True):
     '''
     y = YOUR_CODE_HERE
     y_lag_1 = YOUR_CODE_HERE
-    
-    
+    # np.atleast_2d is used to convert the 1D array to 2D array,
+    # as the fit_model function requires 2D array
     A = np.atleast_2d(y_lag_1).T 
 
     x_hat, y_hat, e_hat = fit_model(y, time, A)
@@ -224,7 +161,7 @@ def AR1(s, time, plot=True):
         plt.xlabel('Time [days]')
         plt.ylabel('Atmospheric Pressure [hPa]')
         plt.title('Original Data vs Estimated Data')
-        
+        # plt.xlim([0, 100]) # uncomment this line to zoom in, for better visualization
         plt.grid(True)
         plt.legend()
 
@@ -233,39 +170,24 @@ def AR1(s, time, plot=True):
 
     return x_hat, e_hat
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 _, e_hat2 = AR1(YOUR_CODE_HERE)
 
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(YOUR_CODE_HERE, ax=ax, lags=20);
 ax.grid()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-A_final = YOUR_CODE_HERE 
+A_final = YOUR_CODE_HERE # A-matrix for the combined model
 x_hat, y_hat, e_hat_final = fit_model(YOUR_CODE_HERE)
 
-N = YOUR_CODE_HERE 
-p = YOUR_CODE_HERE 
-sigma2 = YOUR_CODE_HERE 
-Cov = YOUR_CODE_HERE 
-se = np.sqrt(np.diag(Cov)) 
+N = YOUR_CODE_HERE # Number of data points
+p = YOUR_CODE_HERE # Number of parameters
+sigma2 = YOUR_CODE_HERE # estimated variance of the residuals
+Cov = YOUR_CODE_HERE # Covariance matrix of the parameters
+se = np.sqrt(np.diag(Cov)) # Standard errors of the parameters
 
-a_i = YOUR_CODE_HERE 
-b_i = YOUR_CODE_HERE 
-freqs = YOUR_CODE_HERE 
+a_i = YOUR_CODE_HERE # all the a_i coefficients
+b_i = YOUR_CODE_HERE # all the b_i coefficients
+freqs = YOUR_CODE_HERE # all the frequencies
 
 assert len(a_i) == len(b_i) == len(freqs), 'The number of coefficients do not match'
 
@@ -279,10 +201,4 @@ for a, b, f in zip(a_i, b_i, freqs):
     A_i, theta_i = rewrite_seasonal_comp(a, b)
     i = i + 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
 

@@ -1,59 +1,8 @@
-# ---
 
-# ---
-
-# %% [markdown] id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff"
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import matplotlib.pyplot as plt
 import numpy as np
 from utilities_solution import *
 
-# %% [markdown]
-
-# %%
 length = 10
 
 coordinates = [[  0.,    0.   ],
@@ -79,64 +28,22 @@ mesh = Mesh(coordinates, length, boundaries)
 mesh.plot_triangles();
 mesh.plot_boundaries();
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-mesh.plot_triangles(triangle_id=4) 
+mesh.plot_triangles(triangle_id=4) # useful for identifying the triangle id
 mesh.set_initial_conditions(default=20,
                             special_triangles=[[4, 40]])
 mesh.plot_triangles(fill_color='initial_conditions');
 
-# %% [markdown]
-
-# %%
-
 mesh.solve(20, 100, 50)
 mesh.plot_triangles(fill_color='unknowns',
                     show_labels=False);
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 
 mesh.refine_mesh();
 mesh.plot_triangles();
 
-# %% [markdown]
-
-# %%
 mesh.solve(20, 100, 50)
 mesh.plot_triangles(fill_color='unknowns',
                     show_labels=False);
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 side_length= 5.0
 t_final=20
 D=50
@@ -159,11 +66,6 @@ plt.axhline(0.5, color='r', linestyle='--')
 plt.grid()
 plt.show()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 x_v1 = [ 0 , 0 , 1 ]
 y_v1 = [ 0 , 1 , 0 ]
 coordinates_v1 = np.array([x_v1,y_v1]).T
@@ -185,9 +87,6 @@ def plotting_volumes(coordinates):
 plotting_volumes(coordinates_v1)    
 plotting_volumes(coordinates_v2)    
 
-# %% [markdown]
-
-# %%
 x_v1 = [ 0 , 0 , 1 ]
 y_v1 = [ 0 , 1 , 0 ]
 coordinates_v1 = np.array([x_v1,y_v1]).T
@@ -207,13 +106,6 @@ plt.plot( [centroid_1[0] , centroid_2[0]] , [centroid_1[1],centroid_2[1]] )
 plotting_volumes(coordinates_v1)    
 plotting_volumes(coordinates_v2)    
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 x_v1 = [ 0 , 0 , 1 ]
 y_v1 = [ 0 , 1 , 0 ]
 coordinates_v1 = np.array([x_v1,y_v1]).T
@@ -233,13 +125,6 @@ plt.plot( [centroid_1[0] , centroid_2[0]] , [centroid_1[1],centroid_2[1]] )
 plotting_volumes(coordinates_v1)    
 plotting_volumes(coordinates_v2)    
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 x_v1 = [ 0 , 0 , 1 ]
 y_v1 = [ 0 , 1 , 0 ]
 coordinates_v1 = np.array([x_v1,y_v1]).T
@@ -258,10 +143,4 @@ plt.plot( [centroid_1[0] , centroid_2[0]] , [centroid_1[1],centroid_2[1]] )
 
 plotting_volumes(coordinates_v1)    
 plotting_volumes(coordinates_v2)    
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
 

@@ -1,29 +1,11 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def evaluate_N(x_local, dx):
     return np.array([[1-x_local/dx, x_local/dx]])
 
 def evaluate_B(x_local, dx):
     return np.array([[-1/dx, 1/dx]])
 
-def get_element_matrix(EA, k, dx):                  
+def get_element_matrix(EA, k, dx):                  # pass on k
     
     integration_locations = [(dx - dx/(3**0.5))/2, (dx + dx/(3**0.5))/2]
     integration_weights = [dx/2, dx/2]
@@ -34,9 +16,9 @@ def get_element_matrix(EA, k, dx):
 
     for x_ip, w_ip in zip(integration_locations, integration_weights):
         B = evaluate_B(x_ip, dx)
-        N = evaluate_N(x_ip,dx)                     
+        N = evaluate_N(x_ip,dx)                     # new line
         K_loc += EA*np.dot(np.transpose(B), B)*w_ip
-        K_loc += k*np.dot(np.transpose(N), N)*w_ip  
+        K_loc += k*np.dot(np.transpose(N), N)*w_ip  # new line
 
     return K_loc
 
@@ -58,14 +40,14 @@ def get_element_force(q, dx):
 def get_nodes_for_element(ie):
     return np.array([ie,ie+1])
 
-def assemble_global_K(rod_length, n_el, k, EA):     
+def assemble_global_K(rod_length, n_el, k, EA):     # pass on k
     n_DOF = n_el+1
     dx = rod_length/n_el
     K_global = np.zeros((n_DOF, n_DOF))
     
     for i in range(n_el):
         elnodes = get_nodes_for_element(i)
-        K_global[np.ix_(elnodes,elnodes)] += get_element_matrix(EA, k, dx)   
+        K_global[np.ix_(elnodes,elnodes)] += get_element_matrix(EA, k, dx)   # pass on k
     
     return K_global
 
@@ -80,18 +62,18 @@ def assemble_global_f(rod_length, n_el, q):
         
     return np.squeeze(f_global)
 
-def simulate(n_element,k):                          
+def simulate(n_element,k):                          # add k as argument
     length = 3
     EA = 1e3
     n_node = n_element + 1
     F_right = 10
     u_left = 0 
-    q_load = 0                                      
+    q_load = 0                                      # value changed 
 
     dx = length/n_element
     x = np.linspace(0,length,n_node)
 
-    K = assemble_global_K(length, n_element, k, EA) 
+    K = assemble_global_K(length, n_element, k, EA) # pass on k
 
     f = assemble_global_f(length, n_element, q_load)
 
@@ -106,7 +88,6 @@ def simulate(n_element,k):
 
     return x, u
 
-# %%
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -119,11 +100,6 @@ plt.xlabel('x')
 plt.ylabel('u')
 plt.legend();
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 x10, u3_10 = simulate(10, 1.e3)
 x5, u3_5 = simulate(5, 1.e3)
 x2, u3_2 = simulate(2, 1.e3)
@@ -137,7 +113,6 @@ plt.legend();
 
 plt.figure()
 
-# %%
 x5, u6_5 = simulate(5, 1.e6)
 x20, u6_20 = simulate(20, 1.e6)
 x100, u6_100 = simulate(100, 1.e6)
@@ -148,8 +123,4 @@ plt.xlabel('x')
 plt.ylabel('u')
 plt.title('k=10^6')
 plt.legend();
-
-# %% [markdown]
-
-# %% [markdown]
 

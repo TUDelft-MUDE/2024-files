@@ -1,36 +1,11 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import numpy as np
 import matplotlib.pylab as plt
-
+%matplotlib inline
 from ipywidgets import interact, fixed, widgets
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def initialize_1D(p0, L, Nx, T, Nt, square=True):
     """Initialize 1D advection simulation.
 
@@ -47,9 +22,9 @@ def initialize_1D(p0, L, Nx, T, Nt, square=True):
     
     x = np.linspace(dx/2, L - dx/2, Nx)
 
-    
-    
-    
+    # Initialise domain:
+    #  - a square pulse with p0 between 0.5 and 1
+    #  - a Gaussian shape around 1
     if square:
         p_init = np.zeros(Nx)
         p_init[int(.5/dx):int(1/dx + 1)] = p0
@@ -65,10 +40,10 @@ def advection_1D(p, dx, dt, c, Nx, central=True):
     p_new = np.zeros(Nx)
     for i in range(0, Nx):
         if central:
-            
+            # pass # add central averaging + FE scheme here (remove pass)
             p_new[i-1] = p[i - 1] - 0.5*(c*dt/dx)*(p[i] - p[i - 2])
         else:
-            
+            # pass # add upwind + FE scheme here (remove pass)
             p_new[i] = p[i] - 1*(c*dt/dx)*(p[i] - p[i - 1]) 
     return p_new
     
@@ -130,11 +105,6 @@ def check_variables_1D():
     else:
         print(f'CFL: {calculated_CFL:.2e}')
 
-# %% [markdown] id="0491cc69"
-
-# %% [markdown]
-
-# %%
 def case_create(p0=2.0, c=5.0, L=2.0, Nx=100,
                 T=4.0, Nt=1000,
                 central=True, square=True):
@@ -163,9 +133,6 @@ def case_set(C):
             C['T'], C['Nt'], C['dx'], C['dt'],
             C['central'], C['square'])
 
-# %% [markdown]
-
-# %%
 C = []
 C.append(case_create())
 C[0]['name'] = 'Case 0: default values, central diff, square'
@@ -185,17 +152,9 @@ C[-1]['name'] = 'Case 4: this is unstable, more slowly, central diff'
 C.append(case_create(L=10, Nx=100, T=4, Nt=10000, central=False))
 C[-1]['name'] = 'Case 5: this will show numerical diffusion, backward diff'
 
-# %% [markdown]
-
-# %%
 p0, c, L, Nx, T, Nt, dx, dt, central, square = case_set(C[3])
 check_variables_1D()
 
-# %% [markdown] id="0491cc69"
-
-# %% [markdown]
-
-# %%
 p0 = 2.0
 c = 5.0
 
@@ -210,86 +169,30 @@ dt = T/Nt
 central = True
 square = True
 
-# %% [markdown]
-
-# %%
 check_variables_1D()
 x, p_all = run_simulation_1D(p0, c, L, Nx, T, Nt, dx, dt, central, square)
 
-# %% [markdown]
-
-# %%
 plot_1D(x, p_all, step=1500)
 
-# %% [markdown]
-
-# %%
 plot_1D_all()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 square=False
 x, p_all = run_simulation_1D(p0, c, L, Nx, T, Nt, dx, dt, central, square)
 plot_1D_all()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 square=True
 central=False
 
 x, p_all = run_simulation_1D(p0, c, L, Nx, T, 10000, dx, dt, central, square)
 plot_1D_all()
 
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 choose_case = 5
 p0, c, L, Nx, T, Nt, dx, dt, central, square = case_set(C[choose_case])
 print(C[choose_case]['name'])
 
-# %%
 x, p_all = run_simulation_1D(p0, c, L, Nx, T, Nt, dx, dt, central, square)
 plot_1D_all()
 
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %%
 p0 = 2.0
 cx = 5.0
 cy = 5.0
@@ -307,13 +210,12 @@ dt = T/Nt
 
 central = True
 
-# %%
 def initialize_2D(p0, Lx, Nx, Ly, Ny, T, Nt):
     x = np.linspace(dx/2, Lx - dx/2, Nx)
     y = np.linspace(dy/2, Ly - dx/2, Ny)
     X, Y = np.meshgrid(x, y)
     
-    
+    # Initialise domain: cubic pulse with p0 between 0.5 and 1
     p_init = np.zeros((Nx, Ny))
     p_init[int(0.5/dx):int(1/dx + 1), int(0.5/dy):int(1/dy + 1)] = p0
 
@@ -398,9 +300,6 @@ def check_variables_2D():
     print(f'CFL, direction x: {cx*dt/dx:.2e}')
     print(f'CFL, direction y: {cy*dt/dy:.2e}')
 
-# %% [markdown]
-
-# %%
 T = 1
 Nt =  1000
 dt = T/Nt
@@ -408,17 +307,9 @@ check_variables_2D()
 X, Y, p_all = initialize_2D(p0, Lx, Nx, Ly, Ny, T, Nt)
 plot_2D(p_all, X, Y)
 
-# %% [markdown]
-
-# %%
 X, Y, p_all = run_simulation_2D(p0, cx, cy, Lx, Nx, Ly, Ny, T, Nt, dx, dy, dt, central)
 plot_2D_all()
 
-# %% [markdown]
-
-# %%
 X, Y, p_all = run_simulation_2D(p0, cx, cy, Lx, Nx, Ly, Ny, T, Nt, dx, dy, dt, central=False)
 plot_2D_all()
-
-# %% [markdown]
 

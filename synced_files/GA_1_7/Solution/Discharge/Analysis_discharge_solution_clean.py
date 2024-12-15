@@ -1,14 +1,4 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown] id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945"
-
-# %% [markdown] id="d33f1148-c72b-4c7e-bca7-45973b2570c5"
-
-# %% id="4fc6e87d-c66e-43df-a937-e969acc409f8"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -16,12 +6,6 @@ from scipy import stats
 from math import ceil, trunc
 
 plt.rcParams.update({'font.size': 14})
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 
 h, u = np.genfromtxt('dataset_hu.csv', delimiter=",", unpack=True, skip_header=True)
 
@@ -36,32 +20,16 @@ ax[1].set_xlabel('Time')
 ax[1].set_ylabel('Water velocity, u (m/s)')
 ax[1].grid()
 
-# %%
-
 print(stats.describe(h))
-
-# %%
 
 print(stats.describe(u))
 
-# %% [markdown] id="bfadcf3f-4578-4809-acdb-625ab3a71f27"
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def ecdf(var):
-    x = np.sort(var) 
-    n = x.size 
+    x = np.sort(var) # sort the values from small to large
+    n = x.size # determine the number of datapoints\
     y = np.arange(1, n+1) / (n+1)
     return [y, x]
 
-# %%
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 axes[0].hist(h, edgecolor='k', linewidth=0.2, 
              color='cornflowerblue', label='Water depth, h (m)', density = True)
@@ -83,23 +51,8 @@ axes[1].set_title('CDF', fontsize=18)
 axes[1].legend()
 axes[1].grid()
 
-# %% [markdown] id="bfadcf3f-4578-4809-acdb-625ab3a71f27"
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 params_h = stats.norm.fit(h)
 params_u = stats.gumbel_r.fit(u)
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
@@ -125,8 +78,6 @@ axes[1].set_yscale('log')
 axes[1].legend()
 axes[1].grid()
 
-# %%
-
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 axes[0].plot([trunc(min(h)), ceil(max(h))], [trunc(min(h)), ceil(max(h))], 'k')
@@ -151,23 +102,11 @@ axes[1].set_ylim([trunc(min(u)), ceil(max(u))])
 axes[1].legend()
 axes[1].grid()
 
-# %%
-
 _, p_h = stats.kstest(h,stats.norm.cdf, args=params_h)
 _, p_u = stats.kstest(u,stats.gumbel_r.cdf, args=params_u)
 
 print('The p-value for the fitted Gaussian distribution to h is:', round(p_h, 3))
 print('The p-value for the fitted Gumbel distribution to u is:', round(p_u, 3))
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 
 rs_h = stats.norm.rvs(*params_h, size = 10000)
 rs_u = stats.gumbel_r.rvs(*params_u, size = 10000)
@@ -195,13 +134,6 @@ axes[1].set_yscale('log')
 axes[1].legend()
 axes[1].grid()
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 fig, axes = plt.subplots(1, 1, figsize=(7, 7))
 axes.scatter(rs_h, rs_u, 40, 'k', label = 'Simulations')
 axes.scatter(h, u, 40, 'r','x', label = 'Observations')
@@ -210,14 +142,8 @@ axes.set_ylabel('Flow velocity, u (m/s)')
 axes.legend()
 axes.grid()
 
-# %%
-
 correl = stats.pearsonr(h, u)
 correl_rs = stats.pearsonr(rs_h, rs_u)
 print('The correlation between the observations is:', correl[0])
 print('The correlation between the simulations is:', correl_rs[0])
-
-# %% [markdown]
-
-# %% [markdown]
 

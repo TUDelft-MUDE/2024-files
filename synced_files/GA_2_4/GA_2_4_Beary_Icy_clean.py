@@ -1,36 +1,14 @@
-# ---
 
-# ---
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
 from scipy.signal import periodogram
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 YOUR_CODE_HERE
 
-data = YOUR_CODE_HERE 
-time_days = YOUR_CODE_HERE 
+data = YOUR_CODE_HERE # Temperature data
+time_days = YOUR_CODE_HERE # Time in days
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def fit_model(data, time, A, plot=False):
     '''
     Function to find the least squares solution of the data
@@ -40,9 +18,9 @@ def fit_model(data, time, A, plot=False):
     plot: boolean to plot the results or not
     '''
 
-    x_hat = YOUR_CODE_HERE 
-    y_hat = YOUR_CODE_HERE 
-    e_hat = YOUR_CODE_HERE 
+    x_hat = YOUR_CODE_HERE # least squares solution
+    y_hat = YOUR_CODE_HERE # model prediction
+    e_hat = YOUR_CODE_HERE # residuals
 
     if plot:
         plt.figure(figsize=(10, 5))
@@ -74,22 +52,22 @@ def find_frequency(data, time, A, fs, plot=True):
     fs: sampling frequency
     plot: boolean to plot the psd or not
     '''
-    
+    # Detrending the data
     _, _, e_hat= fit_model(YOUR_CODE_HERE)
 
     N = len(data)
 
-    
+    # Finding the dominant frequency in e_hat
     freqs, pxx = periodogram(YOUR_CODE_HERE, fs=YOUR_CODE_HERE, window='boxcar',
                                 nfft=N, return_onesided=False,
                                 scaling='density')
 
-    
-    
-    amplitude = YOUR_CODE_HERE 
-    dominant_frequency = YOUR_CODE_HERE 
+    # finding the dominant frequency and amplitude
+    # Note: there are many ways to do this
+    amplitude = YOUR_CODE_HERE # Amplitude of the dominant frequency
+    dominant_frequency = YOUR_CODE_HERE # Dominant frequency
 
-    
+    # Plotting the PSD
     if plot:
         plt.figure(figsize=(10, 5))
         plt.subplot(211)
@@ -111,23 +89,6 @@ def find_frequency(data, time, A, fs, plot=True):
 
     return dominant_frequency
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def rewrite_seasonal_comp(ak, bk):
     '''
     Function to rewrite the seasonal component in terms of sin and cos
@@ -172,15 +133,6 @@ for a, b, f in zip(a_i, b_i, freqs):
     i += 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def A1_matrix(A0, break_point):
     '''
     Function to create the A1 matrix
@@ -188,7 +140,7 @@ def A1_matrix(A0, break_point):
     break_point: break point location
     return: A1 matrix
     '''
-    
+    # create the new column and stack it to the A0 matrix
     YOUR_CODE_HERE
     
     return YOUR_CODE_HERE
@@ -224,29 +176,29 @@ def jump_detection(data, time, A, cv=100, plot=True):
     cv: critical value
     plot: boolean to plot the results or not
     '''
-    
+    # initialize the results vector
     results = YOUR_CODE_HERE
-    
+    # find the residuals under H0
     YOUR_CODE_HERE
 
-    
+    # loop over the data points
     for i in range(1, len(data)):
-        
+        # create the A1 matrix
         A1 = YOUR_CODE_HERE
 
-        
+        # We need this statement to avoid singular matrices
         if np.linalg.matrix_rank(A1) < A1.shape[1]:
             pass
         else:
-            
+            # find the residuals under H1
             _, _, e_hat1 = YOUR_CODE_HERE
             test_stat = YOUR_CODE_HERE
             results[i] = YOUR_CODE_HERE
 
     results = np.array(results)
     
-    
-    
+    # finding the offset location. 
+    # Offset is the location where the test statistic is maximum
     location = YOUR_CODE_HERE
     value = YOUR_CODE_HERE
 
@@ -263,22 +215,8 @@ def jump_detection(data, time, A, cv=100, plot=True):
 
     return location, value
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 YOUR_CODE_HERE
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 A2 = YOUR_CODE_HERE
 x_hat, y_hat, e_hat = fit_model(YOUR_CODE_HERE)
 
@@ -313,21 +251,10 @@ for a, b, f in zip(a_i, b_i, freqs):
     i += 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(e_hat, ax=ax, lags=20);
 ax.grid()
 
-# %% [markdown]
-
-# %%
 def AR1(s, time, plot=True):
     '''
     Function to find the AR(1) model of the given data
@@ -359,13 +286,6 @@ def AR1(s, time, plot=True):
 
 phi_hat_ar1, e_hat_ar1 = AR1(YOUR_CODE_HERE)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
 def AR2(s, time, plot=True):
     '''
     Function to find the AR(2) model of the given data
@@ -398,12 +318,6 @@ def AR2(s, time, plot=True):
 
 phi_hat_ar2, e_hat_ar2 = AR2(YOUR_CODE_HERE)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 A_final = YOUR_CODE_HERE
 x_hat, y_hat, e_hat_final = fit_model(YOUR_CODE_HERE)
 
@@ -433,10 +347,4 @@ for a, b, f in zip(a_i, b_i, freqs):
     A_i, theta_i = rewrite_seasonal_comp(a, b)
     i += 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
 

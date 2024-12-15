@@ -1,16 +1,7 @@
-# ---
 
-# ---
+%load_ext autoreload
+%autoreload 2
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-# %%
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
@@ -18,9 +9,6 @@ import scipy.stats as st
 from helper import plot_contour
 from helper import Bivariate
 
-# %% [markdown]
-
-# %%
 data_set = 'dataset_HT'
 N_factor_MCS = 100
 make_figs = True
@@ -31,22 +19,12 @@ bivariate_lim = [0, 12, 0, 25]
 plot_x2 = lambda x1, z90: np.sqrt(z90/(255.4*x1 - 490.4))
 Z = lambda x1, x2: 255.4*x1*x2**2 - 490.4*x2**2
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-# %%
 data_path = "data/dataset_HT.csv"
 
 data = np.genfromtxt(data_path,
                      delimiter=",",
                      unpack=True,
                      skip_header=True)
-
 data_x1 = np.array(data[1,:])
 data_x2 = np.array(data[2,:])
 
@@ -67,11 +45,6 @@ print('mean and std of X1 and X2: ')
 print(data_x1.mean(), data_x1.std())
 print(data_x2.mean(), data_x2.std())
 
-# %% [markdown]
-
-# %%
-
-# %%
 def calculate_covariance(X1, X2):
     '''
     Covariance of two random variables X1 and X2 (numpy arrays).
@@ -94,25 +67,10 @@ print(f'The covariance of X1 and X2 is {cov_x12:.5f}')
 rho_x12 = pearson_correlation(data_x1, data_x2)
 print(f'The correlation coefficient of X1 and X2 is {rho_x12:.5f}')
 
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %%
-
-# %%
-
 bivar_dist = Bivariate(dist_x1, dist_x2, rho_x12)
 
 plot_contour(bivar_dist, bivariate_lim, data=data)
 
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %%
 region_example = np.array([[0, 5, 12, 20, 28, 30],
                            [5, 20, 0, 18, 19, 12]])
 
@@ -120,23 +78,6 @@ plot_contour(bivar_dist, [0, 30, 0, 30],
              case=[23, 13],
              region=region_example);
 
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
-# %% [markdown]
-
-# %% [markdown] id="0491cc69"
-
-# %% [markdown]
-
-# %%
 x90_1 = dist_x1.ppf(.9)
 x90_2 = dist_x2.ppf(.9)
 
@@ -192,9 +133,6 @@ if make_figs:
     if save_figs:
         plt.savefig(os.path.join(figure_path,'figure_3.svg'))
 
-# %% [markdown]
-
-# %%
 z_90 = Z(x90_1, x90_2)
 
 plot_Z_x1 = np.linspace(bivariate_lim[0], bivariate_lim[1], 100)
@@ -236,18 +174,6 @@ print(f'The empirical probability is {p_Z90_data:.3f}.')
 print(f'The c.o.v. is of p is {1/np.sqrt((N+1)*p_Z90_data):.3f}.')
 print('\n')
 
-# %% [markdown] id="0491cc69"
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %% [markdown]
-
-# %%
-
 plot_values = np.linspace(sample_Z.min(), sample_Z.max(), 30)
 fig, ax = plt.subplots(1)
 ax.hist([empirical_Z, sample_Z],
@@ -259,19 +185,11 @@ ax.set_xlabel('$Z(X_1,X_2)$')
 ax.set_xlabel('Empirical Density [--]')
 ax.set_title('Comparison of Distributions of $Z$');
 
-# %% [markdown]
-
-# %%
-
 def ecdf(var):
-    x = np.sort(var) 
-    n = x.size 
+    x = np.sort(var) # sort the values from small to large
+    n = x.size # determine the number of datapoints
     y = np.arange(1, n+1) / (n + 1)
     return [y, x]
-
-# %% [markdown]
-
-# %%
 
 fig, axes = plt.subplots(1, 1, figsize=(8, 5))
 
@@ -286,10 +204,6 @@ axes.set_yscale('log')
 axes.legend()
 axes.grid()
 
-# %% [markdown]
-
-# %%
-
 fig, axes = plt.subplots(1, 1, figsize=(8, 5))
 
 axes.step(ecdf(empirical_Z)[1], 1-ecdf(empirical_Z)[0], 
@@ -302,8 +216,4 @@ axes.set_title('Comparison: CDF (log scale expands upper tail)')
 axes.set_yscale('log')
 axes.legend()
 axes.grid()
-
-# %% [markdown] id="0491cc69"
-
-# %% [markdown]
 

@@ -1,8 +1,3 @@
-# ---
-
-# ---
-
-# %%
 
 import pandas as pd
 import numpy as np
@@ -20,8 +15,6 @@ fake_2025_predictions = pd.read_csv('./data/mude_guesses.txt',sep='\t')
 fake_2025_predictions['Prediction'] = pd.to_datetime(fake_2025_predictions['Prediction'], errors='coerce')
 fake_2025_predictions['decimal time'] =fake_2025_predictions['Prediction'].dt.hour +fake_2025_predictions['Prediction'].dt.minute / 60
 fake_2025_predictions.info()
-
-# %%
 
 def plot_date_time_distribution(df_1: pd.DataFrame,
                                 datetime_col_1: str,
@@ -62,7 +55,7 @@ def plot_date_time_distribution(df_1: pd.DataFrame,
     """
     fig, axs = plt.subplots(2, 2, figsize=plot_size, gridspec_kw={'width_ratios': [1, 6], 'height_ratios': [4, 1]})
 
-    
+    # Scatter plot in top right corner (axs[0,1])
     if dayofyear:
         x_values_1 = df_1[datetime_col_1].dt.dayofyear
         x_values = df[datetime_col].dt.dayofyear
@@ -90,14 +83,14 @@ def plot_date_time_distribution(df_1: pd.DataFrame,
     mean_y = df[decimal_time_col].mean()
 
     axs[0, 1].plot(mean_x, mean_y, '+', markersize=10, color='grey')
-    axs[0, 1].axvline(x=mean_x, color='gray', linestyle='--')  
-    axs[0, 1].axhline(y=mean_y, color='gray', linestyle='--')  
+    axs[0, 1].axvline(x=mean_x, color='gray', linestyle='--')  # Vertical line
+    axs[0, 1].axhline(y=mean_y, color='gray', linestyle='--')  # Horizontal line
     axs[0, 1].grid(True)
     axs[0, 1].legend()
 
-    
+    #axs[0, 1].set_ylim([0,24])
 
-    
+    # Density plot for datetime_col (Day of year or actual date) in position (1, 1)
     if dayofyear:
         x_fit_values = df[datetime_col].dt.dayofyear
         mu, std = norm.fit(x_fit_values, method=estimator)
@@ -109,13 +102,13 @@ def plot_date_time_distribution(df_1: pd.DataFrame,
         mu, std = norm.fit(df[datetime_col].dt.dayofyear, method=estimator)
         x_values_density = np.linspace(df[datetime_col].dt.dayofyear.min(), df[datetime_col].dt.dayofyear.max(), 500)
 
-        
+        # qligning x-axis limits
         x_lim = axs[0, 1].get_xlim()
 
-        
+        # Convert the x-axis limits from matplotlib's numeric format to datetime
         x_lim_dt = [mdates.num2date(x) for x in x_lim]
 
-        
+        # Apply the same x-axis limits to axs[1, 1]
         axs[1, 1].set_xlim(x_lim_dt)
         
     y_norm = norm.pdf(x_values_density, mu, std)
@@ -123,13 +116,13 @@ def plot_date_time_distribution(df_1: pd.DataFrame,
     axs[1, 1].plot(x_values_density, y_norm, label=f"Norm {estimator} estimate", color='blue')
     df[datetime_col].dt.dayofyear.plot(kind='kde', ax=axs[1, 1], color='red', alpha=0.3, label='KDE estimate')
     axs[1, 1].set_ylabel('Density')
-    axs[1, 1].set_yticklabels([])  
+    axs[1, 1].set_yticklabels([])  # Remove y-axis labels
     axs[1, 1].invert_yaxis()
     axs[1, 1].legend()
     
-    
+    #axs[1, 1].set_ylim([0,24])
 
-    
+    # Density plot for decimal time in position (0, 0) (rotated)
     mu, std = norm.fit(df[decimal_time_col], method=estimator)
     x_values_time = np.linspace(df[decimal_time_col].min(), df[decimal_time_col].max(), 500)
     y_norm_time = norm.pdf(x_values_time, mu, std)
@@ -147,21 +140,17 @@ def plot_date_time_distribution(df_1: pd.DataFrame,
     axs[0, 0].invert_xaxis()
     axs[0, 0].legend()
 
-    
+    # Remove ticks from side plots
     axs[0, 0].set_xticks([])
     axs[0, 0].set_yticks([])
     axs[1, 1].set_xticks([])
     axs[1, 1].set_yticks([])
 
-    
-    axs[1, 0].axis('off') 
+    # Hide the empty subplot
+    axs[1, 0].axis('off') # add bivarite normal? are date/time correlated? at normal break up dates, yes,in tails less so
 
-    plt.tight_layout()  
+    plt.tight_layout()  # Adjust layout to prevent overlapping
     return fig
-
-# %% [markdown]
-
-# %%
 
 fig = plot_date_time_distribution(fake_2025_predictions, 'Prediction', 'decimal time',
                             past_break_up_dates, 'Break up dates', 'decimal time',
@@ -169,5 +158,4 @@ fig = plot_date_time_distribution(fake_2025_predictions, 'Prediction', 'decimal 
                             title='Historic Breakup (with density estimates) and 2025 Predictions',
                             dayofyear=True);
 
-# %%
 fig.savefig('./2025_predictions.svg')
