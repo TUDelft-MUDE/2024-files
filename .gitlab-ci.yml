@@ -33,22 +33,18 @@ setup:
 sync_notebooks:
   stage: sync
   extends: .setup_env
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      changes:
+        - content/**/*
   script:
-    # Debug info
     - echo "Starting sync with pipeline variables:"
     - echo "CI_COMMIT_BRANCH:"" $CI_COMMIT_BRANCH"
     - echo "CI_PIPELINE_SOURCE:"" $CI_PIPELINE_SOURCE"
-    
-    # Clean up existing synced files directory
     - rm -rf synced_files
     - mkdir -p synced_files
-    
-    # Create a manifest of all notebooks in content directory
     - find ./content -name "*.ipynb" > notebooks_manifest.txt
-    
-    # Create an error log file
     - touch conversion_errors.log
-    
     - found_files=false
     - |
       while IFS= read -r notebook || [ -n "$notebook" ]; do
@@ -59,43 +55,28 @@ sync_notebooks:
           synced_dir="synced_files/$(dirname $relative_path)"
           mkdir -p "$synced_dir"
           
-          # Validate notebook JSON structure
           if python -c "import json; json.load(open('$notebook'));" 2>/dev/null; then
-            # Try conversion with error handling
-            if jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log && \
-               jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log && \
-               jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log && \
-               jupytext --to script "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb})_clean.py" 2>>conversion_errors.log; then
-              
-              # Additional cleaning of _clean.py files
-              clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
-              if [ -f "$clean_file" ]; then
-                # Remove jupytext header comments and any remaining commented code
-                sed -i '/^#/d' "$clean_file"
-                # Remove empty lines at start of file
-                sed -i '/./,$!d' "$clean_file"
-                # Remove multiple consecutive empty lines
-                sed -i '/^$/N;/^\n$/D' "$clean_file"
-                echo "Cleaned $clean_file"
-              fi
-              
-              echo "Successfully processed $notebook" >> conversion_errors.log
-            else
-              echo "Error processing $notebook - See conversion_errors.log for details" >&2
-              echo "Failed to convert $notebook" >> conversion_errors.log
+            jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log
+            jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log
+            jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log
+            
+            clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
+            jupytext --to py:percent "$notebook" -o "$clean_file" 2>>conversion_errors.log
+            
+            if [ -f "$clean_file" ]; then
+              awk '/^# ---/ {print; next} /^# %%/ {print; next} /^# %% \[markdown\]/ {in_markdown=1; print; next} in_markdown && /^#/ {print; next} /^# %%/ {in_markdown=0; next} {line=$0; output=""; in_string=0; quote=""; for(i=1;i<=length(line);i++) {char=substr(line,i,1); if(char=="\"" || char=="'\''") {if(!in_string) {in_string=1; quote=char} else if(quote==char) {in_string=0}} if(char=="#" && !in_string) {print substr(line,1,i-1); next}} print line}' "$clean_file" > "${clean_file}.tmp" && mv "${clean_file}.tmp" "$clean_file"
+              sed -i '/^[[:space:]]*$/N;/^\n$/D' "$clean_file"
+              echo "Created clean version of $notebook"
             fi
+            echo "Successfully processed $notebook" >> conversion_errors.log
           else
             echo "Invalid or corrupted notebook: $notebook" >> conversion_errors.log
             echo "Skipping invalid notebook: $notebook" >&2
           fi
         fi
       done < notebooks_manifest.txt
-
-    # Optimize notebook processing outside the loop
     - echo "Clearing notebook outputs..."
     - find synced_files -type f -name "*.ipynb" -exec jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace {} + || true
-    
-    # Final status check
     - |
       if [ "$found_files" = false ]; then
         echo "No notebooks found in content directory"
@@ -109,71 +90,6 @@ sync_notebooks:
         cat conversion_errors.log
         exit 1
       fi
-
-    - |
-      while IFS= read -r notebook || [ -n "$notebook" ]; do
-        if [ -f "$notebook" ]; then
-          found_files=true
-          echo "Processing $notebook"
-          relative_path=${notebook#./content/}
-          synced_dir="synced_files/$(dirname $relative_path)"
-          mkdir -p "$synced_dir"
-          
-          if python -c "import json; json.load(open('$notebook'));" 2>/dev/null; then
-            # Generate regular versions
-            jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log
-            jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log
-            jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log
-            
-            # Generate version without code comments
-            clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
-            jupytext --to py:percent "$notebook" -o "$clean_file" 2>>conversion_errors.log
-            
-            # Post-process clean file to remove only inline code comments
-            if [ -f "$clean_file" ]; then
-              awk '
-                # Keep cell markers and markdown
-                /^# ---/ {print; next}
-                /^# %%/ {print; next}
-                /^# %% \[markdown\]/ {in_markdown=1; print; next}
-                in_markdown && /^#/ {print; next}
-                /^# %%/ {in_markdown=0}
-
-                # Remove inline comments but keep the code
-                {
-                  # Split line at first # that is not part of a string
-                  in_string = 0
-                  quote = ""
-                  for(i=1; i<=length($0); i++) {
-                    c = substr($0,i,1)
-                    if(c == "\"" || c == "\"") {
-                      if(!in_string) {
-                        in_string = 1
-                        quote = c
-                      } else if(quote == c) {
-                        in_string = 0
-                      }
-                    }
-                    if(c == "#" && !in_string) {
-                      print substr($0,1,i-1)
-                      next
-                    }
-                  }
-                  print
-                }
-              ' "$clean_file" > "${clean_file}.tmp" && mv "${clean_file}.tmp" "$clean_file"
-              
-              # Remove extra blank lines
-              sed -i '/^[[:space:]]*$/N;/^\n$/D' "$clean_file"
-              
-              echo "Created comment-free version of $notebook"
-            fi
-          else
-            echo "Invalid or corrupted notebook: $notebook" >> conversion_errors.log
-            echo "Skipping invalid notebook: $notebook" >&2
-          fi
-        fi
-      done < notebooks_manifest.txt
   artifacts:
     paths:
       - synced_files/
