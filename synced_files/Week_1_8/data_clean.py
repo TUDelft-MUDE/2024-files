@@ -1,35 +1,16 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.4
-#   kernelspec:
-#     display_name: mude-week-8
-#     language: python
-#     name: python3
-# ---
-
 import numpy as np
 from scipy import stats
 import pyvinecopulib as pv
 import matplotlib.pyplot as plt
 import matplotlib
 
-
 data = np.array([[2.1, 2.6, 4.3, 3.8, 2.5, 4.7, 1.4, 1.9, 3.6, 3.1],
                  [5.1, 3.2, 7.2, 4.8, 6.5, 4.1, 2.4, 6.2, 6.9, 3.6]])
-
-
-# +
 
 labels = ['Settlement, $D$ [m]',
           'Sea Level Rise, $S$ [m]',
           'Observations of Coral Atolls']
 
-# plot data
 plt.scatter(data[0], data[1])
 plt.xlabel(labels[0])
 plt.ylabel(labels[1])
@@ -40,10 +21,8 @@ plt.xticks(np.arange(0, 11, 2))
 plt.yticks(np.arange(0, 11, 2))
 plt.grid(True)
 plt.gca().set_aspect('equal', adjustable='box')
-# plt.savefig('coral_atolls_data.svg')
 plt.show()
 
-# +
 threshold = [4, 6]
 mask = [(data[0]>threshold[0]) & (data[1]>threshold[1])]
 
@@ -60,9 +39,7 @@ plt.xticks(np.arange(0, 11, 2))
 plt.yticks(np.arange(0, 11, 2))
 plt.grid(True)
 plt.gca().set_aspect('equal', adjustable='box')
-# plt.savefig('coral_atolls_data_threshold.svg')
 plt.show()
-# -
 
 x_part = data[0] - data[0].mean()
 y_part = data[1] - data[1].mean()
@@ -106,7 +83,5 @@ plt.xticks(np.arange(0, 11, 2))
 plt.yticks(np.arange(0, 11, 2))
 plt.grid(True)
 plt.gca().set_aspect('equal', adjustable='box')
-# plt.savefig('coral_atolls_data_function.svg')
 plt.show()
-
 

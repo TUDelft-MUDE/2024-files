@@ -1,28 +1,8 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.4
-#   kernelspec:
-#     display_name: mude-week-8
-#     language: python
-#     name: python3
-# ---
-
 import numpy as np
 from scipy import stats
 import pyvinecopulib as pv
 import matplotlib.pyplot as plt
 import matplotlib
-
-
-# +
-
-
-
 
 def joint_exceedance(rho):
     x = [4, 6]
@@ -43,7 +23,6 @@ rho = np.linspace(-0.99, 0.99, 100)
 p = np.zeros(len(rho))
 for i, r in enumerate(rho):
     p[i] = joint_exceedance(r)
-
 
 plt.plot(rho, p)
 plt.plot(0,

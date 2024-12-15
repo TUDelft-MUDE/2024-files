@@ -1,25 +1,9 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.4
-#   kernelspec:
-#     display_name: mude-week-8
-#     language: python
-#     name: python3
-# ---
-
-# +
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
 
 from helper import plot_contour
 
-# +
 data = np.genfromtxt('data.csv', delimiter=";")
 data.shape
 
@@ -57,16 +41,12 @@ mean_vector = [data_x1.mean(), data_x2.mean()]
 cov_matrix = [[data_x1.std()**2, covariance],
               [covariance, data_x2.std()**2]]
 bivar_dist = st.multivariate_normal(mean_vector, cov_matrix)
-# -
 
 N = len(data_x1)
 print(f'Number of samples: {N}')
 samples = bivar_dist.rvs(N)
 sample_x1 = samples[:,0]
 sample_x2 = samples[:,1]
-
-# +
-# plot data and N samples from bivar_dist using a new plot
 
 fig, ax = plt.subplots()
 ax.scatter(data_x1, data_x2, label='Data',
@@ -83,9 +63,6 @@ ax.set_title('Data and Bivariate Distribution')
 plt.legend()
 plt.show()
 
-
-# -
-
 def test():
     x = 1
     y = 2
@@ -94,8 +71,6 @@ def test():
 a, b = test()
 print(type(a), type(b))
 
-
-# +
 def get_rho_quadrants(x1, x2):
     median_x1 = np.median(x1)
     median_x2 = np.median(x2)
@@ -124,14 +99,10 @@ print('\nSamples:')
 print('--------')
 rho_quadrants_samples = get_rho_quadrants(sample_x1, sample_x2)
 
-
-# +
 def get_cov_term(x1, x2):
     diff_1 = x1 - np.mean(x1)
     diff_2 = x2 - np.mean(x2)
     return diff_1*diff_2#/np.std(x1)/np.std(x2)
-
-
 
 cov_term_data = get_cov_term(data_x1, data_x2)
 
@@ -184,6 +155,4 @@ for i in range(2):
 
 plt.savefig('dependence_illustrated.svg')
 plt.show()
-# -
-
 

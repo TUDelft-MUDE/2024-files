@@ -1,19 +1,3 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.4
-#   kernelspec:
-#     display_name: Advanced_dynamics
-#     language: python
-#     name: python3
-# ---
-
-# +
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -21,29 +5,15 @@ import matplotlib.dates as mdates
 import datetime as dt
 from scipy.stats import norm,gaussian_kde
 
-#loading stuff
-
-# last_year_guesses = pd.read_csv("../data_files/MUDE_23-24_guesses.txt", sep='\t')
-# last_year_guesses['Predicted Break up'] = pd.to_datetime(last_year_guesses['Predicted Break up'], errors='coerce')
-# last_year_guesses['decimal time'] =last_year_guesses['Predicted Break up'].dt.hour +last_year_guesses['Predicted Break up'].dt.minute / 60
-# last_year_guesses.info()
-
 past_break_up_dates = pd.read_csv('./data/breakup_dates.csv')
 past_break_up_dates['Break up dates'] = pd.to_datetime(past_break_up_dates['Break up dates'], errors='coerce')
 past_break_up_dates['decimal time'] =past_break_up_dates['Break up dates'].dt.hour +past_break_up_dates['Break up dates'].dt.minute / 60
 past_break_up_dates.info()
 
-
 fake_2025_predictions = pd.read_csv('./data/mude_guesses.txt',sep='\t')
 fake_2025_predictions['Prediction'] = pd.to_datetime(fake_2025_predictions['Prediction'], errors='coerce')
 fake_2025_predictions['decimal time'] =fake_2025_predictions['Prediction'].dt.hour +fake_2025_predictions['Prediction'].dt.minute / 60
 fake_2025_predictions.info()
-
-
-
-# +
-
-
 
 def plot_date_time_distribution(df_1: pd.DataFrame,
                                 datetime_col_1: str,
@@ -119,7 +89,6 @@ def plot_date_time_distribution(df_1: pd.DataFrame,
 
     #axs[0, 1].set_ylim([0,24])
 
-
     # Density plot for datetime_col (Day of year or actual date) in position (1, 1)
     if dayofyear:
         x_fit_values = df[datetime_col].dt.dayofyear
@@ -182,11 +151,6 @@ def plot_date_time_distribution(df_1: pd.DataFrame,
     plt.tight_layout()  # Adjust layout to prevent overlapping
     return fig
 
-# -
-
-# > using the date MM/DD instead of dayofyear, the axis of the scatter and distribution are not align, fix this
-
-# if plot the historic break up dates we need to pass the day of the year as the x-axis otherwise, using the date makes the plt unreadable (dataa spams mulitple deades)
 fig = plot_date_time_distribution(fake_2025_predictions, 'Prediction', 'decimal time',
                             past_break_up_dates, 'Break up dates', 'decimal time',
                             estimator='mle',

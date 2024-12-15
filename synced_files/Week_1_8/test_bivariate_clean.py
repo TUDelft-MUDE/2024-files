@@ -1,22 +1,3 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.4
-#   kernelspec:
-#     display_name: mude-week-8
-#     language: python
-#     name: python3
-# ---
-
-# # Illustration `bivariate`
-#
-#
-
-# +
 import bivariate
 
 import pandas as pd
@@ -25,7 +6,6 @@ import matplotlib.pyplot as plt
 import pyvinecopulib as cop
 import scipy.stats as st
 
-# +
 X_1 = st.norm(loc=3, scale=1)
 X_2 = st.norm(loc=5, scale=1)
 
@@ -49,9 +29,6 @@ def underwater(X1,X2):
 X_class_A.function =  underwater
 X_class_A.inside_function()
 X_class_A.plot_inside_function();
-
-# +
-# define multivariate normal distribution
 
 X = st.multivariate_normal(mean=[3, 5],
                            cov=[[1, 0.5],
