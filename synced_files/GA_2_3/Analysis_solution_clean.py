@@ -1,11 +1,29 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown] id="0491cc69"
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-T_meas = 5
-f_s = 100 #sampling rate [Hz]
+# %% [markdown]
 
-t_vec = np.arange(0, T_meas, 1 / f_s) # ends at 4.99, length 500 according to the sample-and-hold convention
+# %% [markdown] id="0491cc69"
+
+# %%
+T_meas = 5
+f_s = 100 
+
+t_vec = np.arange(0, T_meas, 1 / f_s) 
 
 A = 1 
 f_c = 1 
@@ -19,10 +37,20 @@ plt.legend(loc='upper right')
 plt.title(fr'Sinusoidal signal with $A$={A} V, $f_c$={f_c} Hz and initial phase $\phi$={phi:.3f} °')
 plt.grid()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 T_meas = 5
 f_s = 100
 
-t_vec = np.arange(0, T_meas, 1/f_s) # ends at 4.99, length 500 according to the sample-and-hold convention
+t_vec = np.arange(0, T_meas, 1/f_s) 
 
 A = 1
 f_c = 1
@@ -53,10 +81,21 @@ plt.legend()
 
 print(f_vec[np.abs(X_cont)>0.1])
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 N = 100
 print(f'{N} floor divided by 2: {N//2}')
 print(f'{N+1} floor divided by 2: {(N+1)//2}')
 print(f'{N-1} floor divided by 2: {(N-1)//2}')
+
+# %% [markdown]
+
+# %%
 
 T_lst = [1, 5, 20]
 f_s = 100
@@ -89,10 +128,18 @@ for i, T_meas in enumerate(T_lst):
     plt.tight_layout()
 plt.legend();
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 T_meas = 5
 f_s = 100
 
-t_vec = np.arange(0, T_meas, 1/f_s) # ends at 4.99, length 500
+t_vec = np.arange(0, T_meas, 1/f_s) 
 
 A = 1
 f_c = 1
@@ -133,11 +180,21 @@ plt.tight_layout()
 plt.title('Amplitude spectrum')
 plt.legend();
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 f_s_lst = [110, 150, 160, 200]
 
 for f_s in f_s_lst:
     T_meas = 5
-    # f_s = 100
+    
     
     t_vec = np.arange(0, T_meas, 1/f_s)
     
@@ -177,6 +234,18 @@ for f_s in f_s_lst:
     plt.grid()
     plt.tight_layout()
     plt.legend()
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 T_meas = 50
 f_s = 100
@@ -221,10 +290,22 @@ plt.legend()
 
 print(f_vec[np.argmax(np.abs(X_cont))])
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 df = pd.read_csv('cantileverbeam_acc50Hz.csv', header=0)
 
-t = np.array(df['time']) #
-dat = np.array(df['acceleration']) #
+t = np.array(df['time']) 
+dat = np.array(df['acceleration']) 
 
 N = len(t)
 
@@ -250,6 +331,12 @@ plt.ylabel('detrended accelerations [m/s2]')
 plt.title('Detrended vertical cantilever beam acceleration')
 plt.legend();
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 Fs = 1 / dt
 f0 = 1 / T
 print(Fs)
@@ -268,8 +355,17 @@ plt.ylabel('PSD [m2/s4/Hz]')
 plt.title('Power Spectral Density (PSD)')
 plt.legend();
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 data = pd.read_csv('CSIRO_Alt_seas_inc.txt', names=['month', 'sl'])
 data.head()
+
+# %%
 
 t = data.iloc[:, 0] - data.iloc[0, 0]
 
@@ -287,6 +383,10 @@ plt.ylabel('sea-level height [mm]')
 plt.title('Global Mean Sea-Level (GMSL) rise')
 plt.legend();
 
+# %% [markdown]
+
+# %%
+
 A = np.ones((N, 2))
 A[:,1] = t
 
@@ -302,6 +402,8 @@ plt.ylabel('detrended sea-level height [mm]')
 plt.title('Detrened Global Mean Sea-Level')
 plt.legend()
 
+# %%
+
 Fs = 1 / dt
 
 NFFT = N
@@ -310,11 +412,19 @@ X = dt * np.fft.fft(ehat, NFFT)
 
 f0 = 1 / (NFFT * dt)
 
-f = np.concatenate((np.arange(-Fs / 2 + f0 / 2, 0, f0), np.arange(0, Fs / 2 , f0))) #- f0 / 4 
+f = np.concatenate((np.arange(-Fs / 2 + f0 / 2, 0, f0), np.arange(0, Fs / 2 , f0))) 
 
 plt.plot(f, np.fft.fftshift((abs(X))**2 / T), color='b', label='psd')
 plt.xlabel(r'frequency [$yr^{-1}$]')
 plt.ylabel(r'PSD [$mm^2$ yr]')
 plt.title('Power Spectral Density of GMSL data')
 plt.legend();
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
 

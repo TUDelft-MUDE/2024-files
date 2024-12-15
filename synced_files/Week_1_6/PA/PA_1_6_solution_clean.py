@@ -1,6 +1,24 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
+# %% [markdown]
+
+# %%
 A = [[1, 2, 1, 1],
      [2, 3, 2, 2],
      [1, 2, 1, 1],
@@ -9,9 +27,20 @@ A = [[1, 2, 1, 1],
 plt.matshow(A)
 plt.show()
 
+# %% [markdown]
+
+# %%
 A = np.random.rand(100, 100)
 plt.matshow(A)
 plt.show()
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 print('Part 1:')
 [print(i) for i in range(6)]
@@ -19,10 +48,18 @@ print('Part 1:')
 print('Part 2:')
 [print(i) for i in range(2, 11, 2)]
 
+# %% [markdown]
+
+# %%
+
 A = np.ones((3,3))
 
 assert np.all(A==1)
 assert A.shape==(3, 3)
+
+# %% [markdown]
+
+# %%
 
 A = np.zeros((3,3))
 np.fill_diagonal(A, 3)
@@ -30,6 +67,10 @@ np.fill_diagonal(A, 3)
 assert np.all(A.diagonal()==3)
 assert A.sum()==9
 assert A.shape==(3, 3)
+
+# %% [markdown]
+
+# %%
 
 A = np.zeros((10,10))
 A[range(1, 10, 2), range(1, 10, 2)] = 1
@@ -42,6 +83,12 @@ assert A.sum()==5
 assert np.sum(A==1)==5
 assert np.sum(A==0)==95
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 A = np.zeros((5, 5))
 np.fill_diagonal(A, 5)
 A[range(4), range(1, 5)] = 1
@@ -53,6 +100,12 @@ plt.show()
 assert A.shape==(5, 5)
 assert A.sum()==(5*5 + 2*4)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 A = np.zeros((10, 10))
 for i in range(0, 10, 2):
     A[i, range(0, 10, 2)] = 1
@@ -63,7 +116,18 @@ plt.show()
 assert A.shape==(10, 10)
 assert A.sum()==25
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 help(np.arange)
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 x = np.arange(6)
 print('Part 1:')
@@ -78,4 +142,8 @@ print('Part 2:')
 
 assert type(x) == np.ndarray
 assert np.all(x == [2, 4, 6, 8, 10])
+
+# %% [markdown]
+
+# %% [markdown]
 

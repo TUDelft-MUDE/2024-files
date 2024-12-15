@@ -1,3 +1,12 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import matplotlib.pylab as plt
 import pandas as pd
@@ -9,6 +18,9 @@ data_2021 = data.loc['2021']
 h_ice = (data_2021.to_numpy()).ravel()
 t_days = ((data_2021.index - data_2021.index[0]).days).to_numpy()
 
+# %% [markdown]
+
+# %%
 x = t_days
 y = h_ice
 
@@ -17,6 +29,7 @@ coefficients = np.polyfit(x, y, degree)
 polynomial = np.poly1d(coefficients)
 x_fit = np.linspace(0, 100, 100)
 y_fit = polynomial(x_fit)
+
 derivative = polynomial.deriv()
 y_derivative = derivative(x_fit)
 
@@ -30,11 +43,16 @@ plt.legend()
 plt.grid()
 plt.show()
 
+# %%
+
 dh_dt_FD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 dh_dt_BD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 dh_dt_CD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 
+# %%
+
 fig, ax1 = plt.subplots(figsize=(15, 4))
+
 ax1.plot(x_fit, y_derivative, label='Derivative', color='magenta')
 ax1.set_ylabel('growth rate [m/day]', color='magenta')
 ax1.tick_params(axis='y', labelcolor='magenta')
@@ -52,15 +70,20 @@ ax2.set_ylabel('Ice Thickness [m]', color='green')
 ax2.tick_params(axis='y', labelcolor='green')
 
 plt.title('Ice thickness (2021)')
-fig.tight_layout()  # Adjust layout to prevent overlap
+fig.tight_layout()  
 ax1.legend(loc='upper left')
 ax2.legend(loc='upper right')
 ax1.set_xlabel('Day of year')
 plt.show()
 
-num_samples = 6 # 
+# %% [markdown]
 
-np.random.seed(13)  #setting seed
+# %% [markdown]
+
+# %%
+num_samples = 6 
+
+np.random.seed(13)  
 indices = np.random.choice(len(x_fit), size=num_samples, replace=False)
 sampled_t_days = x_fit[indices]
 sampled_h_ice = y_fit[indices]
@@ -78,11 +101,18 @@ plt.title('Randomly Sampled Points from Fitted polynomial')
 plt.legend()
 plt.show()
 
+# %% [markdown]
+
+# %%
+
 dh_dt_FD_sampled_from_fit = (sampled_h_ice[1:]-sampled_h_ice[:-1])/(sampled_t_days[1:]-sampled_t_days[:-1]) 
 dh_dt_BD_sampled_from_fit = (sampled_h_ice[1:]-sampled_h_ice[:-1])/(sampled_t_days[1:]-sampled_t_days[:-1]) 
 dh_dt_CD_sampled_from_fit = (sampled_h_ice[1:]-sampled_h_ice[:-1])/(sampled_t_days[1:]-sampled_t_days[:-1]) 
 
+# %%
+
 fig, ax1 = plt.subplots(figsize=(15, 4))
+
 ax1.plot(x_fit, y_derivative, label='Derivative', color='magenta')
 ax1.set_ylabel('growth rate [m/days]', color='magenta')
 ax1.tick_params(axis='y', labelcolor='magenta')
@@ -110,6 +140,12 @@ plt.show()
 plt.show()
 fig.savefig('central_diff_illustration.svg')
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 estimated_h_ice_FD = [h_ice[0]]  
 estimated_h_ice_BD = [h_ice[0]]  
 estimated_h_ice_CD = [h_ice[1]]  
@@ -118,4 +154,8 @@ for i in range(1, len(t_days) - 1):
     delta_t = t_days[i] - t_days[i-1]
     next_point_FD = estimated_h_ice_FD[-1] + dh_dt_FD[i-1] * delta_t
     estimated_h_ice_FD.append(next_point_FD)
+
+# %% [markdown]
+
+# %% [markdown]
 

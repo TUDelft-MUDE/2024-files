@@ -1,28 +1,71 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 data = YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %%
 X = YOUR_CODE_HERE
 Y = YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 rng = np.random.default_rng()
 print(type(rng))
 rng.random()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 print('integers:', rng.integers(5))
 print('random:', rng.random(5))
 print('choice:', rng.choice(np.array(5)))
 print('bytes:', rng.bytes(5))
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 rng = np.random.default_rng(seed=14)
 print('integers:', rng.integers(5))
 print('random:', rng.random(5))
 print('choice:', rng.choice(np.array(5)))
 print('bytes:', rng.bytes(5))
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 test_array_length = 5
 test_array = rng.integers(low=100, high=200, size=test_array_length)
@@ -32,6 +75,15 @@ random_indices = YOUR_CODE_HERE
 print('The randomized indices are:', random_indices)
 print('The randomized array becomes:', test_array[random_indices])
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 def split_data(X, Y, proportions):
     """Split input and output into 3 subsets for ML model.
 
@@ -56,29 +108,35 @@ def split_data(X, Y, proportions):
     assert YOUR_CODE_HERE, "Contract broken: sum of proportions should be one"
     assert YOUR_CODE_HERE, "Contract broken: X and Y arrays must have same dimensions"
 
-    # Do not modify this line:
+    
     np.random.default_rng(seed=42)
 
-    # Shuffle data using random permutation of indices 
+    
     indices = YOUR_CODE_HERE
 
-    # Create shuffled training, validation and test sets
-    YOUR_CODE_HERE # way more than one line!
+    
+    YOUR_CODE_HERE 
 
     assert YOUR_CODE_HERE, "Contract broken: generated datasets don't have same accumulated length as original"
     
     return X_train, X_val, X_test, Y_train, Y_val, Y_test
 
+# %% [markdown]
+
+# %%
 split_proportions = YOUR_CODE_HERE
 (X_train, X_val, X_test,
  Y_train, Y_val, Y_test) = split_data(YOUR_CODE_HERE)
 
+# %% [markdown]
+
+# %%
 def plot_allocation(X, Y,
                     X_train, X_val, X_test,
                     Y_train, Y_val, Y_test):
 
     set_of_X_and_Y = np.hstack((X,Y.reshape((100,1))))
-    # use many (arbitrary) columns to make plot wider
+    
     which_set_am_i = np.zeros((len(Y), 75))
     
     for i in range(len(X_train)):
@@ -108,4 +166,6 @@ def plot_allocation(X, Y,
 plot_allocation(X, Y,
                 X_train, X_val, X_test,
                 Y_train, Y_val, Y_test)
+
+# %% [markdown]
 

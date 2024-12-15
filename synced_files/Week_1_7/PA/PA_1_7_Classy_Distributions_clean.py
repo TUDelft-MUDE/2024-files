@@ -1,3 +1,14 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 class Person:
     def __init__(self, name):
         self.name = name
@@ -26,6 +37,7 @@ def greet_person(person):
     person.say_hello()
     print(f"Hey {person.name}!")
 
+# %%
 james = Person("James")
 james.say_hello()
 print()
@@ -39,6 +51,14 @@ philip = Friend("Philip")
 greet_person(philip)
 print()
 greet_person(emma)
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 import scipy.stats
 import numpy as np
@@ -71,12 +91,27 @@ def plot_distribution(distribution, x_bounds = (-5, 5), function="pdf"):
     
     return x_axis, y_axis
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 distribution = scipy.stats.norm(loc = 1)
 x_axis, y_axis = plot_distribution(distribution)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 distribution = scipy.stats.uniform(YOUR_CODE_HERE)
 x_axis, y_axis = plot_distribution(distribution)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 class new_distribution(YOUR_CODE_HERE):
     """ A new piece-wise distribution."""
     
@@ -86,14 +121,24 @@ class new_distribution(YOUR_CODE_HERE):
             2(x - 5) when 5 < x < 5.8
         """
 
-        YOUR_CODE_HERE # MORE THAN ONE LINE!
+        YOUR_CODE_HERE 
         
         return YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %%
 import warnings
 warnings.simplefilter("ignore")
 
+# %% [markdown]
+
+# %%
 plot_distribution(YOUR_CODE_HERE, x_bounds = (0, 6))
 plot_distribution(YOUR_CODE_HERE, x_bounds = (0, 6), function="cdf")
 print()
+
+# %% [markdown]
+
+# %% [markdown]
 

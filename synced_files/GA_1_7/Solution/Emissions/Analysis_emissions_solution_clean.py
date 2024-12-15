@@ -1,3 +1,14 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown] id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945"
+
+# %% [markdown] id="d33f1148-c72b-4c7e-bca7-45973b2570c5"
+
+# %% id="4fc6e87d-c66e-43df-a937-e969acc409f8"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -5,6 +16,12 @@ from scipy import stats
 from math import ceil, trunc
 
 plt.rcParams.update({'font.size': 14})
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 C, H = np.genfromtxt('dataset_traffic.csv', delimiter=",", unpack=True, skip_header=True)
 
@@ -19,17 +36,33 @@ ax[1].set_xlabel('Time')
 ax[1].set_ylabel('Number of cars, C')
 ax[1].grid()
 
+# %%
+
 print(stats.describe(H))
 stats.describe(H).mean
 
+# %%
+
 print(stats.describe(C))
 
+# %% [markdown] id="bfadcf3f-4578-4809-acdb-625ab3a71f27"
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 def ecdf(var):
-    x = np.sort(var) # sort the values from small to large
-    n = x.size # determine the number of datapoints
+    x = np.sort(var) 
+    n = x.size 
     y = np.arange(1, n+1) / (n+1)
     return [y, x]
 
+# %%
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 axes[0].hist(H, edgecolor='k', linewidth=0.2, 
              color='cornflowerblue', label='Number of heavy vehicles, H', density = True)
@@ -51,8 +84,23 @@ axes[1].set_title('CDF', fontsize=18)
 axes[1].legend()
 axes[1].grid()
 
+# %% [markdown] id="bfadcf3f-4578-4809-acdb-625ab3a71f27"
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 params_H = stats.norm.fit(H)
 params_C = stats.uniform.fit(C)
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
@@ -78,6 +126,8 @@ axes[1].set_yscale('log')
 axes[1].legend()
 axes[1].grid()
 
+# %%
+
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 axes[0].plot([trunc(min(H)), ceil(max(H))], [trunc(min(H)), ceil(max(H))], 'k')
@@ -102,11 +152,23 @@ axes[1].set_ylim([trunc(min(C)), ceil(max(C))])
 axes[1].legend()
 axes[1].grid()
 
+# %%
+
 _, p_H = stats.kstest(H,stats.norm.cdf, args=params_H)
 _, p_C = stats.kstest(C,stats.uniform.cdf, args=params_C)
 
 print('The p-value for the fitted Gaussian distribution to H is:', round(p_H, 3))
 print('The p-value for the fitted Uniform distribution to C is:', round(p_C, 3))
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 rs_H = stats.norm.rvs(*params_H, size = 10000)
 rs_C = stats.uniform.rvs(*params_C, size = 10000)
@@ -134,6 +196,13 @@ axes[1].set_yscale('log')
 axes[1].legend()
 axes[1].grid()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 fig, axes = plt.subplots(1, 1, figsize=(7, 7))
 axes.scatter(rs_H, rs_C, 40, 'k', label = 'Simulations')
 axes.scatter(H, C, 40, 'r','x', label = 'Observations')
@@ -142,8 +211,14 @@ axes.set_ylabel('Number of cars, C')
 axes.legend()
 axes.grid()
 
+# %%
+
 correl = stats.pearsonr(H, C)
 correl_rs = stats.pearsonr(rs_H, rs_C)
 print('The correlation between the observations is:', correl[0])
 print('The correlation between the simulations is:', correl_rs[0])
+
+# %% [markdown]
+
+# %% [markdown]
 

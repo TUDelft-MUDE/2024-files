@@ -1,9 +1,21 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
 from scipy.stats import chi2
 from scipy.signal import periodogram
 
+# %%
 data = np.loadtxt('atm_data.txt', delimiter=',')
 time = data[:, 0]
 data = data[:, 1]
@@ -18,6 +30,15 @@ plt.ylabel('Atmospheric Pressure [hPa]')
 plt.title('2 year of atmospheric pressure data')
 plt.grid(True)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 def fit_model(data, time, A, plot=False):
     '''
     Function to find the least squares solution of the data
@@ -27,15 +48,15 @@ def fit_model(data, time, A, plot=False):
     plot: boolean to plot the results or not
     '''
 
-    # x_hat = YOUR_CODE_HERE # least squares solution
-    # y_hat = YOUR_CODE_HERE # model prediction
-    # e_hat = YOUR_CODE_HERE # residuals
+    
+    
+    
 
-    # SOLUTION
+    
     x_hat = np.linalg.solve(A.T @ A, A.T @ data)
     y_hat = A @ x_hat
     e_hat = data - y_hat
-    # END SOLUTION BLOCK
+    
 
     if plot:
         plt.figure(figsize=(10, 5))
@@ -67,34 +88,34 @@ def find_frequency(data, time, A, fs, plot=True):
     fs: sampling frequency
     plot: boolean to plot the psd or not
     '''
-    # Detrending the data
+    
     _, _, e_hat= fit_model(data, time, A)
 
     N = len(data)
 
-    # Finding the dominant frequency in e_hat
-    # freqs, pxx = periodogram(YOUR_CODE_HERE, fs=YOUR_CODE_HERE, window='boxcar',
-    #                          nfft=N, return_onesided=False,
-    #                          scaling='density')
     
-    # SOLUTION
-    # Finding the dominant frequency in e_hat
+    
+    
+    
+    
+    
+    
     freqs, pxx = periodogram(e_hat, fs=fs, window='boxcar',
                              nfft=N, return_onesided=False,
                              scaling='density')
-    # END SOLUTION BLOCK
+    
 
-    # finding the dominant frequency and amplitude
-    # Note: there are many ways to do this
-    # amplitude = YOUR_CODE_HERE # Amplitude of the dominant frequency
-    # dominant_frequency = YOUR_CODE_HERE # Dominant frequency
+    
+    
+    
+    
 
-    # SOLUTION
-    # finding the dominant frequency and amplitude
+    
+    
     dominant_frequency, amplitude = freqs[np.argmax(pxx)], np.max(pxx)
-    # END SOLUTION BLOCK
+    
 
-    # Plotting the PSD
+    
     if plot:
         plt.figure(figsize=(10, 5))
         plt.subplot(211)
@@ -116,18 +137,55 @@ def find_frequency(data, time, A, fs, plot=True):
 
     return dominant_frequency
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 A = np.column_stack((np.ones(len(data)), time))
 dom_f = find_frequency(data, time, A, fs)
 print(f'Dominant Frequency: {dom_f*365:.3f} cycle/year')
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 A2 = np.column_stack((A, np.cos(2*np.pi*dom_f*time), np.sin(2*np.pi*dom_f*time)))
 dom_f2 = find_frequency(data, time, A2, fs)
 print(f'Dominant Frequency: {dom_f2:.3f} cycle/day')
 
+# %%
+
 A3 = np.column_stack((A2, np.cos(2*np.pi*dom_f2*time), np.sin(2*np.pi*dom_f2*time)))
 dom_f3 = find_frequency(data, time, A3, fs)
 print(f'Dominant Frequency: {dom_f3:.3f} cycle/day')
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 def rewrite_seasonal_comp(ak, bk):
     '''
     Function to rewrite the seasonal component in terms of sin and cos
@@ -159,11 +217,37 @@ for a, b, f in zip(a_i, b_i, freqs):
     i = i + 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(e_hat, ax=ax, lags=20);
 ax.set_xlabel('Lags [days]')
 ax.grid()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 def AR1(s, time, plot=True):
     '''
     Function to find the AR(1) model of the given data
@@ -181,7 +265,7 @@ def AR1(s, time, plot=True):
         plt.xlabel('Time [days]')
         plt.ylabel('Atmospheric Pressure [hPa]')
         plt.title('Original Data vs Estimated Data')
-        # plt.xlim([0, 100]) # uncomment this line to zoom in, for better visualization
+        
         plt.grid(True)
         plt.legend()
 
@@ -190,11 +274,28 @@ def AR1(s, time, plot=True):
 
     return x_hat, e_hat
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 _, e_hat2 = AR1(e_hat, time[1:])
 
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(e_hat2, ax=ax, lags=20);
 ax.grid()
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 A_final = np.column_stack((A[1:,:], e_hat[:-1]))
 x_hat, y_hat, e_hat_final = fit_model(data[1:], time[1:], A_final, plot=True)
@@ -221,4 +322,8 @@ for a, b, f in zip(a_i, b_i, freqs):
     A_i, theta_i = rewrite_seasonal_comp(a, b)
     i = i + 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
+
+# %% [markdown]
+
+# %% [markdown]
 

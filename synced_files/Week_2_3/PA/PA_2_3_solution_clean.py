@@ -1,36 +1,85 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 
+# %% [markdown]
+
+# %%
 team = ['green', 'red', 'blue']
 score = [5, 9, 7]
 
+# %% [markdown]
+
+# %%
 N_teams = len(team)
 print('The team names are:')
 for i in range(N_teams):
     print(f'{team[i]}')
 
+# %% [markdown]
+
+# %%
 iter(team)
 
+# %% [markdown]
+
+# %%
 iter(np.array([1, 5, 67]))
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 iter([5])
 iter('5')
 iter(np.array([5]))
 
+# %% [markdown]
+
+# %%
 letters = 'abcde'
 letter_iterator = iter(letters)
 
+# %% [markdown]
+
+# %%
 next(letter_iterator)
 
+# %% [markdown]
+
+# %%
 for i in letters:
     print(i)
 
+# %% [markdown]
+
+# %%
 print(type(range(5)))
 print(range(5))
 
+# %% [markdown]
+
+# %%
 for i in range(5):
     print(i)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 thing_1 = 'roberts_string'
 thing_2 = [2, 3, 36, 3., 1., 's', 7, '3']
 
@@ -42,6 +91,9 @@ test_2 = zip(thing_1, thing_2)
 print(f'We created: {test_2}')
 print(next(test_2), next(test_2), next(test_2))
 
+# %% [markdown]
+
+# %%
 print('First, enumerate:')
 for i, j in enumerate(thing_1):
     print(i, j)
@@ -49,11 +101,23 @@ print('\nThen, zip:')
 for i, j in zip(thing_1, thing_2):
     print(i, j)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 team = ['green', 'red', 'blue']
 score = [5, 9, 7]
 
 for i, j in enumerate(score):
     print(f'Team {team[i]} has {j} points.')
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 team = ['green', 'red', 'blue']
 score = [5, 9, 7]
@@ -61,21 +125,43 @@ score = [5, 9, 7]
 for i, j in zip(team, score):
     print(f'Team {i} has {j} points.')
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 print(6 % 5)
 print(5 % 6)
 print(1 % 10)
 print(5 % 5)
 print(0 % 5)
 
+# %% [markdown]
+
+# %%
 for i in range(100):
     if i%25 == 0:
         print(i)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 value = [2, 7, 5, 1, 8]
 index = [0, 2, 2, 6, 4]
 plt.plot(index, value, 'o')
 plt.stem(index, value);
 
+# %% [markdown]
+
+# %%
 year = [2003, 2011, 2013,
         2006, 2022,
         2017, 2019, 2001, 2010, 2015,
@@ -107,6 +193,13 @@ site = ['Japan, Hokkaidō',
         'Indonesia, Simeulue',
         'Indonesia, Sumatra']
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 plt.plot(year, magn, 'o')
 plt.stem(year, magn)
 
@@ -114,7 +207,7 @@ for x, y, z in zip(year, magn, site):
     if x%5 == 0:
         label = f"M_w = {y} in {x} at {z}"
         plt.annotate(label, 
-                     (x,y), # these are the coordinates to position the label
+                     (x,y), 
                      textcoords="offset points", 
                      xytext=(15,50),
                      fontsize=8,
@@ -126,5 +219,7 @@ plt.ylim(5,15)
 plt.xlabel('Year of Earthquake')
 plt.ylabel('Magnitude of Earthquake')
 plt.title('Biggest earthquakes each year since 2000 on Ring of Fire');
-plt.savefig('my_earthquake.svg') # Don't remove this line
+plt.savefig('my_earthquake.svg') 
+
+# %% [markdown]
 

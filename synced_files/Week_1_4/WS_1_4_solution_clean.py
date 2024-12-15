@@ -1,3 +1,14 @@
+# ---
+
+# ---
+
+# %% [markdown] id="c-kJ0rgzjVsW"
+
+# %% [markdown] id="taoAYUNojl6N"
+
+# %% [markdown] id="aGZfDs4VT3DM"
+
+# %% id="mX0dfGBuM554"
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy.linalg import inv
@@ -5,6 +16,11 @@ from scipy.stats.distributions import chi2
 
 plt.rcParams.update({'font.size': 14})
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% id="GdsnT_0CM_6E"
 def compute_y(x, times:list, rain):
     '''Functional model, q: response due to rain event.
     
@@ -25,6 +41,14 @@ def compute_y(x, times:list, rain):
          )
     return h
 
+# %% [markdown]
+
+# %% [markdown] id="4IEjIQSAT78k"
+
+# %% [markdown]
+
+# %% colab={"base_uri": "https://localhost:8080/", "height": 388} id="b7yhBLzeNiz9" outputId="00cee52d-4b12-497e-f01a-fa6781a80716"
+
 d = 0
 a = 1
 r = 100
@@ -39,6 +63,9 @@ plt.ylabel('Water level [m]')
 plt.xlim([0, test_n_days])
 plt.ylim([0, 5]);
 
+# %% [markdown] id="wnp2SL3dj0on"
+
+# %% colab={"base_uri": "https://localhost:8080/", "height": 388} id="vf3rJinfNk7E" outputId="c54d2671-9026-46e9-a682-af950e93e5ce"
 n_days = 25
 y = np.genfromtxt('./data/well_levels.csv' , delimiter=" ,")
 times = np.arange(1, n_days+1, 1)
@@ -48,6 +75,13 @@ plt.plot(times, y,'co', mec='black')
 plt.xlabel('Time [days]')
 plt.ylabel('Waterlevel [m]');
 
+# %% [markdown] id="SPXDSa9AkFkY"
+
+# %% [markdown] id="1-REMPFykGZi"
+
+# %% [markdown]
+
+# %%
 def jacobian(x, times, rain):
     '''Compute Jacobian of the functional model.
     
@@ -61,10 +95,11 @@ def jacobian(x, times, rain):
              (partial derivatives w.r.t. d, a, and r)
     '''
 
-    # dqdd = YOUR_CODE_HERE
-    # dqda = YOUR_CODE_HERE
-    # dqdr = YOUR_CODE_HERE
-    # J = YOUR_CODE_HERE
+    
+    
+    
+    
+
 
     dqdd = np.ones(len(times))
     dqda = (rain[0]*x[2]*( (times - rain[2])
@@ -84,6 +119,10 @@ def jacobian(x, times, rain):
     J = np.column_stack((dqdd, dqda, dqdr))
     return J
 
+# %% [markdown] id="MfBggMEPkQyZ"
+
+# %% colab={"base_uri": "https://localhost:8080/"} id="cEpsjuu6SieA" outputId="69153730-f039-4fe2-f2e2-b0fdf410484e"
+
 d_init = y[0]
 a_init = 1
 r_init = 3
@@ -95,7 +134,7 @@ var_Y = sigma**2
 inv_Sigma_Y = 1/var_Y * np.eye(len(y))
 
 max_iter = 50
-x_norm = 10000  # initialize stop criteria (norm of x)
+x_norm = 10000  
 
 param_init = np.array([d_init, a_init, r_init])
 x_hat_i = np.zeros((3, max_iter))
@@ -108,27 +147,31 @@ while x_norm >= 1e-12 and iteration < max_iter - 1:
 
     y_comp_i = compute_y(x_hat_i[:, iteration], times, rain_event)
     
-    # Delta_y_i = YOUR_CODE_HERE
-    # SOLUTION:
+    
+    
     Delta_y_i = y - y_comp_i
     
     J_i = jacobian(x_hat_i[:, iteration], times, rain_event)
     N_i = J_i.T @ inv_Sigma_Y @ J_i
     
-    # Delta_x_hat_i = YOUR_CODE_HERE
-    # SOLUTION:
+    
+    
     Delta_x_hat_i = np.linalg.inv(N_i) @ J_i.T @ inv_Sigma_Y @ Delta_y_i
     
     x_hat_i[:, iteration+1] = x_hat_i[:, iteration] + Delta_x_hat_i
 
-    # x_norm = YOUR_CODE_HERE
-    # SOLUTION:
+    
+    
     x_norm = Delta_x_hat_i.T @ N_i @ Delta_x_hat_i
 
     iteration += 1
 
     if iteration == max_iter - 1:
         print("Number of iterations too large, check initial values.")
+
+# %% [markdown]
+
+# %%
 
 print('Initial estimates:')
 print(f'base level [m]:\t\t {round(x_hat_i[0, 0], 4)}')
@@ -144,6 +187,10 @@ n_par = np.shape(J_i)[1]
 print(f'\nNumber of unknowns:\t {n_par}')
 print(f'Number of observations:\t {n_days}')
 print(f'Redundancy:\t\t {n_days - n_par}')
+
+# %% [markdown]
+
+# %%
 
 y_hat = compute_y((x_hat_i[0, iteration],
                    x_hat_i[1, iteration],
@@ -161,6 +208,11 @@ plt.legend()
 plt.xlabel('Time [days]')
 plt.ylabel('Water level [m]');
 
+# %% [markdown] id="KXE88mjeOzOn"
+
+# %% [markdown]
+
+# %% colab={"base_uri": "https://localhost:8080/", "height": 295} id="BagNJunEO16L" outputId="c09ec592-56e3-4f85-cc59-ceebccaed400"
 params = ['d', 'a', 'r']
 fig, ax = plt.subplots(1,3, figsize=(16,4))
 plt.subplots_adjust(wspace=0.35)
@@ -170,6 +222,15 @@ for i in range(3):
     ax[i].set_xlabel(f'Number of iterations')
     ax[i].set_ylabel(f'{params[i]}')
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 e_hat = y - y_hat
 Tq = e_hat.T @ inv_Sigma_Y @ e_hat
 
@@ -183,4 +244,10 @@ if Tq < k:
     print(f"(T = {Tq:.1f}) < (K = {k:.1f}), OMT is accepted.")
 else:
     print(f"(T = {Tq:.1f}) > (K = {k:.1f}), OMT is rejected.")
+
+# %% [markdown] id="MfBggMEPkQyZ"
+
+# %% [markdown]
+
+# %% [markdown]
 

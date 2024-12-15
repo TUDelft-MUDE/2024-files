@@ -1,3 +1,16 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -39,6 +52,9 @@ def plotMesh(nodes, connectivity):
 nodes, connectivity = readGmsh('bigM.msh')
 plotMesh(nodes, connectivity)
 
+# %% [markdown]
+
+# %%
 from scipy import sparse
 from scipy.sparse import linalg
 
@@ -53,7 +69,7 @@ def get_shape_functions_T3( n1, n2, n3 ):
     coordinate_Matrix[2, 1] = n3[0]
     coordinate_Matrix[2, 2] = n3[1]
     
-    # Work out constants C1, C1 and C3 for the shape function relative to each node
+    
     c_inv = np.linalg.inv(coordinate_Matrix)
     coeffs[0] = np.dot(c_inv, (1,0,0))
     coeffs[1] = np.dot(c_inv, (0,1,0))
@@ -68,7 +84,7 @@ def get_B_matrix(n1, n2, n3):
     return np.array(B_matrix)
 
 def get_area(n1, n2, n3):
-    # Defining two vectors spanning the total area
+    
     u = n3[0:2]-n1[0:2]
     v = n2[0:2]-n1[0:2]
   
@@ -115,16 +131,17 @@ def get_element_M(n1, n2, n3):
     M_el = np.zeros((3,3))
     element_area = get_area(n1, n2, n3)    
     
-    # Define 3-point integration scheme
+    
     integration_locations = [(n1+n2)/2,  (n2+n3)/2,  (n3+n1)/2]
     integration_weights = [element_area/3, element_area/3, element_area/3]
     
-    # Loop over integration points and add contribution to local M matrix
+    
     for x_ip, w_ip in zip(integration_locations, integration_weights):
         N_local = evaluate_N_matrix(x_ip, n1, n2, n3)
         M_el += np.dot(np.transpose(N_local), N_local)*w_ip
     return M_el
     
+
 def get_global_M(nodes, connectivity, n_elem):
     n_DOF = len(nodes)
     M = np.zeros((n_DOF, n_DOF))
@@ -135,6 +152,10 @@ def get_global_M(nodes, connectivity, n_elem):
         M[np.ix_(elnodes,elnodes)] += M_el
 
     return M
+
+# %% [markdown]
+
+# %%
 
 dt = 0.005
 nt = 500
@@ -180,6 +201,12 @@ for i in range(nt):
     ff = fmod[free_nodes] - Kmodfp.dot(us[i+1, constrained_nodes])
     us[i+1, free_nodes] = solver(ff)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 from ipywidgets import interact, fixed, widgets
 from matplotlib import colors
 from matplotlib import cm
@@ -188,20 +215,20 @@ def plot_result(nodes, result, x_lim, y_lim):
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
     
-    # Set the color limits to get the right scale of our color-plot
+    
     norm = colors.Normalize(vmin=8, vmax=52)
     
-    # For each element draw a triangular surface
+    
     x = nodes[:,0]
     y = nodes[:,1]
     ax.plot_trisurf(x, y, result, triangles=connectivity, norm=norm, cmap = cm.coolwarm)
     
-    # Set the axis limits
+    
     ax.set_ylim(y_lim)
     ax.set_xlim(x_lim)
     ax.set_zlim((0, 55))
     
-    # Set the data of the colorbar indicating the different temperatures
+    
     cmap = cm.ScalarMappable(norm = colors.Normalize(8, 52), cmap = cm.coolwarm)
     cmap.set_array(result)
     fig.colorbar(cmap, ax=ax)
@@ -209,6 +236,8 @@ def plot_result(nodes, result, x_lim, y_lim):
 time_step = 5
 
 plot_result(nodes, us[time_step], (min_x, max_x), (min_x,max_x))
+
+# %%
 
 from ipywidgets import interact, fixed, widgets
 from matplotlib import colors
@@ -218,21 +247,21 @@ def plot_result3d(nodes, conn, results, step):
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
     
-    # Set the color limits to get the right scale of our color-plot
+    
     norm = colors.Normalize(vmin=8, vmax=52)
     
-    # For each element draw a triangular surface
+    
     x = nodes[:,0]
     y = nodes[:,1]
     
     ax.plot_trisurf(x, y, results[step], triangles=conn, norm=norm, cmap = cm.coolwarm)
     
-    # Set the axis limits
+    
     ax.set_ylim((0, 1))
     ax.set_xlim((0, 1))
     ax.set_zlim((0, 55))
     
-    # Set the data of the colorbar indicating the different temperatures
+    
     cmap = cm.ScalarMappable(norm = colors.Normalize(8, 52), cmap = cm.coolwarm)
     cmap.set_array(results[step])
     fig.colorbar(cmap, ax=ax)
@@ -247,6 +276,8 @@ interact(plot_result3d,
          step = play)
          
 widgets.HBox([play, slider])
+
+# %%
 
 def plot_result(nodes, conn, results, step):
     fig = plt.figure()
@@ -273,4 +304,6 @@ interact(plot_result,
          step = play)
          
 widgets.HBox([play, slider])
+
+# %% [markdown]
 

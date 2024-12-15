@@ -1,28 +1,74 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 data = pd.read_csv('data.csv', usecols=[1, 2, 3, 4])
 
+# %% [markdown]
+
+# %%
+
 data.describe()
+
+# %% [markdown]
+
+# %%
 
 X = np.array(data[['X1', 'X2', 'X3']])
 Y = np.array(data['Y'])
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 rng = np.random.default_rng()
 print(type(rng))
 rng.random()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 print('integers:', rng.integers(5))
 print('random:', rng.random(5))
 print('choice:', rng.choice(np.array(5)))
 print('bytes:', rng.bytes(5))
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 rng = np.random.default_rng(seed=14)
 print('integers:', rng.integers(5))
 print('random:', rng.random(5))
 print('choice:', rng.choice(np.array(5)))
 print('bytes:', rng.bytes(5))
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 test_array_length = 5
 test_array = rng.integers(low=100, high=200, size=test_array_length)
@@ -32,6 +78,15 @@ random_indices = rng.permutation(test_array_length)
 print('The randomized indices are:', random_indices)
 print('The randomized array becomes:', test_array[random_indices])
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 def split_data(X, Y, proportions):
     """Split input and output into 3 subsets for ML model.
 
@@ -52,28 +107,28 @@ def split_data(X, Y, proportions):
      and the sum of the number of rows is equal to the rows of the original
      input/output.
     """
-    # assert YOUR_CODE_HERE, "Contract broken: 3 proportions must be provided"
-    # assert YOUR_CODE_HERE, "Contract broken: sum of proportions should be one"
-    # assert YOUR_CODE_HERE, "Contract broken: X and Y arrays must have same dimensions"
-    # Solution:
+    
+    
+    
+    
     assert len(proportions) == 3, "Contract broken: 3 proportions must be provided"
     assert sum(proportions) == 1, "Contract broken: sum of proportions should be one"
     assert len(X) == len(Y), "Contract broken: X and Y arrays must have same dimensions"
 
-    # Do not modify this line:
+    
     np.random.default_rng(seed=42)
 
-    # Shuffle data using random permutation of indices 
-    # indices = YOUR_CODE_HERE
-    # Solution
+    
+    
+    
     indices = np.random.permutation(len(X))
 
-    # Create shuffled training, validation and test sets
-    # YOUR_CODE_HERE # way more than one line!
+    
+    
 
-    # assert YOUR_CODE_HERE, "Contract broken: generated datasets don't have same accumulated length as original"
+    
 
-    # Solution
+    
 
     train_prop = proportions[0]
     val_prop = proportions[1]
@@ -89,20 +144,27 @@ def split_data(X, Y, proportions):
                               Y[indices[val_end:]])
     
     assert (len(X_train) + len(X_val) + len(X_test)) == len(X), "Contract broken: generated datasets don't have same accumulated length as original"
-    # END Solution block
+    
     
     return X_train, X_val, X_test, Y_train, Y_val, Y_test
+
+# %% [markdown]
+
+# %%
 
 split_proportions = [0.7, 0.1, 0.2]
 (X_train, X_val, X_test,
  Y_train, Y_val, Y_test) = split_data(X, Y, split_proportions)
 
+# %% [markdown]
+
+# %%
 def plot_allocation(X, Y,
                     X_train, X_val, X_test,
                     Y_train, Y_val, Y_test):
 
     set_of_X_and_Y = np.hstack((X,Y.reshape((100,1))))
-    # use many (arbitrary) columns to make plot wider
+    
     which_set_am_i = np.zeros((len(Y), 75))
     
     for i in range(len(X_train)):
@@ -132,4 +194,6 @@ def plot_allocation(X, Y,
 plot_allocation(X, Y,
                 X_train, X_val, X_test,
                 Y_train, Y_val, Y_test)
+
+# %% [markdown]
 

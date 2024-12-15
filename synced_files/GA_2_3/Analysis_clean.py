@@ -1,11 +1,29 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown] id="0491cc69"
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-T_meas = 5
-f_s = 100 #sampling rate [Hz]
+# %% [markdown]
 
-t_vec = np.arange(0, T_meas, 1 / f_s) # ends at 4.99, length 500 according to the sample-and-hold convention
+# %% [markdown] id="0491cc69"
+
+# %%
+T_meas = 5
+f_s = 100 
+
+t_vec = np.arange(0, T_meas, 1 / f_s) 
 
 A = 1 
 f_c = 1 
@@ -19,13 +37,30 @@ plt.legend(loc='upper right')
 plt.title(fr'Sinusoidal signal with $A$={A} V, $f_c$={f_c} Hz and initial phase $\phi$={phi:.3f} °')
 plt.grid()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 N = 100
 print(f'{N} floor divided by 2: {N//2}')
 print(f'{N+1} floor divided by 2: {(N+1)//2}')
 print(f'{N-1} floor divided by 2: {(N-1)//2}')
 
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
 
 plt.figure(figsize=(12,4))
@@ -40,20 +75,54 @@ for i, T_meas in enumerate(YOUR_CODE_HERE):
     plt.tight_layout()
 plt.legend()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
 
     
-    
+
     
 
+    
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 df = pd.read_csv('cantileverbeam_acc50Hz.csv', header=0)
 
-t = np.array(df['time']) #
-dat = np.array(df['acceleration']) #
+t = np.array(df['time']) 
+dat = np.array(df['acceleration']) 
 
 N = len(t)
 
@@ -69,10 +138,24 @@ dt = T/N
 
 YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 data = pd.read_csv('CSIRO_Alt_seas_inc.txt', names=['month', 'sl'])
 data.head()
+
+# %%
 
 t = data.iloc[:, 0] - data.iloc[0, 0]
 
@@ -90,5 +173,16 @@ plt.ylabel('sea-level height [mm]')
 plt.title('Global Mean Sea-Level (GMSL) rise')
 plt.legend();
 
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
 

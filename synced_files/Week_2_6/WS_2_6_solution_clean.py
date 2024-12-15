@@ -1,3 +1,16 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,6 +23,14 @@ from scipy import interpolate
 from scipy.stats import norm
 from sklearn.preprocessing import StandardScaler
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 np.random.seed(42)
 noise_level = 1.0
 
@@ -20,6 +41,7 @@ x_val = np.linspace(np.min(data_x),np.max(data_x),1000)
 t_val = 0.8*x_val + 4.75 + np.random.normal(scale=noise_level,size=x_val.shape)
 x_val = x_val.reshape(-1,1)
 
+# %%
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x.flatten(), data_t, 'x', color='blue', markersize=10, label='Data')
 ax.set_title('Linear Data Example', fontsize=16)
@@ -29,17 +51,28 @@ ax.legend(fontsize=14)
 ax.grid(True)
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 model = MLPRegressor(hidden_layer_sizes=(), activation='identity') 
 
+# %% [markdown]
+
+# %%
 n_epochs = 10000
 N_print = 10**(int(np.log10(n_epochs)) - 1)
 
 for epoch in range(n_epochs):
     model.partial_fit(data_x, data_t.flatten())
 
-    #MLP_prediction = YOUR CODE HERE
-    #MLP_valprediction = YOUR CODE HERE
-    # Solution:
+    
+    
+    
     MLP_prediction = model.predict(data_x)
     MLP_valprediction = model.predict(x_val)
     
@@ -47,6 +80,14 @@ for epoch in range(n_epochs):
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
                + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
@@ -62,8 +103,15 @@ ax.grid(True)
 
 plt.show()
 
+# %% [markdown]
+
+# %%
 print(f'Model coefficients: {model.coefs_}')
 print(f'Model intercepts: {model.intercepts_}')
+
+# %% [markdown]
+
+# %%
 
 model = MLPRegressor(hidden_layer_sizes=(50,50,50,50,50), activation='relu') 
 
@@ -73,9 +121,9 @@ N_print = 10**(int(np.log10(n_epochs)) - 1)
 for epoch in range(n_epochs):
     model.partial_fit(data_x, data_t.flatten())
 
-    #MLP_prediction = YOUR CODE HERE
-    #MLP_valprediction = YOUR CODE HERE
-    # Solution:
+    
+    
+    
     MLP_prediction = model.predict(data_x)
     MLP_valprediction = model.predict(x_val)
     
@@ -83,6 +131,8 @@ for epoch in range(n_epochs):
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
                + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
+
+# %%
 
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
@@ -97,6 +147,12 @@ ax.legend(fontsize=14)
 ax.grid(True)
 
 plt.show()
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 model = MLPRegressor(hidden_layer_sizes=(50,50,50,50,50), activation='relu',alpha=0.6) 
 
@@ -106,9 +162,9 @@ N_print = 10**(int(np.log10(n_epochs)) - 1)
 for epoch in range(n_epochs):
     model.partial_fit(data_x, data_t.flatten())
 
-    #MLP_prediction = YOUR CODE HERE
-    #MLP_valprediction = YOUR CODE HERE
-    # Solution:
+    
+    
+    
     MLP_prediction = model.predict(data_x) 
     MLP_valprediction = model.predict(x_val)
     
@@ -116,6 +172,8 @@ for epoch in range(n_epochs):
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
                + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
+
+# %%
 
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
@@ -131,6 +189,11 @@ ax.grid(True)
 
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 gnss = pd.read_csv('./data/gnss_observations2.csv')
 dates_gnss = pd.to_datetime(gnss['dates'])
 gnss_obs = (gnss['observations[m]']).to_numpy() * 1000
@@ -148,6 +211,7 @@ def to_days_years(dates):
 
 days_gnss = to_days_years(dates_gnss)
 
+# %%
 plt.figure(figsize=(15,5))
 plt.plot(days_gnss, gnss_obs, 'o', mec='black', label = 'GNSS')
 plt.legend()
@@ -156,11 +220,19 @@ plt.ylabel('Displacement [mm]')
 plt.xlabel('Time [days]')
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 X = days_gnss.reshape(-1, 1)
 t = gnss_obs.reshape(-1, 1)
 
+# %%
+
 X_train, X_val, t_train, t_val = train_test_split(X, t, test_size=0.2, random_state=42)
 
+# %%
 plt.figure(figsize=(15,5))
 plt.plot(X_train, t_train, 'o', mec='green', label = 'Training')
 plt.plot(X_val, t_val, 'o', mec='blue', label = 'Validation')
@@ -170,6 +242,11 @@ plt.ylabel('Displacement [mm]')
 plt.xlabel('Time [days]')
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 input_scaler = StandardScaler()
 target_scaler = StandardScaler()
 
@@ -179,6 +256,7 @@ X_val_scaled = input_scaler.transform(X_val)
 t_train_scaled = target_scaler.fit_transform(t_train)
 t_val_scaled = target_scaler.transform(t_val)
 
+# %%
 plt.figure(figsize=(15,5))
 plt.plot(X_train_scaled, t_train_scaled, 'o', mec='green', label = 'Training')
 plt.plot(X_val_scaled, t_val_scaled, 'o', mec='blue', label = 'Validation')
@@ -188,8 +266,18 @@ plt.ylabel('Normalized displacement [-]')
 plt.xlabel('Normalized time [-]')
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 model_gnss = MLPRegressor(hidden_layer_sizes=(), 
                           activation='identity', random_state=42)
+
+# %% [markdown]
+
+# %%
 
 train_losses = []
 val_losses = []
@@ -200,22 +288,25 @@ epochs = 5000
 for epoch in range(1, epochs + 1):
     model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
 
-    # Calculate training loss
+    
     train_pred = model_gnss.predict(X_train_scaled)
     train_loss = mean_squared_error(t_train_scaled, train_pred)
     train_losses.append(train_loss)
 
-    # Calculate validation loss
+    
     val_pred = model_gnss.predict(X_val_scaled)
     val_loss = mean_squared_error(t_val_scaled, val_pred)
     val_losses.append(val_loss)
 
-    # Print losses every 500 epochs
+    
     if epoch % 500 == 0:
         print((f'Epoch {epoch}/{epochs}, '
                + f'Training Loss: {train_loss:.4f}, '
                + f'Validation Loss: {val_loss:.4f}'))
 
+# %% [markdown]
+
+# %%
 plt.figure(figsize=(12, 6))
 plt.plot(train_losses, label='Training Loss', c='b')
 plt.plot(val_losses, label='Validation Loss', c='r')
@@ -224,6 +315,8 @@ plt.xlabel('Epochs')
 plt.ylabel('Mean Squared Error')
 plt.legend()
 plt.show()
+
+# %%
 
 plt.figure(figsize=(15,5))
 plt.plot(X_train, t_train, 'o', mec='green', label = 'Training')
@@ -239,6 +332,12 @@ plt.xlabel('Time [days]')
 plt.legend()
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 new_model_gnss = MLPRegressor(hidden_layer_sizes=(20,20,20), activation='relu')
 
 train_losses = []
@@ -250,19 +349,21 @@ epochs = 5000
 for epoch in range(1, epochs + 1):
     new_model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
 
-    # Calculate training loss
+    
     train_pred = new_model_gnss.predict(X_train_scaled)
     train_loss = mean_squared_error(t_train_scaled, train_pred)
     train_losses.append(train_loss)
 
-    # Calculate validation loss
+    
     val_pred = new_model_gnss.predict(X_val_scaled)
     val_loss = mean_squared_error(t_val_scaled, val_pred)
     val_losses.append(val_loss)
 
-    # Print losses every 500 epochs
+    
     if epoch % 500 == 0:
         print(f'Epoch {epoch}/{epochs} - Training Loss: {train_loss:.4f}, Validation Loss: {val_loss:.4f}')
+
+# %%
 
 plt.figure(figsize=(12, 6))
 plt.plot(train_losses, label='Training Loss', c='b')
@@ -272,6 +373,8 @@ plt.xlabel('Epochs')
 plt.ylabel('Mean Squared Error')
 plt.legend()
 plt.show()
+
+# %%
 
 plt.figure(figsize=(15,5))
 plt.plot(X_train, t_train, 'o', mec='green', label = 'Training')
@@ -287,9 +390,18 @@ plt.xlabel('Time [days]')
 plt.legend()
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 gw = pd.read_csv('./data/groundwater_levels2.csv')
 dates_gw = pd.to_datetime(gw['dates'])
 gw_obs = (gw['observations[mm]']).to_numpy()
+
+# ------------------------------------------------------------- #
 
 def to_days_years(dates):
     '''Convert the observation dates to days and years.'''
@@ -303,12 +415,16 @@ def to_days_years(dates):
     
     return days, years
 
+# ------------------------------------------------------------- #
+
 days_gnss, years_gnss = to_days_years(dates_gnss)
 days_gw, years_gw = to_days_years(dates_gw)
 
 interp = interpolate.interp1d(days_gw, gw_obs)
 
 GW_at_GNSS_times = interp(days_gnss)
+
+# ------------------------------------------------------------- #
 
 A_gnss = np.ones((len(dates_gnss), 3))
 A_gnss[:,1] = days_gnss
@@ -319,9 +435,13 @@ y_gnss = gnss_obs
 m_gnss = np.shape(A_gnss)[0]
 n_gnss = np.shape(A_gnss)[1]
 
-std_gnss = 15 #mm (corrected from original value of 5 mm)
+# ------------------------------------------------------------- #
+
+std_gnss = 15 
 
 Sigma_Y_gnss = np.identity(len(dates_gnss))*std_gnss**2
+
+# ------------------------------------------------------------- #
 
 def BLUE(A, y, Sigma_Y):
     """Calculate the Best Linear Unbiased Estimator
@@ -345,6 +465,8 @@ def BLUE(A, y, Sigma_Y):
     
     return xhat, Sigma_Xhat 
 
+# ------------------------------------------------------------- #
+
 xhat_gnss, Sigma_Xhat_gnss = BLUE(A_gnss, y_gnss, Sigma_Y_gnss)
 
 def plot_residual(date, y_obs, yhat, data_type, A,
@@ -352,20 +474,20 @@ def plot_residual(date, y_obs, yhat, data_type, A,
 
     ehat = y_obs - yhat
 
-    # Compute the vc matrix for \hat{y}
+    
     Sigma_Yhat = A @ Sigma_Xhat @ A.T
     std_y = np.sqrt(Sigma_Yhat.diagonal())
 
-    # Compute the vc matrix for \hat{e}
+    
     Sigma_ehat = Sigma_Y - Sigma_Yhat
     std_ehat = np.sqrt(Sigma_ehat.diagonal())
 
-    # Show the 99% confidence interval
+    
     k99 = norm.ppf(1 - 0.5*0.01)
     confidence_interval_y = k99*std_y
     confidence_interval_res = k99*std_ehat
 
-    # Plot original data and fitted model
+    
     plt.figure(figsize = (15,5))
     plt.plot(date, y_obs, 'k+',  label = 'Observations')
     plt.plot(date, yhat,  label = 'Fitted model')
@@ -380,6 +502,8 @@ def plot_residual(date, y_obs, yhat, data_type, A,
 
     return ehat
 
+# ------------------------------------------------------------- #
+
 k_true = 0.1
 R_true = -25 
 a_true = 180
@@ -392,6 +516,10 @@ yhat_gnss = A_gnss @ xhat_gnss
 ehat_gnss_1 = plot_residual(dates_gnss, y_gnss, yhat_gnss,
                              'GNSS', A_gnss, 
                              Sigma_Xhat_gnss, Sigma_Y_gnss, disp_gnss)
+
+# ------------------------------------------------------------- #
+
+# %%
 
 plt.figure(figsize=(15,5))
 plt.plot(days_gnss, yhat_gnss,  label = 'BLUE model', color='black')
@@ -406,4 +534,20 @@ plt.ylabel('Displacement [mm]')
 plt.xlabel('Time [days]')
 plt.legend()
 plt.show()
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
 

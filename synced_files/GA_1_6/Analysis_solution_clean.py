@@ -1,7 +1,28 @@
+# ---
+
+# ---
+
+# %% [markdown] id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff"
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 import ipywidgets as widgets
 from ipywidgets import interact
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 def g(x):
     return x**2 - 9
@@ -25,9 +46,32 @@ for j in range(100):
     
 print("The solution found is ", x, " it took " ,j , " iterations to converge.")
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
     
 
         
+
     
 
 def g(y_iplus1,y_i, t_iplus1):
@@ -49,11 +93,11 @@ y_IE[0] = 1
 newtonFailed = 0
 for i in range(0, len(t)-1):    
     
-    # Forward Euler:
+    
     y_EE[i+1] = y_EE[i] + dt*(np.sin(y_EE[i]**3)+np.sin(t[i]))
 
-    # Backward Euler:
-    y_IE[i+1] = y_IE[i] # initial guess
+    
+    y_IE[i+1] = y_IE[i] 
     for j in range(200):
         y_IE[i+1] = y_IE[i+1] - g(y_IE[i+1], y_IE[i], t[i+1]) / g_der(y_IE[i+1])
         if np.abs(g(y_IE[i+1], y_IE[i], t[i+1])) < 1e-6:
@@ -62,6 +106,7 @@ for i in range(0, len(t)-1):
     if j >= 199:
         newtonFailed = 1
     
+
 
 plt.plot(t, y_EE, 'r', t, y_IE, 'g--')
 if newtonFailed:
@@ -75,6 +120,30 @@ plt.gca().legend(('Explicit','Implicit'))
 plt.grid()
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 T_left = 38
 T_right = 25
 T_initial = 7
@@ -87,11 +156,23 @@ n = len(x)
 dt = 50
 m = 200
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 T = np.zeros((m,n))
 T[0, :] = T_initial
 T[:, 0] = T_left
 T[:, -1] = T_right
 b = T[j, 1:-1] + nu*dt/(dx**2)*(T[j, 2:]-2*T[j, 1:-1]+T[j, :-2])
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 for j in range(m-1):
     A = np.zeros((len(x)-2,len(x)-2))
@@ -100,6 +181,9 @@ for j in range(m-1):
     T_1_to_n_minus1 = np.linalg.inv(A) @ b
     T[j+1,1:-1] = T_1_to_n_minus1
 
+# %% [markdown]
+
+# %%
 def plot_T(T):
     '''
     Function to plot the temperature profile at different time steps.
@@ -116,6 +200,16 @@ def plot_T(T):
     interact(plot_temperature, time_step=widgets.Play(min=0, max=len(T)-1, step=3, value=0))
 
 plot_T(T)
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 T_left = 38
 T_right = 25
@@ -137,15 +231,39 @@ t = np.arange(0,m*dt,dt)
 T[:,-1] = 25 + 10*np.sin(2*np.pi*t/period)
 
 for j in range(m-1):
-    # Building matrix A
+    
     A = np.zeros((len(x)-2,len(x)-2))
     np.fill_diagonal(A, 1)
-    # Building vector b
+    
     b = T[j,1:-1] + nu*dt/(dx**2)*(T[j,2:]-2*T[j,1:-1]+T[j,:-2])    
     T_1_to_n_minus1 = np.linalg.inv(A) @ b
     T[j+1,1:-1] = T_1_to_n_minus1
 
 plot_T(T)
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 T_left = 38
 T_right = 25
@@ -167,12 +285,12 @@ T[:,-1] = T_right
 
 C = nu*dt/dx**2
 for j in range(m-1):
-    # Building matrix A
+    
     A = np.zeros((len(x)-2,len(x)-2))
     np.fill_diagonal(A, 1+2*C)
-    A[np.arange(n-3), np.arange(1, n-2)] = -C  # Upper diagonal
-    A[np.arange(1, n-2), np.arange(n-3)] = -C  # Lower diagonal
-    # Building vector b
+    A[np.arange(n-3), np.arange(1, n-2)] = -C  
+    A[np.arange(1, n-2), np.arange(n-3)] = -C  
+    
     b = T[j,1:-1].copy()
     b[0] = b[0] + T_left * C
     b[-1] = b[-1] + T_right * C 
@@ -180,4 +298,10 @@ for j in range(m-1):
     T[j+1,1:-1] = T_1_to_n_minus1
 
 plot_T(T)
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
 

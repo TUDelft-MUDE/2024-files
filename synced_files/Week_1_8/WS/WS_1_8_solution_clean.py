@@ -1,11 +1,31 @@
+# ---
+
+# ---
+
+# %% [markdown] id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff"
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
 
 from helper import plot_contour
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 data = np.genfromtxt('data.csv', delimiter=";")
 data.shape
+
+# %%
 
 data_x1 = np.array(data[:,0])
 data_x2 = np.array(data[:,1])
@@ -14,6 +34,12 @@ X1 = st.norm(data_x1.mean(), data_x1.std())
 X2 = st.norm(data_x2.mean(), data_x2.std())
 print(data_x1.mean(), data_x1.std())
 print(data_x2.mean(), data_x2.std())
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 
 def calculate_covariance(X1, X2):
     '''
@@ -32,23 +58,47 @@ def pearson_correlation(X1, X2):
     correl_coeff = covariance/(X1.std()*X2.std())
     return correl_coeff
 
+# %%
 covariance = calculate_covariance(data_x1, data_x2)
 print(f'The covariance of X1 and X2 is {covariance:.5f}')
 correl_coeff = pearson_correlation(data_x1, data_x2)
 print(f'The correlation coefficient of X1 and X2 is {correl_coeff:.5f}')
+
+# %% [markdown]
+
+# %% [markdown] id="0491cc69"
+
+# %%
+
+# %%
 
 mean_vector = [data_x1.mean(), data_x2.mean()]
 cov_matrix = [[data_x1.std()**2, covariance],
               [covariance, data_x2.std()**2]]
 bivar_dist = st.multivariate_normal(mean_vector, cov_matrix)
 
+# %%
 print(mean_vector, cov_matrix)
 
+# %% [markdown]
+
+# %%
 bivar_dist2 = st.multivariate_normal.fit(np.array([data_x1, data_x2]).T)
 print(bivar_dist2)
 
+# %%
+
 plot_contour(bivar_dist, [0, 30, 0, 30], data=data);
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown] id="0491cc69"
+
+# %%
 region_example = np.array([[0, 5, 12, 20, 28, 30],
                            [5, 20, 0, 18, 19, 12]])
 
@@ -56,6 +106,23 @@ plot_contour(bivar_dist, [0, 30, 0, 30],
              case=[23, 13],
              region=region_example);
 
+# %% [markdown]
+
+# %%
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
+# %% [markdown]
+
+# %% [markdown] id="0491cc69"
+
+# %% [markdown]
+
+# %%
 lower_left = bivar_dist.cdf([20, 20])
 union = 1 - lower_left
 
@@ -70,6 +137,9 @@ print('=============================')
 print(f'Case 1, Union:        {union:.5f}')
 print(f'Case 2, Intersection: {intersection:.5f}')
 
+# %% [markdown]
+
+# %%
 N = data_x1.size
 
 number_of_points_lower_left = sum((data_x1 < 20)&(data_x2 < 20))
@@ -87,6 +157,11 @@ print('=============================')
 print(f'Case 1, Union:        {union:.5f}')
 print(f'Case 2, Intersection: {intersection:.5f}')
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 region_or = np.array([[0, 20, 20, 30],
                       [20, 20, 0, 0]])
 
@@ -103,6 +178,9 @@ plot_contour(bivar_dist, [0, 30, 0, 30],
              region=region_and,
              data=data);
 
+# %% [markdown]
+
+# %%
 plot_x = np.linspace(0, 30, 200)
 plot_y = 40 - plot_x**2/20
 plot_xy = np.vstack((plot_x, plot_y))
@@ -111,6 +189,9 @@ plot_contour(bivar_dist, [0, 30, 0, 30],
              region=plot_xy,
              data=data);
 
+# %% [markdown]
+
+# %%
 sample_N = 100*N
 sample = bivar_dist.rvs(size=sample_N)
 sample_X1 = sample[:,0]
@@ -124,6 +205,9 @@ print(f'The number of samples of Z < 0 is: {Z_less_than_0}')
 print(f'This is {Z_less_than_0/sample_N*100:.3f}% of all samples.')
 print(f'The MCS probability is {Z_less_than_0/sample_N:.3f}.')
 
+# %% [markdown]
+
+# %%
 empirical_Z = Z(data_x1, data_x2)
 Z_data_less_than_0 = sum(empirical_Z<0)
 
@@ -131,6 +215,9 @@ print(f'The number of data where Z < 0 is: {Z_data_less_than_0}')
 print(f'This is {Z_data_less_than_0/(N + 1)*100:.3f}% of all samples.')
 print(f'The empirical probability is {Z_data_less_than_0/(N + 1):.3f}.')
 
+# %% [markdown]
+
+# %%
 def get_p_and_c_o_v(sample):
     """For sample N return p and c.o.v. for each N_i in N.
     
@@ -156,6 +243,7 @@ def get_p_and_c_o_v(sample):
 try_N = 10000
 p, c_o_v = get_p_and_c_o_v(bivar_dist.rvs(size=try_N))
 
+# %%
 fig, ax1 = plt.subplots()
 
 ax1.plot(range(try_N), p, 'b-')
@@ -177,6 +265,24 @@ ax2.tick_params(axis='y', labelcolor='r')
 
 plt.show()
 
+# %% [markdown]
+
+# %% [markdown] id="0491cc69"
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
 plot_values = np.linspace(-100, 1000, 30)
 fig, ax = plt.subplots(1)
 ax.hist([empirical_Z, sample_Z],
@@ -188,11 +294,19 @@ ax.set_xlabel('$Z(X_1,X_2)$')
 ax.set_xlabel('Empirical Density [--]')
 ax.set_title('Comparison of Distributions of $Z$');
 
+# %% [markdown]
+
+# %%
+
 def ecdf(var):
-    x = np.sort(var) # sort the values from small to large
-    n = x.size # determine the number of datapoints
+    x = np.sort(var) 
+    n = x.size 
     y = np.arange(1, n+1) / (n + 1)
     return [y, x]
+
+# %% [markdown]
+
+# %%
 
 fig, axes = plt.subplots(1, 1, figsize=(8, 5))
 
@@ -207,6 +321,10 @@ axes.set_yscale('log')
 axes.legend()
 axes.grid()
 
+# %% [markdown]
+
+# %%
+
 fig, axes = plt.subplots(1, 1, figsize=(8, 5))
 
 axes.step(ecdf(empirical_Z)[1], 1-ecdf(empirical_Z)[0], 
@@ -219,4 +337,8 @@ axes.set_title('Comparison: CDF (log scale expands upper tail)')
 axes.set_yscale('log')
 axes.legend()
 axes.grid()
+
+# %% [markdown] id="0491cc69"
+
+# %% [markdown]
 

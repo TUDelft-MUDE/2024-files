@@ -1,3 +1,12 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import numpy as np
 from scipy import interpolate
 from scipy.stats import norm
@@ -11,15 +20,29 @@ from functions import *
 
 np.set_printoptions(precision=3);
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 m1_blue = load_pickle_file('m1_blue.pickle')
 m2_blue = load_pickle_file('m2_blue.pickle')
 
+# %% [markdown]
+
+# %%
 model_summary(m1_blue)
 model_summary(m2_blue)
 
+# %% [markdown]
+
+# %%
 for key in m1_blue.keys():
     print(key)
 
+# %% [markdown]
+
+# %%
 x0_slider = widgets.FloatSlider(value=0, min=-10, max=10, step=0.1, description='x0')
 x1_slider = widgets.FloatSlider(value=0, min=-0.1, max=0.1, step=0.001, description='x1')
 x2_slider = widgets.FloatSlider(value=1, min=-1, max=1, step=0.01, description='x2')
@@ -28,6 +51,11 @@ interact(model_widget,
          x0=x0_slider, x1=x1_slider, x2=x2_slider, x3=fixed(None),
          m=[('INSAR', m1_blue), ('GNSS', m2_blue)]);
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 def initialize_new_dict(d_old):
     d = {}
     d['data_type'] = d_old['data_type']
@@ -44,8 +72,16 @@ def initialize_new_dict(d_old):
 m1 = initialize_new_dict(m1_blue)
 m2 = initialize_new_dict(m2_blue)
 
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE
 
+# %% [markdown] id="80a9b60f"
+
+# %% [markdown]
+
+# %% id="3ba5bf67"
 def compute_y(x, d):
     """Model, q: ground surface displacement.
 
@@ -65,8 +101,8 @@ def compute_y(x, d):
     dictionary and/or the function. 
     """
     
-    # Hint: use d['days'] and d['groundwater'] for
-    #       the deterministic parameters
+    
+    
 
     y_comp = (YOUR_CODE_HERE
               + YOUR_CODE_HERE*(1 - np.exp(-d['days']/YOUR_CODE_HERE))
@@ -78,6 +114,9 @@ def compute_y(x, d):
 m1['compute_y'] = compute_y
 m2['compute_y'] = compute_y
 
+# %% [markdown]
+
+# %%
 x0_slider = widgets.FloatSlider(value=0, min=-40, max=40, step=0.5, description='x0')
 x1_slider = widgets.FloatSlider(value=0, min=-50, max=50, step=1, description='x1')
 x2_slider = widgets.FloatSlider(value=1, min=10, max=1000, step=10, description='x2')
@@ -87,6 +126,9 @@ interact(model_widget,
          x0=x0_slider, x1=x1_slider, x2=x2_slider, x3=x3_slider,
          m=[('InSAR', m1), ('GNSS', m2)]);
 
+# %% [markdown]
+
+# %%
 d_init = YOUR_CODE_HERE
 R_init = YOUR_CODE_HERE
 a_init = YOUR_CODE_HERE
@@ -94,6 +136,9 @@ k_init = YOUR_CODE_HERE
 
 initial_guess = (d_init, R_init, a_init, k_init)
 
+# %% [markdown]
+
+# %% id="4aef41e9"
 def jacobian(x, d):
     """Compute Jacobian of the model.
 
@@ -116,8 +161,8 @@ def jacobian(x, d):
     interpolation function must be incorporated in the
     dictionary and/or the function. 
     """
-    # Hint: use d['days'] and d['groundwater'] for
-    #       the deterministic parameters
+    
+    
 
     J1 = YOUR_CODE_HERE
     J2 = YOUR_CODE_HERE
@@ -127,6 +172,9 @@ def jacobian(x, d):
     
     return J
 
+# %% [markdown]
+
+# %% colab={"base_uri": "https://localhost:8080/"} executionInfo={"elapsed": 19, "status": "ok", "timestamp": 1664699883678, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="c57e5e26" outputId="2b46920b-8ff3-47c5-cc03-8dad183d52b3"
 YOUR_CODE_HERE
 
 print ('The first 5 rows of the Jacobian matrix (InSAR):')
@@ -137,6 +185,15 @@ print(f'\nThe number of unknowns is {n_2}')
 print(f'The redundancy (InSAR) is {m1["y"].shape[0] - n_2}')
 print(f'The redundancy (GNSS) is {m2["y"].shape[0] - n_2}')
 
+# %% [markdown] id="b4633d84"
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% id="FbsD75dR0w5b"
 def gauss_newton_iteration(x0, d):
     """Use Gauss-Newton iteration to find non-linear parameters.
     
@@ -147,14 +204,14 @@ def gauss_newton_iteration(x0, d):
     Outputs: dictionary with the non-linear model results.
     """
 
-    x_norm = 1000 # initialize stop criteria
+    x_norm = 1000 
 
     x_hat_i = np.zeros((50, 4))
     x_hat_i[0,:] = x0
     iteration = 0
 
-    # Define observations as an array
-    # (we will overwrite it temporarily)
+    
+    
     y_obs = d['y']
 
     while x_norm >= 1e-12 and iteration < 49:
@@ -165,32 +222,32 @@ def gauss_newton_iteration(x0, d):
 
         d[YOUR_CODE_HERE] = YOUR_CODE_HERE
         d[YOUR_CODE_HERE] = YOUR_CODE_HERE
-        # Hints for previous line:
-        #   - re-use your function BLUE
-        #   - you will need to repurpose two dictionary
-        #     keys to utilize the solution scheme of BLUE
-        #     that can solve linear equations
+        
+        
+        
+        
+        
 
         d = BLUE(d)
         
         X_hat_i[iteration+1,:] = YOUR_CODE_HERE
-        # Hints for previous line:
-        #   - now repurpose a result stored in the dictionary
+        
+        
         
         x_norm = YOUR_CODE_HERE
         
-        # Update the iteration number
+        
         iteration += 1
 
         if iteration==49:
             print("Number of iterations too large, check initial values.")
 
-    # Store general results from the iterative process
+    
     d['x_hat_all_iterations'] = YOUR_CODE_HERE
     d['iterations_completed'] = YOUR_CODE_HERE
 
-    # Store the linear values and "Reset" the non-linear ones
-    # Two sets of values correspond to Y and X
+    
+    
     d['Delta_y'] = YOUR_CODE_HERE
     d['y'] = YOUR_CODE_HERE
     
@@ -199,6 +256,11 @@ def gauss_newton_iteration(x0, d):
     
     return d
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 m1 = gauss_newton_iteration(initial_guess, m1)
 m2 = gauss_newton_iteration(initial_guess, m2)
 
@@ -210,6 +272,11 @@ print('\n GNSS Reults for each iteration (Iterations completed =',
       m2['iterations_completed'], ')')
 print(m2['x_hat_all_iterations'])
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %% id="7d52c8b9"
 def plot_fit_iteration(d):
     """Plot value of each parameter, each iteration."""
     plt.figure(figsize = (15,4))
@@ -242,6 +309,15 @@ def plot_fit_iteration(d):
 plot_fit_iteration(m1)
 plot_fit_iteration(m2)
 
+# %% [markdown]
+
+# %%
+
+# %% [markdown] id="b9c40713"
+
+# %% [markdown]
+
+# %% id="5af9e513"
 def show_std(Sigma_X_hat, data_type):
     print ('The standard deviation for',
            data_type + '-offset is',
@@ -269,30 +345,50 @@ show_std(YOUR_CODE_HERE)
 print()
 model_summary(YOUR_CODE_HERE)
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 help(get_CI)
 
+# %% colab={"base_uri": "https://localhost:8080/", "height": 982} executionInfo={"elapsed": 787, "status": "ok", "timestamp": 1664699888366, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="pDJfjxgs6veD" outputId="212041d5-43c7-4df6-8ebc-4fdff0d79daf"
 m1['Y_hat'] = YOUR_CODE_HERE
 m1 = get_CI(YOUR_CODE_HERE)
 plot_model(YOUR_CODE_HERE)
 plot_residual(YOUR_CODE_HERE)
 plot_residual_histogram(YOUR_CODE_HERE);
 
+# %% colab={"base_uri": "https://localhost:8080/", "height": 982} executionInfo={"elapsed": 921, "status": "ok", "timestamp": 1664699889284, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="ngZMBQM87QMr" outputId="35c44fc7-4b48-4727-c9cf-65c01e528d19"
 m1['Y_hat'] = YOUR_CODE_HERE
 m1 = get_CI(YOUR_CODE_HERE)
 plot_model(YOUR_CODE_HERE)
 plot_residual(YOUR_CODE_HERE)
 plot_residual_histogram(YOUR_CODE_HERE);
 
+# %% [markdown] id="af211a2b"
+
+# %% [markdown]
+
+# %%
 YOUR_CODE_HERE (probably will be more than one line)
 print(f'The critical value is {np.round(k, 3)}')
 
+# %% [markdown]
+
+# %% colab={"base_uri": "https://localhost:8080/"} executionInfo={"elapsed": 303, "status": "ok", "timestamp": 1664699889583, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="92b5b797-093d-46fb-a2c0-2b9ccdae4052" outputId="7dbbf60b-6bc0-41ae-d730-3423a2e9c032"
 t1_insar = YOUR_CODE_HERE
 t2_insar = YOUR_CODE_HERE
 t_insar = t1_insar - t2_insar
 print(f'The test statistic for InSAR data is {np.round(t_insar, 3)}')
 
+# %% [markdown]
+
+# %%
 t1_gnss = YOUR_CODE_HERE
 t2_gnss = YOUR_CODE_HERE
 t_gnss = t1_gnss - t2_gnss
 print(f'The test statistic for GNSS data is {np.round(t_gnss, 3)}')
+
+# %% [markdown]
 

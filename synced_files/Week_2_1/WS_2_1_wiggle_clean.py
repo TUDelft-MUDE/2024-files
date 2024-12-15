@@ -1,9 +1,30 @@
+# ---
+
+# ---
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 import numpy as np
 import matplotlib.pylab as plt
+
 from ipywidgets import interact, fixed, widgets
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 def initialize_1D(p0, L, Nx, T, Nt, square=True):
     """Initialize 1D advection simulation.
 
@@ -36,9 +57,9 @@ def advection_1D(p, dx, dt, c, Nx, central=True):
     p_new = np.zeros(Nx)
     for i in range(0, Nx):
         if central:
-            pass # add central averaging + FE scheme here (remove pass)
+            pass 
         else:
-            pass # add upwind + FE scheme here (remove pass)
+            pass 
     return p_new
     
 def run_simulation_1D(p0, c, L, Nx, T, Nt, dx, dt,
@@ -99,6 +120,9 @@ def check_variables_1D():
     else:
         print(f'CFL: {calculated_CFL:.2e}')
 
+# %% [markdown]
+
+# %%
 p0 = 2.0
 c = 5.0
 
@@ -113,17 +137,72 @@ dt = T/Nt
 central = True
 square = True
 
+# %% [markdown]
+
+# %%
 check_variables_1D()
 x, p_all = run_simulation_1D(p0, c, L, Nx, T, Nt, dx, dt, central, square)
 
+# %% [markdown]
+
+# %%
 plot_1D(x, p_all)
 
+# %% [markdown]
+
+# %%
 plot_1D_all()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
 square=False
 x, p_all = run_simulation_1D(p0, c, L, Nx, T, Nt, dx, dt, central, square)
 plot_1D_all()
 
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
+# %% [markdown]
+
+# %%
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %%
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown]
+
+# %% [markdown] id="0491cc69"
+
+# %%
 p0 = 2.0
 cx = 5.0
 cy = 5.0
@@ -141,12 +220,13 @@ dt = T/Nt
 
 central = True
 
+# %%
 def initialize_2D(p0, Lx, Nx, Ly, Ny, T, Nt):
     x = np.linspace(dx/2, Lx - dx/2, Nx)
     y = np.linspace(dy/2, Ly - dx/2, Ny)
     X, Y = np.meshgrid(x, y)
     
-    # Initialise domain: cubic pulse with p0 between 0.5 and 1
+    
     p_init = np.zeros((Nx, Ny))
     p_init[int(0.5/dx):int(1/dx + 1), int(0.5/dy):int(1/dy + 1)] = p0
 
@@ -231,6 +311,7 @@ def check_variables_2D():
     print(f'CFL, direction x: {cx*dt/dx:.2e}')
     print(f'CFL, direction y: {cy*dt/dy:.2e}')
 
+# %%
 T = 1
 Nt =  1000
 dt = T/Nt
@@ -238,9 +319,13 @@ check_variables_2D()
 X, Y, p_all = initialize_2D(p0, Lx, Nx, Ly, Ny, T, Nt)
 plot_2D(p_all, X, Y)
 
+# %%
 X, Y, p_all = run_simulation_2D(p0, cx, cy, Lx, Nx, Ly, Ny, T, Nt, dx, dy, dt, central)
 plot_2D_all()
 
+# %%
 X, Y, p_all = run_simulation_2D(p0, cx, cy, Lx, Nx, Ly, Ny, T, Nt, dx, dy, dt, central=False)
 plot_2D_all()
+
+# %% [markdown]
 
