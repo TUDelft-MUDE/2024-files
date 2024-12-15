@@ -60,11 +60,14 @@ sync_notebooks:
             jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log
             jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log
             
+            # Generate clean Python file without markdown cells
             clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
-            jupytext --to py:percent "$notebook" -o "$clean_file" 2>>conversion_errors.log
+            jupytext --to py:light --opt comment_magics=false --opt notebook_metadata_filter=-all --opt cell_metadata_filter=-all "$notebook" -o "$clean_file" 2>>conversion_errors.log
             
             if [ -f "$clean_file" ]; then
-              awk '/^# ---/ {print; next} /^# %%/ {print; next} /^# %% \[markdown\]/ {in_markdown=1; print; next} in_markdown && /^#/ {print; next} /^# %%/ {in_markdown=0; next} {line=$0; output=""; in_string=0; quote=""; for(i=1;i<=length(line);i++) {char=substr(line,i,1); if(char=="\"" || char=="'\''") {if(!in_string) {in_string=1; quote=char} else if(quote==char) {in_string=0}} if(char=="#" && !in_string) {print substr(line,1,i-1); next}} print line}' "$clean_file" > "${clean_file}.tmp" && mv "${clean_file}.tmp" "$clean_file"
+              # Remove any remaining comments
+              awk '!/^#/' "$clean_file" > "${clean_file}.tmp" && mv "${clean_file}.tmp" "$clean_file"
+              # Clean up empty lines
               sed -i '/^[[:space:]]*$/N;/^\n$/D' "$clean_file"
               echo "Created clean version of $notebook"
             fi
