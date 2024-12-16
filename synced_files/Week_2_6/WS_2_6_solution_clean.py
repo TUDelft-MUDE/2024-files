@@ -51,7 +51,7 @@ for epoch in range(n_epochs):
 
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
-ax.plot(data_x, MLP_prediction, "-o", markersize=10, label="Prediction")
+ax.plot(data_x, MLP_prediction, "-", markersize=10, label="Prediction")
 
 ax.set_title("Linear Data Example", fontsize=16)
 ax.set_xlabel("x", fontsize=14)
@@ -66,7 +66,7 @@ plt.show()
 print(f'Model coefficients: {model.coefs_}')
 print(f'Model intercepts: {model.intercepts_}')
 
-model = MLPRegressor(hidden_layer_sizes=(50,50,50,50,50), activation='relu') 
+model = MLPRegressor(hidden_layer_sizes=(50,50), activation='tanh') 
 
 n_epochs = 10000
 N_print = 10**(int(np.log10(n_epochs)) - 1)
@@ -87,7 +87,7 @@ for epoch in range(n_epochs):
 
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
-ax.plot(data_x, MLP_prediction, "-o", markersize=10, label="Prediction")
+ax.plot(x_val, MLP_valprediction, "-", markersize=10, label="Prediction")
 
 ax.set_title("Linear Data Example", fontsize=16)
 ax.set_xlabel("x", fontsize=14)
@@ -99,7 +99,7 @@ ax.grid(True)
 
 plt.show()
 
-model = MLPRegressor(hidden_layer_sizes=(50,50,50,50,50), activation='relu',alpha=0.6) 
+model = MLPRegressor(hidden_layer_sizes=(50,50), activation='tanh',alpha=0.6) 
 
 n_epochs = 10000
 N_print = 10**(int(np.log10(n_epochs)) - 1)
@@ -120,7 +120,7 @@ for epoch in range(n_epochs):
 
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
-ax.plot(data_x, MLP_prediction, "-o", markersize=10, label="Prediction")
+ax.plot(x_val, MLP_valprediction, "-", markersize=10, label="Prediction")
 
 ax.set_title("Linear Data Example", fontsize=16)
 ax.set_xlabel("x", fontsize=14)
@@ -281,126 +281,6 @@ plt.plot(X_val, t_val, 'o', mec='blue', label = 'Validation')
 x_plot = np.linspace(np.min(X),np.max(X),1000).reshape(-1,1)
 y_plot = new_model_gnss.predict(input_scaler.transform(x_plot))
 plt.plot(x_plot,target_scaler.inverse_transform(y_plot.reshape(-1,1)),color='orange',linewidth=5,label='Network predictions')
-
-plt.title('Obvserved vs Predicted Values')
-plt.ylabel('Displacement [mm]')
-plt.xlabel('Time [days]')
-plt.legend()
-plt.show()
-
-gw = pd.read_csv('./data/groundwater_levels2.csv')
-dates_gw = pd.to_datetime(gw['dates'])
-gw_obs = (gw['observations[mm]']).to_numpy()
-
-def to_days_years(dates):
-    '''Convert the observation dates to days and years.'''
-    
-    dates_datetime = pd.to_datetime(dates)
-    time_diff = (dates_datetime - dates_datetime[0])
-    days_diff = (time_diff / np.timedelta64(1,'D')).astype(int)
-    
-    days = days_diff.to_numpy()
-    years = days/365
-    
-    return days, years
-
-days_gnss, years_gnss = to_days_years(dates_gnss)
-days_gw, years_gw = to_days_years(dates_gw)
-
-interp = interpolate.interp1d(days_gw, gw_obs)
-
-GW_at_GNSS_times = interp(days_gnss)
-
-A_gnss = np.ones((len(dates_gnss), 3))
-A_gnss[:,1] = days_gnss
-A_gnss[:,2] = GW_at_GNSS_times
-
-y_gnss = gnss_obs
-
-m_gnss = np.shape(A_gnss)[0]
-n_gnss = np.shape(A_gnss)[1]
-
-std_gnss = 15 #mm (corrected from original value of 5 mm)
-
-Sigma_Y_gnss = np.identity(len(dates_gnss))*std_gnss**2
-
-def BLUE(A, y, Sigma_Y):
-    """Calculate the Best Linear Unbiased Estimator
-    
-    Write a docstring here (an explanation of your function).
-    
-    Function to calculate the Best Linear Unbiased Estimator
-    
-    Input:
-        A = A matrix (mxn)
-        y = vector with obervations (mx1)
-        Sigma_Y = Varaiance covariance matrix of the observations (mxm)
-    
-    Output:
-        xhat = vector with the estimates (nx1)
-        Sigma_Xhat = variance-covariance matrix of the unknown parameters (nxn)
-    """
-    
-    Sigma_Xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_Y) @ A)
-    xhat = Sigma_Xhat @ A.T @ np.linalg.inv(Sigma_Y) @ y
-    
-    return xhat, Sigma_Xhat 
-
-xhat_gnss, Sigma_Xhat_gnss = BLUE(A_gnss, y_gnss, Sigma_Y_gnss)
-
-def plot_residual(date, y_obs, yhat, data_type, A,
-                  Sigma_Xhat, Sigma_Y, true_disp):
-
-    ehat = y_obs - yhat
-
-    # Compute the vc matrix for \hat{y}
-    Sigma_Yhat = A @ Sigma_Xhat @ A.T
-    std_y = np.sqrt(Sigma_Yhat.diagonal())
-
-    # Compute the vc matrix for \hat{e}
-    Sigma_ehat = Sigma_Y - Sigma_Yhat
-    std_ehat = np.sqrt(Sigma_ehat.diagonal())
-
-    # Show the 99% confidence interval
-    k99 = norm.ppf(1 - 0.5*0.01)
-    confidence_interval_y = k99*std_y
-    confidence_interval_res = k99*std_ehat
-
-    # Plot original data and fitted model
-    plt.figure(figsize = (15,5))
-    plt.plot(date, y_obs, 'k+',  label = 'Observations')
-    plt.plot(date, yhat,  label = 'Fitted model')
-    plt.fill_between(date, (yhat - confidence_interval_y), 
-                     (yhat + confidence_interval_y), facecolor='orange',
-                     alpha=0.4, label = '99% Confidence Region')
-    plt.plot(date, true_disp, label = 'True model')
-    plt.legend()
-    plt.ylabel(data_type + ' Displacement [mm]')
-    plt.xlabel('Time')
-    plt.title(data_type + ' Observations and Fitted Model')
-
-    return ehat
-
-k_true = 0.1
-R_true = -25 
-a_true = 180
-d0_true = 10
-
-disp_gnss  = (d0_true + R_true*(1 - np.exp(-days_gnss/a_true)) 
-              + k_true*GW_at_GNSS_times) 
-
-yhat_gnss = A_gnss @ xhat_gnss
-ehat_gnss_1 = plot_residual(dates_gnss, y_gnss, yhat_gnss,
-                             'GNSS', A_gnss, 
-                             Sigma_Xhat_gnss, Sigma_Y_gnss, disp_gnss)
-
-plt.figure(figsize=(15,5))
-plt.plot(days_gnss, yhat_gnss,  label = 'BLUE model', color='black')
-plt.plot(days_gnss, disp_gnss, label='True model', color='orange')
-
-x_plot = np.linspace(np.min(X),np.max(X),1000).reshape(-1,1)
-y_plot = new_model_gnss.predict(input_scaler.transform(x_plot))
-plt.plot(x_plot,target_scaler.inverse_transform(y_plot.reshape(-1,1)),color='purple',linewidth=3,label='Network')
 
 plt.title('Obvserved vs Predicted Values')
 plt.ylabel('Displacement [mm]')
