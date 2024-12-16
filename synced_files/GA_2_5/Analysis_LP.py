@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: mude-week-2-5
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
@@ -92,7 +88,7 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # import required packages
 import os
 import time
@@ -234,7 +230,7 @@ demand = create_nd_matrix(ods_data, origs, dests, nodes)
 # </p>
 # </div>
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 ## create a gurobi model object
 model = gp.Model()
 
@@ -261,7 +257,7 @@ model.params.PreQLinearize = 1
 #
 # As you will see below in the code block, we have one extra set of variables called x2 (x square). This is to help Gurobi isolate quadratic terms and perform required transformations based on MCE to keep the problem linear. This is not part of your learning goals.
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # decision variables:
 
 link_selected = model.addVars(links, vtype=gp.GRB.BINARY, name='y')
@@ -309,7 +305,7 @@ link_flow_sqr = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x2')
 # Therefore, we use this equation to model our objective function in gurobi. You do not need to know fully understand this equation.
 #
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # objective function (total travel time)
 
 model.setObjective(
@@ -329,7 +325,7 @@ model.setObjective(
 #
 # $$ \sum_{(i,j) \in A}{ y_{ij}} \leq B $$
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # budget constraint
 c_bgt = model.addConstr(gp.quicksum(link_selected[i, j] for (i, j) in links) <= extension_max_no)
 
@@ -338,7 +334,7 @@ c_bgt = model.addConstr(gp.quicksum(link_selected[i, j] for (i, j) in links) <= 
 # We have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$. So we have to make sure that the sum of the flows over all destinations equals the flow on each link.
 # $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # link flow conservation
 c_lfc = model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_flow[i, j] for (i, j) in links)
 
@@ -352,7 +348,7 @@ c_lfc = model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_
 #
 # ![image](./figs/equil.png)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # node flow conservation
 c_nfc = model.addConstrs(
     gp.quicksum(dest_flow[i, j, s] for j in nodes if (i, j) in links) -
@@ -365,7 +361,7 @@ c_nfc = model.addConstrs(
 # These are basically dummy equations to help gurobi model quadratic terms (that we defined as dummy variables earlier). So essentially instead of using $x^2_{ij}$ in the model, we define a new set of decision variables and define a set of constrains to set their value to $x^2_{ij}$. This let's Gurobi know these are quadratic terms and helps gurobi to replace it with variables and constraints required to keep the problem linear. This is not part of your learning goals! 
 #
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # dummy constraints for handling quadratic terms
 c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j] for (i, j) in links)
 
@@ -394,14 +390,14 @@ c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j
 # %% [markdown]
 # <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument in the code cell above, which is beneath the 'Part 2' heading. </p></div>
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 #Next we are ready to solve the model
 model.optimize()
 
 # %% [markdown]
 # Note that if you didn't find a solution, you can rerun the previous cell to continue the optimization for another 300 seconds (defined by `timelimit`).
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # fetch optimal decision variables and Objective Function values
 link_flows = {(i, j): link_flow[i, j].X for (i, j) in links}
 links_selected = {(i, j): link_selected[i, j].X for (i, j) in links}

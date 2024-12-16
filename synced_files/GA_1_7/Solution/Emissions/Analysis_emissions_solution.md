@@ -6,10 +6,6 @@ jupyter:
       format_name: markdown
       format_version: '1.3'
       jupytext_version: 1.16.5
-  kernelspec:
-    display_name: mude-week-8
-    language: python
-    name: python3
 ---
 
 # Group Assignment 1.7: Distribution Fitting
@@ -49,7 +45,7 @@ $$
 ## Importing packages
 <!-- #endregion -->
 
-```python id="4fc6e87d-c66e-43df-a937-e969acc409f8"
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 

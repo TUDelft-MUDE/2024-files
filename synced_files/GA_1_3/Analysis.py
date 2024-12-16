@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown]
@@ -352,7 +348,7 @@ model_gnss['A'] = YOUR_CODE_HERE
 # </div>
 #
 
-# %% colab={"base_uri": "https://localhost:8080/"} executionInfo={"elapsed": 40, "status": "ok", "timestamp": 1664699881875, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="163acdb3" outputId="8bc99da3-a61e-4a25-8a54-c90f33299a57"
+# %%
 # YOUR_CODE_HERE
 
 # %% [markdown]
@@ -502,7 +498,7 @@ YOUR_CODE_HERE
 #
 #
 
-# %% colab={"base_uri": "https://localhost:8080/"} executionInfo={"elapsed": 16, "status": "ok", "timestamp": 1664699882186, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="835eefc8" outputId="ad47d53d-c147-4b25-fb03-b967a3bb6f96"
+# %%
 Sigma_X_hat_insar = model_insar['Sigma_X_hat']
 
 YOUR_CODE_HERE

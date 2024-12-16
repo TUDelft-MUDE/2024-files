@@ -6,10 +6,6 @@ jupyter:
       format_name: markdown
       format_version: '1.3'
       jupytext_version: 1.16.5
-  kernelspec:
-    display_name: mude-week-2-5
-    language: python
-    name: python3
 ---
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
@@ -185,7 +181,7 @@ from pymoo.operators.crossover.pntx import PointCrossover
 
 ```
 
-```python pycharm={"name": "#%%\n"}
+```python
 # import required packages
 import os
 import time
@@ -205,7 +201,7 @@ We will use the same function we used in the previous notebook to visualize the 
 Now that we have the required functions for reading and processing the data, let's define some problem parameters and prepare the input.
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 # define parameters
 extension_factor = 2.5 
 
@@ -257,7 +253,7 @@ Run the scripts below all the way to the end. You do not have to change anything
 </p>
 </div>
 
-```python pycharm={"name": "#%%\n"}
+```python
 def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=2.5):
 
     # variables
@@ -322,7 +318,7 @@ Let's define a model in MyMOO and deal with the links selection problem with the
 First, we need to define a problem class.
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 #If you want to know more about the library that is being used: https://pymoo.org/algorithms/soo/ga.html
 
 class NDP(ElementwiseProblem):
@@ -362,7 +358,7 @@ As part of question 6, change the given parameters around and see how your conve
 </p>
 </div>
 
-```python pycharm={"name": "#%%\n"}
+```python
 extension_max_no = 40
 pop_size = 200
 
@@ -384,7 +380,7 @@ Now we are ready to minimize the NDP problem using the GA method we defined.
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 
 opt_results = minimize(problem,
                method,
@@ -414,7 +410,7 @@ print("Best solution found: %s" % opt_results.X)
 Let's first define some functions (to use later) to get the results and plot them.
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 def get_results(opt_results):
 
     number_of_individuals = [] # The number of individuals in each generation
@@ -471,7 +467,7 @@ Now let's use these functions to plot the results.
 
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 number_of_individuals, optimal_values_along_generations = get_results(opt_results)
 
 plot_results(number_of_individuals, optimal_values_along_generations)

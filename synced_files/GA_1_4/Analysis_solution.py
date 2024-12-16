@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown]
@@ -209,7 +205,7 @@ print(m2['Sigma_Y'])
 # </p>
 # </div>
 
-# %% id="3ba5bf67"
+# %%
 def compute_y(x, d):
     """Model, q: ground surface displacement.
 
@@ -315,7 +311,7 @@ initial_guess = (d_init, R_init, a_init, k_init)
 # </p>
 # </div>
 
-# %% id="4aef41e9"
+# %%
 def jacobian(x, d):
     """Compute Jacobian of the model.
 
@@ -370,7 +366,7 @@ def jacobian(x, d):
 # </p>
 # </div>
 
-# %% colab={"base_uri": "https://localhost:8080/"} executionInfo={"elapsed": 19, "status": "ok", "timestamp": 1664699883678, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="c57e5e26" outputId="2b46920b-8ff3-47c5-cc03-8dad183d52b3"
+# %%
 # YOUR_CODE_HERE
 
 # SOLUTION:
@@ -419,7 +415,7 @@ print(f'The redundancy (GNSS) is {m2["y"].shape[0] - n_2}')
 #
 # You can comment out the code near the end of the function (that adds summary information to the dictionary) and focus on implementing the code in the <code>while</code>-loop first. Once that part of the function is working you can return to the summary information. </p></div>
 
-# %% id="FbsD75dR0w5b"
+# %%
 def gauss_newton_iteration(x0, d):
     """Use Gauss-Newton iteration to find non-linear parameters.
     
@@ -572,7 +568,7 @@ print(m2['x_hat_all_iterations'])
 #
 # Remember we stored all iterations in the dictionary as an ndarray with key <code>x_hat_all_iterations</code>. To slice an ndarray inside a dictionary you can use the following syntax: <code>my_dict['key_to_ndarray'][1, :]</code>, which would return the second row in the ndarray.</p></div>
 
-# %% id="7d52c8b9"
+# %%
 # def plot_fit_iteration(d):
 #     """Plot value of each parameter, each iteration."""
 #     plt.figure(figsize = (15,4))
@@ -668,7 +664,7 @@ plot_convergence_interactive(gauss_newton_iteration(initial_guess_alternative, m
 # </p>
 # </div>
 
-# %% id="5af9e513"
+# %%
 # def show_std(Sigma_X_hat, data_type):
 #     print ('The standard deviation for',
 #            data_type + '-offset is',
@@ -749,7 +745,7 @@ model_summary(m2)
 # %%
 help(get_CI)
 
-# %% colab={"base_uri": "https://localhost:8080/", "height": 982} executionInfo={"elapsed": 787, "status": "ok", "timestamp": 1664699888366, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="pDJfjxgs6veD" outputId="212041d5-43c7-4df6-8ebc-4fdff0d79daf"
+# %%
 # m1['Y_hat'] = YOUR_CODE_HERE
 # m1 = get_CI(YOUR_CODE_HERE)
 # plot_model(YOUR_CODE_HERE)
@@ -763,7 +759,7 @@ plot_model(m1)
 plot_residual(m1)
 plot_residual_histogram(m1);
 
-# %% colab={"base_uri": "https://localhost:8080/", "height": 982} executionInfo={"elapsed": 921, "status": "ok", "timestamp": 1664699889284, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="ngZMBQM87QMr" outputId="35c44fc7-4b48-4727-c9cf-65c01e528d19"
+# %%
 # m1['Y_hat'] = YOUR_CODE_HERE
 # m1 = get_CI(YOUR_CODE_HERE)
 # plot_model(YOUR_CODE_HERE)
@@ -816,7 +812,7 @@ print(f'The critical value is {np.round(k, 3)}')
 # </div>
 #
 
-# %% colab={"base_uri": "https://localhost:8080/"} executionInfo={"elapsed": 303, "status": "ok", "timestamp": 1664699889583, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="92b5b797-093d-46fb-a2c0-2b9ccdae4052" outputId="7dbbf60b-6bc0-41ae-d730-3423a2e9c032"
+# %%
 # YOUR_CODE_HERE (probably will be more than one line)
 # print(f'The test statistic for InSAR data is {np.round(t_insar, 3)}')
 
