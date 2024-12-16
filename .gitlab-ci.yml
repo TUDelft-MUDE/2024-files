@@ -39,8 +39,8 @@ sync_notebooks:
         - content/**/*
   script:
     - echo "Starting sync with pipeline variables:"
-    - echo "CI_COMMIT_BRANCH: $CI_COMMIT_BRANCH"
-    - echo "CI_PIPELINE_SOURCE: $CI_PIPELINE_SOURCE"
+    - echo "CI_COMMIT_BRANCH:"" $CI_COMMIT_BRANCH"
+    - echo "CI_PIPELINE_SOURCE:"" $CI_PIPELINE_SOURCE"
     - rm -rf synced_files
     - mkdir -p synced_files
     - find ./content -name "*.ipynb" > notebooks_manifest.txt
