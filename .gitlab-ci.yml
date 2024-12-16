@@ -56,18 +56,25 @@ sync_notebooks:
           mkdir -p "$synced_dir"
           
           if python -c "import json; json.load(open('$notebook'));" 2>/dev/null; then
-            jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log
-            jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log
-            jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log
+            # Convert to notebook with stripped metadata
+            jupyter nbconvert --to notebook --ClearMetadataPreprocessor.enabled=True \
+              --ClearMetadataPreprocessor.preserve_cell_metadata="['tags']" \
+              --ClearMetadataPreprocessor.preserve_notebook_metadata="['kernelspec']" \
+              --output-dir="${synced_dir}" "$notebook"
+            
+            # Convert the stripped notebook to other formats
+            stripped_notebook="${synced_dir}/$(basename $notebook)"
+            jupytext --to markdown "$stripped_notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log
+            jupytext --to py:percent "$stripped_notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log
             
             # Generate clean Python file without markdown cells
             clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
-            jupytext --to py:light --opt comment_magics=false --opt notebook_metadata_filter=-all --opt cell_metadata_filter=-all "$notebook" -o "$clean_file" 2>>conversion_errors.log
+            jupytext --to py:light --opt comment_magics=false --opt notebook_metadata_filter=-all \
+              --opt cell_metadata_filter=-all "$stripped_notebook" -o "$clean_file" 2>>conversion_errors.log
             
             if [ -f "$clean_file" ]; then
-              # Remove any remaining comments
+              # Remove any remaining comments and clean up empty lines
               awk '!/^#/' "$clean_file" > "${clean_file}.tmp" && mv "${clean_file}.tmp" "$clean_file"
-              # Clean up empty lines
               sed -i '/^[[:space:]]*$/N;/^\n$/D' "$clean_file"
               echo "Created clean version of $notebook"
             fi
