@@ -1,6 +1,6 @@
 
 import time
-import pickle
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -9,33 +9,52 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
-file_path = r"data/features_BAK.pk" 
-with open(file_path, 'rb') as handle:
-    features = pickle.load(handle)
+data = pd.read_csv(r"data/bridges.csv")
 
-file_path = r"data/targets_BAK.pk"
-with open(file_path, 'rb') as handle:
-    targets = pickle.load(handle)
+data.describe()
 
-print('Dimensions of features (X):', features.shape)
-print('Dimensions of targets  (t):', targets.shape)
+from matplotlib import cm
+
+loc1 = data[data['node'] == 16] # point at 25% span
+loc2 = data[data['node'] == 29] # point at midspan
+loc3 = data[data['node'] == 41] # point at 75% span
+
+fig,axes = plt.subplots(1,3,figsize=(10,3))
+
+axes[0].scatter(loc1['dy'], loc1['location'], c=loc1['sample'], s=0.5)
+axes[0].set_xlabel('displacement at 25% span [m]')
+axes[0].set_ylabel('crack location [m]')
+
+axes[1].scatter(loc2['dy'], loc1['location'], c=loc2['sample'], s=0.5)
+axes[1].set_xlabel('displacement at 50% span [m]')
+axes[1].set_ylabel('crack location [m]')
+
+axes[2].scatter(loc3['dy'], loc1['location'], c=loc3['sample'], s=0.5)
+axes[2].set_xlabel('displacement at 75% span [m]')
+axes[2].set_ylabel('crack location [m]')
+
+plt.tight_layout()
+plt.show()
+
+features = loc2['dy'].to_numpy().reshape(-1,1)
+targets = loc2['location'].to_numpy().reshape(-1,1)
 
 X_train, X_val_test, t_train, t_val_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=42)
 X_val, X_test, t_val, t_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=24)
 
-scaler_diameters = MinMaxScaler()
-scaler_diameters.fit(X_train)
+scaler_x = MinMaxScaler()
 
-normalized_X_train = scaler_diameters.transform(X_train)
-normalized_X_val = scaler_diameters.transform(X_val)
+scaler_x.fit(YOUR_CODE_HERE)
 
-scaler_pressures = MinMaxScaler()
-scaler_pressures.fit(t_train)
+normalized_X_train = scaler_x.transform(YOUR_CODE_HERE)
+normalized_X_val = scaler_x.transform(YOUR_CODE_HERE)
 
-normalized_t_train = scaler_pressures.transform(t_train)
-normalized_t_val = scaler_pressures.transform(t_val)
+scaler_t = MinMaxScaler()
 
-model = MLPRegressor(YOUR_CODE_HERE, YOUR_CODE_HERE)
+scaler_t.fit(YOUR_CODE_HERE)
+
+normalized_t_train = scaler_t.transform(YOUR_CODE_HERE)
+normalized_t_val = scaler_t.transform(YOUR_CODE_HERE)
 
 def get_mini_batches(X, t, batch_size):
     """
@@ -72,6 +91,9 @@ def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val,
     val_loss_list = []
     model.learning_rate_init = learning_rate
     
+    # Fix random seed for reproducibility
+    np.random.seed(42)
+
     for epoch in range(n_epochs):
         
         # Generate mini-batches
@@ -91,6 +113,10 @@ def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val,
         print(f"Epoch {epoch+1}/{n_epochs} - Train Loss: {train_loss_list[-1]:.4f} - Val Loss: {val_loss:.4f}")
         
     return train_loss_list, val_loss_list
+
+    
+
+model = MLPRegressor(YOUR_CODE_HERE, YOUR_CODE_HERE)
 
 train_loss_list, val_loss_list = train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate)
 
@@ -116,12 +142,58 @@ plt.yticks(fontsize=12)
 plt.gca().set_facecolor('#f2f2f2')
 plt.show()
 
-model.score(YOUR_CODE_HERE, YOUR_CODE_HERE)
+normalized_X_range = np.linspace(0,1,100).reshape(-1,1)
+X_range = scaler_x.inverse_transform(normalized_X_range)
 
-model.score(YOUR_CODE_HERE, YOUR_CODE_HERE)
+normalized_y_range = model.predict(normalized_X_range).reshape(-1,1)
+y_range = scaler_t.inverse_transform(normalized_y_range)
 
-layer_sizes = [10, 20, 50, 100] 
-layer_numbers = [1, 2, 3, 4]
+fig,axes = plt.subplots(1,2,figsize=(8,3))
+
+axes[0].plot(X_range, y_range, label=r"Network $y(x)$", color='k')
+axes[0].scatter(X_train,t_train,s=0.5, label='Training data')
+axes[0].set_xlabel('displacement at 50% span [m]')
+axes[0].set_ylabel('crack location [m]')
+
+axes[1].plot(X_range, y_range,label=r"Network $y(x)$", color='k')
+axes[1].scatter(X_val,t_val,s=0.5, label='Validation data')
+axes[1].set_xlabel('displacement at 50% span [m]')
+axes[1].set_ylabel('crack location [m]')
+
+axes[0].legend()
+axes[1].legend()
+plt.tight_layout()
+
+y_train = YOUR_CODE_HERE
+y_val = YOUR_CODE_HERE
+
+fig,axes = plt.subplots(1,2,figsize=(8,3))
+
+axes[0].scatter(YOUR_CODE_HERE,YOUR_CODE_HERE,s=0.5)
+axes[0].set_xlabel('target crack location [m]')
+axes[0].set_ylabel('predicted crack location [m]')
+
+min_val = min(np.min(t_train), np.min(y_train))
+max_val = max(np.max(t_train), np.max(y_train))
+axes[0].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[0].legend()
+
+axes[1].scatter(YOUR_CODE_HERE,YOUR_CODE_HERE,s=0.5)
+axes[1].set_xlabel('target crack location [m]')
+axes[1].set_ylabel('predicted crack location [m]')
+
+min_val = min(np.min(t_val), np.min(y_val))
+max_val = max(np.max(t_val), np.max(y_val))
+axes[1].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[1].legend()
+
+plt.tight_layout()
+
+features = np.array([loc1['dy'].to_numpy(), loc2['dy'].to_numpy(), loc3['dy'].to_numpy()]).transpose()
+targets = loc2['location'].to_numpy().reshape(-1,1)
+
+layer_sizes = [YOUR_CODE_HERE]
+layer_numbers = [YOUR_CODE_HERE]
 
 val_loss_grid = np.zeros((len(layer_sizes), len(layer_numbers)))
 
@@ -135,39 +207,26 @@ for i, lsize in enumerate(layer_sizes):
         print("Training NN with hidden layers:  {}".format(layers))
         
         # Create the ANN model with the given hidden layer sizes and activation function
-        model = MLPRegressor(hidden_layer_sizes=layers, activation='tanh')
+        # Fix random_state to make sure results are reproducible
+        model = MLPRegressor(hidden_layer_sizes=layers, activation='relu', random_state=0)
         
         _,  val_loss_list = train_model(model, 
                                         normalized_X_train, 
                                         normalized_t_train,
                                         normalized_X_val, 
                                         normalized_t_val, 
-                                        n_epochs=20, 
+                                        n_epochs=500, 
                                         batch_size=64,
-                                        learning_rate=0.001
+                                        learning_rate=0.001,
+                                        verbose=False
                                         )
     
         val_loss_grid[i,j] = val_loss_list[-1]
         
-        print("     Loss:    {:.4e}\n".format(val_loss_grid[i,j]))
+        print("     Final validation loss:    {:.4e}\n".format(val_loss_grid[i,j]))
 
 min_size, min_number = np.unravel_index(np.argmin(val_loss_grid), val_loss_grid.shape)
 print("\n\nModel with {} layers and {} neurons per layer gave lowest loss of {:.4e}".format(layer_numbers[min_number], layer_sizes[min_size], val_loss_grid[min_size, min_number]))
-
-layers = (layer_sizes[min_size],) * layer_numbers[min_number]
-model = MLPRegressor(hidden_layer_sizes=layers, activation='tanh')
-
-_,  val_loss_list = train_model(model, 
-                                normalized_X_train, 
-                                normalized_t_train,
-                                normalized_X_val, 
-                                normalized_t_val, 
-                                n_epochs=20, 
-                                batch_size=64,
-                                learning_rate=0.001
-                                )
-
-import matplotlib.pyplot as plt
 
 rows = layer_sizes
 cols = layer_numbers
@@ -186,49 +245,18 @@ plt.ylabel('Number of Neurons')
 plt.title('Validation Loss Grid')
 plt.show()
 
-normalized_X_test = scaler_diameters.transform(X_test)
-normalized_t_test = scaler_pressures.transform(t_test)
+normalized_X_test = scaler_x.transform(X_test)
 
-model.score(normalized_X_test, normalized_t_test)
+layers = (layer_sizes[min_size],) * layer_numbers[min_number]
+model = MLPRegressor(hidden_layer_sizes=layers, activation='tanh', random_state=0)
 
-estimated_pressure = scaler_pressures.inverse_transform(model.predict(normalized_X_test))
-error = t_test - estimated_pressure
-
-node_ID = 0
-error_node = error[:, node_ID]
-
-fig, ax = plt.subplots()
-
-ax.hist(error_node, bins='auto', color='#0504aa', alpha=0.7, rwidth=0.85)
-
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
-ax.spines['left'].set_visible(False)
-ax.spines['bottom'].set_color('#DDDDDD')
-ax.tick_params(bottom=False, left=False)
-ax.set_axisbelow(True)
-ax.yaxis.grid(True, color='#EEEEEE')
-ax.xaxis.grid(False)
-
-ax.set_xlabel('Error of prediction [m]', labelpad=15, color='#333333')
-ax.set_ylabel('Frequency', labelpad=15, color='#333333')
-ax.set_title(f'Error of node {node_ID} across test scenarios', pad=15, color='#333333', weight='bold')
-
-fig.tight_layout()
-
-start_time = time.time()
-y_pred_test = model.predict(X_test)
-total_time = time.time() - start_time
-
-num_test_sims = len(y_pred_test)
-
-data_driven_exec_time_per_sim = total_time/num_test_sims
-print(f'Data-driven model took {data_driven_exec_time_per_sim:.7f} seconds for {num_test_sims} scenarios')
-
-original_time_per_sim = 0.04
-
-speed_up = np.round(original_time_per_sim/data_driven_exec_time_per_sim, 2)
-print('The data-driven model is', speed_up,'times faster than original simulator per scenario.')
-
-YOUR_CODE_HERE 
+_,  val_loss_list = train_model(model, 
+                                normalized_X_train, 
+                                normalized_t_train,
+                                normalized_X_val, 
+                                normalized_t_val, 
+                                n_epochs=500, 
+                                batch_size=64,
+                                learning_rate=0.001
+                                )
 
