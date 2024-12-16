@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.5
   kernelspec:
     display_name: mude-week-2-5
     language: python
@@ -48,40 +48,46 @@ There are a variety of approaches to dealing with the road network design proble
 The following (main) assumptions and simplifications are made to make the problem solvable using methods and algorithms that you have learned so far:
 
 ### 1. Link travel time function
-Travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/hour) on that link and the capacity of the link (maximum of vehicles/hour). The most common function to calculate travel time on a link is the so-called Bureau of Public Roads (BPR) function, which is a polynomial (degree 4) function. 
-
-Here, we use a simplified linear function where travel time grows linearly with the flow of vehicles on a road link: 
+Travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/hour) on that link and the capacity of the link (maximum of vehicles/hour). The most common function to calculate travel time on a link is the so-called Bureau of Public Roads (BPR) function, which is a polynomial (degree 4) function:
 
 $${t_{ij}} = t_{ij}^0\left( {1 + \alpha {{\left( {\cfrac{x_{ij}}{c_{ij}}} \right)}^\beta }} \right) \quad \left( {i,j} \right) \in A$$
 
-Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $_c{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are calibration parameters. More details are provided within the formulation section.
+Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $c_{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are calibration parameters. More details are provided within the formulation section.
 
+Here, we assumme a simplified linear function where travel time grows linearly with the flow of vehicles on a road link, which will be described later in the notebook.
 
 ### 2. Route choice behavior
 In order to assess the quality of the road capacity expansion problem, one must know what the effect of the added capacity is on travel time. The route choice behavior of drivers within congested networks often follows the so-called User Equilibrium (UE) principle where each traveller tries to minimize their own individual generalized travel time. 
 
-However, calculating the UE requires advanced methods which are not covered in the MUDE. Therefore, here we assume the route choice behaviour follows the so-called System Optimal (SO) principle, which implies that route choices are made in such a way that the total travel time is minimized (summed over all the drivers). That means that some cars will drive longer routes so that other cars can save time. But have in mind that in our road networks you can hardly obtain a system optimal traffic distribution!
+However, calculating the UE requires advanced methods which are not covered in the MUDE. Therefore, here we assume the route choice behaviour follows the so-called System Optimal (SO) principle, which implies that route choices are made in such a way that the total travel time is minimized (summed over all the drivers). That means that some cars will drive longer routes so that other cars can save time. But have in mind that in real life road networks you can hardly obtain a system optimal traffic distribution!
 
 
 Using the simplifcations and assumptions referred to above we can formulate an NDP and solve it using the branch and bound method (that you have studied before).
 
 <!-- #endregion -->
 
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
+
 <!-- #region pycharm={"name": "#%% md\n"} -->
 
 ## Part 1: Data preprocessing
 
-The following functions reads the data from from the input folder and performs data preprocessing.
-
-The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is as table that tells you how many cars go from node i to node j in an a given timeframe. The paths between the nodes are chosen by solving the optimization model.
+The demand of the network is given by an **OD matrix** (origin-destination), which will be constructed below. The OD matrix is a table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
 <!-- #endregion -->
 
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 1:</b> 
+
+Run the script below. 
+
+- The first two blocks imports all the required functions and packages
+- The next blocks visualises the network.
+- The last block loads the OD matrix and visualises it in a heatmap.
+</p>
+</div>
 
 ```python
-# import required packages
-import os
-import time
 import gurobipy as gp
 import pandas as pd
 import numpy as np
@@ -89,119 +95,15 @@ from matplotlib import pyplot as plt
 ```
 
 ```python pycharm={"name": "#%%\n"}
-# read network file
-def read_net(net_file):
-    """
-       read network file
-    """
-    net_data = pd.read_csv(net_file, skiprows=8, sep='\t')
-    trimmed = [s.strip().lower() for s in net_data.columns]
-    net_data.columns = trimmed
-    net_data.drop(['~', ';'], axis=1, inplace=True)
-    convert_dict = {'free_flow_time': float,
-                    'capacity': float,
-                    'length': float,
-                    'power': float
-                    }
-    
-    net_data = net_data.astype(convert_dict)
+# import required packages
+import os
+import time
 
-    net_data.loc[net_data['free_flow_time'] <= 0, 'free_flow_time'] = 1e-6
-    net_data.loc[net_data['capacity'] <= 0, 'capacity'] = 1e-6
-    net_data.loc[net_data['length'] <= 0, 'length'] = 1e-6
-    net_data.loc[net_data['power'] <= 1, 'power'] = int(4)
-    net_data['init_node'] = net_data['init_node'].astype(int)
-    net_data['term_node'] = net_data['term_node'].astype(int)
-    net_data['b'] = net_data['b'].astype(float)
-
-    links = list(zip(net_data['init_node'], net_data['term_node']))
-    caps = dict(zip(links, net_data['capacity']))
-    fftt = dict(zip(links, net_data['free_flow_time']))
-    lent = dict(zip(links, net_data['length']))
-    alpha = dict(zip(links, net_data['b']))
-    beta = dict(zip(links, net_data['power']))
-
-    net = {'capacity': caps, 'free_flow': fftt, 'length': lent, 'alpha': alpha, 'beta': beta}
-
-    return net
-
-
-# read OD matrix
-def read_od(od_file):
-    """
-       read OD matrix
-    """
-    f = open(od_file, 'r')
-    all_rows = f.read()
-    blocks = all_rows.split('Origin')[1:]
-    matrix = {}
-
-    for k in range(len(blocks)):
-        orig = blocks[k].split('\n')
-        dests = orig[1:]
-        origs = int(orig[0])
-
-        d = [eval('{' + a.replace(';', ',').replace(' ', '') + '}') for a in dests]
-        destinations = {}
-
-        for i in d:
-            destinations = {**destinations, **i}
-        matrix[origs] = destinations
-
-    zones = max(matrix.keys())
-    od_dict = {}
-
-    for i in range(zones):
-        for j in range(zones):
-            demand = matrix.get(i + 1, {}).get(j + 1, 0)
-            if demand:
-                od_dict[(i + 1, j + 1)] = demand
-            else:
-                od_dict[(i + 1, j + 1)] = 0
-
-    return od_dict
-
-
-# read case study data, different case studies that have different demand and road network 
-def read_cases(networks, input_dir):
-    """
-       read case study data
-    """
-    net_dict = {}
-    ods_dict = {}
-
-    if networks:
-        cases = [case for case in networks]
-    else:
-        cases = [x for x in os.listdir(input_dir) if os.path.isdir(os.path.join(input_dir, x))]
-
-    for case in cases:
-        mod = os.path.join(input_dir, case)
-        mod_files = os.listdir(mod)
-
-        for i in mod_files:
-            if i.lower()[-8:] == 'net.tntp':
-                net_file = os.path.join(mod, i)
-                net_dict[case] = read_net(net_file)
-            if 'TRIPS' in i.upper() and i.lower()[-5:] == '.tntp':
-                ods_file = os.path.join(mod, i)
-                ods_dict[case] = read_od(ods_file)
-
-    return net_dict, ods_dict
-
-
-# create node-destination demand matrix (not a regular OD!)
-def create_nd_matrix(ods_data, origins, destinations, nodes):
-    demand = {(n, d): 0 for n in nodes for d in destinations}
-    for r in origins:
-        for s in destinations:
-            if (r, s) in ods_data:
-                demand[r, s] = ods_data[r, s]
-    for s in destinations:
-        demand[s, s] = - sum(demand[j, s] for j in origins)
-
-    return demand
-
+# import required functions
+from utils.read import read_cases
+from utils.read import read_net
+from utils.read import read_od
+from utils.read import create_nd_matrix
 ```
 
 ### Visualisation
@@ -223,6 +125,19 @@ from utils.network_visualization_upgraded import network_visualization_upgraded
 ```
 
 ```python
+# We are using the SiouxFalls network which is one of the most used networks in transportation reseach: https://github.com/bstabler/TransportationNetworks/blob/master/SiouxFalls/Sioux-Falls-Network.pdf
+networks = ['SiouxFalls']
+networks_dir = 'input/TransportationNetworks'
+
+net_dict, ods_dict = read_cases(networks, networks_dir)
+net_data, ods_data = net_dict[networks[0]], ods_dict[networks[0]]
+
+## now let's prepare the data in a format readable by gurobi
+links = list(net_data['capacity'].keys())
+nodes = np.unique([list(edge) for edge in links])
+fftts = net_data['free_flow']
+
+# Visualise
 coordinates_path = 'input/TransportationNetworks/SiouxFalls/SiouxFallsCoordinates.geojson'
 G, pos = network_visualization(link_flow = fftts,coordinates_path= coordinates_path) 
 ```
@@ -237,9 +152,7 @@ Interested in visualizing other networks? Fantastic! However, you'll need to che
 
 Here, the OD matrix is read.
 
-Note that, in order to speed up the optimisation process, we have lowered the demand in the network to 60% of its original level. You do not need to make any modifications to this part of the code!
-
-The first code block gives you a printout of the first 5 rows of the matrix. The second creates a visualisation for you.
+The first code block gives you a printout of the first 5 rows of the matrix. The second creates a heatmap of the flow values inside the OD matrix.
 
 ```python
 import matplotlib.pyplot as plt
@@ -254,7 +167,7 @@ max_destination = max(key[1] for key in data.keys())
 od_matrix = pd.DataFrame(index=range(1, max_origin + 1), columns=range(1, max_destination + 1))
 
 for key, value in data.items():
-    od_matrix.loc[key[0], key[1]] = value*0.6
+    od_matrix.loc[key[0], key[1]] = value
 
 print("Origin-Destination Matrix:")
 print(od_matrix.head(5))
@@ -284,64 +197,59 @@ plt.show()
 Now that we have the required functions for reading and processing the data, let's define some problem parameters and prepare the input. 
 <!-- #endregion -->
 
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 2.1:</b> 
+
+Run the script below. Take some time to look at the defined parameters and try to relate them to what they represent. This will be useful for answering the questions later.
+
+</p>
+</div>
+
 ```python
-# define parameters, case study (network) list and the directory where their files are
-extension_factor = 1.5  # capacity after extension (1.5 means add 50% of existing capacity)
-extension_max_no = 40  # max number of links to add capacity to (simplified budget limit)
+# define parameters
+extension_factor = 2.5  # capacity after extension
+extension_max_no = 40  # simplified budget limit
 timelimit = 300  # seconds
-beta = 2  # parameter to use in link travel time function (explained later)
+beta = 2  # explained later
 
-networks = ['SiouxFalls']
-networks_dir = 'input/TransportationNetworks'
-
-# prep data
-net_dict, ods_dict = read_cases(networks, networks_dir)
-# Let's load the network and demand (OD matrix) data of the first network (SiouxFalls) to two dictionaries for our first case study.
-# Reminding that we are using the SiouxFalls network which is one of the most used networks in transportation reserach: https://github.com/bstabler/TransportationNetworks/blob/master/SiouxFalls/Sioux-Falls-Network.pdf
-net_data, ods_data = net_dict[networks[0]], ods_dict[networks[0]]
-
-## now let's prepare the data in a format readable by gurobi
-
-# prep links, nodes, and free flow travel times
-links = list(net_data['capacity'].keys())
-nodes = np.unique([list(edge) for edge in links])
-fftts = net_data['free_flow']
-
-# auxiliary parameters (dict format) to keep the problem linear (capacities as parameters rather than variables)
-# this is the capacity of a road link in vehicles per hour without the expansion
+# auxiliary parameters 
 cap_normal = {(i, j): cap for (i, j), cap in net_data['capacity'].items()}
-#with the expansion
 cap_extend = {(i, j): cap * extension_factor for (i, j), cap in net_data['capacity'].items()}
 
 # origins and destinations
 origs = np.unique([orig for (orig, dest) in list(ods_data.keys())])
 dests = np.unique([dest for (orig, dest) in list(ods_data.keys())])
 
-# demand in node-destination form
-# an OD-matrix is built
+# OD-matrix is built
 demand = create_nd_matrix(ods_data, origs, dests, nodes)
 ```
 
-## Initiate the Gurobi model
+### Initiate the Gurobi model
 
 First, let's build a gurobi model object and define some parameters based on the model type. We have a mixed integer quadratic program (MIQP), that's because the objective function has a quadratic term, which we want to transform to a mixed integer linear program (MILP) and solve using the branch and bound method. We discuss the transformations from quadratic to linear when we introduce quadratic terms.
+
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 2.2:</b> 
+
+Run the model setup below, which includes initiating the decision variables, objective function, and constraints. 
+
+</p>
+</div>
 
 ```python pycharm={"name": "#%%\n"}
 ## create a gurobi model object
 model = gp.Model()
 
-# define some important parameters for solving the model with gurobi
-model.params.TimeLimit = timelimit  # 300 seconds timelimit since it can take long to reduce the gap to zero (change and play around if you want)
-model.params.NonConvex = 2  # our problem is not convex as it is now, so we let gurobi know to use the right transformation and solutions
-#about convexity in optimization: a convex function will be a continuous functin that will have one minimum 
-#(or maximum depending on the problem), therefore in any point that you starting searching for a solution you can follow the gradient 
-#to search for that extreme point. Non-convex problems can have local minimum (or maximum) points that will make you stuck in the process 
-#of searching for the solution
-model.params.PreQLinearize = 1 # useful parameter to ask gurobi to try to linearize non-linear terms
+model.params.TimeLimit = timelimit  
+model.params.NonConvex = 2 
+model.params.PreQLinearize = 1
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
-## Decision variables
+### Decision variables
 
 We have a set of binary variables $y_{ij}$, these variables take the value 1 if link $(i,j)$ connecting node $i$ to node $j$ is selected for expansion, and 0 otherwise.
 
@@ -361,28 +269,22 @@ As you will see below in the code block, we have one extra set of variables call
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-## decision variables:
+# decision variables:
 
-# link selected (y_ij); i: a_node, j: b_node (selected links for capacity expansion)
 link_selected = model.addVars(links, vtype=gp.GRB.BINARY, name='y')
-
-# link flows (x_ij); i: a_node, j: b_node
 link_flow = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x')
-
-# link flows per destination s (xs_ijs); i: a_node, j: b_node, s: destination
 dest_flow = model.addVars(links, dests, vtype=gp.GRB.CONTINUOUS, name='xs')
 
-# link flow square (x2_ij); i: a_node, j: b_node (dummy variable for handling quadratic terms, you do not need to know this)
 link_flow_sqr = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x2')
 
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
-## Objective function
+### Objective function
 
 The objective function of the problem (in its simplest form), is the minimization of the total travel time on the network, that means that you multiply the flow of vehicles in each link by the corresponding travel time and sum over all links ($A$ is the collection of all links to simplify the notation):
 
-$Z = \sum_{(i,j) \in A}{ x_{ij} . t_{ij}} $
+$Z = \sum_{(i,j)\in A}{ x_{ij} . t_{ij}} $
 
 The travel time $t_{ij}$ is a function of the flow on a link and can be expressed as follows (where beta is a parameter):
 
@@ -412,19 +314,12 @@ Now, for gurobi (and other solvers as well), we have to keep binary variables an
   Z = \sum_{(i,j) \in A}{t^0_{ij} . x_{ij}} + \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij}} - \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij} . y_{ij}} + \sum_{(i,j) \in A}{t^0_{ij}.(\beta /c^1_{ij}) . x^2_{ij} . y_{ij}}  \\
 \end{align}
 
-Therefore, we use this equation to model our objective function in gurobi.
+Therefore, we use this equation to model our objective function in gurobi. You do not need to know fully understand this equation.
 
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-## objective function (total travel time)
-
-# total travel time = sum (link flow * link travel time)
-# link travel time = free flow travel time * (1 + (flow / capacity))
-# capacity = selected links *  base capacity + other links *  extended capacity
-# other links: 1 - selected links
-
-#note that this equation allows the number of vehicles to be greater than the capacity, this just adds more penalty in terms of travel time.
+# objective function (total travel time)
 
 model.setObjective(
     gp.quicksum(fftts[i, j] * link_flow[i, j] +
@@ -435,37 +330,35 @@ model.setObjective(
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
-## Constraints
+### Constraints
 
 We have four sets of constraints for this problem. Let's go through them one by one and add them to the model.
 
-### 1. Budget constraint
+#### 1. Budget constraint
 We can only extend the capacity of certain number of links based on the available budget. So first, we have to make sure to limit the number of extended links to the max number that can be expanded:
 
-$ \sum_{(i,j) \in A}{ y_{ij}} = B $
+$$ \sum_{(i,j) \in A}{ y_{ij}} \leq B $$
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-## constraints
-
-# budget constraints, c_bgt is the name of the constraint
+# budget constraint
 c_bgt = model.addConstr(gp.quicksum(link_selected[i, j] for (i, j) in links) <= extension_max_no)
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
-### 2. Link flow conservation constraints
+#### 2. Link flow conservation constraints
 We have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$. So we have to make sure that the sum of the flows over all destinations equals the flow on each link.
 $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-# link flow conservation (destination flows and link flows), c_lfc is the name of the constraint
+# link flow conservation
 c_lfc = model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_flow[i, j] for (i, j) in links)
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
-### 3. Node flow conservation constraints
-The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths. $d_is$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_ss$, which is all the demand that arrives at node $s$.
+#### 3. Node flow conservation constraints
+The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths. $d_{is}$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_{ss}$, which is all the demand that arrives at node $s$.
 
 $ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $
 
@@ -475,7 +368,7 @@ The figure gives an example:
 <!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
-# node flow conservation (demand), c_nfc is the name of the constraint
+# node flow conservation
 c_nfc = model.addConstrs(
     gp.quicksum(dest_flow[i, j, s] for j in nodes if (i, j) in links) -
     gp.quicksum(dest_flow[j, i, s] for j in nodes if (j, i) in links) == demand[i, s]
@@ -484,7 +377,7 @@ c_nfc = model.addConstrs(
 ```
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
-### 4. Quadratic variable constraints (you do not need to fully understand this)
+#### 4. Quadratic variable constraints (you do not need to fully understand this)
 These are basically dummy equations to help gurobi model quadratic terms (that we defined as dummy variables earlier). So essentially instead of using $x^2_{ij}$ in the model, we define a new set of decision variables and define a set of constrains to set their value to $x^2_{ij}$. This let's Gurobi know these are quadratic terms and helps gurobi to replace it with variables and constraints required to keep the problem linear. This is not part of your learning goals! 
 
 <!-- #endregion -->
@@ -494,21 +387,33 @@ These are basically dummy equations to help gurobi model quadratic terms (that w
 c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j] for (i, j) in links)
 ```
 
-### Additional constraint for task 3
+### Additional constraint for question 3
+
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 2.3:</b> 
+
+After running the whole model once for 300s, come back and set up a new constraint as instructed in the report. After doing this, reset your kernel and rerun the whole model, with this additional constraint.
+
+</p>
+</div>
 
 <!-- #region id="0491cc69" -->
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> There are three constraints provided below for you to compare. <code>c_new2</code> is the "correct" solution based on the information provided in this assignment; however, it produces an unfeasible problem. The constraint <code>c_new1</code> is feasible, but double-counts capacity (a mistake). See extended solution (markdown file) for more information.</p></div>
+<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> 
+
+The cell below only has to be used when adding the constraint.  </p></div>
 <!-- #endregion -->
 
 ```python
-#Constrain the vehicles to the capacity of the road:
-#c_new1 = model.addConstrs(link_flow[i, j] <= cap_normal[i, j]+(link_selected[i, j]*cap_extend[i, j]) for (i, j) in links)
-c_new2 = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
+# constrain the vehicles to the capacity of the road:
+# c_new = YOUR_CODE_HERE
+
+# SOLUTION
+# c_new = model.addConstrs(link_flow[i, j] <= cap_normal[i,j] + ((cap_extend[i,j]-cap_normal[i,j] ) * link_selected[i,j])  for (i, j) in links)
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
-## Part 3: Solving the model
-<!-- #endregion -->
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument in the code cell above, which is beneath the 'Part 2' heading. </p></div>
 
 ```python pycharm={"name": "#%%\n"}
 #Next we are ready to solve the model
@@ -516,10 +421,6 @@ model.optimize()
 ```
 
 Note that if you didn't find a solution, you can rerun the previous cell to continue the optimization for another 300 seconds (defined by `timelimit`).
-
-<!-- #region pycharm={"name": "#%% md\n"} -->
-# Analysis
-<!-- #endregion -->
 
 ```python pycharm={"name": "#%%\n"}
 # fetch optimal decision variables and Objective Function values
@@ -535,10 +436,10 @@ for var in model.getVars():
     print(f"{var.varName}: {round(var.X, 3)}")  # print the optimal decision variable values.
 ```
 
-## Network Visualization
+### Network Visualization
 
 
-### 1. Network visualization with highlighted links
+#### 1. Network visualization with highlighted links
 
 
 Now, let's visualize the results showcasing congested traffic flows and the selected links for expansion. 
@@ -546,11 +447,21 @@ In this graph, we'll observe the network's topology using node coordinates and l
 
 Nodes are depicted in blue, while selected nodes and links are highlighted in pink and red.
 
+
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 2.4:</b> 
+
+Run the visualisation scripts. Note that you can also view the printout of the labels if it is difficult to read. 
+
+</p>
+</div>
+
 ```python
 network_visualization_highlight_links (G, pos, link_select=links_selected)
 ```
 
-### 2. Network visualization with upgraded links
+#### 2. Network visualization with upgraded links
 
 
 
@@ -571,15 +482,7 @@ cap_normal = {(i, j): cap for (i, j), cap in net_data['capacity'].items()}
 cap_extend = {(i, j): cap * extension_factor for (i, j), cap in net_data['capacity'].items()}
 capacity = {(i, j): cap_normal[i, j] * (1 - links_selected[i, j]) + cap_extend[i, j] * links_selected[i, j]
             for (i, j) in links}
-
 ```
-
-```python
-# Plot results
-network_visualization_upgraded (G = G, pos=pos, link_flow=link_flows, capacity_new=capacity ,link_select=links_selected, labels='off')
-```
-
-If you wish to see the velues for the entire network you just need to turn on the labels and run the function again. 
 
 ```python
 # To see flow and capacity for the entire network

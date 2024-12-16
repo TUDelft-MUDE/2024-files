@@ -5,14 +5,14 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.5
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: mude-base
     language: python
     name: python3
 ---
 
-# Programming Assignment 14: 3-Way Split
+# PA 2.6: 3-Way Split
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
     <style>
@@ -25,25 +25,15 @@ jupyter:
 <h2 style="height: 10px">
 </h2>
 
-*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.6. Due: complete this PA prior to class on Friday, Dec 22, 2023.*
+*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.6. Due: complete this PA prior to class on Friday, Dec 20, 2024.*
 
 
 ## Overview
 
 In this assignment you need to implement an algorithm that takes a dataset and splits it (randomly) into 3 parts for use in a machine learning application: one set for training, validation, and testing. This operation is necessary to set up, validate and improve the model you have implemented.
 
-To accomplish this we will load a dataset with `pandas` (just like last week) and learn a bit about random number generation. There is also a bonus task which will illustrate how you can use `assert` statements.
+To accomplish this we will load a dataset with `pandas` (just like last week) and learn a bit about random number generation. There is also a task which will illustrate how you can use `assert` statements (review).
 
-## Assignment Criteria
-
-**You will pass this assignment as long as your repository fulfills the following criteria:**  
-
-- You have completed this notebook and it runs without errors
-- Your notebook loads the data file as a pandas `DataFrame` instance
-- You use the `DataFrame` to create arrays for the input and output data, `X` and `Y`, respectively
-- You create randomized arrays `X_train, X_val, X_test, Y_train, Y_val, Y_test` from `X` and `Y`
-
-Note that there is also a bonus assignmet: you do not need to complete this to pass the assignment, but we highly recommend it, because `assert` statements are a very useful way to verify your code is working correctly!
 
 ```python
 import numpy as np
@@ -75,6 +65,7 @@ If you load the *data.csv* file you see that the first column is the index of th
 
 ```python
 # data = YOUR_CODE_HERE
+
 # Solution:
 data = pd.read_csv('data.csv', usecols=[1, 2, 3, 4])
 ```
@@ -89,6 +80,7 @@ Show the summary of the data as you have seen in previous week *PA13*.
 
 ```python
 # YOUR_CODE_HERE
+
 # Solution:
 data.describe()
 ```
@@ -104,6 +96,7 @@ After loading the data, separate it into two arrays: <code>X</code> for input va
 ```python
 # X = YOUR_CODE_HERE
 # Y = YOUR_CODE_HERE
+
 # Solution:
 X = np.array(data[['X1', 'X2', 'X3']])
 Y = np.array(data['Y'])
@@ -235,9 +228,9 @@ Use the code from previous tasks to randomly access the data from the <code>X</c
 
 <div style="background-color:#FFD700; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
-<b>Bonus Task!</b>   
+<b>Use Asserts!</b>   
     
-The `split_data` function below can fail in certain cases, such as when: the input arrays are not the same length, the proportions don't add up to 1 or there aren't 3 proportions. Additionally if the implementation has a small error, such as an off-by-one indexing bug, code can break later down the line. These requirements for the function to work correctly can be called its "contract" - a set of conditions it should satisfy. In some programming languages these contracts are built in through concepts such as static type checking (you don't need to worry about this though), but we don't have that luxury in Python. Instead, you can use <a href="https://realpython.com/python-assert-statement/" target="_blank"><code>assert</code> statements</a>  as a way to enforce conditions on your code. For this bonus, you can try adding a contract to `split_data` through pre-conditions and post-conditions. Pre-conditions check the data coming in satisfies the contract and post-conditions check that the data coming out satisfies the contract. Use asserts to do this, and check the following conditions:
+The `split_data` function below can fail in certain cases, such as when: the input arrays are not the same length, the proportions don't add up to 1 or there aren't 3 proportions. Additionally if the implementation has a small error, such as an off-by-one indexing bug, code can break later down the line. These requirements for the function to work correctly can be called its "contract" - a set of conditions it should satisfy. In some programming languages these contracts are built in through concepts such as static type checking (you don't need to worry about this though), but we don't have that luxury in Python. Instead, you can use <a href="https://realpython.com/python-assert-statement/" target="_blank"><code>assert</code> statements</a>  as a way to enforce conditions on your code. For this, you can try adding a contract to `split_data` through pre-conditions and post-conditions. Pre-conditions check the data coming in satisfies the contract and post-conditions check that the data coming out satisfies the contract. Use asserts to do this, and check the following conditions:
 <ol>
     <li> `X` and `Y` are the same length. </li>
     <li> `proportions` has length 3. </li>
@@ -246,9 +239,9 @@ The `split_data` function below can fail in certain cases, such as when: the inp
 </ol>
 You can also see that these conditions are actually described in the docstring of `split_data`!
 
-To implement this bonus task, uncomment the 4 lines below with assert statements and add the appropriate condition, as described by the string. Note the simple form of an assert statement: `assert expression[, assertion_message]`.
+To implement this task, uncomment the 4 lines below with assert statements and add the appropriate condition, as described by the string. Note the simple form of an assert statement: `assert expression[, assertion_message]`.
 
-Your (bonus) task is to fill in the `expression`! You can test this out by using the function in a way that violates the contract (once implemented), which will result in the `assertion_message`.
+Your task is to fill in the `expression`! You can test this out by using the function in a way that violates the contract (once implemented), which will result in the `assertion_message`.
 
 </p>
 </div>
@@ -291,7 +284,10 @@ def split_data(X, Y, proportions):
     indices = np.random.permutation(len(X))
 
     # Create shuffled training, validation and test sets
-    # YOUR_CODE_HERE
+    # YOUR_CODE_HERE # way more than one line!
+
+    # assert YOUR_CODE_HERE, "Contract broken: generated datasets don't have same accumulated length as original"
+
     # Solution
 
     train_prop = proportions[0]
@@ -306,10 +302,10 @@ def split_data(X, Y, proportions):
     Y_train, Y_val, Y_test = (Y[indices[:train_end]],
                               Y[indices[train_end:val_end]],
                               Y[indices[val_end:]])
-    # assert YOUR_CODE_HERE, "Contract broken: generated datasets don't have same accumulated length as original"
-    # Solution
+    
     assert (len(X_train) + len(X_val) + len(X_test)) == len(X), "Contract broken: generated datasets don't have same accumulated length as original"
-
+    # END Solution block
+    
     return X_train, X_val, X_test, Y_train, Y_val, Y_test
 ```
 
@@ -325,6 +321,7 @@ Use your function to split the arrays <code>X</code> and <code>Y</code> from Tas
 # split_proportions = YOUR_CODE_HERE
 # (X_train, X_val, X_test,
 #  Y_train, Y_val, Y_test) = split_data(YOUR_CODE_HERE)
+
 # Solution:
 split_proportions = [0.7, 0.1, 0.2]
 (X_train, X_val, X_test,
@@ -385,16 +382,16 @@ plot_allocation(X, Y,
         .markdown {width:100%; position: relative}
         article { position: relative }
     </style>
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
     <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
-      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png"/>
+      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
     </a>
     <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
-      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png"/>
+      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
     </a>
     
 </h3>
 <span style="font-size: 75%">
-&copy; Copyright 2023 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+&copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.

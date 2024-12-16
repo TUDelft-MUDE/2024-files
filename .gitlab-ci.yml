@@ -38,16 +38,13 @@ sync_notebooks:
       changes:
         - content/**/*
   script:
-    # Clean up existing synced files directory
+    - echo "Starting sync with pipeline variables:"
+    - echo "CI_COMMIT_BRANCH:"" $CI_COMMIT_BRANCH"
+    - echo "CI_PIPELINE_SOURCE:"" $CI_PIPELINE_SOURCE"
     - rm -rf synced_files
     - mkdir -p synced_files
-    
-    # Create a manifest of all notebooks in content directory
     - find ./content -name "*.ipynb" > notebooks_manifest.txt
-    
-    # Create an error log file
     - touch conversion_errors.log
-    
     - found_files=false
     - |
       while IFS= read -r notebook || [ -n "$notebook" ]; do
@@ -58,37 +55,40 @@ sync_notebooks:
           synced_dir="synced_files/$(dirname $relative_path)"
           mkdir -p "$synced_dir"
           
-          # Validate notebook JSON structure
           if python -c "import json; json.load(open('$notebook'));" 2>/dev/null; then
-            # Try conversion with error handling
-            if jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log && \
-               jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log && \
-               jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log; then
-              
-              jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace "${synced_dir}/$(basename $notebook)" 2>>conversion_errors.log
-              echo "Successfully processed $notebook" >> conversion_errors.log
-            else
-              echo "Error processing $notebook - See conversion_errors.log for details" >&2
-              echo "Failed to convert $notebook" >> conversion_errors.log
+            jupytext --to notebook "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).ipynb" 2>>conversion_errors.log
+            jupytext --to markdown "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log
+            jupytext --to py:percent "$notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log
+            
+            # Generate clean Python file without markdown cells
+            clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
+            jupytext --to py:light --opt comment_magics=false --opt notebook_metadata_filter=-all --opt cell_metadata_filter=-all "$notebook" -o "$clean_file" 2>>conversion_errors.log
+            
+            if [ -f "$clean_file" ]; then
+              # Remove any remaining comments
+              awk '!/^#/' "$clean_file" > "${clean_file}.tmp" && mv "${clean_file}.tmp" "$clean_file"
+              # Clean up empty lines
+              sed -i '/^[[:space:]]*$/N;/^\n$/D' "$clean_file"
+              echo "Created clean version of $notebook"
             fi
+            echo "Successfully processed $notebook" >> conversion_errors.log
           else
             echo "Invalid or corrupted notebook: $notebook" >> conversion_errors.log
             echo "Skipping invalid notebook: $notebook" >&2
           fi
         fi
       done < notebooks_manifest.txt
-      
+    - echo "Clearing notebook outputs..."
+    - find synced_files -type f -name "*.ipynb" -exec jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace {} + || true
+    - |
       if [ "$found_files" = false ]; then
         echo "No notebooks found in content directory"
-        echo "No notebooks found in content directory" >> conversion_errors.log
-      fi
-      
-      # Check if there were any conversion errors but some files were processed
-      if [ -s conversion_errors.log ] && [ -d "synced_files" ] && [ "$(ls -A synced_files)" ]; then
-        echo "Some files had conversion errors but others were processed successfully"
-        cat conversion_errors.log
         exit 0
-      elif [ ! -d "synced_files" ] || [ ! "$(ls -A synced_files)" ]; then
+      elif [ -d "synced_files" ] && [ "$(ls -A synced_files)" ]; then
+        echo "Files synced successfully:"
+        ls -R synced_files/
+        exit 0
+      else
         echo "No files were successfully processed"
         cat conversion_errors.log
         exit 1
@@ -100,8 +100,6 @@ sync_notebooks:
       - conversion_errors.log
     expire_in: 1 hour
     when: on_success
-    reports:
-      junit: conversion_errors.log
 
 update_repo:
   stage: update_repo
@@ -121,10 +119,19 @@ update_repo:
     # Remove files that no longer exist in content directory
     - |
       if [ -d "synced_files" ]; then
-        # Remove files that are not in the manifest
-        find synced_files -type f \( -name "*.ipynb" -o -name "*.md" -o -name "*.py" \) | while read synced_file; do
-          relative_path=${synced_file#synced_files/}
-          notebook_path="./content/${relative_path%.*}.ipynb"
+        # Remove files that are not in the manifest, with updated pattern to include _clean.py
+        find synced_files -type f \( -name "*.ipynb" -o -name "*.md" -o -name "*.py" -o -name "*_clean.py" \) | while read synced_file; do
+          # Special handling for _clean.py files
+          if [[ "$synced_file" == *"_clean.py" ]]; then
+            # Get the corresponding notebook path by removing _clean.py and adding .ipynb
+            notebook_path="./content/${synced_file#synced_files/}"
+            notebook_path="${notebook_path%_clean.py}.ipynb"
+          else
+            # Regular handling for other files
+            relative_path=${synced_file#synced_files/}
+            notebook_path="./content/${relative_path%.*}.ipynb"
+          fi
+          
           if ! grep -Fq "$notebook_path" notebooks_manifest.txt; then
             echo "Removing deleted file: $synced_file"
             rm "$synced_file"
@@ -146,14 +153,33 @@ update_repo:
         exit 1
       fi
 
-# Deploy stages remain unchanged
-
 deploy-draft-students:
   stage: deploy
   extends: .setup_env
+  dependencies:
+    - sync_notebooks
   script:
+    # Debug directory structure
+    - echo "Current directory contents:"
+    - ls -la
+    
+    # Create necessary directory structure
+    - mkdir -p src/students
     - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
+      if [ -d "synced_files" ]; then
+        echo "Copying files from synced_files to src/students..."
+        cp -r synced_files/* src/students/
+        echo "Files copied. New structure:"
+        ls -R src/
+      else
+        echo "synced_files directory not found!"
+        exit 1
+      fi
+    
+    # Send webhook with verbose output
+    - |
+      echo "Sending webhook..."
+      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
@@ -162,19 +188,28 @@ deploy-draft-students:
             "status": "success",
             "ref": "main"
           }
-        }'
+        }' 2>&1)
+      echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - content/students/**/*
       when: always
 
 deploy-teachers:
   stage: deploy
   extends: .setup_env
+  dependencies:
+    - sync_notebooks
   script:
+    - mkdir -p src/teachers
     - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-teachers" \
+      if [ -d "synced_files" ]; then
+        cp -r synced_files/* src/teachers/
+      else
+        echo "synced_files directory not found!"
+        exit 1
+      fi
+    - |
+      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-teachers" \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
@@ -183,19 +218,28 @@ deploy-teachers:
             "status": "success",
             "ref": "main"
           }
-        }'
+        }' 2>&1)
+      echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-      changes:
-        - content/teachers/**/*
       when: always
 
 deploy-production-students:
   stage: deploy
   extends: .setup_env
+  dependencies:
+    - sync_notebooks
   script:
+    - mkdir -p src/students
     - |
-      curl -X POST "${WEBHOOK_URL}/files-sync-students" \
+      if [ -d "synced_files" ]; then
+        cp -r synced_files/* src/students/
+      else
+        echo "synced_files directory not found!"
+        exit 1
+      fi
+    - |
+      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-students" \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
         -d '{
@@ -204,9 +248,8 @@ deploy-production-students:
             "status": "success",
             "ref": "release"
           }
-        }'
+        }' 2>&1)
+      echo "Webhook response: $RESPONSE"
   rules:
     - if: $CI_COMMIT_BRANCH == "release"
-      changes:
-        - content/students/**/*
       when: always

@@ -5,7 +5,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.4
+#       jupytext_version: 1.16.5
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -26,7 +26,7 @@
 # <h2 style="height: 10px">
 # </h2>
 #
-# *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.6. Wednesday December 20, 2023.*
+# *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.6. Wednesday December 18, 2024.*
 
 # %% [markdown]
 # <img src="https://i.pinimg.com/originals/e5/6e/8a/e56e8a055bfbcbeafaf413a70c911876.jpg" width="500" height="400">
@@ -36,7 +36,7 @@
 # %% [markdown]
 # ## Introduction
 #
-# For several tasks within the domain of Civil Engineernig and Geosciences we might be interested in applying machine learning models to understand some physical processes and phenomena which, for many different reasons, are difficult to interpret. Training a machine learning model will typically involves the following steps:
+# For several tasks within the domain of Civil Engineering and Geosciences we might be interested in applying machine learning models to understand some physical processes and phenomena which, for many different reasons, are difficult to interpret. Training a machine learning model will typically involves the following steps:
 #
 # 1. Define the model.
 #
@@ -110,7 +110,7 @@ from sklearn.preprocessing import StandardScaler
 # <p>
 # <b>Task 0:</b>  
 #
-# Read the code below, making sure you understand what the data are, as well as the validation set and how it is created. Then execute the cells to visualize the data.
+# Read the code below, making sure you understand what the data is, as well as the validation set and how it is created. Then execute the cells to visualize the data.
 # </p>
 # </div>
 
@@ -166,7 +166,7 @@ plt.show()
 # </div>
 
 # %%
-model = 
+model = YOUR CODE HERE
 
 # %% [markdown]
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
@@ -184,8 +184,8 @@ N_print = 10**(int(np.log10(n_epochs)) - 1)
 for epoch in range(n_epochs):
     model.partial_fit(data_x, data_t.flatten())
 
-    MLP_prediction = 
-    MLP_valprediction = 
+    MLP_prediction = YOUR CODE HERE
+    MLP_valprediction = YOUR CODE HERE
     
     if epoch%N_print==0 or epoch==n_epochs-1: 
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
@@ -213,7 +213,7 @@ for epoch in range(n_epochs):
 # Plot the data
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
-ax.plot(data_x, MLP_prediction, "-o", markersize=10, label="Prediction")
+ax.plot(data_x, MLP_prediction, "-", markersize=10, label="Prediction")
 
 # Add a title and axis labels
 ax.set_title("Linear Data Example", fontsize=16)
@@ -241,12 +241,12 @@ print(f'Model intercepts: {model.intercepts_}')
 # <p>
 # <b>Task 1.3: Increase MLP complexity</b>   
 #
-# Now let us see if it is a good idea to use a much more flexible model. Initialize and train another MLP, but this time with **five hidden layers with 50 units each** and **ReLU** activation.
+# Now let us see if it is a good idea to use a much more flexible model. Initialize and train another MLP, but this time with **two hidden layers with 50 units each** and **tanh** activation.
 # </p>
 # </div>
 
 # %%
-model = YOUR_CODE_HERE
+model = YOUR CODE HERE
 
 n_epochs = 10000
 N_print = 10**(int(np.log10(n_epochs)) - 1)
@@ -266,7 +266,7 @@ for epoch in range(n_epochs):
 # Plot the data
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
-ax.plot(data_x, MLP_prediction, "-o", markersize=10, label="Prediction")
+ax.plot(x_val, MLP_valprediction, "-", markersize=10, label="Prediction")
 
 # Add a title and axis labels
 ax.set_title("Linear Data Example", fontsize=16)
@@ -299,7 +299,7 @@ plt.show()
 # </div>
 
 # %%
-model = YOUR_CODE_HERE
+model = YOUR CODE HERE
 
 n_epochs = 10000
 N_print = 10**(int(np.log10(n_epochs)) - 1)
@@ -319,7 +319,7 @@ for epoch in range(n_epochs):
 # Plot the data
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
-ax.plot(data_x, MLP_prediction, "-o", markersize=10, label="Prediction")
+ax.plot(x_val, MLP_valprediction, "-", markersize=10, label="Prediction")
 
 # Add a title and axis labels
 ax.set_title("Linear Data Example", fontsize=16)
@@ -345,20 +345,12 @@ plt.show()
 # %% [markdown]
 # ## Task 2 - Predict land deformation
 #
-# Let's go back to what you did in Week 1.3 - Observation Theory. In Project 2 you were asked to model the deformation of a road caused by the subsidence of the underground by means of GNSS and InSAR data. 
+# For one extra demonstration of how to build neural networks, let's go back to what you did in Week 1.3 - Observation Theory. In Project 2 you were asked to model the deformation of a road caused by the subsidence of the underground by means of GNSS and InSAR data. 
 #
 # In this workshop you will focus only on the GNSS to making predictions about land deformation. You will be asked to:
 #
 # - Create a neural network similar to the one you created in the previous tasks
 # - Change some network parameters and observe how results are affected.
-# - Compare the results with those from Project 2, where you applied BLUE.
-#
-# Although we focus here on building and evaluating a neural network, the greater MUDE purpose is to think about the following questions (for both types of models!!!):
-#
-# - Which model is the best?
-# - Are the Neural Network and BLUE able to capture the trend of the data?
-# - What parameters affect the the results most?
-# - What are the differences between the two approaches? In which situation would one be more effective compared to the other?
 #
 # ### Task 2.0: Data Processing
 #
@@ -398,7 +390,7 @@ plt.show()
 #
 # Define what <code>X</code> and <code>t</code> are. 
 #
-# Then use the function <code>train_test_split</code> from <code>sklearn.model_selection</code> library to split the initial dataset into a training and validation dataset. Check the [documentation here](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html). (this is what you did in PA14, manually)
+# Then use the function <code>train_test_split</code> from <code>sklearn.model_selection</code> library to split the initial dataset into a training and validation dataset. Check the [documentation here](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html). 
 #
 # Use **80%** and **20%** of the data for training and validation, respectively. Also make sure that <code>random_state = 42</code>.
 # </p>
@@ -418,7 +410,7 @@ X = days_gnss.reshape(-1, 1)
 t = gnss_obs.reshape(-1, 1)
 
 # %%
-X_train, X_val, t_train, t_val  = YOUR_CODE_HERE
+X_train, X_val, t_train, t_val  = YOUR CODE HERE
 
 # %%
 plt.figure(figsize=(15,5))
@@ -448,7 +440,7 @@ plt.show()
 # <p>
 # <b>Hint:</b>   
 #
-# You first need to standardize just <code>X_train</code> and `t_train`. Only then you can standardize the validation dataset. This will guarantee that the validation data is normalized in the same way as the training data, othersize the network will get confused when it is time to make predictions. We do this for you ;)
+# You first need to standardize just <code>X_train</code> and `t_train`. Only then you can standardize the validation dataset. This will guarantee that the validation data is normalized in the same way as the training data, otherwise the network will get confused when it is time to make predictions. We do this for you ;)
 # </p>
 # </div>
 
@@ -512,8 +504,8 @@ model_gnss = YOUR CODE HERE
 # </div>
 
 # %%
-train_losses = []
-val_losses = []
+train_losses = YOUR CODE HERE
+val_losses = YOUR CODE HERE
 
 epochs = YOUR CODE HERE
 
@@ -535,7 +527,7 @@ for epoch in range(YOUR CODE HERE):
         print(f'Epoch {epoch}/{epochs} - Training Loss: {train_loss:.4f}, Validation Loss: {val_loss:.4f}')
 
 # %% [markdown]
-# Finally you can plot the losses and the predictions made by the Neural Network!
+# Finally you can plot the losses and the predictions made by the network!
 
 # %%
 plt.figure(figsize=(12, 6))
@@ -558,7 +550,6 @@ x_plot = np.linspace(np.min(X),np.max(X),1000).reshape(-1,1)
 y_plot = model_gnss.predict(input_scaler.transform(x_plot))
 plt.plot(x_plot,target_scaler.inverse_transform(y_plot.reshape(-1,1)),color='orange',linewidth=5,label='Network predictions')
 
-# plt.plot(, target_scaler.inverse_transform(val_pred.reshape(-1,1)), 'x', mec='red', label='Predicted Values')
 plt.title('Obvserved vs Predicted Values')
 plt.ylabel('Displacement [mm]')
 plt.xlabel('Time [days]')
@@ -592,8 +583,9 @@ plt.show()
 # </div>
 
 # %%
-train_losses = []
-val_losses = []
+new_model_gnss = YOUR CODE HERE
+train_losses = YOUR CODE HERE
+val_losses = YOUR CODE HERE
 
 epochs = YOUR CODE HERE
 
@@ -643,211 +635,6 @@ plt.legend()
 plt.show()
 
 # %% [markdown]
-# ## Part 3 - Compare with _Project 2 - Modelling Road Deformation using Non-Linear Least-Squares_
-#
-# The following cell contains the code you implemented in Project 2 during Week 1.3; you can review the solution [here](https://mude.citg.tudelft.nl/course-files/Project_2/Solution.html) if you need a reminder. For this application we only focus on the linear model implemented using **BLUE**. You just need to run the following cell and then compare the results, i.e. the residuals, with respect to the Neural Network model you have previously implemented.
-
-# %% [markdown]
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-# <p>
-# <b>Task 3.1: Model Comparison</b>  
-#
-# Scan through the code quickly to refresh your memore about the BLUE method and how we used it to solve this problem in Q1. THen run the cells below and answer the questions (also below).
-# </p>
-# </div>
-
-# %%
-gw = pd.read_csv('./data/groundwater_levels2.csv')
-dates_gw = pd.to_datetime(gw['dates'])
-gw_obs = (gw['observations[mm]']).to_numpy()
-
-# ------------------------------------------------------------- #
-
-# Function to convert to days and years 
-
-def to_days_years(dates):
-    '''Convert the observation dates to days and years.'''
-    
-    dates_datetime = pd.to_datetime(dates)
-    time_diff = (dates_datetime - dates_datetime[0])
-    days_diff = (time_diff / np.timedelta64(1,'D')).astype(int)
-    
-    days = days_diff.to_numpy()
-    years = days/365
-    
-    return days, years
-
-# ------------------------------------------------------------- #
-
-# Convert data of GNSS and GW levels
-
-days_gnss, years_gnss = to_days_years(dates_gnss)
-days_gw, years_gw = to_days_years(dates_gw)
-
-interp = interpolate.interp1d(days_gw, gw_obs)
-
-GW_at_GNSS_times = interp(days_gnss)
-
-# ------------------------------------------------------------- #
-
-# Functional model for GNSS: A_gnss
-
-A_gnss = np.ones((len(dates_gnss), 3))
-A_gnss[:,1] = days_gnss
-A_gnss[:,2] = GW_at_GNSS_times
-
-y_gnss = gnss_obs
-
-m_gnss = np.shape(A_gnss)[0]
-n_gnss = np.shape(A_gnss)[1]
-
-# ------------------------------------------------------------- #
-
-# Stochastic model for GNSS: Sigma_Y_gnss
-
-std_gnss = 15 #mm (corrected from original value of 5 mm)
-
-Sigma_Y_gnss = np.identity(len(dates_gnss))*std_gnss**2
-
-
-# ------------------------------------------------------------- #
-
-# BLUE function - not needed if non-linear model is used!
-
-def BLUE(A, y, Sigma_Y):
-    """Calculate the Best Linear Unbiased Estimator
-    
-    Write a docstring here (an explanation of your function).
-    
-    Function to calculate the Best Linear Unbiased Estimator
-    
-    Input:
-        A = A matrix (mxn)
-        y = vector with obervations (mx1)
-        Sigma_Y = Varaiance covariance matrix of the observations (mxm)
-    
-    Output:
-        xhat = vector with the estimates (nx1)
-        Sigma_Xhat = variance-covariance matrix of the unknown parameters (nxn)
-    """
-    
-    Sigma_Xhat = np.linalg.inv(A.T @ np.linalg.inv(Sigma_Y) @ A)
-    xhat = Sigma_Xhat @ A.T @ np.linalg.inv(Sigma_Y) @ y
-    
-    return xhat, Sigma_Xhat 
-
-# ------------------------------------------------------------- #
-
-# BLUE estimation 
-
-xhat_gnss, Sigma_Xhat_gnss = BLUE(A_gnss, y_gnss, Sigma_Y_gnss)
-
-
-# Function to plot BLUE residuals
-
-def plot_residual(date, y_obs, yhat, data_type, A,
-                  Sigma_Xhat, Sigma_Y, true_disp):
-
-    ehat = y_obs - yhat
-
-    # Compute the vc matrix for \hat{y}
-    Sigma_Yhat = A @ Sigma_Xhat @ A.T
-    std_y = np.sqrt(Sigma_Yhat.diagonal())
-
-    # Compute the vc matrix for \hat{e}
-    Sigma_ehat = Sigma_Y - Sigma_Yhat
-    std_ehat = np.sqrt(Sigma_ehat.diagonal())
-
-    # Show the 99% confidence interval
-    k99 = norm.ppf(1 - 0.5*0.01)
-    confidence_interval_y = k99*std_y
-    confidence_interval_res = k99*std_ehat
-
-    # Plot original data and fitted model
-    plt.figure(figsize = (15,5))
-    plt.plot(date, y_obs, 'k+',  label = 'Observations')
-    plt.plot(date, yhat,  label = 'Fitted model')
-    plt.fill_between(date, (yhat - confidence_interval_y), 
-                     (yhat + confidence_interval_y), facecolor='orange',
-                     alpha=0.4, label = '99% Confidence Region')
-    plt.plot(date, true_disp, label = 'True model')
-    plt.legend()
-    plt.ylabel(data_type + ' Displacement [mm]')
-    plt.xlabel('Time')
-    plt.title(data_type + ' Observations and Fitted Model')
-
-    return ehat
-
-# ------------------------------------------------------------- #
-
-# True model which was used to generate the data (Monte Carlo simulations)
-
-k_true = 0.1
-R_true = -25 
-a_true = 180
-d0_true = 10
-
-disp_gnss  = (d0_true + R_true*(1 - np.exp(-days_gnss/a_true)) 
-              + k_true*GW_at_GNSS_times) 
-
-# Residuals and plots for GNSS incl. confidence bounds
-yhat_gnss = A_gnss @ xhat_gnss
-ehat_gnss_1 = plot_residual(dates_gnss, y_gnss, yhat_gnss,
-                             'GNSS', A_gnss, 
-                             Sigma_Xhat_gnss, Sigma_Y_gnss, disp_gnss)
-
-# ------------------------------------------------------------- #
-
-# %%
-# Plot predictions on the test set
-plt.figure(figsize=(15,5))
-plt.plot(days_gnss, yhat_gnss,  label = 'BLUE model', color='black')
-plt.plot(days_gnss, disp_gnss, label='True model', color='orange')
-
-# Get model predictions for a dense linspace in x
-x_plot = np.linspace(np.min(X),np.max(X),1000).reshape(-1,1)
-y_plot = new_model_gnss.predict(input_scaler.transform(x_plot))
-plt.plot(x_plot,target_scaler.inverse_transform(y_plot.reshape(-1,1)),color='purple',linewidth=3,label='Network')
-
-plt.title('Obvserved vs Predicted Values')
-plt.ylabel('Displacement [mm]')
-plt.xlabel('Time [days]')
-plt.legend()
-plt.show()
-
-# %% [markdown]
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-# <p>
-# <b>Task 3.1 (continued): Model Comparison Questions</b>  
-#
-# Using the figure produced above, compare the differences (write down a few observations about the characteristics of each method. Which model is do you think is better?
-#
-# </p>
-# </div>
-
-# %% [markdown]
-# It turns out that this is a very weird comparison, because BLUE has more information than the neural network uses! Can you remember why, and also remove this information to make the comparison "fair"?
-
-# %% [markdown]
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-# <p>
-# <b>Task 3.2: </b>  
-#
-# Determine what information is used by BLUE, and not the neural network. Then remove this piece of information from the BLUE model and re-run the analysis to redo the comparison.
-#
-# </p>
-# </div>
-
-# %% [markdown]
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-# <p>
-# <b>Task 3.3 (BONUS!): </b>  
-#
-# The neural network can include the groundwater data quite easily! You should be able to do this with the code above by making the array 2D and including an extra input (feature).
-# </p>
-# </div>
-
-# %% [markdown]
 # **End of notebook.**
 # <h2 style="height: 60px">
 # </h2>
@@ -868,4 +655,4 @@ plt.show()
 #     
 # </h3>
 # <span style="font-size: 75%">
-# &copy; Copyright 2023 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+# &copy; Copyright 2024 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
