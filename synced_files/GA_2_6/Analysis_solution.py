@@ -5,7 +5,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.4
+#       jupytext_version: 1.16.5
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -13,7 +13,7 @@
 # ---
 
 # %% [markdown]
-# # Project 10: Handling the pressure - Machine learning for predicting pressure in Water Distribution Systems
+# # GA 2.6: A stethoscope for beams - neural networks for detecting defects on bridges
 #
 # <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
 #     <style>
@@ -26,38 +26,7 @@
 # <h2 style="height: 10px">
 # </h2>
 #
-# *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.6. Due: Friday, Dec 22, 2023.*
-
-# %% [markdown]
-# ## 📝 Specifications
-
-# %% [markdown]
-# This notebook is divided into five parts:
-# 1) Data pre-processing.
-# 2) Defining and training a multilayer perceptron (MLP).
-# 3) Optimization of the MLP hyperparameters.
-# 4) Model assessment.
-# 5) Model usage.
-#
-# **Completition requirements:**
-# By the end of this notebook, you should have:
-# - Implemented all the code cells for:
-#   - Splitting the data into training, validation, and testing sets
-#   - Normalizing the data
-#   - Instantiating an MLP
-#   - Training the MLP with a training loop
-#   - Defining a grid-search hyperoptimization
-#   - Assess the accuracy of the MLP
-#   - Assess the speed of the MLP
-#   - Use it to predict the pressure of a particular example
-# - Generated and exported all of the relevant plots for the report
-# - Answered all the questions in the report
-#
-# *Complete this assignment by the end of the session at 12:30. This means having a single report for your group with all the plots, analysis and interpretation completed.*
-#
-# **Working method:**
-#
-# Each of the parts of the notebook can be coded independently. However, in order to run the code in each part, the code in the previous parts should be in place.
+# *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.6. Due: Friday, Dec 20, 2024.*
 
 # %% [markdown]
 # <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
@@ -66,75 +35,37 @@
 # This notebook includes boxes with the formatting shown here to list the questions you are expected to answer in your report. You are not expected to write your answers here.
 
 # %% [markdown]
-# ## 🔙 Background
-
-# %% [markdown]
-# ### 💧 Water distribution systems
-
-# %% [markdown]
-# A water distribution system transports water from sources, like wells or reservoirs, to various locations where water is needed, like homes, shops, and factories. 
+# ## Introduction
 #
-# A basic system consists of sources of water supply and demand points for water connected by pipe lines. Figure 1 shows an example system where there are two supply centers and ten demand nodes. This transmission system can connect sparse populations, and it can be considered as a simple network of one reservoir and few nodes and pipes. Nevertheless, in a city of moderate size, there may be a number of supply centers and hundreds of demand points.
-
-# %% [markdown]
-# <div style="display: flex; flex-direction: row;">
-#     <div style="flex: 50%;">
-#         <center>
-#             <img src="./figs/WDSAsset 1v1.png" width="400"/>
-#             <figcaption><b>Figure 1.</b> Simplified scheme of a branched water distribution system.</figcaption>
-#         </center>
-#     </div>
-#     <div style="flex: 50%;">
-#         <center>
-#             <img src="./figs/BAK.png" width="700"/>
-#             <figcaption><b>Figure 2.</b> Numerical results for the BakRyan water distribution system.</figcaption>
-#         </center>
-#     </div>
-# </div>
-
-# %% [markdown]
-# Water utilities rely on hydrodynamic models to properly design and control water distribution systems (WDSs). These physically-based models compute the  pressures at all the junctions, as illustrated in Figure 2. In this figure, we can see the water network of BakRyan with the pressure at each node of the network represented by the colour. In water distribution systems, pressure is a fundamental variable. Without sufficient pressure in the system, the network is not able to supply water to the users. 
+# In this notebook, you should apply the techniques you learned for regression in a more realistic problem setting. We have a collection of 1000 bridges modeled as 2D beams that all feature a defect (crack) that can be located anywhere along the span of the beam: 
+# <center>
+#     <img src="./figs/beam.svg" width="500"/>
+#     <figcaption><b>Figure 1.</b> A bridge idealized as a 2D beam. Somewhere along the span there is a crack we are trying to detect.</figcaption>
+# </center>
 #
-# We can use pressure estimations to ensure proper water pressure, efficient flow, and reliable distribution of water to consumers. For obtaining these estimations, we tipically use hydrodynamic models. However, the computational speed of these models is often insufficient for some applications in civil engineering such as optimisation or real-time control, especially in large networks. 
+# Let us assume that we built these 1000 beams, purposefully inserted a defect in each of them at random locations, and then loaded them to measure how they deform. Our goal is to, given a new bridge for which we do not know where the defect is located, detect where it is without having to demolish the bridge. It is reasonable to assume that the presence of the crack will affect how the bridge deforms under loading, so we can try to use displacement sensors to estimate where the crack is. Since installing and monitoring displacement sensors is an expensive endeavor, we try to use as few sensors as we can. 
 #
-# One alternative to address this issue is developing data-driven models. These models can be trained using results from simulations done with the physically-based model. The objective of the data-driven model we will develop is to estimate pressure at each node of the water network but in a shorter time.
-
-# %% [markdown]
-# ## ✅ Application
-
-# %% [markdown]
-# In this notebook, you will create a Multilayer Perceptron (MLP) for estimating the nodal pressures from the BakRyan water distribution system (Figure 2). This system has 58 pipes and 35 nodes. Your task is to create and train this Artificial Neural Network, exemplified in Figure 3. The MLP should estimate the pressures while being faster to run than the physically-based model (which usually takes 0.04 seconds to run per simulation). Furthermore, you will hyperoptimize the MLP to improve its performance.
+# We will use neural networks to map sensor displacements to crack locations:
 #
-# **Your input data will be a vector of pipe diameters. The output data will be a vector of nodal pressures.**
-#
-# Mathematically, we can express the our application as follows:
-#
-# $$
-# y = \phi(x; W)
-# $$
-#
-# where:
-#
-# $y$: output data (nodal pressures, units: mwc*)
-#
-# $\phi$: represents the Artificial Neural Network
-#
-# $x$: input data (pipe diameters, units: m)
-#
-# $W$: parameters of the MLP (unitless)
-#
-# Having pairs of input-output data (diameters, $x$, and pressures, $y$), it is our task to find the set of parameters, $W$, that best fit the data. Note that there are no observed pressures at some of the nodes.
-#
-# _*In water engineering, it is common to express the value of the pressure in meters of water column (mwc). This unit is equivalent to the pressure exerted by a column of water of 1 meter in height._
-
-# %% [markdown]
 # <div>
-# <center><img src="./figs/ANN_image2.png" width="600"/>
-# <figcaption><b>Figure 3.</b> Artificial neural network representation, with a zoomed-in view of how a single neuron works. For this notebook, we have 58 input features (pipe diameters) and 35 outputs (nodal pressures).</figcaption></center>
+# <center><img src="./figs/net.svg" width="600"/>
+# <figcaption><b>Figure 3.</b> Artificial neural network representation, with a zoomed-in view of how a single neuron works.</figcaption></center>
 # </div>
+#
+# and train it with the 1000 bridges in our dataset. When it is time to make predictions for a new structure, we can just feed the measured displacements as inputs and get the estimated crack location as output.
+#
+# The assignment includes the following tasks:
+#
+# - Pre-process the available data to use it in a neural network
+# - Train a neural network to learn a mapping from the displacement measurements to the defect location, comment on the choice of hyperparameters (number of hidden layers, nodes per layer, ...)
+# - Visualise your results and evaluate the accuracy of your network
+#
+# and is split in two parts: **first we use only one sensor** at the center of the beam and then look at our results; **then we add two more sensors** midway between halfspan and the supports and see how that improves predictions.
+#
+#
 
 # %% [markdown]
-# ## 📔 Preliminaries
+# ## Preliminaries
 
 # %% [markdown]
 # ### Libraries
@@ -143,12 +74,12 @@
 # To run this notebook you need to have installed the following packages:
 # - Numpy
 # - Matplotlib
-# - Pickle
+# - Pandas
 # - Scikit-learn
 
 # %%
 import time
-import pickle
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -158,28 +89,45 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
 # %% [markdown]
-# ### Load the database 
+# ### Load the dataset 
 
 # %% [markdown]
-# For the purposes of this notebook, there is an already existing database that you can use to create and train the MLPs.
+# Let us take a look at the dataset first. It is a CSV file, and a convenient way to read and manipulate this file type is via the `Dataframe` of the `pandas` library.
 
 # %%
-file_path = r"data/features_BAK.pk" 
-with open(file_path, 'rb') as handle:
-    features = pickle.load(handle)
-
-file_path = r"data/targets_BAK.pk"
-with open(file_path, 'rb') as handle:
-    targets = pickle.load(handle)
+data = pd.read_csv(r"data/bridges.csv")
 
 # %% [markdown]
-# We can explore the content of each of these variables. In total, we collected 10000 examples of the BakRyan system with random configurations of the available diameters (of the 58 pipes). 
+# We can take a look at how the crack location relates with displacements at three different locations along the beams (25% of the span, midspan, 75% of the span):
+
+# %%
+from matplotlib import cm
+
+loc1 = data[data['node'] == 16] # point at 25% span
+loc2 = data[data['node'] == 29] # point at midspan
+loc3 = data[data['node'] == 41] # point at 75% span
+
+fig,axes = plt.subplots(1,3,figsize=(10,3))
+
+axes[0].scatter(loc1['dy'], loc1['location'], c=loc1['sample'], s=0.5)
+axes[0].set_xlabel('displacement at 25% span [m]')
+axes[0].set_ylabel('crack location [m]')
+
+axes[1].scatter(loc2['dy'], loc1['location'], c=loc2['sample'], s=0.5)
+axes[1].set_xlabel('displacement at 50% span [m]')
+axes[1].set_ylabel('crack location [m]')
+
+axes[2].scatter(loc3['dy'], loc1['location'], c=loc3['sample'], s=0.5)
+axes[2].set_xlabel('displacement at 75% span [m]')
+axes[2].set_ylabel('crack location [m]')
+
+plt.tight_layout()
+plt.show()
+
+# %% [markdown]
+# Perhaps you can already see this will be a challenging endeavor, especially using just one of these input features. In the figure above we identify each beam with a unique color, so you can see that to really get it right we might need to gather information from multiple sensors. Look for instance at the middle plot: for a displacement of around $-0.0461$ our defect might either be at $x=0$ or $x=10$, so at the two opposite ends of the beam! Can you reason out why that is the case?
 #
-# As input features (X), we use the diameters of all the pipes in the network, and each configuration of diameters is related 1-1 with the pressure at all the nodes in the system.
-
-# %%
-print('Dimensions of features (X):', features.shape)
-print('Dimensions of targets  (t):', targets.shape)
+# For now let us start with a model with a single feature (displacement at midspan, a.k.a. `loc2`) and see how well we do.
 
 # %% [markdown]
 # ## 1. Data Pre-Processing
@@ -191,7 +139,7 @@ print('Dimensions of targets  (t):', targets.shape)
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 # <b>Task 1.1:</b>   
 #
-# In machine learning, it's common to split the dataset into three parts: a training set, a validation set, and a test set. 
+# In machine learning, it is common to split the dataset into three parts: a training set, a validation set, and a test set. 
 #
 # Your task is to write a Python code snippet that splits a given dataset into these three parts. The dataset consists of `features` and `targets`.
 #
@@ -206,11 +154,18 @@ print('Dimensions of targets  (t):', targets.shape)
 # The resulting training, validation, and test sets should be stored in the variables `X_train`, `t_train`, `X_val`, `t_val`, `X_test`, and `t_test`.
 #
 # **Hint:** You can use the `train_test_split` function from the `sklearn.model_selection` module to perform the splitting.
+# </div>
 
-# %% [markdown] id="0491cc69"
-# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>Note here that the training, validation and test sets are created in two steps, due to the way <code>train_test_split</code> is implemented in <code>sklearn</code>. Thus, in the second split you value used for <code>test_size</code> should <b>not</b> be 0.10!</p></div>
+# %% [markdown]
+# <div>
+# <center><img src="./figs/splitting.svg" width="400"/>
+# <figcaption><b>Figure 3.</b> Splitting the dataset into training, validation and test sets.</figcaption></center>
+# </div>
 
 # %%
+features = loc2['dy'].to_numpy().reshape(-1,1)
+targets = loc2['location'].to_numpy().reshape(-1,1)
+
 # X_train, X_val_test, t_train, t_val_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=42)
 # X_val, X_test, t_val, t_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=24)
 # Solution
@@ -221,48 +176,60 @@ X_val, X_test, t_val, t_test = train_test_split(X_val_test, t_val_test, test_siz
 # ### Normalizing the data
 
 # %% [markdown]
-# Now, we normalize the data using the MinMaxScaler from scikit-learn. This scaler transforms the data to be between 0 and 1. This is important because the ANN will be trained using the gradient descent algorithm, which is sensitive to the scale of the data. Notice that we use the training data to fit the scaler. This is important because we assume that the model only sees the training data and we do not use any of the validation or testing data.
+# Now, we normalize the data using the MinMaxScaler from scikit-learn. This scaler transforms the data to be between 0 and 1. This is important because the neural net will be trained using gradient descent, which is sensitive to the scale of the data. Notice that we use the training data to fit the scaler. This is important because we assume that the model only sees the training data and we do not use any of the validation or testing data.
 
 # %% [markdown]
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 # <b>Task 1.2:</b>   
 #
-# In machine learning, it's often beneficial to normalize the feature variables to a specific range. This can help the model converge faster during training and can also prevent certain features from dominating others due to their scale.
+# In machine learning, it is often beneficial to normalize the feature variables to a specific range. This can help the model converge faster during training and can also prevent certain features from dominating others due to their scale.
 #
 # Your task is to write a Python code snippet that normalizes the feature variables of a training set and a validation set to the range [0, 1]. The feature variables are stored in the variables `X_train` and `X_val`.
 #
-# You should use the `MinMaxScaler` class from the `sklearn.preprocessing` module to perform the normalization. This class scales and translates each feature individually such that it is in the given range on the training set.
+# You should use the `MinMaxScaler` class from the `sklearn.preprocessing` module to perform the normalization. This class scales and translates each feature individually such that it is in the given range on the training set. Remember we should fit the normalizer with **only the training dataset**!
 #
 # The normalized features should be stored in the variables `normalized_X_train` and `normalized_X_val`.
 #
-# <em>Note: we do this task for you.</em>
-
-# %% [markdown]
-# The `MinMaxScaler` should be fitted on the training features only. 
+# **Hint**: See how we did this in the workshop assignment!
 
 # %%
-scaler_diameters = MinMaxScaler()
-scaler_diameters.fit(X_train)
+scaler_x = MinMaxScaler()
 
-normalized_X_train = scaler_diameters.transform(X_train)
-normalized_X_val = scaler_diameters.transform(X_val)
+# scaler_x.fit(YOUR_CODE_HERE)
+
+# normalized_X_train = scaler_x.transform(YOUR_CODE_HERE)
+# normalized_X_val = scaler_x.transform(YOUR_CODE_HERE)
+
+# Solution
+scaler_x.fit(X_train)
+
+normalized_X_train = scaler_x.transform(X_train)
+normalized_X_val = scaler_x.transform(X_val)
 
 # %% [markdown]
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 # <b>Task 1.3:</b>   
 #
-# Your task is to write a Python code snippet that normalizes the target variables of a training set and a validation set to the range [0, 1]. The target variables are stored in the variables `t_train` and `t_val`.
+# We now do the same for the targets. Your task is to write a Python code snippet that normalizes the target variables of a training set and a validation set to the range [0, 1]. The target variables are stored in the variables `t_train` and `t_val`.
 #
-# The normalized targets should be stored in the variables `normalized_t_train` and `normalized_t_val`.
+# The normalized targets should be stored in the variables `normalized_t_train` and `normalized_t_val`. 
 #
-# <em>Note: we do this task for you.</em>
+# **Hint**: See how we did this in the workshop assignment!
+# </div>
 
 # %%
-scaler_pressures = MinMaxScaler()
-scaler_pressures.fit(t_train)
+scaler_t = MinMaxScaler()
 
-normalized_t_train = scaler_pressures.transform(t_train)
-normalized_t_val = scaler_pressures.transform(t_val)
+# scaler_t.fit(YOUR_CODE_HERE)
+
+# normalized_t_train = scaler_t.transform(YOUR_CODE_HERE)
+# normalized_t_val = scaler_t.transform(YOUR_CODE_HERE)
+# Solution
+scaler_t.fit(t_train)
+
+normalized_t_train = scaler_t.transform(t_train)
+normalized_t_val = scaler_t.transform(t_val)
+
 
 # %% [markdown]
 # <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
@@ -270,41 +237,21 @@ normalized_t_val = scaler_pressures.transform(t_val)
 #
 # 1.1) What is the purpose of splitting a dataset into training, validation, and test sets in the context of machine learning?
 #
-# 1.2) What part of the pre-processing improves the representativity of the overall distribution of the data?
+# 1.2) Why should the `MinMaxScaler` be fitted on the training data only?
 #
-# 1.3) Why should the `MinMaxScaler` be fitted on the training data only, and then used to transform both the training and validation data?
+# 1.3) Why is it crucial that the exact same scaler is used to transform the validation dataset?
 
 # %% [markdown]
 # ## 2. Defining and training an MLP
 
 # %% [markdown]
-# Now, we will define a Multilayer Perceptron (MLP). In Scikit-learn, the MLP is defined in the MLPRegressor class, you can see the documentation [here](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html). This class has many hyperparameters that can be tuned to improve the performance of the model. Notice that in Scikit-learn, the model and the optimizer are defined in the same class. This means that we do not need to define an optimizer separately; therefore, some hyperparameters are related to the optimizer. For example, the learning rate. We will indicate the optimization hyperparameters in the next section; for now, we will only define the model hyperparameters.
-
-# %% [markdown]
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Task 2.1:</b>   
-# You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should have the following characteristics:
-#
-#  - The hidden layer sizes are defined as a tuple. For example, if we want to have two hidden layers with 10 and 5 neurons, respectively, we would write: hidden_layer_sizes=(10,5). Notice that we only specify the hidden layer sizes, the input and output sizes will be automatically inferred when we train the model. 
-#  - The activation function can be one of the following: 'identity', 'logistic', 'tanh', 'relu'.
-#
-# The configured MLP regressor should be stored in a variable named `model`.
-
-# %%
-# model = MLPRegressor(YOUR_CODE_HERE, YOUR_CODE_HERE)
-# Solution
-model = MLPRegressor(hidden_layer_sizes = (10, 5), 
-                    activation = 'tanh')
-
-
-# %% [markdown]
-# Now that we have a model, we need to train it! Now, we will define a training loop that will train the model using the training data and will evaluate the model using the validation data.
+# Now, we will define and train a Multilayer Perceptron (MLP), which is the name we give to a simple (feedforward) neural network. In Scikit-learn, the MLP is defined in the MLPRegressor class, **you can see the documentation [here](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html)**. This class has many hyperparameters that can be tuned to improve the performance of the model. Notice that in Scikit-learn, the model and the optimizer are defined in the same class. This means that we do not need to define an optimizer separately; therefore, some hyperparameters are related to the optimizer. For example, the learning rate. We will indicate the optimization hyperparameters in the next section; for now, we will only define the model hyperparameters.
 
 # %% [markdown]
 # ### Training the model
 
 # %% [markdown]
-# Scikit-learn offers the possibility to directly train a model using the `fit` method. However, we will define a training loop to have more control over the training process. This will allow us to evaluate the model at each epoch and observe its training.
+# Once we have a model in place we will need to train it. Scikit-learn offers the possibility to directly train a model using the `fit` method. However, we will define a training loop to have more control over the training process. This will allow us to evaluate the model at each epoch and observe its training.
 #
 # The first step towards training a model is defining a function that transforms our training dataset into random mini-batches. This is a common practice used for training neural networks due to their computational efficiency and their ability to help the model generalize better. This practice generally leads to better computational efficiency, faster convergence and better generalization performance.
 
@@ -340,7 +287,7 @@ def get_mini_batches(X, t, batch_size):
 # The following figure illustrates both the way we split the original dataset and how we further split the training dataset into mini-batches. At every epoch the training dataset is shuffled and each mini-batch is considered **in isolation** by the network. The gradients coming from the single mini-batches are used to update the weights of the network (the randomness involved is why we say we are using **Stochastic** Gradient Descent).
 #
 # <div>
-# <center><img src="./figs/minibatching.png" width="600"/>
+# <center><img src="./figs/minibatching.svg" width="600"/>
 # <figcaption><b>Figure 4.</b> Dataset splitting, mini-batching and the stochastic nature of MLP training.</figcaption></center>
 # </div>
 #
@@ -358,13 +305,13 @@ batch_size = 64
 
 # %% [markdown]
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Task 2.2:</b> 
+# <b>Task 2.1:</b> 
 #
 # In this exercise, you are tasked with implementing a function to train a neural network model. The function should also compute and store the loss on the training and validation sets at each epoch. The loss function to be used is the Mean Squared Error (MSE), which is defined as:
 #
-# $$ MSE = \frac{1}{n} \sum_{i=1}^{n} (t_i - y_i)^2 $$
+# $$ MSE = \frac{1}{N} \sum_{n=1}^{N} (t_n - y_n)^2 $$
 #
-# where $t_i$ is the actual target, $y_i$ is the predicted value, and $n$ is the number of samples.
+# where $t_n$ is the actual target, $y_n$ is the predicted value, and $N$ is the number of samples.
 #
 # The function should be named `train_model` and should take the following parameters:
 #
@@ -383,26 +330,30 @@ batch_size = 64
 #
 # 2. Loop over the specified number of epochs. For each epoch:
 #
-#     a. Generate mini-batches from the normalized training data and labels using a function `get_mini_batches(normalized_X_train, normalized_t_train, batch_size)`.
+#     a. Generate mini-batches from the normalized training data and labels using a function `get_mini_batches(normalized_X_train, normalized_t_train, batch_size)`;
 #
-#     b. For each mini-batch, update the model's weights using the `partial_fit` method of the model.
+#     b. For each mini-batch, update the model weights using the `partial_fit` method of the model. Do not forget to `flatten()` the targets;
 #
-#     c. Compute the MSE loss on the training set and append it to `train_loss_list`.
+#     c. Compute the MSE loss on the training set and append it to `train_loss_list`;
 #
-#     d. Compute the MSE loss on the validation set and append it to `val_loss_list`.
+#     d. Compute the MSE loss on the validation set and append it to `val_loss_list`;
 #
-#     e. Print the training progress including the current epoch and the training and validation losses.
+#     e. Print the training progress including the current epoch and the training and validation losses;
 #
 #     f. Return the `train_loss_list` and `val_loss_list` lists.
 #
 # Your task is to write the Python code that implements the `train_model` function.
+# </div>
 
 # %%
 # def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate):
 #     train_loss_list = []
 #     val_loss_list = []
 #     model.learning_rate_init = learning_rate
-    
+#     
+#     # Fix random seed for reproducibility
+#     np.random.seed(42)
+#
 #     for epoch in range(n_epochs):
         
 #         # Generate mini-batches
@@ -424,10 +375,13 @@ batch_size = 64
 #     return train_loss_list, val_loss_list
 
 # Solution:
-def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate):
+def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate, verbose=True):
     train_loss_list = []
     val_loss_list = []
     model.learning_rate_init = learning_rate
+
+    # Fix random seed for reproducibility
+    np.random.seed(42)
     
     for epoch in range(n_epochs):
         
@@ -436,7 +390,7 @@ def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val,
         
         # Train model on mini-batches
         for X_batch, t_batch in mini_batches:
-            model.partial_fit(X_batch, t_batch)
+            model.partial_fit(X_batch, t_batch.flatten())
         
         # Compute loss on training and validation sets
         train_loss = mean_squared_error(normalized_t_train, model.predict(normalized_X_train))
@@ -449,13 +403,33 @@ def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val,
         val_loss_list.append(val_loss)
 
         # Print training progress
-        print(f"Epoch {epoch+1}/{n_epochs} - Train Loss: {train_loss_list[-1]:.4f} - Val Loss: {val_loss:.4f}")
+        if verbose:
+            print(f"Epoch {epoch+1}/{n_epochs} - Train Loss: {train_loss_list[-1]:.4f} - Val Loss: {val_loss:.4f}")
         
     return train_loss_list, val_loss_list
 
 
 
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+# <b>Task 2.2:</b>   
+# You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should have the following characteristics:
+#
+#  - The hidden layer sizes are defined as a tuple. For this task we want to have two hidden layers with 10 and 5 neurons, respectively, so we should write: hidden_layer_sizes=(10,5). Notice that we only specify the hidden layer sizes, the input and output sizes will be automatically inferred when we train the model. 
+#  - The activation function can be one of the following: 'identity', 'logistic', 'tanh', 'relu'. But for this task you should set it to 'tanh'.
+#
+# The configured `MLPRegressor` should be stored in a variable named `model`. We then call the training function we defined above and pass this model as argument.
+#
+# Training neural networks is a stochastic operation: the MLP is given **random initial weights** and SGD is random by nature. If you want to make sure you always get the same trained network every time you run the notebook (e.g. for comparison reasons), you can pass `random_state=0` (or some other integer) to `MLPRegressor`
+# </div>
+
 # %%
+# model = MLPRegressor(YOUR_CODE_HERE, YOUR_CODE_HERE)
+# Solution
+model = MLPRegressor(hidden_layer_sizes = (10, 5), 
+                    activation = 'tanh',
+                    random_state=0)
+
 train_loss_list, val_loss_list = train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate)
 
 # %% [markdown]
@@ -499,18 +473,85 @@ plt.show()
 
 # %% [markdown]
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Task 2.4:</b>   
-# Using the `score` function of the MLP Regressor, compute the R2 score of the model on the training and validation sets.
+# <b>Task 2.4:</b>
+#
+# Now let us look at how well our model performs. With only one input feature, one easy way to do this is by just plotting $y(x)$ for the whole range of $x$. Since we have normalized our inputs with a `MinMaxScaler`, it is reasonable to form a simple `linspace` in $[0,1]$. We can then plot this function $y(x)$ together with our training and validation data to have an idea of how close model predictions are.
+#
+# In the block below we already prepare a `normalized_X_range` for you to feed to the model (remember the network learned to use normalized inputs). Your task is to compute model predictions and store them in `t_range`. Remember to de-normalize what comes out of the network.
+#
+# Add these plots to your report.
+# </div>
 
 # %%
-# model.score(YOUR_CODE_HERE, YOUR_CODE_HERE)
-# Solution:
-model.score(normalized_X_train, normalized_t_train)
+normalized_X_range = np.linspace(0,1,100).reshape(-1,1)
+X_range = scaler_x.inverse_transform(normalized_X_range)
+
+normalized_y_range = model.predict(normalized_X_range).reshape(-1,1)
+y_range = scaler_t.inverse_transform(normalized_y_range)
+
+fig,axes = plt.subplots(1,2,figsize=(8,3))
+
+axes[0].plot(X_range, y_range, label=r"Network $y(x)$", color='k')
+axes[0].scatter(X_train,t_train,s=0.5, label='Training data')
+axes[0].set_xlabel('displacement at 50% span [m]')
+axes[0].set_ylabel('crack location [m]')
+
+axes[1].plot(X_range, y_range,label=r"Network $y(x)$", color='k')
+axes[1].scatter(X_val,t_val,s=0.5, label='Validation data')
+axes[1].set_xlabel('displacement at 50% span [m]')
+axes[1].set_ylabel('crack location [m]')
+
+axes[0].legend()
+axes[1].legend()
+plt.tight_layout()
+
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+# <b>Task 2.5:</b>
+#
+# Another useful way to visualize our results is to use a so-called **parity plot**. This consists in plotting targets on the x-axis against network predictions on the y-axis, in other words a $t$ versus $y$ plot. For a model that always makes perfect predictions, $y=t$ for all instances of the target, which would make all points in the plot lie on the diagonal line $y=x$. In practice model predictions are often far from perfect, and this deviation would be seen as the points drifting away from the diagonal.
+#
+# Your task is to set up two parity plots for this model, one for training data and one for validation data.
+#
+# Add these plots to your report.
+# </div>
 
 # %%
-# model.score(YOUR_CODE_HERE, YOUR_CODE_HERE)
-# Solution:
-model.score(normalized_X_val, normalized_t_val)
+#y_train = YOUR_CODE_HERE
+#y_val = YOUR_CODE_HERE
+# Solution
+y_train = scaler_t.inverse_transform(model.predict(normalized_X_train).reshape(-1,1))
+y_val = scaler_t.inverse_transform(model.predict(normalized_X_val).reshape(-1,1))
+
+fig,axes = plt.subplots(1,2,figsize=(8,3))
+
+# axes[0].scatter(YOUR_CODE_HERE,YOUR_CODE_HERE,s=0.5)
+# Solution
+axes[0].scatter(t_train,y_train,s=0.5)
+
+axes[0].set_title('Training dataset')
+axes[0].set_xlabel('target crack location [m]')
+axes[0].set_ylabel('predicted crack location [m]')
+
+min_val = min(np.min(t_train), np.min(y_train))
+max_val = max(np.max(t_train), np.max(y_train))
+axes[0].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[0].legend()
+
+# axes[1].scatter(YOUR_CODE_HERE,YOUR_CODE_HERE,s=0.5)
+# Solution
+axes[1].scatter(t_val,y_val,s=0.5)
+
+axes[1].set_title('Validation dataset')
+axes[1].set_xlabel('target crack location [m]')
+axes[1].set_ylabel('predicted crack location [m]')
+
+min_val = min(np.min(t_val), np.min(y_val))
+max_val = max(np.max(t_val), np.max(y_val))
+axes[1].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[1].legend()
+
+plt.tight_layout()
 
 # %% [markdown]
 # <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
@@ -518,24 +559,187 @@ model.score(normalized_X_val, normalized_t_val)
 #
 # 2.1) Based on the shape of the loss curves, what can you indicate about the fitting capabilities of the model? (Is it overfitting, underfitting, or neither?)
 #
-# 2.2) How do you explain the difference between the values of training and validation score?
+# 2.2) Why is the model performing so poorly? Can you give an explanation based on the physics of the problem? Is there a crack location for which this model does make a good prediction? Why is that the case?
+#
+# 2.3) Can you explain why the model performs poorly in light of the assumptions we made for our observation model $p(t\vert x)=\mathcal{N}\left(t\lvert y(x),\beta^{-1}\right)$?
 
 # %% [markdown]
-# ## 3. Hyperparameter tuning
+# ## 3. Using more input features
+#
+# Let us now try the model with **three sensors** as input features and see if that improves our predictions. We follow the exact same procedure as before.
 
-# %% [markdown] id="0491cc69"
-# <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>For Tasks 3 and 4 the code is 100% complete, but you are expected to read it thoroughly to help understand the analysis and provide answers in your report.</p></div>
+# %% [markdown]
+# ### Set up and train the new model
 
 # %% [markdown]
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Task 3.1:</b>   
-#     Create a grid-search strategy to find hyperparameters that give the best prediction on the validation set. Vary the number of layers and number of hidden units per layer. You can assume that all the hidden layers have the same number of hidden units.
+# <b>Task 3.1:</b>
+#
+# Use this block to set up a new neural network that now takes all three input features (displacements at three different sensors). The $[1000\times 3]$ feature matrix `features` and the $[1000\times 1]$ target vector `targets` are already done for you.
+#
+# Now get all the code you need from the code blocks in Part 2 and paste them here. You need to (i) split your dataset again since it has changed; (ii) normalize features and targets; (iii) adjust the number of epochs and model architecture until you are satisfied with the model; (iv) set up an `MLPRegressor` and call `train_model`.
+#
+# To reach a good architecture and number of epochs you will need to also complete Task 3.2 and rerun these two blocks until you are satisfied with the number you picked. Try out different activation functions to see what works best.
 # </div>
 
 # %%
-# define coordinate vectors for grid
-layer_sizes = [10, 20, 50, 100] 
-layer_numbers = [1, 2, 3, 4]
+features = np.array([loc1['dy'].to_numpy(), loc2['dy'].to_numpy(), loc3['dy'].to_numpy()]).transpose()
+targets = loc2['location'].to_numpy().reshape(-1,1)
+
+# YOUR_CODE_HERE
+
+# Solution
+X_train, X_val_test, t_train, t_val_test = train_test_split(features, targets, test_size=0.20, random_state=42)
+X_val, X_test, t_val, t_test = train_test_split(X_val_test, t_val_test, test_size=0.50, random_state=24)
+
+scaler_x = MinMaxScaler()
+scaler_x.fit(X_train)
+
+normalized_X_train = scaler_x.transform(X_train)
+normalized_X_val = scaler_x.transform(X_val)
+
+scaler_t = MinMaxScaler()
+scaler_t.fit(t_train)
+
+normalized_t_train = scaler_t.transform(t_train)
+normalized_t_val = scaler_t.transform(t_val)
+
+model = MLPRegressor(hidden_layer_sizes = (10, 5), 
+                    activation = 'tanh')
+
+learning_rate = 0.001
+n_epochs = 200
+batch_size = 64
+
+train_loss_list, val_loss_list = train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate)
+
+# %% [markdown]
+# ### Plot the evolution of training
+
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+# <b>Task 3.2:</b>
+#
+# Use this block to plot how the losses evolve with epochs. Once again you can reuse code from before. 
+#
+# Add the plots to your report. Include only results from your final model (the one you are most satisfied with)
+# </div>
+
+# %%
+# YOUR_CODE_HERE
+
+#Solution
+# Create a scatter plot with enhanced styling
+plt.figure(figsize=(8, 6))  # Set the figure size
+
+x_axis = list(range(len(train_loss_list)))
+
+plt.scatter(x_axis, val_loss_list, label='Validation loss', color='red', marker='.', s=100, alpha=0.7, edgecolors='black', linewidths=0.5)
+plt.scatter(x_axis, train_loss_list, label='Training loss', color='blue', marker='.', s=100, alpha=0.7, edgecolors='black', linewidths=0.5)
+
+# Add labels and a legend with improved formatting
+plt.xlabel('Epochs', fontsize=14, fontweight='bold')
+plt.ylabel('Loss', fontsize=14, fontweight='bold')
+plt.title('Loss curves', fontsize=16, fontweight='bold')
+plt.legend(loc='upper right', fontsize=12)
+
+# Set the y-axis to be logarithmic
+plt.yscale('log')
+
+# Customize the grid appearance
+plt.grid(True, linestyle='--', alpha=0.5)
+
+# Customize the tick labels
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Add a background color to the plot
+plt.gca().set_facecolor('#f2f2f2')
+plt.show()
+
+# %% [markdown]
+# ### Evaluate the new model with parity plots
+
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+# <b>Task 3.3:</b>
+#     
+# Use this block to make parity plots for your new model for both training and validation datasets. Once again you can reuse code from before. 
+#
+# Add the plots to your report. Include only results from your final model (the one you are most satisfied with)
+# </div>
+
+# %%
+# YOUR_CODE_HERE
+
+# Solution
+y_train = scaler_t.inverse_transform(model.predict(normalized_X_train).reshape(-1,1))
+y_val = scaler_t.inverse_transform(model.predict(normalized_X_val).reshape(-1,1))
+
+fig,axes = plt.subplots(1,2,figsize=(8,3))
+
+axes[0].scatter(t_train,y_train,s=0.5)
+
+axes[0].set_title('Training dataset')
+axes[0].set_xlabel('target crack location [m]')
+axes[0].set_ylabel('predicted crack location [m]')
+
+min_val = min(np.min(t_train), np.min(y_train))
+max_val = max(np.max(t_train), np.max(y_train))
+axes[0].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[0].legend()
+
+# axes[1].scatter(YOUR_CODE_HERE,YOUR_CODE_HERE,s=0.5)
+# Solution
+axes[1].scatter(t_val,y_val,s=0.5)
+
+axes[1].set_title('Validation dataset')
+axes[1].set_xlabel('target crack location [m]')
+axes[1].set_ylabel('predicted crack location [m]')
+
+min_val = min(np.min(t_val), np.min(y_val))
+max_val = max(np.max(t_val), np.max(y_val))
+axes[1].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[1].legend()
+
+plt.tight_layout()
+
+# %% [markdown]
+# <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+# <b>Questions:</b>
+#
+# 3.1) Based on the shape of the loss curves, what can you indicate about the fitting capabilities of the model? (Is it overfitting, underfitting, or neither?)
+#
+# 3.2) What criterion did you use to measure the quality of your model when trying out different architectures? 
+#
+# 3.3) How well does your final model do compared to the one in Part 2? Use the parity plots you obtained to make your argument. Can you give a physical explanation for why this is the case?
+#
+# 3.4) Can you propose explanations for the errors that still remain?
+
+# %% [markdown]
+# ## 4. Reaching the best possible model through hyperparameter tuning
+#
+# In the previous part you performed a quick model selection procedure by hand, manually adjusting the layer sizes and activation function until you got to a model that looked good. It is however much more efficient and robust to do this automatically, which is our goal for this part.
+
+# %% [markdown]
+# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
+# <b>Task 4.1:</b>
+#     
+# Create a grid-search strategy to find hyperparameters that give the best prediction on the validation set. Vary the number of layers and number of hidden units per layer. You can assume that all the hidden layers have the same number of hidden units.
+#
+# Based on your trials in Part 3, set up lists for `layer_sizes` and `layer_numbers` to create a grid of models to be tested. You do not need to code anything else. Do not be too ambitious with your setup, the number of models to be trained is `len(layer_sizes)*len(layer_numbers)`, so if you use too many combinations the block will take a while to run!
+#
+# Note that the activation function is fixed to `tanh` right now, but also try out `relu` and `logistic` and keep the one that gives the best results.
+#
+# On the second block we plot the final validation losses of all the models on a grid as a kind of heatmap. Add this plot to your report.
+# </div>
+
+# %%
+# layer_sizes = [YOUR_CODE_HERE]
+# layer_numbers = [YOUR_CODE_HERE]
+# Solution
+layer_sizes = [10, 20] 
+layer_numbers = [1, 2, 3, 4, 5, 6]
 
 # Create a grid for the coordinate pairs and store them in an array
 val_loss_grid = np.zeros((len(layer_sizes), len(layer_numbers)))
@@ -551,67 +755,30 @@ for i, lsize in enumerate(layer_sizes):
         print("Training NN with hidden layers:  {}".format(layers))
         
         # Create the ANN model with the given hidden layer sizes and activation function
-        model = MLPRegressor(hidden_layer_sizes=layers, activation='tanh')
+        # Fix random_state to make sure results are reproducible
+        model = MLPRegressor(hidden_layer_sizes=layers, activation='relu', random_state=0)
         
         _,  val_loss_list = train_model(model, 
                                         normalized_X_train, 
                                         normalized_t_train,
                                         normalized_X_val, 
                                         normalized_t_val, 
-                                        n_epochs=20, 
+                                        n_epochs=500, 
                                         batch_size=64,
-                                        learning_rate=0.001
+                                        learning_rate=0.001,
+                                        verbose=False
                                         )
     
         val_loss_grid[i,j] = val_loss_list[-1]
         
-        print("     Loss:    {:.4e}\n".format(val_loss_grid[i,j]))
+        print("     Final validation loss:    {:.4e}\n".format(val_loss_grid[i,j]))
 
 
 # Extract the hyperparameters that gave the lowest loss and print
 min_size, min_number = np.unravel_index(np.argmin(val_loss_grid), val_loss_grid.shape)
 print("\n\nModel with {} layers and {} neurons per layer gave lowest loss of {:.4e}".format(layer_numbers[min_number], layer_sizes[min_size], val_loss_grid[min_size, min_number]))
 
-# %% [markdown]
-# Let's use our test data to visualize our best-performing model and test its predictive capabilities. First, re-initialize & train the model with the optimal hyperparameters.
-
-# %% [markdown]
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Task 3.2:</b>   
-#     Re-initialize & train the model with the optimal hyperparameters.
-#     
-# The reconfigured MLP regressor should be stored in a variable named `model`.
-
 # %%
-# Set up NN
-layers = (layer_sizes[min_size],) * layer_numbers[min_number]
-model = MLPRegressor(hidden_layer_sizes=layers, activation='tanh')
-
-# train NN
-_,  val_loss_list = train_model(model, 
-                                normalized_X_train, 
-                                normalized_t_train,
-                                normalized_X_val, 
-                                normalized_t_val, 
-                                n_epochs=20, 
-                                batch_size=64,
-                                learning_rate=0.001
-                                )
-
-# %% [markdown]
-# Here is the Python code to plot the matrix `val_loss_grid` with the specified row and column labels:
-#
-#
-
-# %% [markdown]
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Task 3.3:</b>   
-#     Plot the validation loss grid. Add this plot to your report.
-# </div>
-
-# %%
-import matplotlib.pyplot as plt
-
 # Define the row and column labels
 rows = layer_sizes
 cols = layer_numbers
@@ -638,169 +805,93 @@ plt.show()
 # This code will create a heatmap where the color intensity represents the validation loss. The colorbar on the side provides a reference for the loss values. The row and column labels represent the number of neurons and layers, respectively.
 
 # %% [markdown]
-# <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Questions:</b>
-#
-# 3.1) How does hyperparameter tuning in machine learning relate to the concept of model complexity?
-#
-# 3.2) From the plot, what is the impact of increasing the number of hidden layers on the model's ability to capture complex patterns in the data?
-
-# %% [markdown]
-# ## 4. Model assessment
-
-# %% [markdown]
-# ### Accuracy
-
-# %% [markdown]
-# Now, we are going to test the model's accuracy on the test dataset. First, we need to scale the test data using the scaler that we used for the training data. Then, we can use the `score` method of the model to compute the R2 score on the test data.
-
-# %%
-normalized_X_test = scaler_diameters.transform(X_test)
-normalized_t_test = scaler_pressures.transform(t_test)
-
-# %%
-model.score(normalized_X_test, normalized_t_test)
-
-# %% [markdown]
-# More than a performance metric as the score, we can observe the errors of different nodes for all the test database.
-
-# %%
-estimated_pressure = scaler_pressures.inverse_transform(model.predict(normalized_X_test))
-error = t_test - estimated_pressure
-
-# %%
-node_ID = 0
-error_node = error[:, node_ID]
-
-# %% [markdown]
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Task 4.1:</b>   
-#     Plot the distribution of errors. Add this plot to your report.
+# <b>Task 4.2:</b>
+#
+# It is finally time to plot the performance of our best model in detail! In the next block we set up and train again the best model found by the grid search procedure. 
+#
+# Your task is to use this trained model to produce parity plots for training and validation, like the ones from Parts 2 and 3. Use the code you already developed!
+#
+# But now we can also finally take a look at the **test dataset** that we never touched (we did not use it for training nor for selecting the architecture). The error on the test set should serve as the final check for your model, on data that the model has really never seen, directly or indirectly.
+#
+# Add these plots in your report.
 # </div>
 
 # %%
-fig, ax = plt.subplots()
+# Normalize the test inputs
+normalized_X_test = scaler_x.transform(X_test)
 
-# Create a histogram
-ax.hist(error_node, bins='auto', color='#0504aa', alpha=0.7, rwidth=0.85)
+# Set up NN
+# Fix random_state=0 to make sure this is consistent with the model in the loop above
+layers = (layer_sizes[min_size],) * layer_numbers[min_number]
+model = MLPRegressor(hidden_layer_sizes=layers, activation='tanh', random_state=0)
 
-# Axis formatting
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
-ax.spines['left'].set_visible(False)
-ax.spines['bottom'].set_color('#DDDDDD')
-ax.tick_params(bottom=False, left=False)
-ax.set_axisbelow(True)
-ax.yaxis.grid(True, color='#EEEEEE')
-ax.xaxis.grid(False)
+# train NN
+_,  val_loss_list = train_model(model, 
+                                normalized_X_train, 
+                                normalized_t_train,
+                                normalized_X_val, 
+                                normalized_t_val, 
+                                n_epochs=500, 
+                                batch_size=64,
+                                learning_rate=0.001
+                                )
 
-ax.set_xlabel('Error of prediction [m]', labelpad=15, color='#333333')
-ax.set_ylabel('Frequency', labelpad=15, color='#333333')
-ax.set_title(f'Error of node {node_ID} across test scenarios', pad=15, color='#333333', weight='bold')
-
-fig.tight_layout()
-
-# %% [markdown]
-# This plot gives us an idea of the expected errors we can encounter when using the model. However, it is also important that the MLP is faster than original simulator (which takes around 0.04 seconds per simulation).
-
-# %% [markdown]
-# ### Speed
-
-# %% [markdown]
-# We can calculate the time per scenario that the model takes.
-
-# %%
-start_time = time.time()
-y_pred_test = model.predict(X_test)
-total_time = time.time() - start_time
-
-num_test_sims = len(y_pred_test)
-
-data_driven_exec_time_per_sim = total_time/num_test_sims
-print(f'Data-driven model took {data_driven_exec_time_per_sim:.7f} seconds for {num_test_sims} scenarios')
-
-# %% [markdown]
-# Considering that the original model can take up to 0.04 seconds per scenario, we can estimate the potential gain in speed-up. (Speed-up = original_time/Data-driven_model_time)
-#
-
-# %%
-original_time_per_sim = 0.04
-
-speed_up = np.round(original_time_per_sim/data_driven_exec_time_per_sim, 2)
-print('The data-driven model is', speed_up,'times faster than original simulator per scenario.')
-
-# %% [markdown]
-# <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Questions:</b>
-#
-# 4.1) The score indicates a high fitting, is that reflected in the plot of the errors? Why?
-#
-# 4.2) Is the the plot of errors centered around zero? If not, what does that mean?
-#
-# 4.3) How diverse can the speed up values be if you run the cell multiple times? Why?
-#
-# 4.4) What would occur with the speed up if you increase the number of neurons in the hidden layers?
-
-# %% [markdown]
-# ## 5. Model usage
-
-# %% [markdown]
-# Now that we have a trained model, we can use it to predict the nodal pressures for a given set of diameters. Let's try it out!
-
-# %% [markdown]
-# The water utility in charge of the BakRyan water distribution network is completing the installation of a system with the following diameters:
-#
-#     [ 800, 1000, 1100,  600,  450,  900,  700,  700,  300, 1100,  400, 700,  350, 1100,  600,  450,  400,  350, 1100,  900,  600,  600, 1100,  700,  500,  400,  450,  350,  700,  350, 1000,  400,  400, 400,  350,  900,  300, 1000,  400,  300,  450,  400,  450,  350,1100,  900,  450,  800,  800,  300, 1100,  600,  300,  700, 1000, 1000,  800,  800]
-
-# %% [markdown]
-# <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-# <b>Task 5.1:</b>   
-#     Using your model, predict the nodal pressures for this set of diameters, and report the lowest, highest and mean pressures in the system. Note that you will need to define the diameters, normalize them then use the model to make a prediction.
-# </div>
-
-# %%
 # YOUR_CODE_HERE
 
-# %% [markdown]
-# <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-# <p>
-# <b>Solution</b> provided in the code cells here:
-# </p>
-# </div>
+#Solution
+y_train = scaler_t.inverse_transform(model.predict(normalized_X_train).reshape(-1,1))
+y_val = scaler_t.inverse_transform(model.predict(normalized_X_val).reshape(-1,1))
+y_test = scaler_t.inverse_transform(model.predict(normalized_X_test).reshape(-1,1))
 
-# %%
-diameters = np.array([[800, 1000, 1100, 600, 450,
-                       900, 700, 700, 300, 1100,
-                       400, 700, 350, 1100, 600,
-                       450, 400, 350, 1100, 900,
-                       600, 600, 1100, 700, 500,
-                       400, 450, 350, 700, 350,
-                       1000, 400, 400, 400, 350,
-                       900, 300, 1000, 400, 300,
-                       450, 400, 450, 350, 1100,
-                       900, 450, 800, 800, 300,
-                       1100, 600, 300, 700, 1000,
-                       1000, 800, 800]])
-normalized_diameters = scaler_diameters.transform(diameters)
+fig,axes = plt.subplots(1,3,figsize=(10,3))
 
-# %%
-normalized_predictions = model.predict(normalized_diameters)
+axes[0].scatter(t_train,y_train,s=0.5)
 
-# %%
-predictions = scaler_pressures.inverse_transform(normalized_predictions)
+axes[0].set_title('Training dataset')
+axes[0].set_xlabel('target crack location [m]')
+axes[0].set_ylabel('predicted crack location [m]')
 
-# %%
-print(f'{predictions.min():.3f}')
-print(f'{predictions.max():.3f}')
-print(f'{predictions.mean():.3f}')
+min_val = min(np.min(t_train), np.min(y_train))
+max_val = max(np.max(t_train), np.max(y_train))
+axes[0].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[0].legend()
+
+axes[1].scatter(t_val,y_val,s=0.5)
+
+axes[1].set_title('Validation dataset')
+axes[1].set_xlabel('target crack location [m]')
+axes[1].set_ylabel('predicted crack location [m]')
+
+min_val = min(np.min(t_val), np.min(y_val))
+max_val = max(np.max(t_val), np.max(y_val))
+axes[1].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[1].legend()
+
+axes[2].scatter(t_test,y_test,s=0.5)
+
+axes[2].set_title('Test dataset')
+axes[2].set_xlabel('target crack location [m]')
+axes[2].set_ylabel('predicted crack location [m]')
+
+min_val = min(np.min(t_test), np.min(y_test))
+max_val = max(np.max(t_test), np.max(y_test))
+axes[2].plot([min_val, max_val], [min_val, max_val], 'k--', label='Ideal Fit', alpha=0.7)
+axes[2].legend()
+
+plt.tight_layout()
 
 # %% [markdown]
 # <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 # <b>Questions:</b>
 #
-# 5.1) What is the minimum that your model predicts for this network?
+# 4.1) How does hyperparameter tuning in machine learning relate to the concept of model complexity?
 #
-# 5.2) How confident are you in the prediction of your model? Why?
+# 4.2) Given a comprehensive list of layer sizes and numbers, and given a relatively small training dataset, we expect the top left corner of the heatmap to have high validation errors. Why is that?
+#
+# 4.3) Following up on the previous question, we also expect the bottom right corner of the heatmap to have high validation errors. Why is that?
+#
+# 4.4) How does the performance of your final model for this part compare with the one you tweaked manually?
 
 # %% [markdown]
 # **End of notebook.**
