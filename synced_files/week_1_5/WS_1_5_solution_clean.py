@@ -1,0 +1,120 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import make_interp_spline
+
+plt.rcParams['figure.figsize'] = (15, 5)  # Set the width and height of plots in inches
+plt.rcParams.update({'font.size': 13})    # Change this value to your desired font size
+
+exact_integral_evaluated = 27*np.pi**3 #your integrated function here 
+
+assert abs(exact_integral_evaluated - 837.16947)< 1e-5, "Oops it's incorrect. Please check your derivation the integral "
+print("The exact value of the integral is: ", exact_integral_evaluated)
+
+def f(x):
+    return 20*np.cos(x)+3*x**2
+
+f_at_x_equal_0 = f(0)
+
+print("f evaluated at x=0 is:" , f_at_x_equal_0)
+
+a = 0
+b = 3*np.pi#
+number_of_points = 4
+
+x_values = np.linspace(a, b, number_of_points)
+dx = x_values[1]-x_values[0]
+
+print("x  = ",x_values)
+
+assert abs(dx - np.pi)<1e-5, "Oops! dx is not equal to pi. Please check your values for a, b and number of points."
+
+x_high_resolution = np.linspace(a, b, 50)
+
+f_high_resolution = [ f(x) for x in x_high_resolution ]
+f_high_resolution = [ f(x_high_resolution[i]) for i in range(len(x_high_resolution))] 
+f_high_resolution = f(x_high_resolution)
+
+plt.plot(x_high_resolution, f_high_resolution, '+', markersize='12', color='black')
+plt.plot(x_high_resolution, f_high_resolution, 'b')
+plt.legend(['Points evaluated','continuous function representation'])
+plt.title('Function for approximation')
+plt.xlabel('x')
+plt.ylabel('$f(x)$');
+
+x_values = np.linspace(a, b, 10) 
+dx = x_values[1]-x_values[0]
+
+I_left_riemann = sum( [f(x)*dx for x in x_values[:-1]] )  #method 1
+print(f"Left Riemann Sum: {I_left_riemann: 0.3f}")
+I_left_riemann = sum( [ f(x_values[i])*dx for i in range(len(x_values)-1) ] )  #method 2
+print(f"Left Riemann Sum: {I_left_riemann: 0.3f}")
+
+plt.bar(x_values[:-1],[f(x) for x in x_values[:-1]], width=dx, alpha=0.5, align='edge', edgecolor='black', linewidth=0.25)
+plt.plot(x_values[:-1],[f(x) for x in x_values[:-1]], '*', markersize='16', color='red')
+
+plt.plot(x_high_resolution, f_high_resolution, 'b')
+plt.title('Left Riemann Sum')
+plt.xlabel('x')
+plt.ylabel('$f(x)$');
+
+I_right_riemann = sum( [f(x)*dx for x in x_values[1:]] ) 
+
+print(f"Right Riemann Sum: {I_right_riemann: 0.3f}")
+
+plt.bar(x_values[1:],[f(x) for x in x_values[1:]],
+        width=-dx, alpha=0.5, align='edge',
+        edgecolor='black', linewidth=0.25)
+plt.plot(x_values[1:],[f(x) for x in x_values[1:]],
+         '*', markersize='16', color='red')
+plt.plot(x_high_resolution, f_high_resolution, 'b')
+plt.title('Right Riemann Sum')
+plt.xlabel('x')
+plt.ylabel('$f(x)$');
+
+I_midpoint = sum([f((x_values[i] + x_values[i+1]) / 2)*dx for i in range(len(x_values)-1)])
+print(f"Midpoint Sum: {I_midpoint: 0.3e}")
+
+I_midpoint = sum([f(x_at_the_middle)*dx for x_at_the_middle in (x_values[:-1]+x_values[1:])/2 ])
+print(f"Midpoint Sum: {I_midpoint: 0.3e}")
+
+plt.bar(x_values[:-1],[f(x_at_the_middle) for x_at_the_middle in (x_values[:-1]+x_values[1:])/2 ], width=dx, alpha=0.5, align='edge', edgecolor='black', linewidth=0.25)
+plt.plot((x_values[:-1]+x_values[1:])/2,[f(x_at_the_middle) for x_at_the_middle in (x_values[:-1]+x_values[1:])/2 ],'*',markersize='16', color='red')
+plt.plot(x_high_resolution, f_high_resolution, 'b')
+plt.title('Midpoint Sum')
+plt.xlabel('x')
+plt.ylabel('$f(x)$');
+
+I_trapezoidal = sum([(f(x_values[i]) + f(x_values[i+1])) / 2 * dx for i in range(len(x_values)-1)]) 
+print(f"Trapezoidal Sum: {I_trapezoidal: 0.5e}")
+
+for i in range(len(x_values)-1):
+    plt.fill_between([x_values[i], x_values[i+1]], 
+                     [f(x_values[i]), f(x_values[i+1])], 
+                     alpha=0.5)
+
+plt.plot(x_high_resolution, f_high_resolution, 'b')
+plt.title('Trapezoidal Sum')
+plt.xlabel('x')
+plt.ylabel('$f(x)$');
+
+left_riemann_error = abs(exact_integral_evaluated - I_left_riemann)
+right_riemann_error = abs(exact_integral_evaluated - I_right_riemann)
+midpoint_error = abs(exact_integral_evaluated - I_midpoint)
+trapezoidal_error = abs(exact_integral_evaluated - I_trapezoidal)
+
+print(f"Left Riemann Error: {left_riemann_error: 0.3e}")
+print(f"Right Riemann Error: {right_riemann_error: 0.3e}")
+print(f"Midpoint Error: {midpoint_error: 0.3e}")
+print(f"Trapezoidal Error: {trapezoidal_error: 0.3e}")
+
+x_values = np.linspace(a, b, 9)
+dx = x_values[1]-x_values[0]                       
+    
+simpson_integral = sum([(f(x_values[2*i-2]) + 4*f(x_values[2*i-1]) + f(x_values[2*i])) / 3 * dx for i in range(1,int(len(x_values)/2)+1)]) 
+
+simpson_error = abs(exact_integral_evaluated - simpson_integral)
+
+print(f"Simpson's Rule Integral: {simpson_integral: 0.5e}")
+print(f"Simpson's Rule Absolute Error: {simpson_error: 0.5e}")
+

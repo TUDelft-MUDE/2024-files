@@ -7503,17 +7503,6 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> during the in-class session some of the confusion was caused by code issues. Comments relevant to the code and notebooks as-used in the Friday in-class session are provided in boxes like this.</p></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p><em>Note: part of the background material for this project was already available in <a href="https://mude.citg.tudelft.nl/2023/book/optimization/project.html">Chapter 5.11 of the textbook</a>.</em></p>
 <ul>
 <li>We showed in the previous notebook how to use MILP to solve the Road Network Design (RND) Problem</li>
@@ -7531,78 +7520,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Libraries">Libraries<a class="anchor-link" href="#Libraries">¶</a></h2><p>To run this notebook you need to have installed the following packages:
-Pandas
-Numpy
-Matplotlib
-Gurobipy
-PyMOO</p>
-<p>Luckily, they're all part of this weeks environment!</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">gurobipy</span> <span class="k">as</span> <span class="nn">gp</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1">#if you did not install pymoo yet, run the following in your Anaconda Prompt: conda install -c anaconda autograd</span>
-
-<span class="c1"># Genetic algorithm dependencies. We are importing the pymoo functions that are imporant for applying GA (the package can also apply other methods)</span>
-<span class="kn">from</span> <span class="nn">pymoo.algorithms.soo.nonconvex.ga</span> <span class="kn">import</span> <span class="n">GA</span>
-<span class="kn">from</span> <span class="nn">pymoo.core.problem</span> <span class="kn">import</span> <span class="n">ElementwiseProblem</span>
-<span class="kn">from</span> <span class="nn">pymoo.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
-<span class="kn">from</span> <span class="nn">pymoo.operators.sampling.rnd</span> <span class="kn">import</span> <span class="n">BinaryRandomSampling</span>
-<span class="kn">from</span> <span class="nn">pymoo.operators.crossover.hux</span> <span class="kn">import</span> <span class="n">HalfUniformCrossover</span> <span class="c1">#</span>
-<span class="kn">from</span> <span class="nn">pymoo.operators.mutation.bitflip</span> <span class="kn">import</span> <span class="n">BitflipMutation</span>
-
-<span class="c1"># not used here but generally useful dependencies</span>
-<span class="c1">#from pymoo.core.problem import Problem</span>
-<span class="c1">#from pymoo.operators.mutation.pm import PolynomialMutation</span>
-<span class="c1">#from pymoo.operators.crossover.pntx import PointCrossover #</span>
-<span class="c1">#from pymoo.operators.crossover.sbx import SBX</span>
-<span class="c1">#from pymoo.operators.crossover.sbx import SimulatedBinaryCrossover</span>
-<span class="c1">#from pymoo.operators.crossover.pntx import Crossover</span>
-<span class="c1">#from pymoo.operators.repair.bounds_repair import BoundsRepair</span>
-<span class="c1">#from pymoo.core.repair import Repair</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> the intention with the commented lines above was to illustrate possible crossover methods you could use, but unfortunately the pymoo documentation was not clear enough to indicate how they could have been used. The methods <code>SinglePointCrossover</code> and <code>TwoPointCrossover</code> (n<em>not</em> listed above!) could have been easily used, as these methods require no additional keyword arguments and would have worked “out of the box;” they were also illustrated with examples in the online textbook. We apologize for this oversight on our part.</p></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># For visualization</span>
-<span class="kn">from</span> <span class="nn">utils.network_visualization</span> <span class="kn">import</span> <span class="n">network_visualization</span>
-<span class="kn">from</span> <span class="nn">utils.network_visualization_highlight_link</span> <span class="kn">import</span> <span class="n">network_visualization_highlight_links</span>
-<span class="kn">from</span> <span class="nn">utils.network_visualization_upgraded</span> <span class="kn">import</span> <span class="n">network_visualization_upgraded</span>
-</pre></div>
-</div>
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
 </div>
 </div>
 </div>
@@ -7739,7 +7657,27 @@ We use Gurobi to solve the Traffic Assignment sub-problems, which provide us wit
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Data-preprocessing">Data preprocessing<a class="anchor-link" href="#Data-preprocessing">¶</a></h2><p>Our data preprocessing steps are similar to the previous notebook. We use some networks from the well-known transportation networks for benchmarking repository as well as a small toy network for case studies of NDPs. the following functions read data from this repository and perform data preprocessing to have the input and the parameters required for our case studies.</p>
+<h2 id="Part-1:-Data-preprocessing">Part 1: Data preprocessing<a class="anchor-link" href="#Part-1:-Data-preprocessing">¶</a></h2><p>The demand of the network is given by an <strong>OD matrix</strong>, which will be constructed below. The OD matrix is as table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 1:</b>
+<p>Run the script below.</p>
+<ul>
+<li>The first two blocks imports all the required functions and packages</li>
+<li>The next blocks visualises the network.</li>
+</ul>
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -7748,137 +7686,57 @@ We use Gurobi to solve the Traffic Assignment sub-problems, which provide us wit
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">gurobipy</span> <span class="k">as</span> <span class="nn">gp</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Genetic algorithm dependencies</span>
+<span class="kn">from</span> <span class="nn">pymoo.algorithms.soo.nonconvex.ga</span> <span class="kn">import</span> <span class="n">GA</span>
+<span class="kn">from</span> <span class="nn">pymoo.core.problem</span> <span class="kn">import</span> <span class="n">ElementwiseProblem</span>
+<span class="kn">from</span> <span class="nn">pymoo.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<span class="kn">from</span> <span class="nn">pymoo.operators.sampling.rnd</span> <span class="kn">import</span> <span class="n">BinaryRandomSampling</span>
+<span class="kn">from</span> <span class="nn">pymoo.operators.crossover.hux</span> <span class="kn">import</span> <span class="n">HalfUniformCrossover</span> 
+<span class="kn">from</span> <span class="nn">pymoo.operators.mutation.bitflip</span> <span class="kn">import</span> <span class="n">BitflipMutation</span>
+<span class="kn">from</span> <span class="nn">pymoo.operators.crossover.pntx</span> <span class="kn">import</span> <span class="n">PointCrossover</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># import required packages</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="c1"># read network file</span>
-<span class="k">def</span> <span class="nf">read_net</span><span class="p">(</span><span class="n">net_file</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">       read network file</span>
-<span class="sd">    """</span>
-
-    <span class="n">net_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">net_file</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
-    <span class="c1"># make sure all headers are lower case and without trailing spaces</span>
-    <span class="n">trimmed</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">net_data</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-    <span class="n">net_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">trimmed</span>
-    <span class="c1"># And drop the silly first and last columns</span>
-    <span class="n">net_data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'~'</span><span class="p">,</span> <span class="s1">';'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># using dictionary to convert type of specific columns so taht we can assign very small (close to zero) possitive number to it.</span>
-    <span class="n">convert_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'free_flow_time'</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-                    <span class="s1">'capacity'</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-                    <span class="s1">'length'</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-                    <span class="s1">'power'</span><span class="p">:</span> <span class="nb">float</span>
-                    <span class="p">}</span>
-    
-    <span class="n">net_data</span> <span class="o">=</span> <span class="n">net_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">convert_dict</span><span class="p">)</span>
-
-    <span class="c1"># make sure everything makes sense (otherwise some solvers throw errors)</span>
-    <span class="n">net_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">net_data</span><span class="p">[</span><span class="s1">'free_flow_time'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'free_flow_time'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-6</span>
-    <span class="n">net_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">net_data</span><span class="p">[</span><span class="s1">'capacity'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'capacity'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-6</span>
-    <span class="n">net_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">net_data</span><span class="p">[</span><span class="s1">'length'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'length'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-6</span>
-    <span class="n">net_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">net_data</span><span class="p">[</span><span class="s1">'power'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'power'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">net_data</span><span class="p">[</span><span class="s1">'init_node'</span><span class="p">]</span> <span class="o">=</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'init_node'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">net_data</span><span class="p">[</span><span class="s1">'term_node'</span><span class="p">]</span> <span class="o">=</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'term_node'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">net_data</span><span class="p">[</span><span class="s1">'b'</span><span class="p">]</span> <span class="o">=</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'b'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-
-    <span class="c1"># extract features in dict format</span>
-    <span class="n">links</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">net_data</span><span class="p">[</span><span class="s1">'init_node'</span><span class="p">],</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'term_node'</span><span class="p">]))</span>
-    <span class="n">caps</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'capacity'</span><span class="p">]))</span>
-    <span class="n">fftt</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'free_flow_time'</span><span class="p">]))</span>
-    <span class="n">lent</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'length'</span><span class="p">]))</span>
-    <span class="n">alpha</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'b'</span><span class="p">]))</span>
-    <span class="n">beta</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'power'</span><span class="p">]))</span>
-
-    <span class="n">net</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'capacity'</span><span class="p">:</span> <span class="n">caps</span><span class="p">,</span> <span class="s1">'free_flow'</span><span class="p">:</span> <span class="n">fftt</span><span class="p">,</span> <span class="s1">'length'</span><span class="p">:</span> <span class="n">lent</span><span class="p">,</span> <span class="s1">'alpha'</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span> <span class="s1">'beta'</span><span class="p">:</span> <span class="n">beta</span><span class="p">}</span>
-
-    <span class="k">return</span> <span class="n">net</span>
-
-
-<span class="c1"># read OD matrix (demand)</span>
-<span class="k">def</span> <span class="nf">read_od</span><span class="p">(</span><span class="n">od_file</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">       read OD matrix</span>
-<span class="sd">    """</span>
-
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">od_file</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
-    <span class="n">all_rows</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">blocks</span> <span class="o">=</span> <span class="n">all_rows</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'Origin'</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="n">matrix</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">blocks</span><span class="p">)):</span>
-        <span class="n">orig</span> <span class="o">=</span> <span class="n">blocks</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-        <span class="n">dests</span> <span class="o">=</span> <span class="n">orig</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-        <span class="n">origs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">orig</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-        <span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="nb">eval</span><span class="p">(</span><span class="s1">'{'</span> <span class="o">+</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">';'</span><span class="p">,</span> <span class="s1">','</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'}'</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">dests</span><span class="p">]</span>
-        <span class="n">destinations</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="n">destinations</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">destinations</span><span class="p">,</span> <span class="o">**</span><span class="n">i</span><span class="p">}</span>
-        <span class="n">matrix</span><span class="p">[</span><span class="n">origs</span><span class="p">]</span> <span class="o">=</span> <span class="n">destinations</span>
-    <span class="n">zones</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-    <span class="n">od_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">zones</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">zones</span><span class="p">):</span>
-            <span class="n">demand</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">demand</span><span class="p">:</span>
-                <span class="n">od_dict</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">demand</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">od_dict</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">return</span> <span class="n">od_dict</span>
-
-
-<span class="c1"># read case study data</span>
-<span class="k">def</span> <span class="nf">read_cases</span><span class="p">(</span><span class="n">networks</span><span class="p">,</span> <span class="n">input_dir</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">       read case study data</span>
-<span class="sd">    """</span>
-
-    <span class="c1"># dictionaries for network and OD files</span>
-    <span class="n">net_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">ods_dict</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="c1"># selected case studies</span>
-    <span class="k">if</span> <span class="n">networks</span><span class="p">:</span>
-        <span class="n">cases</span> <span class="o">=</span> <span class="p">[</span><span class="n">case</span> <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># all folders available (each one for one specific case)</span>
-        <span class="n">cases</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">x</span><span class="p">))]</span>
-
-    <span class="c1"># iterate through cases and read network and OD</span>
-    <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
-        <span class="n">mod</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">case</span><span class="p">)</span>
-        <span class="n">mod_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mod_files</span><span class="p">:</span>
-            <span class="c1"># read network</span>
-            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="o">-</span><span class="mi">8</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">'net.tntp'</span><span class="p">:</span>
-                <span class="n">net_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-                <span class="n">net_dict</span><span class="p">[</span><span class="n">case</span><span class="p">]</span> <span class="o">=</span> <span class="n">read_net</span><span class="p">(</span><span class="n">net_file</span><span class="p">)</span>
-            <span class="c1"># read OD matrix</span>
-            <span class="k">if</span> <span class="s1">'TRIPS'</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">and</span> <span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">'.tntp'</span><span class="p">:</span>
-                <span class="n">ods_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-                <span class="n">ods_dict</span><span class="p">[</span><span class="n">case</span><span class="p">]</span> <span class="o">=</span> <span class="n">read_od</span><span class="p">(</span><span class="n">ods_file</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">net_dict</span><span class="p">,</span> <span class="n">ods_dict</span>
-
-
-<span class="c1"># create node-destination demand matrix</span>
-<span class="k">def</span> <span class="nf">create_nd_matrix</span><span class="p">(</span><span class="n">ods_data</span><span class="p">,</span> <span class="n">origins</span><span class="p">,</span> <span class="n">destinations</span><span class="p">,</span> <span class="n">nodes</span><span class="p">):</span>
-    <span class="c1"># create node-destination demand matrix (not a regular OD!)</span>
-    <span class="n">demand</span> <span class="o">=</span> <span class="p">{(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodes</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">destinations</span><span class="p">}</span>
-    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">origins</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">destinations</span><span class="p">:</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ods_data</span><span class="p">:</span>
-                <span class="n">demand</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">ods_data</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">destinations</span><span class="p">:</span>
-        <span class="n">demand</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">demand</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">origins</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">demand</span>
+<span class="c1"># import required functions</span>
+<span class="kn">from</span> <span class="nn">utils.read</span> <span class="kn">import</span> <span class="n">read_cases</span>
+<span class="kn">from</span> <span class="nn">utils.read</span> <span class="kn">import</span> <span class="n">read_net</span>
+<span class="kn">from</span> <span class="nn">utils.read</span> <span class="kn">import</span> <span class="n">read_od</span>
+<span class="kn">from</span> <span class="nn">utils.read</span> <span class="kn">import</span> <span class="n">create_nd_matrix</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Network-Display">Network Display<a class="anchor-link" href="#Network-Display">¶</a></h3><p>We will use the same function we used in the previous notebook to visualize the network.</p>
 </div>
 </div>
 </div>
@@ -7893,75 +7751,30 @@ We use Gurobi to solve the Traffic Assignment sub-problems, which provide us wit
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> the variables <code>extension_max_no</code> and <code>timelimit</code> were both defined here, but never used. <code>extension_max_no</code> is similar to the variable in notebook A with the same name; here it is superceded below by <code>Budget</code>.</p></div>
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># define parameters, case study (network) list and the directory where their files are</span>
-<span class="n">extension_factor</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># capacity after extension (1.5 means add 50%)</span>
-<span class="n">extension_max_no</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># the number of links to add capacity to (simplified way of reprsenting a budget for investing)</span>
-<span class="c1">#it's the same to say that it's exactly this number of that this number is the max, that's because every investment brings travel time benefits </span>
-<span class="c1">#even if just one car circulates.</span>
-<span class="n">timelimit</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># seconds</span>
-<span class="n">beta</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># parameter to use in link travel time function (explained later)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># define parameters</span>
+<span class="n">extension_factor</span> <span class="o">=</span> <span class="mf">2.5</span> 
 
 <span class="n">networks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'SiouxFalls'</span><span class="p">]</span>
 <span class="n">networks_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span><span class="s1">'/input/TransportationNetworks'</span>
 
-
 <span class="c1"># prep data</span>
 <span class="n">net_dict</span><span class="p">,</span> <span class="n">ods_dict</span> <span class="o">=</span> <span class="n">read_cases</span><span class="p">(</span><span class="n">networks</span><span class="p">,</span> <span class="n">networks_dir</span><span class="p">)</span>
-
-<span class="c1"># Let's load the network and demand (OD matrix) data of the first network (Sioux Falls) to two dictionaries for our first case study.</span>
-<span class="c1"># WE USE THE SAME NETWORK FROM THE FIRST NOTEBOOK: SIOUX FALLS</span>
-<span class="c1"># The network has 76 arcs in total</span>
 <span class="n">net_data</span><span class="p">,</span> <span class="n">ods_data</span> <span class="o">=</span> <span class="n">net_dict</span><span class="p">[</span><span class="n">networks</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">ods_dict</span><span class="p">[</span><span class="n">networks</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-
-<span class="c1">## now let's prepare the data in a format readable by gurobi</span>
 
 <span class="c1"># prep links, nodes, and free flow travel times</span>
 <span class="n">links</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">net_data</span><span class="p">[</span><span class="s1">'capacity'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">links</span><span class="p">])</span>
 <span class="n">fftts</span> <span class="o">=</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'free_flow'</span><span class="p">]</span>
-
-<span class="c1"># auxiliary parameters (dict format) to keep the problem linear (capacities as parameters rather than variables)</span>
-<span class="n">cap_normal</span> <span class="o">=</span> <span class="p">{(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span> <span class="n">cap</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">cap</span> <span class="ow">in</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'capacity'</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-<span class="n">cap_extend</span> <span class="o">=</span> <span class="p">{(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span> <span class="n">cap</span> <span class="o">*</span> <span class="n">extension_factor</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">cap</span> <span class="ow">in</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'capacity'</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-
-<span class="c1"># origins and destinations</span>
-<span class="n">dests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="n">dest</span> <span class="k">for</span> <span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ods_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())])</span>
-<span class="n">origs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="n">orig</span> <span class="k">for</span> <span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ods_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())])</span>
-
-<span class="c1"># demand in node-destination form</span>
-<span class="n">demand</span> <span class="o">=</span> <span class="n">create_nd_matrix</span><span class="p">(</span><span class="n">ods_data</span><span class="p">,</span> <span class="n">origs</span><span class="p">,</span> <span class="n">dests</span><span class="p">,</span> <span class="n">nodes</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Network-Display">Network Display<a class="anchor-link" href="#Network-Display">¶</a></h2><p>We will use the same function we used in the previous notebook to visualize the network.</p>
 </div>
 </div>
 </div>
@@ -7970,7 +7783,23 @@ We use Gurobi to solve the Traffic Assignment sub-problems, which provide us wit
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">utils.network_visualization</span> <span class="kn">import</span> <span class="n">network_visualization</span>
+<span class="kn">from</span> <span class="nn">utils.network_visualization_highlight_link</span> <span class="kn">import</span> <span class="n">network_visualization_highlight_links</span>
+<span class="kn">from</span> <span class="nn">utils.network_visualization_upgraded</span> <span class="kn">import</span> <span class="n">network_visualization_upgraded</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">coordinates_path</span> <span class="o">=</span> <span class="s1">'input/TransportationNetworks/SiouxFalls/SiouxFallsCoordinates.geojson'</span>
@@ -8011,8 +7840,24 @@ We use Gurobi to solve the Traffic Assignment sub-problems, which provide us wit
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Modeling-and-solving-the-traffic-assignment-sub-problem-with-Gurobi">Modeling and solving the traffic assignment sub-problem with Gurobi<a class="anchor-link" href="#Modeling-and-solving-the-traffic-assignment-sub-problem-with-Gurobi">¶</a></h3><p>In this section we build a Gurobi model to solve the Traffic Assignment sub-problems. The decision variables, objective function, and the constraints of this problem were described before.
+<h2 id="Part-2:-Modeling-and-solving-the-traffic-assignment-sub-problem-with-Gurobi">Part 2: Modeling and solving the traffic assignment sub-problem with Gurobi<a class="anchor-link" href="#Part-2:-Modeling-and-solving-the-traffic-assignment-sub-problem-with-Gurobi">¶</a></h2><h3 id="Defining-functions">Defining functions<a class="anchor-link" href="#Defining-functions">¶</a></h3><p>In this section we build a Gurobi model to solve the Traffic Assignment sub-problems. The decision variables, objective function, and the constraints of this problem were described before.
 Here we wrap the code in a function so that we can use it later within the GA.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 2.1:</b>
+<p>Run the scripts below all the way to the end. You do not have to change anything in the code for the first run. Take note of the convergence curve and the final network map.</p>
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -8021,19 +7866,19 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ta_qp</span><span class="p">(</span><span class="n">dvs</span><span class="p">,</span> <span class="n">net_data</span><span class="o">=</span><span class="n">net_data</span><span class="p">,</span> <span class="n">ods_data</span><span class="o">=</span><span class="n">ods_data</span><span class="p">,</span> <span class="n">extension_factor</span><span class="o">=</span><span class="mf">1.5</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ta_qp</span><span class="p">(</span><span class="n">dvs</span><span class="p">,</span> <span class="n">net_data</span><span class="o">=</span><span class="n">net_data</span><span class="p">,</span> <span class="n">ods_data</span><span class="o">=</span><span class="n">ods_data</span><span class="p">,</span> <span class="n">extension_factor</span><span class="o">=</span><span class="mf">2.5</span><span class="p">):</span>
 
-    <span class="c1"># prep variables</span>
+    <span class="c1"># variables</span>
     <span class="n">beta</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">links</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">net_data</span><span class="p">[</span><span class="s1">'capacity'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
     <span class="n">nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">links</span><span class="p">])</span>
     <span class="n">fftts</span> <span class="o">=</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'free_flow'</span><span class="p">]</span>
     <span class="n">links_selected</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">dvs</span><span class="p">))</span>
 
-    <span class="c1"># define capacity</span>
+    <span class="c1"># capacity</span>
     <span class="n">cap_normal</span> <span class="o">=</span> <span class="p">{(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span> <span class="n">cap</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">cap</span> <span class="ow">in</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'capacity'</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
     <span class="n">cap_extend</span> <span class="o">=</span> <span class="p">{(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span> <span class="n">cap</span> <span class="o">*</span> <span class="n">extension_factor</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">cap</span> <span class="ow">in</span> <span class="n">net_data</span><span class="p">[</span><span class="s1">'capacity'</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
     <span class="n">capacity</span> <span class="o">=</span> <span class="p">{(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span> <span class="n">cap_normal</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">links_selected</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span> <span class="o">+</span> <span class="n">cap_extend</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">links_selected</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
@@ -8042,37 +7887,24 @@ Here we wrap the code in a function so that we can use it later within the GA.</
     <span class="n">dests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="n">dest</span> <span class="k">for</span> <span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ods_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())])</span>
     <span class="n">origs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="n">orig</span> <span class="k">for</span> <span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ods_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())])</span>
 
-    <span class="c1"># demand in node-destination form</span>
     <span class="n">demand</span> <span class="o">=</span> <span class="n">create_nd_matrix</span><span class="p">(</span><span class="n">ods_data</span><span class="p">,</span> <span class="n">origs</span><span class="p">,</span> <span class="n">dests</span><span class="p">,</span> <span class="n">nodes</span><span class="p">)</span>
 
     <span class="c1">## create a gurobi model object</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
-    <span class="c1"># just to avoid cluttering the notebook with unnecessary logging output</span>
     <span class="n">model</span><span class="o">.</span><span class="n">Params</span><span class="o">.</span><span class="n">LogToConsole</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="c1">## decision variables:</span>
-
-    <span class="c1"># link flows (x_ij); i: a_node, j: b_node</span>
     <span class="n">link_flow</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">gp</span><span class="o">.</span><span class="n">GRB</span><span class="o">.</span><span class="n">CONTINUOUS</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'x'</span><span class="p">)</span>
-
-    <span class="c1"># link flows per destination (xs_ijs); i: a_node, j: b_node, s: destination</span>
     <span class="n">dest_flow</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">dests</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">gp</span><span class="o">.</span><span class="n">GRB</span><span class="o">.</span><span class="n">CONTINUOUS</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'xs'</span><span class="p">)</span>
 
     <span class="c1">## constraints</span>
-
-    <span class="c1"># node flow conservation (demand)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">addConstrs</span><span class="p">(</span>
         <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">dest_flow</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">nodes</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">links</span><span class="p">)</span> <span class="o">-</span>
         <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">dest_flow</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">nodes</span> <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="ow">in</span> <span class="n">links</span><span class="p">)</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nodes</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">dests</span>
     <span class="p">)</span>
 
-    <span class="c1"># link flow conservation (destination flows and link flows)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">addConstrs</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">dest_flow</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">dests</span><span class="p">)</span> <span class="o">==</span> <span class="n">link_flow</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">links</span><span class="p">)</span>
-
-    <span class="c1">## objective function (total travel time)</span>
-    <span class="c1"># total travel time = sum (link flow * link travel time)</span>
-    <span class="c1"># link travel time = free flow travel time * (1 + (flow / capacity))</span>
 
     <span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span>
         <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">link_flow</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">fftts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">beta</span> <span class="o">*</span> <span class="n">link_flow</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">capacity</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])))</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">links</span><span class="p">))</span>
@@ -8101,7 +7933,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Modeling-with-PyMOO">Modeling with PyMOO<a class="anchor-link" href="#Modeling-with-PyMOO">¶</a></h2><p>Let's define a model in MyMOO and deal with the links selection problem with the GA.</p>
+<h3 id="Modeling-with-PyMOO">Modeling with PyMOO<a class="anchor-link" href="#Modeling-with-PyMOO">¶</a></h3><p>Let's define a model in MyMOO and deal with the links selection problem with the GA.</p>
 </div>
 </div>
 </div>
@@ -8121,7 +7953,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#If you want to know more about the library that is being used: https://pymoo.org/algorithms/soo/ga.html</span>
@@ -8130,21 +7962,16 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">budget</span><span class="p">):</span>
 
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">n_var</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">),</span>       <span class="c1"># number of decision variables (i.e., number of links)</span>
-                         <span class="n">n_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>                <span class="c1"># for now we use only one objective (total travel time)</span>
-                         <span class="n">n_constr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>             <span class="c1"># one constraint for budget, that's because the GA shoud not create unfeasible solutions</span>
-                         <span class="n">vtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span>             <span class="c1"># binary decision variables</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">n_var</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">),</span>       
+                         <span class="n">n_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>               
+                         <span class="n">n_constr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>            
+                         <span class="n">vtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span>           
                         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span> <span class="o">=</span> <span class="n">budget</span>
 
     <span class="k">def</span> <span class="nf">_evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decision_vars</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-
-        <span class="c1"># call TA to calculate the objective fucntion, meaning to do the evaluation of the solutions</span>
+    
         <span class="n">total_travel_time</span><span class="p">,</span><span class="n">capacity</span><span class="p">,</span> <span class="n">link_flows</span><span class="p">,</span> <span class="n">links_selected</span> <span class="o">=</span> <span class="n">ta_qp</span><span class="p">(</span><span class="n">decision_vars</span><span class="p">)</span>
-
-        <span class="c1"># the budget constraint</span>
-        <span class="c1"># In the GA part the only variables are the binary decision variables, don't forget that the traffic assignment that </span>
-        <span class="c1"># produces the travel time on the network is done in the evaluation of the solution</span>
         <span class="n">g</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">decision_vars</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">budget</span>
 
         <span class="n">out</span><span class="p">[</span><span class="s2">"F"</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_travel_time</span>
@@ -8172,7 +7999,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> was 10 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 200 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
 </div>
 </div>
 </div>
@@ -8183,18 +8010,13 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>This:</b> <code>Budget</code> is the way the number of links was selected (unlike notebook A, which used <code>extension_max_no</code>). </p></div>
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 2.2:</b>
+<p>After running the whole script with no changes, come back to this task.
+As part of question 6, change the given parameters around and see how your convergence curve and network map changes. Unlike the LP notebook, you do not need to restart the notebook kernel!</p>
+</p>
 </div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>This:</b> <code>Budget</code> is the way the number of links was selected (unlike notebook A, which used <code>extension_max_no</code>). The initial value of 76 was trivial, and the solution converged quickly. Numbers between 10 and 40 would have produced <em>much</em> more interesting results (see solution explanation).</p></div>
 </div>
 </div>
 </div>
@@ -8203,21 +8025,20 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">Budget</span> <span class="o">=</span> <span class="mi">76</span>
-<span class="n">pop_size</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">extension_max_no</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">pop_size</span> <span class="o">=</span> <span class="mi">200</span>
 
 <span class="c1"># initiate an instance of the problem with max number of selected links as budget constraint</span>
-<span class="n">problem</span> <span class="o">=</span> <span class="n">NDP</span><span class="p">(</span><span class="n">budget</span><span class="o">=</span><span class="n">Budget</span><span class="p">)</span>
+<span class="n">problem</span> <span class="o">=</span> <span class="n">NDP</span><span class="p">(</span><span class="n">budget</span><span class="o">=</span><span class="n">extension_max_no</span><span class="p">)</span>
 
 <span class="c1"># initiate the GA with parameters appropriate for binary variables</span>
 <span class="n">method</span> <span class="o">=</span> <span class="n">GA</span><span class="p">(</span><span class="n">pop_size</span><span class="o">=</span><span class="n">pop_size</span><span class="p">,</span>
             <span class="n">sampling</span><span class="o">=</span><span class="n">BinaryRandomSampling</span><span class="p">(),</span>
             <span class="n">mutation</span><span class="o">=</span><span class="n">BitflipMutation</span><span class="p">(),</span>
-            <span class="n">crossover</span><span class="o">=</span><span class="n">HalfUniformCrossover</span><span class="p">()</span>
-            <span class="p">)</span>
+            <span class="n">crossover</span><span class="o">=</span><span class="n">HalfUniformCrossover</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -8241,7 +8062,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> termination is set here as a keyword argument (see note above).</p></div>
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
 </div>
 </div>
 </div>
@@ -8255,7 +8076,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">opt_results</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span>
                <span class="n">method</span><span class="p">,</span>
-               <span class="n">termination</span><span class="o">=</span><span class="p">(</span><span class="s2">"time"</span><span class="p">,</span> <span class="s2">"00:05:00"</span><span class="p">),</span> <span class="c1">#5 minute maximum computation time</span>
+               <span class="n">termination</span><span class="o">=</span><span class="p">(</span><span class="s2">"time"</span><span class="p">,</span> <span class="s2">"00:03:00"</span><span class="p">),</span> <span class="c1">#this is maximum computation time</span>
                <span class="n">seed</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
                <span class="n">save_history</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -8293,7 +8114,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_results</span><span class="p">(</span><span class="n">opt_results</span><span class="p">):</span>
@@ -8384,7 +8205,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Network-Visualization">Network Visualization<a class="anchor-link" href="#Network-Visualization">¶</a></h2><p>Same as the previous notebook we use link_flows, links_selected to visualize our results on the network.</p>
+<h3 id="Network-Visualization">Network Visualization<a class="anchor-link" href="#Network-Visualization">¶</a></h3><p>Same as the previous notebook we use link_flows, links_selected to visualize our results on the network.</p>
 </div>
 </div>
 </div>
@@ -8396,7 +8217,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">travel_time</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">link_flows</span><span class="p">,</span> <span class="n">links_selected</span><span class="o">=</span> <span class="n">ta_qp</span><span class="p">(</span><span class="n">dvs</span><span class="o">=</span><span class="n">opt_results</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">net_data</span><span class="o">=</span><span class="n">net_data</span><span class="p">,</span> <span class="n">ods_data</span><span class="o">=</span><span class="n">ods_data</span><span class="p">,</span> <span class="n">extension_factor</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">travel_time</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">link_flows</span><span class="p">,</span> <span class="n">links_selected</span><span class="o">=</span> <span class="n">ta_qp</span><span class="p">(</span><span class="n">dvs</span><span class="o">=</span><span class="n">opt_results</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">net_data</span><span class="o">=</span><span class="n">net_data</span><span class="p">,</span> <span class="n">ods_data</span><span class="o">=</span><span class="n">ods_data</span><span class="p">,</span> <span class="n">extension_factor</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

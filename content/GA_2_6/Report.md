@@ -7,7 +7,7 @@
 
 ## Primary Task
 
-**Complete the notebook `P10.ipynb`and write your answers in this document as requested in the questions below. Note that only part of the notebook results are required to be included in this report.** Typically a short, one-line answer is sufficient; though a simple 'yes' or 'no' is _not_ sufficient, please include a short reasoning, justification or argumentation.
+**Complete the notebook `Analysis.ipynb`and write your answers in this document as requested in the questions below. Note that only part of the notebook results are required to be included in this report.** Typically a short, one-line answer is sufficient; though a simple 'yes' or 'no' is _not_ sufficient, please include a short reasoning, justification or argumentation.
 
 _You will be graded on the plots and answers provided in this file. You can delete the instructions and any other unnecessary text prior to submission._
 
@@ -37,12 +37,12 @@ When using Markdown to include an image, the square brackets is a text tag that 
 _Your answer here._
 
 
-**1.2) What part of the pre-processing improves the representativity of the overall distribution of the data?**
+**1.2) Why should the `MinMaxScaler` be fitted on the training data only?**
 
 _Your answer here._
 
 
-**1.3) Why should the `MinMaxScaler` be fitted on the training data only, and then used to transform both the training and validation data?**
+**1.3) Why is it crucial that the exact same scaler is used to transform the validation dataset?**
 
 _Your answer here._
 
@@ -50,65 +50,53 @@ _Your answer here._
 
 ### Section 2
 
-Plot the validation and training loss curves. Add this plot to your report.
-
-_Your plot here._
-
-
 **2.1) Based on the shape of the loss curves, what can you indicate about the fitting capabilities of the model? (Is it overfitting, underfitting, or neither?)**
 
 _Your answer here._
 
-**2.2) How do you explain the difference between the values of training and validation score?**
+**2.2) Why is the model performing so poorly? Can you give an explanation based on the physics of the problem? Is there a crack location for which this model does make a good prediction? Why is that the case?**
+
+_Your answer here._
+
+**2.3) Can you explain why the model performs poorly in light of the assumptions we made for our observation model $p(t\vert x)=\mathcal{N}\left(t\lvert y(x),\beta^{-1}\right)$?**
 
 _Your answer here._
 
 ### Section 3
-Plot the validation loss grid. Add this plot to your report.
 
-_Your plot here._
-
-**3.1) How does hyperparameter tuning in machine learning relate to the concept of model complexity?**
+**3.1) Based on the shape of the loss curves, what can you indicate about the fitting capabilities of the model? (Is it overfitting, underfitting, or neither?)**
 
 _Your answer here._
 
-**3.2) From the graph, what is the impact of increasing the number of hidden layers on the model's ability to capture complex patterns in the data?**
+**3.2) What criterion did you use to measure the quality of your model when trying out different architectures?**
+
+_Your answer here._
+
+**3.3) How well does your final model do compared to the one in Part 2? Use the parity plots you obtained to make your argument. Can you give a physical explanation for why this is the case?**
+
+_Your answer here._
+
+**3.4) Can you propose explanations for the errors that still remain?**
 
 _Your answer here._
 
 ### Section 4
 
-_Your plot here._
-
-**4.1) The score indicates a high fitting, is that reflected in the plot of the errors? Why?**
+**4.1) How does hyperparameter tuning in machine learning relate to the concept of model complexity?**
 
 _Your answer here._
 
-
-**4.2) Is the the plot of errors centered around zero? If not, what does that mean?**
-
-_Your answer here._
-
-
-**4.3) How diverse can the speed up values be if you run the cell multiple times? Why?**
+**4.2) Given a comprehensive list of layer sizes and numbers, and given a relatively small training dataset, we expect the top left corner of the heatmap to have high validation errors. Why is that?**
 
 _Your answer here._
 
-**4.4) What would occur with the speed up if you increase the number of neurons in the hidden layers?**
+**4.3) Following up on the previous question, we also expect the bottom right corner of the heatmap to have high validation errors. Why is that?**
 
 _Your answer here._
 
-### Section 5
-
-**5.1) What is the minimum that your model predicts for this network?**
+**4.4) How does the performance of your final model for this part compare with the one you tweaked manually?**
 
 _Your answer here._
-
-
-**5.2) How confident are you in the prediction of your model? Why?**
-
-_Your answer here._
-
 
 ## General Comments on the Assignment [optional]
 
