@@ -49,7 +49,7 @@
 # ### Python Environment
 #
 # You will need the package scikit-learn for this workshop (in addition to a few other typical packages). You can import it to one of your existing conda environments from the conda-forge as (i.e., `
-# conda install -c conda-forge scikit-learn`), or you can create a new environment from the `*.yml` file included in this repository (`conda env create -f environment_MUDE_ml.yml`). But remember: _if you already have sklearn installed in an environment, you don't have to do anything besides use it!_
+# conda install -c conda-forge scikit-learn`), or you can create a new environment from the `*.yml` file included in this repository (`conda env create -f environment    .yml`). But remember: _if you already have sklearn installed in an environment, you don't have to do anything besides use it!_
 
 # %% [markdown]
 # <div style="background-color:#C8FFFF; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
@@ -72,6 +72,8 @@ from sklearn.model_selection import train_test_split
 from scipy import interpolate
 from scipy.stats import norm
 from sklearn.preprocessing import StandardScaler
+
+# %config InlineBackend.figure_formats = ['svg']
 
 # %% [markdown]
 # ## Task 0: Our Data for Today
@@ -624,29 +626,6 @@ plt.show()
 # </div>
 
 # %%
-# new_model_gnss = YOUR CODE HERE
-# train_losses = YOUR CODE HERE
-# val_losses = YOUR CODE HERE
-
-# epochs = YOUR CODE HERE
-
-# for epoch in range(YOUR CODE HERE):
-#     new_model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
-
-#     # Calculate training loss
-#     train_pred = YOUR CODE HERE
-#     train_loss = YOUR CODE HERE
-#     train_losses.YOUR CODE HERE
-
-#     # Calculate validation loss
-#     val_pred = YOUR CODE HERE
-#     val_loss = YOUR CODE HERE
-#     val_losses.YOUR CODE HERE
-
-#     # Print losses every 500 epochs
-#     if epoch % 500 == 0:
-#         print(f'Epoch {epoch}/{epochs} - Training Loss: {train_loss:.4f}, Validation Loss: {val_loss:.4f}')
-# Solution:
 new_model_gnss = MLPRegressor(hidden_layer_sizes=(20,20,20), activation='relu')
 
 train_losses = []

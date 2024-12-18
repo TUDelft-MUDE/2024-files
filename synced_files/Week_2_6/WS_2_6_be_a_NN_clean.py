@@ -43,7 +43,7 @@ for epoch in range(n_epochs):
     
     if epoch%N_print==0 or epoch==n_epochs-1: 
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
-               + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
+               + f'Training loss: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
 
 fig, ax = plt.subplots(figsize=(8, 6))
@@ -76,7 +76,7 @@ for epoch in range(n_epochs):
     
     if epoch%N_print==0 or epoch==n_epochs-1: 
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
-               + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
+               + f'Training loss: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
 
 fig, ax = plt.subplots(figsize=(8, 6))
@@ -106,7 +106,7 @@ for epoch in range(n_epochs):
     
     if epoch%N_print==0 or epoch==n_epochs-1: 
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
-               + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
+               + f'Training loss: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
 
 fig, ax = plt.subplots(figsize=(8, 6))
