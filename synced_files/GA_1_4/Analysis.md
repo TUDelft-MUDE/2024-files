@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.5
+      jupytext_version: 1.16.6
 ---
 
 # GA 1.4: Modelling Road Deformation using Non-Linear Least-Squares
