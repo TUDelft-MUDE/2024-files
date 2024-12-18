@@ -129,6 +129,7 @@ x_val = x_val.reshape(-1,1)
 # %%
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x.flatten(), data_t, 'x', color='blue', markersize=10, label='Data')
+ax.plot(x_val, 0.8*x_val + 4.75, color='red', markersize=10, label='Ground truth')
 ax.set_title('Linear Data Example', fontsize=16)
 ax.set_xlabel('x', fontsize=14)
 ax.set_ylabel('t', fontsize=14)
@@ -217,6 +218,7 @@ for epoch in range(n_epochs):
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
 ax.plot(data_x, MLP_prediction, "-", markersize=10, label="Prediction")
+ax.plot(x_val, 0.8*x_val + 4.75, color='red', markersize=10, label='Ground truth')
 
 # Add a title and axis labels
 ax.set_title("Linear Data Example", fontsize=16)
@@ -275,6 +277,7 @@ for epoch in range(n_epochs):
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
 ax.plot(x_val, MLP_valprediction, "-", markersize=10, label="Prediction")
+ax.plot(x_val, 0.8*x_val + 4.75, color='red', markersize=10, label='Ground truth')
 
 # Add a title and axis labels
 ax.set_title("Linear Data Example", fontsize=16)
@@ -333,6 +336,7 @@ for epoch in range(n_epochs):
 fig, ax = plt.subplots(figsize=(8, 6))
 ax.plot(data_x, data_t, ".", markersize=20, label="Data")
 ax.plot(x_val, MLP_valprediction, "-", markersize=10, label="Prediction")
+ax.plot(x_val, 0.8*x_val + 4.75, color='red', markersize=10, label='Ground truth')
 
 # Add a title and axis labels
 ax.set_title("Linear Data Example", fontsize=16)
