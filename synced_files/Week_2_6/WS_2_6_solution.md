@@ -8,7 +8,7 @@ jupyter:
       jupytext_version: 1.16.6
 ---
 
-# Workshop 14: Be like a Neural Network
+# WS 2.6: Be like a Neural Network
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
     <style>
