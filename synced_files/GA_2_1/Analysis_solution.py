@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: MUDE
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown] id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff"

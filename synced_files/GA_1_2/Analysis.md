@@ -6,10 +6,6 @@ jupyter:
       format_name: markdown
       format_version: '1.3'
       jupytext_version: 1.16.5
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
 ---
 
 # GA 1.2: Analysis Notebook
@@ -70,7 +66,7 @@ where $\Delta T = |T_s-T_{fr}|$ and $\frac{2 k_{ice}}{\rho_{ice} l} \approx 1.44
 *Note that you are interested in the increment of temperature $|T_s-T_{fr}|$, whose mean is $\mu_{iT}=|263-273|=10K$ and $\sigma_{iT}=4K$.*
 <!-- #endregion -->
 
-```python id="4fc6e87d-c66e-43df-a937-e969acc409f8"
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -197,7 +193,7 @@ Now we can compute the $\mu_H$ and $\sigma_H$ as a function of:
 - $\mu_{iT}=10K$ and $\sigma_{iT}=4K$
 - $\mu_{H0}=0.20m$ and $\sigma_{H0}=0.03m$
 
-```python colab={"base_uri": "https://localhost:8080/", "height": 425} id="55ff8dd6-86ef-401a-9a56-02551c348698" outputId="3add4ee9-1054-4726-dc4f-72dca5c1c6c8"
+```python
 mu_iT = 10
 sigma_iT = 4
 mu_H0 = 0.20

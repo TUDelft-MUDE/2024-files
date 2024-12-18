@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: mude-base
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown]
@@ -54,7 +50,7 @@
 # %% [markdown] id="d33f1148-c72b-4c7e-bca7-45973b2570c5"
 # ## Importing packages
 
-# %% id="4fc6e87d-c66e-43df-a937-e969acc409f8"
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 

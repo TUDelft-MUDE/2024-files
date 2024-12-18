@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown]
@@ -45,7 +41,7 @@
 # 5. Apply confidence intervals to the model;
 # 6. Fit a non-linear model and reflect on its goodness of fit
 
-# %% cell_id="10af2251a77c4f84a32d01bed7350da9" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=1559 execution_start=1694006986292 source_hash
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as sci
@@ -67,7 +63,7 @@ import scipy.optimize as opt
 #
 # We also printed for you the first 10 elements of the array, so you can see how it actually looks.
 
-# %% cell_id="47af53f26ebc41b2a90a63dd3b02ab0f" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=33 execution_start=1694006987852 source_hash
+# %%
 data = np.loadtxt('data/days.csv', dtype=str, delimiter=';', skiprows=1)
 data = np.char.replace(data, ',', '.')
 data = data.astype(float)
@@ -80,7 +76,7 @@ data[0:10]
 # %% [markdown] cell_id="1b15837c64e748b89fafad1f8007a399" deepnote_cell_type="markdown"
 # One of the first steps when getting familiar with new data is to see the dimensions of the data. To this end, we can use the `numpy` function `shape`.
 
-# %% cell_id="2aaf111f8cdd40959fb3496188242efa" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=32 execution_start=1694006987878 source_hash
+# %%
 np.shape(data)
 
 # %% [markdown] cell_id="e901697b36064391b4a62d78c955dd6b" deepnote_cell_type="markdown"
@@ -89,7 +85,7 @@ np.shape(data)
 # %% [markdown] cell_id="43139b45e34f4252a6a270336ca401ba" deepnote_cell_type="markdown"
 # We can also compute the mean and the standard deviation of the variable of interest (second column) to get a sense of how the variable behaves.
 
-# %% cell_id="efc536f1b0804d50ae01f3013a9d1367" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=20 execution_start=1694006987934 source_hash
+# %%
 mean = np.mean(data[:,1])
 std = np.std(data[:,1])
 
@@ -99,7 +95,7 @@ Standard deviation: {std:.3f}')
 # %% [markdown] cell_id="2a1ddf21c02141dc8dfebee83c602a73" deepnote_cell_type="markdown"
 # We can also quickly plot them to see the scatter of the data and the evolution in time.
 
-# %% cell_id="a67a4c42e202489e8801bfb67ca95fbc" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=229 execution_start=1694007029078 source_hash
+# %%
 plt.scatter(data[:, 0], data[:, 1], label='Measured data')
 plt.xlabel('Year [-]')
 plt.ylabel('Number of days/year [-]')
@@ -124,7 +120,7 @@ plt.grid()
 #
 # Remember that $R^2$ is a goodness of fit metric and you should have read about it [here](https://mude.citg.tudelft.nl/2024/book/modelling/gof.html).
 
-# %% cell_id="4d72dacfdbb543d9925a40a30eac2944" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=22 execution_start=1694007048665 source_hash
+# %%
 def regression(x, y):
     '''
     Determine linear regression
@@ -149,7 +145,7 @@ def regression(x, y):
 
 
 
-# %% cell_id="31d247d5cafc4c9690c39bc736f04758" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=20 execution_start=1694007051941 source_hash
+# %%
 r_sq, q, m = regression(data[:,0], data[:,1])
 
 
@@ -178,7 +174,7 @@ r_sq, q, m = regression(data[:,0], data[:,1])
 # %% [markdown] cell_id="143e5d1bf8324d9f80fca4af9a0d162c" deepnote_cell_type="markdown"
 # We can also plot the data and the fitted model to see how the fit looks. To do so, we can make computations using the previous equation $days=m\cdot year+q$ with the fitted intercept $q$ and slope $m$. We have already defined a function which does it for you.
 
-# %% cell_id="650d74731c11439684ba4de949b2127b" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=16 execution_start=1694007056091 source_hash
+# %%
 def calculate_line(x, m, q):
     '''
     Determine y values from linear regression
@@ -195,10 +191,10 @@ def calculate_line(x, m, q):
     return y
 
 
-# %% cell_id="cd3c13f84f124211af2d5e251754d636" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=10 execution_start=1694007059430 source_hash
+# %%
 line = calculate_line(data[:,0], m, q)
 
-# %% cell_id="4424bf1d4bf244baaa24cfcf0b5782bc" deepnote_cell_type="code" deepnote_to_be_reexecuted=false execution_millis=246 execution_start=1694007094334 source_hash
+# %%
 fig, axes = plt.subplots(1, 2,figsize = (12, 4))
 
 axes[0].scatter(data[:,0], data[:,1], label = 'Observations')
@@ -247,7 +243,7 @@ axes[1].set_title('(b) Observed and predicted number of days');
 #
 # Let's see how our model performs for this metric.
 
-# %% cell_id="b9e8d87cb37e4950ad597f3cc9a71b49" deepnote_cell_type="code" deepnote_to_be_reexecuted=true execution_millis=30 execution_start=1693551237449 source_hash
+# %%
 def RMSE(data, fit_data):
     '''
     Compute the RMSE
@@ -268,7 +264,7 @@ def RMSE(data, fit_data):
     return error
 
 
-# %% cell_id="a8a3a34164ce4347b238194128ae1ce2" deepnote_cell_type="code" deepnote_to_be_reexecuted=true execution_millis=28 execution_start=1693551237454 source_hash
+# %%
 RMSE_line = RMSE(data[:,1], line)
 
 
@@ -354,7 +350,7 @@ rbias_line = rbias(data[:,1], line)
 # </p>
 # </div>
 
-# %% cell_id="adf17125447a424f915d421e541b8a6e" deepnote_cell_type="code" deepnote_to_be_reexecuted=true execution_millis=9 execution_start=1693551237510 source_hash
+# %%
 def conf_int(x, y, alpha):
     '''
     Compute the confidence intervals
@@ -417,7 +413,7 @@ plt.title('Number of days as function of the year')
 # %% [markdown] cell_id="ca8a6b9d68234ae69a799a3f4f3866a2" deepnote_cell_type="markdown"
 # You do not need to worry about this right now, but in case you are curious: we will make use of the `scipy.optimize` library, which contains the `curve_fit` function. For further info on the function see [here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html).
 
-# %% cell_id="ebd3c8f852c24c9d8128ae35482824de" deepnote_cell_type="code" deepnote_to_be_reexecuted=true execution_millis=22 execution_start=1693551238912 source_hash
+# %%
 def parabola(x, a, b, c):
     '''
     Compute the quadratic model
@@ -434,7 +430,7 @@ def parabola(x, a, b, c):
     return y
 
 
-# %% cell_id="6897b364543142b4adc2d85ffbcb7d42" deepnote_cell_type="code" deepnote_to_be_reexecuted=true execution_millis=29 execution_start=1693551238923 source_hash
+# %%
 popt_parabola, pcov_parabola = opt.curve_fit(parabola, data[:,0], data[:,1])
 
 print(f'Optimal estimation for parameters:\n\
@@ -448,13 +444,13 @@ Sigma = {pcov_parabola}')
 #
 # Now that we have fitted it, we can use it to compute predictions.
 
-# %% cell_id="182a633995af49a9ba16ac67f2d0181d" deepnote_cell_type="code" deepnote_to_be_reexecuted=true execution_millis=55 execution_start=1693551238924 source_hash
+# %%
 fitted_parabola = parabola(data[:,0], *popt_parabola)
 
 # %% [markdown] cell_id="6cc6a36c668f4ee2b26d41b27d335691" deepnote_cell_type="markdown"
 # We can also determine the confidence intervals for this fit and see how it looks!
 
-# %% cell_id="4221e9ef1da1463eb5f524d9a458ab0b" deepnote_cell_type="code" deepnote_to_be_reexecuted=true execution_millis=13 execution_start=1693551238973 source_hash
+# %%
 k = conf_int(data[:,1], fitted_parabola, 0.05)
 ci_low_2 = fitted_parabola - k
 ci_up_2 = fitted_parabola + k

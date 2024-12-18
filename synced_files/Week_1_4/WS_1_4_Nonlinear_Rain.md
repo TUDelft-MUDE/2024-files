@@ -6,10 +6,6 @@ jupyter:
       format_name: markdown
       format_version: '1.3'
       jupytext_version: 1.16.5
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
 ---
 
 <!-- #region id="c-kJ0rgzjVsW" -->
@@ -95,7 +91,7 @@ with $H(\Delta t) = 1$ if $\Delta t \geq 0$ and $H(\Delta t) = 0$ otherwise. <b>
 The functional model can be defined as follows, using <a href="https://numpy.org/doc/stable/reference/generated/numpy.heaviside.html"> NumPy's heaviside</a> function:           
 <!-- #endregion -->
 
-```python id="mX0dfGBuM554"
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy.linalg import inv
@@ -123,7 +119,7 @@ Read the code below to understand the functional model. Be sure to understand wh
 </p>
 </div>
 
-```python id="GdsnT_0CM_6E"
+```python
 def compute_y(x, times, rain):
     '''Functional model, q: response due to rain event.
     
@@ -165,7 +161,7 @@ Familiarize yourself with the model by assigning values to the unknown parameter
 </p>
 </div>
 
-```python colab={"base_uri": "https://localhost:8080/", "height": 388} id="b7yhBLzeNiz9" outputId="00cee52d-4b12-497e-f01a-fa6781a80716"
+```python
 d = YOUR_CODE_HERE
 a = YOUR_CODE_HERE
 r = YOUR_CODE_HERE
@@ -187,7 +183,7 @@ plt.ylim([0, 5]);
 We collected observations of the water level in the aquifer for 25 consecutive days and are stored ```data``` folder. Observations start at $t=1$.
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/", "height": 388} id="vf3rJinfNk7E" outputId="c54d2671-9026-46e9-a682-af950e93e5ce"
+```python
 n_days = 25
 y = np.genfromtxt('./data/well_levels.csv' , delimiter=" ,")
 times = np.arange(1, n_days+1, 1)
@@ -276,7 +272,7 @@ Note in particular the 2 stop criteria used for the while loop. You should reach
 </div>
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/"} id="cEpsjuu6SieA" outputId="69153730-f039-4fe2-f2e2-b0fdf410484e"
+```python
 d_init = YOUR_CODE_HERE
 a_init = YOUR_CODE_HERE
 r_init = YOUR_CODE_HERE
@@ -381,7 +377,7 @@ Run the cell below, then comment on the convergence of each parameter, as well a
     </p>
 </div>
 
-```python colab={"base_uri": "https://localhost:8080/", "height": 295} id="BagNJunEO16L" outputId="c09ec592-56e3-4f85-cc59-ceebccaed400"
+```python
 params = ['d', 'a', 'r']
 fig, ax = plt.subplots(1,3, figsize=(16,4))
 plt.subplots_adjust(wspace=0.35)

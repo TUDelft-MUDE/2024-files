@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: mude-base
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown]
@@ -39,7 +35,7 @@
 #
 # The project will be divided into 3 parts: 1) data analysis, 2) pen and paper stuff (math practice!), and 3) programming.
 
-# %% id="4fc6e87d-c66e-43df-a937-e969acc409f8"
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd

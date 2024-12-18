@@ -6,10 +6,6 @@ jupyter:
       format_name: markdown
       format_version: '1.3'
       jupytext_version: 1.16.5
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
 ---
 
 # GA 1.4: Modelling Road Deformation using Non-Linear Least-Squares
@@ -200,7 +196,7 @@ Read the code below to understand the model (and fill in the missing parameter v
 </p>
 </div>
 
-```python id="3ba5bf67"
+```python
 def compute_y(x, d):
     """Model, q: ground surface displacement.
 
@@ -285,7 +281,7 @@ Using a notebook, derive the partial derivatives of the non-linear model and the
 </div>
 <!-- #endregion -->
 
-```python id="4aef41e9"
+```python
 def jacobian(x, d):
     """Compute Jacobian of the model.
 
@@ -334,7 +330,7 @@ Confirm that the Jacobian function works properly by using it with the initial p
 </div>
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/"} executionInfo={"elapsed": 19, "status": "ok", "timestamp": 1664699883678, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="c57e5e26" outputId="2b46920b-8ff3-47c5-cc03-8dad183d52b3"
+```python
 YOUR_CODE_HERE
 
 print ('The first 5 rows of the Jacobian matrix (InSAR):')
@@ -380,7 +376,7 @@ If you find this task challenging, try jumping back and forth between this task 
 
 You can comment out the code near the end of the function (that adds summary information to the dictionary) and focus on implementing the code in the <code>while</code>-loop first. Once that part of the function is working you can return to the summary information. </p></div>
 
-```python id="FbsD75dR0w5b"
+```python
 def gauss_newton_iteration(x0, d):
     """Use Gauss-Newton iteration to find non-linear parameters.
     
@@ -503,7 +499,7 @@ Once complete, confirm whether or not each parameter converges, and observe the 
 
 Remember we stored all iterations in the dictionary as an ndarray with key <code>x_hat_all_iterations</code>. To slice an ndarray inside a dictionary you can use the following syntax: <code>my_dict['key_to_ndarray'][1, :]</code>, which would return the second row in the ndarray.</p></div>
 
-```python id="7d52c8b9"
+```python
 def plot_fit_iteration(d):
     """Plot value of each parameter, each iteration."""
     plt.figure(figsize = (15,4))
@@ -567,7 +563,7 @@ We can re-use the function <code>model_summary()</code> from Part 0 of this note
 </p>
 </div>
 
-```python id="5af9e513"
+```python
 def show_std(Sigma_X_hat, data_type):
     print ('The standard deviation for',
            data_type + '-offset is',
@@ -621,7 +617,7 @@ Open
 help(get_CI)
 ```
 
-```python colab={"base_uri": "https://localhost:8080/", "height": 982} executionInfo={"elapsed": 787, "status": "ok", "timestamp": 1664699888366, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="pDJfjxgs6veD" outputId="212041d5-43c7-4df6-8ebc-4fdff0d79daf"
+```python
 m1['Y_hat'] = YOUR_CODE_HERE
 m1 = get_CI(YOUR_CODE_HERE)
 plot_model(YOUR_CODE_HERE)
@@ -629,7 +625,7 @@ plot_residual(YOUR_CODE_HERE)
 plot_residual_histogram(YOUR_CODE_HERE);
 ```
 
-```python colab={"base_uri": "https://localhost:8080/", "height": 982} executionInfo={"elapsed": 921, "status": "ok", "timestamp": 1664699889284, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="ngZMBQM87QMr" outputId="35c44fc7-4b48-4727-c9cf-65c01e528d19"
+```python
 m1['Y_hat'] = YOUR_CODE_HERE
 m1 = get_CI(YOUR_CODE_HERE)
 plot_model(YOUR_CODE_HERE)
@@ -670,7 +666,7 @@ Compute the test statistic for InSAR data.
 </div>
 
 
-```python colab={"base_uri": "https://localhost:8080/"} executionInfo={"elapsed": 303, "status": "ok", "timestamp": 1664699889583, "user": {"displayName": "C Yin", "userId": "14075875094781565898"}, "user_tz": -120} id="92b5b797-093d-46fb-a2c0-2b9ccdae4052" outputId="7dbbf60b-6bc0-41ae-d730-3423a2e9c032"
+```python
 t1_insar = YOUR_CODE_HERE
 t2_insar = YOUR_CODE_HERE
 t_insar = t1_insar - t2_insar

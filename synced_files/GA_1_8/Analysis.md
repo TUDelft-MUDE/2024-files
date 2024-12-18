@@ -6,10 +6,6 @@ jupyter:
       format_name: markdown
       format_version: '1.3'
       jupytext_version: 1.16.5
-  kernelspec:
-    display_name: mude-week-8
-    language: python
-    name: python3
 ---
 
 # GA 1.8: Multivariate Distributions

@@ -6,10 +6,6 @@ jupyter:
       format_name: markdown
       format_version: '1.3'
       jupytext_version: 1.16.5
-  kernelspec:
-    display_name: mude-week-2-5
-    language: python
-    name: python3
 ---
 
 <!-- #region pycharm={"name": "#%% md\n"} -->
@@ -94,7 +90,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 ```
 
-```python pycharm={"name": "#%%\n"}
+```python
 # import required packages
 import os
 import time
@@ -239,7 +235,7 @@ Run the model setup below, which includes initiating the decision variables, obj
 </p>
 </div>
 
-```python pycharm={"name": "#%%\n"}
+```python
 ## create a gurobi model object
 model = gp.Model()
 
@@ -268,7 +264,7 @@ Therefore, mathematically we define the domain of the variables as follows:
 As you will see below in the code block, we have one extra set of variables called x2 (x square). This is to help Gurobi isolate quadratic terms and perform required transformations based on MCE to keep the problem linear. This is not part of your learning goals.
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 # decision variables:
 
 link_selected = model.addVars(links, vtype=gp.GRB.BINARY, name='y')
@@ -318,7 +314,7 @@ Therefore, we use this equation to model our objective function in gurobi. You d
 
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 # objective function (total travel time)
 
 model.setObjective(
@@ -340,7 +336,7 @@ We can only extend the capacity of certain number of links based on the availabl
 $$ \sum_{(i,j) \in A}{ y_{ij}} \leq B $$
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 # budget constraint
 c_bgt = model.addConstr(gp.quicksum(link_selected[i, j] for (i, j) in links) <= extension_max_no)
 ```
@@ -351,7 +347,7 @@ We have two sets of decision variables representing link flows; $x_{ij}$, repres
 $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 # link flow conservation
 c_lfc = model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_flow[i, j] for (i, j) in links)
 ```
@@ -367,7 +363,7 @@ The figure gives an example:
 ![image](./figs/equil.png)
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 # node flow conservation
 c_nfc = model.addConstrs(
     gp.quicksum(dest_flow[i, j, s] for j in nodes if (i, j) in links) -
@@ -382,7 +378,7 @@ These are basically dummy equations to help gurobi model quadratic terms (that w
 
 <!-- #endregion -->
 
-```python pycharm={"name": "#%%\n"}
+```python
 # dummy constraints for handling quadratic terms
 c_qrt = model.addConstrs(link_flow_sqr[i, j] == link_flow[i, j] * link_flow[i, j] for (i, j) in links)
 ```
@@ -415,14 +411,14 @@ The cell below only has to be used when adding the constraint.  </p></div>
 
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument in the code cell above, which is beneath the 'Part 2' heading. </p></div>
 
-```python pycharm={"name": "#%%\n"}
+```python
 #Next we are ready to solve the model
 model.optimize()
 ```
 
 Note that if you didn't find a solution, you can rerun the previous cell to continue the optimization for another 300 seconds (defined by `timelimit`).
 
-```python pycharm={"name": "#%%\n"}
+```python
 # fetch optimal decision variables and Objective Function values
 link_flows = {(i, j): link_flow[i, j].X for (i, j) in links}
 links_selected = {(i, j): link_selected[i, j].X for (i, j) in links}

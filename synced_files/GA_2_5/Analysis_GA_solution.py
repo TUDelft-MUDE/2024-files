@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: mude-week-2-5
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
@@ -176,7 +172,7 @@ from pymoo.operators.crossover.pntx import PointCrossover
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # import required packages
 import os
 import time
@@ -195,7 +191,7 @@ from utils.read import create_nd_matrix
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Now that we have the required functions for reading and processing the data, let's define some problem parameters and prepare the input.
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # define parameters
 extension_factor = 2.5 
 
@@ -243,7 +239,7 @@ G, pos = network_visualization(link_flow = fftts,coordinates_path= coordinates_p
 # </p>
 # </div>
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=2.5):
 
     # variables
@@ -306,7 +302,7 @@ def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=2.5):
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # First, we need to define a problem class.
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 #If you want to know more about the library that is being used: https://pymoo.org/algorithms/soo/ga.html
 
 class NDP(ElementwiseProblem):
@@ -345,7 +341,7 @@ class NDP(ElementwiseProblem):
 # </p>
 # </div>
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 extension_max_no = 40
 pop_size = 200
 
@@ -364,7 +360,7 @@ method = GA(pop_size=pop_size,
 # %% [markdown] id="0491cc69"
 # <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 
 opt_results = minimize(problem,
                method,
@@ -392,7 +388,7 @@ print("Best solution found: %s" % opt_results.X)
 #
 # Let's first define some functions (to use later) to get the results and plot them.
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 def get_results(opt_results):
 
     number_of_individuals = [] # The number of individuals in each generation
@@ -448,7 +444,7 @@ def plot_results(number_of_individuals, optimal_values_along_generations):
 # Now let's use these functions to plot the results.
 #
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 number_of_individuals, optimal_values_along_generations = get_results(opt_results)
 
 plot_results(number_of_individuals, optimal_values_along_generations)

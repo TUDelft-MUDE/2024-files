@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown]
@@ -70,7 +66,7 @@
 #
 # *Note that you are interested in the increment of temperature $|T_s-T_{fr}|$, whose mean is $\mu_{iT}=|263-273|=10K$ and $\sigma_{iT}=4K$.*
 
-# %% id="4fc6e87d-c66e-43df-a937-e969acc409f8"
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -238,7 +234,7 @@ def samples_plot(N, mu_H0, mu_iT, sigma_H0, sigma_iT):
 # - $\mu_{iT}=10K$ and $\sigma_{iT}=4K$
 # - $\mu_{H0}=0.20m$ and $\sigma_{H0}=0.03m$
 
-# %% colab={"base_uri": "https://localhost:8080/", "height": 425} id="55ff8dd6-86ef-401a-9a56-02551c348698" outputId="3add4ee9-1054-4726-dc4f-72dca5c1c6c8"
+# %%
 mu_iT = 10
 sigma_iT = 4
 mu_H0 = 0.20

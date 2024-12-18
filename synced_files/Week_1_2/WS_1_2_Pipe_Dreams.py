@@ -6,10 +6,6 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.16.5
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
 # ---
 
 # %% [markdown] id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff"
@@ -92,7 +88,7 @@
 #
 # Note also in the cell below that we can increase the default size of the text in our figures to make them more readable!
 
-# %% id="4fc6e87d-c66e-43df-a937-e969acc409f8"
+# %%
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -179,7 +175,7 @@ def moments_of_taylor_approximation(mu_R, mu_S, sigma_R, sigma_S,n):
 #
 # We will use $\mu_R = 0.5 m$ and $\mu_S = 0.015 m/m$, and vary $\sigma_R$ from 0 to 0.1 $m$. 
 
-# %% colab={"base_uri": "https://localhost:8080/", "height": 425} id="55ff8dd6-86ef-401a-9a56-02551c348698" outputId="3add4ee9-1054-4726-dc4f-72dca5c1c6c8"
+# %%
 n = 0.013
 mu_R = 0.5
 mu_S = 0.015
@@ -315,7 +311,7 @@ print(f'  {sigma_V_taylor:.4f} m/s is the std dev.')
 # %% [markdown]
 # <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p><em>Hint: if you are struggling with the code below, re-read the introduction to Part 3 carefully!</em></p></div>
 
-# %% colab={"base_uri": "https://localhost:8080/", "height": 475, "referenced_widgets": ["b560714d739d431d85b3ca1a9b378c8f", "56b7808a3e2241679b15d517565eaf85", "d867da2ab3d441599b8356ac8e493611", "481c67caa6d1405ea2e00cfe6dbfa32f", "392504e006074b76af62e617c4cde70e", "b0d26f90109f4e0eb6839f0ba43ba980", "ea4c3dc473df41a684cfe7fd1e7fb35d"]} id="80005a5a-510b-4236-a2d6-184d9569eed4" outputId="80ae9e8d-e450-4e17-f092-fbf09fc885e6"
+# %%
 def validate_distribution(N, sigma_R, mu_R=0.5, mu_S=0.015, sigma_S=0.002, n=0.013):
     """Generate samples and plots for V
     
@@ -391,7 +387,7 @@ validate_distribution(10000, 0.01)
 # </p>
 # </div>
 
-# %% colab={"base_uri": "https://localhost:8080/", "height": 475, "referenced_widgets": ["b560714d739d431d85b3ca1a9b378c8f", "56b7808a3e2241679b15d517565eaf85", "d867da2ab3d441599b8356ac8e493611", "481c67caa6d1405ea2e00cfe6dbfa32f", "392504e006074b76af62e617c4cde70e", "b0d26f90109f4e0eb6839f0ba43ba980", "ea4c3dc473df41a684cfe7fd1e7fb35d"]} id="80005a5a-510b-4236-a2d6-184d9569eed4" outputId="80ae9e8d-e450-4e17-f092-fbf09fc885e6"
+# %%
 @interact(sigma_R=(0, 0.1, 0.005))
 def samples_slideplot(sigma_R):
     validate_distribution(50000, sigma_R);
