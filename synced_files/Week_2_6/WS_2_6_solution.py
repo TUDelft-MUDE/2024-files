@@ -631,7 +631,7 @@ plt.show()
 # epochs = YOUR CODE HERE
 
 # for epoch in range(YOUR CODE HERE):
-#     model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
+#     new_model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
 
 #     # Calculate training loss
 #     train_pred = YOUR CODE HERE
