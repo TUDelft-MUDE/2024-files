@@ -11,6 +11,8 @@ from scipy import interpolate
 from scipy.stats import norm
 from sklearn.preprocessing import StandardScaler
 
+%config InlineBackend.figure_formats = ['svg']
+
 np.random.seed(42)
 noise_level = 1.0
 

@@ -8,7 +8,7 @@ jupyter:
       jupytext_version: 1.16.6
 ---
 
-# Workshop 14: Be like a Neural Network
+# WS 2.6: Be like a Neural Network
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
     <style>
@@ -48,7 +48,7 @@ In this notebook, we start with a very simple dataset with an underlying linear 
 ### Python Environment
 
 You will need the package scikit-learn for this workshop (in addition to a few other typical packages). You can import it to one of your existing conda environments from the conda-forge as (i.e., `
-conda install -c conda-forge scikit-learn`), or you can create a new environment from the `*.yml` file included in this repository (`conda env create -f environment_MUDE_ml.yml`). But remember: _if you already have sklearn installed in an environment, you don't have to do anything besides use it!_
+conda install -c conda-forge scikit-learn`), or you can create a new environment from the `*.yml` file included in this repository (`conda env create -f environment    .yml`). But remember: _if you already have sklearn installed in an environment, you don't have to do anything besides use it!_
 
 
 <div style="background-color:#C8FFFF; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
@@ -71,6 +71,8 @@ from sklearn.model_selection import train_test_split
 from scipy import interpolate
 from scipy.stats import norm
 from sklearn.preprocessing import StandardScaler
+
+%config InlineBackend.figure_formats = ['svg']
 ```
 
 ## Task 0: Our Data for Today
@@ -631,29 +633,6 @@ Then run the model again as many times as you deem necessary. Then look at the v
 </div>
 
 ```python
-# new_model_gnss = YOUR CODE HERE
-# train_losses = YOUR CODE HERE
-# val_losses = YOUR CODE HERE
-
-# epochs = YOUR CODE HERE
-
-# for epoch in range(YOUR CODE HERE):
-#     new_model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
-
-#     # Calculate training loss
-#     train_pred = YOUR CODE HERE
-#     train_loss = YOUR CODE HERE
-#     train_losses.YOUR CODE HERE
-
-#     # Calculate validation loss
-#     val_pred = YOUR CODE HERE
-#     val_loss = YOUR CODE HERE
-#     val_losses.YOUR CODE HERE
-
-#     # Print losses every 500 epochs
-#     if epoch % 500 == 0:
-#         print(f'Epoch {epoch}/{epochs} - Training Loss: {train_loss:.4f}, Validation Loss: {val_loss:.4f}')
-# Solution:
 new_model_gnss = MLPRegressor(hidden_layer_sizes=(20,20,20), activation='relu')
 
 train_losses = []
