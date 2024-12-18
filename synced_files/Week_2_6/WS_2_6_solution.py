@@ -5,7 +5,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.5
+#       jupytext_version: 1.16.6
 # ---
 
 # %% [markdown]
@@ -631,7 +631,7 @@ plt.show()
 # epochs = YOUR CODE HERE
 
 # for epoch in range(YOUR CODE HERE):
-#     model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
+#     new_model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
 
 #     # Calculate training loss
 #     train_pred = YOUR CODE HERE
