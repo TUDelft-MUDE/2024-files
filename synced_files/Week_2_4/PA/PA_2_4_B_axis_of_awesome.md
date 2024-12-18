@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.5
+      jupytext_version: 1.16.6
 ---
 
 # PA 2.4B: [Axis of Awesome](https://youtu.be/5pidokakU4I?si=Y5ewcgPFFQ5cLmC6)

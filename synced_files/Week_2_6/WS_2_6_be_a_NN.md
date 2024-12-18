@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.5
+      jupytext_version: 1.16.6
 ---
 
 # Workshop 14: Be like a Neural Network
@@ -593,7 +593,7 @@ val_losses = YOUR CODE HERE
 epochs = YOUR CODE HERE
 
 for epoch in range(YOUR CODE HERE):
-    model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
+    new_model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
 
     # Calculate training loss
     train_pred = YOUR CODE HERE

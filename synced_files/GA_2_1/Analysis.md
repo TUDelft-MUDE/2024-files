@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.5
+      jupytext_version: 1.16.6
 ---
 
 <!-- #region id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff" -->
