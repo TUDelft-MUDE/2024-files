@@ -3,6 +3,7 @@ import time
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+%config InlineBackend.figure_formats = ['svg']
 
 from sklearn.neural_network import MLPRegressor
 from sklearn.preprocessing import MinMaxScaler
@@ -10,6 +11,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
 data = pd.read_csv(r"data/bridges.csv")
+
+data.describe()
 
 from matplotlib import cm
 
@@ -84,12 +87,6 @@ learning_rate = 0.001
 n_epochs = 20
 batch_size = 64
 
-        
-        
-        
-
-        
-
 def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate, verbose=True):
     train_loss_list = []
     val_loss_list = []
@@ -125,7 +122,7 @@ def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val,
 
 model = MLPRegressor(hidden_layer_sizes = (10, 5), 
                     activation = 'tanh',
-                    random_state=0)
+                    random_state=1)
 
 train_loss_list, val_loss_list = train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate)
 
