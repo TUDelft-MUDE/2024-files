@@ -1,262 +1,67 @@
-image: python:3.9
-
-variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
-  WEBHOOK_URL: "https://mude.citg.tudelft.nl/hooks"
-  WEBHOOK_TOKEN: "glpat-Lohnt8MN6nWzpcwyhprL"
-  GIT_STRATEGY: clone
-
-cache:
-  paths:
-    - .pip-cache/
-
-.setup_env:
-  before_script:
-    - apt-get update && apt-get install -y curl git
-    - pip install jupytext nbconvert
+image: alpine:latest
 
 stages:
-  - setup
-  - sync
-  - update_repo
   - deploy
 
-setup:
-  stage: setup
-  extends: .setup_env
-  script:
-    - echo "Dependencies installed successfully"
-  artifacts:
-    paths:
-      - .pip-cache/
-
-sync_notebooks:
-  stage: sync
-  extends: .setup_env
-  rules:
-    - if: $CI_COMMIT_BRANCH
-      changes:
-        - content/**/*
-  script:
-    - echo "Starting sync with pipeline variables:"
-    - echo "CI_COMMIT_BRANCH:"" $CI_COMMIT_BRANCH"
-    - echo "CI_PIPELINE_SOURCE:"" $CI_PIPELINE_SOURCE"
-    - rm -rf synced_files
-    - mkdir -p synced_files
-    - find ./content -name "*.ipynb" > notebooks_manifest.txt
-    - touch conversion_errors.log
-    - found_files=false
-    - |
-      while IFS= read -r notebook || [ -n "$notebook" ]; do
-        if [ -f "$notebook" ]; then
-          found_files=true
-          echo "Processing $notebook"
-          relative_path=${notebook#./content/}
-          synced_dir="synced_files/$(dirname $relative_path)"
-          mkdir -p "$synced_dir"
-          
-          if python -c "import json; json.load(open('$notebook'));" 2>/dev/null; then
-            # Convert to notebook with stripped metadata
-            jupyter nbconvert --to notebook --ClearMetadataPreprocessor.enabled=True \
-              --ClearMetadataPreprocessor.preserve_cell_metadata="['tags']" \
-              --ClearMetadataPreprocessor.preserve_notebook_metadata="['kernelspec']" \
-              --output-dir="${synced_dir}" "$notebook"
-            
-            # Convert the stripped notebook to other formats
-            stripped_notebook="${synced_dir}/$(basename $notebook)"
-            jupytext --to markdown "$stripped_notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).md" 2>>conversion_errors.log
-            jupytext --to py:percent "$stripped_notebook" -o "${synced_dir}/$(basename ${notebook%.ipynb}).py" 2>>conversion_errors.log
-            
-            # Generate clean Python file without markdown cells
-            clean_file="${synced_dir}/$(basename ${notebook%.ipynb})_clean.py"
-            jupytext --to py:light --opt comment_magics=false --opt notebook_metadata_filter=-all \
-              --opt cell_metadata_filter=-all "$stripped_notebook" -o "$clean_file" 2>>conversion_errors.log
-            
-            if [ -f "$clean_file" ]; then
-              # Remove any remaining comments and clean up empty lines
-              awk '!/^#/' "$clean_file" > "${clean_file}.tmp" && mv "${clean_file}.tmp" "$clean_file"
-              sed -i '/^[[:space:]]*$/N;/^\n$/D' "$clean_file"
-              echo "Created clean version of $notebook"
-            fi
-            echo "Successfully processed $notebook" >> conversion_errors.log
-          else
-            echo "Invalid or corrupted notebook: $notebook" >> conversion_errors.log
-            echo "Skipping invalid notebook: $notebook" >&2
-          fi
-        fi
-      done < notebooks_manifest.txt
-    - echo "Clearing notebook outputs..."
-    - find synced_files -type f -name "*.ipynb" -exec jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to notebook --inplace {} + || true
-    - |
-      if [ "$found_files" = false ]; then
-        echo "No notebooks found in content directory"
-        exit 0
-      elif [ -d "synced_files" ] && [ "$(ls -A synced_files)" ]; then
-        echo "Files synced successfully:"
-        ls -R synced_files/
-        exit 0
-      else
-        echo "No files were successfully processed"
-        cat conversion_errors.log
-        exit 1
-      fi
-  artifacts:
-    paths:
-      - synced_files/
-      - notebooks_manifest.txt
-      - conversion_errors.log
-    expire_in: 1 hour
-    when: on_success
-
-update_repo:
-  stage: update_repo
-  extends: .setup_env
-  dependencies:
-    - sync_notebooks
-  rules:
-    - if: $CI_COMMIT_BRANCH
-      changes:
-        - content/**/*
-  script:
-    - git config --global user.name "GitLab CI"
-    - git config --global user.email "gitlab-ci@example.com"
-    - git checkout -B $CI_COMMIT_REF_NAME
-    - git pull origin $CI_COMMIT_REF_NAME
-    
-    # Remove files that no longer exist in content directory
-    - |
-      if [ -d "synced_files" ]; then
-        # Remove files that are not in the manifest, with updated pattern to include _clean.py
-        find synced_files -type f \( -name "*.ipynb" -o -name "*.md" -o -name "*.py" -o -name "*_clean.py" \) | while read synced_file; do
-          # Special handling for _clean.py files
-          if [[ "$synced_file" == *"_clean.py" ]]; then
-            # Get the corresponding notebook path by removing _clean.py and adding .ipynb
-            notebook_path="./content/${synced_file#synced_files/}"
-            notebook_path="${notebook_path%_clean.py}.ipynb"
-          else
-            # Regular handling for other files
-            relative_path=${synced_file#synced_files/}
-            notebook_path="./content/${relative_path%.*}.ipynb"
-          fi
-          
-          if ! grep -Fq "$notebook_path" notebooks_manifest.txt; then
-            echo "Removing deleted file: $synced_file"
-            rm "$synced_file"
-            # Remove empty directories
-            dir=$(dirname "$synced_file")
-            while [ "$dir" != "synced_files" ] && [ -z "$(ls -A "$dir")" ]; do
-              rmdir "$dir"
-              dir=$(dirname "$dir")
-            done
-          fi
-        done
-        
-        git add -f synced_files/
-        if [ -n "$(git status --porcelain synced_files/)" ]; then
-          git commit -m "Update synced files [skip ci]"
-          git push "https://oauth2:${GIT_PUSH_TOKEN}@gitlab.tudelft.nl/${CI_PROJECT_PATH}.git" HEAD:$CI_COMMIT_REF_NAME
-        fi
-      else
-        exit 1
-      fi
+before_script:
+  - apk add --no-cache curl
 
 deploy-draft-students:
   stage: deploy
-  extends: .setup_env
-  dependencies:
-    - sync_notebooks
   script:
-    # Debug directory structure
-    - echo "Current directory contents:"
-    - ls -la
-    
-    # Create necessary directory structure
-    - mkdir -p src/students
     - |
-      if [ -d "synced_files" ]; then
-        echo "Copying files from synced_files to src/students..."
-        cp -r synced_files/* src/students/
-        echo "Files copied. New structure:"
-        ls -R src/
-      else
-        echo "synced_files directory not found!"
-        exit 1
-      fi
-    
-    # Send webhook with verbose output
-    - |
-      echo "Sending webhook..."
-      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-students-draft" \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students-draft \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
             "status": "success",
             "ref": "main"
           }
-        }' 2>&1)
-      echo "Webhook response: $RESPONSE"
+        }'
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/students/**/*
       when: always
 
 deploy-teachers:
   stage: deploy
-  extends: .setup_env
-  dependencies:
-    - sync_notebooks
   script:
-    - mkdir -p src/teachers
     - |
-      if [ -d "synced_files" ]; then
-        cp -r synced_files/* src/teachers/
-      else
-        echo "synced_files directory not found!"
-        exit 1
-      fi
-    - |
-      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-teachers" \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-teachers \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
             "status": "success",
             "ref": "main"
           }
-        }' 2>&1)
-      echo "Webhook response: $RESPONSE"
+        }'
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - src/teachers/**/*
       when: always
 
 deploy-production-students:
   stage: deploy
-  extends: .setup_env
-  dependencies:
-    - sync_notebooks
   script:
-    - mkdir -p src/students
     - |
-      if [ -d "synced_files" ]; then
-        cp -r synced_files/* src/students/
-      else
-        echo "synced_files directory not found!"
-        exit 1
-      fi
-    - |
-      RESPONSE=$(curl -v -X POST "${WEBHOOK_URL}/files-sync-students" \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/files-sync-students \
         -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: ${WEBHOOK_TOKEN}" \
+        -H "X-Gitlab-Token: glpat-Lohnt8MN6nWzpcwyhprL" \
         -d '{
           "object_kind": "pipeline",
           "object_attributes": {
             "status": "success",
             "ref": "release"
           }
-        }' 2>&1)
-      echo "Webhook response: $RESPONSE"
+        }'
   rules:
     - if: $CI_COMMIT_BRANCH == "release"
+      changes:
+        - src/students/**/*
       when: always
