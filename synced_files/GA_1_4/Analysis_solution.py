@@ -9,7 +9,7 @@
 # ---
 
 # %% [markdown]
-# # GA 1.4: Modelling Road Deformation using Non-Linear Least-Squares test
+# # GA 1.4: Modelling Road Deformation using Non-Linear Least-Squares
 #
 # <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
 #     <style>
