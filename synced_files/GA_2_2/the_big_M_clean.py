@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -40,9 +40,14 @@ def plotMesh(nodes, connectivity):
 nodes, connectivity = readGmsh('bigM.msh')
 plotMesh(nodes, connectivity)
 
+
+# ----------------------------------------
 from scipy import sparse
 from scipy.sparse import linalg
 
+# Function makes the coefficients of shape functions for a 3-node triangle
+# the shape function for node i is defined as N_i = a_i + b_i*x + c_i*y
+# this function returns the coefficients as coeff[i] = [a_i, b_i, c_i]
 def get_shape_functions_T3( n1, n2, n3 ):
     coordinate_Matrix = np.ones((3,3))
     coeffs = np.zeros((3,3))
@@ -62,12 +67,14 @@ def get_shape_functions_T3( n1, n2, n3 ):
     
     return coeffs
 
+# Function creates the derivative shape function vector (B) of the given 3-node triangle
 def get_B_matrix(n1, n2, n3):
     coeffs = get_shape_functions_T3(n1, n2, n3)
     B_matrix = [[coeffs[0][1], coeffs[1][1], coeffs[2][1]], [coeffs[0][2], coeffs[1][2], coeffs[2][2]]]
     
     return np.array(B_matrix)
 
+# Function returns the area of the triangle with given nodes n1, n2, n3
 def get_area(n1, n2, n3):
     # Defining two vectors spanning the total area
     u = n3[0:2]-n1[0:2]
@@ -75,11 +82,13 @@ def get_area(n1, n2, n3):
   
     return np.abs(np.cross(u, v))/2
 
+# Function returns the local K-matrix of an element with given node n1, n2, n3
 def get_element_K(n1, n2, n3, nu):
     B = get_B_matrix(n1, n2, n3)
     element_area = get_area(n1, n2, n3)
     return element_area*np.dot(np.transpose(B), B)*nu
 
+# Assembly function for the K matrix
 def get_global_K(nodes, connectivity, n_elem, nu):
     n_DOF = len(nodes)
     K = np.zeros((n_DOF, n_DOF))
@@ -91,6 +100,7 @@ def get_global_K(nodes, connectivity, n_elem, nu):
                 
     return K
 
+# Assembly function for the f vector
 def get_global_f(nodes, connectivity, q):
     n_DOF = len(nodes)
     f = np.zeros(n_DOF)
@@ -102,6 +112,7 @@ def get_global_f(nodes, connectivity, q):
             
     return f
 
+# Extra functions to obtain the M-matrix
 def evaluate_N_matrix(ipcoords, n1, n2, n3):    
     coeffs = get_shape_functions_T3(n1, n2, n3)
     
@@ -112,6 +123,7 @@ def evaluate_N_matrix(ipcoords, n1, n2, n3):
     
     return N_matrix
 
+# Function takes the 3 coordinates of a triangular element and returns it's corresponding M-matrix
 def get_element_M(n1, n2, n3):
     M_el = np.zeros((3,3))
     element_area = get_area(n1, n2, n3)    
@@ -126,6 +138,7 @@ def get_element_M(n1, n2, n3):
         M_el += np.dot(np.transpose(N_local), N_local)*w_ip
     return M_el
     
+# Assembly function for the M matrix
 def get_global_M(nodes, connectivity, n_elem):
     n_DOF = len(nodes)
     M = np.zeros((n_DOF, n_DOF))
@@ -137,6 +150,9 @@ def get_global_M(nodes, connectivity, n_elem):
 
     return M
 
+
+# ----------------------------------------
+# Set problem parameters
 dt = 0.005
 nt = 500
 nu = 1
@@ -144,6 +160,7 @@ q = 15
 T_initial = 30
 T_edge = 10
 
+# Find the constrained nodes
 constrained_nodes = []
 free_nodes = []
 n_free = 0
@@ -157,11 +174,14 @@ for i in range(len(nodes)):
         n_free += 1
         free_nodes.append(i) 
 
+# Set number of increments "nt" and initialize empty solution array "us"
 n_DOF = len(nodes)
 us = np.zeros((nt+1,n_DOF))
 
+# Set initial conditions
 us[0] = T_initial
 
+# Assemble FE matrices
 f = get_global_f(nodes, connectivity, q)
 Kdense = get_global_K(nodes, connectivity, len(connectivity), nu)
 Mdense = get_global_M(nodes, connectivity, len(connectivity))
@@ -173,14 +193,21 @@ Kmod = K + M/dt
 Kmodff = Kmod[free_nodes,:][:,free_nodes]
 Kmodfp = Kmod[free_nodes,:][:,constrained_nodes]
 
+# Pre-factorize the sparse matrix to save computational costs
 solver = linalg.factorized(Kmodff)
 
+# Solve system of equations for subsequent time steps
 for i in range(nt):
     us[i+1, constrained_nodes] = T_edge
     fmod = M.dot(us[i]) / dt + f
     ff = fmod[free_nodes] - Kmodfp.dot(us[i+1, constrained_nodes])
     us[i+1, free_nodes] = solver(ff)
 
+
+# ----------------------------------------
+# first option: plot a single time step in a plot that can be rotated manually
+
+# %matplotlib widget
 from ipywidgets import interact, fixed, widgets
 from matplotlib import colors
 from matplotlib import cm
@@ -207,9 +234,16 @@ def plot_result(nodes, result, x_lim, y_lim):
     cmap.set_array(result)
     fig.colorbar(cmap, ax=ax)
 
+# Select time step for plotting
 time_step = 5
 
+# Plot the results for selected time step 
 plot_result(nodes, us[time_step], (min_x, max_x), (min_x,max_x))
+
+# ----------------------------------------
+# second option: make an animation to see the evolution
+
+# %matplotlib inline
 
 from ipywidgets import interact, fixed, widgets
 from matplotlib import colors
@@ -249,6 +283,11 @@ interact(plot_result3d,
          
 widgets.HBox([play, slider])
 
+# ----------------------------------------
+# third option: 2-dimensional representation
+
+# %matplotlib inline
+
 def plot_result(nodes, conn, results, step):
     fig = plt.figure()
     ax = fig.add_subplot()
@@ -264,6 +303,7 @@ def plot_result(nodes, conn, results, step):
     fig.colorbar(cmap, ax=ax)
     plt.axis('off')
 
+
 play = widgets.Play(min=0, max=nt-1, step=1, value=0, interval=100, disabled=False)
 slider = widgets.IntSlider(min=0, max=nt-1, step=1, value=0)
 widgets.jslink((play, 'value'), (slider, 'value'))
@@ -274,4 +314,6 @@ interact(plot_result,
          step = play)
          
 widgets.HBox([play, slider])
+
+
 

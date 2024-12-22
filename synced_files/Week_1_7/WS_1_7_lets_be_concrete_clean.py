@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -8,10 +8,14 @@ from math import ceil, trunc
 
 plt.rcParams.update({'font.size': 14})
 
+# ----------------------------------------
+# Import
 data = np.genfromtxt('dataset_concrete.csv', delimiter=",", skip_header=True)
 
+# Clean
 data = data[~np.isnan(data)]
 
+# plot time series
 plt.figure(figsize=(10, 6))
 plt.plot(data,'ok')
 plt.xlabel('# observation')
@@ -21,13 +25,18 @@ plt.grid()
 weights = 5*np.ones(len(data))
 plt.hist(data, orientation='horizontal', weights=weights, color='lightblue', rwidth=0.9)
 
+# ----------------------------------------
+# Statistics
+
 df_describe = pd.DataFrame(data)
 df_describe.describe()
 
+# ----------------------------------------
 def ecdf(YOUR_CODE_HERE):
     YOUR_CODE_HERE # may be more than one line
     return YOUR_CODE_HERE
 
+# ----------------------------------------
 loc = YOUR_CODE_HERE
 scale = YOUR_CODE_HERE
 
@@ -41,6 +50,7 @@ axes.set_xlabel('Compressive strength [MPa]')
 axes.set_title('PDF', fontsize=18)
 axes.legend()
 
+# ----------------------------------------
 fig, axes = plt.subplots(1, 1, figsize=(10, 5))
 
 axes.step(YOUR_CODE_HERE, YOUR_CODE_HERE, 
@@ -54,6 +64,7 @@ axes.set_yscale('log')
 axes.legend()
 axes.grid()
 
+# ----------------------------------------
 fig, axes = plt.subplots(1, 1, figsize=(10, 5))
 
 axes.plot([0, 120], [0, 120], 'k')

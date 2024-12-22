@@ -1,8 +1,15 @@
+# ----------------------------------------
 import numpy as np
 from scipy import stats
 import pyvinecopulib as pv
 import matplotlib.pyplot as plt
 import matplotlib
+
+
+# ----------------------------------------
+
+
+
 
 def joint_exceedance(rho):
     x = [4, 6]
@@ -24,6 +31,7 @@ p = np.zeros(len(rho))
 for i, r in enumerate(rho):
     p[i] = joint_exceedance(r)
 
+
 plt.plot(rho, p)
 plt.plot(0,
          (1-stats.norm(loc=3, scale=1.0).cdf(4))*(1-stats.norm(loc=5, scale=1.6).cdf(6)),
@@ -33,3 +41,4 @@ plt.ylabel('Joint exceedance probability')
 plt.xlim(-1, 1)
 plt.ylim(0, 1)
 plt.show()
+

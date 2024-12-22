@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -7,8 +7,11 @@ from math import ceil, trunc
 
 plt.rcParams.update({'font.size': 14})
 
+# ----------------------------------------
+# Import
 C, H = np.genfromtxt('dataset_traffic.csv', delimiter=",", unpack=True, skip_header=True)
 
+# plot time series
 fig, ax = plt.subplots(2, 1, figsize=(10, 7), layout = 'constrained')
 ax[0].plot(H,'k')
 ax[0].set_xlabel('Time')
@@ -20,17 +23,25 @@ ax[1].set_xlabel('Time')
 ax[1].set_ylabel('Number of cars, C')
 ax[1].grid()
 
+# ----------------------------------------
+# Statistics for H
+
 print(stats.describe(H))
 stats.describe(H).mean
 
+# ----------------------------------------
+# Statistics for d
+
 print(stats.describe(C))
 
+# ----------------------------------------
 def ecdf(var):
     x = np.sort(var) # sort the values from small to large
     n = x.size # determine the number of datapoints
     y = np.arange(1, n+1) / (n+1)
     return [y, x]
 
+# ----------------------------------------
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 axes[0].hist(H, edgecolor='k', linewidth=0.2, 
              color='cornflowerblue', label='Number of heavy vehicles, H', density = True)
@@ -52,8 +63,14 @@ axes[1].set_title('CDF', fontsize=18)
 axes[1].legend()
 axes[1].grid()
 
+# ----------------------------------------
 params_H = stats.norm.fit(H)
 params_C = stats.uniform.fit(C)
+
+# ----------------------------------------
+#Graphical method
+
+#Logscale
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
@@ -79,6 +96,9 @@ axes[1].set_yscale('log')
 axes[1].legend()
 axes[1].grid()
 
+# ----------------------------------------
+# QQplot
+
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 axes[0].plot([trunc(min(H)), ceil(max(H))], [trunc(min(H)), ceil(max(H))], 'k')
@@ -103,19 +123,29 @@ axes[1].set_ylim([trunc(min(C)), ceil(max(C))])
 axes[1].legend()
 axes[1].grid()
 
+# ----------------------------------------
+#KStest
+
 _, p_H = stats.kstest(H,stats.norm.cdf, args=params_H)
 _, p_C = stats.kstest(C,stats.uniform.cdf, args=params_C)
 
 print('The p-value for the fitted Gaussian distribution to H is:', round(p_H, 3))
 print('The p-value for the fitted Uniform distribution to C is:', round(p_C, 3))
 
+# ----------------------------------------
+# Here, the solution is shown for the Lognormal distribution
+
+# Draw random samples
 rs_H = stats.norm.rvs(*params_H, size = 10000)
 rs_C = stats.uniform.rvs(*params_C, size = 10000)
 
+#Compute Fh
 rs_CO2 = 469 * rs_H + 143 * rs_C
 
+#repeat for observations
 CO2 = 469 * H + 143 * C
 
+#plot the PDF and the CDF
 fig, axes = plt.subplots(1, 2, figsize=(12, 7))
 axes[0].hist(rs_CO2, edgecolor='k', linewidth=0.2, density = True, label = 'From simulations')
 axes[0].hist(CO2, edgecolor='k', facecolor = 'orange', alpha = 0.5, linewidth=0.2, 
@@ -135,6 +165,7 @@ axes[1].set_yscale('log')
 axes[1].legend()
 axes[1].grid()
 
+# ----------------------------------------
 fig, axes = plt.subplots(1, 1, figsize=(7, 7))
 axes.scatter(rs_H, rs_C, 40, 'k', label = 'Simulations')
 axes.scatter(H, C, 40, 'r','x', label = 'Observations')
@@ -143,6 +174,8 @@ axes.set_ylabel('Number of cars, C')
 axes.legend()
 axes.grid()
 
+# ----------------------------------------
+#Correlation
 correl = stats.pearsonr(H, C)
 correl_rs = stats.pearsonr(rs_H, rs_C)
 print('The correlation between the observations is:', correl[0])

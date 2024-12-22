@@ -1,24 +1,31 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
+# ----------------------------------------
+# Creating an array using lists
 A = np.array([[1, 1], 
               [2, 2], 
               [3, 3], 
               [4, 4]])
 A.shape
 
+# ----------------------------------------
 scale = np.array([YOUR_CODE_HERE])
 
+# ----------------------------------------
 A = A.T
 scale @ A
 
+# ----------------------------------------
 A = YOUR_CODE_HERE
 
+# ----------------------------------------
 plt.plot(A[0, :], A[1, :], 'ko') # Same as plt.plot(*A)
 plt.show()
 
+# ----------------------------------------
 empty = np.zeros(shape=(2, 2))
 shear = np.ones(shape=(2, 2))
 
@@ -31,14 +38,19 @@ print(shear)
 print()
 print(line_A)
 
+# ----------------------------------------
+# Generate scale through a different method
 identity = np.eye(N = A.shape[0])
 
+# Check it's really identity
 truth_array = identity @ A == A # This is actually an array with some boolean values
 assert (identity @ A == A).all()
 
+# Making scale again:
 scale_2 = 2 * identity
 assert (scale_2 == scale).all()
 
+# ----------------------------------------
 reflect = np.array([[0, 1], [1, 0]])
 result = YOUR_CODE_HERE
 
@@ -46,6 +58,7 @@ plt.plot(*result, "or")
 plt.plot(*line_A, "ob")
 plt.show()
 
+# ----------------------------------------
 data_x = np.linspace(0, 100, num=100)
 data_y = data_x * 5 + 2 + np.random.random(size = (100,))
 
@@ -69,26 +82,33 @@ plt.plot(data_x, slope1*data_x + intercept1, "b")
 plt.plot(data_x, slope2*data_x + intercept2, "r")
 plt.show()
 
+# ----------------------------------------
 N = 1000
 A = np.random.random(size = (2, N))
 plt.plot(*A, "ok")
 plt.show()
 
+# ----------------------------------------
 A = np.random.normal(YOUR_CODE_HERE, YOUR_CODE_HERE, size = (2, N))
 plt.plot(*A, "ok")
 plt.show()
 
+# ----------------------------------------
 X = norm(loc = 0, scale = 1)
 print(X.stats())
 
+# ----------------------------------------
 p_x_lt_0 = YOUR_CODE_HERE
 
+# ----------------------------------------
 p_x_gt_1 = YOUR_CODE_HERE
 
+# ----------------------------------------
 x = np.linspace(-10, 10, num=1000)
 plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE)
 plt.show()
 
+# ----------------------------------------
 def create_sample(N):
     "Create N samples each of height and width."
     height = np.array(norm.rvs(YOUR_CODE_HERE))
@@ -117,6 +137,7 @@ def plot_data_and_pdf(data, mean, std):
     plt.ylabel("")
     plt.show()
 
+# ----------------------------------------
 N = 500
 height, width = create_sample(N)
 area = compute_area(height, width)

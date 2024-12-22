@@ -1,14 +1,16 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
 from scipy.signal import periodogram
 
+# ----------------------------------------
 YOUR_CODE_HERE
 
 data = YOUR_CODE_HERE # Temperature data
 time_days = YOUR_CODE_HERE # Time in days
 
+# ----------------------------------------
 def fit_model(data, time, A, plot=False):
     '''
     Function to find the least squares solution of the data
@@ -28,14 +30,14 @@ def fit_model(data, time, A, plot=False):
         plt.plot(time, data, label='Data')
         plt.plot(time, y_hat, label='Estimated data')
         plt.xlabel('Time [days]')
-        plt.ylabel('Temperature [°C]')
+        plt.ylabel('Temperature [째C]')
         plt.title('Data vs Estimated data')
         plt.grid(True)
         plt.legend()
         plt.subplot(212)
         plt.plot(time, e_hat, label='Residuals')
         plt.xlabel('Time [days]')
-        plt.ylabel('Temperature [°C]')
+        plt.ylabel('Temperature [째C]')
         plt.title('Residuals')
         plt.grid(True)
         plt.legend()
@@ -67,6 +69,7 @@ def find_frequency(data, time, A, fs, plot=True):
     amplitude = YOUR_CODE_HERE # Amplitude of the dominant frequency
     dominant_frequency = YOUR_CODE_HERE # Dominant frequency
 
+
     # Plotting the PSD
     if plot:
         plt.figure(figsize=(10, 5))
@@ -89,6 +92,11 @@ def find_frequency(data, time, A, fs, plot=True):
 
     return dominant_frequency
 
+
+# ----------------------------------------
+# YOUR_CODE_HERE
+
+# ----------------------------------------
 def rewrite_seasonal_comp(ak, bk):
     '''
     Function to rewrite the seasonal component in terms of sin and cos
@@ -99,25 +107,29 @@ def rewrite_seasonal_comp(ak, bk):
     '''
     YOUR_CODE_HERE
 
+# creating the A matrix of the functional model
 A = YOUR_CODE_HERE
 x_hat, y_hat, e_hat = YOUR_CODE_HERE
 
+# Plotting the data and the estimated trend
 plt.figure(figsize=(10, 3))
 plt.plot(time_days, data, label='Original data')
 plt.plot(time_days, y_hat, label='Estimated trend')
 plt.xlabel('Time [days]')
-plt.ylabel('Temperature [°C]')
+plt.ylabel('Temperature [째C]')
 plt.title('Temperature data Nenana, Alaska')
 plt.grid(True)
 plt.legend()
 
+# Plotting the residuals
 plt.figure(figsize=(10, 3))
 plt.plot(time_days, e_hat0)
 plt.xlabel('Time [days]')
-plt.ylabel('Temperature [°C]')
+plt.ylabel('Temperature [째C]')
 plt.title('Residuals')
 plt.grid(True)
 
+# Extracting the seasonal component coefficients from the estimated parameters
 a_i = YOUR_CODE_HERE
 b_i = YOUR_CODE_HERE
 freqs = YOUR_CODE_HERE
@@ -133,6 +145,7 @@ for a, b, f in zip(a_i, b_i, freqs):
     i += 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
 
+# ----------------------------------------
 def A1_matrix(A0, break_point):
     '''
     Function to create the A1 matrix
@@ -144,6 +157,7 @@ def A1_matrix(A0, break_point):
     YOUR_CODE_HERE
     
     return YOUR_CODE_HERE
+
 
 def LR(e0, e1, cv=100, verbose=True):
     '''
@@ -215,27 +229,33 @@ def jump_detection(data, time, A, cv=100, plot=True):
 
     return location, value
 
+
+# ----------------------------------------
 YOUR_CODE_HERE
 
+# ----------------------------------------
 A2 = YOUR_CODE_HERE
 x_hat, y_hat, e_hat = fit_model(YOUR_CODE_HERE)
 
+# Plotting the data and the estimated trend
 plt.figure(figsize=(10, 3))
 plt.plot(time_days, data, label='Original data')
 plt.plot(time_days, y_hat, label='Estimated trend')
 plt.xlabel('Time [days]')
-plt.ylabel('Temperature [°C]')
+plt.ylabel('Temperature [째C]')
 plt.title('Temperature data Nenana, Alaska')
 plt.grid(True)
 plt.legend()
 
+# Plotting the residuals
 plt.figure(figsize=(10, 3))
 plt.plot(time_days, e_hat)
 plt.xlabel('Time [days]')
-plt.ylabel('Temperature [°C]')
+plt.ylabel('Temperature [째C]')
 plt.title('Residuals')
 plt.grid(True)
 
+# Extracting the seasonal component coefficients from the estimated parameters
 a_i = YOUR_CODE_HERE
 b_i = YOUR_CODE_HERE
 freqs = YOUR_CODE_HERE
@@ -251,10 +271,13 @@ for a, b, f in zip(a_i, b_i, freqs):
     i += 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
 
+# ----------------------------------------
+# Lets start with the ACF plot
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(e_hat, ax=ax, lags=20);
 ax.grid()
 
+# ----------------------------------------
 def AR1(s, time, plot=True):
     '''
     Function to find the AR(1) model of the given data
@@ -271,7 +294,7 @@ def AR1(s, time, plot=True):
         ax[0].plot(time[1:], y, label='Original Residuals')
         ax[0].plot(time[1:], y_hat, label='Estimated Residuals')
         ax[0].set_xlabel('Time [days]')
-        ax[0].set_ylabel('Temperature [°C]')
+        ax[0].set_ylabel('Temperature [째C]')
         ax[0].set_title('Original Data vs Estimated Data')
         ax[0].grid(True)
         ax[0].legend()
@@ -284,8 +307,15 @@ def AR1(s, time, plot=True):
 
     return x_hat, e_hat
 
+# Estimating the AR(1) model
 phi_hat_ar1, e_hat_ar1 = AR1(YOUR_CODE_HERE)
 
+
+
+
+
+
+# ----------------------------------------
 def AR2(s, time, plot=True):
     '''
     Function to find the AR(2) model of the given data
@@ -303,7 +333,7 @@ def AR2(s, time, plot=True):
         ax[0].plot(time[2:], y, label='Original Residuals')
         ax[0].plot(time[2:], y_hat, label='Estimated Residuals')
         ax[0].set_xlabel('Time [days]')
-        ax[0].set_ylabel('Temperature [°C]')
+        ax[0].set_ylabel('Temperature [째C]')
         ax[0].set_title('Original Data vs Estimated Data')
         ax[0].grid(True)
         ax[0].legend()
@@ -316,25 +346,33 @@ def AR2(s, time, plot=True):
 
     return x_hat, e_hat
 
+# Estimating the AR(2) model
 phi_hat_ar2, e_hat_ar2 = AR2(YOUR_CODE_HERE)
 
+
+# ----------------------------------------
+# combine ar2 and functional model
 A_final = YOUR_CODE_HERE
 x_hat, y_hat, e_hat_final = fit_model(YOUR_CODE_HERE)
 
+# Plotting the acf of the residuals
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(YOUR_CODE_HERE, ax=ax, lags=20);
 ax.grid()
 
+# compute the standard errors
 N = YOUR_CODE_HERE
 p = YOUR_CODE_HERE
 sigma2 = YOUR_CODE_HERE
 Cov = YOUR_CODE_HERE
 se = YOUR_CODE_HERE
 
+# Extracting the seasonal component coefficients from the estimated parameters
 a_i = YOUR_CODE_HERE
 b_i = YOUR_CODE_HERE
 freqs = YOUR_CODE_HERE
 
+# Check if the number of coefficients match the number of frequencies
 assert len(a_i) == len(b_i) == len(freqs), 'The number of coefficients do not match'
 
 print(f'Estimated Parameters (standard deviation):')

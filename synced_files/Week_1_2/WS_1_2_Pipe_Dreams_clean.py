@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -10,6 +10,7 @@ from ipywidgets import interact
 
 plt.rcParams.update({'font.size': 14})
 
+# ----------------------------------------
 def moments_of_taylor_approximation(mu_R, mu_S, sigma_R, sigma_S,n):
     """Compute Taylor series approximation of mean and std of V.
     
@@ -33,24 +34,29 @@ def moments_of_taylor_approximation(mu_R, mu_S, sigma_R, sigma_S,n):
     
     return mu_V, sigma_V
 
+# ----------------------------------------
 n = 0.013
 mu_R = 0.5
 mu_S = 0.015
 sigma_R = np.linspace(0.0, 0.1, 50)
 
+# case 1 for sigma_S
 sigma_S_1 = 0.002
 mu_V_1, sigma_V_1 = moments_of_taylor_approximation(mu_R, mu_S, sigma_R, sigma_S_1, n)
 
+# case 2 for sigma_S
 sigma_S_2 = 0
 mu_V_2, sigma_V_2 = moments_of_taylor_approximation(mu_R, mu_S, sigma_R, sigma_S_2, n)
 
 fig, ax = plt.subplots(1, 2, figsize = (16, 6))
+# left side plot for case 1 
 ax[0].plot(sigma_R, sigma_V_1, linewidth=4)
 ax[0].set_ylabel(r'$\sigma_V$ [$m/s$]', size = 20)
 ax[0].set_xlabel(r'$\sigma_R$ [$m$]', size = 20)
 ax[0].set_title(r'$\sigma_S$ = ' + f'{sigma_S_1} $m/m$, Case 1')
 ax[0].set_xlim(0, 0.1)
 ax[0].set_ylim(0, 1)
+# right side plot for case 2
 ax[1].plot(sigma_R, sigma_V_2, linewidth=4)
 ax[1].set_ylabel(r'$\sigma_V$ [$m/s$]', size = 20)
 ax[1].set_xlabel(r'$\sigma_R$ [m]', size = 20)
@@ -59,6 +65,7 @@ ax[1].set_xlim(0, 0.1)
 ax[1].set_ylim(0, 1)
 plt.show()
 
+# ----------------------------------------
 def function_of_random_variables(R, S):
     V = YOUR_CODE_HERE
     return V
@@ -84,6 +91,7 @@ print('\nMoments of the TAYLOR SERIES APPROXIMATION:')
 print(f'  {mu_V_taylor:.4f} m/s is the mean, and')
 print(f'  {sigma_V_taylor:.4f} m/s is the std dev.')
 
+# ----------------------------------------
 def validate_distribution(N, sigma_R, mu_R=0.5, mu_S=0.015, sigma_S=0.002, n=0.013):
     """Generate samples and plots for V
     
@@ -145,10 +153,12 @@ def validate_distribution(N, sigma_R, mu_R=0.5, mu_S=0.015, sigma_S=0.002, n=0.0
 
 validate_distribution(10000, 0.01)
 
+# ----------------------------------------
 @interact(sigma_R=(0, 0.1, 0.005))
 def samples_slideplot(sigma_R):
     validate_distribution(50000, sigma_R);
 
+# ----------------------------------------
 p = YOUR_CODE_HERE
 
 print(f'The probability is {p:0.6e}')

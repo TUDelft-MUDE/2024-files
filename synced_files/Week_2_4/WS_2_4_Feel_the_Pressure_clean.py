@@ -1,10 +1,11 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
 from scipy.stats import chi2
 from scipy.signal import periodogram
 
+# ----------------------------------------
 data = np.loadtxt('atm_data.txt', delimiter=',')
 time = data[:, 0]
 data = data[:, 1]
@@ -19,6 +20,8 @@ plt.ylabel('Atmospheric Pressure [hPa]')
 plt.title('2 year of atmospheric pressure data')
 plt.grid(True)
 
+
+# ----------------------------------------
 def fit_model(data, time, A, plot=False):
     '''
     Function to find the least squares solution of the data
@@ -99,12 +102,16 @@ def find_frequency(data, time, A, fs, plot=True):
 
     return dominant_frequency
 
+
+# ----------------------------------------
 A = YOUR_CODE_HERE # A-matrix for linear trend (intercept and slope)
 dom_f = find_frequency(YOUR_CODE_HERE)
 print(f'Dominant Frequency: {YOUR_CODE_HERE} [YOUR_CODE_HERE]')
 
+# ----------------------------------------
 YOUR_CODE_HERE # may be more than one line or more than one cell
 
+# ----------------------------------------
 def rewrite_seasonal_comp(a_i, b_i):
     '''
     Function to rewrite the seasonal component in terms of sin and cos
@@ -115,14 +122,19 @@ def rewrite_seasonal_comp(a_i, b_i):
     theta_i = YOUR_CODE_HERE
     return A_i, theta_i
 
+# creating the A matrix of the functional model
 A = YOUR_CODE_HERE
 
+# Fitting the model
 x_hat, y_hat, e_hat = YOUR_CODE_HERE
 
+# Extracting the seasonal component coefficients from the estimated parameters
 a_i = YOUR_CODE_HERE # all the a_i coefficients
 b_i = YOUR_CODE_HERE # all the b_i coefficients
 freqs = YOUR_CODE_HERE # all the frequencies
 
+
+# Check if the number of coefficients match the number of frequencies
 assert len(a_i) == len(b_i) == len(freqs), 'The number of coefficients do not match'
 
 print(f'Estimated Parameters:')
@@ -136,11 +148,13 @@ for a, b, f in zip(a_i, b_i, freqs):
     i = i + 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
 
+# ----------------------------------------
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(YOUR_CODE_HERE, ax=ax, lags=20);
 ax.set_xlabel('Lags [days]')
 ax.grid()
 
+# ----------------------------------------
 def AR1(s, time, plot=True):
     '''
     Function to find the AR(1) model of the given data
@@ -170,25 +184,34 @@ def AR1(s, time, plot=True):
 
     return x_hat, e_hat
 
+
+# ----------------------------------------
 _, e_hat2 = AR1(YOUR_CODE_HERE)
 
+# Lets start with the ACF plot
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(YOUR_CODE_HERE, ax=ax, lags=20);
 ax.grid()
 
+# ----------------------------------------
+# combine ar1 and seasonal model
+
 A_final = YOUR_CODE_HERE # A-matrix for the combined model
 x_hat, y_hat, e_hat_final = fit_model(YOUR_CODE_HERE)
 
+# compute the standard errors
 N = YOUR_CODE_HERE # Number of data points
 p = YOUR_CODE_HERE # Number of parameters
 sigma2 = YOUR_CODE_HERE # estimated variance of the residuals
 Cov = YOUR_CODE_HERE # Covariance matrix of the parameters
 se = np.sqrt(np.diag(Cov)) # Standard errors of the parameters
 
+# Extracting the seasonal component coefficients from the estimated parameters
 a_i = YOUR_CODE_HERE # all the a_i coefficients
 b_i = YOUR_CODE_HERE # all the b_i coefficients
 freqs = YOUR_CODE_HERE # all the frequencies
 
+# Check if the number of coefficients match the number of frequencies
 assert len(a_i) == len(b_i) == len(freqs), 'The number of coefficients do not match'
 
 print(f'Estimated Parameters (standard deviation):')
@@ -201,4 +224,5 @@ for a, b, f in zip(a_i, b_i, freqs):
     A_i, theta_i = rewrite_seasonal_comp(a, b)
     i = i + 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
+
 

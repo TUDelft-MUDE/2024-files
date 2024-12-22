@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 import numpy as np
 from scipy import interpolate
 from scipy.stats import norm
@@ -12,15 +12,19 @@ from functions import *
 
 np.set_printoptions(precision=3);
 
+# ----------------------------------------
 m1_blue = load_pickle_file('m1_blue.pickle')
 m2_blue = load_pickle_file('m2_blue.pickle')
 
+# ----------------------------------------
 model_summary(m1_blue)
 model_summary(m2_blue)
 
+# ----------------------------------------
 for key in m1_blue.keys():
     print(key)
 
+# ----------------------------------------
 x0_slider = widgets.FloatSlider(value=0, min=-10, max=10, step=0.1, description='x0')
 x1_slider = widgets.FloatSlider(value=0, min=-0.1, max=0.1, step=0.001, description='x1')
 x2_slider = widgets.FloatSlider(value=1, min=-1, max=1, step=0.01, description='x2')
@@ -29,6 +33,8 @@ interact(model_widget,
          x0=x0_slider, x1=x1_slider, x2=x2_slider, x3=fixed(None),
          m=[('INSAR', m1_blue), ('GNSS', m2_blue)]);
 
+
+# ----------------------------------------
 def initialize_new_dict(d_old):
     d = {}
     d['data_type'] = d_old['data_type']
@@ -45,8 +51,10 @@ def initialize_new_dict(d_old):
 m1 = initialize_new_dict(m1_blue)
 m2 = initialize_new_dict(m2_blue)
 
+# ----------------------------------------
 YOUR_CODE_HERE
 
+# ----------------------------------------
 def compute_y(x, d):
     """Model, q: ground surface displacement.
 
@@ -79,6 +87,7 @@ def compute_y(x, d):
 m1['compute_y'] = compute_y
 m2['compute_y'] = compute_y
 
+# ----------------------------------------
 x0_slider = widgets.FloatSlider(value=0, min=-40, max=40, step=0.5, description='x0')
 x1_slider = widgets.FloatSlider(value=0, min=-50, max=50, step=1, description='x1')
 x2_slider = widgets.FloatSlider(value=1, min=10, max=1000, step=10, description='x2')
@@ -88,6 +97,8 @@ interact(model_widget,
          x0=x0_slider, x1=x1_slider, x2=x2_slider, x3=x3_slider,
          m=[('InSAR', m1), ('GNSS', m2)]);
 
+
+# ----------------------------------------
 d_init = YOUR_CODE_HERE
 R_init = YOUR_CODE_HERE
 a_init = YOUR_CODE_HERE
@@ -95,6 +106,7 @@ k_init = YOUR_CODE_HERE
 
 initial_guess = (d_init, R_init, a_init, k_init)
 
+# ----------------------------------------
 def jacobian(x, d):
     """Compute Jacobian of the model.
 
@@ -128,6 +140,7 @@ def jacobian(x, d):
     
     return J
 
+# ----------------------------------------
 YOUR_CODE_HERE
 
 print ('The first 5 rows of the Jacobian matrix (InSAR):')
@@ -138,6 +151,7 @@ print(f'\nThe number of unknowns is {n_2}')
 print(f'The redundancy (InSAR) is {m1["y"].shape[0] - n_2}')
 print(f'The redundancy (GNSS) is {m2["y"].shape[0] - n_2}')
 
+# ----------------------------------------
 def gauss_newton_iteration(x0, d):
     """Use Gauss-Newton iteration to find non-linear parameters.
     
@@ -200,6 +214,8 @@ def gauss_newton_iteration(x0, d):
     
     return d
 
+
+# ----------------------------------------
 m1 = gauss_newton_iteration(initial_guess, m1)
 m2 = gauss_newton_iteration(initial_guess, m2)
 
@@ -211,6 +227,7 @@ print('\n GNSS Reults for each iteration (Iterations completed =',
       m2['iterations_completed'], ')')
 print(m2['x_hat_all_iterations'])
 
+# ----------------------------------------
 def plot_fit_iteration(d):
     """Plot value of each parameter, each iteration."""
     plt.figure(figsize = (15,4))
@@ -243,6 +260,13 @@ def plot_fit_iteration(d):
 plot_fit_iteration(m1)
 plot_fit_iteration(m2)
 
+# ----------------------------------------
+# initial_guess_alternative = initial_guess
+# print(initial_guess_alternative)
+# plot_convergence_interactive(gauss_newton_iteration(initial_guess_alternative, m1))
+# plot_convergence_interactive(gauss_newton_iteration(initial_guess_alternative, m2))
+
+# ----------------------------------------
 def show_std(Sigma_X_hat, data_type):
     print ('The standard deviation for',
            data_type + '-offset is',
@@ -270,28 +294,34 @@ show_std(YOUR_CODE_HERE)
 print()
 model_summary(YOUR_CODE_HERE)
 
+# ----------------------------------------
 help(get_CI)
 
+# ----------------------------------------
 m1['Y_hat'] = YOUR_CODE_HERE
 m1 = get_CI(YOUR_CODE_HERE)
 plot_model(YOUR_CODE_HERE)
 plot_residual(YOUR_CODE_HERE)
 plot_residual_histogram(YOUR_CODE_HERE);
 
+# ----------------------------------------
 m1['Y_hat'] = YOUR_CODE_HERE
 m1 = get_CI(YOUR_CODE_HERE)
 plot_model(YOUR_CODE_HERE)
 plot_residual(YOUR_CODE_HERE)
 plot_residual_histogram(YOUR_CODE_HERE);
 
+# ----------------------------------------
 YOUR_CODE_HERE (probably will be more than one line)
 print(f'The critical value is {np.round(k, 3)}')
 
+# ----------------------------------------
 t1_insar = YOUR_CODE_HERE
 t2_insar = YOUR_CODE_HERE
 t_insar = t1_insar - t2_insar
 print(f'The test statistic for InSAR data is {np.round(t_insar, 3)}')
 
+# ----------------------------------------
 t1_gnss = YOUR_CODE_HERE
 t2_gnss = YOUR_CODE_HERE
 t_gnss = t1_gnss - t2_gnss
