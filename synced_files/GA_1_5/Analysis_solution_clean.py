@@ -1,8 +1,9 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pylab as plt
 import pandas as pd
 
+# ----------------------------------------
 data=pd.read_csv(filepath_or_buffer='justIce.csv',index_col=0)
 data.index = pd.to_datetime(data.index, format="%Y-%m-%d")
 
@@ -12,6 +13,7 @@ plt.xlabel('Year')
 plt.ylabel('Ice thickness [cm]')
 plt.grid()
 
+# ----------------------------------------
 data_2021 = data.loc['2021']
 
 plt.figure(figsize=(15,4))
@@ -20,13 +22,23 @@ plt.xlabel('Date')
 plt.ylabel('Ice thickness [cm]')
 plt.grid()
 
+
+# ----------------------------------------
 h_ice = (data_2021.to_numpy()).ravel()
 t_days = ((data_2021.index - data_2021.index[0]).days).to_numpy()
 
+# dh_dt_FD = YOUR_CODE_HERE
+
+# SOLUTION:
 dh_dt_FD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 
+# ----------------------------------------
 fig, ax1 = plt.subplots(figsize=(15,4))
 
+# ax1.scatter(YOUR_CODE_HERE, dh_dt_FE,
+#             color='blue', marker='o', label='dh_dt_FE Forward Euler')
+
+# SOLUTION:
 ax1.scatter(t_days[:-1], dh_dt_FD,
             color='blue', marker='o', label='dh_dt_FD Forward Difference')
 
@@ -34,6 +46,7 @@ ax1.set_xlabel('Days')
 ax1.set_ylabel('Growth Rate [cm/day]', color='blue')
 ax1.tick_params(axis='y', labelcolor='blue')
 ax1.grid()
+
 
 ax2 = ax1.twinx()
 ax2.scatter(t_days, h_ice,
@@ -47,12 +60,22 @@ ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
 
+
+# ----------------------------------------
+# dh_dt_BE = YOUR_CODE_HERE
+
+# SOLUTION:
 dh_dt_BD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 
 fig, ax1 = plt.subplots(figsize=(15,4))
 
+
+# ax1.scatter(YOUR_CODE_HERE, dh_dt_FD,
+#             color='blue', marker='o', label='dh_dt_FE Forward Difference')
+# ax1.scatter(YOUR_CODE_HERE, dh_dt_BD,
             # color='red', marker='o', label='dh_dt_BE Backward Difference')
 
+# SOLUTION:
 ax1.scatter(t_days[:-1], dh_dt_FD,
             color='blue', marker='o', label='dh_dt_FD Forward Difference')
 ax1.scatter(t_days[1:], dh_dt_BD,
@@ -75,10 +98,22 @@ ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
 
+# ----------------------------------------
+# dh_dt_CD = YOUR_CODE_HERE
+
+# SOLUTION:
 dh_dt_CD = (h_ice[1:]-h_ice[:-1])/(t_days[1:]-t_days[:-1]) 
 
 fig, ax1 = plt.subplots(figsize=(15,4))
 
+# ax1.scatter(YOUR_CODE_HERE, dh_dt_FE,
+#             color='blue', marker='o', label='dh_dt_FE Forward Euler')
+# ax1.scatter(YOUR_CODE_HERE, dh_dt_BE,
+#             color='red', marker='o', label='dh_dt_BE Backward Euler')
+# ax1.scatter(YOUR_CODE_HERE, dh_dt_CD,
+#             color='purple', marker='o', label='dh_dt_CD Central Difference')
+
+# SOLUTION:
 ax1.scatter(t_days[:-1], dh_dt_FD,
             color='blue', marker='o', label='dh_dt_FE Forward Difference')
 ax1.scatter(t_days[1:], dh_dt_BD,
@@ -101,6 +136,18 @@ ax1.legend(handles + handles2, labels + labels2, loc='upper left')
 
 plt.show()
 
+# ----------------------------------------
+# x = np.linspace(-3*np.pi, 5*np.pi, 400)
+
+# def f(x):
+#     return YOUR_CODE_HERE
+
+# plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE, color='b', linewidth=2)
+# plt.xlabel('x')
+# plt.ylabel('f(x)')
+# plt.title("Plot of $f(x) = 2cos(x) + sin(x)$");
+
+# SOLUTION:
 x = np.linspace(-3*np.pi, 5*np.pi, 400)
 
 def f(x):
@@ -111,6 +158,20 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title("Plot of $f(x) = 2cos(x) + sin(x)$");
 
+# ----------------------------------------
+# def f_1(x):
+#     return YOUR_CODE_HERE
+
+# def f_2(x):
+#     return YOUR_CODE_HERE
+
+# def f_3(x):
+#     return YOUR_CODE_HERE
+
+# def f_4(x):
+#     return YOUR_CODE_HERE
+
+# SOLUTION:
 def f_1(x):
     return -2 * np.sin(x) + np.cos(x)
 
@@ -123,14 +184,35 @@ def f_3(x):
 def f_4(x):
     return 2 * np.cos(x) + np.sin(x)
 
+
+# ----------------------------------------
+# x0 = YOUR_CODE_HERE
+# taylor_1 = YOUR_CODE_HERE
+# taylor_2 = YOUR_CODE_HERE
+# taylor_3 = YOUR_CODE_HERE
+# taylor_4 = YOUR_CODE_HERE
+
 x0 = np.pi
 taylor_1 = f(x0) + f_1(x0)*(x - x0)
 taylor_2 = taylor_1 + f_2(x0)*(x - x0)**2/2
 taylor_3 = taylor_2 + f_3(x0)*(x - x0)**3/6
 taylor_4 = taylor_3 + f_4(x0)*(x - x0)**4/24
 
+# ----------------------------------------
 plt.figure(figsize=(10, 6))
 
+# plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE,
+#          label='$f(x) = 2cos(x) + sin(x)$', color='b', linewidth=2)
+# plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE,
+#          label='First Order', linestyle='--', color='g', linewidth=2)
+# plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE,
+#          label='Second Order', linestyle='--', color='r', linewidth=2)
+# plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE,
+#          label='Third Order', linestyle='--', color='m', linewidth=2)
+# plt.plot(YOUR_CODE_HERE, YOUR_CODE_HERE,
+#          label='Fourth Order', linestyle='--', color='y', linewidth=2)
+
+# SOLUTION:
 plt.plot(x, f(x),
          label='$f(x) = 2cos(x) + sin(x)$', color='b', linewidth=2)
 plt.plot(x, taylor_1,
@@ -141,6 +223,7 @@ plt.plot(x, taylor_3,
          label='Third Order', linestyle='--', color='m', linewidth=2)
 plt.plot(x, taylor_4,
          label='Fourth Order', linestyle='--', color='y', linewidth=2)
+
 
 plt.scatter([x0], [f(x0)],
             color='k', marker='o', label=f'Expansion Point ($x = {x0:0.3f}$)')
@@ -155,6 +238,13 @@ plt.ylim(-10,10)
 plt.grid(True)
 plt.show();
 
+# ----------------------------------------
+# error_1 = YOUR_CODE_HERE
+# error_2 = YOUR_CODE_HERE
+# error_3 = YOUR_CODE_HERE
+# error_4 = YOUR_CODE_HERE
+
+# SOLUTION:
 error_1 = np.abs(f(x) - taylor_1)
 error_2 = np.abs(f(x) - taylor_2)
 error_3 = np.abs(f(x) - taylor_3)
@@ -180,6 +270,18 @@ plt.legend()
 plt.grid(True)
 plt.show();
 
+# ----------------------------------------
+# def f2D(x, y):
+#     return YOUR_CODE_HERE
+
+# x0 = YOUR_CODE_HERE
+# y0 = YOUR_CODE_HERE
+
+# def taylor2D(x, y):
+#     return (YOUR_CODE_HERE)
+
+
+# SOLUTION:
 def f2D(x, y):
     return np.sin(2*x) + np.cos(y)
 
@@ -194,16 +296,21 @@ def taylor2D(x, y):
             - (1/2)*(4*np.sin(2*x0))*(x - x0)**2
             - (1/2)*(np.cos(y0))*(y - y0)**2)
 
+# this is a second way to implement the function above
 def taylor2D(x, y):
     return -1 + 2*(x - x0) + (y - x0)**2/2
 
+# ----------------------------------------
+# Create a meshgrid of x and y values
 x = np.linspace(-2+x0, 2+x0, 100)
 y = np.linspace(-2+y0, 2+y0, 100)
 X, Y = np.meshgrid(x, y)
 
+# Calculate the original function values and the approximation
 Z_orig = f2D(X, Y)
 Z_approx = taylor2D(X, Y)
 
+# Create a 3D plot
 fig = plt.figure(figsize=(9,9))
 ax = fig.add_subplot(111, projection='3d')
 ax.plot_surface(X, Y, Z_orig, rstride=1, cstride=1, cmap='Reds',
@@ -211,14 +318,21 @@ ax.plot_surface(X, Y, Z_orig, rstride=1, cstride=1, cmap='Reds',
 ax.plot_surface(X, Y, Z_approx, rstride=1, cstride=1, cmap='Blues',
                 alpha=0.7, label='Taylor Approximation')
 
+# Set labels and legend
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.set_zlabel('f(x, y)')
 plt.legend()
 
+# Show the plot
 plt.title('Original Function vs. Taylor Approximation')
 plt.show()
 
+
+# ----------------------------------------
+# error_2d = YOUR_CODE_HERE
+
+# SOLUTION:
 error_2d = np.abs(Z_orig - Z_approx)
 
 fig = plt.figure(figsize=(9,9))
@@ -229,4 +343,5 @@ ax.set_ylabel('Y')
 ax.set_zlabel('Absolute Error')
 plt.title('Absolute Error between $f(x, y)$ and Taylor Approximation')
 plt.show()
+
 

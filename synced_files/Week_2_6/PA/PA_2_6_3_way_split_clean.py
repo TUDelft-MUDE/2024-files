@@ -1,30 +1,38 @@
-
+# ----------------------------------------
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# ----------------------------------------
 data = YOUR_CODE_HERE
 
+# ----------------------------------------
 YOUR_CODE_HERE
 
+# ----------------------------------------
 X = YOUR_CODE_HERE
 Y = YOUR_CODE_HERE
 
+# ----------------------------------------
 rng = np.random.default_rng()
 print(type(rng))
 rng.random()
 
+# ----------------------------------------
 print('integers:', rng.integers(5))
 print('random:', rng.random(5))
 print('choice:', rng.choice(np.array(5)))
 print('bytes:', rng.bytes(5))
 
+# ----------------------------------------
 rng = np.random.default_rng(seed=14)
 print('integers:', rng.integers(5))
 print('random:', rng.random(5))
 print('choice:', rng.choice(np.array(5)))
 print('bytes:', rng.bytes(5))
 
+# ----------------------------------------
+# rng = np.random.default_rng(seed=14)
 test_array_length = 5
 test_array = rng.integers(low=100, high=200, size=test_array_length)
 
@@ -33,6 +41,7 @@ random_indices = YOUR_CODE_HERE
 print('The randomized indices are:', random_indices)
 print('The randomized array becomes:', test_array[random_indices])
 
+# ----------------------------------------
 def split_data(X, Y, proportions):
     """Split input and output into 3 subsets for ML model.
 
@@ -70,10 +79,12 @@ def split_data(X, Y, proportions):
     
     return X_train, X_val, X_test, Y_train, Y_val, Y_test
 
+# ----------------------------------------
 split_proportions = YOUR_CODE_HERE
 (X_train, X_val, X_test,
  Y_train, Y_val, Y_test) = split_data(YOUR_CODE_HERE)
 
+# ----------------------------------------
 def plot_allocation(X, Y,
                     X_train, X_val, X_test,
                     Y_train, Y_val, Y_test):

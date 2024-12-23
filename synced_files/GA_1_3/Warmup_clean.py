@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 import numpy as np
 from scipy import interpolate
 import pandas as pd
@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 np.set_printoptions(precision=3)
 
+# ----------------------------------------
 my_dictionary = {'key1': 'value1',
                  'key2': 'value2',
                  'name': 'Dictionary Example',
@@ -25,17 +26,22 @@ def function_that_uses_my_dictionary(d):
 
 function_that_uses_my_dictionary(my_dictionary)
 
+# ----------------------------------------
 YOUR_CODE_HERE
 function_that_uses_my_dictionary(my_dictionary)
 
+# ----------------------------------------
 print("Keys and Values (type):")
 for key, value in my_dictionary.items():
     print(f"{key:16s} -->    {type(value)}")
 
+# ----------------------------------------
 from warmup import *
 
+# ----------------------------------------
 YOUR_CODE_HERE
 
+# ----------------------------------------
 dataset1 = pd.read_csv('./data_warmup/dataset1.csv')
 times1 = pd.to_datetime(dataset1['times'])
 obs1 = (dataset1['observations[m]']).to_numpy()*1000
@@ -44,6 +50,7 @@ dataset2 = pd.read_csv('./data_warmup/dataset2.csv')
 times2 = pd.to_datetime(dataset2['times'])
 obs2 = (dataset2['observations[mm]']).to_numpy()
 
+# ----------------------------------------
 print(type(dataset1), '\n',
       type(dataset2), '\n',
       type(times1), '\n',
@@ -58,8 +65,10 @@ print(np.shape(dataset1), '\n',
       np.shape(obs1), '\n',
       np.shape(obs2))
 
+# DO MORE STUFF TO EXPLORE WHAT IS IN THE DATA!
       
 
+# ----------------------------------------
 def to_days_years(times):
     '''Convert the observation times to days and years.'''
     
@@ -72,6 +81,7 @@ def to_days_years(times):
     
     return days, years
 
+# ----------------------------------------
 days1,  years1  = to_days_years(times1)
 days2,  years2  = to_days_years(times2)
 

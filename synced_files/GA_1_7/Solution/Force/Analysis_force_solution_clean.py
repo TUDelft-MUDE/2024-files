@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -7,8 +7,11 @@ from math import ceil, trunc
 
 plt.rcParams.update({'font.size': 14})
 
+# ----------------------------------------
+# Import
 _, H, T = np.genfromtxt('dataset_HT.csv', delimiter=",", unpack=True, skip_header=True)
 
+# plot time series
 fig, ax = plt.subplots(2, 1, figsize=(10, 7), layout = 'constrained')
 ax[0].plot(H,'k')
 ax[0].set_xlabel('Time')
@@ -20,16 +23,24 @@ ax[1].set_xlabel('Time')
 ax[1].set_ylabel('Water period, T (s)')
 ax[1].grid()
 
+# ----------------------------------------
+# Statistics for H
+
 print(stats.describe(H))
+
+# ----------------------------------------
+# Statistics for d
 
 print(stats.describe(T))
 
+# ----------------------------------------
 def ecdf(var):
     x = np.sort(var) # sort the values from small to large
     n = x.size # determine the number of datapoints
     y = np.arange(1, n+1) / (n+1)
     return [y, x]
 
+# ----------------------------------------
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 axes[0].hist(H, edgecolor='k', linewidth=0.2, 
              color='cornflowerblue', label='Wave height, H (m)', density = True)
@@ -51,8 +62,14 @@ axes[1].set_title('CDF', fontsize=18)
 axes[1].legend()
 axes[1].grid()
 
+# ----------------------------------------
 params_H = stats.expon.fit(H, floc=0)
 params_T = stats.gumbel_r.fit(T)
+
+# ----------------------------------------
+#Graphical method
+
+#Logscale
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
@@ -78,6 +95,9 @@ axes[1].set_yscale('log')
 axes[1].legend()
 axes[1].grid()
 
+# ----------------------------------------
+# QQplot
+
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 axes[0].plot([trunc(min(H)), ceil(max(H))], [trunc(min(H)), ceil(max(H))], 'k')
@@ -102,19 +122,29 @@ axes[1].set_ylim([trunc(min(T)), ceil(max(T))])
 axes[1].legend()
 axes[1].grid()
 
+# ----------------------------------------
+#KStest
+
 _, p_H = stats.kstest(H,stats.expon.cdf, args=params_H)
 _, p_T = stats.kstest(T,stats.gumbel_r.cdf, args=params_T)
 
 print('The p-value for the fitted Gumbel distribution to H is:', round(p_H, 3))
 print('The p-value for the fitted Uniform distribution to d is:', round(p_T, 3))
 
+# ----------------------------------------
+# Here, the solution is shown for the Lognormal distribution
+
+# Draw random samples
 rs_H = stats.expon.rvs(*params_H, size = 10000)
 rs_T = stats.gumbel_r.rvs(*params_T, size = 10000)
 
+#Compute Fh
 rs_Fh = 255.4 * rs_H * rs_T**2 - 490.4*rs_T**2
 
+#repeat for observations
 Fh = 255.4 * H * T**2 - 490.4*T**2
 
+#plot the PDF and the CDF
 fig, axes = plt.subplots(1, 2, figsize=(12, 7))
 axes[0].hist(rs_Fh, edgecolor='k', linewidth=0.2, density = True, label = 'From simulations')
 axes[0].hist(Fh, edgecolor='k', facecolor = 'orange', alpha = 0.5, linewidth=0.2, 
@@ -134,6 +164,7 @@ axes[1].set_yscale('log')
 axes[1].legend()
 axes[1].grid()
 
+# ----------------------------------------
 fig, axes = plt.subplots(1, 1, figsize=(7, 7))
 axes.scatter(rs_H, rs_T, 40, 'k', label = 'Simulations')
 axes.scatter(H, T, 40, 'r','x', label = 'Observations')
@@ -142,6 +173,8 @@ axes.set_ylabel('Wave period, T (s)')
 axes.legend()
 axes.grid()
 
+# ----------------------------------------
+#Correlation
 correl = stats.pearsonr(H, T)
 correl_rs = stats.pearsonr(rs_H, rs_T)
 print('The correlation between the observations is:', correl[0])

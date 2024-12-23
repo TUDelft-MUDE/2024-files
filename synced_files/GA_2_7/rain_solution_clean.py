@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,6 +8,8 @@ from scipy.signal import find_peaks
 
 plt.rcParams.update({'font.size': 14})
 
+# ----------------------------------------
+# Import
 P = pd.read_csv('turis.csv', delimiter = ',', parse_dates = True)
 P.columns=['Date', 'Prec'] #rename columns
 P['Date'] = pd.to_datetime(P['Date'], format='mixed')
@@ -15,6 +17,8 @@ P = P.sort_values(by='Date')
 
 P.head()
 
+# ----------------------------------------
+# values for markdown report
 print(f"{P['Prec'].size:d}",
       f"{P['Prec'].min():.3f}",
       f"{P['Prec'].max():.3f}",
@@ -24,6 +28,8 @@ print(f"{P['Prec'].size:d}",
       f"{sum(P['Prec']==0):d}",
       sep=' | ')
 
+# ----------------------------------------
+#Solution
 plt.figure(figsize=(10, 6))
 plt.plot(P['Date'], P['Prec'],'k')
 plt.xlabel('Time')
@@ -31,6 +37,8 @@ plt.ylabel('Precipitation [mm]')
 plt.grid()
 plt.title('Time series of precipitation');
 
+# ----------------------------------------
+# Solution:
 idx_max = P.groupby(pd.DatetimeIndex(P['Date']).year)['Prec'].idxmax()
 YM = P.loc[idx_max]
 print('The shape of the sampled extremes is:', YM.shape)
@@ -42,14 +50,19 @@ plt.xlabel('Time')
 plt.ylabel('Precipitation [mm]')
 plt.grid()
 
+# ----------------------------------------
+#Function for the ECDF
 def ecdf(var):
     x = np.sort(var)
     n = x.size
     y = np.arange(1, n + 1)/(n + 1)
     return [y, x]
 
+#Fit the parametric distribution to the extreme observations
 params_YM = stats.genextreme.fit(YM['Prec'])
 print('GEV parameters are: {:.3f}, {:.3f}, {:.3f}'.format(*params_YM))
+
+#Compare both the empirical and parametric distributions in semilog scale
 
 x_range = np.linspace(0, 750, 100)
 plt.figure(figsize=(10, 6))
@@ -72,7 +85,10 @@ plt.grid()
 plt.legend()
 plt.title('Empirical and YM/GEV Distributions, Precipitation')
 plt.tight_layout()
+# plt.savefig('./figures_solution/gev_rain.svg');
 
+# ----------------------------------------
+# for Markdown report
 print('GEV parameters are: {0:.3f} | {3:.3f} | {1:.3f} | {2:.3f}\n'.format(*params_YM, -params_YM[0]))
 
 if params_YM[0]>0:
@@ -92,6 +108,9 @@ else:
      print(f'Shape parameter from scipy.stats is {params_YM[0]:.3f}\n'
           '  - Tail type is Gumbel\n')
 
+# ----------------------------------------
+
+# Solution:
 threshold = 40
 
 distance = 2 #days
@@ -105,6 +124,7 @@ plt.xlabel('Time')
 plt.ylabel('Precipitation [mm]')
 plt.grid()
 
+# ----------------------------------------
 params_POT = stats.genpareto.fit(P.iloc[peaks, 1] - threshold, floc=0)
 print('GPD parameters are: {:.3f}, {:.3f}, {:.3f}'.format(*params_POT))
 
@@ -129,7 +149,10 @@ plt.grid()
 plt.legend()
 plt.title('Empirical and POT/GPD Distributions, Precipitation')
 plt.tight_layout()
+# plt.savefig('./figures_solution/gpd_rain.svg');
 
+# ----------------------------------------
+# for Markdown report
 print('GPD parameters are: {0:.3f} | {1:.3f} | {2:.3f}\n'.format(*params_POT, params_POT[0]))
 
 if params_POT[0]>0:
@@ -149,6 +172,10 @@ else:
      print(f'Shape parameter from scipy.stats is {params_POT[0]:.3f}\n'
           '  - Tail type is Gumbel\n')
 
+# ----------------------------------------
+# Time series plot with both sets of extremes
+# For Report_solution.md
+
 plt.figure(figsize=(10, 6))
 plt.plot(P['Date'], P['Prec'],'k')
 plt.scatter(P.iloc[peaks, 0], P.iloc[peaks, 1],
@@ -161,9 +188,22 @@ plt.grid()
 plt.legend()
 plt.title('Samples from BM and POT Methods, Precipitation')
 plt.tight_layout()
+# plt.savefig('./figures_solution/extremes_rain.png');
 
+# ----------------------------------------
+# # YM & GEV
+# YM_design_value = YOUR_CODE_HERE
+
+# # POT & GPD
+# average_n_excesses = YOUR_CODE_HERE
+# non_exc_prob = YOUR_CODE_HERE
+# POT_design_value = YOUR_CODE_HERE
+
+# Solution:
+# YM & GEV
 YM_design_value = stats.genextreme.ppf(1 - 1/100, *params_YM)
 
+# POT & GPD
 average_n_excesses = len(peaks)/YM.shape[0]
 non_exc_prob = 1 - 1/(100*average_n_excesses)
 POT_design_value = stats.genpareto.ppf(non_exc_prob, *params_POT) + threshold
@@ -173,12 +213,24 @@ print('The design value for a RT = 100 years computed using',
 print('The design value for a RT = 100 years computed using',
       'POT and GPD is:', np.round(POT_design_value, 3), 'mm')
 
+# ----------------------------------------
 RT_range = np.linspace(1, 500, 500)
 
+# YOUR_CODE_HERE (more than one line!)
+
+# plt.figure(figsize=(10, 6))
+# plt.plot(YM_range, RT_range, 'r', label = 'YM&GEV')
+# plt.plot(POT_range, RT_range, 'cornflowerblue', label = 'POT&GPD')
+# YOUR_FIGURE_FORMATTING_CODE_HERE (more than one line!)
+
+# Solution:
+#range of RT
 RT_range = np.linspace(2, 500, 500)
 
+#YM&GEV
 YM_range = stats.genextreme.ppf(1 - 1/RT_range, *params_YM)
 
+#POT&GPD
 average_n_excesses = len(peaks)/YM.shape[0]
 non_exc_prob_range = 1 - 1/(RT_range*average_n_excesses)
 POT_range = stats.genpareto.ppf(non_exc_prob_range, *params_POT) + threshold
@@ -206,13 +258,19 @@ plt.grid()
 plt.legend()
 plt.title('Return Period and Design Values, Rain')
 plt.tight_layout()
+# plt.savefig('./figures_solution/design_rain.svg');
 
+# ----------------------------------------
+# YOUR_CODE_HERE
+
+# ----------------------------------------
 peaks_year = P.loc[peaks]
 count = peaks_year.groupby(pd.DatetimeIndex(peaks_year['Date']).year)['Prec'].count()
 mean_count = count.mean()
 var_count = count.var()
 print(f'Mean = {mean_count:.3f} and variance = {var_count:.3f}')
 
+# ----------------------------------------
 import math
 
 k = np.arange(count.min(), count.max()+1,1)
@@ -244,4 +302,5 @@ plt.ylabel('Frequency, observed excesses per year')
 plt.xlabel('Number of times the precipitation '
            + f'{threshold} mm is exceeded in a year')
 plt.tight_layout()
+# plt.savefig('./figures_solution/bonus_rain.svg');
 

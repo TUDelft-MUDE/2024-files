@@ -1,24 +1,34 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
+# ----------------------------------------
+# Creating an array using lists
 A = np.array([[1, 1], 
               [2, 2], 
               [3, 3], 
               [4, 4]])
 A.shape
 
+# ----------------------------------------
+#SOLUTION:
 scale = np.array([[2, 0], [0, 2]])
 
+# ----------------------------------------
+#SOLUTION (run cell below)
 A = A.T
 scale @ A
 
+# ----------------------------------------
+#SOLUTION: A = A.T
 A = A.T
 
+# ----------------------------------------
 plt.plot(A[0, :], A[1, :], 'ko') # Same as plt.plot(*A)
 plt.show()
 
+# ----------------------------------------
 empty = np.zeros(shape=(2, 2))
 shear = np.ones(shape=(2, 2))
 
@@ -31,23 +41,35 @@ print(shear)
 print()
 print(line_A)
 
+# SOLUTION: first play with the shape values. then change num; then change 8 to 12.
+
+
+# ----------------------------------------
+# Generate scale through a different method
 identity = np.eye(N = A.shape[0])
 
+# Check it's really identity
 truth_array = identity @ A == A # This is actually an array with some boolean values
 assert (identity @ A == A).all()
 
+# Making scale again:
 scale_2 = 2 * identity
 assert (scale_2 == scale).all()
 
+# ----------------------------------------
+## SOLUTION
 reflect = np.array([[0, 1], [1, 0]])
 result = reflect @ line_A
+###
 
 plt.plot(*result, "or")
 plt.plot(*line_A, "ob")
 plt.show()
 
+# ----------------------------------------
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>Minor note (warning). Don't use the CSS danger/warning blocks because they don't display when converting to HTML with pandoc (won't display right on course files on website).</p></div>
 
+# ----------------------------------------
 data_x = np.linspace(0, 100, num=100)
 data_y = data_x * 5 + 2 + np.random.random(size = (100,))
 
@@ -73,26 +95,42 @@ plt.plot(data_x, slope1*data_x + intercept1, "b")
 plt.plot(data_x, slope2*data_x + intercept2, "r")
 plt.show()
 
+# ----------------------------------------
 N = 1000
 A = np.random.random(size = (2, N))
 plt.plot(*A, "ok")
 plt.show()
 
+# ----------------------------------------
+# A = np.random.normal(YOUR_ANSWER_HERE)
+#SOLUTION
 A = np.random.normal(loc = 10, scale = 5, size = (2, N))
 plt.plot(*A, "ok")
 plt.show()
 
+# ----------------------------------------
 X = norm(loc = 0, scale = 1)
 print(X.stats())
 
+# ----------------------------------------
+## Solution
 p_x_lt_0 = X.cdf(0)
+###
 
+# ----------------------------------------
+## Solution
 p_x_gt_1 = 1 - X.cdf(1)
+###
 
+# ----------------------------------------
+# x = YOUR_CODE_HERE 
+# plt.plot(YOUR_CODE_HERE)
+## Solution
 x = np.linspace(-10, 10, num=1000)
 plt.plot(x, X.pdf(x))
 plt.show()
 
+# ----------------------------------------
 def create_sample(N):
     "Create N samples each of height and width."
     # height = np.array(norm.rvs(YOUR_CODE_HERE)) 
@@ -136,6 +174,7 @@ def plot_data_and_pdf(data, mean, std):
     plt.ylabel("Probability Density (PDF) and Frequency (data)")
     plt.show()
 
+# ----------------------------------------
 N = 500
 height, width = create_sample(N)
 area = compute_area(height, width)

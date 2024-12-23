@@ -1,14 +1,19 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
 from scipy.stats import chi2
 from scipy.signal import periodogram
 
+# ----------------------------------------
 data = np.loadtxt('atm_data.txt', delimiter=',')
 time = data[:, 0]
 data = data[:, 1]
 
+# dt = YOUR_CODE_HERE # Time step
+# fs = YOUR_CODE_HERE # Sampling frequency
+
+# SOLUTION
 dt = time[1] - time[0]
 fs = 1 / dt
 
@@ -19,6 +24,8 @@ plt.ylabel('Atmospheric Pressure [hPa]')
 plt.title('2 year of atmospheric pressure data')
 plt.grid(True)
 
+
+# ----------------------------------------
 def fit_model(data, time, A, plot=False):
     '''
     Function to find the least squares solution of the data
@@ -117,18 +124,33 @@ def find_frequency(data, time, A, fs, plot=True):
 
     return dominant_frequency
 
+
+# ----------------------------------------
+# A = YOUR_CODE_HERE # A-matrix for linear trend (intercept and slope)
+# dom_f = find_frequency(YOUR_CODE_HERE)
+# print(f'Dominant Frequency: {YOUR_CODE_HERE} [YOUR_CODE_HERE]')
+
+# SOLUTION
 A = np.column_stack((np.ones(len(data)), time))
 dom_f = find_frequency(data, time, A, fs)
 print(f'Dominant Frequency: {dom_f*365:.3f} cycle/year')
+
+# ----------------------------------------
+# YOUR_CODE_HERE # may be more than one line or more than one cell
 
 A2 = np.column_stack((A, np.cos(2*np.pi*dom_f*time), np.sin(2*np.pi*dom_f*time)))
 dom_f2 = find_frequency(data, time, A2, fs)
 print(f'Dominant Frequency: {dom_f2:.3f} cycle/day')
 
+# ----------------------------------------
+# third model and third frequency
+
+# SOLUTION
 A3 = np.column_stack((A2, np.cos(2*np.pi*dom_f2*time), np.sin(2*np.pi*dom_f2*time)))
 dom_f3 = find_frequency(data, time, A3, fs)
 print(f'Dominant Frequency: {dom_f3:.3f} cycle/day')
 
+# ----------------------------------------
 def rewrite_seasonal_comp(ak, bk):
     '''
     Function to rewrite the seasonal component in terms of sin and cos
@@ -139,15 +161,19 @@ def rewrite_seasonal_comp(ak, bk):
     theta_k = np.arctan2(-bk, ak)
     return Ak, theta_k
 
+# creating the A matrix of the functional model
 A = np.column_stack((   np.ones(len(data)), time,
                         np.cos(2*np.pi*dom_f*time), np.sin(2*np.pi*dom_f*time),
                         np.cos(2*np.pi*dom_f2*time), np.sin(2*np.pi*dom_f2*time)))
 
+# Finding the Best Linear Unbiased Estimator
 x_hat, y_hat, e_hat = fit_model(data, time, A)
 
+# Extracting the seasonal component coefficients from the estimated parameters
 a_i = np.array([x_hat[2], x_hat[4]])
 b_i = np.array([x_hat[3], x_hat[5]])
 freqs = np.array([dom_f, dom_f2])
+
 
 print(f'Estimated Parameters:')
 for i in range(len(x_hat)):
@@ -160,11 +186,13 @@ for a, b, f in zip(a_i, b_i, freqs):
     i = i + 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
 
+# ----------------------------------------
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(e_hat, ax=ax, lags=20);
 ax.set_xlabel('Lags [days]')
 ax.grid()
 
+# ----------------------------------------
 def AR1(s, time, plot=True):
     '''
     Function to find the AR(1) model of the given data
@@ -191,25 +219,34 @@ def AR1(s, time, plot=True):
 
     return x_hat, e_hat
 
+
+# ----------------------------------------
 _, e_hat2 = AR1(e_hat, time[1:])
 
+# Lets start with the ACF plot
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 plot_acf(e_hat2, ax=ax, lags=20);
 ax.grid()
 
+# ----------------------------------------
+# combine ar1 and seasonal model
+
 A_final = np.column_stack((A[1:,:], e_hat[:-1]))
 x_hat, y_hat, e_hat_final = fit_model(data[1:], time[1:], A_final, plot=True)
 
+# compute the standard errors
 N = A_final.shape[0]
 p = A_final.shape[1]
 sigma2 = np.sum(e_hat_final**2) / (N - p)
 Cov = sigma2 * np.linalg.inv(A_final.T @ A_final)
 se = np.sqrt(np.diag(Cov))
 
+# Extracting the seasonal component coefficients from the estimated parameters
 a_i = np.array([x_hat[2], x_hat[4]])
 b_i = np.array([x_hat[3], x_hat[5]])
 freqs = np.array([dom_f, dom_f2])
 
+# Check if the number of coefficients match the number of frequencies
 assert len(a_i) == len(b_i) == len(freqs), 'The number of coefficients do not match'
 
 print(f'Estimated Parameters (standard deviation):')
@@ -222,4 +259,5 @@ for a, b, f in zip(a_i, b_i, freqs):
     A_i, theta_i = rewrite_seasonal_comp(a, b)
     i = i + 1
     print(f'A_{i} = {A_i:.3f}, theta_{i} = {theta_i:.3f}, f_{i} = {f:.3f}')
+
 

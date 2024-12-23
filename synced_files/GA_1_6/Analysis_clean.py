@@ -1,9 +1,10 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 import ipywidgets as widgets
 from ipywidgets import interact
 
+# ----------------------------------------
 def g(x):
     return YOUR_CODE_HERE
 
@@ -17,12 +18,15 @@ for j in range(100):
 
 print("The solution found is ", x, " it took " ,j , " iterations to converge.")
 
+# ----------------------------------------
 def g(y_iplus1, y_i, t_iplus1):
     return YOUR_CODE_HERE
 
 def g_der(y_iplus1):
     return YOUR_CODE_HERE
 
+
+# Define parameters:
 dt = .25
 t_end = 10
 t = np.arange(0,t_end+dt,dt)
@@ -30,9 +34,11 @@ t = np.arange(0,t_end+dt,dt)
 y_EE = np.zeros(t.shape)
 y_IE = np.zeros(t.shape)
 
+# Define Initial Conditions
 y_EE[0] = YOUR_CODE_HERE
 y_IE[0] = YOUR_CODE_HERE
 
+# Perform time-integration
 newtonFailed = 0
 for i in range(0, len(t)-1):    
     
@@ -50,6 +56,7 @@ for i in range(0, len(t)-1):
         newtonFailed = 1
     
 
+# Plotting the solution
 plt.plot(t, y_EE, 'r', t, y_IE, 'g--')
 if newtonFailed:
     plt.title('Nonlinear ODE with dt = ' + str(dt) + ' \nImplicit Euler did not converge')
@@ -61,6 +68,9 @@ plt.ylabel('y')
 plt.gca().legend(('Explicit','Implicit'))
 plt.grid()
 plt.show()
+
+# ----------------------------------------
+# Initial conditions
 
 T_left = YOUR_CODE_HERE # Temperature at left boundary
 T_right = YOUR_CODE_HERE # Temperature at right boundary
@@ -74,6 +84,7 @@ x = YOUR_CODE_HERE # spatial grid
 
 dt = YOUR_CODE_HERE # time step size
 
+# ----------------------------------------
 T = YOUR_CODE_HERE
 T[0, :] = YOUR_CODE_HERE
 T[:, 0] = YOUR_CODE_HERE
@@ -81,12 +92,16 @@ T[:, -1] = YOUR_CODE_HERE
 
 b = YOUR_CODE_HERE
 
+# ----------------------------------------
+# Note: you may want to use extra lines, depending on
+# how you define your A, T and b arrays
 for j in range(m-1):
     A = YOUR_CODE_HERE
     b = YOUR_CODE_HERE
     
     T[j+1,1:-1] = YOUR_CODE_HERE
 
+# ----------------------------------------
 def plot_T(T):
     '''
     Function to plot the temperature profile at different time steps.
@@ -94,7 +109,7 @@ def plot_T(T):
     def plot_temperature(time_step):
         plt.plot(x, T[time_step, :])
         plt.xlabel('x [m]')
-        plt.ylabel('T [°C]')
+        plt.ylabel('T [째C]')
         plt.title(f'Temperature profile at time step {time_step}')
         plt.grid()
         plt.ylim(5, 40)
@@ -102,9 +117,12 @@ def plot_T(T):
 
     interact(plot_temperature, time_step=widgets.Play(min=0, max=len(t)-1, step=3, value=0))
 
+# ----------------------------------------
 plot_T(T)
 
+# ----------------------------------------
 YOUR_CODE_HERE
 
+# ----------------------------------------
 YOUR_CODE_HERE
 

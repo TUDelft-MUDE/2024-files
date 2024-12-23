@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 def evaluate_N(x_local, dx):
     return np.array([[1-x_local/dx, x_local/dx]])
 
@@ -37,6 +37,7 @@ def get_element_force(q, dx):
 
     return f_loc
 
+
 def get_nodes_for_element(ie):
     return np.array([ie,ie+1])
 
@@ -61,6 +62,7 @@ def assemble_global_f(rod_length, n_el, q):
         f_global[elnodes] += get_element_force(q, dx)
         
     return np.squeeze(f_global)
+
 
 def simulate(n_element,k):                          # add k as argument
     length = 3
@@ -88,6 +90,7 @@ def simulate(n_element,k):                          # add k as argument
 
     return x, u
 
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -100,6 +103,7 @@ plt.xlabel('x')
 plt.ylabel('u')
 plt.legend();
 
+# ----------------------------------------
 x10, u3_10 = simulate(10, 1.e3)
 x5, u3_5 = simulate(5, 1.e3)
 x2, u3_2 = simulate(2, 1.e3)
@@ -113,6 +117,7 @@ plt.legend();
 
 plt.figure()
 
+# ----------------------------------------
 x5, u6_5 = simulate(5, 1.e6)
 x20, u6_20 = simulate(20, 1.e6)
 x100, u6_100 = simulate(100, 1.e6)

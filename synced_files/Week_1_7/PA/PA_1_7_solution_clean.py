@@ -1,4 +1,4 @@
-
+# ----------------------------------------
 class Person:
     def __init__(self, name):
         self.name = name
@@ -27,6 +27,7 @@ def greet_person(person):
     person.say_hello()
     print(f"Hey {person.name}!")
 
+# ----------------------------------------
 james = Person("James")
 james.say_hello()
 print()
@@ -40,6 +41,9 @@ philip = Friend("Philip")
 greet_person(philip)
 print()
 greet_person(emma)
+
+# ----------------------------------------
+# DO NOT TOUCH ANYTHING IN THIS CODE CELL!
 
 import scipy.stats
 import numpy as np
@@ -72,16 +76,37 @@ def plot_distribution(distribution, x_bounds = (-5, 5), function="pdf"):
     
     return x_axis, y_axis
 
+# ----------------------------------------
+# distribution = scipy.stats.norm(loc = 1)
+# x_axis, y_axis = plot_distribution(distribution)
+
+# SOLUTION
 distribution = scipy.stats.norm(loc = 1, scale = 3)
 x_axis, y_axis = plot_distribution(distribution)
 
+# ----------------------------------------
+# distribution = scipy.stats.uniform(YOUR_CODE_HERE)
+# x_axis, y_axis = plot_distribution(distribution)
+
+#SOLUTION
 distribution = scipy.stats.uniform(loc = 1, scale = 3)
 x_axis, y_axis = plot_distribution(distribution)
 
+# ----------------------------------------
+# class new_distribution(YOUR_CODE_HERE):
+#     """ A new piece-wise distribution."""
     
+#     def _pdf(self, x):
+#         """ f(x) = 
+#             0.1      when 0 < x < 3.6
+#             2(x - 5) when 5 < x < 5.8
+#         """
 
+#         YOUR_CODE_HERE # MORE THAN ONE LINE!
         
+#         return YOUR_CODE_HERE
 
+# SOLUTION:
 class new_distribution(scipy.stats.rv_continuous):
     """ A new piece-wise distribution."""
     
@@ -98,9 +123,16 @@ class new_distribution(scipy.stats.rv_continuous):
         
         return 0
 
+# ----------------------------------------
 import warnings
 warnings.simplefilter("ignore")
 
+# ----------------------------------------
+# plot_distribution(YOUR_CODE_HERE, x_bounds = (0, 6))
+# plot_distribution(YOUR_CODE_HERE, x_bounds = (0, 6), function="cdf")
+# print()
+
+# SOLUTION:
 plot_distribution(new_distribution(), x_bounds = (0, 6))
 plot_distribution(new_distribution(), x_bounds = (0, 6), function="cdf")
 print()

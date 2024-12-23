@@ -78,6 +78,7 @@ import time
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+# %config InlineBackend.figure_formats = ['svg']
 
 from sklearn.neural_network import MLPRegressor
 from sklearn.preprocessing import MinMaxScaler
@@ -92,6 +93,10 @@ from sklearn.model_selection import train_test_split
 
 # %%
 data = pd.read_csv(r"data/bridges.csv")
+
+# %%
+#summary of the data
+data.describe()
 
 # %% [markdown]
 # We can take a look at how the crack location relates with displacements at three different locations along the beams (25% of the span, midspan, 75% of the span):
@@ -162,9 +167,6 @@ plt.show()
 features = loc2['dy'].to_numpy().reshape(-1,1)
 targets = loc2['location'].to_numpy().reshape(-1,1)
 
-# X_train, X_val_test, t_train, t_val_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=42)
-# X_val, X_test, t_val, t_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=24)
-# Solution
 X_train, X_val_test, t_train, t_val_test = train_test_split(features, targets, test_size=0.20, random_state=42)
 X_val, X_test, t_val, t_test = train_test_split(X_val_test, t_val_test, test_size=0.50, random_state=24)
 
@@ -191,12 +193,6 @@ X_val, X_test, t_val, t_test = train_test_split(X_val_test, t_val_test, test_siz
 # %%
 scaler_x = MinMaxScaler()
 
-# scaler_x.fit(YOUR_CODE_HERE)
-
-# normalized_X_train = scaler_x.transform(YOUR_CODE_HERE)
-# normalized_X_val = scaler_x.transform(YOUR_CODE_HERE)
-
-# Solution
 scaler_x.fit(X_train)
 
 normalized_X_train = scaler_x.transform(X_train)
@@ -216,11 +212,6 @@ normalized_X_val = scaler_x.transform(X_val)
 # %%
 scaler_t = MinMaxScaler()
 
-# scaler_t.fit(YOUR_CODE_HERE)
-
-# normalized_t_train = scaler_t.transform(YOUR_CODE_HERE)
-# normalized_t_val = scaler_t.transform(YOUR_CODE_HERE)
-# Solution
 scaler_t.fit(t_train)
 
 normalized_t_train = scaler_t.transform(t_train)
@@ -342,35 +333,6 @@ batch_size = 64
 # </div>
 
 # %%
-# def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate):
-#     train_loss_list = []
-#     val_loss_list = []
-#     model.learning_rate_init = learning_rate
-#     
-#     # Fix random seed for reproducibility
-#     np.random.seed(42)
-#
-#     for epoch in range(n_epochs):
-        
-#         # Generate mini-batches
-#         mini_batches = get_mini_batches(YOUR_CODE_HERE)
-        
-#         # Train model on mini-batches
-#         for X_batch, t_batch in mini_batches:
-#             YOUR_CODE_HERE
-        
-#         YOUR_CODE_HERE # Hint: may be more than one line
-
-#         # Store loss values
-#         train_loss_list.append(train_loss)
-#         val_loss_list.append(val_loss)
-
-#         # Print training progress
-#         print(f"Epoch {epoch+1}/{n_epochs} - Train Loss: {train_loss_list[-1]:.4f} - Val Loss: {val_loss:.4f}")
-        
-#     return train_loss_list, val_loss_list
-
-# Solution:
 def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate, verbose=True):
     train_loss_list = []
     val_loss_list = []
@@ -420,11 +382,9 @@ def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val,
 # </div>
 
 # %%
-# model = MLPRegressor(YOUR_CODE_HERE, YOUR_CODE_HERE)
-# Solution
 model = MLPRegressor(hidden_layer_sizes = (10, 5), 
                     activation = 'tanh',
-                    random_state=0)
+                    random_state=1)
 
 train_loss_list, val_loss_list = train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate)
 
@@ -513,16 +473,11 @@ plt.tight_layout()
 # </div>
 
 # %%
-#y_train = YOUR_CODE_HERE
-#y_val = YOUR_CODE_HERE
-# Solution
 y_train = scaler_t.inverse_transform(model.predict(normalized_X_train).reshape(-1,1))
 y_val = scaler_t.inverse_transform(model.predict(normalized_X_val).reshape(-1,1))
 
 fig,axes = plt.subplots(1,2,figsize=(8,3))
 
-# axes[0].scatter(YOUR_CODE_HERE,YOUR_CODE_HERE,s=0.5)
-# Solution
 axes[0].scatter(t_train,y_train,s=0.5)
 
 axes[0].set_title('Training dataset')
@@ -582,9 +537,6 @@ plt.tight_layout()
 features = np.array([loc1['dy'].to_numpy(), loc2['dy'].to_numpy(), loc3['dy'].to_numpy()]).transpose()
 targets = loc2['location'].to_numpy().reshape(-1,1)
 
-# YOUR_CODE_HERE
-
-# Solution
 X_train, X_val_test, t_train, t_val_test = train_test_split(features, targets, test_size=0.20, random_state=42)
 X_val, X_test, t_val, t_test = train_test_split(X_val_test, t_val_test, test_size=0.50, random_state=24)
 
@@ -622,9 +574,6 @@ train_loss_list, val_loss_list = train_model(model, normalized_X_train, normaliz
 # </div>
 
 # %%
-# YOUR_CODE_HERE
-
-#Solution
 # Create a scatter plot with enhanced styling
 plt.figure(figsize=(8, 6))  # Set the figure size
 
@@ -666,9 +615,6 @@ plt.show()
 # </div>
 
 # %%
-# YOUR_CODE_HERE
-
-# Solution
 y_train = scaler_t.inverse_transform(model.predict(normalized_X_train).reshape(-1,1))
 y_val = scaler_t.inverse_transform(model.predict(normalized_X_val).reshape(-1,1))
 
@@ -731,9 +677,6 @@ plt.tight_layout()
 # </div>
 
 # %%
-# layer_sizes = [YOUR_CODE_HERE]
-# layer_numbers = [YOUR_CODE_HERE]
-# Solution
 layer_sizes = [10, 20] 
 layer_numbers = [1, 2, 3, 4, 5, 6]
 

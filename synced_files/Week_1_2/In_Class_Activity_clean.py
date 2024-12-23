@@ -1,29 +1,34 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as sci
 import scipy.optimize as opt
 
+# ----------------------------------------
 data = np.loadtxt('data/days.csv', dtype=str, delimiter=';', skiprows=1)
 data = np.char.replace(data, ',', '.')
 data = data.astype(float)
 
 data[0:10]
 
+# ----------------------------------------
 np.shape(data)
 
+# ----------------------------------------
 mean = np.mean(data[:,1])
 std = np.std(data[:,1])
 
 print(f'Mean: {mean:.3f}\n\
 Standard deviation: {std:.3f}')
 
+# ----------------------------------------
 plt.scatter(data[:, 0], data[:, 1], label='Measured data')
 plt.xlabel('Year [-]')
 plt.ylabel('Number of days/year [-]')
 plt.title(f'Number of days per year between {data[0,0]:.0f}-{data[-1,0]:.0f}')
 plt.grid()
 
+# ----------------------------------------
 def regression(x, y):
     '''
     Determine linear regression
@@ -46,8 +51,11 @@ def regression(x, y):
 
     return r_sq, q, m
 
+
+# ----------------------------------------
 r_sq, q, m = regression(data[:,0], data[:,1])
 
+# ----------------------------------------
 def calculate_line(x, m, q):
     '''
     Determine y values from linear regression
@@ -63,8 +71,10 @@ def calculate_line(x, m, q):
 
     return y
 
+# ----------------------------------------
 line = calculate_line(data[:,0], m, q)
 
+# ----------------------------------------
 fig, axes = plt.subplots(1, 2,figsize = (12, 4))
 
 axes[0].scatter(data[:,0], data[:,1], label = 'Observations')
@@ -84,6 +94,7 @@ axes[1].set_xlabel('Observed number of days/year [-]')
 axes[1].grid()
 axes[1].set_title('(b) Observed and predicted number of days');
 
+# ----------------------------------------
 def RMSE(data, fit_data):
     '''
     Compute the RMSE
@@ -103,8 +114,10 @@ def RMSE(data, fit_data):
     print(f'RMSE = {error:.3f}')
     return error
 
+# ----------------------------------------
 RMSE_line = RMSE(data[:,1], line)
 
+# ----------------------------------------
 def rbias(data, fit_data):
     '''
     Compute the relative bias
@@ -121,8 +134,10 @@ def rbias(data, fit_data):
     print(f'rbias = {bias:.3f}')
     return bias
 
+# ----------------------------------------
 rbias_line = rbias(data[:,1], line)
 
+# ----------------------------------------
 def conf_int(x, y, alpha):
     '''
     Compute the confidence intervals
@@ -138,10 +153,12 @@ def conf_int(x, y, alpha):
 
     return k
 
+# ----------------------------------------
 k = conf_int(data[:,1], line, 0.05)
 ci_low = line - k
 ci_up = line + k
 
+#plot
 plt.scatter(data[:,0], data[:,1], label = 'Observations')
 plt.plot(data[:,0], line, color='r', label='Fitted line')
 plt.plot(data[:,0], ci_low, '--k')
@@ -152,6 +169,7 @@ plt.grid()
 plt.legend()
 plt.title('Number of days as function of the year')
 
+# ----------------------------------------
 def parabola(x, a, b, c):
     '''
     Compute the quadratic model
@@ -167,6 +185,7 @@ def parabola(x, a, b, c):
     y = a * x**2 + b * x + c
     return y
 
+# ----------------------------------------
 popt_parabola, pcov_parabola = opt.curve_fit(parabola, data[:,0], data[:,1])
 
 print(f'Optimal estimation for parameters:\n\
@@ -175,12 +194,15 @@ a = {popt_parabola[0]:.3e}, b = {popt_parabola[1]:.3f}, c = {popt_parabola[2]:.3
 print(f'Covariance matrix for parameters:\n\
 Sigma = {pcov_parabola}')
 
+# ----------------------------------------
 fitted_parabola = parabola(data[:,0], *popt_parabola)
 
+# ----------------------------------------
 k = conf_int(data[:,1], fitted_parabola, 0.05)
 ci_low_2 = fitted_parabola - k
 ci_up_2 = fitted_parabola + k
 
+#plot
 plt.scatter(data[:,0], data[:,1], label = 'Observations')
 plt.plot(data[:,0], fitted_parabola, color='r', label='Fitted line')
 plt.plot(data[:,0], ci_low_2, '--k')
@@ -191,6 +213,7 @@ plt.grid()
 plt.legend()
 plt.title('Number of days as function of the year')
 
+# ----------------------------------------
 RMSE_parabola = RMSE(data[:,1], fitted_parabola)
 R2_parabola = 1-((data[:,1]-fitted_parabola)**2).mean()/(data[:,1].var())
 print(f'Coefficient of determination = {R2_parabola:.3f}')

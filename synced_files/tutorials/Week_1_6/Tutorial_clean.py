@@ -1,16 +1,23 @@
-
+# ----------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 from func import *
 import timeit
 
+# ----------------------------------------
+# import data 
 data = np.loadtxt('data.txt')
 x = data[:,0]
 y = data[:,1]
 
+
+# ----------------------------------------
 A = #TODO: create the matrix A
 x_hat, y_hat = #TODO: solve the system of equations
 print(f"x_hat = {x_hat}")
+
+# ----------------------------------------
+# runtimes
 
 funcs = [FD_1, FD_2, FD_3, FD_4]
 

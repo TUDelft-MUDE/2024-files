@@ -1,10 +1,11 @@
-
+# ----------------------------------------
 import gurobipy
 model = gurobipy.Model()
 x = model.addVars(3000, vtype = gurobipy.GRB.CONTINUOUS, name = 'x')
 model.update()
 model.optimize()
 
+# ----------------------------------------
 import sys
 from pathlib import Path
 import os
