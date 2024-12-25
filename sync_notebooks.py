@@ -43,6 +43,25 @@ class NotebookSyncer:
         )
         self.logger = logging.getLogger(__name__)
 
+    def read_notebook_safely(self, filepath: Path):
+        """Safely read notebook with proper encoding handling."""
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                return nbformat.read(f, as_version=4)
+        except UnicodeDecodeError:
+            with open(filepath, 'rb') as f:
+                content = f.read()
+                for encoding in ['utf-8-sig', 'utf-16', 'utf-32', 'cp949', 'euc-kr']:
+                    try:
+                        text = content.decode(encoding)
+                        return nbformat.reads(text, as_version=4)
+                    except:
+                        continue
+                try:
+                    return nbformat.reads(content.decode('utf-8', errors='ignore'), as_version=4)
+                except:
+                    raise ValueError(f"Failed to decode {filepath} with any known encoding")
+
     def find_notebooks(self) -> List[Path]:
         """Find all Jupyter notebooks in the content directory."""
         if not self.content_dir.exists():
@@ -52,7 +71,6 @@ class NotebookSyncer:
         notebooks = []
         print(f"\nSearching for notebooks in: {self.content_dir}")
         
-        # Recursively search for notebooks
         for root, dirs, files in os.walk(self.content_dir):
             for file in files:
                 if file.endswith('.ipynb'):
@@ -72,7 +90,6 @@ class NotebookSyncer:
                 continue
             
             try:
-                # Try to read the file
                 with open(nb_path, 'r', encoding='utf-8') as f:
                     content = f.read()
                     nbformat.reads(content, as_version=4)
@@ -86,26 +103,20 @@ class NotebookSyncer:
     def strip_metadata(self, notebook_path: Path, output_path: Path):
         """Strip metadata from notebook while preserving essential information."""
         try:
-            # Read notebook with explicit UTF-8 encoding
-            with open(notebook_path, encoding='utf-8') as f:
-                nb = nbformat.read(f, as_version=4)
+            nb = self.read_notebook_safely(notebook_path)
             
-            # Create preprocessors
             clear_metadata = ClearMetadataPreprocessor(
                 preserve_cell_metadata=['tags'],
                 preserve_notebook_metadata=['kernelspec']
             )
             clear_output = ClearOutputPreprocessor()
             
-            # Apply preprocessors
             nb, _ = clear_metadata.preprocess(nb, {})
             nb, _ = clear_output.preprocess(nb, {})
             
-            # Ensure output directory exists
             output_path.parent.mkdir(parents=True, exist_ok=True)
             
-            # Save processed notebook with explicit UTF-8 encoding
-            with open(output_path, 'w', encoding='utf-8') as f:
+            with open(output_path, 'w', encoding='utf-8', errors='ignore') as f:
                 nbformat.write(nb, f)
                 
             return True
@@ -120,11 +131,9 @@ class NotebookSyncer:
             output_base = self.output_dir / relative_path.parent / relative_path.stem
             output_base.parent.mkdir(parents=True, exist_ok=True)
 
-            # Check if source file has changed
             src_hash = get_file_hash(notebook_path)
-            
-            # Create stripped notebook first
             stripped_path = output_base.with_suffix('.ipynb')
+            
             if stripped_path.exists():
                 dst_hash = get_file_hash(stripped_path)
                 if src_hash == dst_hash:
@@ -139,7 +148,6 @@ class NotebookSyncer:
                     if fmt == 'markdown':
                         output_path = output_base.with_suffix('.md')
                         cmd = ['jupytext', '--to', 'markdown', str(stripped_path), '-o', str(output_path)]
-                        # Add userStyle after conversion
                         if subprocess.run(cmd, check=True, capture_output=True, text=True, encoding='utf-8'):
                             with open(output_path, 'r+', encoding='utf-8') as f:
                                 content = f.read()
@@ -159,17 +167,13 @@ class NotebookSyncer:
                             str(stripped_path), '-o', str(output_path)
                         ]
                     
-                    if fmt != 'markdown':  # Skip for markdown since we already handled it
+                    if fmt != 'markdown':
                         result = subprocess.run(cmd, check=True, capture_output=True, text=True, encoding='utf-8')
                     
-                    # Additional cleaning for clean_python format
                     if fmt == 'clean_python' and output_path.exists():
                         with open(output_path, 'r', encoding='utf-8') as f:
                             lines = f.readlines()
-                        
-                        # Remove comments and empty lines
                         clean_lines = [line for line in lines if not line.strip().startswith('#') and line.strip()]
-                        
                         with open(output_path, 'w', encoding='utf-8') as f:
                             f.writelines(clean_lines)
                             
@@ -187,19 +191,15 @@ class NotebookSyncer:
         try:
             if not self.output_dir.exists():
                 return
-                
-            # Force garbage collection
+            
             import gc
             gc.collect()
             
-            # Add small delay
             import time
             time.sleep(0.1)
             
-            # Get list of valid notebook paths
             valid_stems = {nb.relative_to(self.content_dir).stem for nb in processed_notebooks}
             
-            # Check all files in output directory
             for output_file in self.output_dir.glob('**/*'):
                 try:
                     if output_file.is_file():
@@ -211,7 +211,6 @@ class NotebookSyncer:
                                 output_file.unlink()
                                 self.logger.info(f"Removed obsolete file: {output_file}")
                                 
-                                # Remove empty directories
                                 dir_path = output_file.parent
                                 while dir_path != self.output_dir:
                                     try:
@@ -233,10 +232,8 @@ class NotebookSyncer:
         self.logger.info("Starting notebook synchronization")
         print("Starting notebook synchronization...")
         
-        # Create output directory if it doesn't exist
         self.output_dir.mkdir(parents=True, exist_ok=True)
         
-        # Find and process notebooks
         notebooks = self.find_notebooks()
         if not notebooks:
             self.logger.info("No notebooks found in content directory")
@@ -252,7 +249,6 @@ class NotebookSyncer:
             else:
                 self.logger.error(f"Failed to process {notebook}")
                 
-        # Cleanup output directory
         self.cleanup_output_dir(processed_notebooks)
         
         success = len(processed_notebooks) > 0
@@ -261,6 +257,6 @@ class NotebookSyncer:
         return success
 
 if __name__ == "__main__":
-    syncer = NotebookSyncer()
+    syncer = NotebookSyncer("content")
     success = syncer.sync()
     exit(0 if success else 1)
