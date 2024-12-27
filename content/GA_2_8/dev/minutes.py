@@ -1,8 +1,7 @@
 """creates a class that facilitates conversion and generation of proper month-day-hour-minute specification:
 
 completely define a minute using:
-- reference day (day 0)
-- days from the reference day
+- reference day (day 1)
 - hour as a slice object all 1440 hours of the day
 - all minutes can be defined in one of the following ways:
   - a collection of slice objects in a list
@@ -137,9 +136,7 @@ class Minutes:
         list_minutes = []
         for hour in hours:
             start_minute = hour*60
-                                                                                                                                        
             list_minutes.extend([start_minute + minute for minute in minutes])
-
         return list_minutes
     
     @staticmethod
@@ -152,7 +149,7 @@ class Minutes:
         
         list_minutes = []
         for day in days:
-            start_minute = day*1440
+            start_minute = (day - 1)*1440
             list_minutes.extend([start_minute + minute for minute in hours])
 
         return list_minutes
@@ -171,7 +168,6 @@ class Minutes:
     
         minutes = Minutes.combine_hours_minutes(input[1], input[2])
         minutes = Minutes.combine_days_hours(input[0], minutes)
-
         return minutes
 
 
@@ -182,8 +178,9 @@ class Minutes:
         TODO: add more testing here
         """
         
-        if isinstance(input[0], str) or isinstance(input[0][0], str):
-            input = Minutes.process_months(input)
+        if isinstance(input[0], str) or isinstance(input[0], list):
+            if isinstance(input[0], str) or isinstance(input[0][0], str):
+                input = Minutes.process_months(input)
         
         
         if len(input) == 1:
@@ -230,6 +227,7 @@ class Minutes:
             days = Minutes.get_list_days([day1, day2])
 
         input[0] = days
+        assert len(input) < 4, "Invalid input: too many values"
 
         return input
 
@@ -283,3 +281,15 @@ class Minutes:
             for i in range(5, month+1):
                 days += Minutes.days_in_each_month(i - 1)
         return days + day
+    
+    @staticmethod
+    def construct_sparse_array(minutes: list):
+        """constructs a sparse array from a list of minutes"""
+        import numpy as np
+        from scipy.sparse import csr_matrix
+        sparse_array = np.zeros((60, 1440))
+        for minute in minutes:
+            day = minute // 1440
+            minute_of_day = minute % 1440
+            sparse_array[day, minute_of_day] = 1
+        return csr_matrix(sparse_array)
