@@ -1,347 +1,240 @@
-2024-12-25 12:47:46,102 - INFO - Starting notebook synchronization
-2024-12-25 12:47:46,717 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_1\Task_2_solution.ipynb
-2024-12-25 12:47:49,873 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_1\Task_2_solution.ipynb
-2024-12-25 12:47:49,874 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_2\Analysis.ipynb
-2024-12-25 12:47:52,700 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_2\Analysis.ipynb
-2024-12-25 12:47:52,700 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_2\Analysis_solution.ipynb
-2024-12-25 12:47:55,304 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_2\Analysis_solution.ipynb
-2024-12-25 12:47:55,304 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Analysis.ipynb
-2024-12-25 12:47:57,896 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Analysis.ipynb
-2024-12-25 12:47:57,896 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Analysis_Solution.ipynb
-2024-12-25 12:48:00,493 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Analysis_Solution.ipynb
-2024-12-25 12:48:00,493 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-25 12:48:00,494 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-25 12:48:00,495 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-25 12:48:00,495 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-25 12:48:00,496 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-25 12:48:00,496 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-25 12:48:00,496 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis_solution.ipynb
-2024-12-25 12:48:03,056 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis_solution.ipynb
-2024-12-25 12:48:03,056 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-25 12:48:03,058 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-25 12:48:03,058 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-25 12:48:03,058 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-25 12:48:03,064 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-25 12:48:03,065 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-25 12:48:03,065 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-25 12:48:03,067 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-25 12:48:03,067 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-25 12:48:03,067 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-25 12:48:03,072 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-25 12:48:03,072 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-25 12:48:03,072 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-25 12:48:03,077 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-25 12:48:03,077 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-25 12:48:03,077 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-25 12:48:03,081 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-25 12:48:03,081 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-25 12:48:03,081 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-25 12:48:03,086 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-25 12:48:03,086 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-25 12:48:03,086 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-25 12:48:03,090 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-25 12:48:03,090 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-25 12:48:03,091 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-25 12:48:03,092 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-25 12:48:03,092 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-25 12:48:03,092 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-25 12:48:03,093 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-25 12:48:03,093 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-25 12:48:03,094 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-25 12:48:03,095 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-25 12:48:03,095 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-25 12:48:03,095 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-25 12:48:03,098 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-25 12:48:03,099 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-25 12:48:03,099 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-25 12:48:03,100 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-25 12:48:03,100 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-25 12:48:03,100 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-25 12:48:03,103 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-25 12:48:03,103 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-25 12:48:03,103 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-25 12:48:03,106 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-25 12:48:03,106 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-25 12:48:03,106 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-25 12:48:03,110 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-25 12:48:03,110 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-25 12:48:03,111 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-25 12:48:03,115 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-25 12:48:03,116 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-25 12:48:03,116 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-25 12:48:03,124 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-25 12:48:03,124 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-25 12:48:03,124 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-25 12:48:03,128 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-25 12:48:03,128 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-25 12:48:03,129 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-25 12:48:03,133 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-25 12:48:03,133 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-25 12:48:03,133 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-25 12:48:03,136 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-25 12:48:03,136 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-25 12:48:03,136 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-25 12:48:03,137 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-25 12:48:03,138 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-25 12:48:03,138 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-25 12:48:03,139 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-25 12:48:03,139 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-25 12:48:03,140 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-25 12:48:03,144 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-25 12:48:03,145 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-25 12:48:03,145 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-25 12:48:03,146 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-25 12:48:03,146 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-25 12:48:03,147 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-25 12:48:03,153 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-25 12:48:03,154 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-25 12:48:03,154 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-25 12:48:03,155 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-25 12:48:03,155 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-25 12:48:03,156 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-25 12:48:03,157 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-25 12:48:03,157 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-25 12:48:03,157 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-25 12:48:03,158 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-25 12:48:03,159 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-25 12:48:03,159 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-25 12:48:03,173 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-25 12:48:03,173 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-25 12:48:03,173 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-25 12:48:03,175 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-25 12:48:03,175 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-25 12:48:03,175 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-25 12:48:03,184 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-25 12:48:03,184 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-25 12:48:03,185 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-25 12:48:03,188 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-25 12:48:03,188 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-25 12:48:03,189 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-25 12:48:03,190 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-25 12:48:03,191 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-25 12:48:03,191 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-25 12:48:03,192 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-25 12:48:03,192 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-25 12:48:03,193 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-25 12:48:03,193 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-25 12:48:03,194 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-25 12:48:03,194 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-25 12:48:03,195 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-25 12:48:03,195 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-25 12:48:03,195 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-25 12:48:03,198 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-25 12:48:03,198 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-25 12:48:03,198 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-25 12:48:03,201 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-25 12:48:03,201 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-25 12:48:03,201 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-25 12:48:03,202 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-25 12:48:03,202 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-25 12:48:03,203 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-25 12:48:03,205 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-25 12:48:03,205 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-25 12:48:03,205 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-25 12:48:03,206 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-25 12:48:03,207 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-25 12:48:03,207 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-25 12:48:03,210 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-25 12:48:03,210 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-25 12:48:03,210 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-25 12:48:03,212 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-25 12:48:03,212 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-25 12:48:03,212 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-25 12:48:03,214 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-25 12:48:03,214 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-25 12:48:03,214 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-25 12:48:03,215 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-25 12:48:03,216 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-25 12:48:03,216 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-25 12:48:03,217 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-25 12:48:03,218 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-25 12:48:03,218 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-25 12:48:03,219 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-25 12:48:03,219 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-25 12:48:03,219 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-25 12:48:03,221 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-25 12:48:03,221 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-25 12:48:03,222 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-25 12:48:03,223 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-25 12:48:03,223 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-25 12:48:03,224 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-25 12:48:03,226 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-25 12:48:03,226 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-25 12:48:03,227 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-25 12:48:03,228 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-25 12:48:03,228 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-25 12:48:03,229 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-25 12:48:03,230 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-25 12:48:03,230 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-25 12:48:03,230 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-25 12:48:03,232 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-25 12:48:03,232 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-25 12:48:03,233 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-25 12:48:03,235 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-25 12:48:03,235 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-25 12:48:03,235 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-25 12:48:03,236 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-25 12:48:03,237 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-25 12:48:03,237 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-25 12:48:03,238 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-25 12:48:03,238 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-25 12:48:03,238 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-25 12:48:03,240 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-25 12:48:03,240 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-25 12:48:03,240 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-25 12:48:03,242 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-25 12:48:03,242 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-25 12:48:03,242 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-25 12:48:03,244 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-25 12:48:03,244 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-25 12:48:03,244 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-25 12:48:03,246 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-25 12:48:03,246 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-25 12:48:03,246 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-25 12:48:03,247 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-25 12:48:03,248 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-25 12:48:03,248 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-25 12:48:03,250 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-25 12:48:03,250 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-25 12:48:03,250 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\data.ipynb
-2024-12-25 12:48:03,252 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\data.ipynb
-2024-12-25 12:48:03,252 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\data.ipynb
-2024-12-25 12:48:03,252 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-25 12:48:03,253 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-25 12:48:03,254 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-25 12:48:03,254 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-25 12:48:03,258 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-25 12:48:03,258 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-25 12:48:03,259 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-25 12:48:03,260 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-25 12:48:03,260 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-25 12:48:03,260 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-25 12:48:03,261 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-25 12:48:03,261 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-25 12:48:03,262 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-25 12:48:03,265 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-25 12:48:03,265 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-25 12:48:03,265 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-25 12:48:03,270 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-25 12:48:03,270 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-25 12:48:03,271 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-25 12:48:03,272 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-25 12:48:03,272 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-25 12:48:03,272 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-25 12:48:03,279 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-25 12:48:03,279 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-25 12:48:03,280 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-25 12:48:03,286 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-25 12:48:03,286 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-25 12:48:03,286 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-25 12:48:03,293 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-25 12:48:03,294 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-25 12:48:03,294 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-25 12:48:03,295 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-25 12:48:03,295 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-25 12:48:03,295 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-25 12:48:03,299 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-25 12:48:03,299 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-25 12:48:03,299 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-25 12:48:03,303 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-25 12:48:03,303 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-25 12:48:03,304 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-25 12:48:03,306 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-25 12:48:03,307 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-25 12:48:03,307 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-25 12:48:03,308 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-25 12:48:03,308 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-25 12:48:03,309 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-25 12:48:03,310 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-25 12:48:03,310 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-25 12:48:03,310 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-25 12:48:03,311 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-25 12:48:03,311 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-25 12:48:03,312 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-25 12:48:03,313 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-25 12:48:03,313 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-25 12:48:03,313 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-25 12:48:03,314 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-25 12:48:03,314 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-25 12:48:03,314 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-25 12:48:03,315 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-25 12:48:03,316 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-25 12:48:03,316 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-25 12:48:03,317 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-25 12:48:03,317 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-25 12:48:03,317 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-25 12:48:03,318 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-25 12:48:03,319 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-25 12:48:03,319 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-25 12:48:03,320 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-25 12:48:03,320 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-25 12:48:03,320 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-25 12:48:03,321 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-25 12:48:03,322 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-25 12:48:03,322 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-25 12:48:03,323 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-25 12:48:03,323 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-25 12:48:03,323 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-2024-12-25 12:48:03,324 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-2024-12-25 12:48:03,325 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-2024-12-25 12:48:03,325 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-25 12:48:03,327 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-25 12:48:03,327 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-25 12:48:03,327 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-25 12:48:03,328 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-25 12:48:03,328 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-25 12:48:03,328 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-25 12:48:03,330 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-25 12:48:03,330 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-25 12:48:03,330 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-25 12:48:03,331 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-25 12:48:03,331 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-25 12:48:03,332 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-25 12:48:03,336 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-25 12:48:03,337 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-25 12:48:03,337 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-25 12:48:03,338 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-25 12:48:03,338 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-25 12:48:03,338 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-2024-12-25 12:48:05,837 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-2024-12-25 12:48:05,837 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-25 12:48:05,838 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-25 12:48:05,839 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-25 12:48:05,839 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-25 12:48:05,840 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-25 12:48:05,840 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-25 12:48:05,841 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-25 12:48:05,842 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-25 12:48:05,842 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-25 12:48:05,842 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-25 12:48:05,843 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-25 12:48:05,843 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-25 12:48:05,843 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-25 12:48:05,844 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-25 12:48:05,844 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-25 12:48:05,845 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-25 12:48:05,846 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-25 12:48:05,846 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-25 12:48:05,846 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-25 12:48:05,853 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-25 12:48:05,853 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-25 12:48:05,853 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-25 12:48:05,854 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-25 12:48:05,855 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-25 12:48:05,855 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-25 12:48:05,856 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-25 12:48:05,856 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-25 12:48:05,856 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-25 12:48:05,859 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-25 12:48:05,860 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-25 12:48:05,860 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-25 12:48:05,861 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-25 12:48:05,861 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-25 12:48:05,861 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_7\PA\PA_2_7_solution.ipynb
-2024-12-25 12:48:08,408 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_7\PA\PA_2_7_solution.ipynb
-2024-12-25 12:48:08,408 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_7\PA\PA_2_7_Times_Tables.ipynb
-2024-12-25 12:48:10,954 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_7\PA\PA_2_7_Times_Tables.ipynb
-2024-12-25 12:48:11,172 - INFO - Synchronization completed successfully
+INFO: === Starting synchronization at 2024-12-27 13:21:13 ===
+INFO: Searching in: C:\Users\ncore\Desktop\2024-files\content
+INFO: Found 118 notebooks
+INFO: [1/118] Processing GA_1_1\Task_2_solution.ipynb
+INFO: No changes detected
+INFO: [2/118] Processing GA_1_2\Analysis.ipynb
+INFO: No changes detected
+INFO: [3/118] Processing GA_1_2\Analysis_solution.ipynb
+INFO: No changes detected
+INFO: [4/118] Processing GA_1_3\Analysis.ipynb
+INFO: No changes detected
+INFO: [5/118] Processing GA_1_3\Analysis_Solution.ipynb
+INFO: No changes detected
+INFO: [6/118] Processing GA_1_3\Warmup.ipynb
+INFO: No changes detected
+INFO: [7/118] Processing GA_1_4\Analysis.ipynb
+INFO: No changes detected
+INFO: [8/118] Processing GA_1_4\Analysis_solution.ipynb
+INFO: No changes detected
+INFO: [9/118] Processing GA_1_5\Analysis.ipynb
+INFO: No changes detected
+INFO: [10/118] Processing GA_1_5\Analysis_solution.ipynb
+INFO: No changes detected
+INFO: [11/118] Processing GA_1_5\central_diff_illustration.ipynb
+INFO: No changes detected
+INFO: [12/118] Processing GA_1_6\Analysis.ipynb
+INFO: No changes detected
+INFO: [13/118] Processing GA_1_6\Analysis_solution.ipynb
+INFO: No changes detected
+INFO: [14/118] Processing GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: No changes detected
+INFO: [15/118] Processing GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: No changes detected
+INFO: [16/118] Processing GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: No changes detected
+INFO: [17/118] Processing GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: No changes detected
+INFO: [18/118] Processing GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: No changes detected
+INFO: [19/118] Processing GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: No changes detected
+INFO: [20/118] Processing GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: No changes detected
+INFO: [21/118] Processing GA_1_8\Analysis.ipynb
+INFO: No changes detected
+INFO: [22/118] Processing GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: No changes detected
+INFO: [23/118] Processing GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: No changes detected
+INFO: [24/118] Processing GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: No changes detected
+INFO: [25/118] Processing GA_2_1\Analysis.ipynb
+INFO: No changes detected
+INFO: [26/118] Processing GA_2_1\Analysis_solution.ipynb
+INFO: No changes detected
+INFO: [27/118] Processing GA_2_1\mesh_dev.ipynb
+INFO: No changes detected
+INFO: [28/118] Processing GA_2_1\mesh_tips.ipynb
+INFO: No changes detected
+INFO: [29/118] Processing GA_2_1\mesh\mesh.ipynb
+INFO: No changes detected
+INFO: [30/118] Processing GA_2_2\the_big_M.ipynb
+INFO: No changes detected
+INFO: [31/118] Processing GA_2_3\Analysis.ipynb
+INFO: No changes detected
+INFO: [32/118] Processing GA_2_3\Analysis_solution.ipynb
+INFO: No changes detected
+INFO: [33/118] Processing GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: No changes detected
+INFO: [34/118] Processing GA_2_4\GA_2_4_solution.ipynb
+INFO: No changes detected
+INFO: [35/118] Processing GA_2_5\Analysis_GA.ipynb
+INFO: No changes detected
+INFO: [36/118] Processing GA_2_5\Analysis_GA_solution.ipynb
+INFO: No changes detected
+INFO: [37/118] Processing GA_2_5\Analysis_LP.ipynb
+INFO: No changes detected
+INFO: [38/118] Processing GA_2_5\Analysis_LP_solution.ipynb
+INFO: No changes detected
+INFO: [39/118] Processing GA_2_6\Analysis.ipynb
+INFO: No changes detected
+INFO: [40/118] Processing GA_2_6\Analysis_solution.ipynb
+INFO: No changes detected
+INFO: [41/118] Processing GA_2_7\rain_solution.ipynb
+INFO: No changes detected
+INFO: [42/118] Processing tutorials\Week_1_3\Analysis.ipynb
+INFO: No changes detected
+INFO: [43/118] Processing tutorials\Week_1_5\Tutorial.ipynb
+INFO: No changes detected
+INFO: [44/118] Processing tutorials\Week_1_6\Tutorial.ipynb
+INFO: No changes detected
+INFO: [45/118] Processing week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: No changes detected
+INFO: [46/118] Processing Week_1_2\In_Class_Activity.ipynb
+INFO: No changes detected
+INFO: [47/118] Processing Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: No changes detected
+INFO: [48/118] Processing Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: No changes detected
+INFO: [49/118] Processing Week_1_2\PA_1_2_solution.ipynb
+INFO: No changes detected
+INFO: [50/118] Processing Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: No changes detected
+INFO: [51/118] Processing Week_1_2\WS_1_2_solution.ipynb
+INFO: No changes detected
+INFO: [52/118] Processing week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: No changes detected
+INFO: [53/118] Processing week_1_3\PA_1_3_solution.ipynb
+INFO: No changes detected
+INFO: [54/118] Processing week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: No changes detected
+INFO: [55/118] Processing week_1_3\WS_1_3_solution.ipynb
+INFO: No changes detected
+INFO: [56/118] Processing Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: No changes detected
+INFO: [57/118] Processing Week_1_4\WS_1_4_solution.ipynb
+INFO: No changes detected
+INFO: [58/118] Processing week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: No changes detected
+INFO: [59/118] Processing week_1_5\WS_1_5_solution.ipynb
+INFO: No changes detected
+INFO: [60/118] Processing week_1_5\PA\PA_1_5_solution.ipynb
+INFO: No changes detected
+INFO: [61/118] Processing week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: No changes detected
+INFO: [62/118] Processing week_1_5\PA_ice\PA_plots.ipynb
+INFO: No changes detected
+INFO: [63/118] Processing Week_1_6\WS_1_6_solution.ipynb
+INFO: No changes detected
+INFO: [64/118] Processing Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: No changes detected
+INFO: [65/118] Processing Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: No changes detected
+INFO: [66/118] Processing Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: No changes detected
+INFO: [67/118] Processing Week_1_7\scipy_stats.ipynb
+INFO: No changes detected
+INFO: [68/118] Processing Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: No changes detected
+INFO: [69/118] Processing Week_1_7\WS_1_7_solution.ipynb
+INFO: No changes detected
+INFO: [70/118] Processing Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: No changes detected
+INFO: [71/118] Processing Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: No changes detected
+INFO: [72/118] Processing Week_1_8\data.ipynb
+INFO: No changes detected
+INFO: [73/118] Processing Week_1_8\intersection.ipynb
+INFO: No changes detected
+INFO: [74/118] Processing Week_1_8\test_bivariate.ipynb
+INFO: No changes detected
+INFO: [75/118] Processing Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: No changes detected
+INFO: [76/118] Processing Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: No changes detected
+INFO: [77/118] Processing Week_1_8\WS\linearity_or_not.ipynb
+INFO: No changes detected
+INFO: [78/118] Processing Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: No changes detected
+INFO: [79/118] Processing Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: No changes detected
+INFO: [80/118] Processing Week_2_1\WS_2_1_solution.ipynb
+INFO: No changes detected
+INFO: [81/118] Processing Week_2_1\WS_2_1_wiggle.ipynb
+INFO: No changes detected
+INFO: [82/118] Processing Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: No changes detected
+INFO: [83/118] Processing Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: No changes detected
+INFO: [84/118] Processing Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: No changes detected
+INFO: [85/118] Processing Week_2_1\PA\PA_dev.ipynb
+INFO: No changes detected
+INFO: [86/118] Processing Week_2_1\PA\U.ipynb
+INFO: No changes detected
+INFO: [87/118] Processing Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: No changes detected
+INFO: [88/118] Processing Week_2_2\PA_2_2_solution.ipynb
+INFO: No changes detected
+INFO: [89/118] Processing Week_2_2\WS_2_2_more_support.ipynb
+INFO: No changes detected
+INFO: [90/118] Processing Week_2_2\WS_2_2_solution.ipynb
+INFO: No changes detected
+INFO: [91/118] Processing Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: No changes detected
+INFO: [92/118] Processing Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: No changes detected
+INFO: [93/118] Processing Week_2_2\old\PA_2_1_solution.ipynb
+INFO: No changes detected
+INFO: [94/118] Processing Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: No changes detected
+INFO: [95/118] Processing Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: No changes detected
+INFO: [96/118] Processing Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: No changes detected
+INFO: [97/118] Processing Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: No changes detected
+INFO: [98/118] Processing Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: No changes detected
+INFO: [99/118] Processing Week_2_3\WS_2_3_solution.ipynb
+INFO: No changes detected
+INFO: [100/118] Processing Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: No changes detected
+INFO: [101/118] Processing Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: No changes detected
+INFO: [102/118] Processing Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: No changes detected
+INFO: [103/118] Processing Week_2_4\WS_2_4_solution.ipynb
+INFO: No changes detected
+INFO: [104/118] Processing Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: No changes detected
+INFO: [105/118] Processing Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: No changes detected
+INFO: [106/118] Processing Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: No changes detected
+INFO: [107/118] Processing Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: No changes detected
+INFO: [108/118] Processing Week_2_5\WS_2_5_solution.ipynb
+INFO: No changes detected
+INFO: [109/118] Processing Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: No changes detected
+INFO: [110/118] Processing Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: No changes detected
+INFO: [111/118] Processing Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: No changes detected
+INFO: [112/118] Processing Week_2_6\WS_2_6_solution.ipynb
+INFO: No changes detected
+INFO: [113/118] Processing Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: No changes detected
+INFO: [114/118] Processing Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: No changes detected
+INFO: [115/118] Processing Week_2_7\WS_2_7_solution.ipynb
+INFO: No changes detected
+INFO: [116/118] Processing Week_2_7\WS_2_7_student.ipynb
+INFO: No changes detected
+INFO: [117/118] Processing Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: No changes detected
+INFO: [118/118] Processing Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: No changes detected
+INFO: === Completed at 2024-12-27 13:21:14 (Duration: 0:00:00.328337) ===

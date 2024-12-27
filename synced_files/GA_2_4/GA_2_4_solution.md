@@ -1,3 +1,5 @@
+<userStyle>Normal</userStyle>
+
 ---
 jupyter:
   jupytext:

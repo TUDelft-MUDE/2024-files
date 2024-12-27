@@ -1,0 +1,15 @@
+content_dir: "content"
+output_dir: "synced_files"
+formats:
+  - markdown
+  - python
+  - clean_python
+  - html
+html_options:
+  template: "basic"
+  include_code: true
+  include_outputs: true
+# Uncomment and modify if you want to process specific notebooks only
+# specific_notebooks:
+#   - "path/to/notebook1.ipynb"
+#   - "path/to/notebook2.ipynb"
