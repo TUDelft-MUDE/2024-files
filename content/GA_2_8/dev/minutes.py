@@ -9,6 +9,9 @@ completely define a minute using:
   - list of integers representing consecutive minutes from 0 to 1440*(total days)
   - list of days where each item is either None or a list of integers representing the minutes in that day
 
+Assume that minute 0 of the hour belongs to that hour:
+        - 00:00 to 00:59 belongs to hour 0
+
 How to specify:
 
 for any item D, M, H:
@@ -283,13 +286,26 @@ class Minutes:
         return days + day
     
     @staticmethod
-    def construct_sparse_array(minutes: list):
+    def sparse_list_construct(shape=(60, 1440)):
         """constructs a sparse array from a list of minutes"""
         import numpy as np
-        from scipy.sparse import csr_matrix
-        sparse_array = np.zeros((60, 1440))
+        from scipy.sparse import lil_matrix
+        sparse_list = lil_matrix(shape, dtype=np.int32)
+        return sparse_list
+    
+    @staticmethod
+    def sparse_list_add(sparse_list, minutes: list):
+        """add minutes to the sparse list"""
         for minute in minutes:
             day = minute // 1440
             minute_of_day = minute % 1440
-            sparse_array[day, minute_of_day] = 1
-        return csr_matrix(sparse_array)
+            sparse_list[day, minute_of_day] = 1
+        return sparse_list
+    
+    @staticmethod
+    def get_day_hour_min(minute: int)-> tuple:
+        """returns day, hour, minute from minute"""
+        day = minute // 1440 + 1
+        hour = (minute - (day - 1)*1440) // 60
+        min = minute % 60
+        return day, hour, min

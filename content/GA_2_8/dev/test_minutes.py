@@ -1,4 +1,22 @@
 from minutes import *
+from scipy.sparse import lil_matrix
+
+def test_minutes_spec():
+    """Defines key behavior of Minutes class."""
+    try_this = Minutes.get_minutes([1, 1, 1])
+    assert type(try_this)==list
+    assert len(try_this)==1
+    try_this = Minutes.get_minutes([1])
+    assert type(try_this)==list
+    assert len(try_this)==1440
+    assert all(isinstance(i, int) for i in try_this)
+    sparse_list = Minutes.sparse_list_construct()
+    assert isinstance(sparse_list, lil_matrix)
+    sparse_list = Minutes.sparse_list_add(sparse_list, try_this)
+    assert isinstance(sparse_list, lil_matrix)
+    assert sparse_list.size==1440
+    assert all(isinstance(i[0], np.int32) for i in sparse_list.nonzero())
+
 
 def test_single_minutes():
     assert Minutes.get_minutes([1, 1, 1])==[61]

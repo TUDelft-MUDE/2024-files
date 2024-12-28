@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from minutes import *
 from datetime import datetime, timedelta
+from scipy.sparse import lil_matrix
+
 class Tickets:
     def __init__(self,
                  name="no name",
@@ -10,9 +12,9 @@ class Tickets:
         self.name = name
         self.reference = reference
         self.days = days
-        self.tickets = np.zeros((days, 1440))
-        self.empty = np.zeros((days, 1440))
         self.cost = 3.0
+        self.tickets = []
+        self.tickets_sparse = Minutes.sparse_list_construct()
 
     def status(self):
         print(f"Name: {self.name}")
@@ -23,22 +25,18 @@ class Tickets:
         print()
 
     def N(self, verbose=None) -> int:
-        N = np.sum(self.tickets)
-        assert N % 1 == 0, "Non-integer ticket count"
-        N = int(N)
+        N = len(self.tickets)
         if verbose:
             print(f"Number of tickets: {N}")
         return N
 
     def show(self):
         fig, ax = plt.subplots()
-        for day in range(self.days):
-            for minute in range(1440):
-                if self.tickets[day, minute] == 1:
-                    hour = minute // 60
-                    minute_in_hour = minute % 60
-                    rect = plt.Rectangle((day, hour + minute_in_hour / 60), 1, 1 / 60, color='blue')
-                    ax.add_patch(rect)
+        for minute in self.tickets:
+            day, hour, minute_in_hour = Minutes.get_day_hour_min(minute)
+            rect = plt.Rectangle((day - 0.5, hour + minute_in_hour/60 - 0.5/60),
+                                 1, 1/60, color='blue')
+            ax.add_patch(rect)
         ax.set_xlim(0, self.days)
         ax.set_ylim(0, 24)
         ax.set_xlabel('Day Number (April 1 is Day 0)')
@@ -64,45 +62,48 @@ class Tickets:
 
     def add(self, new: list, verbose=None):
         """add bets (tickets)
-        List
-
-        Assume that minute 0 of the hour belongs to that hour:
-        - 00:00 to 00:59 belongs to hour 0
         """
-        assert isinstance(new, list), "Invalid input"
-        minutes = Minutes.get_minutes(new)
-        new_tickets = Minutes.construct_sparse_array(minutes)
+        assert isinstance(new, list), "input must be a list"
+        new_tickets = Minutes.get_minutes(new)
         self.update(new_tickets, verbose)
 
     def update(self, new, verbose=None):
         # assert np.all(np.isin(new, [0, 1])), "Invalid input"
         N_old = self.N()
-        N_new = np.sum(new)
-        duplicates = (self.tickets + new) > 1
-        new_net = (self.tickets + new) == 1
-        assert N_old%1 == 0, "Non-integer count for N_old"
-        assert N_new%1 == 0, "Non-integer count for N_new"
-        assert np.sum(duplicates)%1 == 0, "Non-integer count for duplicates"
-        assert np.sum(new_net)%1 == 0, "Non-integer count for new_net"
+        N_new = len(new)
+        _, duplicates, _ = np.intersect1d(new,
+                                          self.tickets,
+                                          return_indices=True)
+        new_net = N_new - len(duplicates)
+        assert isinstance(N_old, int), "Non-integer count for N_old"
+        assert isinstance(N_new, int), "Non-integer count for N_new"
+        assert isinstance(len(duplicates), int), "Non-integer count for duplicates"
+        assert isinstance(new_net, int), "Non-integer count for new_net"
         if verbose:
-            print(f"Currently have: {int(N_old)}")
-            print(f"Attempting to add: {int(N_new)}")
-            print(f"Duplicates: {int(np.sum(duplicates))}")
-            print(f"Net change: {int(np.sum(new_net))}")
-            print(f"New total: {int(N_old + np.sum(new_net))}")
+            print(f"Attempting to update ticket list:")
+            print(f"  Current: \t\t{N_old}")
+            print(f"  New (attempted): \t{N_new}")
+            print(f"  Duplicate: \t\t{len(duplicates)}")
+            print(f"  Net change: \t\t{new_net}")
+            print(f"  New total: \t\t{N_old + new_net}")
+            print()
         
-        try_update = self.tickets + new_net
+        try_update = [i for i in new if i not in self.tickets]
+        assert len(try_update) == new_net, "mismatch, number of duplicates!"
+        assert len(try_update) == len(set(try_update)), "duplicate values present!"
+        
+        self.tickets += try_update
+        self.tickets.sort()
+        assert len(self.tickets) == len(set(self.tickets)), "duplicate values present!"
+        assert len(self.tickets) == N_old + new_net, "mismatch, ticket count!"
+        assert len(self.tickets) == self.N(), "mismatch, ticket count!"
 
-        assert duplicates.shape == self.tickets.shape, "Shape mismatch: duplicates"
-        assert new_net.shape == self.tickets.shape, "Shape mismatch: net"
-        assert new.shape == self.tickets.shape, "Shape mismatch: new"
-        assert np.sum(try_update) == N_old + np.sum(new_net), "Ticket count mismatch"
-        # assert np.all(np.isin(try_update, [0, 1])), "Invalid ticket count"
+        self.tickets_sparse = Minutes.sparse_list_add(self.tickets_sparse,
+                                                      try_update)
+        assert self.tickets_sparse.size == len(self.tickets), "size mismatch, list and lil_matrix"
 
-        self.tickets += new_net
         if verbose:
-            print(f"Update successful")
-            self.N(verbose)
+            print(f"Update successful! Currently have {self.N()} tickets.\n")
 
     
 
