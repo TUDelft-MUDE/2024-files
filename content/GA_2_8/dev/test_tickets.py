@@ -13,4 +13,5 @@ def test_ticket_spec():
     assert t.tickets_sparse.shape==(60, 1440)
     t.add([1, 0])
     assert t.N()==60
-    assert all(isinstance(i[0], np.int32) for i in t.tickets_sparse.nonzero())
+    assert all(isinstance(i[0], np.int32) \
+               for i in t.tickets_sparse.nonzero())
