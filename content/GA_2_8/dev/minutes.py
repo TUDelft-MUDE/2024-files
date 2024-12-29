@@ -56,6 +56,7 @@ Notes:
 import numpy as np
 import matplotlib.pyplot as plt
 from array import array
+from typing import Union
 
 class Minutes:
     def __init__(self,
@@ -70,13 +71,15 @@ class Minutes:
         self.cost = 3.0
 
     @staticmethod
-    def get_list_minutes(minutes: list or int)-> list:
+    def get_list_minutes(minutes: Union[list, int])-> list:
         """minutes in an hour, for assembly into list"""
         if isinstance(minutes, int):
-            assert 0 <= minutes < 60, "Invalid input: minutes should be between 0 and 59"
+            assert 0 <= minutes < 60,\
+                "Invalid input: minutes should be between 0 and 59"
             return [minutes]
         elif isinstance(minutes, list):
-            assert all(0 <= minute < 60 for minute in minutes), "Invalid input: minutes should be between 0 and 59"
+            assert all(0 <= minute < 60 for minute in minutes),\
+                "Invalid input: minutes should be between 0 and 59"
             if len(minutes) == 2:
                 return list(range(minutes[0], minutes[1] + 1))
             else:
@@ -84,16 +87,19 @@ class Minutes:
                     minutes.pop(-1)
                 return minutes
         else:
-            raise ValueError("Invalid input: minutes should be a list or an integer")
+            raise ValueError(("Invalid input: minutes should be a "
+                             +"list or an integer"))
 
     @staticmethod
-    def get_list_hours(hours: list | int)-> list:
+    def get_list_hours(hours: Union[list, int])-> list:
         """hours in a day, for assembly into list"""
         if isinstance(hours, int):
-            assert 0 <= hours < 24, "Invalid input: hours should be between 0 and 23"
+            assert 0 <= hours < 24,\
+                "Invalid input: hours should be between 0 and 23"
             return [hours]
         elif isinstance(hours, list):
-            assert all(0 <= hour < 24 for hour in hours), "Invalid input: hours should be between 0 and 23"
+            assert all(0 <= hour < 24 for hour in hours),\
+                "Invalid input: hours should be between 0 and 23"
             if len(hours) == 2:
                 return list(range(hours[0], hours[1] + 1))
             else:
@@ -101,34 +107,42 @@ class Minutes:
                     hours.pop(-1)
                 return hours
         else:
-            raise ValueError("Invalid input: hours should be a list or an integer")
+            raise ValueError(("Invalid input: hours should be a "
+                              +"list or an integer"))
     
     @staticmethod
-    def get_list_days(days: list | int)-> list:
+    def get_list_days(days: Union[list, int])-> list:
         """days absolute, for assembly into list"""
         if isinstance(days, int):
-            assert days > 0, "Invalid input: days should be greater than 0."
+            assert days > 0,\
+                "Invalid input: days should be greater than 0."
             return [days]
         elif isinstance(days, list):
-            assert all(day > 0 for day in days), "Invalid input: days should be greater than 0."
+            assert all(day > 0 for day in days),\
+                "Invalid input: days should be greater than 0."
             if len(days) == 2:
                 return list(range(days[0], days[1] + 1))
             else:
-                # first enforce that repeating the last day forces non-inclusive
+                # first enforce that repeating the last day
+                # forces non-inclusive
                 if len(days)==3 and days[-1] == days[-2]:
                     days.pop(-1)
                 return days
         else:
-            raise ValueError("Invalid input: days should be a list or an integer")
+            raise ValueError(("Invalid input: days should be a "
+                             +"list or an integer"))
 
 
 
     @staticmethod
-    def combine_hours_minutes(hours: list | int, minutes: list | int | None)-> list:
+    def combine_hours_minutes(hours: Union[list, int,  None],
+                              minutes: Union[list, int, None])-> list:
         """assumes day 0, hour 0"""
         if minutes is None:
             minutes = list(range(60))
         else:
+            assert isinstance(minutes, int) or isinstance(minutes, list),\
+                "minutes must be either list, int or None."
             minutes = Minutes.get_list_minutes(minutes)
 
         if hours is None:
@@ -139,11 +153,12 @@ class Minutes:
         list_minutes = []
         for hour in hours:
             start_minute = hour*60
-            list_minutes.extend([start_minute + minute for minute in minutes])
+            list_minutes.extend([start_minute + minute \
+                                 for minute in minutes])
         return list_minutes
     
     @staticmethod
-    def combine_days_hours(days: list | int, hours: list)-> list:
+    def combine_days_hours(days: Union[list, int], hours: list)-> list:
         """assumes day 0 and complete list of all minutes in hours
         i.e., assumes combine_hours_minutes has been run already...
          ...hours is a list of minutes!!
@@ -153,7 +168,8 @@ class Minutes:
         list_minutes = []
         for day in days:
             start_minute = (day - 1)*1440
-            list_minutes.extend([start_minute + minute for minute in hours])
+            list_minutes.extend([start_minute + minute \
+                                 for minute in hours])
 
         return list_minutes
     
@@ -217,12 +233,16 @@ class Minutes:
                 for i, day in enumerate(days):
                     days[i] = Minutes.get_absolute_day(month, day)
         elif isinstance(months, list) and len(months) == 2:
-            assert len(months) == 2, "Invalid input: month should be a list of 2 strings"
+            assert len(months) == 2,\
+                "Invalid input: month should be a list of 2 strings"
             month1 = Minutes.get_month_number(months[0])
             month2 = Minutes.get_month_number(months[1])
-            assert month1 > 0 and month1 < 13, "Invalid input: month1 should be 1-12"
-            assert month2 > 0 and month2 < 13, "Invalid input: month2 should be 1-12"
-            assert month1 < month2, "Invalid input: month1 should be before month2"
+            assert month1 > 0 and month1 < 13,\
+                "Invalid input: month1 should be 1-12"
+            assert month2 > 0 and month2 < 13,\
+                "Invalid input: month2 should be 1-12"
+            assert month1 < month2,\
+                "Invalid input: month1 should be before month2"
             
             day1 = Minutes.get_absolute_day(month1, days[0])
             day2 = Minutes.get_absolute_day(month2, days[1])
@@ -240,20 +260,30 @@ class Minutes:
 
     @staticmethod
     def get_month_number(month: str) -> int:
-        assert isinstance(month, str), "Invalid input: month should be a string"
+        assert isinstance(month, str),\
+            "Invalid input: month should be a string"
         valid_strings = [
-            ['ja', 'JA', 'january', 'January', 'jan', 'Jan', 'JANUARY', 'JAN', '01'],
-            ['f', 'F', 'february', 'February', 'feb', 'Feb', 'FEBRUARY', 'FEB', '02'],
-            ['march', 'March', 'mar', 'Mar', 'MARCH', 'MAR', '03'],
-            ['a', 'A', 'april', 'April', 'apr', 'Apr', 'APRIL', 'APR', '04'],
+            ['ja', 'JA', 'january', 'January', 'jan',
+             'Jan', 'JANUARY', 'JAN', '01'],
+            ['f', 'F', 'february', 'February', 'feb',
+             'Feb', 'FEBRUARY', 'FEB', '02'],
+            ['march', 'March', 'mar', 'Mar', 'MARCH',
+             'MAR', '03'],
+            ['a', 'A', 'april', 'April', 'apr', 'Apr',
+             'APRIL', 'APR', '04'],
             ['may', 'May', 'MAY', '05'],
             ['june', 'June', 'jun', 'Jun', 'JUNE', 'JUN', '06'],
             ['july', 'July', 'jul', 'Jul', 'JULY', 'JUL', '07'],
-            ['a', 'A', 'august', 'August', 'aug', 'Aug', 'AUGUST', 'AUG', '08'],
-            ['s', 'S', 'september', 'September', 'sep', 'Sep', 'SEPTEMBER', 'SEP', '09'],
-            ['o', 'O', 'october', 'October', 'oct', 'Oct', 'OCTOBER', 'OCT', '10'],
-            ['n', 'N', 'november', 'November', 'nov', 'Nov', 'NOVEMBER', 'NOV', '11'],
-            ['d', 'D', 'december', 'December', 'dec', 'Dec', 'DECEMBER', 'DEC', '12']
+            ['a', 'A', 'august', 'August', 'aug', 'Aug',
+             'AUGUST', 'AUG', '08'],
+            ['s', 'S', 'september', 'September', 'sep',
+             'Sep', 'SEPTEMBER', 'SEP', '09'],
+            ['o', 'O', 'october', 'October', 'oct',
+             'Oct','OCTOBER', 'OCT', '10'],
+            ['n', 'N', 'november', 'November', 'nov',
+             'Nov', 'NOVEMBER', 'NOV', '11'],
+            ['d', 'D', 'december', 'December', 'dec',
+             'Dec', 'DECEMBER', 'DEC', '12']
         ]
         for i, month_list in enumerate(valid_strings, start=1):
             if month in month_list:
@@ -274,10 +304,13 @@ class Minutes:
     def get_absolute_day(month: int, day: int)-> int:
         """get absolute day number relative to April 1 (day 1).
         
-        uses 1-based indexing for days to be consistent with how day is specified on a ticket (as well as user input).
+        uses 1-based indexing for days to be consistent
+        with how day is specified on a ticket
+        (as well as user input).
         """
         if month < 4 or month > 6:
-            raise ValueError("Invalid month: month should be April, May or June")
+            raise ValueError(("Invalid month: month should be "
+                              +"April, May or June"))
 
         days = 0
         if month > 4:
