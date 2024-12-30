@@ -1,589 +1,248 @@
-<<<<<<< HEAD
-INFO: === Starting synchronization at 2024-12-27 13:21:13 ===
-INFO: Searching in: C:\Users\ncore\Desktop\2024-files\content
-INFO: Found 118 notebooks
-INFO: [1/118] Processing GA_1_1\Task_2_solution.ipynb
+INFO: === Starting synchronization at 2024-12-30 14:27:33 ===
+INFO: Searching in: C:\Users\rlanzafame\code\MUDE\2024-files\content
+INFO: Found 120 notebooks
+INFO: [1/120] Processing GA_1_1\Task_2_solution.ipynb
 INFO: No changes detected
-INFO: [2/118] Processing GA_1_2\Analysis.ipynb
+INFO: [2/120] Processing GA_1_2\Analysis.ipynb
 INFO: No changes detected
-INFO: [3/118] Processing GA_1_2\Analysis_solution.ipynb
+INFO: [3/120] Processing GA_1_2\Analysis_solution.ipynb
 INFO: No changes detected
-INFO: [4/118] Processing GA_1_3\Analysis.ipynb
+INFO: [4/120] Processing GA_1_3\Analysis.ipynb
 INFO: No changes detected
-INFO: [5/118] Processing GA_1_3\Analysis_Solution.ipynb
+INFO: [5/120] Processing GA_1_3\Analysis_Solution.ipynb
 INFO: No changes detected
-INFO: [6/118] Processing GA_1_3\Warmup.ipynb
+INFO: [6/120] Processing GA_1_3\Warmup.ipynb
 INFO: No changes detected
-INFO: [7/118] Processing GA_1_4\Analysis.ipynb
+INFO: [7/120] Processing GA_1_4\Analysis.ipynb
 INFO: No changes detected
-INFO: [8/118] Processing GA_1_4\Analysis_solution.ipynb
+INFO: [8/120] Processing GA_1_4\Analysis_solution.ipynb
 INFO: No changes detected
-INFO: [9/118] Processing GA_1_5\Analysis.ipynb
+INFO: [9/120] Processing GA_1_5\Analysis.ipynb
 INFO: No changes detected
-INFO: [10/118] Processing GA_1_5\Analysis_solution.ipynb
+INFO: [10/120] Processing GA_1_5\Analysis_solution.ipynb
 INFO: No changes detected
-INFO: [11/118] Processing GA_1_5\central_diff_illustration.ipynb
+INFO: [11/120] Processing GA_1_5\central_diff_illustration.ipynb
 INFO: No changes detected
-INFO: [12/118] Processing GA_1_6\Analysis.ipynb
+INFO: [12/120] Processing GA_1_6\Analysis.ipynb
 INFO: No changes detected
-INFO: [13/118] Processing GA_1_6\Analysis_solution.ipynb
+INFO: [13/120] Processing GA_1_6\Analysis_solution.ipynb
 INFO: No changes detected
-INFO: [14/118] Processing GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: [14/120] Processing GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
 INFO: No changes detected
-INFO: [15/118] Processing GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: [15/120] Processing GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
 INFO: No changes detected
-INFO: [16/118] Processing GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: [16/120] Processing GA_1_7\Solution\Force\Analysis_force_solution.ipynb
 INFO: No changes detected
-INFO: [17/118] Processing GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: [17/120] Processing GA_1_7\Student\Discharge\Analysis_discharge.ipynb
 INFO: No changes detected
-INFO: [18/118] Processing GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: [18/120] Processing GA_1_7\Student\Emissions\Analysis_emissions.ipynb
 INFO: No changes detected
-INFO: [19/118] Processing GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: [19/120] Processing GA_1_7\Student\Force\Analysis_force.ipynb
 INFO: No changes detected
-INFO: [20/118] Processing GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: [20/120] Processing GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
 INFO: No changes detected
-INFO: [21/118] Processing GA_1_8\Analysis.ipynb
+INFO: [21/120] Processing GA_1_8\Analysis.ipynb
 INFO: No changes detected
-INFO: [22/118] Processing GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: [22/120] Processing GA_1_8\solution\GA_1_8_solution_HT.ipynb
 INFO: No changes detected
-INFO: [23/118] Processing GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: [23/120] Processing GA_1_8\solution\GA_1_8_solution_hu.ipynb
 INFO: No changes detected
-INFO: [24/118] Processing GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: [24/120] Processing GA_1_8\solution\GA_1_8_solution_traffic.ipynb
 INFO: No changes detected
-INFO: [25/118] Processing GA_2_1\Analysis.ipynb
+INFO: [25/120] Processing GA_2_1\Analysis.ipynb
 INFO: No changes detected
-INFO: [26/118] Processing GA_2_1\Analysis_solution.ipynb
+INFO: [26/120] Processing GA_2_1\Analysis_solution.ipynb
 INFO: No changes detected
-INFO: [27/118] Processing GA_2_1\mesh_dev.ipynb
+INFO: [27/120] Processing GA_2_1\mesh_dev.ipynb
 INFO: No changes detected
-INFO: [28/118] Processing GA_2_1\mesh_tips.ipynb
+INFO: [28/120] Processing GA_2_1\mesh_tips.ipynb
 INFO: No changes detected
-INFO: [29/118] Processing GA_2_1\mesh\mesh.ipynb
+INFO: [29/120] Processing GA_2_1\mesh\mesh.ipynb
 INFO: No changes detected
-INFO: [30/118] Processing GA_2_2\the_big_M.ipynb
+INFO: [30/120] Processing GA_2_2\the_big_M.ipynb
 INFO: No changes detected
-INFO: [31/118] Processing GA_2_3\Analysis.ipynb
+INFO: [31/120] Processing GA_2_3\Analysis.ipynb
 INFO: No changes detected
-INFO: [32/118] Processing GA_2_3\Analysis_solution.ipynb
+INFO: [32/120] Processing GA_2_3\Analysis_solution.ipynb
 INFO: No changes detected
-INFO: [33/118] Processing GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: [33/120] Processing GA_2_4\GA_2_4_Beary_Icy.ipynb
 INFO: No changes detected
-INFO: [34/118] Processing GA_2_4\GA_2_4_solution.ipynb
+INFO: [34/120] Processing GA_2_4\GA_2_4_solution.ipynb
 INFO: No changes detected
-INFO: [35/118] Processing GA_2_5\Analysis_GA.ipynb
+INFO: [35/120] Processing GA_2_5\Analysis_GA.ipynb
 INFO: No changes detected
-INFO: [36/118] Processing GA_2_5\Analysis_GA_solution.ipynb
+INFO: [36/120] Processing GA_2_5\Analysis_GA_solution.ipynb
 INFO: No changes detected
-INFO: [37/118] Processing GA_2_5\Analysis_LP.ipynb
+INFO: [37/120] Processing GA_2_5\Analysis_LP.ipynb
 INFO: No changes detected
-INFO: [38/118] Processing GA_2_5\Analysis_LP_solution.ipynb
+INFO: [38/120] Processing GA_2_5\Analysis_LP_solution.ipynb
 INFO: No changes detected
-INFO: [39/118] Processing GA_2_6\Analysis.ipynb
+INFO: [39/120] Processing GA_2_6\Analysis.ipynb
 INFO: No changes detected
-INFO: [40/118] Processing GA_2_6\Analysis_solution.ipynb
+INFO: [40/120] Processing GA_2_6\Analysis_solution.ipynb
 INFO: No changes detected
-INFO: [41/118] Processing GA_2_7\rain_solution.ipynb
+INFO: [41/120] Processing GA_2_7\rain_solution.ipynb
 INFO: No changes detected
-INFO: [42/118] Processing tutorials\Week_1_3\Analysis.ipynb
+INFO: [42/120] Processing tutorials\Week_1_3\Analysis.ipynb
 INFO: No changes detected
-INFO: [43/118] Processing tutorials\Week_1_5\Tutorial.ipynb
+INFO: [43/120] Processing tutorials\Week_1_5\Tutorial.ipynb
 INFO: No changes detected
-INFO: [44/118] Processing tutorials\Week_1_6\Tutorial.ipynb
+INFO: [44/120] Processing tutorials\Week_1_6\Tutorial.ipynb
 INFO: No changes detected
-INFO: [45/118] Processing week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: [45/120] Processing Week_1_1\PA_1_1_Catch_Them_All.ipynb
 INFO: No changes detected
-INFO: [46/118] Processing Week_1_2\In_Class_Activity.ipynb
+INFO: [46/120] Processing Week_1_2\In_Class_Activity.ipynb
 INFO: No changes detected
-INFO: [47/118] Processing Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: [47/120] Processing Week_1_2\In_Class_Activity_Solution.ipynb
 INFO: No changes detected
-INFO: [48/118] Processing Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: [48/120] Processing Week_1_2\PA_1_2_Random_Adventure.ipynb
 INFO: No changes detected
-INFO: [49/118] Processing Week_1_2\PA_1_2_solution.ipynb
+INFO: [49/120] Processing Week_1_2\PA_1_2_solution.ipynb
 INFO: No changes detected
-INFO: [50/118] Processing Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: [50/120] Processing Week_1_2\WS_1_2_Pipe_Dreams.ipynb
 INFO: No changes detected
-INFO: [51/118] Processing Week_1_2\WS_1_2_solution.ipynb
+INFO: [51/120] Processing Week_1_2\WS_1_2_solution.ipynb
 INFO: No changes detected
-INFO: [52/118] Processing week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: [52/120] Processing week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
 INFO: No changes detected
-INFO: [53/118] Processing week_1_3\PA_1_3_solution.ipynb
+INFO: [53/120] Processing week_1_3\PA_1_3_solution.ipynb
 INFO: No changes detected
-INFO: [54/118] Processing week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: [54/120] Processing week_1_3\WS_1_3_Moving_Ice.ipynb
 INFO: No changes detected
-INFO: [55/118] Processing week_1_3\WS_1_3_solution.ipynb
+INFO: [55/120] Processing week_1_3\WS_1_3_solution.ipynb
 INFO: No changes detected
-INFO: [56/118] Processing Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: [56/120] Processing Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
 INFO: No changes detected
-INFO: [57/118] Processing Week_1_4\WS_1_4_solution.ipynb
+INFO: [57/120] Processing Week_1_4\WS_1_4_solution.ipynb
 INFO: No changes detected
-INFO: [58/118] Processing week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: [58/120] Processing week_1_5\WS_1_5_dont_integr_hate.ipynb
 INFO: No changes detected
-INFO: [59/118] Processing week_1_5\WS_1_5_solution.ipynb
+INFO: [59/120] Processing week_1_5\WS_1_5_solution.ipynb
 INFO: No changes detected
-INFO: [60/118] Processing week_1_5\PA\PA_1_5_solution.ipynb
+INFO: [60/120] Processing week_1_5\PA\PA_1_5_solution.ipynb
 INFO: No changes detected
-INFO: [61/118] Processing week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: [61/120] Processing week_1_5\PA\PA_1_5_useful_tricks.ipynb
 INFO: No changes detected
-INFO: [62/118] Processing week_1_5\PA_ice\PA_plots.ipynb
+INFO: [62/120] Processing week_1_5\PA_ice\PA_plots.ipynb
 INFO: No changes detected
-INFO: [63/118] Processing Week_1_6\WS_1_6_solution.ipynb
+INFO: [63/120] Processing Week_1_6\WS_1_6_solution.ipynb
 INFO: No changes detected
-INFO: [64/118] Processing Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: [64/120] Processing Week_1_6\WS_1_6_time_to_c_ode.ipynb
 INFO: No changes detected
-INFO: [65/118] Processing Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: [65/120] Processing Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
 INFO: No changes detected
-INFO: [66/118] Processing Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: [66/120] Processing Week_1_6\PA\PA_1_6_solution.ipynb
 INFO: No changes detected
-INFO: [67/118] Processing Week_1_7\scipy_stats.ipynb
+INFO: [67/120] Processing Week_1_7\scipy_stats.ipynb
 INFO: No changes detected
-INFO: [68/118] Processing Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: [68/120] Processing Week_1_7\WS_1_7_lets_be_concrete.ipynb
 INFO: No changes detected
-INFO: [69/118] Processing Week_1_7\WS_1_7_solution.ipynb
+INFO: [69/120] Processing Week_1_7\WS_1_7_solution.ipynb
 INFO: No changes detected
-INFO: [70/118] Processing Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: [70/120] Processing Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
 INFO: No changes detected
-INFO: [71/118] Processing Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: [71/120] Processing Week_1_7\PA\PA_1_7_solution.ipynb
 INFO: No changes detected
-INFO: [72/118] Processing Week_1_8\data.ipynb
+INFO: [72/120] Processing Week_1_8\data.ipynb
 INFO: No changes detected
-INFO: [73/118] Processing Week_1_8\intersection.ipynb
+INFO: [73/120] Processing Week_1_8\intersection.ipynb
 INFO: No changes detected
-INFO: [74/118] Processing Week_1_8\test_bivariate.ipynb
+INFO: [74/120] Processing Week_1_8\test_bivariate.ipynb
 INFO: No changes detected
-INFO: [75/118] Processing Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: [75/120] Processing Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
 INFO: No changes detected
-INFO: [76/118] Processing Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: [76/120] Processing Week_1_8\PA\PA_1_8_solution.ipynb
 INFO: No changes detected
-INFO: [77/118] Processing Week_1_8\WS\linearity_or_not.ipynb
+INFO: [77/120] Processing Week_1_8\WS\linearity_or_not.ipynb
 INFO: No changes detected
-INFO: [78/118] Processing Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: [78/120] Processing Week_1_8\WS\WS_1_8_solution.ipynb
 INFO: No changes detected
-INFO: [79/118] Processing Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: [79/120] Processing Week_1_8\WS\WS_1_8_Thingamajig.ipynb
 INFO: No changes detected
-INFO: [80/118] Processing Week_2_1\WS_2_1_solution.ipynb
+INFO: [80/120] Processing Week_2_1\WS_2_1_solution.ipynb
 INFO: No changes detected
-INFO: [81/118] Processing Week_2_1\WS_2_1_wiggle.ipynb
+INFO: [81/120] Processing Week_2_1\WS_2_1_wiggle.ipynb
 INFO: No changes detected
-INFO: [82/118] Processing Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: [82/120] Processing Week_2_1\WS_2_1_wiggle_test_ci.ipynb
 INFO: No changes detected
-INFO: [83/118] Processing Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: [83/120] Processing Week_2_1\PA\PA_2_1_classy_city.ipynb
 INFO: No changes detected
-INFO: [84/118] Processing Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: [84/120] Processing Week_2_1\PA\PA_2_1_solution.ipynb
 INFO: No changes detected
-INFO: [85/118] Processing Week_2_1\PA\PA_dev.ipynb
+INFO: [85/120] Processing Week_2_1\PA\PA_dev.ipynb
 INFO: No changes detected
-INFO: [86/118] Processing Week_2_1\PA\U.ipynb
+INFO: [86/120] Processing Week_2_1\PA\U.ipynb
 INFO: No changes detected
-INFO: [87/118] Processing Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: [87/120] Processing Week_2_2\PA_2_2_love_is_sparse.ipynb
 INFO: No changes detected
-INFO: [88/118] Processing Week_2_2\PA_2_2_solution.ipynb
+INFO: [88/120] Processing Week_2_2\PA_2_2_solution.ipynb
 INFO: No changes detected
-INFO: [89/118] Processing Week_2_2\WS_2_2_more_support.ipynb
+INFO: [89/120] Processing Week_2_2\WS_2_2_more_support.ipynb
 INFO: No changes detected
-INFO: [90/118] Processing Week_2_2\WS_2_2_solution.ipynb
+INFO: [90/120] Processing Week_2_2\WS_2_2_solution.ipynb
 INFO: No changes detected
-INFO: [91/118] Processing Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: [91/120] Processing Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
 INFO: No changes detected
-INFO: [92/118] Processing Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: [92/120] Processing Week_2_2\old\old_PA10_solution_sympy.ipynb
 INFO: No changes detected
-INFO: [93/118] Processing Week_2_2\old\PA_2_1_solution.ipynb
+INFO: [93/120] Processing Week_2_2\old\PA_2_1_solution.ipynb
 INFO: No changes detected
-INFO: [94/118] Processing Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: [94/120] Processing Week_2_2\old\PA_2_1_solution_sympy.ipynb
 INFO: No changes detected
-INFO: [95/118] Processing Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: [95/120] Processing Week_2_2\old\WS_2_2_more_support.ipynb
 INFO: No changes detected
-INFO: [96/118] Processing Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: [96/120] Processing Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
 INFO: No changes detected
-INFO: [97/118] Processing Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: [97/120] Processing Week_2_2\PA\PA_2_2_solution.ipynb
 INFO: No changes detected
-INFO: [98/118] Processing Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: [98/120] Processing Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
 INFO: No changes detected
-INFO: [99/118] Processing Week_2_3\WS_2_3_solution.ipynb
+INFO: [99/120] Processing Week_2_3\WS_2_3_solution.ipynb
 INFO: No changes detected
-INFO: [100/118] Processing Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: [100/120] Processing Week_2_3\PA\PA_2_3_iter_remoto.ipynb
 INFO: No changes detected
-INFO: [101/118] Processing Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: [101/120] Processing Week_2_3\PA\PA_2_3_solution.ipynb
 INFO: No changes detected
-INFO: [102/118] Processing Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: [102/120] Processing Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
 INFO: No changes detected
-INFO: [103/118] Processing Week_2_4\WS_2_4_solution.ipynb
+INFO: [103/120] Processing Week_2_4\WS_2_4_solution.ipynb
 INFO: No changes detected
-INFO: [104/118] Processing Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: [104/120] Processing Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
 INFO: No changes detected
-INFO: [105/118] Processing Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: [105/120] Processing Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
 INFO: No changes detected
-INFO: [106/118] Processing Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: [106/120] Processing Week_2_4\PA\PA_2_4_B_solution.ipynb
 INFO: No changes detected
-INFO: [107/118] Processing Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: [107/120] Processing Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
 INFO: No changes detected
-INFO: [108/118] Processing Week_2_5\WS_2_5_solution.ipynb
+INFO: [108/120] Processing Week_2_5\WS_2_5_solution.ipynb
 INFO: No changes detected
-INFO: [109/118] Processing Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: [109/120] Processing Week_2_5\PA\PA_2_5_data_framework.ipynb
 INFO: No changes detected
-INFO: [110/118] Processing Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: [110/120] Processing Week_2_5\PA\PA_2_5_solution.ipynb
 INFO: No changes detected
-INFO: [111/118] Processing Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: [111/120] Processing Week_2_6\WS_2_6_be_a_NN.ipynb
 INFO: No changes detected
-INFO: [112/118] Processing Week_2_6\WS_2_6_solution.ipynb
+INFO: [112/120] Processing Week_2_6\WS_2_6_solution.ipynb
 INFO: No changes detected
-INFO: [113/118] Processing Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: [113/120] Processing Week_2_6\PA\PA_2_6_3_way_split.ipynb
 INFO: No changes detected
-INFO: [114/118] Processing Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: [114/120] Processing Week_2_6\PA\PA_2_6_solution.ipynb
 INFO: No changes detected
-INFO: [115/118] Processing Week_2_7\WS_2_7_solution.ipynb
+INFO: [115/120] Processing Week_2_7\WS_2_7_solution.ipynb
 INFO: No changes detected
-INFO: [116/118] Processing Week_2_7\WS_2_7_student.ipynb
+INFO: [116/120] Processing Week_2_7\WS_2_7_student.ipynb
 INFO: No changes detected
-INFO: [117/118] Processing Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: [117/120] Processing Week_2_7\PA\PA_2_7_solution.ipynb
 INFO: No changes detected
-INFO: [118/118] Processing Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: [118/120] Processing Week_2_7\PA\PA_2_7_Times_Tables.ipynb
 INFO: No changes detected
-INFO: === Completed at 2024-12-27 13:21:14 (Duration: 0:00:00.328337) ===
-=======
-2024-12-25 14:55:55,027 - INFO - Starting notebook synchronization
-2024-12-25 14:56:06,258 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_1\Task_2_solution.ipynb
-2024-12-25 14:56:22,169 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_1\Task_2_solution.ipynb
-2024-12-25 14:56:22,172 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_2\Analysis.ipynb
-2024-12-25 14:56:31,469 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_2\Analysis.ipynb
-2024-12-25 14:56:31,469 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_2\Analysis_solution.ipynb
-2024-12-25 14:56:39,536 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_2\Analysis_solution.ipynb
-2024-12-25 14:56:39,542 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Analysis.ipynb
-2024-12-25 14:56:47,048 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Analysis.ipynb
-2024-12-25 14:56:47,048 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Analysis_Solution.ipynb
-2024-12-25 14:56:55,623 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Analysis_Solution.ipynb
-2024-12-25 14:56:55,628 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-25 14:56:55,689 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-25 14:56:55,697 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-25 14:56:55,697 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-25 14:56:55,749 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-25 14:56:55,757 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-25 14:56:55,757 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis_solution.ipynb
-2024-12-25 14:57:02,466 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis_solution.ipynb
-2024-12-25 14:57:02,466 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-25 14:57:02,531 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-25 14:57:02,531 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-25 14:57:02,545 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-25 14:57:02,685 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-25 14:57:02,685 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-25 14:57:02,685 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-25 14:57:02,747 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-25 14:57:02,747 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-25 14:57:02,747 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-25 14:57:03,541 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-25 14:57:03,541 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-25 14:57:03,541 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-25 14:57:04,379 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-25 14:57:04,379 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-25 14:57:04,387 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-25 14:57:04,478 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-25 14:57:04,486 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-25 14:57:04,487 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-25 14:57:04,660 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-25 14:57:04,660 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-25 14:57:04,660 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-25 14:57:05,151 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-25 14:57:05,151 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-25 14:57:05,151 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-25 14:57:05,216 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-25 14:57:05,216 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-25 14:57:05,216 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-25 14:57:05,309 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-25 14:57:05,309 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-25 14:57:05,309 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-25 14:57:05,406 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-25 14:57:05,406 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-25 14:57:05,406 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-25 14:57:05,946 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-25 14:57:05,948 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-25 14:57:05,949 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-25 14:57:06,014 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-25 14:57:06,023 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-25 14:57:06,023 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-25 14:57:06,591 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-25 14:57:06,594 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-25 14:57:06,594 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-25 14:57:07,102 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-25 14:57:07,108 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-25 14:57:07,108 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-25 14:57:07,660 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-25 14:57:07,661 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-25 14:57:07,662 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-25 14:57:07,780 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-25 14:57:07,780 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-25 14:57:07,780 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-25 14:57:07,956 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-25 14:57:07,956 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-25 14:57:07,956 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-25 14:57:07,997 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-25 14:57:08,005 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-25 14:57:08,006 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-25 14:57:08,104 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-25 14:57:08,104 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-25 14:57:08,104 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-25 14:57:08,158 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-25 14:57:08,166 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-25 14:57:08,167 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-25 14:57:08,221 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-25 14:57:08,222 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-25 14:57:08,223 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-25 14:57:08,273 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-25 14:57:08,273 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-25 14:57:08,273 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-25 14:57:08,402 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-25 14:57:08,402 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-25 14:57:08,402 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-25 14:57:08,448 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-25 14:57:08,448 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-25 14:57:08,452 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-25 14:57:08,602 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-25 14:57:08,602 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-25 14:57:08,602 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-25 14:57:08,669 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-25 14:57:08,669 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-25 14:57:08,672 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-25 14:57:08,721 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-25 14:57:08,722 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-25 14:57:08,722 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-25 14:57:08,768 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-25 14:57:08,768 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-25 14:57:08,768 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-25 14:57:09,051 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-25 14:57:09,054 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-25 14:57:09,055 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-25 14:57:09,219 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-25 14:57:09,220 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-25 14:57:09,221 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-25 14:57:09,384 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-25 14:57:09,384 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-25 14:57:09,384 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-25 14:57:09,481 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-25 14:57:09,482 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-25 14:57:09,482 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-25 14:57:09,544 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-25 14:57:09,545 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-25 14:57:09,546 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-25 14:57:09,623 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-25 14:57:09,623 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-25 14:57:09,623 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-25 14:57:09,657 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-25 14:57:09,657 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-25 14:57:09,657 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-25 14:57:09,723 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-25 14:57:09,723 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-25 14:57:09,723 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-25 14:57:09,813 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-25 14:57:09,821 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-25 14:57:09,821 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-25 14:57:09,906 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-25 14:57:09,913 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-25 14:57:09,914 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-25 14:57:09,974 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-25 14:57:09,974 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-25 14:57:09,981 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-25 14:57:10,441 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-25 14:57:10,442 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-25 14:57:10,444 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-25 14:57:10,618 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-25 14:57:10,620 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-25 14:57:10,623 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-25 14:57:11,126 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-25 14:57:11,126 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-25 14:57:11,126 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-25 14:57:11,193 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-25 14:57:11,193 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-25 14:57:11,193 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-25 14:57:11,275 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-25 14:57:11,275 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-25 14:57:11,275 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-25 14:57:11,327 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-25 14:57:11,327 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-25 14:57:11,327 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-25 14:57:11,424 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-25 14:57:11,424 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-25 14:57:11,424 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-25 14:57:11,874 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-25 14:57:11,876 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-25 14:57:11,877 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-25 14:57:12,722 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-25 14:57:12,724 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-25 14:57:12,725 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-25 14:57:12,889 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-25 14:57:12,889 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-25 14:57:12,889 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-25 14:57:13,298 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-25 14:57:13,300 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-25 14:57:13,300 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-25 14:57:13,391 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-25 14:57:13,391 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-25 14:57:13,391 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-25 14:57:13,433 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-25 14:57:13,433 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-25 14:57:13,433 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-25 14:57:13,500 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-25 14:57:13,502 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-25 14:57:13,502 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-25 14:57:13,900 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-25 14:57:13,913 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-25 14:57:13,914 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-25 14:57:13,997 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-25 14:57:13,997 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-25 14:57:13,997 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-25 14:57:14,065 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-25 14:57:14,065 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-25 14:57:14,065 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-25 14:57:14,150 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-25 14:57:14,151 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-25 14:57:14,152 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-25 14:57:14,188 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-25 14:57:14,188 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-25 14:57:14,188 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-25 14:57:14,258 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-25 14:57:14,259 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-25 14:57:14,259 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-25 14:57:14,343 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-25 14:57:14,344 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-25 14:57:14,344 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-25 14:57:14,405 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-25 14:57:14,405 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-25 14:57:14,411 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-25 14:57:14,463 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-25 14:57:14,477 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-25 14:57:14,477 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\data.ipynb
-2024-12-25 14:57:14,512 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\data.ipynb
-2024-12-25 14:57:14,512 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\data.ipynb
-2024-12-25 14:57:14,512 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-25 14:57:14,541 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-25 14:57:14,549 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-25 14:57:14,549 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-25 14:57:14,596 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-25 14:57:14,596 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-25 14:57:14,596 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-25 14:57:14,663 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-25 14:57:14,663 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-25 14:57:14,663 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-25 14:57:14,727 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-25 14:57:14,727 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-25 14:57:14,731 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-25 14:57:14,778 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-25 14:57:14,778 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-25 14:57:14,778 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-25 14:57:14,918 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-25 14:57:14,918 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-25 14:57:14,918 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-25 14:57:14,969 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-25 14:57:14,969 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-25 14:57:14,969 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-25 14:57:15,124 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-25 14:57:15,124 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-25 14:57:15,124 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-25 14:57:15,257 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-25 14:57:15,257 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-25 14:57:15,257 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-25 14:57:15,429 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-25 14:57:15,429 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-25 14:57:15,429 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-25 14:57:15,526 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-25 14:57:15,526 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-25 14:57:15,526 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-25 14:57:15,623 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-25 14:57:15,623 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-25 14:57:15,623 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-25 14:57:15,735 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-25 14:57:15,735 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-25 14:57:15,735 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-25 14:57:15,790 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-25 14:57:15,793 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-25 14:57:15,793 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-25 14:57:15,841 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-25 14:57:15,841 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-25 14:57:15,841 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-25 14:57:15,904 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-25 14:57:15,906 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-25 14:57:15,906 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-25 14:57:15,975 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-25 14:57:15,975 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-25 14:57:15,975 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-25 14:57:16,072 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-25 14:57:16,073 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-25 14:57:16,073 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-25 14:57:16,139 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-25 14:57:16,139 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-25 14:57:16,139 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-25 14:57:16,190 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-25 14:57:16,190 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-25 14:57:16,204 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-25 14:57:16,256 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-25 14:57:16,256 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-25 14:57:16,256 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-25 14:57:16,307 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-25 14:57:16,307 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-25 14:57:16,307 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-25 14:57:16,389 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-25 14:57:16,389 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-25 14:57:16,389 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-25 14:57:16,468 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-25 14:57:16,471 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-25 14:57:16,471 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-25 14:57:16,538 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-25 14:57:16,538 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-25 14:57:16,538 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-2024-12-25 14:57:24,901 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-2024-12-25 14:57:24,901 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-25 14:57:24,968 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-25 14:57:24,968 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-25 14:57:24,968 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-25 14:57:25,035 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-25 14:57:25,035 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-25 14:57:25,035 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-25 14:57:25,089 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-25 14:57:25,089 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-25 14:57:25,089 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-25 14:57:25,152 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-25 14:57:25,152 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-25 14:57:25,152 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-25 14:57:25,272 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-25 14:57:25,280 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-25 14:57:25,280 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-25 14:57:25,393 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-25 14:57:25,399 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-25 14:57:25,409 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-2024-12-25 14:57:38,846 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-2024-12-25 14:57:38,848 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-25 14:57:38,927 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-25 14:57:38,932 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-25 14:57:38,934 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-25 14:57:39,107 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-25 14:57:39,107 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-25 14:57:39,107 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-25 14:57:39,274 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-25 14:57:39,274 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-25 14:57:39,274 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-25 14:57:39,326 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-25 14:57:39,326 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-25 14:57:39,326 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-25 14:57:39,389 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-25 14:57:39,389 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-25 14:57:39,389 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-25 14:57:39,457 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-25 14:57:39,457 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-25 14:57:39,457 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-25 14:57:39,622 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-25 14:57:39,636 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-25 14:57:39,642 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-25 14:57:39,742 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-25 14:57:39,744 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-25 14:57:39,745 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-25 14:57:39,827 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-25 14:57:39,834 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-25 14:57:39,840 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-25 14:57:39,994 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-25 14:57:39,994 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-25 14:57:39,996 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-25 14:57:40,066 - INFO - No changes detected for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-25 14:57:40,068 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-25 14:57:40,071 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\PA\PA_2_7_solution.ipynb
-2024-12-25 14:57:50,727 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\PA\PA_2_7_solution.ipynb
-2024-12-25 14:57:50,727 - INFO - Processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\PA\PA_2_7_Times_Tables.ipynb
-2024-12-25 14:57:58,070 - INFO - Successfully processed C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\PA\PA_2_7_Times_Tables.ipynb
-2024-12-25 14:57:58,362 - INFO - Synchronization completed successfully
->>>>>>> origin/main
+INFO: [119/120] Processing Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: Stats: 10 cells (1 code, 9 markdown), 100 lines
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Completed in 13.42 seconds
+INFO: [120/120] Processing Week_2_8\WS_2_8_solution.ipynb
+INFO: Stats: 14 cells (2 code, 12 markdown), 195 lines
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Completed in 11.13 seconds
+INFO: === Completed at 2024-12-30 14:27:59 (Duration: 0:00:25.365119) ===
