@@ -1,4 +1,4 @@
-INFO: === Starting synchronization at 2024-12-30 14:27:33 ===
+INFO: === Starting synchronization at 2024-12-30 14:45:41 ===
 INFO: Searching in: C:\Users\rlanzafame\code\MUDE\2024-files\content
 INFO: Found 120 notebooks
 INFO: [1/120] Processing GA_1_1\Task_2_solution.ipynb
@@ -238,11 +238,7 @@ INFO: No changes detected
 INFO: [118/120] Processing Week_2_7\PA\PA_2_7_Times_Tables.ipynb
 INFO: No changes detected
 INFO: [119/120] Processing Week_2_8\WS_2_8_dirty_water.ipynb
-INFO: Stats: 10 cells (1 code, 9 markdown), 100 lines
-WARNING: Alternative text is missing on 2 image(s).
-INFO: Completed in 13.42 seconds
+INFO: No changes detected
 INFO: [120/120] Processing Week_2_8\WS_2_8_solution.ipynb
-INFO: Stats: 14 cells (2 code, 12 markdown), 195 lines
-WARNING: Alternative text is missing on 3 image(s).
-INFO: Completed in 11.13 seconds
-INFO: === Completed at 2024-12-30 14:27:59 (Duration: 0:00:25.365119) ===
+INFO: No changes detected
+INFO: === Completed at 2024-12-30 14:45:42 (Duration: 0:00:01.171471) ===
