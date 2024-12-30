@@ -10,6 +10,6 @@ html_options:
   include_code: true
   include_outputs: true
 # Uncomment and modify if you want to process specific notebooks only
-specific_notebooks:
-  - "Week_2_8/WS_2_8_dirty_water.ipynb"
-  - "Week_2_8/WS_2_8_solution.ipynb"
+# specific_notebooks:
+#   - "Week_2_8/WS_2_8_dirty_water.ipynb"
+#   - "Week_2_8/WS_2_8_solution.ipynb"
