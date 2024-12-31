@@ -191,6 +191,23 @@ class Minutes:
 
 
     @staticmethod
+    def get_days(input: list)-> list:
+        """returns a list of days based on input
+        
+        MADE FOR PROBABILITY: still need to make tests
+        """
+        if not isinstance(input, list):
+            raise ValueError("Invalid input: input must be a list")
+        elif len(input) == 0:
+            raise ValueError("Invalid input: no values")
+        elif len(input) > 2:
+            raise ValueError("Invalid input: too many values")
+
+        input = Minutes.process_input(input)
+        days = Minutes.get_list_days(input[0])
+        return days
+
+    @staticmethod
     def process_input(input: list) -> list:
         """Add None for unspecified values and process months.
         
@@ -342,3 +359,17 @@ class Minutes:
         hour = (minute - (day - 1)*1440) // 60
         min = minute % 60
         return day, hour, min
+    
+    @staticmethod
+    def get_day_min(minute: int)-> tuple:
+        """returns day, minute in day from minute"""
+        day = minute // 1440 + 1
+        min = minute % 1440
+        return day, min
+    
+    @staticmethod
+    def get_day_hour(minute: int)-> tuple:
+        """returns day, hour in day from minute"""
+        day = minute // 1440 + 1
+        hour = (minute - (day - 1)*1440) // 60
+        return day, hour

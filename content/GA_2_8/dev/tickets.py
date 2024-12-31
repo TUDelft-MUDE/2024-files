@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from minutes import *
 from datetime import datetime, timedelta
-from scipy.sparse import lil_matrix
 
 class Tickets:
     def __init__(self,
