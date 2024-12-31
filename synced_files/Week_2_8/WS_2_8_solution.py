@@ -209,7 +209,7 @@ plt.show()
 # </div>
 
 # %% [markdown]
-# **End of notebook.test**
+# **End of notebook.**
 #
 # <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
 #   <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">

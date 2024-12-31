@@ -200,7 +200,7 @@ We added <a href="https://mude.citg.tudelft.nl/book/pd/reliability-component/con
 </div>
 
 
-**End of notebook.test**
+**End of notebook.**
 
 <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
   <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">

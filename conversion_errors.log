@@ -1,256 +1,1554 @@
-INFO: === Starting synchronization at 2024-12-31 00:44:51 ===
-INFO: Searching in: C:\Users\ncore\Desktop\2024-files\content
+INFO: === Starting synchronization at 2024-12-31 15:10:28 ===
+INFO: Searching in: C:\Users\rlanzafame\code\MUDE\2024-files\content
 INFO: Found 120 notebooks
 INFO: [1/120] Checking GA_1_1\Task_2_solution.ipynb
-INFO: No changes detected for GA_1_1\Task_2_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_1\Task_2_solution.ipynb
+INFO: Processing GA_1_1\Task_2_solution.ipynb
+INFO: Stats: 62 cells (21 code, 41 markdown), 418 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_1\Task_2_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_1\Task_2_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 13.46 seconds
 INFO: [2/120] Checking GA_1_2\Analysis.ipynb
-INFO: No changes detected for GA_1_2\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_2\Analysis.ipynb
+INFO: Processing GA_1_2\Analysis.ipynb
+INFO: Stats: 21 cells (7 code, 14 markdown), 249 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_2\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_2\Analysis.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.48 seconds
 INFO: [3/120] Checking GA_1_2\Analysis_solution.ipynb
-INFO: No changes detected for GA_1_2\Analysis_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_2\Analysis_solution.ipynb
+INFO: Processing GA_1_2\Analysis_solution.ipynb
+INFO: Stats: 21 cells (7 code, 14 markdown), 291 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_2\Analysis_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_2\Analysis_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.90 seconds
 INFO: [4/120] Checking GA_1_3\Analysis.ipynb
-INFO: No changes detected for GA_1_3\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Analysis.ipynb
+INFO: Processing GA_1_3\Analysis.ipynb
+INFO: Stats: 60 cells (23 code, 37 markdown), 474 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_3\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_3\Analysis.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.98 seconds
 INFO: [5/120] Checking GA_1_3\Analysis_Solution.ipynb
-INFO: No changes detected for GA_1_3\Analysis_Solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Analysis_Solution.ipynb
+INFO: Processing GA_1_3\Analysis_Solution.ipynb
+INFO: Stats: 75 cells (29 code, 46 markdown), 798 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_3\Analysis_Solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_3\Analysis_Solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.82 seconds
 INFO: [6/120] Checking GA_1_3\Warmup.ipynb
-INFO: No changes detected for GA_1_3\Warmup.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Warmup.ipynb
+INFO: Processing GA_1_3\Warmup.ipynb
+INFO: Stats: 22 cells (10 code, 12 markdown), 182 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_3\Warmup.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_3\Warmup.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.80 seconds
 INFO: [7/120] Checking GA_1_4\Analysis.ipynb
-INFO: No changes detected for GA_1_4\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis.ipynb
+INFO: Processing GA_1_4\Analysis.ipynb
+INFO: Stats: 57 cells (23 code, 34 markdown), 580 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_4\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_4\Analysis.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.32 seconds
 INFO: [8/120] Checking GA_1_4\Analysis_solution.ipynb
-INFO: No changes detected for GA_1_4\Analysis_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis_solution.ipynb
+INFO: Processing GA_1_4\Analysis_solution.ipynb
+INFO: Stats: 58 cells (23 code, 35 markdown), 744 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_4\Analysis_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_4\Analysis_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.41 seconds
 INFO: [9/120] Checking GA_1_5\Analysis.ipynb
-INFO: No changes detected for GA_1_5\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis.ipynb
+INFO: Processing GA_1_5\Analysis.ipynb
+INFO: Stats: 52 cells (15 code, 37 markdown), 471 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_5\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_5\Analysis.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.45 seconds
 INFO: [10/120] Checking GA_1_5\Analysis_solution.ipynb
-INFO: No changes detected for GA_1_5\Analysis_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis_solution.ipynb
+INFO: Processing GA_1_5\Analysis_solution.ipynb
+INFO: Stats: 55 cells (15 code, 40 markdown), 660 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_5\Analysis_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_5\Analysis_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.27 seconds
 INFO: [11/120] Checking GA_1_5\central_diff_illustration.ipynb
-INFO: No changes detected for GA_1_5\central_diff_illustration.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\central_diff_illustration.ipynb
+INFO: Processing GA_1_5\central_diff_illustration.ipynb
+INFO: Stats: 18 cells (8 code, 10 markdown), 169 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_5\central_diff_illustration.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_5\central_diff_illustration.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.48 seconds
 INFO: [12/120] Checking GA_1_6\Analysis.ipynb
-INFO: No changes detected for GA_1_6\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis.ipynb
+INFO: Processing GA_1_6\Analysis.ipynb
+INFO: Stats: 61 cells (10 code, 51 markdown), 474 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_6\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_6\Analysis.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.51 seconds
 INFO: [13/120] Checking GA_1_6\Analysis_solution.ipynb
-INFO: No changes detected for GA_1_6\Analysis_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis_solution.ipynb
+INFO: Processing GA_1_6\Analysis_solution.ipynb
+INFO: Stats: 60 cells (9 code, 51 markdown), 854 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_6\Analysis_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_6\Analysis_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.81 seconds
 INFO: [14/120] Checking GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-INFO: No changes detected for GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: Processing GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: Stats: 38 cells (13 code, 25 markdown), 342 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Solution\Discharge\Analysis_discharge_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.49 seconds
 INFO: [15/120] Checking GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-INFO: No changes detected for GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: Processing GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: Stats: 38 cells (13 code, 25 markdown), 338 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Solution\Emissions\Analysis_emissions_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.24 seconds
 INFO: [16/120] Checking GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-INFO: No changes detected for GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: Processing GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: Stats: 38 cells (13 code, 25 markdown), 347 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Solution\Force\Analysis_force_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Solution\Force\Analysis_force_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.64 seconds
 INFO: [17/120] Checking GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-INFO: No changes detected for GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: Processing GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 205 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Student\Discharge\Analysis_discharge.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Student\Discharge\Analysis_discharge.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.25 seconds
 INFO: [18/120] Checking GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-INFO: No changes detected for GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: Processing GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 199 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Student\Emissions\Analysis_emissions.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Student\Emissions\Analysis_emissions.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.71 seconds
 INFO: [19/120] Checking GA_1_7\Student\Force\Analysis_force.ipynb
-INFO: No changes detected for GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: Processing GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 206 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Student\Force\Analysis_force.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Student\Force\Analysis_force.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.26 seconds
 INFO: [20/120] Checking GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-INFO: No changes detected for GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: Processing GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: Stats: 36 cells (12 code, 24 markdown), 320 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_7\Unused\Temp\Distribution_Fitting_T.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.51 seconds
 INFO: [21/120] Checking GA_1_8\Analysis.ipynb
-INFO: No changes detected for GA_1_8\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\Analysis.ipynb
+INFO: Processing GA_1_8\Analysis.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 270 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_8\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_8\Analysis.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.05 seconds
 INFO: [22/120] Checking GA_1_8\solution\GA_1_8_solution_HT.ipynb
-INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: Processing GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: Stats: 48 cells (18 code, 30 markdown), 504 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_8\solution\GA_1_8_solution_HT.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_8\solution\GA_1_8_solution_HT.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.89 seconds
 INFO: [23/120] Checking GA_1_8\solution\GA_1_8_solution_hu.ipynb
-INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: Processing GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: Stats: 48 cells (18 code, 30 markdown), 507 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_8\solution\GA_1_8_solution_hu.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_8\solution\GA_1_8_solution_hu.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.69 seconds
 INFO: [24/120] Checking GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: Processing GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: Stats: 48 cells (18 code, 30 markdown), 503 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_8\solution\GA_1_8_solution_traffic.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_1_8\solution\GA_1_8_solution_traffic.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.63 seconds
 INFO: [25/120] Checking GA_2_1\Analysis.ipynb
-INFO: No changes detected for GA_2_1\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis.ipynb
+INFO: Processing GA_2_1\Analysis.ipynb
+INFO: Stats: 49 cells (10 code, 39 markdown), 387 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\Analysis.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.16 seconds
 INFO: [26/120] Checking GA_2_1\Analysis_solution.ipynb
-INFO: No changes detected for GA_2_1\Analysis_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis_solution.ipynb
+INFO: Processing GA_2_1\Analysis_solution.ipynb
+INFO: Stats: 63 cells (11 code, 52 markdown), 639 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\Analysis_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\Analysis_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.94 seconds
 INFO: [27/120] Checking GA_2_1\mesh_dev.ipynb
-INFO: No changes detected for GA_2_1\mesh_dev.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_dev.ipynb
+INFO: Processing GA_2_1\mesh_dev.ipynb
+INFO: Stats: 21 cells (19 code, 2 markdown), 56 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\mesh_dev.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\mesh_dev.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 16.29 seconds
 INFO: [28/120] Checking GA_2_1\mesh_tips.ipynb
-INFO: No changes detected for GA_2_1\mesh_tips.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_tips.ipynb
+INFO: Processing GA_2_1\mesh_tips.ipynb
+INFO: Stats: 32 cells (16 code, 16 markdown), 144 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\mesh_tips.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\mesh_tips.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.23 seconds
 INFO: [29/120] Checking GA_2_1\mesh\mesh.ipynb
-INFO: No changes detected for GA_2_1\mesh\mesh.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh\mesh.ipynb
+INFO: Processing GA_2_1\mesh\mesh.ipynb
+INFO: Stats: 8 cells (8 code, 0 markdown), 22 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\mesh\mesh.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_1\mesh\mesh.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 11.42 seconds
 INFO: [30/120] Checking GA_2_2\the_big_M.ipynb
-INFO: No changes detected for GA_2_2\the_big_M.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_2\the_big_M.ipynb
+INFO: Processing GA_2_2\the_big_M.ipynb
+INFO: Stats: 15 cells (6 code, 9 markdown), 432 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_2\the_big_M.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_2\the_big_M.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.92 seconds
 INFO: [31/120] Checking GA_2_3\Analysis.ipynb
-INFO: No changes detected for GA_2_3\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis.ipynb
+INFO: Processing GA_2_3\Analysis.ipynb
+INFO: Stats: 50 cells (13 code, 37 markdown), 532 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_3\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_3\Analysis.html
+WARNING: Alternative text is missing on 7 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.07 seconds
 INFO: [32/120] Checking GA_2_3\Analysis_solution.ipynb
-INFO: No changes detected for GA_2_3\Analysis_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis_solution.ipynb
+INFO: Processing GA_2_3\Analysis_solution.ipynb
+INFO: Stats: 55 cells (14 code, 41 markdown), 815 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_3\Analysis_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_3\Analysis_solution.html
+WARNING: Alternative text is missing on 7 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.38 seconds
 INFO: [33/120] Checking GA_2_4\GA_2_4_Beary_Icy.ipynb
-INFO: No changes detected for GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: Processing GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: Stats: 49 cells (12 code, 37 markdown), 634 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_4\GA_2_4_Beary_Icy.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_4\GA_2_4_Beary_Icy.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.04 seconds
 INFO: [34/120] Checking GA_2_4\GA_2_4_solution.ipynb
-INFO: No changes detected for GA_2_4\GA_2_4_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
+INFO: Processing GA_2_4\GA_2_4_solution.ipynb
+INFO: Stats: 64 cells (12 code, 52 markdown), 903 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_4\GA_2_4_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_4\GA_2_4_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.53 seconds
 INFO: [35/120] Checking GA_2_5\Analysis_GA.ipynb
-INFO: No changes detected for GA_2_5\Analysis_GA.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA.ipynb
+INFO: Processing GA_2_5\Analysis_GA.ipynb
+INFO: Stats: 42 cells (14 code, 28 markdown), 389 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_5\Analysis_GA.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_5\Analysis_GA.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.14 seconds
 INFO: [36/120] Checking GA_2_5\Analysis_GA_solution.ipynb
-INFO: No changes detected for GA_2_5\Analysis_GA_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
+INFO: Processing GA_2_5\Analysis_GA_solution.ipynb
+INFO: Stats: 42 cells (14 code, 28 markdown), 389 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_5\Analysis_GA_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_5\Analysis_GA_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.07 seconds
 INFO: [37/120] Checking GA_2_5\Analysis_LP.ipynb
-INFO: No changes detected for GA_2_5\Analysis_LP.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP.ipynb
+INFO: Processing GA_2_5\Analysis_LP.ipynb
+INFO: Stats: 51 cells (20 code, 31 markdown), 375 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_5\Analysis_LP.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_5\Analysis_LP.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.49 seconds
 INFO: [38/120] Checking GA_2_5\Analysis_LP_solution.ipynb
-INFO: No changes detected for GA_2_5\Analysis_LP_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
+INFO: Processing GA_2_5\Analysis_LP_solution.ipynb
+INFO: Stats: 51 cells (20 code, 31 markdown), 378 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_5\Analysis_LP_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_5\Analysis_LP_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.08 seconds
 INFO: [39/120] Checking GA_2_6\Analysis.ipynb
-INFO: No changes detected for GA_2_6\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis.ipynb
+INFO: Processing GA_2_6\Analysis.ipynb
+INFO: Stats: 65 cells (20 code, 45 markdown), 594 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_6\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_6\Analysis.html
+WARNING: Alternative text is missing on 6 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.83 seconds
 INFO: [40/120] Checking GA_2_6\Analysis_solution.ipynb
-INFO: No changes detected for GA_2_6\Analysis_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis_solution.ipynb
+INFO: Processing GA_2_6\Analysis_solution.ipynb
+INFO: Stats: 64 cells (20 code, 44 markdown), 715 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_6\Analysis_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_6\Analysis_solution.html
+WARNING: Alternative text is missing on 6 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.44 seconds
 INFO: [41/120] Checking GA_2_7\rain_solution.ipynb
-INFO: No changes detected for GA_2_7\rain_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_7\rain_solution.ipynb
+INFO: Processing GA_2_7\rain_solution.ipynb
+INFO: Stats: 43 cells (16 code, 27 markdown), 458 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_7\rain_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_7\rain_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.40 seconds
 INFO: [42/120] Checking tutorials\Week_1_3\Analysis.ipynb
-INFO: No changes detected for tutorials\Week_1_3\Analysis.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
+INFO: Processing tutorials\Week_1_3\Analysis.ipynb
+INFO: Stats: 15 cells (13 code, 2 markdown), 82 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\tutorials\Week_1_3\Analysis.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\tutorials\Week_1_3\Analysis.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.96 seconds
 INFO: [43/120] Checking tutorials\Week_1_5\Tutorial.ipynb
-INFO: No changes detected for tutorials\Week_1_5\Tutorial.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
+INFO: Processing tutorials\Week_1_5\Tutorial.ipynb
+INFO: Stats: 11 cells (6 code, 5 markdown), 147 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\tutorials\Week_1_5\Tutorial.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\tutorials\Week_1_5\Tutorial.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.83 seconds
 INFO: [44/120] Checking tutorials\Week_1_6\Tutorial.ipynb
-INFO: No changes detected for tutorials\Week_1_6\Tutorial.ipynb
-INFO: [45/120] Checking week_1_1\PA_1_1_Catch_Them_All.ipynb
-INFO: No changes detected for week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
+INFO: Processing tutorials\Week_1_6\Tutorial.ipynb
+INFO: Stats: 7 cells (4 code, 3 markdown), 63 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\tutorials\Week_1_6\Tutorial.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\tutorials\Week_1_6\Tutorial.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.73 seconds
+INFO: [45/120] Checking Week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: Processing Week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: Stats: 20 cells (6 code, 14 markdown), 120 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_1\PA_1_1_Catch_Them_All.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_1\PA_1_1_Catch_Them_All.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.91 seconds
 INFO: [46/120] Checking Week_1_2\In_Class_Activity.ipynb
-INFO: No changes detected for Week_1_2\In_Class_Activity.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity.ipynb
+INFO: Processing Week_1_2\In_Class_Activity.ipynb
+INFO: Stats: 51 cells (21 code, 30 markdown), 329 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\In_Class_Activity.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\In_Class_Activity.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.48 seconds
 INFO: [47/120] Checking Week_1_2\In_Class_Activity_Solution.ipynb
-INFO: No changes detected for Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: Processing Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: Stats: 58 cells (21 code, 37 markdown), 384 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\In_Class_Activity_Solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\In_Class_Activity_Solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 13.81 seconds
 INFO: [48/120] Checking Week_1_2\PA_1_2_Random_Adventure.ipynb
-INFO: No changes detected for Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: Processing Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: Stats: 52 cells (18 code, 34 markdown), 303 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\PA_1_2_Random_Adventure.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\PA_1_2_Random_Adventure.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.79 seconds
 INFO: [49/120] Checking Week_1_2\PA_1_2_solution.ipynb
-INFO: No changes detected for Week_1_2\PA_1_2_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
+INFO: Processing Week_1_2\PA_1_2_solution.ipynb
+INFO: Stats: 55 cells (19 code, 36 markdown), 356 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\PA_1_2_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\PA_1_2_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.56 seconds
 INFO: [50/120] Checking Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-INFO: No changes detected for Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: Processing Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: Stats: 32 cells (7 code, 25 markdown), 365 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\WS_1_2_Pipe_Dreams.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\WS_1_2_Pipe_Dreams.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 14.10 seconds
 INFO: [51/120] Checking Week_1_2\WS_1_2_solution.ipynb
-INFO: No changes detected for Week_1_2\WS_1_2_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
+INFO: Processing Week_1_2\WS_1_2_solution.ipynb
+INFO: Stats: 35 cells (7 code, 28 markdown), 444 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\WS_1_2_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_2\WS_1_2_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.48 seconds
 INFO: [52/120] Checking week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-INFO: No changes detected for week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: Processing week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: Stats: 71 cells (22 code, 49 markdown), 284 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.57 seconds
 INFO: [53/120] Checking week_1_3\PA_1_3_solution.ipynb
-INFO: No changes detected for week_1_3\PA_1_3_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_solution.ipynb
+INFO: Processing week_1_3\PA_1_3_solution.ipynb
+INFO: Stats: 71 cells (22 code, 49 markdown), 288 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_3\PA_1_3_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_3\PA_1_3_solution.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.91 seconds
 INFO: [54/120] Checking week_1_3\WS_1_3_Moving_Ice.ipynb
-INFO: No changes detected for week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: Processing week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: Stats: 37 cells (10 code, 27 markdown), 269 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_3\WS_1_3_Moving_Ice.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_3\WS_1_3_Moving_Ice.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.15 seconds
 INFO: [55/120] Checking week_1_3\WS_1_3_solution.ipynb
-INFO: No changes detected for week_1_3\WS_1_3_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_solution.ipynb
+INFO: Processing week_1_3\WS_1_3_solution.ipynb
+INFO: Stats: 43 cells (10 code, 33 markdown), 397 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_3\WS_1_3_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_3\WS_1_3_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.17 seconds
 INFO: [56/120] Checking Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-INFO: No changes detected for Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: Processing Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: Stats: 31 cells (10 code, 21 markdown), 370 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_4\WS_1_4_Nonlinear_Rain.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.33 seconds
 INFO: [57/120] Checking Week_1_4\WS_1_4_solution.ipynb
-INFO: No changes detected for Week_1_4\WS_1_4_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
+INFO: Processing Week_1_4\WS_1_4_solution.ipynb
+INFO: Stats: 34 cells (10 code, 24 markdown), 455 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_4\WS_1_4_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_4\WS_1_4_solution.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.74 seconds
 INFO: [58/120] Checking week_1_5\WS_1_5_dont_integr_hate.ipynb
-INFO: No changes detected for week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: Processing week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: Stats: 49 cells (15 code, 34 markdown), 384 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\WS_1_5_dont_integr_hate.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\WS_1_5_dont_integr_hate.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.54 seconds
 INFO: [59/120] Checking week_1_5\WS_1_5_solution.ipynb
-INFO: No changes detected for week_1_5\WS_1_5_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_solution.ipynb
+INFO: Processing week_1_5\WS_1_5_solution.ipynb
+INFO: Stats: 50 cells (16 code, 34 markdown), 399 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\WS_1_5_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\WS_1_5_solution.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.67 seconds
 INFO: [60/120] Checking week_1_5\PA\PA_1_5_solution.ipynb
-INFO: No changes detected for week_1_5\PA\PA_1_5_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
+INFO: Processing week_1_5\PA\PA_1_5_solution.ipynb
+INFO: Stats: 42 cells (13 code, 29 markdown), 369 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\PA\PA_1_5_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\PA\PA_1_5_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.96 seconds
 INFO: [61/120] Checking week_1_5\PA\PA_1_5_useful_tricks.ipynb
-INFO: No changes detected for week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: Processing week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: Stats: 41 cells (13 code, 28 markdown), 333 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\PA\PA_1_5_useful_tricks.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\PA\PA_1_5_useful_tricks.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.08 seconds
 INFO: [62/120] Checking week_1_5\PA_ice\PA_plots.ipynb
-INFO: No changes detected for week_1_5\PA_ice\PA_plots.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
+INFO: Processing week_1_5\PA_ice\PA_plots.ipynb
+INFO: Stats: 5 cells (4 code, 1 markdown), 175 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\PA_ice\PA_plots.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\week_1_5\PA_ice\PA_plots.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.58 seconds
 INFO: [63/120] Checking Week_1_6\WS_1_6_solution.ipynb
-INFO: No changes detected for Week_1_6\WS_1_6_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
+INFO: Processing Week_1_6\WS_1_6_solution.ipynb
+INFO: Stats: 52 cells (8 code, 44 markdown), 861 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_6\WS_1_6_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_6\WS_1_6_solution.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 12.37 seconds
 INFO: [64/120] Checking Week_1_6\WS_1_6_time_to_c_ode.ipynb
-INFO: No changes detected for Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: Processing Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: Stats: 49 cells (9 code, 40 markdown), 469 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_6\WS_1_6_time_to_c_ode.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_6\WS_1_6_time_to_c_ode.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.45 seconds
 INFO: [65/120] Checking Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-INFO: No changes detected for Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: Processing Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 254 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.16 seconds
 INFO: [66/120] Checking Week_1_6\PA\PA_1_6_solution.ipynb
-INFO: No changes detected for Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: Processing Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 325 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_6\PA\PA_1_6_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_6\PA\PA_1_6_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.77 seconds
 INFO: [67/120] Checking Week_1_7\scipy_stats.ipynb
-INFO: No changes detected for Week_1_7\scipy_stats.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\scipy_stats.ipynb
+INFO: Processing Week_1_7\scipy_stats.ipynb
+INFO: Stats: 7 cells (5 code, 2 markdown), 27 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\scipy_stats.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\scipy_stats.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.87 seconds
 INFO: [68/120] Checking Week_1_7\WS_1_7_lets_be_concrete.ipynb
-INFO: No changes detected for Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: Processing Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: Stats: 27 cells (7 code, 20 markdown), 176 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\WS_1_7_lets_be_concrete.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\WS_1_7_lets_be_concrete.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.36 seconds
 INFO: [69/120] Checking Week_1_7\WS_1_7_solution.ipynb
-INFO: No changes detected for Week_1_7\WS_1_7_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
+INFO: Processing Week_1_7\WS_1_7_solution.ipynb
+INFO: Stats: 34 cells (7 code, 27 markdown), 286 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\WS_1_7_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\WS_1_7_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.69 seconds
 INFO: [70/120] Checking Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-INFO: No changes detected for Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: Processing Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: Stats: 24 cells (8 code, 16 markdown), 191 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\PA\PA_1_7_Classy_Distributions.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.07 seconds
 INFO: [71/120] Checking Week_1_7\PA\PA_1_7_solution.ipynb
-INFO: No changes detected for Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: Processing Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: Stats: 24 cells (8 code, 16 markdown), 221 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\PA\PA_1_7_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_7\PA\PA_1_7_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.01 seconds
 INFO: [72/120] Checking Week_1_8\data.ipynb
-INFO: No changes detected for Week_1_8\data.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\data.ipynb
+INFO: Processing Week_1_8\data.ipynb
+INFO: Stats: 10 cells (10 code, 0 markdown), 86 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\data.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\data.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.22 seconds
 INFO: [73/120] Checking Week_1_8\intersection.ipynb
-INFO: No changes detected for Week_1_8\intersection.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\intersection.ipynb
+INFO: Processing Week_1_8\intersection.ipynb
+INFO: Stats: 2 cells (2 code, 0 markdown), 40 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\intersection.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\intersection.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.93 seconds
 INFO: [74/120] Checking Week_1_8\test_bivariate.ipynb
-INFO: No changes detected for Week_1_8\test_bivariate.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\test_bivariate.ipynb
+INFO: Processing Week_1_8\test_bivariate.ipynb
+INFO: Stats: 4 cells (3 code, 1 markdown), 56 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\test_bivariate.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\test_bivariate.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.73 seconds
 INFO: [75/120] Checking Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-INFO: No changes detected for Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: Processing Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: Stats: 16 cells (8 code, 8 markdown), 112 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\PA\PA_1_8_Equations_Done_Symply.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.20 seconds
 INFO: [76/120] Checking Week_1_8\PA\PA_1_8_solution.ipynb
-INFO: No changes detected for Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: Processing Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: Stats: 16 cells (8 code, 8 markdown), 136 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\PA\PA_1_8_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\PA\PA_1_8_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.38 seconds
 INFO: [77/120] Checking Week_1_8\WS\linearity_or_not.ipynb
-INFO: No changes detected for Week_1_8\WS\linearity_or_not.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
+INFO: Processing Week_1_8\WS\linearity_or_not.ipynb
+INFO: Stats: 8 cells (8 code, 0 markdown), 158 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\WS\linearity_or_not.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\WS\linearity_or_not.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.09 seconds
 INFO: [78/120] Checking Week_1_8\WS\WS_1_8_solution.ipynb
-INFO: No changes detected for Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: Processing Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: Stats: 66 cells (26 code, 40 markdown), 607 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\WS\WS_1_8_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\WS\WS_1_8_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.38 seconds
 INFO: [79/120] Checking Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-INFO: No changes detected for Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: Processing Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: Stats: 37 cells (15 code, 22 markdown), 312 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\WS\WS_1_8_Thingamajig.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_1_8\WS\WS_1_8_Thingamajig.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.86 seconds
 INFO: [80/120] Checking Week_2_1\WS_2_1_solution.ipynb
-INFO: No changes detected for Week_2_1\WS_2_1_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
+INFO: Processing Week_2_1\WS_2_1_solution.ipynb
+INFO: Stats: 62 cells (21 code, 41 markdown), 598 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\WS_2_1_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\WS_2_1_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.71 seconds
 INFO: [81/120] Checking Week_2_1\WS_2_1_wiggle.ipynb
-INFO: No changes detected for Week_2_1\WS_2_1_wiggle.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
+INFO: Processing Week_2_1\WS_2_1_wiggle.ipynb
+INFO: Stats: 46 cells (16 code, 30 markdown), 466 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\WS_2_1_wiggle.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\WS_2_1_wiggle.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.11 seconds
 INFO: [82/120] Checking Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-INFO: No changes detected for Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: Processing Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: Stats: 46 cells (16 code, 30 markdown), 466 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\WS_2_1_wiggle_test_ci.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\WS_2_1_wiggle_test_ci.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.20 seconds
 INFO: [83/120] Checking Week_2_1\PA\PA_2_1_classy_city.ipynb
-INFO: No changes detected for Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: Processing Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 253 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\PA\PA_2_1_classy_city.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\PA\PA_2_1_classy_city.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.41 seconds
 INFO: [84/120] Checking Week_2_1\PA\PA_2_1_solution.ipynb
-INFO: No changes detected for Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: Processing Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 298 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\PA\PA_2_1_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\PA\PA_2_1_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.33 seconds
 INFO: [85/120] Checking Week_2_1\PA\PA_dev.ipynb
-INFO: No changes detected for Week_2_1\PA\PA_dev.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_dev.ipynb
+INFO: Processing Week_2_1\PA\PA_dev.ipynb
+INFO: Stats: 23 cells (21 code, 2 markdown), 107 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\PA\PA_dev.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\PA\PA_dev.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.71 seconds
 INFO: [86/120] Checking Week_2_1\PA\U.ipynb
-INFO: No changes detected for Week_2_1\PA\U.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\U.ipynb
+INFO: Processing Week_2_1\PA\U.ipynb
+INFO: Stats: 9 cells (9 code, 0 markdown), 23 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\PA\U.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_1\PA\U.html
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.54 seconds
 INFO: [87/120] Checking Week_2_2\PA_2_2_love_is_sparse.ipynb
-INFO: No changes detected for Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: Processing Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: Stats: 26 cells (9 code, 17 markdown), 192 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\PA_2_2_love_is_sparse.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\PA_2_2_love_is_sparse.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.94 seconds
 INFO: [88/120] Checking Week_2_2\PA_2_2_solution.ipynb
-INFO: No changes detected for Week_2_2\PA_2_2_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
+INFO: Processing Week_2_2\PA_2_2_solution.ipynb
+INFO: Stats: 26 cells (9 code, 17 markdown), 199 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\PA_2_2_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\PA_2_2_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.83 seconds
 INFO: [89/120] Checking Week_2_2\WS_2_2_more_support.ipynb
-INFO: No changes detected for Week_2_2\WS_2_2_more_support.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
+INFO: Processing Week_2_2\WS_2_2_more_support.ipynb
+INFO: Stats: 11 cells (3 code, 8 markdown), 117 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\WS_2_2_more_support.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\WS_2_2_more_support.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.28 seconds
 INFO: [90/120] Checking Week_2_2\WS_2_2_solution.ipynb
-INFO: No changes detected for Week_2_2\WS_2_2_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
+INFO: Processing Week_2_2\WS_2_2_solution.ipynb
+INFO: Stats: 15 cells (4 code, 11 markdown), 285 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\WS_2_2_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\WS_2_2_solution.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.32 seconds
 INFO: [91/120] Checking Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-INFO: No changes detected for Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: Processing Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: Stats: 26 cells (9 code, 17 markdown), 190 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\old_PA10_Love_is_Sparse.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.71 seconds
 INFO: [92/120] Checking Week_2_2\old\old_PA10_solution_sympy.ipynb
-INFO: No changes detected for Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: Processing Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: Stats: 36 cells (15 code, 21 markdown), 216 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\old_PA10_solution_sympy.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\old_PA10_solution_sympy.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 11.93 seconds
 INFO: [93/120] Checking Week_2_2\old\PA_2_1_solution.ipynb
-INFO: No changes detected for Week_2_2\old\PA_2_1_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
+INFO: Processing Week_2_2\old\PA_2_1_solution.ipynb
+INFO: Stats: 27 cells (9 code, 18 markdown), 201 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\PA_2_1_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\PA_2_1_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 16.41 seconds
 INFO: [94/120] Checking Week_2_2\old\PA_2_1_solution_sympy.ipynb
-INFO: No changes detected for Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: Processing Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: Stats: 36 cells (15 code, 21 markdown), 216 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\PA_2_1_solution_sympy.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\PA_2_1_solution_sympy.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.75 seconds
 INFO: [95/120] Checking Week_2_2\old\WS_2_2_more_support.ipynb
-INFO: No changes detected for Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: Processing Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: Stats: 10 cells (2 code, 8 markdown), 115 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\WS_2_2_more_support.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\old\WS_2_2_more_support.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.78 seconds
 INFO: [96/120] Checking Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-INFO: No changes detected for Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: Processing Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: Stats: 36 cells (11 code, 25 markdown), 242 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\PA\PA_2_2_love_is_sparse.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.57 seconds
 INFO: [97/120] Checking Week_2_2\PA\PA_2_2_solution.ipynb
-INFO: No changes detected for Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: Processing Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: Stats: 38 cells (11 code, 27 markdown), 315 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\PA\PA_2_2_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_2\PA\PA_2_2_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.31 seconds
 INFO: [98/120] Checking Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-INFO: No changes detected for Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: Processing Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: Stats: 27 cells (10 code, 17 markdown), 192 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_3\WS_2_3_DFT_you_try_meow.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.24 seconds
 INFO: [99/120] Checking Week_2_3\WS_2_3_solution.ipynb
-INFO: No changes detected for Week_2_3\WS_2_3_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
+INFO: Processing Week_2_3\WS_2_3_solution.ipynb
+INFO: Stats: 26 cells (9 code, 17 markdown), 215 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_3\WS_2_3_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_3\WS_2_3_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.14 seconds
 INFO: [100/120] Checking Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-INFO: No changes detected for Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: Processing Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: Stats: 53 cells (20 code, 33 markdown), 304 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_3\PA\PA_2_3_iter_remoto.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_3\PA\PA_2_3_iter_remoto.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.42 seconds
 INFO: [101/120] Checking Week_2_3\PA\PA_2_3_solution.ipynb
-INFO: No changes detected for Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: Processing Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: Stats: 54 cells (20 code, 34 markdown), 348 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_3\PA\PA_2_3_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_3\PA\PA_2_3_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.49 seconds
 INFO: [102/120] Checking Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-INFO: No changes detected for Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: Processing Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: Stats: 45 cells (10 code, 35 markdown), 446 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\WS_2_4_Feel_the_Pressure.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.04 seconds
 INFO: [103/120] Checking Week_2_4\WS_2_4_solution.ipynb
-INFO: No changes detected for Week_2_4\WS_2_4_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
+INFO: Processing Week_2_4\WS_2_4_solution.ipynb
+INFO: Stats: 54 cells (11 code, 43 markdown), 524 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\WS_2_4_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\WS_2_4_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.73 seconds
 INFO: [104/120] Checking Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-INFO: No changes detected for Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: Processing Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: Stats: 11 cells (2 code, 9 markdown), 127 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\PA\PA_2_4_A_gurobilicious.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.48 seconds
 INFO: [105/120] Checking Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-INFO: No changes detected for Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: Processing Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 129 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\PA\PA_2_4_B_axis_of_awesome.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.39 seconds
 INFO: [106/120] Checking Week_2_4\PA\PA_2_4_B_solution.ipynb
-INFO: No changes detected for Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: Processing Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 153 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\PA\PA_2_4_B_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_4\PA\PA_2_4_B_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.51 seconds
 INFO: [107/120] Checking Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-INFO: No changes detected for Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: Processing Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: Stats: 16 cells (5 code, 11 markdown), 126 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_5\WS_2_5_Profit_vs_Planet.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.69 seconds
 INFO: [108/120] Checking Week_2_5\WS_2_5_solution.ipynb
-INFO: No changes detected for Week_2_5\WS_2_5_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
+INFO: Processing Week_2_5\WS_2_5_solution.ipynb
+INFO: Stats: 18 cells (6 code, 12 markdown), 234 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_5\WS_2_5_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_5\WS_2_5_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.40 seconds
 INFO: [109/120] Checking Week_2_5\PA\PA_2_5_data_framework.ipynb
-INFO: No changes detected for Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: Processing Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: Stats: 39 cells (16 code, 23 markdown), 166 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_5\PA\PA_2_5_data_framework.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_5\PA\PA_2_5_data_framework.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.57 seconds
 INFO: [110/120] Checking Week_2_5\PA\PA_2_5_solution.ipynb
-INFO: No changes detected for Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: Processing Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: Stats: 39 cells (16 code, 23 markdown), 187 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_5\PA\PA_2_5_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_5\PA\PA_2_5_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.38 seconds
 INFO: [111/120] Checking Week_2_6\WS_2_6_be_a_NN.ipynb
-INFO: No changes detected for Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: Processing Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: Stats: 56 cells (25 code, 31 markdown), 533 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_6\WS_2_6_be_a_NN.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_6\WS_2_6_be_a_NN.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.97 seconds
 INFO: [112/120] Checking Week_2_6\WS_2_6_solution.ipynb
-INFO: No changes detected for Week_2_6\WS_2_6_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
+INFO: Processing Week_2_6\WS_2_6_solution.ipynb
+INFO: Stats: 57 cells (25 code, 32 markdown), 593 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_6\WS_2_6_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_6\WS_2_6_solution.html
+WARNING: Alternative text is missing on 3 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.25 seconds
 INFO: [113/120] Checking Week_2_6\PA\PA_2_6_3_way_split.ipynb
-INFO: No changes detected for Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: Processing Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: Stats: 33 cells (11 code, 22 markdown), 278 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_6\PA\PA_2_6_3_way_split.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_6\PA\PA_2_6_3_way_split.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 9.23 seconds
 INFO: [114/120] Checking Week_2_6\PA\PA_2_6_solution.ipynb
-INFO: No changes detected for Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: Processing Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: Stats: 33 cells (11 code, 22 markdown), 319 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_6\PA\PA_2_6_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_6\PA\PA_2_6_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.78 seconds
 INFO: [115/120] Checking Week_2_7\WS_2_7_solution.ipynb
-INFO: No changes detected for Week_2_7\WS_2_7_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
+INFO: Processing Week_2_7\WS_2_7_solution.ipynb
+INFO: Stats: 41 cells (12 code, 29 markdown), 312 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\WS_2_7_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\WS_2_7_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.30 seconds
 INFO: [116/120] Checking Week_2_7\WS_2_7_student.ipynb
-INFO: No changes detected for Week_2_7\WS_2_7_student.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_student.ipynb
+INFO: Processing Week_2_7\WS_2_7_student.ipynb
+INFO: Stats: 30 cells (10 code, 20 markdown), 187 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\WS_2_7_student.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\WS_2_7_student.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.92 seconds
 INFO: [117/120] Checking Week_2_7\PA\PA_2_7_solution.ipynb
-INFO: No changes detected for Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: Processing Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: Stats: 53 cells (18 code, 34 markdown), 351 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\PA\PA_2_7_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\PA\PA_2_7_solution.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.26 seconds
 INFO: [118/120] Checking Week_2_7\PA\PA_2_7_Times_Tables.ipynb
-INFO: No changes detected for Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: Processing Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: Stats: 53 cells (18 code, 34 markdown), 342 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\PA\PA_2_7_Times_Tables.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\PA\PA_2_7_Times_Tables.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.37 seconds
 INFO: [119/120] Checking Week_2_8\WS_2_8_dirty_water.ipynb
-INFO: No changes detected for Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: Processing Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: Stats: 10 cells (1 code, 9 markdown), 100 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_8\WS_2_8_dirty_water.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_8\WS_2_8_dirty_water.html
+WARNING: Alternative text is missing on 2 image(s).
+INFO: HTML conversion successful
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 8.11 seconds
 INFO: [120/120] Checking Week_2_8\WS_2_8_solution.ipynb
-INFO: Content changed for C:\Users\ncore\Desktop\2024-files\content\Week_2_8\WS_2_8_solution.ipynb (hash mismatch)
+INFO: First time processing C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_8\WS_2_8_solution.ipynb
 INFO: Processing Week_2_8\WS_2_8_solution.ipynb
 INFO: Stats: 14 cells (2 code, 12 markdown), 193 lines
 INFO: Successfully processed markdown format
 INFO: Successfully processed python format
 INFO: Successfully processed clean_python format
-INFO: Converting C:\Users\ncore\Desktop\2024-files\synced_files\Week_2_8\WS_2_8_solution.ipynb to HTML at C:\Users\ncore\Desktop\2024-files\synced_files\Week_2_8\WS_2_8_solution.html
+INFO: Converting C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_8\WS_2_8_solution.ipynb to HTML at C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_8\WS_2_8_solution.html
 WARNING: Alternative text is missing on 2 image(s).
 INFO: HTML conversion successful
 INFO: Successfully processed html format
 INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
-INFO: Completed in 3.32 seconds
+INFO: Completed in 7.92 seconds
 INFO: Skipping cleanup due to replace_all=False
-INFO: === Completed at 2024-12-31 00:44:54 (Duration: 0:00:03.520648) ===
+INFO: === Completed at 2024-12-31 15:28:07 (Duration: 0:17:39.042873) ===
