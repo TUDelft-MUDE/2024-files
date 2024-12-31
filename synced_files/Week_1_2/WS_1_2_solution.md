@@ -1,16 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
-<!-- #region id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff" -->
 # WS 1.2: Mean and Variance Propagation
 
 **Sewer Pipe Flow Velocity**
@@ -27,9 +16,8 @@ jupyter:
 </h2>
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.2. Wed Sep 11, 2024.*
-<!-- #endregion -->
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+<!-- #region -->
 ## Overview
 
 In this notebook you will apply the propagation laws for the mean and variance for a function of two independent random variables. You will assess how well the approximations correspond with the <em>simulation-based</em> equivalents. You will also assess the distribution of the function.
@@ -128,7 +116,7 @@ $$\sigma^2_X \approx \left(\frac{\partial q(\mu_Y )}{\partial Y_1 } \right)^2 \s
 
 We are interested to know how the uncertainty in $R$ and $S$ propagates into the uncertainty of the flow velocity $V$. We will first do this analytically and then implement it in code.
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
+
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 1.1:</b>   
@@ -136,7 +124,7 @@ We are interested to know how the uncertainty in $R$ and $S$ propagates into the
 Use the Taylor series approximation to find the expression for $\mu_V$ and $\sigma_V$ as function of $\mu_R$, $\sigma_R$, $\mu_S$, $\sigma_S$. Write your answer on paper or using a tablet; later we will learn how to include images directly in our notebooks! For now you can skip this step, as you are not turning this notebook in.
 </p>
 </div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 
@@ -238,16 +226,15 @@ Interpret the figures above, specifically looking at differences between Case 1 
 </p>
 </div>
 
-<!-- #region id="d3bdade1-2694-4ee4-a180-3872ee17a76d" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 
 $\textbf{Solution:}$
 The standard deviation of $V$ is a non-linear function of $\sigma_R$ and $\sigma_S$ - the left figure shows how $\sigma_V$ increases as function of $\sigma_R$ for a given value $\sigma_S$. 
 If $\sigma_S$ is zero, there is no uncertainty in the slope of the pipe, and the standard deviation of $V$ becomes a linear function of $\sigma_R$ (right figure). The uncertainty of $V$ is smaller now, since it only depends on the uncertainty in $R$.
 </div>
-<!-- #endregion -->
 
-<!-- #region id="a7e4c13f-a2ca-4c2d-a3e2-92d4630715a0" -->
+
 ## Part 2: Simulation-Based Propagation 
 
 We will use again the following values:
@@ -258,7 +245,7 @@ We will use again the following values:
 
 Furthermore, it is assumed that $R$ and $S$ are independent normally distributed random variables. We will generate at least 10,000 simulated realizations each of $R$ and $S$ using a random number generator, and then you need to use these to calculate the corresponding sample values of $V$ and find the moments of that sample.
 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -455,7 +442,6 @@ def samples_slideplot(sigma_R):
     validate_distribution(50000, sigma_R);
 ```
 
-<!-- #region id="782c842e-ceb8-4e3c-b767-1f3efa4fb9b2" -->
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 
 $\mathbf{Solution:}$
@@ -468,7 +454,7 @@ Using a different value for $\sigma_R$ has several impacts:
 
 The reason for this is that $V$ is a non-linear function of the normally distributed random variables $R$ and $S$, due to the non-linearity $V$ will <em>not</em> be Normally distributed.
 </div>
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 

@@ -1,15 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
 # GA 1.3: Modelling Road Deformation using Non-Linear Least-Squares
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -106,11 +96,10 @@ YOUR_CODE_HERE
 function_that_uses_my_dictionary(my_dictionary)
 ```
 
-<!-- #region id="160d6250" -->
 ## Task 1: Preparing the data
 
 Within this assignment you will work with two types of data: InSAR data and GNSS data. The cell below will load the data and visualize the observed displacements time. In this task we use the package `pandas`, which is really useful for handling time series. We will learn how to use it later in the quarter; for now, you only need to recognize that it imports the data as a `dataframe` object, which we then convert into a numpy array using the code below.
-<!-- #endregion -->
+
 
 <div style="background-color:#facb8e; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Tip: note that we have converted all observations to millimeters.</p></div>
 
@@ -253,7 +242,7 @@ model_gnss = {'data_type': 'GNSS',
                }
 ```
 
-<!-- #region id="76c9115b" -->
+<!-- #region -->
 ## Task 2: Set-up linear functional model
 
 We want to investigate how we could model the observed displacements of the road. Because the road is built in the Green Heart we expect that the observed displacements are related to the groundwater level. Furthermore, we assume that the displacements can be modeled using a constant velocity. The model is defined as 
@@ -319,7 +308,6 @@ model_insar['A'] = YOUR_CODE_HERE
 model_gnss['A'] = YOUR_CODE_HERE
 ```
 
-<!-- #region id="9325d32b" -->
 ## 3. Set-up stochastic model
 
 We will use the Best Linear Unbiased Estimator (BLUE) to solve for the unknown parameters. Therefore we also need a stochastic model, which is defined as
@@ -330,7 +318,7 @@ where $\Sigma_{Y}$ is the covariance matrix of the observables' vector.
 
 
 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -389,11 +377,10 @@ model_insar['Sigma_Y'] = YOUR_CODE_HERE
 model_gnss['Sigma_Y'] = YOUR_CODE_HERE
 ```
 
-<!-- #region id="09e965bf" -->
 ## 4. Apply best linear unbiased estimation
 
 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -482,11 +469,11 @@ Do the values that you just estimated make sense? Explain, using quantitative re
 
 
 
-<!-- #region id="65e42a43" -->
+
 ## 5. Evaluate the precision
 
 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -510,9 +497,8 @@ Sigma_X_hat_gnss = model_gnss['Sigma_X_hat']
 YOUR_CODE_HERE
 ```
 
-<!-- #region id="886efe26" -->
 ## 6. Present and reflect on estimation results
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -575,9 +561,8 @@ Use the functions provided to visualize the results of our two models.
 </div>
 
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p><strong>Note</strong>: remember that you will have to use the same function to look at <em>both</em> models when writing your interpretation in the Report.</p></div>
-<!-- #endregion -->
 
 ```python
 _, _ = plot_model(YOUR_CODE_HERE)

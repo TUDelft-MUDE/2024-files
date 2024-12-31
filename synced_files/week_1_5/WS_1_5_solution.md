@@ -1,15 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
 # WS 1.5 Exploring Numerical Summing Schemes
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 90px;right: 30px; margin: 0; border: 0">

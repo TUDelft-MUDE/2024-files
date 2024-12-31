@@ -1,15 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
 # Workshop 16: Dirty Water
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -34,7 +24,7 @@ In this exercise we apply a few simple concepts from the textbook to derive a sa
 
 A city with population 10,000 uses an aquifer for its water supply, as illustrated in the figure. The city owns a factory in the region that manufactures hazardous chemicals, and recently a chemical spill occurred that resulted in 10 residents getting sick and total damages of  €7,000M*. The city is going to enforce stricter regulations on the factory, and _you have been hired to advise the city council on the maximum allowable probability of a spill occurring (per year)_. You will make a recommendation based on the more stringent criteria between economic and societal risk limits.
 
-![](./sketch.png)
+![sketch of factory, houses and contamination plume](./sketch.png)
 
 Experts have been consulted and it appears under the current plan the probability of a spill is 1/100 per year. The city council is considering two strategies to upgrade the spill prevention system. A small upgrade would cost €25M and can reduce spill probability by a factor 10; a large upgrade with investment costs of €50M would reduce the probability by factor 100.
 
@@ -210,24 +200,22 @@ We added <a href="https://mude.citg.tudelft.nl/book/pd/reliability-component/con
 </div>
 
 
-**End of notebook.**
-<h2 style="height: 60px">
-</h2>
-<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
-    <style>
-        .markdown {width:100%; position: relative}
-        article { position: relative }
-    </style>
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+**End of notebook.test**
+
+<div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
+  <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
+      <img alt="MUDE" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
     </a>
     <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
-      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png"/>
+      <img alt="TU Delft" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
     </a>
-    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
-      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png"/>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="width:88px; height:auto;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    
-</h3>
-<span style="font-size: 75%">
-&copy; Copyright 2023 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  </div>
+  <div style="font-size: 75%; margin-top: 10px; text-align: right;">
+    &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+</div>

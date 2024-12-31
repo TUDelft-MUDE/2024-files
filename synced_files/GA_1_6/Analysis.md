@@ -1,16 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
-<!-- #region id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff" -->
 # GA 1.6: An ODE to Probably Doing Enough (PDE)
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -25,7 +14,7 @@ jupyter:
 </h2>
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.6. For: 11 October, 2024.*
-<!-- #endregion -->
+
 
 # Overview
 

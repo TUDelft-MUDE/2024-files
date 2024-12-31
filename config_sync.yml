@@ -1,3 +1,6 @@
+sync_options:
+  replace_all: false  # When false, only update specified files
+
 content_dir: "content"
 output_dir: "synced_files"
 formats:
@@ -9,7 +12,11 @@ html_options:
   template: "basic"
   include_code: true
   include_outputs: true
+
 # Uncomment and modify if you want to process specific notebooks only
 # specific_notebooks:
-#   - "Week_2_8/WS_2_8_dirty_water.ipynb"
-#   - "Week_2_8/WS_2_8_solution.ipynb"
+#   options:
+#     force_update: false  # Force update even without changes
+#   files:
+#     - "Week_2_8/WS_2_8_dirty_water.ipynb"
+#     - "Week_2_8/WS_2_8_solution.ipynb"

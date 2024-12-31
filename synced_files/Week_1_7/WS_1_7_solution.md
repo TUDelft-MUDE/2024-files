@@ -1,15 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
 # WS 1.7: Modelling Uncertain Concrete Strength
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -25,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.7. Due: October 16, 2024.*
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+
 Assessing the uncertainties in the compressive strength of the produced concrete is key for the safety of infrastructures and buildings. However, a lot of boundary conditions influence the final resistance of the concrete, such the cement content, the environmental temperature or the age of the concrete. Probabilistic tools can be applied to model this uncertainty. In this workshop, you will work with a dataset of observations of the compressive strength of concrete (you can read more about the dataset [here](https://www.kaggle.com/datasets/gauravduttakiit/compressive-strength-of-concrete)). 
 
 **The goal of this project is:**
@@ -35,7 +25,6 @@ Assessing the uncertainties in the compressive strength of the produced concrete
 4. Assess the fit using goodness of fit techniques and computer code.
 
 The project will be divided into 3 parts: 1) data analysis, 2) pen and paper stuff (math practice!), and 3) programming.
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -80,7 +69,6 @@ df_describe = pd.DataFrame(data)
 df_describe.describe()
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 1.1:</b>   
@@ -89,11 +77,11 @@ df_describe.describe()
     <li>Justiy your choice.</li>
 </p>
 </div>
-<!-- #endregion -->
+
 
 _Your answer here._
 
-<!-- #region id="d3bdade1-2694-4ee4-a180-3872ee17a76d" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <b>Solution:</b>
 
@@ -101,7 +89,7 @@ _Your answer here._
 - Uniform and Gaussian distributions are symmetric so they are not appropriate to model the observations. We can see it by computing the difference between the minimum value and the P50% and between the maximum value and P50%. $d_{min, 50}= 33.87-2.33 = 31.54 < d_{max, 50} = 82.60 - 33.87 = 48.72$.
 </div>
 </div>
-<!-- #endregion -->
+
 
 ## Part 2: Use pen and paper!
 
@@ -119,7 +107,7 @@ Fit the selected distribution by moments.
 
 _Your answer here._
 
-<!-- #region id="d3bdade1-2694-4ee4-a180-3872ee17a76d" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <b>Solution:</b>
     Fitting by moments a distribution implies equating the moments of the observations to those of the parametric distribution. Applying then the expressions of the mean and variance of the Gumbel distribution we obtain:
@@ -133,7 +121,7 @@ $
     $
 </div>
 </div>
-<!-- #endregion -->
+
 
 We can now check the fit by computing manually some probabilities from the fitted distribution and comparing them with the empirical ones.
 
@@ -157,7 +145,7 @@ You can summarize you answers in the following table (report your values with 3-
 |Empirical quantiles [MPa] | | | | | |
 |Predicted quantiles [MPa] ||||||
 
-<!-- #region id="d3bdade1-2694-4ee4-a180-3872ee17a76d" -->
+<!-- #region -->
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <b>Solution:</b>
     
@@ -187,14 +175,13 @@ The values close to the central moments (P25%, P50% and P75%) are well fitted. R
 
 Now, let's assess the performance using further goodness of fit metrics and see whether they are consistent with the previously done analysis.
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
+
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3.1:</b>   
 Prepare a function to compute the empirical cumulative distribution function.
 </p>
 </div>
-<!-- #endregion -->
 
 ```python
 # def ecdf(YOUR_CODE_HERE):
@@ -209,7 +196,6 @@ def ecdf(observations):
     return [y, x]
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3.2:</b>   
@@ -218,17 +204,17 @@ Transform the fitted parameters for the selected distribution to loc-scale-shape
 </div>
 
 Hint: the distributions are in our online textbook, but it is also critical to make sure that the formulation in the book is identical to that of the Python package we are using. You can do this by finding the page of the relevant distribution in the [Scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html) documentation.
-<!-- #endregion -->
+
 
 _Your answer here._
 
-<!-- #region id="d3bdade1-2694-4ee4-a180-3872ee17a76d" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <b>Solution:</b>
     The Gumbel distribution is already parameterized in terms of loc-scale-shape. You don't need to do anything!
 </div>
 </div>
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
