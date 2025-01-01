@@ -36,6 +36,7 @@ from minutes import *
 from typing import Union
 from datetime import datetime, timedelta
 import pickle
+from scipy.sparse import lil_matrix
 
 class Models:
     def __init__(self, ticket_model:str='dev'):
@@ -108,17 +109,35 @@ class Models:
         return self.ticket_model(day, min)
         
 
-    def plot(self, which_pickle:Union[int,str], increment:str='min'):
-
-        data = self.pickle_picker('load', which_pickle)
+    def plot(self,
+             data:Union[np.ndarray, list, int, str, lil_matrix],
+             increment:str='min',
+             custom_title=None, custom_label=None):
         
-        titles = ['Historic Probability of Breakup',
+        if isinstance(data, int) or isinstance(data, str):
+            # data defines which_pickle to use
+            if isinstance(data, str):
+                data_id = self.pickles.index(data)
+
+            data_id = data
+            data = self.pickle_picker('load', data_id)
+            titles = ['Historic Probability of Breakup',
                   'Expected Tickets',
                   'Purchased Tickets']
-        labels = ['Probability', 'Ticket Count', 'Ticket Count']
-
-        if isinstance(which_pickle, str):
-            which_pickle = self.pickles.index(which_pickle)
+            labels = ['Probability', 'Ticket Count', 'Ticket Count']
+            colors = ['viridis', 'viridis', 'viridis']
+        elif isinstance(data, list) or isinstance(data, np.ndarray) or isinstance(data, lil_matrix):
+            titles = ['Expected Benefit for Selected Tickets']
+            labels = ['Expected Benefit (USD)']
+            colors = ['PiYG']
+            data_id = 0
+        else:
+            raise ValueError("data must be an int, str, list, or np.ndarray")
+        
+        if custom_title:
+            titles[data_id] = custom_title
+        if custom_label:
+            labels[data_id] = custom_label
 
         fig, ax = plt.subplots()
                 
@@ -132,14 +151,15 @@ class Models:
         else:
             raise ValueError("increment must be 'min' or 'hour'")
         
-        cax = ax.imshow(data.T, aspect='auto', cmap='viridis', origin='lower')
-        fig.colorbar(cax, ax=ax, label=labels[which_pickle])
+        cax = ax.imshow(data.T, aspect='auto',
+                        cmap=colors[data_id], origin='lower')
+        fig.colorbar(cax, ax=ax, label=labels[data_id])
         
         ax.set_xlim(0, 60)
         ax.set_ylim(0, 24*60)
         ax.set_xlabel('Day Number (April 1 is Day 0)')
         ax.set_ylabel('Minutes of the Day')
-        ax.set_title(titles[which_pickle])
+        ax.set_title(titles[data_id])
         ax.xaxis.set_ticks_position('bottom')
         ax.grid(color='black', linestyle='-', linewidth=0.5)
         ax.minorticks_on()
@@ -266,3 +286,24 @@ class Models:
             
         return expected_tickets, scale_day, scale_minute
             
+    @staticmethod
+    def data_sparse(tickets, data, shape=(60, 1440)):
+        """key for plotting stuff"""
+        assert len(tickets) == len(data), "tickets and data must be same length"
+        matrix = lil_matrix(shape)
+        for minute, dat in zip(tickets, data):
+            day = minute // 1440
+            minute_of_day = minute % 1440
+            matrix[day, minute_of_day] = dat
+        return matrix
+    
+    @staticmethod
+    def data_zeros(tickets, data, shape=(60, 1440)):
+        """key for plotting stuff"""
+        assert len(tickets) == len(data), "tickets and data must be same length"
+        matrix = np.zeros(shape)
+        for minute, dat in zip(tickets, data):
+            day = minute // 1440
+            minute_of_day = minute % 1440
+            matrix[day, minute_of_day] = dat
+        return matrix
