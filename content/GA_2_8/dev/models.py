@@ -37,7 +37,7 @@ from typing import Union
 from datetime import datetime, timedelta
 import pickle
 
-class Probability:
+class Models:
     def __init__(self, ticket_model:str='dev'):
         self.winnings = 300000
         self.cost = 3
@@ -110,8 +110,7 @@ class Probability:
 
     def plot(self, which_pickle:Union[int,str], increment:str='min'):
 
-        data = self.pickle_picker('load',
-                                               which_pickle)
+        data = self.pickle_picker('load', which_pickle)
         
         titles = ['Historic Probability of Breakup',
                   'Expected Tickets',
