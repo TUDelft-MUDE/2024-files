@@ -39,7 +39,7 @@ import pickle
 from scipy.sparse import lil_matrix
 
 class Models:
-    def __init__(self, ticket_model:str='dev'):
+    def __init__(self, model_id:str=0):
         self.winnings = 300000
         self.cost = 3
         self.moments_day = (33, 6.5)
@@ -48,7 +48,7 @@ class Models:
                                            self.moments_day[1])
         self.distribution_min = stats.norm(self.moments_min[0],
                                            self.moments_min[1])
-        self.set_ticket_model(model_id='dev')
+        self.set_ticket_model(model_id=model_id)
         self.get_ticket_model()
         self.pickle_jar = "pickles"
         self.pickles = ['breakup_prob_hist',
@@ -75,8 +75,13 @@ class Models:
                  - self.distribution_min.cdf(min - 1))
         return p_day*p_min
     
-    def set_ticket_model(self, model_id:str='dev'):
-        if model_id == 'dev':
+    def set_ticket_model(self, model_id:Union[int, str]=0):
+        """set ticket model
+        
+        0: original exponential equation (fast!)
+        1: first model with probability distributions
+        """
+        if model_id == 0:
             dict = {
                 "references": [self.moments_day[0],
                              self.moments_min[0]],
@@ -85,6 +90,17 @@ class Models:
                 "thresholds": [0.02, 0.9],
                 "static_method_name": "ticket_model_0",
                 "static_method": self.ticket_model_0
+                }
+            self.ticket_model_dict = dict
+        elif model_id == 1:
+            dict = {
+                "references": [28.8327,
+                               {"x":[0, 540, 930, 1440],
+                                "y":[0., 9.375e-2, 1., 3.125e-2]}
+                              ],
+                "limits": [0, 50],
+                "static_method_name": "ticket_model_1",
+                "static_method": self.ticket_model_1
                 }
             self.ticket_model_dict = dict
         else:
@@ -285,7 +301,49 @@ class Models:
                 return int(round(scale * (ticket_limits[1] - ticket_limits[0]) + ticket_limits[0]))
             
         return expected_tickets, scale_day, scale_minute
+    
+    @staticmethod
+    def ticket_model_1(d: dict):
+        """Returns functions; parameters defined by dictionary."""
+
+
+        reference_day = d["references"][0]
+        reference_min = d["references"][1]
+        ticket_limits = d["limits"]
+
+        
+        
+        
+
+        def scale_day(day):
+
+            def poisson(k, mu=reference_day):
+                return np.exp(-mu)*mu**k/np.math.factorial(k)
+        
+            def poisson_pmf_max(mu=reference_day):
+                mode = int(np.floor(mu))
+                return poisson(mode, mu)
             
+            pmf_max = poisson_pmf_max(reference_day)
+
+            pmf_poisson = poisson(day, reference_day)
+
+            return pmf_poisson/pmf_max
+
+        def scale_minute(minute,
+                         x=reference_min["x"], y=reference_min["y"]):
+            return np.interp(minute, x, y)
+
+        def expected_tickets(day, min):
+            day_scale = scale_day(day)
+            min_scale = scale_minute(min)
+            scale = day_scale*min_scale
+            tickets = int(round(scale*(ticket_limits[1] - ticket_limits[0]) + ticket_limits[0]))
+
+            return tickets
+
+        return expected_tickets, scale_day, scale_minute
+    
     @staticmethod
     def data_sparse(tickets, data, shape=(60, 1440)):
         """key for plotting stuff"""
