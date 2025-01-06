@@ -3,6 +3,13 @@ sync_options:
 
 content_dir: "content"
 output_dir: "synced_files"
+
+# Add footer options here
+footer_options:
+  enabled: true  # Enable/disable footer checking
+  fix_non_standard: true  # Whether to fix non-standard footers
+  template_path: "templates/footer.html"  # Path to the standard footer template
+
 formats:
   - markdown
   - python

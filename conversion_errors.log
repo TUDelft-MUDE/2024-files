@@ -1,5 +1,595 @@
-INFO: === Starting synchronization at 2024-12-31 15:56:12 ===
-INFO: Searching in: C:\Users\rlanzafame\code\MUDE\2024-files\content
+INFO: === Starting synchronization at 2025-01-07 02:13:50 ===
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][61]:
+{'cell_type': 'markdown',
+ 'id': '2d17d1d2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '8be7bef6',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][21]:
+{'cell_type': 'markdown',
+ 'id': '11b698a8',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][31]:
+{'cell_type': 'markdown',
+ 'id': '73688964',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][49]:
+{'cell_type': 'markdown',
+ 'id': '1f20a790',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][54]:
+{'cell_type': 'markdown',
+ 'id': 'b35cce29',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][48]:
+{'cell_type': 'markdown',
+ 'id': '9ce5ef3c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '9623200b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '4c8e2a76',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': 'cb8ecd0a',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': 'afe52867',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'e97e2538',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'd49f6732',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': '6e512e24',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][57]:
+{'cell_type': 'markdown',
+ 'id': '60de6e23',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][36]:
+{'cell_type': 'markdown',
+ 'id': 'a7ca91cf',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][42]:
+{'cell_type': 'markdown',
+ 'id': '2512a67c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][30]:
+{'cell_type': 'markdown',
+ 'id': 'b6495720',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '6b38ca88',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][7]:
+{'cell_type': 'markdown',
+ 'id': '0b4c0735',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': 'a8389eaa',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][2]:
+{'cell_type': 'markdown',
+ 'id': 'fe32d45f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][4]:
+{'cell_type': 'markdown',
+ 'id': '1fcb6770',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][44]:
+{'cell_type': 'markdown',
+ 'id': 'f1845f70',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][53]:
+{'cell_type': 'markdown',
+ 'id': '826fb763',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][55]:
+{'cell_type': 'markdown',
+ 'id': 'f06deab7',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][56]:
+{'cell_type': 'markdown',
+ 'id': '8a4f50a4',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': 'b8af792e',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': 'c2f76fae',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': '3e769ca2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][14]:
+{'cell_type': 'markdown',
+ 'id': '27c60a7f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': '9beb84ff',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][6]:
+{'cell_type': 'markdown',
+ 'id': 'b3f65c9d',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][5]:
+{'cell_type': 'markdown',
+ 'id': '9e812924',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': 'cefafb54',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': '21f73bef',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': 'e707ed58',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '23d8351c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '078b9223',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][22]:
+{'cell_type': 'markdown',
+ 'id': 'e8d48f9f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': 'be902968',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+INFO: === Footer Check Summary ===
+INFO: Total notebooks: 120
+INFO: Standard footers: 120
+INFO: Non-standard footers: 0
+INFO: Fixed footers: 0
+INFO: Errors: 0
+INFO: 
+=== Detailed Results ===
+INFO: OK: GA_1_1\Task_2_solution.ipynb - Has standard footer
+INFO: OK: GA_1_2\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_2\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_1_3\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_3\Analysis_Solution.ipynb - Has standard footer
+INFO: OK: GA_1_3\Warmup.ipynb - Has standard footer
+INFO: OK: GA_1_4\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_4\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_1_5\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_5\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_1_5\central_diff_illustration.ipynb - Has standard footer
+INFO: OK: GA_1_6\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_6\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_1_8\Analysis.ipynb - Has standard footer
+INFO: OK: GA_2_1\Analysis.ipynb - Has standard footer
+INFO: OK: GA_2_1\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_2_1\mesh_dev.ipynb - Has standard footer
+INFO: OK: GA_2_1\mesh_tips.ipynb - Has standard footer
+INFO: OK: GA_2_2\the_big_M.ipynb - Has standard footer
+INFO: OK: GA_2_3\Analysis.ipynb - Has standard footer
+INFO: OK: GA_2_3\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_2_4\GA_2_4_Beary_Icy.ipynb - Has standard footer
+INFO: OK: GA_2_4\GA_2_4_solution.ipynb - Has standard footer
+INFO: OK: GA_2_5\Analysis_GA.ipynb - Has standard footer
+INFO: OK: GA_2_5\Analysis_GA_solution.ipynb - Has standard footer
+INFO: OK: GA_2_5\Analysis_LP.ipynb - Has standard footer
+INFO: OK: GA_2_5\Analysis_LP_solution.ipynb - Has standard footer
+INFO: OK: GA_2_6\Analysis.ipynb - Has standard footer
+INFO: OK: GA_2_6\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_2_7\rain_solution.ipynb - Has standard footer
+INFO: OK: week_1_1\PA_1_1_Catch_Them_All.ipynb - Has standard footer
+INFO: OK: Week_1_2\In_Class_Activity.ipynb - Has standard footer
+INFO: OK: Week_1_2\In_Class_Activity_Solution.ipynb - Has standard footer
+INFO: OK: Week_1_2\PA_1_2_Random_Adventure.ipynb - Has standard footer
+INFO: OK: Week_1_2\PA_1_2_solution.ipynb - Has standard footer
+INFO: OK: Week_1_2\WS_1_2_Pipe_Dreams.ipynb - Has standard footer
+INFO: OK: Week_1_2\WS_1_2_solution.ipynb - Has standard footer
+INFO: OK: week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb - Has standard footer
+INFO: OK: week_1_3\PA_1_3_solution.ipynb - Has standard footer
+INFO: OK: week_1_3\WS_1_3_Moving_Ice.ipynb - Has standard footer
+INFO: OK: week_1_3\WS_1_3_solution.ipynb - Has standard footer
+INFO: OK: Week_1_4\WS_1_4_Nonlinear_Rain.ipynb - Has standard footer
+INFO: OK: Week_1_4\WS_1_4_solution.ipynb - Has standard footer
+INFO: OK: week_1_5\WS_1_5_dont_integr_hate.ipynb - Has standard footer
+INFO: OK: week_1_5\WS_1_5_solution.ipynb - Has standard footer
+INFO: OK: Week_1_6\WS_1_6_solution.ipynb - Has standard footer
+INFO: OK: Week_1_6\WS_1_6_time_to_c_ode.ipynb - Has standard footer
+INFO: OK: Week_1_7\scipy_stats.ipynb - Has standard footer
+INFO: OK: Week_1_7\WS_1_7_lets_be_concrete.ipynb - Has standard footer
+INFO: OK: Week_1_7\WS_1_7_solution.ipynb - Has standard footer
+INFO: OK: Week_1_8\data.ipynb - Has standard footer
+INFO: OK: Week_1_8\intersection.ipynb - Has standard footer
+INFO: OK: Week_1_8\test_bivariate.ipynb - Has standard footer
+INFO: OK: Week_2_1\WS_2_1_solution.ipynb - Has standard footer
+INFO: OK: Week_2_1\WS_2_1_wiggle.ipynb - Has standard footer
+INFO: OK: Week_2_1\WS_2_1_wiggle_test_ci.ipynb - Has standard footer
+INFO: OK: Week_2_2\PA_2_2_love_is_sparse.ipynb - Has standard footer
+INFO: OK: Week_2_2\PA_2_2_solution.ipynb - Has standard footer
+INFO: OK: Week_2_2\WS_2_2_more_support.ipynb - Has standard footer
+INFO: OK: Week_2_2\WS_2_2_solution.ipynb - Has standard footer
+INFO: OK: Week_2_3\WS_2_3_DFT_you_try_meow.ipynb - Has standard footer
+INFO: OK: Week_2_3\WS_2_3_solution.ipynb - Has standard footer
+INFO: OK: Week_2_4\WS_2_4_Feel_the_Pressure.ipynb - Has standard footer
+INFO: OK: Week_2_4\WS_2_4_solution.ipynb - Has standard footer
+INFO: OK: Week_2_5\WS_2_5_Profit_vs_Planet.ipynb - Has standard footer
+INFO: OK: Week_2_5\WS_2_5_solution.ipynb - Has standard footer
+INFO: OK: Week_2_6\WS_2_6_be_a_NN.ipynb - Has standard footer
+INFO: OK: Week_2_6\WS_2_6_solution.ipynb - Has standard footer
+INFO: OK: Week_2_7\WS_2_7_solution.ipynb - Has standard footer
+INFO: OK: Week_2_7\WS_2_7_student.ipynb - Has standard footer
+INFO: OK: Week_2_8\WS_2_8_dirty_water.ipynb - Has standard footer
+INFO: OK: Week_2_8\WS_2_8_solution.ipynb - Has standard footer
+INFO: OK: GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb - Has standard footer
+INFO: OK: GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb - Has standard footer
+INFO: OK: GA_1_7\Solution\Force\Analysis_force_solution.ipynb - Has standard footer
+INFO: OK: GA_1_7\Student\Discharge\Analysis_discharge.ipynb - Has standard footer
+INFO: OK: GA_1_7\Student\Emissions\Analysis_emissions.ipynb - Has standard footer
+INFO: OK: GA_1_7\Student\Force\Analysis_force.ipynb - Has standard footer
+INFO: OK: GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb - Has standard footer
+INFO: OK: GA_1_8\solution\GA_1_8_solution_HT.ipynb - Has standard footer
+INFO: OK: GA_1_8\solution\GA_1_8_solution_hu.ipynb - Has standard footer
+INFO: OK: GA_1_8\solution\GA_1_8_solution_traffic.ipynb - Has standard footer
+INFO: OK: GA_2_1\mesh\mesh.ipynb - Has standard footer
+INFO: OK: tutorials\Week_1_3\Analysis.ipynb - Has standard footer
+INFO: OK: tutorials\Week_1_5\Tutorial.ipynb - Has standard footer
+INFO: OK: tutorials\Week_1_6\Tutorial.ipynb - Has standard footer
+INFO: OK: week_1_5\PA\PA_1_5_solution.ipynb - Has standard footer
+INFO: OK: week_1_5\PA\PA_1_5_useful_tricks.ipynb - Has standard footer
+INFO: OK: week_1_5\PA_ice\PA_plots.ipynb - Has standard footer
+INFO: OK: Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb - Has standard footer
+INFO: OK: Week_1_6\PA\PA_1_6_solution.ipynb - Has standard footer
+INFO: OK: Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb - Has standard footer
+INFO: OK: Week_1_7\PA\PA_1_7_solution.ipynb - Has standard footer
+INFO: OK: Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb - Has standard footer
+INFO: OK: Week_1_8\PA\PA_1_8_solution.ipynb - Has standard footer
+INFO: OK: Week_1_8\WS\linearity_or_not.ipynb - Has standard footer
+INFO: OK: Week_1_8\WS\WS_1_8_solution.ipynb - Has standard footer
+INFO: OK: Week_1_8\WS\WS_1_8_Thingamajig.ipynb - Has standard footer
+INFO: OK: Week_2_1\PA\PA_2_1_classy_city.ipynb - Has standard footer
+INFO: OK: Week_2_1\PA\PA_2_1_solution.ipynb - Has standard footer
+INFO: OK: Week_2_1\PA\PA_dev.ipynb - Has standard footer
+INFO: OK: Week_2_1\PA\U.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\old_PA10_Love_is_Sparse.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\old_PA10_solution_sympy.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\PA_2_1_solution.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\PA_2_1_solution_sympy.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\WS_2_2_more_support.ipynb - Has standard footer
+INFO: OK: Week_2_2\PA\PA_2_2_love_is_sparse.ipynb - Has standard footer
+INFO: OK: Week_2_2\PA\PA_2_2_solution.ipynb - Has standard footer
+INFO: OK: Week_2_3\PA\PA_2_3_iter_remoto.ipynb - Has standard footer
+INFO: OK: Week_2_3\PA\PA_2_3_solution.ipynb - Has standard footer
+INFO: OK: Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb - Has standard footer
+INFO: OK: Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb - Has standard footer
+INFO: OK: Week_2_4\PA\PA_2_4_B_solution.ipynb - Has standard footer
+INFO: OK: Week_2_5\PA\PA_2_5_data_framework.ipynb - Has standard footer
+INFO: OK: Week_2_5\PA\PA_2_5_solution.ipynb - Has standard footer
+INFO: OK: Week_2_6\PA\PA_2_6_3_way_split.ipynb - Has standard footer
+INFO: OK: Week_2_6\PA\PA_2_6_solution.ipynb - Has standard footer
+INFO: OK: Week_2_7\PA\PA_2_7_solution.ipynb - Has standard footer
+INFO: OK: Week_2_7\PA\PA_2_7_Times_Tables.ipynb - Has standard footer
+INFO: Searching in: C:\Users\ncore\Desktop\2024-files\content
 INFO: Found 120 notebooks
 INFO: [1/120] Checking GA_1_1\Task_2_solution.ipynb
 INFO: No changes detected for GA_1_1\Task_2_solution.ipynb
@@ -89,8 +679,8 @@ INFO: [43/120] Checking tutorials\Week_1_5\Tutorial.ipynb
 INFO: No changes detected for tutorials\Week_1_5\Tutorial.ipynb
 INFO: [44/120] Checking tutorials\Week_1_6\Tutorial.ipynb
 INFO: No changes detected for tutorials\Week_1_6\Tutorial.ipynb
-INFO: [45/120] Checking Week_1_1\PA_1_1_Catch_Them_All.ipynb
-INFO: No changes detected for Week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: [45/120] Checking week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: No changes detected for week_1_1\PA_1_1_Catch_Them_All.ipynb
 INFO: [46/120] Checking Week_1_2\In_Class_Activity.ipynb
 INFO: No changes detected for Week_1_2\In_Class_Activity.ipynb
 INFO: [47/120] Checking Week_1_2\In_Class_Activity_Solution.ipynb
@@ -242,4 +832,4 @@ INFO: No changes detected for Week_2_8\WS_2_8_dirty_water.ipynb
 INFO: [120/120] Checking Week_2_8\WS_2_8_solution.ipynb
 INFO: No changes detected for Week_2_8\WS_2_8_solution.ipynb
 INFO: Skipping cleanup due to replace_all=False
-INFO: === Completed at 2024-12-31 15:56:21 (Duration: 0:00:09.118155) ===
+INFO: === Completed at 2025-01-07 02:13:52 (Duration: 0:00:01.718820) ===

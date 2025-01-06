@@ -33,7 +33,7 @@
 #
 # A city with population 10,000 uses an aquifer for its water supply, as illustrated in the figure. The city owns a factory in the region that manufactures hazardous chemicals, and recently a chemical spill occurred that resulted in 10 residents getting sick and total damages of  €7,000M*. The city is going to enforce stricter regulations on the factory, and _you have been hired to advise the city council on the maximum allowable probability of a spill occurring (per year)_. You will make a recommendation based on the more stringent criteria between economic and societal risk limits.
 #
-# ![sketch of factory, houses and contamination plume](./sketch.png)
+# ![](./images\sketch.png)
 #
 # Experts have been consulted and it appears under the current plan the probability of a spill is 1/100 per year. The city council is considering two strategies to upgrade the spill prevention system. A small upgrade would cost €25M and can reduce spill probability by a factor 10; a large upgrade with investment costs of €50M would reduce the probability by factor 100.
 #
@@ -88,19 +88,16 @@ import matplotlib.pyplot as plt
 # <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 # <p>
 # <b>Task 2:</b>  
-#
 # Assuming that the number of people in a future spill would also be 10 people, what is the maximum allowable spill probability based on societal risk standards?
 #
 # Make a plot of the societal risk limit and add a point for the case of the city factory.
-#     
 # </p>
 # </div>
 
 # %% [markdown]
 # <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 # <p>
-# <b>Solution:</b>   
-#
+# <b>Solution:</b>
 # The goal is to create a limit line, <a href="https://mude.citg.tudelft.nl/book/pd/risk-evaluation/safety-standards.html#limits-for-individual-and-societal-risk" target="_blank">as described here</a>. The equation is of form:
 #     
 # $$
@@ -228,3 +225,6 @@ plt.show()
 #     This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
 #   </div>
 # </div>
+#
+#
+# <!--tested with WS_2_8_solution.ipynb-->

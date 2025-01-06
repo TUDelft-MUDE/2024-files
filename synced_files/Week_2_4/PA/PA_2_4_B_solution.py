@@ -187,38 +187,24 @@ plot_acf(strong_autocorr_positive);
 
 # %% [markdown]
 # **End of notebook.**
-# <h2 style="height: 60px">
-# </h2>
-# <h3 style="position: relative; display: flex; flex-direction: row-reverse; margin: 20px 50px; border: 0">
-#     <style>
-#         .markdown {width:100%; position: relative}
-#         article { position: relative }
-#         .footer-links {
-#             display: flex;
-#             flex-direction: row-reverse;
-#             align-items: center;
-#             gap: 20px;
-#             margin-bottom: 20px;
-#         }
-#         .footer-links img {
-#             height: auto;
-#             max-width: 100px;
-#         }
-#     </style>
-#     <div class="footer-links">
-#         <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-#           <img alt="Creative Commons License" style="width:88px; padding-top:10px" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
-#         </a>
-#         <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
-#           <img alt="TU Delft" style="width:100px;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
-#         </a>
-#         <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
-#           <img alt="MUDE" style="width:100px;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
-#         </a>
-#     </div>
-# </h3>
-# <span style="font-size: 75%">
-# &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
-# </span>
 #
-# <userStyle>Normal</userStyle>
+# <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
+#   <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+#     <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
+#       <img alt="MUDE" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
+#     </a>
+#     <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
+#       <img alt="TU Delft" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
+#     </a>
+#     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+#       <img alt="Creative Commons License" style="width:88px; height:auto;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+#     </a>
+#   </div>
+#   <div style="font-size: 75%; margin-top: 10px; text-align: right;">
+#     &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
+#     This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+#   </div>
+# </div>
+#
+#
+# <!--tested with WS_2_8_solution.ipynb-->
