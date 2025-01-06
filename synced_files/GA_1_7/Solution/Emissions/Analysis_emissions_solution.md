@@ -1,15 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
 # Group Assignment 1.7: Distribution Fitting
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -25,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 7, Friday Oct 18, 2024.*
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+
 ## Case 2: $CO_2$ emissions from traffic
 
 **What's the propagated uncertainty? *How large will be the $CO_2$ emissions?***
@@ -41,11 +31,9 @@ $$
 2. Fit the chosen distributions to the observations of $H$ and $C$.
 3. Assuming $H$ and $C$ are independent, propagate their distributions to obtain the distribution of emissions of $CO_2$.
 4. Analyze the distribution of emissions of $CO_2$.
-<!-- #endregion -->
 
-<!-- #region id="d33f1148-c72b-4c7e-bca7-45973b2570c5" -->
+
 ## Importing packages
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -92,7 +80,6 @@ stats.describe(H).mean
 print(stats.describe(C))
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 1:</b>  
@@ -102,7 +89,7 @@ Describe the data based on the previous statistics:
 - What does the skewness coefficient means? Which kind of distribution functions should we consider to fit them?</li>
 </p>
 </div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <b>Solution:</b>
@@ -158,7 +145,6 @@ axes[1].legend()
 axes[1].grid()
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3:</b>   
@@ -166,7 +152,7 @@ axes[1].grid()
 Based on the results of Task 1 and the empirical PDF and CDF, select <b>one</b> distribution to fit to each variable. For $H$, select between Gumbel or Gaussian distribution, while for $C$ choose between Uniform or Lognormal.
 </p>
 </div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <b>Solution:</b>

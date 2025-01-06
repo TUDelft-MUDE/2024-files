@@ -1,16 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
-<!-- #region id="9adbf457-797f-45b7-8f8b-0e46e0e2f5ff" -->
 # WS 1.8: The Thingamajig!
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -25,7 +14,6 @@ jupyter:
 </h2>
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.8. For: 23 October, 2024.*
-<!-- #endregion -->
 
 <!-- #region -->
 ## Objective
@@ -223,11 +211,10 @@ Build the bivariate distribution using <code>scipy.stats.multivariate_normal</co
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Use the helper function <code>plot_contour</code> in <code>helper.py</code>; it was already imported above. Either look in the file to read it, or view the documentation in the notebook with <code>plot_contour?</code></p>
 
 <p><em>Hint: for this Task use the optional </em><code>data</code><em> argument!.</em></p></div>
-<!-- #endregion -->
 
 ```python
 # plot_contour? # uncomment and run to read docstring
@@ -304,12 +291,11 @@ For each of the three cases, do the following:
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Note that the optional arguments in the helper function <code>plot_contour</code> will be useful here--<b>also for the Project on Friday!</b>
 
 Here is an example code that shows you what it can do (the values are meaningless)
 </p></div>
-<!-- #endregion -->
 
 ```python
 region_example = np.array([[0, 5, 12, 20, 28, 30],
@@ -364,9 +350,9 @@ which is then defined in Python and included in the `plot_contours` function as 
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Note: order of the tasks in this solution is not important.</p></div>
-<!-- #endregion -->
+
 
 ### Case 1 and 2
 
@@ -552,9 +538,9 @@ You should be able to confirm these observations by considering how the contours
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Note: the bivariate figures are an important concept for the exam, so if using the code is too difficult for you to use when studying on your own, try sketching it on paper.</p></div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -734,9 +720,8 @@ axes.legend()
 axes.grid()
 ```
 
-<!-- #region id="0491cc69" -->
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"><p>In case you are wondering, the data for this exercise was computed with a Clayton Copula. A Copula is a useful way of modelling non-linear dependence. If you would like to learn more about this, you should consider the 2nd year cross-over module CEGM2005 Probabilistic Modelling of real-world phenomena through ObseRvations and Elicitation (MORE).</p></div>
-<!-- #endregion -->
+
 
 **End of notebook.**
 <h2 style="height: 60px">

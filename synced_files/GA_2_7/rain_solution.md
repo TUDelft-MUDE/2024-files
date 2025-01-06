@@ -1,15 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
 # Group Assignment 2.7: Extreme Value Analysis
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -25,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Extreme Value Analysis, Week 2.7, Friday, Jan 10, 2024.*
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+
 In this project, you will work on the uncertainty of precipitation in Turís, close to Valencia (Spain), where the past month of October an extreme flood occurred. Turís was the location where the highest rainfall was recorded. You have daily observations since 1999. The dataset was retrieved from the Ministry of Agriculture [here](https://servicio.mapa.gob.es/websiar/SeleccionParametrosMap.aspx?dst=1).
 
 **The goal of this project is:**
@@ -34,7 +24,6 @@ In this project, you will work on the uncertainty of precipitation in Turís, cl
 3. Compare the results from both methods in terms of design return levels.
 
 _Read the instructions for this project in `README.md` before beginning the analysis._
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -117,7 +106,7 @@ plt.grid()
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p><b>Tip:</b> save the parameters of an instance of <code>rv_continuous</code> as a tuple to make it easier to use the methods of the distribution later.
 <br><br>For example, define parameters like this:
 <br><code>params = ... .fit( ... )</code>
@@ -125,7 +114,6 @@ plt.grid()
 <br><code>param1, param2, param3 = ... .fit( ... )</code>
 <br>(see WS15 solution for examples).
 </p></div>
-<!-- #endregion -->
 
 ```python
 #Function for the ECDF
@@ -213,9 +201,9 @@ Apply POT on the timeseries using a declustering time of 48 hours and a threshol
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">Hint: you can use the function <code>find_peaks</code> from Scipy, as done in PA15.</div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
     <b>Solution:</b>
@@ -246,9 +234,9 @@ plt.grid()
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">Hint: you need to fit a GPD with a location parameter of 0 on the excesses. You can force the fitting of a distribution with a given value of the parameters using the keyword argument <code>floc</code>.</div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
     <b>Solution:</b>
@@ -336,9 +324,9 @@ In this section, we are going to use the distributions found in the previous two
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>Remember you can use tuple unpacking as an argument for methods of <code>scipy.stats.rv_continuous</code>, like this: <code>*params</code> (see WS15 solution for examples).</p></div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
     <b>Solution:</b>
@@ -468,11 +456,10 @@ The degree of freedom is 1, and you can use a significance level of 0.05. The nu
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>Hint: while our primary objective in EVA is evaluating the distribution of the random variable $X$, the number of excesses observed in a given period (regardless of BM or POT) is also a random variable, which in the case of POT can be described using the Poisson distribution.
     
 Recall that the Poisson distribution is a <em>discrete probability distribution,</em> which is defined using a <em>probability mass function</em> (PMF) instead of a PDF. The PMF can be described using notation $p_X(X=x)$, which produces the probability of observing the discrete value $x$ of random variable $X$. The implementation in Python is slightly different, inheriting methods from the parent class <code>rv_discrete</code> instead of <code>rv_continuous</code>.</p></div>
-<!-- #endregion -->
 
 ```python
 # YOUR_CODE_HERE

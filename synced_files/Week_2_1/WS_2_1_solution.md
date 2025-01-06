@@ -1,15 +1,5 @@
 <userStyle>Normal</userStyle>
 
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
-
 # WS 2.1: Wiggles
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 90px;right: 30px; margin: 0; border: 0">
@@ -248,13 +238,12 @@ def check_variables_1D():
         print(f'CFL: {calculated_CFL:.2e}')
 ```
 
-<!-- #region id="0491cc69" -->
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <p>
         <b>Start of code to define a dictionary to help keep track of analysis "cases." This is not part of the handout.</b>
     </p>
 </div>
-<!-- #endregion -->
+
 
 To help present specific cases in the solution, a dictionary is used to store the key Python variable values that define the problem of interest are stored:
 ```
@@ -322,13 +311,12 @@ p0, c, L, Nx, T, Nt, dx, dt, central, square = case_set(C[3])
 check_variables_1D()
 ```
 
-<!-- #region id="0491cc69" -->
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <p>
         <b>End of dictionary code.</b> Note that it is used below, for example with <code>case_set</code>
     </p>
 </div>
-<!-- #endregion -->
+
 
 Variables are set below, then you should use the functions provided, for example, `check_variables_1D`, prior to running a simulation to make sure you are solving the problem you think you are!
 
@@ -555,13 +543,12 @@ $$
 The code is set up in a very similar way to the 1D case above. Use it to explore how the advection problem works in 2D! In particular, see if you observe the effect called "numerical diffusion" --- when the numerical scheme causes the square pulse to "diffuse" into a bell shaped surface. Even though only the advection term was implmented!
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <p>
         The initial values of the variables below will result in numerical instability. See if you can fix it!
     </p>
 </div>
-<!-- #endregion -->
 
 ```python
 p0 = 2.0
