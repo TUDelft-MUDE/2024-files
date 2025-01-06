@@ -1,14 +1,6 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
-# Workshop 14: Be like a Neural Network
+# WS 2.6 Be like a Neural Network
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
     <style>
@@ -48,7 +40,7 @@ In this notebook, we start with a very simple dataset with an underlying linear 
 ### Python Environment
 
 You will need the package scikit-learn for this workshop (in addition to a few other typical packages). You can import it to one of your existing conda environments from the conda-forge as (i.e., `
-conda install -c conda-forge scikit-learn`), or you can create a new environment from the `*.yml` file included in this repository (`conda env create -f environment_MUDE_ml.yml`). But remember: _if you already have sklearn installed in an environment, you don't have to do anything besides use it!_
+conda install -c conda-forge scikit-learn`), or you can create a new environment from the `*.yml` file included in this repository (`conda env create -f environment.yml`). But remember: _if you already have sklearn installed in an environment, you don't have to do anything besides use it!_
 
 
 <div style="background-color:#C8FFFF; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
@@ -185,7 +177,7 @@ for epoch in range(n_epochs):
     
     if epoch%N_print==0 or epoch==n_epochs-1: 
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
-               + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
+               + f'Training loss: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
 ```
 
@@ -255,7 +247,7 @@ for epoch in range(n_epochs):
     
     if epoch%N_print==0 or epoch==n_epochs-1: 
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
-               + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
+               + f'Training loss: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
 ```
 
@@ -309,7 +301,7 @@ for epoch in range(n_epochs):
     
     if epoch%N_print==0 or epoch==n_epochs-1: 
         print((f'Epoch: {epoch:6d}/{n_epochs}, '
-               + f'MSE: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
+               + f'Training loss: {mean_squared_error(data_t, MLP_prediction.reshape(-1,1)):0.4f}, '
                + f'Real loss: {mean_squared_error(t_val,MLP_valprediction):0.4f}'))
 ```
 
@@ -593,7 +585,7 @@ val_losses = YOUR CODE HERE
 epochs = YOUR CODE HERE
 
 for epoch in range(YOUR CODE HERE):
-    model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
+    new_model_gnss.partial_fit(X_train_scaled, t_train_scaled.flatten())
 
     # Calculate training loss
     train_pred = YOUR CODE HERE

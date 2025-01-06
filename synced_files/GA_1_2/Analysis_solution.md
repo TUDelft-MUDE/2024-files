@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # GA 1.2: Analysis Notebook
 
@@ -23,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.2, Friday, Sep 13, 2024.*
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+<!-- #region -->
 _This assignment does not need to be turned in._
 
 ## Let's account for the latest news!
@@ -96,7 +88,7 @@ print('Ice thickness: ' +
 2. Find the distribution of `H_ice` numerically with a simulation, then compare this to the Normal distribution defined by the mean and standard deviation of the linearized function of random variables
 
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
+
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 
@@ -105,7 +97,6 @@ $\textbf{Task 1}$
 Complete the two functions in the cell below, and support your work by including an image showing the analytic equations.
 </p>
 </div>
-<!-- #endregion -->
 
 ```python
 def H_taylor(mu_H0, mu_iT, sigma_H0, sigma_iT):

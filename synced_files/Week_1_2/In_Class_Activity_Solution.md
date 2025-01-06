@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # Lecture 1.2 Activity: The Best Model? You Bet!
 
@@ -23,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.2, Monday, Sep 9, 2024. This assignment does not need to be turned in.*
 
-<!-- #region cell_id="21f9833788f64e78a35bc8cac535e76d" deepnote_cell_type="markdown" -->
+
 ## Overview
 
 In this assignment we will fit two models to observations of ice break-up date and reflect on their performance.
@@ -39,7 +31,6 @@ We will follow these steps:
 3. Fit a linear regression model and reflect on its goodness of fit;
 5. Apply confidence intervals to the model;
 6. Fit a non-linear model and reflect on its goodness of fit
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -48,9 +39,8 @@ import scipy.stats as sci
 import scipy.optimize as opt
 ```
 
-<!-- #region cell_id="b1d3e3d2f92c4de29aba4aa61c525867" deepnote_cell_type="markdown" jp-MarkdownHeadingCollapsed=true -->
 ## Part 1: Import data
-<!-- #endregion -->
+
 
 We will import the dataset by using the `numpy` function `loadtxt`. If you open the *data-days.csv* file, you will notice that the comma is used as decimal separator for the number of recorded days. For this reason, we will import the data in the following steps:
 
@@ -72,25 +62,19 @@ data = data.astype(float)
 data[0:10]
 ```
 
-<!-- #region jp-MarkdownHeadingCollapsed=true -->
 ## Part 2: Preliminary Analysis
-<!-- #endregion -->
 
-<!-- #region cell_id="1b15837c64e748b89fafad1f8007a399" deepnote_cell_type="markdown" -->
+
 One of the first steps when getting familiar with new data is to see the dimensions of the data. To this end, we can use the `numpy` function `shape`.
-<!-- #endregion -->
 
 ```python
 np.shape(data)
 ```
 
-<!-- #region cell_id="e901697b36064391b4a62d78c955dd6b" deepnote_cell_type="markdown" -->
 The result is a (103, 2) array, i.e., a matrix with 103 rows and 2 columns. The first column contains the year of record, while the second one contains the measured data.
-<!-- #endregion -->
 
-<!-- #region cell_id="43139b45e34f4252a6a270336ca401ba" deepnote_cell_type="markdown" -->
+
 We can also compute the mean and the standard deviation of the variable of interest (second column) to get a sense of how the variable behaves.
-<!-- #endregion -->
 
 ```python
 mean = np.mean(data[:,1])
@@ -100,9 +84,7 @@ print(f'Mean: {mean:.3f}\n\
 Standard deviation: {std:.3f}')
 ```
 
-<!-- #region cell_id="2a1ddf21c02141dc8dfebee83c602a73" deepnote_cell_type="markdown" -->
 We can also quickly plot them to see the scatter of the data and the evolution in time.
-<!-- #endregion -->
 
 ```python
 plt.scatter(data[:, 0], data[:, 1], label='Measured data')
@@ -112,15 +94,13 @@ plt.title(f'Number of days per year between {data[0,0]:.0f}-{data[-1,0]:.0f}')
 plt.grid()
 ```
 
-<!-- #region cell_id="37edb558a10b47d88b3e4f683da56221" deepnote_cell_type="markdown" -->
 In the figure above, we have plotted the year of the measurement in the x-axis and the number of days until the ice broke during that year in the y-axis. We can see that there is a significant scatter. Also, there seems to be a trend over time: as we go ahead in time (higher values in the x-axis), the number of days until the ice broke seems to decrease.
 
 We have identifid a trend but **can we model it**?
-<!-- #endregion -->
 
-<!-- #region cell_id="a05297ff6298401192d49f8e257ff9ec" deepnote_cell_type="markdown" jp-MarkdownHeadingCollapsed=true -->
+
 ## Part 3: Fit a linear regression model: is it a good model?
-<!-- #endregion -->
+
 
 We are going to create a model which allows us to predict the number of days until the ice broke as function of the year. For that, we are going to assume a linear relationship between the variables (a linear model) and we will fit it using linear regression. This is, we will fit a regression model $days=m\cdot year+q$, where $m$ represents the slope of the line, and $q$ is the intercept.
 
@@ -170,7 +150,7 @@ r_sq, q, m = regression(data[:,0], data[:,1])
 </p>
 </div>
 
-<!-- #region cell_id="9a082db4cf644c9c9854af0a458c0b8a" deepnote_cell_type="markdown" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 
@@ -179,11 +159,9 @@ $\textbf{Solution}$
 2. Based on the answer to the previous question, the linear model is not an accurate model. Whether this low level of accuracy is good enough or not, depends on the use we want to give to the model.
 </p>
 </div>
-<!-- #endregion -->
 
-<!-- #region cell_id="143e5d1bf8324d9f80fca4af9a0d162c" deepnote_cell_type="markdown" -->
+
 We can also plot the data and the fitted model to see how the fit looks. To do so, we can make computations using the previous equation $days=m\cdot year+q$ with the fitted intercept $q$ and slope $m$. We have already defined a function which does it for you.
-<!-- #endregion -->
 
 ```python
 def calculate_line(x, m, q):
@@ -227,7 +205,6 @@ axes[1].grid()
 axes[1].set_title('(b) Observed and predicted number of days');
 ```
 
-<!-- #region cell_id="b564cab0d51c40f2aa3c7ebb9affaade" deepnote_cell_type="markdown" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3.2:</b>   
@@ -237,9 +214,8 @@ axes[1].set_title('(b) Observed and predicted number of days');
 </ol>
 </p>
 </div>
-<!-- #endregion -->
 
-<!-- #region cell_id="9a082db4cf644c9c9854af0a458c0b8a" deepnote_cell_type="markdown" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 
@@ -250,13 +226,11 @@ In the plot (a), we observe that the observations have a high scatter around the
 In the plot (b), we compare the observations with the predictions of the model. The perfect fit would correspond to the 45-degrees line in black. Thus, the model has a poor performance as we already quantified using the coefficient of determination. Both results are aligned.
 </p>
 </div>
-<!-- #endregion -->
 
-<!-- #region cell_id="67e44fda81f24273b8d28edd35a50d87" deepnote_cell_type="markdown" -->
+
 We can also assess the scatter using the Root Mean Square Error ($RMSE$). Don't you remember it? Go back to the [book](https://mude.citg.tudelft.nl/2024/book/modelling/gof.html)!
 
 Let's see how our model performs for this metric.
-<!-- #endregion -->
 
 ```python
 def RMSE(data, fit_data):
@@ -283,7 +257,6 @@ def RMSE(data, fit_data):
 RMSE_line = RMSE(data[:,1], line)
 ```
 
-<!-- #region cell_id="b564cab0d51c40f2aa3c7ebb9affaade" deepnote_cell_type="markdown" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3.3:</b>   
@@ -295,9 +268,8 @@ RMSE_line = RMSE(data[:,1], line)
 </ol>
 </p>
 </div>
-<!-- #endregion -->
 
-<!-- #region cell_id="604f11f41ac54d59b11422bac89e6411" deepnote_cell_type="markdown" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 
@@ -306,7 +278,7 @@ $\textbf{Solution}$
 2. Based on the previous interpretation, the linear model is not accurate. Whether this low level of accuracy is good enough or not, depends on the use we want to give to the model.
 </p>
 </div>
-<!-- #endregion -->
+
 
 Finally, we can compute the bias of our model using $rbias$.
 
@@ -332,7 +304,6 @@ def rbias(data, fit_data):
 rbias_line = rbias(data[:,1], line)
 ```
 
-<!-- #region cell_id="b564cab0d51c40f2aa3c7ebb9affaade" deepnote_cell_type="markdown" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3.4:</b>   
@@ -342,9 +313,8 @@ rbias_line = rbias(data[:,1], line)
 </ol>
 </p>
 </div>
-<!-- #endregion -->
 
-<!-- #region cell_id="604f11f41ac54d59b11422bac89e6411" deepnote_cell_type="markdown" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 
@@ -352,11 +322,10 @@ $\textbf{Solution}$
 1. <code>rbias</code> provides an standardized measure of the systematic tendency of our model to under- or over-prediction. It is very low for our model, so it does not have a clear tendency to under- or overestimate and, thus, does not seem to be biased.
 </p>
 </div>
-<!-- #endregion -->
 
-<!-- #region cell_id="19496dbefd3247f09c2226579c7b665f" deepnote_cell_type="markdown" jp-MarkdownHeadingCollapsed=true -->
+
 ## Part 4: Confidence Intervals
-<!-- #endregion -->
+
 
 One way of assessing the uncertainty around the predictions of a model are confidence intervals. They give us insight into the precision of their predictions by transforming them into probabilities. In short, the 95% confidence interval (significance $\alpha=0.05$) shows the range of values within which my observation would be with a probability of 95%. Here, we want you to focus on their interpretation. In the following weeks (1.3), you will learn more about how to compute them. 
 
@@ -402,7 +371,6 @@ plt.legend()
 plt.title('Number of days as function of the year')
 ```
 
-<!-- #region cell_id="b564cab0d51c40f2aa3c7ebb9affaade" deepnote_cell_type="markdown" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 4.1:</b>   
@@ -411,28 +379,25 @@ plt.title('Number of days as function of the year')
 </ol>
 </p>
 </div>
-<!-- #endregion -->
 
-<!-- #region cell_id="604f11f41ac54d59b11422bac89e6411" deepnote_cell_type="markdown" -->
+
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Solution:</b>   
 If you consider that you need to place a bet with not only the day but also the hour and minute at which the ice would break, the model is not accurate enough. You can see that the confidence interval spans almost 20 days!
 </p>
 </div>
-<!-- #endregion -->
 
-<!-- #region cell_id="a19fb5b7e1cd4c32b435b8b967933700" deepnote_cell_type="markdown" jp-MarkdownHeadingCollapsed=true -->
+
 ## Part 5: Non-linear Models
-<!-- #endregion -->
+
 
 As we have seen, the data-driven linear model is not really a good choice for representing the data we have. Let's try with one which is slightly more complicated: a non-linear model.
 
 In this section, we will analyze the fitting of a quadratic model as $days = A \cdot year^2 + B \cdot year + C$. The steps are the same as in the previous section, so we will go fast through the code to focus on the interpretation and comparison between the two models.
 
-<!-- #region cell_id="ca8a6b9d68234ae69a799a3f4f3866a2" deepnote_cell_type="markdown" -->
+
 You do not need to worry about this right now, but in case you are curious: we will make use of the `scipy.optimize` library, which contains the `curve_fit` function. For further info on the function see [here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html).
-<!-- #endregion -->
 
 ```python
 def parabola(x, a, b, c):
@@ -461,19 +426,15 @@ print(f'Covariance matrix for parameters:\n\
 Sigma = {pcov_parabola}')
 ```
 
-<!-- #region cell_id="10efd81771064ce0ac4d50095be06e23" deepnote_cell_type="markdown" -->
 Therefore, our parabola now looks like $days = -1.277 \cdot 10^{-3} \cdot year^2 + 4.942 \cdot year - 4654.244$.
 
 Now that we have fitted it, we can use it to compute predictions.
-<!-- #endregion -->
 
 ```python
 fitted_parabola = parabola(data[:,0], *popt_parabola)
 ```
 
-<!-- #region cell_id="6cc6a36c668f4ee2b26d41b27d335691" deepnote_cell_type="markdown" -->
 We can also determine the confidence intervals for this fit and see how it looks!
-<!-- #endregion -->
 
 ```python
 k = conf_int(data[:,1], fitted_parabola, 0.05)
@@ -501,7 +462,6 @@ print(f'Coefficient of determination = {R2_parabola:.3f}')
 rbias_parabola = rbias(data[:,1], fitted_parabola)
 ```
 
-<!-- #region cell_id="b564cab0d51c40f2aa3c7ebb9affaade" deepnote_cell_type="markdown" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 5.1:</b>   
@@ -510,7 +470,7 @@ rbias_parabola = rbias(data[:,1], fitted_parabola)
 </ol>
 </p>
 </div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>

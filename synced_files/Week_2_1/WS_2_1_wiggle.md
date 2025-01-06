@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # WS 2.1: Wiggles
 
@@ -410,13 +402,12 @@ $$
 The code is set up in a very similar way to the 1D case above. Use it to explore how the advection problem works in 2D! In particular, see if you observe the effect called "numerical diffusion" --- when the numerical scheme causes the square pulse to "diffuse" into a bell shaped surface. Even though only the advection term was implmented!
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <p>
         The initial values of the variables below will result in numerical instability. See if you can fix it!
     </p>
 </div>
-<!-- #endregion -->
 
 ```python
 p0 = 2.0

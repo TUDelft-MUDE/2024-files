@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # WS 2.2: More support
 

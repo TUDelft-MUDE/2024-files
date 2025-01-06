@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # GA 1.8: Multivariate Distributions
 
@@ -127,9 +119,8 @@ Build the bivariate distribution by instantiating the <code>Bivariate</code> cla
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Use the helper function <code>plot_contour</code> in <code>helper.py</code>; it works exactle the same as in WS 1.8.</em></p></div>
-<!-- #endregion -->
 
 ```python
 # plot_contour? # uncomment and run to read docstring
@@ -167,12 +158,11 @@ For each of the three cases, do the following:
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Note that the optional arguments in the helper function <code>plot_contour</code> will be useful here.
 
 Here is an example code that shows you what it can do (the values are meaningless)
 </p></div>
-<!-- #endregion -->
 
 ```python
 region_example = np.array([[0, 5, 12, 20, 28, 30],
@@ -323,9 +313,8 @@ axes.legend()
 axes.grid()
 ```
 
-<!-- #region id="0491cc69" -->
 <div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"><p>In case you are wondering, the data for this exercise was computed with a Clayton Copula. A Copula is a useful way of modelling non-linear dependence. If you would like to learn more about this, you should consider the 2nd year cross-over module CEGM2005 Probabilistic Modelling of real-world phenomena through ObseRvations and Elicitation (MORE).</p></div>
-<!-- #endregion -->
+
 
 **End of notebook.**
 <h2 style="height: 60px">

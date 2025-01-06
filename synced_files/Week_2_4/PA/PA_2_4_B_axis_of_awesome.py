@@ -5,7 +5,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.5
+#       jupytext_version: 1.16.6
 # ---
 
 # %% [markdown]
@@ -25,7 +25,7 @@
 # *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.4. Due: complete this PA prior to class on Friday, Dec 6, 2024.*
 
 # %% [markdown]
-# ## Overview of Assignment
+# ## Overview of Assignment test
 #
 # This assignment quickly introduces you to making computations across rows and columns of 2-dimensional Numpy arrays (matrices) using the `axis` keyword argument. It also illustrates the use of a specific figure from the `statsmodels` package that will be useful during the time series analysis week.
 #

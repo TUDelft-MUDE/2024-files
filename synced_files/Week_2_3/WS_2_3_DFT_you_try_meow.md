@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # WS 2.3: Discrete Fourier Transform (DFT): You Try Meow (Miauw)
 
@@ -42,10 +34,9 @@ That's right! We convert our signal into the frequency domain.
 
 And if you would like an additional explanation of the key frequencies, you can find it [here](https://medium.com/@kovalenko.alx/fun-with-fourier-591662576a77).
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>Note the use of <code>zip</code>, <code>stem</code>, <code>annotate</code> and the modulo operator
 <code>%</code>. Refer to PA 2.3 if you do not understand these tools. Furthermore, note that the term _modulus_ is also used here (and in the textbook), which is another term for _absolute value._</p></div>
-<!-- #endregion -->
 
 ```python
 import numpy as np

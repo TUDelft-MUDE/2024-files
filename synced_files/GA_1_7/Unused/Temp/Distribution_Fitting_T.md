@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # Group Assignment 1.7: Distribution Fitting
 
@@ -23,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 7, Friday Oct 18, 2024.*
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+
 ## Case 1: Wave impacts on a crest wall
 
 **What's the propagated uncertainty? *How large will be the horizontal force?***
@@ -45,11 +37,9 @@ $$
 2. Fit the chosen distributions to the observations of $H$ and $T$.
 3. Assuming $H$ and $d$ are independent, propagate their distributions to obtain the distribution of $F_h$.
 4. Analyze the distribution of $F_h$.
-<!-- #endregion -->
 
-<!-- #region id="d33f1148-c72b-4c7e-bca7-45973b2570c5" -->
+
 ## Importing packages
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -95,7 +85,6 @@ print(stats.describe(T10))
 print(stats.describe(T90))
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 1:</b>   
@@ -104,7 +93,7 @@ Describe the data based on the previous statistics:
     <li>What does the skewness coefficient means? Which kind of distribution functions should we consider to fit them?</li>
 </p>
 </div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <b>Solution 1: TO UPDATE</b>
@@ -158,14 +147,13 @@ axes[1].legend()
 axes[1].grid()
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3: TO UPDATE</b>   
 Based on the results of Task 1 and the empirical PDF and CDF, select <b>one</b> distribution to fit to each variable. For $H$, select between Exponential or Gaussian distribution, while for $T$ choose between Uniform or Gumbel.
 </p>
 </div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
     <b>Solution 3:</b>

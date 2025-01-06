@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # Workshop 2.7: Extreme temperature
 
@@ -23,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Extreme Value Analysis, Week 2.7, Wednesday, Jan 8, 2024.*
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+
 In this session, you will work with the uncertainty of extreme temperatures in the airport of Barcelona to assess the extreme loads induced by temperature in a steel structure in the area. You have daily observations of the maximum temperature for several years. The dataset was retrieved from the Spanish Agency of Metheorology [AEMET](https://www.aemet.es/es/portada). Your goal is to design the structure for a _lifespan of 50 years_ with a _probability of failure of 0.1_ during the design life. 
 
 **The goal of this project is:**
@@ -32,7 +24,6 @@ In this session, you will work with the uncertainty of extreme temperatures in t
 3. Assess the Goodness of fit of the distribution.
 4. Compute the return level plot.
 5. Compute the design return level.
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -226,10 +217,9 @@ Fit a distribution to the monthly maxima. Print the values of the obtained param
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>Use <a href="https://docs.scipy.org/doc/scipy/reference/stats.html" target="_blank">scipy.stats</a> built in functions (watch out with the parameter definitions!), similar to Week 1.7 and use the DataFrame created in Task 2.
 </p></div>
-<!-- #endregion -->
 
 ```python
 params_T = stats.genextreme.fit(max_list['T'])
@@ -328,10 +318,10 @@ Considering that you have sampled monthly maxima, compute and plot the return le
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>The three missing variables listed below are all type <code>numpy.ndarray</code>; the last is found using your <code>scipy.stats</code> distribution from Task 3.
 </p></div>
-<!-- #endregion -->
+
 
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <b>Solution:</b>

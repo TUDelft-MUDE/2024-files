@@ -3,3 +3,4 @@
 .venv/
 build/
 pandoc_temp/
+conversion_errors.log

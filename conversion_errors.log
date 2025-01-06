@@ -1,0 +1,245 @@
+INFO: === Starting synchronization at 2024-12-31 15:56:12 ===
+INFO: Searching in: C:\Users\rlanzafame\code\MUDE\2024-files\content
+INFO: Found 120 notebooks
+INFO: [1/120] Checking GA_1_1\Task_2_solution.ipynb
+INFO: No changes detected for GA_1_1\Task_2_solution.ipynb
+INFO: [2/120] Checking GA_1_2\Analysis.ipynb
+INFO: No changes detected for GA_1_2\Analysis.ipynb
+INFO: [3/120] Checking GA_1_2\Analysis_solution.ipynb
+INFO: No changes detected for GA_1_2\Analysis_solution.ipynb
+INFO: [4/120] Checking GA_1_3\Analysis.ipynb
+INFO: No changes detected for GA_1_3\Analysis.ipynb
+INFO: [5/120] Checking GA_1_3\Analysis_Solution.ipynb
+INFO: No changes detected for GA_1_3\Analysis_Solution.ipynb
+INFO: [6/120] Checking GA_1_3\Warmup.ipynb
+INFO: No changes detected for GA_1_3\Warmup.ipynb
+INFO: [7/120] Checking GA_1_4\Analysis.ipynb
+INFO: No changes detected for GA_1_4\Analysis.ipynb
+INFO: [8/120] Checking GA_1_4\Analysis_solution.ipynb
+INFO: No changes detected for GA_1_4\Analysis_solution.ipynb
+INFO: [9/120] Checking GA_1_5\Analysis.ipynb
+INFO: No changes detected for GA_1_5\Analysis.ipynb
+INFO: [10/120] Checking GA_1_5\Analysis_solution.ipynb
+INFO: No changes detected for GA_1_5\Analysis_solution.ipynb
+INFO: [11/120] Checking GA_1_5\central_diff_illustration.ipynb
+INFO: No changes detected for GA_1_5\central_diff_illustration.ipynb
+INFO: [12/120] Checking GA_1_6\Analysis.ipynb
+INFO: No changes detected for GA_1_6\Analysis.ipynb
+INFO: [13/120] Checking GA_1_6\Analysis_solution.ipynb
+INFO: No changes detected for GA_1_6\Analysis_solution.ipynb
+INFO: [14/120] Checking GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: No changes detected for GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: [15/120] Checking GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: No changes detected for GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: [16/120] Checking GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: No changes detected for GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: [17/120] Checking GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: No changes detected for GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: [18/120] Checking GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: No changes detected for GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: [19/120] Checking GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: No changes detected for GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: [20/120] Checking GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: No changes detected for GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: [21/120] Checking GA_1_8\Analysis.ipynb
+INFO: No changes detected for GA_1_8\Analysis.ipynb
+INFO: [22/120] Checking GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: [23/120] Checking GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: [24/120] Checking GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: [25/120] Checking GA_2_1\Analysis.ipynb
+INFO: No changes detected for GA_2_1\Analysis.ipynb
+INFO: [26/120] Checking GA_2_1\Analysis_solution.ipynb
+INFO: No changes detected for GA_2_1\Analysis_solution.ipynb
+INFO: [27/120] Checking GA_2_1\mesh_dev.ipynb
+INFO: No changes detected for GA_2_1\mesh_dev.ipynb
+INFO: [28/120] Checking GA_2_1\mesh_tips.ipynb
+INFO: No changes detected for GA_2_1\mesh_tips.ipynb
+INFO: [29/120] Checking GA_2_1\mesh\mesh.ipynb
+INFO: No changes detected for GA_2_1\mesh\mesh.ipynb
+INFO: [30/120] Checking GA_2_2\the_big_M.ipynb
+INFO: No changes detected for GA_2_2\the_big_M.ipynb
+INFO: [31/120] Checking GA_2_3\Analysis.ipynb
+INFO: No changes detected for GA_2_3\Analysis.ipynb
+INFO: [32/120] Checking GA_2_3\Analysis_solution.ipynb
+INFO: No changes detected for GA_2_3\Analysis_solution.ipynb
+INFO: [33/120] Checking GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: No changes detected for GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: [34/120] Checking GA_2_4\GA_2_4_solution.ipynb
+INFO: No changes detected for GA_2_4\GA_2_4_solution.ipynb
+INFO: [35/120] Checking GA_2_5\Analysis_GA.ipynb
+INFO: No changes detected for GA_2_5\Analysis_GA.ipynb
+INFO: [36/120] Checking GA_2_5\Analysis_GA_solution.ipynb
+INFO: No changes detected for GA_2_5\Analysis_GA_solution.ipynb
+INFO: [37/120] Checking GA_2_5\Analysis_LP.ipynb
+INFO: No changes detected for GA_2_5\Analysis_LP.ipynb
+INFO: [38/120] Checking GA_2_5\Analysis_LP_solution.ipynb
+INFO: No changes detected for GA_2_5\Analysis_LP_solution.ipynb
+INFO: [39/120] Checking GA_2_6\Analysis.ipynb
+INFO: No changes detected for GA_2_6\Analysis.ipynb
+INFO: [40/120] Checking GA_2_6\Analysis_solution.ipynb
+INFO: No changes detected for GA_2_6\Analysis_solution.ipynb
+INFO: [41/120] Checking GA_2_7\rain_solution.ipynb
+INFO: No changes detected for GA_2_7\rain_solution.ipynb
+INFO: [42/120] Checking tutorials\Week_1_3\Analysis.ipynb
+INFO: No changes detected for tutorials\Week_1_3\Analysis.ipynb
+INFO: [43/120] Checking tutorials\Week_1_5\Tutorial.ipynb
+INFO: No changes detected for tutorials\Week_1_5\Tutorial.ipynb
+INFO: [44/120] Checking tutorials\Week_1_6\Tutorial.ipynb
+INFO: No changes detected for tutorials\Week_1_6\Tutorial.ipynb
+INFO: [45/120] Checking Week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: No changes detected for Week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: [46/120] Checking Week_1_2\In_Class_Activity.ipynb
+INFO: No changes detected for Week_1_2\In_Class_Activity.ipynb
+INFO: [47/120] Checking Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: No changes detected for Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: [48/120] Checking Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: No changes detected for Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: [49/120] Checking Week_1_2\PA_1_2_solution.ipynb
+INFO: No changes detected for Week_1_2\PA_1_2_solution.ipynb
+INFO: [50/120] Checking Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: No changes detected for Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: [51/120] Checking Week_1_2\WS_1_2_solution.ipynb
+INFO: No changes detected for Week_1_2\WS_1_2_solution.ipynb
+INFO: [52/120] Checking week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: No changes detected for week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: [53/120] Checking week_1_3\PA_1_3_solution.ipynb
+INFO: No changes detected for week_1_3\PA_1_3_solution.ipynb
+INFO: [54/120] Checking week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: No changes detected for week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: [55/120] Checking week_1_3\WS_1_3_solution.ipynb
+INFO: No changes detected for week_1_3\WS_1_3_solution.ipynb
+INFO: [56/120] Checking Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: No changes detected for Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: [57/120] Checking Week_1_4\WS_1_4_solution.ipynb
+INFO: No changes detected for Week_1_4\WS_1_4_solution.ipynb
+INFO: [58/120] Checking week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: No changes detected for week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: [59/120] Checking week_1_5\WS_1_5_solution.ipynb
+INFO: No changes detected for week_1_5\WS_1_5_solution.ipynb
+INFO: [60/120] Checking week_1_5\PA\PA_1_5_solution.ipynb
+INFO: No changes detected for week_1_5\PA\PA_1_5_solution.ipynb
+INFO: [61/120] Checking week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: No changes detected for week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: [62/120] Checking week_1_5\PA_ice\PA_plots.ipynb
+INFO: No changes detected for week_1_5\PA_ice\PA_plots.ipynb
+INFO: [63/120] Checking Week_1_6\WS_1_6_solution.ipynb
+INFO: No changes detected for Week_1_6\WS_1_6_solution.ipynb
+INFO: [64/120] Checking Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: No changes detected for Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: [65/120] Checking Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: No changes detected for Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: [66/120] Checking Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: No changes detected for Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: [67/120] Checking Week_1_7\scipy_stats.ipynb
+INFO: No changes detected for Week_1_7\scipy_stats.ipynb
+INFO: [68/120] Checking Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: No changes detected for Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: [69/120] Checking Week_1_7\WS_1_7_solution.ipynb
+INFO: No changes detected for Week_1_7\WS_1_7_solution.ipynb
+INFO: [70/120] Checking Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: No changes detected for Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: [71/120] Checking Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: No changes detected for Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: [72/120] Checking Week_1_8\data.ipynb
+INFO: No changes detected for Week_1_8\data.ipynb
+INFO: [73/120] Checking Week_1_8\intersection.ipynb
+INFO: No changes detected for Week_1_8\intersection.ipynb
+INFO: [74/120] Checking Week_1_8\test_bivariate.ipynb
+INFO: No changes detected for Week_1_8\test_bivariate.ipynb
+INFO: [75/120] Checking Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: No changes detected for Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: [76/120] Checking Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: No changes detected for Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: [77/120] Checking Week_1_8\WS\linearity_or_not.ipynb
+INFO: No changes detected for Week_1_8\WS\linearity_or_not.ipynb
+INFO: [78/120] Checking Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: No changes detected for Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: [79/120] Checking Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: No changes detected for Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: [80/120] Checking Week_2_1\WS_2_1_solution.ipynb
+INFO: No changes detected for Week_2_1\WS_2_1_solution.ipynb
+INFO: [81/120] Checking Week_2_1\WS_2_1_wiggle.ipynb
+INFO: No changes detected for Week_2_1\WS_2_1_wiggle.ipynb
+INFO: [82/120] Checking Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: No changes detected for Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: [83/120] Checking Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: No changes detected for Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: [84/120] Checking Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: No changes detected for Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: [85/120] Checking Week_2_1\PA\PA_dev.ipynb
+INFO: No changes detected for Week_2_1\PA\PA_dev.ipynb
+INFO: [86/120] Checking Week_2_1\PA\U.ipynb
+INFO: No changes detected for Week_2_1\PA\U.ipynb
+INFO: [87/120] Checking Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: No changes detected for Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: [88/120] Checking Week_2_2\PA_2_2_solution.ipynb
+INFO: No changes detected for Week_2_2\PA_2_2_solution.ipynb
+INFO: [89/120] Checking Week_2_2\WS_2_2_more_support.ipynb
+INFO: No changes detected for Week_2_2\WS_2_2_more_support.ipynb
+INFO: [90/120] Checking Week_2_2\WS_2_2_solution.ipynb
+INFO: No changes detected for Week_2_2\WS_2_2_solution.ipynb
+INFO: [91/120] Checking Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: No changes detected for Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: [92/120] Checking Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: No changes detected for Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: [93/120] Checking Week_2_2\old\PA_2_1_solution.ipynb
+INFO: No changes detected for Week_2_2\old\PA_2_1_solution.ipynb
+INFO: [94/120] Checking Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: No changes detected for Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: [95/120] Checking Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: No changes detected for Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: [96/120] Checking Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: No changes detected for Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: [97/120] Checking Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: No changes detected for Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: [98/120] Checking Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: No changes detected for Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: [99/120] Checking Week_2_3\WS_2_3_solution.ipynb
+INFO: No changes detected for Week_2_3\WS_2_3_solution.ipynb
+INFO: [100/120] Checking Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: No changes detected for Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: [101/120] Checking Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: No changes detected for Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: [102/120] Checking Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: No changes detected for Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: [103/120] Checking Week_2_4\WS_2_4_solution.ipynb
+INFO: No changes detected for Week_2_4\WS_2_4_solution.ipynb
+INFO: [104/120] Checking Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: No changes detected for Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: [105/120] Checking Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: No changes detected for Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: [106/120] Checking Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: No changes detected for Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: [107/120] Checking Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: No changes detected for Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: [108/120] Checking Week_2_5\WS_2_5_solution.ipynb
+INFO: No changes detected for Week_2_5\WS_2_5_solution.ipynb
+INFO: [109/120] Checking Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: No changes detected for Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: [110/120] Checking Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: No changes detected for Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: [111/120] Checking Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: No changes detected for Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: [112/120] Checking Week_2_6\WS_2_6_solution.ipynb
+INFO: No changes detected for Week_2_6\WS_2_6_solution.ipynb
+INFO: [113/120] Checking Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: No changes detected for Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: [114/120] Checking Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: No changes detected for Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: [115/120] Checking Week_2_7\WS_2_7_solution.ipynb
+INFO: No changes detected for Week_2_7\WS_2_7_solution.ipynb
+INFO: [116/120] Checking Week_2_7\WS_2_7_student.ipynb
+INFO: No changes detected for Week_2_7\WS_2_7_student.ipynb
+INFO: [117/120] Checking Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: No changes detected for Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: [118/120] Checking Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: No changes detected for Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: [119/120] Checking Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: No changes detected for Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: [120/120] Checking Week_2_8\WS_2_8_solution.ipynb
+INFO: No changes detected for Week_2_8\WS_2_8_solution.ipynb
+INFO: Skipping cleanup due to replace_all=False
+INFO: === Completed at 2024-12-31 15:56:21 (Duration: 0:00:09.118155) ===

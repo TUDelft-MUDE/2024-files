@@ -1,14 +1,5 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 # Don't do math and drive
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -23,9 +14,8 @@ jupyter:
 </h2>
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.5. For: 13th December, 2024.*
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+<!-- #region -->
 # Problem description
 
 _Note: part of the background material for this project was already available in the textbook._
@@ -64,12 +54,12 @@ Using the simplifcations and assumptions referred to above we can formulate an N
 
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 
 ## Part 1: Data preprocessing
 
 The demand of the network is given by an **OD matrix** (origin-destination), which will be constructed below. The OD matrix is a table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
@@ -185,13 +175,12 @@ plt.yticks(ticks=np.arange(od_matrix.shape[0]), labels=od_matrix.index)
 plt.show()
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 ## Part 2: Modeling in Gurobi
 
 ### Defining Parameters
 
 Now that we have the required functions for reading and processing the data, let's define some problem parameters and prepare the input. 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
@@ -244,7 +233,6 @@ model.params.NonConvex = 2
 model.params.PreQLinearize = 1
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 ### Decision variables
 
 We have a set of binary variables $y_{ij}$, these variables take the value 1 if link $(i,j)$ connecting node $i$ to node $j$ is selected for expansion, and 0 otherwise.
@@ -262,7 +250,6 @@ Therefore, mathematically we define the domain of the variables as follows:
 \end{align}
 
 As you will see below in the code block, we have one extra set of variables called x2 (x square). This is to help Gurobi isolate quadratic terms and perform required transformations based on MCE to keep the problem linear. This is not part of your learning goals.
-<!-- #endregion -->
 
 ```python
 # decision variables:
@@ -275,7 +262,6 @@ link_flow_sqr = model.addVars(links, vtype=gp.GRB.CONTINUOUS, name='x2')
 
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 ### Objective function
 
 The objective function of the problem (in its simplest form), is the minimization of the total travel time on the network, that means that you multiply the flow of vehicles in each link by the corresponding travel time and sum over all links ($A$ is the collection of all links to simplify the notation):
@@ -312,7 +298,6 @@ Now, for gurobi (and other solvers as well), we have to keep binary variables an
 
 Therefore, we use this equation to model our objective function in gurobi. You do not need to know fully understand this equation.
 
-<!-- #endregion -->
 
 ```python
 # objective function (total travel time)
@@ -325,7 +310,6 @@ model.setObjective(
                 for (i, j) in links))
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 ### Constraints
 
 We have four sets of constraints for this problem. Let's go through them one by one and add them to the model.
@@ -334,25 +318,21 @@ We have four sets of constraints for this problem. Let's go through them one by 
 We can only extend the capacity of certain number of links based on the available budget. So first, we have to make sure to limit the number of extended links to the max number that can be expanded:
 
 $$ \sum_{(i,j) \in A}{ y_{ij}} \leq B $$
-<!-- #endregion -->
 
 ```python
 # budget constraint
 c_bgt = model.addConstr(gp.quicksum(link_selected[i, j] for (i, j) in links) <= extension_max_no)
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 #### 2. Link flow conservation constraints
 We have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$. So we have to make sure that the sum of the flows over all destinations equals the flow on each link.
 $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $
-<!-- #endregion -->
 
 ```python
 # link flow conservation
 c_lfc = model.addConstrs(gp.quicksum(dest_flow[i, j, s] for s in dests) == link_flow[i, j] for (i, j) in links)
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 #### 3. Node flow conservation constraints
 The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths. $d_{is}$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_{ss}$, which is all the demand that arrives at node $s$.
 
@@ -361,7 +341,6 @@ $ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} 
 The figure gives an example:
 
 ![image](./figs/equil.png)
-<!-- #endregion -->
 
 ```python
 # node flow conservation
@@ -372,11 +351,9 @@ c_nfc = model.addConstrs(
 )
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 #### 4. Quadratic variable constraints (you do not need to fully understand this)
 These are basically dummy equations to help gurobi model quadratic terms (that we defined as dummy variables earlier). So essentially instead of using $x^2_{ij}$ in the model, we define a new set of decision variables and define a set of constrains to set their value to $x^2_{ij}$. This let's Gurobi know these are quadratic terms and helps gurobi to replace it with variables and constraints required to keep the problem linear. This is not part of your learning goals! 
 
-<!-- #endregion -->
 
 ```python
 # dummy constraints for handling quadratic terms
@@ -395,11 +372,10 @@ After running the whole model once for 300s, come back and set up a new constrai
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> 
 
 The cell below only has to be used when adding the constraint.  </p></div>
-<!-- #endregion -->
 
 ```python
 # constrain the vehicles to the capacity of the road:

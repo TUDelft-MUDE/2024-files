@@ -1,14 +1,5 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
-<!-- #region id="c-kJ0rgzjVsW" -->
 # WS 1.4: Non-Linear Water
 
 <h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
@@ -23,9 +14,8 @@ jupyter:
 </h2>
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.4. Wed Sep 25, 2024.*
-<!-- #endregion -->
 
-<!-- #region id="taoAYUNojl6N" -->
+
 In this notebook we will apply the least-squares method to a non-linear model: [non-linear least-squares estimation](https://mude.citg.tudelft.nl/2024/book/observation_theory/07_NLSQ.html). In this case our model is non-linear in the unknown parameters of interest:
 
 $$
@@ -67,9 +57,8 @@ where $a$ [days] is a scaling parameter representing the memory of the system (d
 $$ 
 h_k(t) = p\cdot r\left(\exp\left(-\frac{t-t_e}{a}\right)-\exp\left(-\frac{t-t_0}{a}\right)\right), \;\; \text{for}\;\; t > t_{\text{end}} 
 $$
-<!-- #endregion -->
 
-<!-- #region id="aGZfDs4VT3DM" -->
+
 ## Functional model
 
 For this example, we consider a single rainfall event. At $t_0=4$ days, it starts raining, and at $t_{\text{end}}=7$ days it stops raining (and we assume the amount of rainfall to be constant during these days, for the sake of the example...). The observation equations become:
@@ -89,7 +78,6 @@ $$\mathbb{E}\left[L(t_i)\right] = d + H(t_i-t_{0}) \cdot p\cdot r \left(1-\exp\l
 with $H(\Delta t) = 1$ if $\Delta t \geq 0$ and $H(\Delta t) = 0$ otherwise. <b>Check yourself that this gives indeed the same observation equations as above.</b>
 
 The functional model can be defined as follows, using <a href="https://numpy.org/doc/stable/reference/generated/numpy.heaviside.html"> NumPy's heaviside</a> function:           
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -141,7 +129,6 @@ def compute_y(x, times, rain):
     return h
 ```
 
-<!-- #region id="4IEjIQSAT78k" -->
 ### Apply the Functional Model
 
 If we generate a vector of time steps, we can plot the (exact) response of a system with parameters using the ```rain_event``` function defined above.
@@ -149,7 +136,7 @@ If we generate a vector of time steps, we can plot the (exact) response of a sys
 The known input is: $p=0.05$ m.
 
 Choose your own values for $d$, $a$, and $r$.
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -177,11 +164,9 @@ plt.xlim([0, test_n_days])
 plt.ylim([0, 5]);
 ```
 
-<!-- #region id="wnp2SL3dj0on" -->
 ## Reading in the observations
 
 We collected observations of the water level in the aquifer for 25 consecutive days and are stored ```data``` folder. Observations start at $t=1$.
-<!-- #endregion -->
 
 ```python
 n_days = 25
@@ -194,7 +179,6 @@ plt.xlabel('Time [days]')
 plt.ylabel('Waterlevel [m]');
 ```
 
-<!-- #region id="SPXDSa9AkFkY" -->
 ## Estimating the parameters using Gauss-Newton iteration
 
 Using only the data of the observations we want to find the values for $d$, $a$ and $r$. This can be done with Gauss-Newton iteration. 
@@ -213,12 +197,11 @@ Our stop criterion is:
 $$
 \Delta \hat{\mathrm{x}}_{[i]}^T \mathrm{N}_{[i]} \Delta \hat{\mathrm{x}}_{[i]} < \delta \;\; \text{with} \;\;\mathrm{N}_{[i]}=\mathrm{J}_{[i]}^T \Sigma_{Y}^{-1} \mathrm{J}_{[i]}
 $$
-<!-- #endregion -->
 
-<!-- #region id="1-REMPFykGZi" -->
+
 ## Computing the partial derivatives for the Jacobian matrix
 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -251,7 +234,6 @@ def jacobian(x, times, rain):
     return J
 ```
 
-<!-- #region id="MfBggMEPkQyZ" -->
 ## Running the Gauss-Newton iteration
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
@@ -270,7 +252,6 @@ Next we will set the stochastic model, and initialize some other variables neede
 Note in particular the 2 stop criteria used for the while loop. You should reach a solution within 50 iterations, otherwise you should reconsider the initial values.
     </p>
 </div>
-<!-- #endregion -->
 
 ```python
 d_init = YOUR_CODE_HERE
@@ -361,13 +342,12 @@ plt.xlabel('Time [days]')
 plt.ylabel('Water level [m]');
 ```
 
-<!-- #region id="KXE88mjeOzOn" -->
 ## Visualization
 
 ### Estimates vs. iteration number
 
 Now we will consider how the estimate of the model parameter changes during the Gauss-Newton iteration.
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -420,7 +400,6 @@ else:
     print(f"(T = {Tq:.1f}) > (K = {k:.1f}), OMT is rejected.")
 ```
 
-<!-- #region id="MfBggMEPkQyZ" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 8:</b>  
@@ -428,7 +407,7 @@ else:
 Play with the value of <code>alpha</code> and see how it changes the critical value <code>k</code>. Why does it become smaller/larger? What is the impact on the probability of rejecting the null hypothesis?
     </p>
 </div>
-<!-- #endregion -->
+
 
 **End of notebook.**
 <h2 style="height: 60px">

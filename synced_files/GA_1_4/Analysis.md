@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # GA 1.4: Modelling Road Deformation using Non-Linear Least-Squares
 
@@ -156,7 +148,6 @@ Confirm that the stochastic model is transferred properly by printing the approp
 YOUR_CODE_HERE
 ```
 
-<!-- #region id="80a9b60f" -->
 ## Part 1: Set-up Non-Linear Model
 
 In the model we fitted using BLUE, we only considered a linear velocity and a dependency on the groundwater level. However, when a heavy construction is built on 'soft' soil layers, compaction of the upper layers will be observed. This compaction is relatively large in the beginning but decreases when time passes. We can approach the behavior with a simplified model, assuming an exponential decay. 
@@ -186,7 +177,7 @@ y_comp = compute_y(x, <auxiliary_arguments>)
 ```
 
 Where `<auxiliary_arguments>` will be different in type and/or number on a case-by-case basis. Your code will generally be more compact and adaptable to other cases if the parameters are specified in a list, array or tuple. 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -342,14 +333,13 @@ print(f'The redundancy (InSAR) is {m1["y"].shape[0] - n_2}')
 print(f'The redundancy (GNSS) is {m2["y"].shape[0] - n_2}')
 ```
 
-<!-- #region id="b4633d84" -->
 ## Part 2: Gauss-Newton Iteration
 
 This is an essential step of the algorithm for creating a non-linear least square model. We will use a function to easily repeat the analysis for InSAR and GNSS models. The `while`-loop and its contents are very similar to WS 1.4 earlier this week, with two notable exceptions:
 
 1. the loop is "wrapped" in a function, and
 2. the model dictionaries are used, which makes it easier to use existing functions (e.g., `BLUE()`) to find a solution 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -547,9 +537,8 @@ It is set up to visualize the model on each iteration. You can gain insight into
 # plot_convergence_interactive(gauss_newton_iteration(initial_guess_alternative, m2))
 ```
 
-<!-- #region id="b9c40713" -->
 ## Part 3: Assessing Results
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -633,7 +622,6 @@ plot_residual(YOUR_CODE_HERE)
 plot_residual_histogram(YOUR_CODE_HERE);
 ```
 
-<!-- #region id="af211a2b" -->
 ## Part 4: Hypothesis Test
 
 In GA 1.3 and GA 1.4 we used two different models:
@@ -641,7 +629,7 @@ In GA 1.3 and GA 1.4 we used two different models:
 * GA 1.4: A model with linear and power components
 
 Now we are going to test which model fits the data better. We will do this with the Generalized Likelihood Ratio (GLR) test for both the GNSS and InSAR observations.
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>

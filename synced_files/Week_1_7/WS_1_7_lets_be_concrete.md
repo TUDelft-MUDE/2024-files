@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # WS 1.7: Modelling Uncertain Concrete Strength
 
@@ -23,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 1.7. Due: October 16, 2024.*
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+
 Assessing the uncertainties in the compressive strength of the produced concrete is key for the safety of infrastructures and buildings. However, a lot of boundary conditions influence the final resistance of the concrete, such the cement content, the environmental temperature or the age of the concrete. Probabilistic tools can be applied to model this uncertainty. In this workshop, you will work with a dataset of observations of the compressive strength of concrete (you can read more about the dataset [here](https://www.kaggle.com/datasets/gauravduttakiit/compressive-strength-of-concrete)). 
 
 **The goal of this project is:**
@@ -33,7 +25,6 @@ Assessing the uncertainties in the compressive strength of the produced concrete
 4. Assess the fit using goodness of fit techniques and computer code.
 
 The project will be divided into 3 parts: 1) data analysis, 2) pen and paper stuff (math practice!), and 3) programming.
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -78,7 +69,6 @@ df_describe = pd.DataFrame(data)
 df_describe.describe()
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 1.1:</b>   
@@ -87,7 +77,7 @@ df_describe.describe()
     <li>Justiy your choice.</li>
 </p>
 </div>
-<!-- #endregion -->
+
 
 _Your answer here._
 
@@ -137,14 +127,13 @@ You can summarize you answers in the following table (report your values with 3-
 
 Now, let's assess the performance using further goodness of fit metrics and see whether they are consistent with the previously done analysis.
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
+
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3.1:</b>   
 Prepare a function to compute the empirical cumulative distribution function.
 </p>
 </div>
-<!-- #endregion -->
 
 ```python
 def ecdf(YOUR_CODE_HERE):
@@ -152,7 +141,6 @@ def ecdf(YOUR_CODE_HERE):
     return YOUR_CODE_HERE
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3.2:</b>   
@@ -161,7 +149,7 @@ Transform the fitted parameters for the selected distribution to loc-scale-shape
 </div>
 
 Hint: the distributions are in our online textbook, but it is also critical to make sure that the formulation in the book is identical to that of the Python package we are using. You can do this by finding the page of the relevant distribution in the [Scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html) documentation.
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>

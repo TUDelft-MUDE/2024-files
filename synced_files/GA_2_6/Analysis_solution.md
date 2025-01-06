@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # GA 2.6: A stethoscope for beams - neural networks for detecting defects on bridges
 
@@ -77,6 +69,7 @@ import time
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+%config InlineBackend.figure_formats = ['svg']
 
 from sklearn.neural_network import MLPRegressor
 from sklearn.preprocessing import MinMaxScaler
@@ -91,6 +84,11 @@ Let us take a look at the dataset first. It is a CSV file, and a convenient way 
 
 ```python
 data = pd.read_csv(r"data/bridges.csv")
+```
+
+```python
+#summary of the data
+data.describe()
 ```
 
 We can take a look at how the crack location relates with displacements at three different locations along the beams (25% of the span, midspan, 75% of the span):
@@ -161,9 +159,6 @@ The resulting training, validation, and test sets should be stored in the variab
 features = loc2['dy'].to_numpy().reshape(-1,1)
 targets = loc2['location'].to_numpy().reshape(-1,1)
 
-# X_train, X_val_test, t_train, t_val_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=42)
-# X_val, X_test, t_val, t_test = train_test_split(YOUR_CODE_HERE, YOUR_CODE_HERE, test_size=YOUR_CODE_HERE, random_state=24)
-# Solution
 X_train, X_val_test, t_train, t_val_test = train_test_split(features, targets, test_size=0.20, random_state=42)
 X_val, X_test, t_val, t_test = train_test_split(X_val_test, t_val_test, test_size=0.50, random_state=24)
 ```
@@ -190,12 +185,6 @@ The normalized features should be stored in the variables `normalized_X_train` a
 ```python
 scaler_x = MinMaxScaler()
 
-# scaler_x.fit(YOUR_CODE_HERE)
-
-# normalized_X_train = scaler_x.transform(YOUR_CODE_HERE)
-# normalized_X_val = scaler_x.transform(YOUR_CODE_HERE)
-
-# Solution
 scaler_x.fit(X_train)
 
 normalized_X_train = scaler_x.transform(X_train)
@@ -215,11 +204,6 @@ The normalized targets should be stored in the variables `normalized_t_train` an
 ```python
 scaler_t = MinMaxScaler()
 
-# scaler_t.fit(YOUR_CODE_HERE)
-
-# normalized_t_train = scaler_t.transform(YOUR_CODE_HERE)
-# normalized_t_val = scaler_t.transform(YOUR_CODE_HERE)
-# Solution
 scaler_t.fit(t_train)
 
 normalized_t_train = scaler_t.transform(t_train)
@@ -338,35 +322,6 @@ Your task is to write the Python code that implements the `train_model` function
 </div>
 
 ```python
-# def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate):
-#     train_loss_list = []
-#     val_loss_list = []
-#     model.learning_rate_init = learning_rate
-#     
-#     # Fix random seed for reproducibility
-#     np.random.seed(42)
-#
-#     for epoch in range(n_epochs):
-        
-#         # Generate mini-batches
-#         mini_batches = get_mini_batches(YOUR_CODE_HERE)
-        
-#         # Train model on mini-batches
-#         for X_batch, t_batch in mini_batches:
-#             YOUR_CODE_HERE
-        
-#         YOUR_CODE_HERE # Hint: may be more than one line
-
-#         # Store loss values
-#         train_loss_list.append(train_loss)
-#         val_loss_list.append(val_loss)
-
-#         # Print training progress
-#         print(f"Epoch {epoch+1}/{n_epochs} - Train Loss: {train_loss_list[-1]:.4f} - Val Loss: {val_loss:.4f}")
-        
-#     return train_loss_list, val_loss_list
-
-# Solution:
 def train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate, verbose=True):
     train_loss_list = []
     val_loss_list = []
@@ -415,11 +370,9 @@ Training neural networks is a stochastic operation: the MLP is given **random in
 </div>
 
 ```python
-# model = MLPRegressor(YOUR_CODE_HERE, YOUR_CODE_HERE)
-# Solution
 model = MLPRegressor(hidden_layer_sizes = (10, 5), 
                     activation = 'tanh',
-                    random_state=0)
+                    random_state=1)
 
 train_loss_list, val_loss_list = train_model(model, normalized_X_train, normalized_t_train, normalized_X_val, normalized_t_val, n_epochs, batch_size, learning_rate)
 ```
@@ -508,16 +461,11 @@ Add these plots to your report.
 </div>
 
 ```python
-#y_train = YOUR_CODE_HERE
-#y_val = YOUR_CODE_HERE
-# Solution
 y_train = scaler_t.inverse_transform(model.predict(normalized_X_train).reshape(-1,1))
 y_val = scaler_t.inverse_transform(model.predict(normalized_X_val).reshape(-1,1))
 
 fig,axes = plt.subplots(1,2,figsize=(8,3))
 
-# axes[0].scatter(YOUR_CODE_HERE,YOUR_CODE_HERE,s=0.5)
-# Solution
 axes[0].scatter(t_train,y_train,s=0.5)
 
 axes[0].set_title('Training dataset')
@@ -577,9 +525,6 @@ To reach a good architecture and number of epochs you will need to also complete
 features = np.array([loc1['dy'].to_numpy(), loc2['dy'].to_numpy(), loc3['dy'].to_numpy()]).transpose()
 targets = loc2['location'].to_numpy().reshape(-1,1)
 
-# YOUR_CODE_HERE
-
-# Solution
 X_train, X_val_test, t_train, t_val_test = train_test_split(features, targets, test_size=0.20, random_state=42)
 X_val, X_test, t_val, t_test = train_test_split(X_val_test, t_val_test, test_size=0.50, random_state=24)
 
@@ -617,9 +562,6 @@ Add the plots to your report. Include only results from your final model (the on
 </div>
 
 ```python
-# YOUR_CODE_HERE
-
-#Solution
 # Create a scatter plot with enhanced styling
 plt.figure(figsize=(8, 6))  # Set the figure size
 
@@ -661,9 +603,6 @@ Add the plots to your report. Include only results from your final model (the on
 </div>
 
 ```python
-# YOUR_CODE_HERE
-
-# Solution
 y_train = scaler_t.inverse_transform(model.predict(normalized_X_train).reshape(-1,1))
 y_val = scaler_t.inverse_transform(model.predict(normalized_X_val).reshape(-1,1))
 
@@ -726,9 +665,6 @@ On the second block we plot the final validation losses of all the models on a g
 </div>
 
 ```python
-# layer_sizes = [YOUR_CODE_HERE]
-# layer_numbers = [YOUR_CODE_HERE]
-# Solution
 layer_sizes = [10, 20] 
 layer_numbers = [1, 2, 3, 4, 5, 6]
 

@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.5
----
+<userStyle>Normal</userStyle>
 
 # GA 2.3: Beam Beats
 
@@ -32,9 +24,8 @@ As a warming up you will create and analyze some elementary signals yourself, an
 
 Most of the Tasks in this notebook consist of both coding, producing a plot, and answering (open) questions. Typically, as you work your way through the Tasks, you can often re-use code, or part of it, from earlier Tasks and assignments. That will save you a lot of work!!
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>In many of the code blocks below, template code to create figures is provided. Note that there is a lot of code missing, and one line of <code>YOUR_CODE_HERE</code> does not imply that only one line of code is missing!</p></div>
-<!-- #endregion -->
 
 <!-- #region -->
 ### Data Acquisition System
@@ -88,9 +79,8 @@ import matplotlib.pyplot as plt
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>We will give you the answers in this code cell for free!</p></div>
-<!-- #endregion -->
 
 ```python
 T_meas = 5
