@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
+<userStyle>Normal</userStyle>
 
 # Group Assignment 1.7: Distribution Fitting
 
@@ -23,7 +15,7 @@ jupyter:
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 7, Friday Oct 18, 2024.*
 
-<!-- #region id="1db6fea9-f3ad-44bc-a4c8-7b2b3008e945" -->
+
 ## Case 2: $CO_2$ emissions from traffic
 
 **What's the propagated uncertainty? *How large will be the $CO_2$ emissions?***
@@ -39,11 +31,9 @@ $$
 2. Fit the chosen distributions to the observations of $H$ and $C$.
 3. Assuming $H$ and $C$ are independent, propagate their distributions to obtain the distribution of emissions of $CO_2$.
 4. Analyze the distribution of emissions of $CO_2$.
-<!-- #endregion -->
 
-<!-- #region id="d33f1148-c72b-4c7e-bca7-45973b2570c5" -->
+
 ## Importing packages
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -89,7 +79,6 @@ print(stats.describe(H))
 print(stats.describe(C))
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 1:</b>  
@@ -99,7 +88,7 @@ Describe the data based on the previous statistics:
 - What does the skewness coefficient means? Which kind of distribution functions should we consider to fit them?</li>
 </p>
 </div>
-<!-- #endregion -->
+
 
 ## 2. Empirical distribution functions
 
@@ -125,7 +114,6 @@ def ecdf(YOUR_INPUT):
 #Your plot here
 ```
 
-<!-- #region id="bfadcf3f-4578-4809-acdb-625ab3a71f27" -->
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
 <b>Task 3:</b>   
@@ -133,7 +121,7 @@ def ecdf(YOUR_INPUT):
 Based on the results of Task 1 and the empirical PDF and CDF, select <b>one</b> distribution to fit to each variable. For $H$, select between Gumbel or Gaussian distribution, while for $C$ choose between Uniform or Lognormal.
 </p>
 </div>
-<!-- #endregion -->
+
 
 ## 3. Fitting a distribution
 
@@ -254,24 +242,27 @@ axes.grid()
 #Correlation coefficient calculation here
 ```
 
+<!-- #region -->
 **End of notebook.**
-<h2 style="height: 60px">
-</h2>
-<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
-    <style>
-        .markdown {width:100%; position: relative}
-        article { position: relative }
-    </style>
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+
+<div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
+  <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
+      <img alt="MUDE" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
     </a>
     <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
-      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png"/>
+      <img alt="TU Delft" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
     </a>
-    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
-      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png"/>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="width:88px; height:auto;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    
-</h3>
-<span style="font-size: 75%">
-&copy; Copyright 2023 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  </div>
+  <div style="font-size: 75%; margin-top: 10px; text-align: right;">
+    &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+</div>
+
+
+<!--tested with WS_2_8_solution.ipynb-->
+<!-- #endregion -->

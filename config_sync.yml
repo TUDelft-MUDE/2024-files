@@ -1,0 +1,29 @@
+sync_options:
+  replace_all: false  # When false, only update specified files
+
+content_dir: "content"
+output_dir: "synced_files"
+
+# Add footer options here
+footer_options:
+  enabled: true  # Enable/disable footer checking
+  fix_non_standard: true  # Whether to fix non-standard footers
+  template_path: "templates/footer.html"  # Path to the standard footer template
+
+formats:
+  - markdown
+  - python
+  - clean_python
+  - html
+html_options:
+  template: "basic"
+  include_code: true
+  include_outputs: true
+
+# Uncomment and modify if you want to process specific notebooks only
+# specific_notebooks:
+#   options:
+#     force_update: false  # Force update even without changes
+#   files:
+#     - "Week_2_8/WS_2_8_dirty_water.ipynb"
+#     - "Week_2_8/WS_2_8_solution.ipynb"

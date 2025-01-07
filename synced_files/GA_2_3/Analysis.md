@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
+<userStyle>Normal</userStyle>
 
 # GA 2.3: Beam Beats
 
@@ -32,9 +24,8 @@ As a warming up you will create and analyze some elementary signals yourself, an
 
 Most of the Tasks in this notebook consist of both coding, producing a plot, and answering (open) questions. Typically, as you work your way through the Tasks, you can often re-use code, or part of it, from earlier Tasks and assignments. That will save you a lot of work!!
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>In many of the code blocks below, template code to create figures is provided. Note that there is a lot of code missing, and one line of <code>YOUR_CODE_HERE</code> does not imply that only one line of code is missing!</p></div>
-<!-- #endregion -->
 
 <!-- #region -->
 ### Data Acquisition System
@@ -88,9 +79,8 @@ import matplotlib.pyplot as plt
 </p>
 </div>
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>We will give you the answers in this code cell for free!</p></div>
-<!-- #endregion -->
 
 ```python
 T_meas = 5
@@ -621,25 +611,27 @@ $$
 </p>
 </div>
 
-
+<!-- #region -->
 **End of notebook.**
-<h2 style="height: 60px">
-</h2>
-<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
-    <style>
-        .markdown {width:100%; position: relative}
-        article { position: relative }
-    </style>
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+
+<div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
+  <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
+      <img alt="MUDE" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
     </a>
     <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
-      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
+      <img alt="TU Delft" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
     </a>
-    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
-      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="width:88px; height:auto;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    
-</h3>
-<span style="font-size: 75%">
-&copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+  <div style="font-size: 75%; margin-top: 10px; text-align: right;">
+    &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+</div>
+
+
+<!--tested with WS_2_8_solution.ipynb-->
+<!-- #endregion -->

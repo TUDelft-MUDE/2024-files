@@ -1,14 +1,6 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
+<userStyle>Normal</userStyle>
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+<!-- #region -->
 # Evolve and drive
 
 
@@ -27,7 +19,6 @@ jupyter:
 
 <!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 ## Introduction
 
 _Note: part of the background material for this project was already available in [Chapter 5.11 of the textbook](https://mude.citg.tudelft.nl/2023/book/optimization/project.html)._
@@ -37,13 +28,11 @@ _Note: part of the background material for this project was already available in
 * Think about larger problems, like the road network of Amsterdam or Shanghai, and it will be even harder!
 * Here we show how a metaheuristic such a the genetic algorithm can be used to find good (not necessarily optimal) solutions for the problem in potentially less time
 
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p> <b>Note:</b> You will need to select mude-week-2-5 as your kernel as it includes the required packages.</p></div>
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 ## Genetic algorithm for NDP
 
 As we discussed, it is challenging to use MILP for large-scale NDPs. Therefore, in this assignment, we’re going to use a genetic algorithm to address this problem.
@@ -59,9 +48,8 @@ Basic Components of a Genetic Algorithm:
 * **Replacement**: New offspring replace some of the least fit individuals in the population.
 * **Termination Criteria**: Conditions under which the algorithm stops, e.g., a maximum number of generations or satisfactory fitness level.
 
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 ### GA steps
 
 Reminding you about the GA steps …
@@ -74,16 +62,14 @@ Reminding you about the GA steps …
 * Termination (end): The algorithm stops when a termination criterion is met.
 
 ![image.png](attachment:image.png)
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 ### PyMOO
 
 PyMOO is a Python library that provides a comprehensive and easy-to-use framework for multi-objective optimization (MOO). For this case, we are going to deal with only one objective; nevertheless, this is an useful tool if you have more objectives. In addition, PyMOO easily allows us to define our optimization problem by specifying the objectives, constraints, and decision variables.
 
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+<!-- #region -->
 ## Problem definition and formulation
 
 Here is the problem formulation as presented in the previous Jupyter notebook
@@ -107,7 +93,6 @@ So let's see how that works.
 
 <!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 ### The network design sub-problem
 
 The network desing is where we use the genetic algorithm. As explained before, GA uses a population of solutions and iteratively improves this population to evolve to new generations of populations with a better objective function value (being that minimization or maximization). In this problem, the decision variables are links for capacity expansion and the objective function value is the total system travel time that we want to minimize.
@@ -120,9 +105,8 @@ The network desing is where we use the genetic algorithm. As explained before, G
 \end{align}
 
 Where the values of $x_{ij}$ are not decision variables anymore, they will be obtained from solving the Traffic Assignment problem with Gurobi which evaluates the travel times on the network. This part of the problem will not be solved mathematically anymore, the $y_{ij}$ variables are decided by the genetic algorithm through the process you learned.
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+<!-- #region -->
 ### The traffic assignment sub-problem
 
 This is just part of the original NDP that assigns traffic to the network based on a set of given capacity values, which are defined based on the values of the DP decision variables (links selected for capacity expansion). The main difference (and the advantage) here is that by separating the binary decision variables, instead of a mixed integer programming problem, which are hard to solve, here we have a quadratic programming problem with continuous decision variables, which will be transformed to a linear problem that Gurobi can solve very fast.
@@ -144,13 +128,13 @@ Where the values of $y_{ij}$ are constant and are defined by GA.
 
 The following is a diagram that shows what you are finally doing to solve the same problem but with a meta-heuristic approach:
 
-![GAdiagram.png](./figs/GAdiagram.png)
+![](./images\GAdiagram.png)
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 ## Part 1: Data preprocessing
 
 The demand of the network is given by an **OD matrix**, which will be constructed below. The OD matrix is as table that tells you how many cars go from node i to node j in an a given timeframe. The functions for this can be found in the helper function in utils/read.py. You do not need to edit anything in this codeblock.
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
@@ -197,9 +181,8 @@ from utils.read import create_nd_matrix
 ### Network Display
 We will use the same function we used in the previous notebook to visualize the network. 
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 Now that we have the required functions for reading and processing the data, let's define some problem parameters and prepare the input.
-<!-- #endregion -->
 
 ```python
 # define parameters
@@ -232,18 +215,16 @@ coordinates_path = 'input/TransportationNetworks/SiouxFalls/SiouxFallsCoordinate
 G, pos = network_visualization(link_flow = fftts,coordinates_path= coordinates_path) # the network we create here will be used later for further visualizations!
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 Now we are ready to build our models!
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 ## Part 2: Modeling and solving the traffic assignment sub-problem with Gurobi
 
 ### Defining functions
 
 In this section we build a Gurobi model to solve the Traffic Assignment sub-problems. The decision variables, objective function, and the constraints of this problem were described before.
 Here we wrap the code in a function so that we can use it later within the GA.
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
@@ -308,15 +289,12 @@ def ta_qp(dvs, net_data=net_data, ods_data=ods_data, extension_factor=2.5):
     return total_travel_time, capacity, link_flows, links_selected
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 ### Modeling with PyMOO
 
 Let's define a model in MyMOO and deal with the links selection problem with the GA.
-<!-- #endregion -->
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
+
 First, we need to define a problem class.
-<!-- #endregion -->
 
 ```python
 #If you want to know more about the library that is being used: https://pymoo.org/algorithms/soo/ga.html
@@ -341,13 +319,11 @@ class NDP(ElementwiseProblem):
         out["G"] = g
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 Now, let's initiate an instance of the problem based on the problem class we defined, and initiate the GA with its parameters. Note that depending on the problem size and the number of feasible links, you might need larger values for population and generation size to achieve good results or even feasible results. Of course this increases the computation times.
-<!-- #endregion -->
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> population size <code>pop_size</code> is 200 originally. If you change this, you will see different results. This is problem-dependent!</p></div>
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
@@ -372,13 +348,10 @@ method = GA(pop_size=pop_size,
             crossover=HalfUniformCrossover())
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 Now we are ready to minimize the NDP problem using the GA method we defined.
-<!-- #endregion -->
 
-<!-- #region id="0491cc69" -->
+
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b> Maximum computation time (termination criteria) is set here as a keyword argument.</p></div>
-<!-- #endregion -->
 
 ```python
 
@@ -403,12 +376,10 @@ print("Best solution found: %s" % opt_results.X)
 #f_min:  Minimum objective function value
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 
 ### Convergence curve
 
 Let's first define some functions (to use later) to get the results and plot them.
-<!-- #endregion -->
 
 ```python
 def get_results(opt_results):
@@ -462,10 +433,8 @@ def plot_results(number_of_individuals, optimal_values_along_generations):
     plt.show()
 ```
 
-<!-- #region pycharm={"name": "#%% md\n"} -->
 Now let's use these functions to plot the results.
 
-<!-- #endregion -->
 
 ```python
 number_of_individuals, optimal_values_along_generations = get_results(opt_results)
@@ -487,24 +456,27 @@ travel_time, capacity, link_flows, links_selected= ta_qp(dvs=opt_results.X, net_
 network_visualization_upgraded (G = G, pos=pos, link_flow=link_flows, capacity_new=capacity ,link_select=links_selected, labels='off')
 ```
 
+<!-- #region -->
 **End of notebook.**
-<h2 style="height: 60px">
-</h2>
-<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
-    <style>
-        .markdown {width:100%; position: relative}
-        article { position: relative }
-    </style>
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+
+<div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
+  <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
+      <img alt="MUDE" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
     </a>
     <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
-      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png"/>
+      <img alt="TU Delft" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
     </a>
-    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
-      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png"/>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="width:88px; height:auto;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    
-</h3>
-<span style="font-size: 75%">
-&copy; Copyright 2023 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  </div>
+  <div style="font-size: 75%; margin-top: 10px; text-align: right;">
+    &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+</div>
+
+
+<!--tested with WS_2_8_solution.ipynb-->
+<!-- #endregion -->
