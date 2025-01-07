@@ -197,7 +197,7 @@ Use a Numpy method to create a 5x5 matrix, fill the diagonal with value 5, then 
 </div>
 
 
-![solution for matrix 1](./auxiliary_files/matrix01.svg)
+![](./images\matrix01.svg)
 
 ```python
 A = YOUR_CODE_HERE
@@ -220,7 +220,7 @@ Create the matrix illustrated in the figure below, where the values are either 0
 </div>
 
 
-![solution for matrix 1](./auxiliary_files/matrix02.svg)
+![](./images\matrix02.svg)
 
 ```python
 A = YOUR_CODE_HERE
@@ -300,25 +300,27 @@ assert np.all(x == [2, 4, 6, 8, 10])
 
 This Part is not meant to be complicated; rather, it is meant to explicitly indicate the difference between `range` and `np.arange` to help you debug your code more easily. The **main takeaway** is that you should use `range` when you are iterating through indices and don't need to use the indices as values, whereas `np.arange` is necessary when the indices are needed as values. It is also good to recognize that `range` is part of the standard Python library, whereas `np.arange` is not (it is part of Numpy). This is because `range` returns a `range` object, whereas `np.arange` returns a Numpy array.
 
-
+<!-- #region -->
 **End of notebook.**
-<h2 style="height: 60px">
-</h2>
-<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
-    <style>
-        .markdown {width:100%; position: relative}
-        article { position: relative }
-    </style>
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+
+<div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
+  <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
+      <img alt="MUDE" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
     </a>
     <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
-      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
+      <img alt="TU Delft" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
     </a>
-    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
-      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="width:88px; height:auto;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    
-</h3>
-<span style="font-size: 75%">
-&copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+  <div style="font-size: 75%; margin-top: 10px; text-align: right;">
+    &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+</div>
+
+
+<!--tested with WS_2_8_solution.ipynb-->
+<!-- #endregion -->
