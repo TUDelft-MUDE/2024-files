@@ -1,12 +1,4 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.16.6
----
+<userStyle>Normal</userStyle>
 
 # GA 1.4: Modelling Road Deformation using Non-Linear Least-Squares
 
@@ -156,7 +148,6 @@ Confirm that the stochastic model is transferred properly by printing the approp
 YOUR_CODE_HERE
 ```
 
-<!-- #region id="80a9b60f" -->
 ## Part 1: Set-up Non-Linear Model
 
 In the model we fitted using BLUE, we only considered a linear velocity and a dependency on the groundwater level. However, when a heavy construction is built on 'soft' soil layers, compaction of the upper layers will be observed. This compaction is relatively large in the beginning but decreases when time passes. We can approach the behavior with a simplified model, assuming an exponential decay. 
@@ -186,7 +177,7 @@ y_comp = compute_y(x, <auxiliary_arguments>)
 ```
 
 Where `<auxiliary_arguments>` will be different in type and/or number on a case-by-case basis. Your code will generally be more compact and adaptable to other cases if the parameters are specified in a list, array or tuple. 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -342,14 +333,13 @@ print(f'The redundancy (InSAR) is {m1["y"].shape[0] - n_2}')
 print(f'The redundancy (GNSS) is {m2["y"].shape[0] - n_2}')
 ```
 
-<!-- #region id="b4633d84" -->
 ## Part 2: Gauss-Newton Iteration
 
 This is an essential step of the algorithm for creating a non-linear least square model. We will use a function to easily repeat the analysis for InSAR and GNSS models. The `while`-loop and its contents are very similar to WS 1.4 earlier this week, with two notable exceptions:
 
 1. the loop is "wrapped" in a function, and
 2. the model dictionaries are used, which makes it easier to use existing functions (e.g., `BLUE()`) to find a solution 
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -547,9 +537,8 @@ It is set up to visualize the model on each iteration. You can gain insight into
 # plot_convergence_interactive(gauss_newton_iteration(initial_guess_alternative, m2))
 ```
 
-<!-- #region id="b9c40713" -->
 ## Part 3: Assessing Results
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -633,7 +622,6 @@ plot_residual(YOUR_CODE_HERE)
 plot_residual_histogram(YOUR_CODE_HERE);
 ```
 
-<!-- #region id="af211a2b" -->
 ## Part 4: Hypothesis Test
 
 In GA 1.3 and GA 1.4 we used two different models:
@@ -641,7 +629,7 @@ In GA 1.3 and GA 1.4 we used two different models:
 * GA 1.4: A model with linear and power components
 
 Now we are going to test which model fits the data better. We will do this with the Generalized Likelihood Ratio (GLR) test for both the GNSS and InSAR observations.
-<!-- #endregion -->
+
 
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
@@ -689,24 +677,27 @@ t_gnss = t1_gnss - t2_gnss
 print(f'The test statistic for GNSS data is {np.round(t_gnss, 3)}')
 ```
 
+<!-- #region -->
 **End of notebook.**
-<h2 style="height: 60px">
-</h2>
-<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
-    <style>
-        .markdown {width:100%; position: relative}
-        article { position: relative }
-    </style>
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-      <img alt="Creative Commons License" style="border-width:; width:88px; height:auto; padding-top:10px" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+
+<div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
+  <div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
+      <img alt="MUDE" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
     </a>
     <a rel="TU Delft" href="https://www.tudelft.nl/en/ceg">
-      <img alt="TU Delft" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
+      <img alt="TU Delft" style="width:100px; height:auto;" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" />
     </a>
-    <a rel="MUDE" href="http://mude.citg.tudelft.nl/">
-      <img alt="MUDE" style="border-width:0; width:100px; height:auto; padding-bottom:0px" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" />
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="width:88px; height:auto;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
-    
-</h3>
-<span style="font-size: 75%">
-&copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+  <div style="font-size: 75%; margin-top: 10px; text-align: right;">
+    &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+  </div>
+</div>
+
+
+<!--tested with WS_2_8_solution.ipynb-->
+<!-- #endregion -->

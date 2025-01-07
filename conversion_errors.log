@@ -1,344 +1,835 @@
-2024-12-22 22:51:16,621 - INFO - Starting notebook synchronization
-2024-12-22 22:51:17,291 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_1\Task_2_solution.ipynb
-2024-12-22 22:51:20,574 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_1\Task_2_solution.ipynb
-2024-12-22 22:51:20,575 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_2\Analysis.ipynb
-2024-12-22 22:51:23,510 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_2\Analysis.ipynb
-2024-12-22 22:51:23,511 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_2\Analysis_solution.ipynb
-2024-12-22 22:51:26,276 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_2\Analysis_solution.ipynb
-2024-12-22 22:51:26,276 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Analysis.ipynb
-2024-12-22 22:51:29,599 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Analysis.ipynb
-2024-12-22 22:51:29,599 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Analysis_Solution.ipynb
-2024-12-22 22:51:32,792 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Analysis_Solution.ipynb
-2024-12-22 22:51:32,793 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-22 22:51:32,794 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-22 22:51:32,794 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_3\Warmup.ipynb
-2024-12-22 22:51:32,794 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-22 22:51:32,796 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-22 22:51:32,796 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis.ipynb
-2024-12-22 22:51:32,796 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis_solution.ipynb
-2024-12-22 22:51:35,810 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_4\Analysis_solution.ipynb
-2024-12-22 22:51:35,811 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-22 22:51:35,812 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-22 22:51:35,813 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis.ipynb
-2024-12-22 22:51:35,813 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-22 22:51:35,819 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-22 22:51:35,820 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_5\Analysis_solution.ipynb
-2024-12-22 22:51:35,820 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-22 22:51:35,822 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-22 22:51:35,822 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_5\central_diff_illustration.ipynb
-2024-12-22 22:51:35,823 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-22 22:51:35,827 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-22 22:51:35,827 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis.ipynb
-2024-12-22 22:51:35,828 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-22 22:51:35,836 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-22 22:51:35,837 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_6\Analysis_solution.ipynb
-2024-12-22 22:51:35,837 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-22 22:51:35,841 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-22 22:51:35,841 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-2024-12-22 22:51:35,841 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-22 22:51:35,846 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-22 22:51:35,847 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-2024-12-22 22:51:35,847 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-22 22:51:35,851 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-22 22:51:35,851 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-2024-12-22 22:51:35,851 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-22 22:51:35,853 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-22 22:51:35,853 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-2024-12-22 22:51:35,853 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-22 22:51:35,854 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-22 22:51:35,855 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-2024-12-22 22:51:35,855 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-22 22:51:35,856 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-22 22:51:35,857 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb
-2024-12-22 22:51:35,857 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-22 22:51:35,861 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-22 22:51:35,862 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-2024-12-22 22:51:35,862 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-22 22:51:35,864 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-22 22:51:35,864 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_8\Analysis.ipynb
-2024-12-22 22:51:35,865 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-22 22:51:35,867 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-22 22:51:35,867 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb
-2024-12-22 22:51:35,867 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-22 22:51:35,871 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-22 22:51:35,871 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb
-2024-12-22 22:51:35,872 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-22 22:51:35,875 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-22 22:51:35,876 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-2024-12-22 22:51:35,876 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-22 22:51:35,880 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-22 22:51:35,881 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis.ipynb
-2024-12-22 22:51:35,881 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-22 22:51:35,889 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-22 22:51:35,890 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\Analysis_solution.ipynb
-2024-12-22 22:51:35,890 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-22 22:51:35,895 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-22 22:51:35,896 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_dev.ipynb
-2024-12-22 22:51:35,896 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-22 22:51:35,901 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-22 22:51:35,901 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh_tips.ipynb
-2024-12-22 22:51:35,901 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-22 22:51:35,904 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-22 22:51:35,904 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_1\mesh\mesh.ipynb
-2024-12-22 22:51:35,904 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-22 22:51:35,905 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-22 22:51:35,906 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_2\the_big_M.ipynb
-2024-12-22 22:51:35,906 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-22 22:51:35,908 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-22 22:51:35,908 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis.ipynb
-2024-12-22 22:51:35,908 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-22 22:51:35,913 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-22 22:51:35,914 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_3\Analysis_solution.ipynb
-2024-12-22 22:51:35,914 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-22 22:51:35,915 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-22 22:51:35,915 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb
-2024-12-22 22:51:35,916 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-22 22:51:35,923 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-22 22:51:35,923 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_4\GA_2_4_solution.ipynb
-2024-12-22 22:51:35,924 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-22 22:51:35,925 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-22 22:51:35,925 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA.ipynb
-2024-12-22 22:51:35,926 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-22 22:51:35,927 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-22 22:51:35,928 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb
-2024-12-22 22:51:35,928 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-22 22:51:35,929 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-22 22:51:35,929 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP.ipynb
-2024-12-22 22:51:35,930 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-22 22:51:35,945 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-22 22:51:35,945 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb
-2024-12-22 22:51:35,946 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-22 22:51:35,948 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-22 22:51:35,948 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis.ipynb
-2024-12-22 22:51:35,949 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-22 22:51:35,958 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-22 22:51:35,958 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_6\Analysis_solution.ipynb
-2024-12-22 22:51:35,958 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-22 22:51:35,962 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-22 22:51:35,962 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\GA_2_7\rain_solution.ipynb
-2024-12-22 22:51:35,962 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-22 22:51:35,964 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-22 22:51:35,964 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_3\Analysis.ipynb
-2024-12-22 22:51:35,964 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-22 22:51:35,965 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-22 22:51:35,965 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb
-2024-12-22 22:51:35,966 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-22 22:51:35,966 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-22 22:51:35,967 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb
-2024-12-22 22:51:35,967 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-22 22:51:35,969 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-22 22:51:35,970 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_1\PA_1_1_Catch_Them_All.ipynb
-2024-12-22 22:51:35,970 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-22 22:51:35,972 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-22 22:51:35,973 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity.ipynb
-2024-12-22 22:51:35,973 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-22 22:51:35,975 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-22 22:51:35,976 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb
-2024-12-22 22:51:35,976 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-22 22:51:35,978 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-22 22:51:35,978 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb
-2024-12-22 22:51:35,978 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-22 22:51:35,980 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-22 22:51:35,980 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\PA_1_2_solution.ipynb
-2024-12-22 22:51:35,980 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-22 22:51:35,983 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-22 22:51:35,983 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-2024-12-22 22:51:35,983 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-22 22:51:35,986 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-22 22:51:35,987 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_2\WS_1_2_solution.ipynb
-2024-12-22 22:51:35,987 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-22 22:51:35,988 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-22 22:51:35,989 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-2024-12-22 22:51:35,989 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-22 22:51:35,991 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-22 22:51:35,991 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_3\PA_1_3_solution.ipynb
-2024-12-22 22:51:35,992 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-22 22:51:35,993 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-22 22:51:35,993 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb
-2024-12-22 22:51:35,993 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-22 22:51:35,995 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-22 22:51:35,996 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_3\WS_1_3_solution.ipynb
-2024-12-22 22:51:35,996 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-22 22:51:35,997 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-22 22:51:35,998 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-2024-12-22 22:51:35,998 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-22 22:51:36,000 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-22 22:51:36,000 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_4\WS_1_4_solution.ipynb
-2024-12-22 22:51:36,000 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-22 22:51:36,001 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-22 22:51:36,002 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb
-2024-12-22 22:51:36,002 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-22 22:51:36,005 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-22 22:51:36,005 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\WS_1_5_solution.ipynb
-2024-12-22 22:51:36,005 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-22 22:51:36,007 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-22 22:51:36,007 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb
-2024-12-22 22:51:36,007 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-22 22:51:36,008 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-22 22:51:36,008 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb
-2024-12-22 22:51:36,009 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-22 22:51:36,010 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-22 22:51:36,011 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb
-2024-12-22 22:51:36,011 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-22 22:51:36,013 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-22 22:51:36,013 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_solution.ipynb
-2024-12-22 22:51:36,013 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-22 22:51:36,014 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-22 22:51:36,014 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb
-2024-12-22 22:51:36,015 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-22 22:51:36,016 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-22 22:51:36,016 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-2024-12-22 22:51:36,017 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-22 22:51:36,019 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-22 22:51:36,019 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb
-2024-12-22 22:51:36,020 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-22 22:51:36,021 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-22 22:51:36,021 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\scipy_stats.ipynb
-2024-12-22 22:51:36,021 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-22 22:51:36,023 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-22 22:51:36,023 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb
-2024-12-22 22:51:36,023 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-22 22:51:36,025 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-22 22:51:36,025 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\WS_1_7_solution.ipynb
-2024-12-22 22:51:36,026 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-22 22:51:36,027 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-22 22:51:36,027 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-2024-12-22 22:51:36,027 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-22 22:51:36,029 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-22 22:51:36,029 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb
-2024-12-22 22:51:36,029 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\data.ipynb
-2024-12-22 22:51:36,031 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\data.ipynb
-2024-12-22 22:51:36,031 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\data.ipynb
-2024-12-22 22:51:36,032 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-22 22:51:36,033 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-22 22:51:36,033 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\intersection.ipynb
-2024-12-22 22:51:36,034 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-22 22:51:36,039 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-22 22:51:36,040 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\test_bivariate.ipynb
-2024-12-22 22:51:36,040 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-22 22:51:36,041 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-22 22:51:36,041 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-2024-12-22 22:51:36,041 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-22 22:51:36,043 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-22 22:51:36,043 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb
-2024-12-22 22:51:36,043 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-22 22:51:36,048 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-22 22:51:36,048 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb
-2024-12-22 22:51:36,048 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-22 22:51:36,053 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-22 22:51:36,053 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb
-2024-12-22 22:51:36,053 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-22 22:51:36,054 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-22 22:51:36,055 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-2024-12-22 22:51:36,055 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-22 22:51:36,062 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-22 22:51:36,063 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_solution.ipynb
-2024-12-22 22:51:36,063 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-22 22:51:36,069 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-22 22:51:36,070 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb
-2024-12-22 22:51:36,070 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-22 22:51:36,076 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-22 22:51:36,077 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-2024-12-22 22:51:36,077 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-22 22:51:36,078 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-22 22:51:36,078 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb
-2024-12-22 22:51:36,078 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-22 22:51:36,082 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-22 22:51:36,082 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb
-2024-12-22 22:51:36,083 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-22 22:51:36,087 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-22 22:51:36,087 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\PA_dev.ipynb
-2024-12-22 22:51:36,087 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-22 22:51:36,090 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-22 22:51:36,090 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_1\PA\U.ipynb
-2024-12-22 22:51:36,090 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-22 22:51:36,092 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-22 22:51:36,092 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb
-2024-12-22 22:51:36,092 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-22 22:51:36,094 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-22 22:51:36,094 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA_2_2_solution.ipynb
-2024-12-22 22:51:36,095 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-22 22:51:36,096 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-22 22:51:36,096 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb
-2024-12-22 22:51:36,097 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-22 22:51:36,098 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-22 22:51:36,098 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\WS_2_2_solution.ipynb
-2024-12-22 22:51:36,098 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-22 22:51:36,100 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-22 22:51:36,100 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-2024-12-22 22:51:36,101 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-22 22:51:36,102 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-22 22:51:36,103 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb
-2024-12-22 22:51:36,103 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-22 22:51:36,104 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-22 22:51:36,104 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb
-2024-12-22 22:51:36,104 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-22 22:51:36,105 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-22 22:51:36,105 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb
-2024-12-22 22:51:36,106 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-22 22:51:36,107 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-22 22:51:36,108 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb
-2024-12-22 22:51:36,108 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-22 22:51:36,109 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-22 22:51:36,109 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-2024-12-22 22:51:36,110 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-22 22:51:36,111 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-22 22:51:36,111 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb
-2024-12-22 22:51:36,111 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-2024-12-22 22:51:36,113 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-2024-12-22 22:51:36,113 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-2024-12-22 22:51:36,113 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-22 22:51:36,115 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-22 22:51:36,115 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_3\WS_2_3_solution.ipynb
-2024-12-22 22:51:36,116 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-22 22:51:36,117 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-22 22:51:36,117 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-2024-12-22 22:51:36,117 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-22 22:51:36,119 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-22 22:51:36,119 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb
-2024-12-22 22:51:36,119 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-22 22:51:36,120 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-22 22:51:36,121 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-2024-12-22 22:51:36,121 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-22 22:51:36,126 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-22 22:51:36,126 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\WS_2_4_solution.ipynb
-2024-12-22 22:51:36,127 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-22 22:51:36,128 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-22 22:51:36,129 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-2024-12-22 22:51:36,129 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-2024-12-22 22:51:36,131 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-2024-12-22 22:51:36,131 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-2024-12-22 22:51:36,131 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-22 22:51:36,132 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-22 22:51:36,133 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb
-2024-12-22 22:51:36,133 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-22 22:51:36,134 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-22 22:51:36,134 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-2024-12-22 22:51:36,134 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-22 22:51:36,136 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-22 22:51:36,137 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_5\WS_2_5_solution.ipynb
-2024-12-22 22:51:36,137 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-22 22:51:36,138 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-22 22:51:36,139 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb
-2024-12-22 22:51:36,139 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-22 22:51:36,140 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-22 22:51:36,140 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb
-2024-12-22 22:51:36,141 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-22 22:51:36,142 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-22 22:51:36,142 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb
-2024-12-22 22:51:36,143 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-22 22:51:36,150 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-22 22:51:36,150 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_6\WS_2_6_solution.ipynb
-2024-12-22 22:51:36,151 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-22 22:51:36,152 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-22 22:51:36,152 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb
-2024-12-22 22:51:36,152 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-22 22:51:36,154 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-22 22:51:36,154 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb
-2024-12-22 22:51:36,154 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-22 22:51:36,157 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-22 22:51:36,157 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_solution.ipynb
-2024-12-22 22:51:36,158 - INFO - Processing C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-22 22:51:36,159 - INFO - No changes detected for C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-22 22:51:36,159 - INFO - Successfully processed C:\Users\ncore\Desktop\2024-files\content\Week_2_7\WS_2_7_student.ipynb
-2024-12-22 22:51:36,389 - INFO - Synchronization completed successfully
+INFO: === Starting synchronization at 2025-01-07 02:13:50 ===
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][61]:
+{'cell_type': 'markdown',
+ 'id': '2d17d1d2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '8be7bef6',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][21]:
+{'cell_type': 'markdown',
+ 'id': '11b698a8',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][31]:
+{'cell_type': 'markdown',
+ 'id': '73688964',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][49]:
+{'cell_type': 'markdown',
+ 'id': '1f20a790',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][54]:
+{'cell_type': 'markdown',
+ 'id': 'b35cce29',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][48]:
+{'cell_type': 'markdown',
+ 'id': '9ce5ef3c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '9623200b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '4c8e2a76',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': 'cb8ecd0a',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': 'afe52867',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'e97e2538',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'd49f6732',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': '6e512e24',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][57]:
+{'cell_type': 'markdown',
+ 'id': '60de6e23',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][36]:
+{'cell_type': 'markdown',
+ 'id': 'a7ca91cf',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][42]:
+{'cell_type': 'markdown',
+ 'id': '2512a67c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][30]:
+{'cell_type': 'markdown',
+ 'id': 'b6495720',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '6b38ca88',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][7]:
+{'cell_type': 'markdown',
+ 'id': '0b4c0735',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': 'a8389eaa',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][2]:
+{'cell_type': 'markdown',
+ 'id': 'fe32d45f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][4]:
+{'cell_type': 'markdown',
+ 'id': '1fcb6770',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][44]:
+{'cell_type': 'markdown',
+ 'id': 'f1845f70',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][53]:
+{'cell_type': 'markdown',
+ 'id': '826fb763',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][55]:
+{'cell_type': 'markdown',
+ 'id': 'f06deab7',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][56]:
+{'cell_type': 'markdown',
+ 'id': '8a4f50a4',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': 'b8af792e',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': 'c2f76fae',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': '3e769ca2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][14]:
+{'cell_type': 'markdown',
+ 'id': '27c60a7f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': '9beb84ff',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][6]:
+{'cell_type': 'markdown',
+ 'id': 'b3f65c9d',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][5]:
+{'cell_type': 'markdown',
+ 'id': '9e812924',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': 'cefafb54',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': '21f73bef',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': 'e707ed58',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '23d8351c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '078b9223',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][22]:
+{'cell_type': 'markdown',
+ 'id': 'e8d48f9f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': 'be902968',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+INFO: === Footer Check Summary ===
+INFO: Total notebooks: 120
+INFO: Standard footers: 120
+INFO: Non-standard footers: 0
+INFO: Fixed footers: 0
+INFO: Errors: 0
+INFO: 
+=== Detailed Results ===
+INFO: OK: GA_1_1\Task_2_solution.ipynb - Has standard footer
+INFO: OK: GA_1_2\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_2\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_1_3\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_3\Analysis_Solution.ipynb - Has standard footer
+INFO: OK: GA_1_3\Warmup.ipynb - Has standard footer
+INFO: OK: GA_1_4\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_4\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_1_5\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_5\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_1_5\central_diff_illustration.ipynb - Has standard footer
+INFO: OK: GA_1_6\Analysis.ipynb - Has standard footer
+INFO: OK: GA_1_6\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_1_8\Analysis.ipynb - Has standard footer
+INFO: OK: GA_2_1\Analysis.ipynb - Has standard footer
+INFO: OK: GA_2_1\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_2_1\mesh_dev.ipynb - Has standard footer
+INFO: OK: GA_2_1\mesh_tips.ipynb - Has standard footer
+INFO: OK: GA_2_2\the_big_M.ipynb - Has standard footer
+INFO: OK: GA_2_3\Analysis.ipynb - Has standard footer
+INFO: OK: GA_2_3\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_2_4\GA_2_4_Beary_Icy.ipynb - Has standard footer
+INFO: OK: GA_2_4\GA_2_4_solution.ipynb - Has standard footer
+INFO: OK: GA_2_5\Analysis_GA.ipynb - Has standard footer
+INFO: OK: GA_2_5\Analysis_GA_solution.ipynb - Has standard footer
+INFO: OK: GA_2_5\Analysis_LP.ipynb - Has standard footer
+INFO: OK: GA_2_5\Analysis_LP_solution.ipynb - Has standard footer
+INFO: OK: GA_2_6\Analysis.ipynb - Has standard footer
+INFO: OK: GA_2_6\Analysis_solution.ipynb - Has standard footer
+INFO: OK: GA_2_7\rain_solution.ipynb - Has standard footer
+INFO: OK: week_1_1\PA_1_1_Catch_Them_All.ipynb - Has standard footer
+INFO: OK: Week_1_2\In_Class_Activity.ipynb - Has standard footer
+INFO: OK: Week_1_2\In_Class_Activity_Solution.ipynb - Has standard footer
+INFO: OK: Week_1_2\PA_1_2_Random_Adventure.ipynb - Has standard footer
+INFO: OK: Week_1_2\PA_1_2_solution.ipynb - Has standard footer
+INFO: OK: Week_1_2\WS_1_2_Pipe_Dreams.ipynb - Has standard footer
+INFO: OK: Week_1_2\WS_1_2_solution.ipynb - Has standard footer
+INFO: OK: week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb - Has standard footer
+INFO: OK: week_1_3\PA_1_3_solution.ipynb - Has standard footer
+INFO: OK: week_1_3\WS_1_3_Moving_Ice.ipynb - Has standard footer
+INFO: OK: week_1_3\WS_1_3_solution.ipynb - Has standard footer
+INFO: OK: Week_1_4\WS_1_4_Nonlinear_Rain.ipynb - Has standard footer
+INFO: OK: Week_1_4\WS_1_4_solution.ipynb - Has standard footer
+INFO: OK: week_1_5\WS_1_5_dont_integr_hate.ipynb - Has standard footer
+INFO: OK: week_1_5\WS_1_5_solution.ipynb - Has standard footer
+INFO: OK: Week_1_6\WS_1_6_solution.ipynb - Has standard footer
+INFO: OK: Week_1_6\WS_1_6_time_to_c_ode.ipynb - Has standard footer
+INFO: OK: Week_1_7\scipy_stats.ipynb - Has standard footer
+INFO: OK: Week_1_7\WS_1_7_lets_be_concrete.ipynb - Has standard footer
+INFO: OK: Week_1_7\WS_1_7_solution.ipynb - Has standard footer
+INFO: OK: Week_1_8\data.ipynb - Has standard footer
+INFO: OK: Week_1_8\intersection.ipynb - Has standard footer
+INFO: OK: Week_1_8\test_bivariate.ipynb - Has standard footer
+INFO: OK: Week_2_1\WS_2_1_solution.ipynb - Has standard footer
+INFO: OK: Week_2_1\WS_2_1_wiggle.ipynb - Has standard footer
+INFO: OK: Week_2_1\WS_2_1_wiggle_test_ci.ipynb - Has standard footer
+INFO: OK: Week_2_2\PA_2_2_love_is_sparse.ipynb - Has standard footer
+INFO: OK: Week_2_2\PA_2_2_solution.ipynb - Has standard footer
+INFO: OK: Week_2_2\WS_2_2_more_support.ipynb - Has standard footer
+INFO: OK: Week_2_2\WS_2_2_solution.ipynb - Has standard footer
+INFO: OK: Week_2_3\WS_2_3_DFT_you_try_meow.ipynb - Has standard footer
+INFO: OK: Week_2_3\WS_2_3_solution.ipynb - Has standard footer
+INFO: OK: Week_2_4\WS_2_4_Feel_the_Pressure.ipynb - Has standard footer
+INFO: OK: Week_2_4\WS_2_4_solution.ipynb - Has standard footer
+INFO: OK: Week_2_5\WS_2_5_Profit_vs_Planet.ipynb - Has standard footer
+INFO: OK: Week_2_5\WS_2_5_solution.ipynb - Has standard footer
+INFO: OK: Week_2_6\WS_2_6_be_a_NN.ipynb - Has standard footer
+INFO: OK: Week_2_6\WS_2_6_solution.ipynb - Has standard footer
+INFO: OK: Week_2_7\WS_2_7_solution.ipynb - Has standard footer
+INFO: OK: Week_2_7\WS_2_7_student.ipynb - Has standard footer
+INFO: OK: Week_2_8\WS_2_8_dirty_water.ipynb - Has standard footer
+INFO: OK: Week_2_8\WS_2_8_solution.ipynb - Has standard footer
+INFO: OK: GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb - Has standard footer
+INFO: OK: GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb - Has standard footer
+INFO: OK: GA_1_7\Solution\Force\Analysis_force_solution.ipynb - Has standard footer
+INFO: OK: GA_1_7\Student\Discharge\Analysis_discharge.ipynb - Has standard footer
+INFO: OK: GA_1_7\Student\Emissions\Analysis_emissions.ipynb - Has standard footer
+INFO: OK: GA_1_7\Student\Force\Analysis_force.ipynb - Has standard footer
+INFO: OK: GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb - Has standard footer
+INFO: OK: GA_1_8\solution\GA_1_8_solution_HT.ipynb - Has standard footer
+INFO: OK: GA_1_8\solution\GA_1_8_solution_hu.ipynb - Has standard footer
+INFO: OK: GA_1_8\solution\GA_1_8_solution_traffic.ipynb - Has standard footer
+INFO: OK: GA_2_1\mesh\mesh.ipynb - Has standard footer
+INFO: OK: tutorials\Week_1_3\Analysis.ipynb - Has standard footer
+INFO: OK: tutorials\Week_1_5\Tutorial.ipynb - Has standard footer
+INFO: OK: tutorials\Week_1_6\Tutorial.ipynb - Has standard footer
+INFO: OK: week_1_5\PA\PA_1_5_solution.ipynb - Has standard footer
+INFO: OK: week_1_5\PA\PA_1_5_useful_tricks.ipynb - Has standard footer
+INFO: OK: week_1_5\PA_ice\PA_plots.ipynb - Has standard footer
+INFO: OK: Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb - Has standard footer
+INFO: OK: Week_1_6\PA\PA_1_6_solution.ipynb - Has standard footer
+INFO: OK: Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb - Has standard footer
+INFO: OK: Week_1_7\PA\PA_1_7_solution.ipynb - Has standard footer
+INFO: OK: Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb - Has standard footer
+INFO: OK: Week_1_8\PA\PA_1_8_solution.ipynb - Has standard footer
+INFO: OK: Week_1_8\WS\linearity_or_not.ipynb - Has standard footer
+INFO: OK: Week_1_8\WS\WS_1_8_solution.ipynb - Has standard footer
+INFO: OK: Week_1_8\WS\WS_1_8_Thingamajig.ipynb - Has standard footer
+INFO: OK: Week_2_1\PA\PA_2_1_classy_city.ipynb - Has standard footer
+INFO: OK: Week_2_1\PA\PA_2_1_solution.ipynb - Has standard footer
+INFO: OK: Week_2_1\PA\PA_dev.ipynb - Has standard footer
+INFO: OK: Week_2_1\PA\U.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\old_PA10_Love_is_Sparse.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\old_PA10_solution_sympy.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\PA_2_1_solution.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\PA_2_1_solution_sympy.ipynb - Has standard footer
+INFO: OK: Week_2_2\old\WS_2_2_more_support.ipynb - Has standard footer
+INFO: OK: Week_2_2\PA\PA_2_2_love_is_sparse.ipynb - Has standard footer
+INFO: OK: Week_2_2\PA\PA_2_2_solution.ipynb - Has standard footer
+INFO: OK: Week_2_3\PA\PA_2_3_iter_remoto.ipynb - Has standard footer
+INFO: OK: Week_2_3\PA\PA_2_3_solution.ipynb - Has standard footer
+INFO: OK: Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb - Has standard footer
+INFO: OK: Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb - Has standard footer
+INFO: OK: Week_2_4\PA\PA_2_4_B_solution.ipynb - Has standard footer
+INFO: OK: Week_2_5\PA\PA_2_5_data_framework.ipynb - Has standard footer
+INFO: OK: Week_2_5\PA\PA_2_5_solution.ipynb - Has standard footer
+INFO: OK: Week_2_6\PA\PA_2_6_3_way_split.ipynb - Has standard footer
+INFO: OK: Week_2_6\PA\PA_2_6_solution.ipynb - Has standard footer
+INFO: OK: Week_2_7\PA\PA_2_7_solution.ipynb - Has standard footer
+INFO: OK: Week_2_7\PA\PA_2_7_Times_Tables.ipynb - Has standard footer
+INFO: Searching in: C:\Users\ncore\Desktop\2024-files\content
+INFO: Found 120 notebooks
+INFO: [1/120] Checking GA_1_1\Task_2_solution.ipynb
+INFO: No changes detected for GA_1_1\Task_2_solution.ipynb
+INFO: [2/120] Checking GA_1_2\Analysis.ipynb
+INFO: No changes detected for GA_1_2\Analysis.ipynb
+INFO: [3/120] Checking GA_1_2\Analysis_solution.ipynb
+INFO: No changes detected for GA_1_2\Analysis_solution.ipynb
+INFO: [4/120] Checking GA_1_3\Analysis.ipynb
+INFO: No changes detected for GA_1_3\Analysis.ipynb
+INFO: [5/120] Checking GA_1_3\Analysis_Solution.ipynb
+INFO: No changes detected for GA_1_3\Analysis_Solution.ipynb
+INFO: [6/120] Checking GA_1_3\Warmup.ipynb
+INFO: No changes detected for GA_1_3\Warmup.ipynb
+INFO: [7/120] Checking GA_1_4\Analysis.ipynb
+INFO: No changes detected for GA_1_4\Analysis.ipynb
+INFO: [8/120] Checking GA_1_4\Analysis_solution.ipynb
+INFO: No changes detected for GA_1_4\Analysis_solution.ipynb
+INFO: [9/120] Checking GA_1_5\Analysis.ipynb
+INFO: No changes detected for GA_1_5\Analysis.ipynb
+INFO: [10/120] Checking GA_1_5\Analysis_solution.ipynb
+INFO: No changes detected for GA_1_5\Analysis_solution.ipynb
+INFO: [11/120] Checking GA_1_5\central_diff_illustration.ipynb
+INFO: No changes detected for GA_1_5\central_diff_illustration.ipynb
+INFO: [12/120] Checking GA_1_6\Analysis.ipynb
+INFO: No changes detected for GA_1_6\Analysis.ipynb
+INFO: [13/120] Checking GA_1_6\Analysis_solution.ipynb
+INFO: No changes detected for GA_1_6\Analysis_solution.ipynb
+INFO: [14/120] Checking GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: No changes detected for GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: [15/120] Checking GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: No changes detected for GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: [16/120] Checking GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: No changes detected for GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: [17/120] Checking GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: No changes detected for GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: [18/120] Checking GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: No changes detected for GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: [19/120] Checking GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: No changes detected for GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: [20/120] Checking GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: No changes detected for GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: [21/120] Checking GA_1_8\Analysis.ipynb
+INFO: No changes detected for GA_1_8\Analysis.ipynb
+INFO: [22/120] Checking GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: [23/120] Checking GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: [24/120] Checking GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: [25/120] Checking GA_2_1\Analysis.ipynb
+INFO: No changes detected for GA_2_1\Analysis.ipynb
+INFO: [26/120] Checking GA_2_1\Analysis_solution.ipynb
+INFO: No changes detected for GA_2_1\Analysis_solution.ipynb
+INFO: [27/120] Checking GA_2_1\mesh_dev.ipynb
+INFO: No changes detected for GA_2_1\mesh_dev.ipynb
+INFO: [28/120] Checking GA_2_1\mesh_tips.ipynb
+INFO: No changes detected for GA_2_1\mesh_tips.ipynb
+INFO: [29/120] Checking GA_2_1\mesh\mesh.ipynb
+INFO: No changes detected for GA_2_1\mesh\mesh.ipynb
+INFO: [30/120] Checking GA_2_2\the_big_M.ipynb
+INFO: No changes detected for GA_2_2\the_big_M.ipynb
+INFO: [31/120] Checking GA_2_3\Analysis.ipynb
+INFO: No changes detected for GA_2_3\Analysis.ipynb
+INFO: [32/120] Checking GA_2_3\Analysis_solution.ipynb
+INFO: No changes detected for GA_2_3\Analysis_solution.ipynb
+INFO: [33/120] Checking GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: No changes detected for GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: [34/120] Checking GA_2_4\GA_2_4_solution.ipynb
+INFO: No changes detected for GA_2_4\GA_2_4_solution.ipynb
+INFO: [35/120] Checking GA_2_5\Analysis_GA.ipynb
+INFO: No changes detected for GA_2_5\Analysis_GA.ipynb
+INFO: [36/120] Checking GA_2_5\Analysis_GA_solution.ipynb
+INFO: No changes detected for GA_2_5\Analysis_GA_solution.ipynb
+INFO: [37/120] Checking GA_2_5\Analysis_LP.ipynb
+INFO: No changes detected for GA_2_5\Analysis_LP.ipynb
+INFO: [38/120] Checking GA_2_5\Analysis_LP_solution.ipynb
+INFO: No changes detected for GA_2_5\Analysis_LP_solution.ipynb
+INFO: [39/120] Checking GA_2_6\Analysis.ipynb
+INFO: No changes detected for GA_2_6\Analysis.ipynb
+INFO: [40/120] Checking GA_2_6\Analysis_solution.ipynb
+INFO: No changes detected for GA_2_6\Analysis_solution.ipynb
+INFO: [41/120] Checking GA_2_7\rain_solution.ipynb
+INFO: No changes detected for GA_2_7\rain_solution.ipynb
+INFO: [42/120] Checking tutorials\Week_1_3\Analysis.ipynb
+INFO: No changes detected for tutorials\Week_1_3\Analysis.ipynb
+INFO: [43/120] Checking tutorials\Week_1_5\Tutorial.ipynb
+INFO: No changes detected for tutorials\Week_1_5\Tutorial.ipynb
+INFO: [44/120] Checking tutorials\Week_1_6\Tutorial.ipynb
+INFO: No changes detected for tutorials\Week_1_6\Tutorial.ipynb
+INFO: [45/120] Checking week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: No changes detected for week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: [46/120] Checking Week_1_2\In_Class_Activity.ipynb
+INFO: No changes detected for Week_1_2\In_Class_Activity.ipynb
+INFO: [47/120] Checking Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: No changes detected for Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: [48/120] Checking Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: No changes detected for Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: [49/120] Checking Week_1_2\PA_1_2_solution.ipynb
+INFO: No changes detected for Week_1_2\PA_1_2_solution.ipynb
+INFO: [50/120] Checking Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: No changes detected for Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: [51/120] Checking Week_1_2\WS_1_2_solution.ipynb
+INFO: No changes detected for Week_1_2\WS_1_2_solution.ipynb
+INFO: [52/120] Checking week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: No changes detected for week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: [53/120] Checking week_1_3\PA_1_3_solution.ipynb
+INFO: No changes detected for week_1_3\PA_1_3_solution.ipynb
+INFO: [54/120] Checking week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: No changes detected for week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: [55/120] Checking week_1_3\WS_1_3_solution.ipynb
+INFO: No changes detected for week_1_3\WS_1_3_solution.ipynb
+INFO: [56/120] Checking Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: No changes detected for Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: [57/120] Checking Week_1_4\WS_1_4_solution.ipynb
+INFO: No changes detected for Week_1_4\WS_1_4_solution.ipynb
+INFO: [58/120] Checking week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: No changes detected for week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: [59/120] Checking week_1_5\WS_1_5_solution.ipynb
+INFO: No changes detected for week_1_5\WS_1_5_solution.ipynb
+INFO: [60/120] Checking week_1_5\PA\PA_1_5_solution.ipynb
+INFO: No changes detected for week_1_5\PA\PA_1_5_solution.ipynb
+INFO: [61/120] Checking week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: No changes detected for week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: [62/120] Checking week_1_5\PA_ice\PA_plots.ipynb
+INFO: No changes detected for week_1_5\PA_ice\PA_plots.ipynb
+INFO: [63/120] Checking Week_1_6\WS_1_6_solution.ipynb
+INFO: No changes detected for Week_1_6\WS_1_6_solution.ipynb
+INFO: [64/120] Checking Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: No changes detected for Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: [65/120] Checking Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: No changes detected for Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: [66/120] Checking Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: No changes detected for Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: [67/120] Checking Week_1_7\scipy_stats.ipynb
+INFO: No changes detected for Week_1_7\scipy_stats.ipynb
+INFO: [68/120] Checking Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: No changes detected for Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: [69/120] Checking Week_1_7\WS_1_7_solution.ipynb
+INFO: No changes detected for Week_1_7\WS_1_7_solution.ipynb
+INFO: [70/120] Checking Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: No changes detected for Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: [71/120] Checking Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: No changes detected for Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: [72/120] Checking Week_1_8\data.ipynb
+INFO: No changes detected for Week_1_8\data.ipynb
+INFO: [73/120] Checking Week_1_8\intersection.ipynb
+INFO: No changes detected for Week_1_8\intersection.ipynb
+INFO: [74/120] Checking Week_1_8\test_bivariate.ipynb
+INFO: No changes detected for Week_1_8\test_bivariate.ipynb
+INFO: [75/120] Checking Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: No changes detected for Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: [76/120] Checking Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: No changes detected for Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: [77/120] Checking Week_1_8\WS\linearity_or_not.ipynb
+INFO: No changes detected for Week_1_8\WS\linearity_or_not.ipynb
+INFO: [78/120] Checking Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: No changes detected for Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: [79/120] Checking Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: No changes detected for Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: [80/120] Checking Week_2_1\WS_2_1_solution.ipynb
+INFO: No changes detected for Week_2_1\WS_2_1_solution.ipynb
+INFO: [81/120] Checking Week_2_1\WS_2_1_wiggle.ipynb
+INFO: No changes detected for Week_2_1\WS_2_1_wiggle.ipynb
+INFO: [82/120] Checking Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: No changes detected for Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: [83/120] Checking Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: No changes detected for Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: [84/120] Checking Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: No changes detected for Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: [85/120] Checking Week_2_1\PA\PA_dev.ipynb
+INFO: No changes detected for Week_2_1\PA\PA_dev.ipynb
+INFO: [86/120] Checking Week_2_1\PA\U.ipynb
+INFO: No changes detected for Week_2_1\PA\U.ipynb
+INFO: [87/120] Checking Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: No changes detected for Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: [88/120] Checking Week_2_2\PA_2_2_solution.ipynb
+INFO: No changes detected for Week_2_2\PA_2_2_solution.ipynb
+INFO: [89/120] Checking Week_2_2\WS_2_2_more_support.ipynb
+INFO: No changes detected for Week_2_2\WS_2_2_more_support.ipynb
+INFO: [90/120] Checking Week_2_2\WS_2_2_solution.ipynb
+INFO: No changes detected for Week_2_2\WS_2_2_solution.ipynb
+INFO: [91/120] Checking Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: No changes detected for Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: [92/120] Checking Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: No changes detected for Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: [93/120] Checking Week_2_2\old\PA_2_1_solution.ipynb
+INFO: No changes detected for Week_2_2\old\PA_2_1_solution.ipynb
+INFO: [94/120] Checking Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: No changes detected for Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: [95/120] Checking Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: No changes detected for Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: [96/120] Checking Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: No changes detected for Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: [97/120] Checking Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: No changes detected for Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: [98/120] Checking Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: No changes detected for Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: [99/120] Checking Week_2_3\WS_2_3_solution.ipynb
+INFO: No changes detected for Week_2_3\WS_2_3_solution.ipynb
+INFO: [100/120] Checking Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: No changes detected for Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: [101/120] Checking Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: No changes detected for Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: [102/120] Checking Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: No changes detected for Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: [103/120] Checking Week_2_4\WS_2_4_solution.ipynb
+INFO: No changes detected for Week_2_4\WS_2_4_solution.ipynb
+INFO: [104/120] Checking Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: No changes detected for Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: [105/120] Checking Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: No changes detected for Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: [106/120] Checking Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: No changes detected for Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: [107/120] Checking Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: No changes detected for Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: [108/120] Checking Week_2_5\WS_2_5_solution.ipynb
+INFO: No changes detected for Week_2_5\WS_2_5_solution.ipynb
+INFO: [109/120] Checking Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: No changes detected for Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: [110/120] Checking Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: No changes detected for Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: [111/120] Checking Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: No changes detected for Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: [112/120] Checking Week_2_6\WS_2_6_solution.ipynb
+INFO: No changes detected for Week_2_6\WS_2_6_solution.ipynb
+INFO: [113/120] Checking Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: No changes detected for Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: [114/120] Checking Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: No changes detected for Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: [115/120] Checking Week_2_7\WS_2_7_solution.ipynb
+INFO: No changes detected for Week_2_7\WS_2_7_solution.ipynb
+INFO: [116/120] Checking Week_2_7\WS_2_7_student.ipynb
+INFO: No changes detected for Week_2_7\WS_2_7_student.ipynb
+INFO: [117/120] Checking Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: No changes detected for Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: [118/120] Checking Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: No changes detected for Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: [119/120] Checking Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: No changes detected for Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: [120/120] Checking Week_2_8\WS_2_8_solution.ipynb
+INFO: No changes detected for Week_2_8\WS_2_8_solution.ipynb
+INFO: Skipping cleanup due to replace_all=False
+INFO: === Completed at 2025-01-07 02:13:52 (Duration: 0:00:01.718820) ===
