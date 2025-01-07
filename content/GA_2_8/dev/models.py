@@ -103,6 +103,18 @@ class Models:
                 "static_method": self.ticket_model_1
                 }
             self.ticket_model_dict = dict
+        elif model_id == 2:
+            dict = {
+                "references": [28.8327,
+                               {"mu":863.1425,
+                                "std":255.324,
+                                "eta":[2,2.2,1.8,300,3,1.6,0.1,0.45]}
+                              ],
+                "limits": [0, 50],
+                "static_method_name": "ticket_model_2",
+                "static_method": self.ticket_model_2
+                }
+            self.ticket_model_dict = dict
         else:
             raise ValueError(f"Model ID {model_id} undefined.")
         
@@ -338,12 +350,99 @@ class Models:
             day_scale = scale_day(day)
             min_scale = scale_minute(min)
             scale = day_scale*min_scale
-            tickets = int(round(scale*(ticket_limits[1] - ticket_limits[0]) + ticket_limits[0]))
+            tickets = int(round(
+                scale*(ticket_limits[1] - ticket_limits[0]) + ticket_limits[0]
+                ))
 
             return tickets
 
         return expected_tickets, scale_day, scale_minute
     
+
+    @staticmethod
+    def ticket_model_2(d: dict):
+        """Returns functions; parameters defined by dictionary."""
+
+        reference_day = d["references"][0]
+        reference_min = d["references"][1]
+        ticket_limits = d["limits"]
+
+        def get_max_scale_minute(mu=reference_min["mu"],
+                                 std=reference_min["std"],
+                                 eta=reference_min["eta"]):
+            return stats.norm.pdf(mu, mu, std)*eta[1]
+        
+        max_scale_minute = get_max_scale_minute()
+
+
+        def scale_day(day):
+
+            def poisson(k, mu=reference_day):
+                return np.exp(-mu)*mu**k/np.math.factorial(k)
+        
+            def poisson_pmf_max(mu=reference_day):
+                mode = int(np.floor(mu))
+                return poisson(mode, mu)
+            
+            pmf_max = poisson_pmf_max(reference_day)
+
+            pmf_poisson = poisson(day, reference_day)
+
+            return pmf_poisson/pmf_max
+
+        def scale_minute(minute,
+                         mu=reference_min["mu"],
+                         std=reference_min["std"],
+                         eta=reference_min["eta"]):
+            """see colab notebook"""
+            
+            minute_in_hour = minute % 60  
+            
+            # bump corrections (0,15,30,and others)
+            if minute_in_hour == 0:
+                scaling_factor = eta[0]
+            elif minute_in_hour==15:
+                scaling_factor = eta[1]
+            elif minute_in_hour==30:
+                scaling_factor = eta[2]
+            elif 1<minute<250: # correction for minutes just after midnight
+                scaling_factor = eta[3]*1/(minute)
+            elif minute==24*60:
+                scaling_factor = eta[4]
+            elif minute>24*60-5:# correction for minutes just before midnight
+                scaling_factor = eta[5]
+            else:
+                # linearly decreasing correction factor for minutes 1 to 59
+                scaling_factor = 1 - eta[6] * (minute_in_hour % 10) / 10 
+                
+                # linear correction factor that decreases from 1 to 0 over the hour
+                minute_scaling_factor = 1 - eta[7]*minute_in_hour / 60.0
+                scaling_factor *= minute_scaling_factor 
+                    
+            
+            scaled_value = stats.norm.pdf(minute, mu, std)*scaling_factor
+
+            return scaled_value/max_scale_minute
+
+        def expected_tickets(day, min):
+            '''see colab notebook'''
+        
+            day_scale = scale_day(day)
+            min_scale = scale_minute(min)
+            scale = day_scale*min_scale
+
+            tickets = int(round(
+                scale*(ticket_limits[1] - ticket_limits[0]) + ticket_limits[0]
+                ))
+
+            return tickets
+        return expected_tickets, scale_day, scale_minute
+    
+
+
+    
+
+
     @staticmethod
     def data_sparse(tickets, data, shape=(60, 1440)):
         """key for plotting stuff"""
