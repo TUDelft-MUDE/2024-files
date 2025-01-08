@@ -29,6 +29,7 @@ on init set_ticket_model sets up a dict and will create a function
 to modify, change dict value then run self.get_ticket_model()
 
 """
+
 import scipy.stats as stats
 import numpy as np
 import matplotlib.pyplot as plt
@@ -521,13 +522,7 @@ def evaluate_ticket_dist_i(min, max, radius, minutes, radius_all):
     d = RadialDist([min, max], radius, minutes, counts, len(total))
 
     return d
-def fit_KDE(data, bandwidth=0.3,description=False):
-    kde = stats.gaussian_kde(data, bw_method='scott') # we have to pass bandwith method or 'width' , otherwise cannot be pikled
-    #if description:
-        # do we need to compute cdf,and moments? if not .mean, and .mode are methods of kde object 
-        # the kde can be initialize it as kde(x)
-           
-    return kde
+
 class RadialDist():
     def __init__(self, range, radius, minutes, counts, total):
         self.range = range
@@ -537,7 +532,7 @@ class RadialDist():
         self.N_total = total
         self.N_chosen = len(counts)
         self.N_unchosen = total - self.N_chosen
-        self.kde=fit_KDE(self.counts) # using the deafult bandwidth (1)
+        self.kde=self.fit_KDE(include_zeros=True)
         self.get_statistics()
 
     def get_statistics(self):
@@ -566,8 +561,7 @@ class RadialDist():
         for key, value in self.stats.items():
             print(f"  {key}: {value:.3f}")
 
-    def hist(self, include_zeros=False, density=True,
-             poisson=False):
+    def hist(self, include_zeros=False, density=True):
         plt.figure(figsize=(10, 6))
 
         max = int(np.ceil(np.max(self.counts)))
@@ -589,3 +583,16 @@ class RadialDist():
         plt.title(f'Ticket Distribution for Minutes between {self.range[0]:.2f} and {self.range[1]:.2f} Std Dev of Joint Mean')
         
         return plt.gcf(),self.kde
+    def fit_KDE(self,include_zeros='False', bandwidth='scott'):
+        if include_zeros:
+            counts = np.append(self.counts, np.zeros(self.N_unchosen))
+        else:
+            counts = self.counts
+        kde = stats.gaussian_kde(counts, bw_method=bandwidth) # we have to pass bandwidth method or 'width' , otherwise cannot be pikled
+    #if description:
+        # do we need to compute cdf,and moments? if not .mean, and .mode are methods of kde object 
+        # the kde can be initialize it as kde(x)
+           
+        return kde
+  
+
