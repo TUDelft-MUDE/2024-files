@@ -450,26 +450,44 @@ class Models:
     
 
 
-    @staticmethod
-    def data_sparse(tickets, data, shape=(60, 1440)):
-        """key for plotting stuff"""
-        assert len(tickets) == len(data), "tickets and data must be same length"
-        matrix = lil_matrix(shape)
-        for minute, dat in zip(tickets, data):
-            day = minute // 1440
-            minute_of_day = minute % 1440
-            matrix[day, minute_of_day] = dat
-        return matrix
+    # @staticmethod
+    # def data_sparse(data, tickets=None):
+    #     """key for plotting stuff"""
+    #     return self.map_data_to_day_min(data, tickets=tickets,
+    #                                sparse=True)
+    
+    # @staticmethod
+    # def data_zeros(data, tickets=None):
+    #     """key for plotting stuff"""
+    #     matrix = map_data_to_day_min(data, tickets=tickets)
+    #     return matrix
     
     @staticmethod
-    def data_zeros(tickets, data, shape=(60, 1440)):
+    def map_data_to_day_min(data, tickets=None,
+                            shape=(60, 1440), sparse=False):
         """key for plotting stuff"""
+
+        if tickets is None:
+            tickets = np.arange(60*1440).tolist()
+
+        if sparse:
+            matrix = lil_matrix(shape)
+        else:
+            matrix = np.zeros(shape)
+
         assert len(tickets) == len(data), "tickets and data must be same length"
-        matrix = np.zeros(shape)
-        for minute, dat in zip(tickets, data):
-            day = minute // 1440
-            minute_of_day = minute % 1440
-            matrix[day, minute_of_day] = dat
+        count_days_out_of_bounds = 0
+        for min, dat in zip(tickets, data):
+            day = min // 1440
+            minute_of_day = min % 1440
+            if day < 0 or day >= shape[0]:
+                count_days_out_of_bounds +=1
+            else:
+                matrix[int(day), int(minute_of_day)] = dat
+        if count_days_out_of_bounds > 0:
+            print(f"WARNING: map_data_to_day_min: number of "
+                +f"days out of bounds: {count_days_out_of_bounds} "
+                +f"({count_days_out_of_bounds/len(tickets)*100:.2f}%)")
         return matrix
 
 
@@ -548,13 +566,14 @@ class RadialDist():
         for key, value in self.stats.items():
             print(f"  {key}: {value:.3f}")
 
-    def hist(self, include_zeros=False, density=True):
+    def hist(self, include_zeros=False, density=True,
+             poisson=False):
         plt.figure(figsize=(10, 6))
 
         max = int(np.ceil(np.max(self.counts)))
         bins = np.linspace(0, max, max+1)
         if include_zeros:
-            counts = np.append(self.counts, self.N_unchosen)
+            counts = np.append(self.counts, np.zeros(self.N_unchosen))
         else:
             counts = self.counts
         plt.hist(counts, bins=bins, color='b', alpha=0.7, label='Counts',

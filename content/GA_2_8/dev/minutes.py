@@ -368,6 +368,16 @@ class Minutes:
         return day, min
     
     @staticmethod
+    def day_min(minutes, as_list=False):
+        array = np.zeros((len(minutes), 2))
+        for i in range(len(minutes)):
+            array[i, :] = Minutes.get_day_min(minutes[i])
+        if as_list:
+            return array.tolist()
+        else:
+            return array
+    
+    @staticmethod
     def get_day_hour(minute: int)-> tuple:
         """returns day, hour in day from minute"""
         day = minute // 1440 + 1
