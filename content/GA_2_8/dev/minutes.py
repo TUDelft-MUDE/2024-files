@@ -373,3 +373,29 @@ class Minutes:
         day = minute // 1440 + 1
         hour = (minute - (day - 1)*1440) // 60
         return day, hour
+    
+    @staticmethod
+    def get_transform(parameters, type="linear"):
+        """returns a transformation function based on parameters"""
+        if type == "linear":
+            d0 = parameters[0]
+            d1 = parameters[1]
+            m0 = parameters[2]
+            m1 = parameters[3]
+            def transform(day, min):
+                x = (day - d0)/d1
+                y = (min - m0)/m1
+                return x, y
+        else:
+            raise ValueError("Invalid type")
+        return transform
+    
+    @staticmethod
+    def radius(day, min):
+        """cartesian to spherical"""
+        return np.sqrt(day**2 + min**2)
+    
+    @staticmethod
+    def angle(day, min):
+        """cartesian to spherical"""
+        return np.arctan2(min, day)

@@ -140,7 +140,8 @@ class Models:
     def plot(self,
              data:Union[np.ndarray, list, int, str, lil_matrix],
              increment:str='min',
-             custom_title=None, custom_label=None):
+             custom_title=None, custom_label=None,
+             custom_colors:Union[str, list]=None):
         
         if isinstance(data, int) or isinstance(data, str):
             # data defines which_pickle to use
@@ -153,11 +154,17 @@ class Models:
                   'Expected Tickets',
                   'Purchased Tickets']
             labels = ['Probability', 'Ticket Count', 'Ticket Count']
-            colors = ['viridis', 'viridis', 'viridis']
+            if custom_colors:
+                colors = custom_colors
+            else:
+                colors = ['viridis', 'viridis', 'viridis']
         elif isinstance(data, list) or isinstance(data, np.ndarray) or isinstance(data, lil_matrix):
             titles = ['Expected Benefit for Selected Tickets']
             labels = ['Expected Benefit (USD)']
-            colors = ['PiYG']
+            if custom_colors:
+                colors = [custom_colors]
+            else:
+                colors = ['PiYG']
             data_id = 0
         else:
             raise ValueError("data must be an int, str, list, or np.ndarray")
@@ -464,3 +471,90 @@ class Models:
             minute_of_day = minute % 1440
             matrix[day, minute_of_day] = dat
         return matrix
+
+
+
+def get_values_in_range(min, max, array1, array2):
+    indices = np.where((array1 >= min) & (array1 <= max))
+    return array2[indices]
+
+def evaluate_ticket_dist_all(intervals, radius, count, radius_all):
+
+    assert intervals[-1]<=np.max(radius), "intervals must be within max radius"
+
+    d = []
+    for i in range(len(intervals)-1):
+        min = intervals[i]
+        max = intervals[i+1]
+        d.append(evaluate_ticket_dist_i(min, max,
+                             radius, count, radius_all))
+        
+    return d
+
+
+
+def evaluate_ticket_dist_i(min, max, radius, minutes, radius_all):
+    counts = get_values_in_range(min, max, radius, minutes)
+    total = get_values_in_range(min, max, radius_all, radius_all)
+
+    d = RadialDist([min, max], radius, minutes, counts, len(total))
+
+    return d
+
+class RadialDist():
+    def __init__(self, range, radius, minutes, counts, total):
+        self.range = range
+        self.radius = radius
+        self.minutes = minutes
+        self.counts = counts
+        self.N_total = total
+        self.N_chosen = len(counts)
+        self.N_unchosen = total - self.N_chosen
+        self.get_statistics()
+
+    def get_statistics(self):
+        d = {}
+        mode = stats.mode(self.counts)
+        d['mode'] = mode[0]
+        d['mode_count'] = mode[1]
+        d['mean'] = np.mean(self.counts)
+        d['std'] = np.std(self.counts)
+        d['min'] = np.min(self.counts)
+        d['max'] = np.max(self.counts)
+        d['5th'] = np.percentile(self.counts, 5)	
+        d['25th'] = np.percentile(self.counts, 25)
+        d['median'] = np.median(self.counts)
+        d['75th'] = np.percentile(self.counts, 75)
+        d['95th'] = np.percentile(self.counts, 95)
+
+        self.stats = d
+
+    def summarize_stats(self):
+        print(f"Summary for range {self.range[0]:.2f} to {self.range[1]:.2f}:")
+        print(f"  No. min with tickets: {self.N_chosen}")
+        print(f"  No. min in range:     {self.N_total}")
+        print(f"  No. unchosen tickets: {self.N_unchosen} ({self.N_unchosen/self.N_total*100:.2f}%)")
+        print(f"Statistics:")
+        for key, value in self.stats.items():
+            print(f"  {key}: {value:.3f}")
+
+    def hist(self, include_zeros=False, density=True):
+        plt.figure(figsize=(10, 6))
+
+        max = int(np.ceil(np.max(self.counts)))
+        bins = np.linspace(0, max, max+1)
+        if include_zeros:
+            counts = np.append(self.counts, self.N_unchosen)
+        else:
+            counts = self.counts
+        plt.hist(counts, bins=bins, color='b', alpha=0.7, label='Counts',
+                density=density)
+        
+        plt.xlabel('Number of Tickets Bought for Range of Minutes')
+        if density:
+            plt.ylabel('Probability Mass Function for Ticket Count')
+        else:
+            plt.ylabel('Number of Minutes with Specified Ticket Count')
+        plt.title(f'Ticket Distribution for Minutes between {self.range[0]:.2f} and {self.range[1]:.2f} Std Dev of Joint Mean')
+        
+        return plt.gcf()
