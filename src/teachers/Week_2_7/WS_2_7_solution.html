@@ -7759,7 +7759,7 @@ Name: Date, Length: 3909, dtype: datetime64[ns]</pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a083c509">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2cde6bfb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7775,7 +7775,7 @@ Based on the above plots, briefly describe the data.
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6501239f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1ea449cf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7802,7 +7802,7 @@ Based on the above plots, briefly describe the data.
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0d83700a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5fba77e8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7837,7 +7837,7 @@ Sample monthly maxima from the timeseries and plot them on the timeseries. Plot 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b1b70731">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2b68ad7d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7888,7 +7888,7 @@ Sample monthly maxima from the timeseries and plot them on the timeseries. Plot 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e4fa9fa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6e390cfa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7904,7 +7904,7 @@ Look at the previous plots. Are the sampled maxima independent and identically d
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b133b0db">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f26d8b21">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7999,7 +7999,7 @@ Compute PDF and the empirical cumulative distribution function of the observatio
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ec548a96">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2134a54b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8291,10 +8291,10 @@ $</p>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">RT_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 <span class="n">monthly_probs</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">RT_range</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">eval_nitrogen</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">monthly_probs</span><span class="p">,</span> <span class="o">*</span><span class="n">params_T</span><span class="p">)</span>
+<span class="n">eval_temp</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">monthly_probs</span><span class="p">,</span> <span class="o">*</span><span class="n">params_T</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eval_nitrogen</span><span class="p">,</span> <span class="n">RT_range</span><span class="p">,</span> <span class="s1">'k'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eval_temp</span><span class="p">,</span> <span class="n">RT_range</span><span class="p">,</span> <span class="s1">'k'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Temperature [mm]'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'RT [years]'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span> 
@@ -8317,7 +8317,7 @@ $</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3073e5e-605c-4356-a88f-b1f64cf2fe01">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=51ee5a46">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8326,7 +8326,7 @@ $</p>
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
 <b>Task 5.3:</b>   
-Compute the design value of nitrogen. Choose the return level you prefer within the Poisson and Binomial model.
+Compute the design value of temperature. Choose the return level you prefer within the Poisson and Binomial model.
 </p>
 </div>
 </div>
@@ -8381,34 +8381,32 @@ Compute the design value of nitrogen. Choose the return level you prefer within 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=151e7984-6fb9-4cd5-8c1d-28f847ae965c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43a1db1c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>End of notebook.</strong></p>
-<h2 style="height: 60px">
-</h2>
-<h3 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; bottom: 60px; right: 50px; margin: 0; border: 0">
-<style>
-        .markdown {width:100%; position: relative}
-        article { position: relative }
-    </style>
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">
-<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="border-width:; width:88px; height:auto; padding-top:10px">
+<div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
+<div style="display: flex; justify-content: flex-end; gap: 20px; align-items: center;">
+<a href="http://mude.citg.tudelft.nl/" rel="MUDE">
+<img alt="MUDE" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" style="width:100px; height:auto;">
 </img></a>
 <a href="https://www.tudelft.nl/en/ceg" rel="TU Delft">
-<img alt="TU Delft" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" style="border-width:0; width:100px; height:auto; padding-bottom:0px">
+<img alt="TU Delft" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" style="width:100px; height:auto;">
 </img></a>
-<a href="http://mude.citg.tudelft.nl/" rel="MUDE">
-<img alt="MUDE" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" style="border-width:0; width:100px; height:auto; padding-bottom:0px">
+<a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
+<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="width:88px; height:auto;">
 </img></a>
-</h3>
-<span style="font-size: 75%">
-© Copyright 2023 <a href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595" rel="MUDE Team">MUDE Teaching Team</a> TU Delft. This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-
-</span></div>
+</div>
+<div style="font-size: 75%; margin-top: 10px; text-align: right;">
+    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
+    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
+  </div>
+</div>
+<!--tested with WS_2_8_solution.ipynb-->
+</div>
 </div>
 </div>
 </div>
