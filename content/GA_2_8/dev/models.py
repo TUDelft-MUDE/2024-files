@@ -501,11 +501,14 @@ def evaluate_ticket_dist_all(intervals, radius, count, radius_all):
     assert intervals[-1]<=np.max(radius), "intervals must be within max radius"
 
     d = []
+    
     for i in range(len(intervals)-1):
         min = intervals[i]
         max = intervals[i+1]
-        d.append(evaluate_ticket_dist_i(min, max,
-                             radius, count, radius_all))
+        val=evaluate_ticket_dist_i(min, max,
+                             radius, count, radius_all)
+        d.append(val)
+        
         
     return d
 
@@ -518,7 +521,13 @@ def evaluate_ticket_dist_i(min, max, radius, minutes, radius_all):
     d = RadialDist([min, max], radius, minutes, counts, len(total))
 
     return d
-
+def fit_KDE(data, bandwidth=0.3,description=False):
+    kde = stats.gaussian_kde(data, bw_method='scott') # we have to pass bandwith method or 'width' , otherwise cannot be pikled
+    #if description:
+        # do we need to compute cdf,and moments? if not .mean, and .mode are methods of kde object 
+        # the kde can be initialize it as kde(x)
+           
+    return kde
 class RadialDist():
     def __init__(self, range, radius, minutes, counts, total):
         self.range = range
@@ -528,6 +537,7 @@ class RadialDist():
         self.N_total = total
         self.N_chosen = len(counts)
         self.N_unchosen = total - self.N_chosen
+        self.kde=fit_KDE(self.counts) # using the deafult bandwidth (1)
         self.get_statistics()
 
     def get_statistics(self):
@@ -568,14 +578,9 @@ class RadialDist():
             counts = self.counts
         plt.hist(counts, bins=bins, color='b', alpha=0.7, label='Counts',
                 density=density)
-        
-        if poisson:
-            x = np.arange(0, max+1)
-            counts_poisson = np.append(self.counts, np.zeros(self.N_unchosen))
-            mu = counts_poisson.mean()
-            poisson = stats.poisson.pmf(x, mu)
-            plt.plot(x, poisson, 'ro-', label='Poisson Distribution')
 
+        x = np.arange(0, max,1)
+        plt.plot(x, self.kde(x), color='r', label='KDE Fit')
         plt.xlabel('Number of Tickets Bought for Range of Minutes')
         if density:
             plt.ylabel('Probability Mass Function for Ticket Count')
@@ -583,4 +588,4 @@ class RadialDist():
             plt.ylabel('Number of Minutes with Specified Ticket Count')
         plt.title(f'Ticket Distribution for Minutes between {self.range[0]:.2f} and {self.range[1]:.2f} Std Dev of Joint Mean')
         
-        return plt.gcf()
+        return plt.gcf(),self.kde
