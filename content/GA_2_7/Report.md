@@ -4,37 +4,18 @@
 
 **YOUR GROUP NAME HERE**
 
-
-## Primary Task
-
-**Complete the notebook `Analysis.ipynb` and write your answers in this document, as requested in the questions below. Note that only part of the notebook results are required to be included in this report.** Typically a short, one-line answer is sufficient; though a simple 'yes' or 'no' is _not_ sufficient. Please include a short reasoning, justification or argumentation.
-
-_You will be graded on the plots and answers provided in this file. You can delete the instructions and any other unnecessary text prior to submission._
-
-**Are you using ChatGPT or similar tools?** _We don't mind, but please don't ask ChatGPT the questions written here and copy/paste whatever answer it gives you - this isn't fun to read and robs you of an opportunity to learn. Try to ask small simple questions to ChatGPT, then read the response carefully and edit it before using it here. It would also be good to ask one or more of your fellow group members to proof-read it before submitting!_ 
-
-## Report Instructions
-
-Remember to use Markdown features to clearly indicate your answers for each question below. 
-
-**Importing figures into a Markdown file:**
-1. Use relative referencing only, with the git repo (working directory) as the root (this is expressed with a single dot `.`)
-2. Our grading systems are case-sensitive so match the names of folders exactly
-3. Use linux-style path separators: `/` rather than `\`.
-4. Do not include spaces in your file path or image name; if it is unavoidable replace the space with `%20`, for example: `![My image](./my%20image.png)`
-
-Here are some examples:
-- an image located in the working directory `![My image](./imagename.ext)` (where `ext` is any image extension).
-- an image located in a sub-directory called "images": `![My image](./images/imagename.ext)`
-- an image with a space in the file name: `![My image](./images/my%20image.png)`
-
-When using Markdown to include an image, the square brackets is a text tag that is displayed in case the image does not load. Do not include a dot in the square brackets; i.e., do _not_ do this: `![my image.](./image.svg)`.
+Before writing your answers, consider this:
+- You should include figures in this report.
+- Question 5 will have the heaviest weight in the grading (~2-3x that of the other questions).
+- Question 1 has the least weight and is mostly used to highlight the nuances discussed in other questions.
 
 ## Questions
 
-**1. Provide a short description of your data set.**
+**Question 1**
 
-_Your answer here. Include qualitative and quantitative information; do not duplicate the information from the README, but rather the observations you make in Task 1, and anything you think is relevant for the EVA. Don't include a figure of the time series, since that is requested in a later question_
+_Provide a short description of your data set._
+
+_Your answer here. Include qualitative and quantitative information; do not duplicate the information from the README or notebook, but rather the observations you make in Task 1, and anything you think is relevant for the EVA. Don't include a figure of the time series, since that is requested in a later question_
 
 
 **2. Yearly Maxima. How many extremes do you sample? What distribution do you need to use together with the Block Maxima sampling method? Summarize the parameters of this distribution including the tail type. Comment on the goodness of fit of the distribution.**
@@ -72,4 +53,4 @@ _Use this space to let us know if you encountered any issues completing this ass
 **End of file.**
 
 <span style="font-size: 75%">
-&copy; Copyright 2023 <a rel="MUDE Team" href="https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=65595">MUDE Teaching Team</a>, TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a>.
+&copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a>, TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
