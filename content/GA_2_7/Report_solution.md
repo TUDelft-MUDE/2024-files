@@ -1,6 +1,6 @@
 # Group assignment 2.7 Report: Extreme Value Analysis
 
-*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/).*
+*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): January 10, 2025.*
 
 **MUDE TEAM**
 

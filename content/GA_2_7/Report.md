@@ -1,6 +1,6 @@
 # Group assignment 2.7 Report: Extreme Value Analysis
 
-*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/).*
+*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): January 10, 2025.*
 
 **YOUR GROUP NAME HERE**
 
@@ -11,9 +11,7 @@ Before writing your answers, consider this:
 
 ## Questions
 
-**Question 1**
-
-_Provide a short description of your data set._
+**1. Provide a short description of your data set.**
 
 _Your answer here. Include qualitative and quantitative information; do not duplicate the information from the README or notebook, but rather the observations you make in Task 1, and anything you think is relevant for the EVA. Don't include a figure of the time series, since that is requested in a later question_
 
