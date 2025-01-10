@@ -1,10 +1,10 @@
 # PA 2.8: The Final PA!
 
-_[CEGM1000 MUDE](http://mude.citg.tudelft.nl/), Week 8 of Quarter 2._
+_[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): complete this before noon on Monday, January 20._
 
-All you need to do to complete this programming assignment is to complete the survey at [this link](). 
+All you need to do to complete this programming assignment is to **complete the survey at this link: [forms.office.com/e/ByxcQTTAG0](https://forms.office.com/e/ByxcQTTAG0).**
 
-_Yes, it is a bit long, but the information will be useful to us, as well as future students. We hope you also find it useful to reflect on your programming journey in MUDE, as many of you have made huge improvements. I can't tell you how happy it makes me when you come to me with questions about a specific error in your traceback, rather than simply asking me "why did my notebook break?"_ :)
+_Yes, it is a bit long, but the information will be useful to us, as well as future students. We hope you also find it useful to reflect on your programming journey in MUDE, as many of you have made huge improvements. From my side, my favorite programming assignment moment this year was when the debugging exercise in week 6 forced many of you to realize that you had implemented the central difference scheme from the prior GA on Friday incorrectly. Isn't software testing great!?!?_
 
 You will pass this PA if:
 1. you complete the survey and enter your name/student number in the first question
