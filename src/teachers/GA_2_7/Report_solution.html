@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Report_solution.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="group-assignment-27-report-extreme-value-analysis">Group assignment 2.7 Report: Extreme Value Analysis</h1>
+<p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>.</em></p>
+<p><strong>MUDE TEAM</strong></p>
+<h2 id="questions">Questions</h2>
+<p><strong>1. Provide a short description of your data set.</strong></p>
+<p>The dataset contains cumulative daily precipitation between 1999 and 2024, with a total of 8382 observations. The daily precipitation is a physical magnitude with a lower bound in 0, as seen in the minimum value of the observations, and a maximum of 771mm corresponding to the event of 29th October 2024. This event clearly stands out when plotting the timeseries. The mean value of the precipitation if 1.3mm, with a standard deviation of 10.6mm. Other events that stand out when plotting the timeseries are around the year 2001 and 2021.</p>
+<p><strong>2. Yearly Maxima. How many extremes do you sample? What distribution do you need to use together with the Block Maxima sampling method? Summarize the parameters of this distribution including the tail type. Comment on the goodness of fit of the distribution.</strong></p>
+<p>26 extremes are sampled, since we have data from 26 years. A Generalized Extreme Value distribution is fitted to the values of the random variable obtaining $\xi=0.426$ (note the change in the symbol), $\mu=45.317$ and $\sigma=29.848$.</p>
+<p><img src="./GEV_fit.png" alt="Goodness of fit of GEV"></p>
+<p>Regarding the goodness of fit, it can be seen in the figure above that the distribution overestimates the exceedance probabilities of the observations between approximately 50mm and 125mm and underestimates them for the observations above approximately 125mm. Moreover, the event of October 2024 is totally out of the fitted distribution. Thus, the fitting of the distribution is not satisfactory.</p>
+<p><strong>3. Peak Over Threshold. How many extremes do you sample? What distribution do you need to use together with the POT sampling method? Summarize the parameters of this distribution including the tail type. Comment on the goodness of fit of the distribution. Do you need to add/subtract the threshold when using this method, and if so, at what point in the analysis do you do so?</strong></p>
+<p>38 extremes are sampled whose excesses follow a Generalized Pareto distribution (GPD). When fitting the GPD using MLE, we obtain $\xi=0.714$ and $\sigma = 14.027$. The location $\mu=0$ since we are fitting to the excesses so we should force it in the fitting.</p>
+<p><img src="./GPD_fit.png" alt="Goodness of fit of GPD"></p>
+<p>With regard to the goodness of fit, the distribution seems to fit well the observations until values of the random variable up to 300mm. However, the events above, which is only the one from the event of October 2024, is not well fitted and it is totally out of the tail of the fitted distribution.</p>
+<p>The threshold is subtracted from the data in the argument of the GPD fitting method (thus fitting the distribution to the excesses). In preparing the plot, note the difference in the 'Analysis_solution.ipynb' between the way the empirical and theoretical CDF are used: the empirical uses the random variable values directly (the DataFrame column at index 1), whereas the GPD &quot;adds the threshold back in&quot; for the random variable value, and uses the excess value as the argument for the CDF.</p>
+<p><strong>4. Comparing the methods. Comment on the differences on the sampled extremes. Comment on the differences you see in the goodness of fit of the distributions from the two EVA Methods (just one or two sentences, using the figures included above). In terms of information used to fit each distribution, are there major differences?</strong></p>
+<p><img src="./sampled_maxima.png" alt="Comparing the sampled maxima"></p>
+<p>In this case, POT samples 38 extremes, while YM samples 26 extremes. As expected, POT extracts more information from the timeseries but the difference is not dramatic. Playing with the threshold and declustering time could allow extracting more maxima from the timeseries. However, the largest maxima seem to be sampled by both methods, indicating that the phenomenon we are studying has a yearly seasonality. We could also see that if we compare the ECDFs computed with both POT and YM observations.</p>
+<p>Regarding the goodness of fit, the event of October 2024 is not well captured by the distribution by any of the methods. However, the other observations seem to be better described by POT+GPD. This could be due to the larger sample of extremes that are obtained when using POT or due to the shape of the tail of the GPD distribution.</p>
+<p><strong>5. Compare return periods of the event of October 2024 produced by the distributions of the two EVA Methods. Reflect on the differences between the two methods and how to tackle them.You may reflect on:</strong></p>
+<ul>
+<li><strong>The source of the differences between both methods.</strong></li>
+<li><strong>Which method would be the most reliable in this situation.</strong></li>
+<li><strong>If possible, how to improve the reliability of the obtained results.</strong></li>
+<li><strong>The meaningfulness of the obtained return periods.</strong></li>
+</ul>
+<p>The return period obtained with YM+GEV is 300.2 years. The return period obtained with POT+GPD is 112.5 years.</p>
+<p><img src="./return_level_plot.png" alt="Return level plot"></p>
+<ul>
+<li>The differences are mainly caused by the shape of the tail of the fitted distributions. As shown in the previous plot, the ECDFs computed from YM and from POT are similar, so no significant differences are observed in the sampled extremes. However, the tail of the fitted GEV and GPD are pretty different, being the GEV much more conservative.</li>
+<li>Based on the fitting of the GPD distribution to the observations, POT+GPD should be more realiable in this case, although we have not performed any analysis on the threshold and declustering time. Therefore, we would need to ensure that the selected extremes are independent.</li>
+<li>Some possibilities to improve the reliability of the method is gathering more data and performing a formal anaysis to assess the threshold and declustering time of POT. We could also look at different ways of fitting the distribution; here, we fitted the coefficients by MLE but there are other approaches such as Bayesian Inference (makes use of previous knowledge to inform the fitting process) or L-moments method, between others. We could also consider weighting the observations to give more relevance to the larger ones to improve the fitting on those, although we would sacrifice the fitting in the smaller ones.</li>
+<li>It is not possible to know as a ground truth what is the return period of the event. However, it gives us an idea of how extreme it is in comparison with other extremes that ocurred and helps us relativize the magnitude of the event. Also, the fitted distributions allow us to assign return periods to values of the random variable (precipitation) that have not occurred yet.</li>
+</ul>
+<p><strong>6. Which return period would you pick for the event of October 2024? Justify your answer.</strong></p>
+<p>If I were to choose, I'd go for the return period of the distribution that provides a better fitting to the observations, thus the one obtained using POT+GPD.</p>
+<h2 id="general-comments-on-the-assignment-optional">General Comments on the Assignment [optional]</h2>
+<p><em>Use this space to let us know if you encountered any issues completing this assignment (but please keep it short!). For example, if you encountered an error that could not be fixed in your Python code, or perhaps there was a problem submitting something via GitLab. You can also let us know if the instructions were unclear. You can delete this section if you don't use it.</em></p>
+<p><strong>End of file.</strong></p>
+<span style="font-size: 75%">
+&copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a>, TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+
+</body>
+</html>

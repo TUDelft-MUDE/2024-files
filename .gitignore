@@ -4,3 +4,4 @@
 build/
 pandoc_temp/
 conversion_errors.log
+content/GA_2_8/**/*.pkl

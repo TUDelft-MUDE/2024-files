@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>WS_2_7_its_cold_in_here</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
+<title>Analysis</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
 (function() {
   function addWidgetsRenderer() {
     var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
@@ -7503,13 +7503,13 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46c63d61-8710-4fb8-a35c-b61eb75db2d0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=be4282e1-88b3-4792-a677-ccd1e429ea57">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Workshop-2.7:-Extreme-temperature">Workshop 2.7: Extreme temperature<a class="anchor-link" href="#Workshop-2.7:-Extreme-temperature">¶</a></h1><h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
+<h1 id="Group-Assignment-2.7:-Extreme-Value-Analysis">Group Assignment 2.7: Extreme Value Analysis<a class="anchor-link" href="#Group-Assignment-2.7:-Extreme-Value-Analysis">¶</a></h1><h1 style="position: absolute; display: flex; flex-grow: 0; flex-shrink: 0; flex-direction: row-reverse; top: 60px;right: 30px; margin: 0; border: 0">
 <style>
         .markdown {width:100%; position: relative}
         article { position: relative }
@@ -7519,26 +7519,27 @@ a.anchor-link {
 </h1>
 <h2 style="height: 10px">
 </h2>
-<p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>: Extreme Value Analysis, Week 2.7, Wednesday, Jan 8, 2025.</em></p>
+<p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>: Extreme Value Analysis, Week 2.7, Friday, Jan 10, 2025.</em></p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=054f7cd5-f29a-41c6-b182-68be13c6100a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=78e9e591-ddfd-403c-8538-6a9559ac462b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In this session, you will work with the uncertainty of extreme temperatures in the airport of Barcelona to assess the extreme loads induced by temperature in a steel structure in the area. You have daily observations of the maximum temperature for several years. The dataset was retrieved from the Spanish Agency of Metheorology <a href="https://www.aemet.es/es/portada">AEMET</a>. Your goal is to design the structure for a <em>lifespan of 50 years</em> with a <em>probability of failure of 0.1</em> during the design life.</p>
+<p>In this project, you will work on the uncertainty of precipitation in Turís, close to Valencia (Spain), where the past 29th October an extreme flood occurred. Turís was the location where the highest rainfall was recorded, being also the record of that station with 771mm in a day.</p>
+<img alt="No description has been provided for this image" src="https://github.com/patmanas/figs/raw/main/flood_Valencia.avif" style="width:400px"/>
+<p>You have cumulative daily observations since 1999. The dataset was retrieved from the Ministry of Agriculture <a href="https://servicio.mapa.gob.es/websiar/SeleccionParametrosMap.aspx?dst=1">here</a>.</p>
 <p><strong>The goal of this project is:</strong></p>
 <ol>
-<li>Compute the required design return period for the steel structure.</li>
-<li>Perform monthly Block Maxima and fit the a distribution to the sampled observations.</li>
-<li>Assess the Goodness of fit of the distribution.</li>
-<li>Compute the return level plot.</li>
-<li>Compute the design return level.</li>
+<li>Perform Extreme Value Analysis using Yearly Maxima and GEV.</li>
+<li>Perform Extreme Value Analysis using POT and GPD.</li>
+<li>Compare the results from both methods and define the return period of the event of October 2024.</li>
 </ol>
+<p><em>Read the instructions for this project in <code>README.md</code> before beginning the analysis.</em></p>
 </div>
 </div>
 </div>
@@ -7555,7 +7556,7 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> 
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">trunc</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'font.size'</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
 </pre></div>
@@ -7564,17 +7565,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=923d00a2-5f1d-481a-a121-60acf6b0459a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=27fd05f1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-1:-Data-Exploration">Task 1: Data Exploration<a class="anchor-link" href="#Task-1:-Data-Exploration">¶</a></h2><p>First step in the analysis is exploring the data, visually and through its statistics. We import the dataset and explore its columns.</p>
+<h2 id="Task-1:-Import-and-Explore-Data">Task 1: Import and Explore Data<a class="anchor-link" href="#Task-1:-Import-and-Explore-Data">¶</a></h2><p>The first step in the analysis is importing and exploring the data set.</p>
+<p>The dataset has two columns: the first one provides the time stamp of the measurements and the last column shows the measured precipitation (mm). We set the first column as a datetime as they are the dates of the measurements.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=397de6c2-61eb-4923-94ec-e2583c991a6e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=66e2b916-eb89-4d5e-a531-6ff0efa26018">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7582,91 +7584,79 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'temp.csv'</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">','</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">,</span> <span class="s1">'T'</span><span class="p">]</span> <span class="c1">#rename columns</span>
-<span class="n">T</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=38467cfb-71f3-4115-88ef-ba544596b254">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The dataset has two columns: the time stamp of the measurements and the cumulative daily precipitation. We set the first columns as a datetime as they are the dates of the measurements.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b7e44613-14f3-4685-aca8-11c6c8bb227a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">T</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'mixed'</span><span class="p">)</span>
-<span class="n">T</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a6084d18-45ff-4a87-bc50-265084c2c8c5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Once formatted, we can plot the timeseries and the histogram.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=eb66a53e-6439-49cb-aaff-e04e3fddace3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">'constrained'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'turis.csv'</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">','</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">,</span> <span class="s1">'Prec'</span><span class="p">]</span> <span class="c1">#rename columns</span>
+<span class="n">P</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'mixed'</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'Date'</span><span class="p">)</span>
+<span class="n">P</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="s1">'T'</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'T'</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">'darkblue'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'PDF'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Maximum daily temperature [degrees]'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'(a) Histogram'</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span> <span class="n">T</span><span class="p">[</span><span class="s1">'T'</span><span class="p">],</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'P'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Maximum daily temperature [degrees]'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'(b) Time series'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">P</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=275f1e8c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6ed9a8b5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-<p>
-<b>Task 2.1:</b>   
-Based on the above plots, briefly describe the data.
-</p>
+<p>To start the data exploration, we can compute some basic statistics.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4dbeaa1a-84d4-43ad-bebe-cad9e7983c56">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># values for markdown report</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+      <span class="n">sep</span><span class="o">=</span><span class="s1">' | '</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=27b60687">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We can also plot the timeseries. Notice how the event of October 2024 stands out.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=30390de1-a79e-4d82-ab1b-8abafb91c5f8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Solution</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">],</span><span class="s1">'k'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Precipitation [mm]'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Time series of precipitation'</span><span class="p">);</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -7678,12 +7668,12 @@ Based on the above plots, briefly describe the data.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-2:-Sample-Monthly-Maxima">Task 2: Sample Monthly Maxima<a class="anchor-link" href="#Task-2:-Sample-Monthly-Maxima">¶</a></h2>
+<h2 id="Task-2:-Yearly-Maxima-&amp;-GEV">Task 2: Yearly Maxima &amp; GEV<a class="anchor-link" href="#Task-2:-Yearly-Maxima-&amp;-GEV">¶</a></h2><p>Let's start with the first EVA analysis!</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0e8dd4eb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6391c5c2-521c-43f6-919a-ef9a1356fb69">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7691,14 +7681,14 @@ Based on the above plots, briefly describe the data.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
-<b>Task 2.2:</b>   
-Sample monthly maxima from the timeseries and plot them on the timeseries. Plot also the histograms of both the maxima and the observations.
+<b>Task 2.1:</b>   
+Sample the data set by finding the yearly maxima and add the sampled extremes to your time series plot as red dots.
 </p>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cdd5bc31-0ff7-4a71-b01b-87bc023a5915">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=da61b661-a22f-4adc-96f3-d6d494aabfc6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7706,34 +7696,23 @@ Sample monthly maxima from the timeseries and plot them on the timeseries. Plot 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Extract year and month from the Date column</span>
-<span class="n">T</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
-<span class="n">T</span><span class="p">[</span><span class="s1">'Month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">idx_max</span> <span class="o">=</span> <span class="c1">#your code here</span>
+<span class="n">YM</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_max</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The shape of the sampled extremes is:'</span><span class="p">,</span> <span class="n">YM</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># Group by Year and Month, then get the maximum observation</span>
-<span class="n">idx_max</span> <span class="o">=</span> <span class="c1">#your code here</span>
-<span class="n">max_list</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_max</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1cb535e4">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Your code here: plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">],</span><span class="s1">'k'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">YM</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span> <span class="n">YM</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">],</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Precipitation [mm]'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=27c11eb1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1a7eafde-e4c4-427d-bd09-725d049a4310">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7741,26 +7720,26 @@ Sample monthly maxima from the timeseries and plot them on the timeseries. Plot 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
-<b>Task 2.3:</b>   
-Look at the previous plots. Are the sampled maxima independent and identically distributed? Justify your answer. What are the implications for further analysis?
+<b>Task 2.2:</b>   Compute the empirical cumulative distribution function of the sampled maxima. Fit the appropriate extreme value distribution function using <code>scipy.stats</code> and assess the fit via an exceedance plot with semi-log scale.
 </p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d6d6a0a-5d4b-468b-8c50-badeb260de31">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=08baa050-e5cf-46bf-aeb0-dcc88b32034b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-<p>
-<b>Task 2.4:</b>   
-Compute PDF and the empirical cumulative distribution function of the observations and the sampled monthly maxima. Plot the ECDF in log-scale. Where are the sampled monthly maxima located with respect with the CDF of all the observations?
-</p>
-</div>
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p><b>Tip:</b> save the parameters of an instance of <code>rv_continuous</code> as a tuple to make it easier to use the methods of the distribution later.
+<br/><br/>For example, define parameters like this:
+<br/><code>params = ... .fit( ... )</code>
+<br/>instead of like this:
+<br/><code>param1, param2, param3 = ... .fit( ... )</code>
+<br/>(see WS 2.7 solution for examples).
+</p></div>
 </div>
 </div>
 </div>
@@ -7772,10 +7751,16 @@ Compute PDF and the empirical cumulative distribution function of the observatio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ecdf</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Function for the ECDF</span>
+<span class="k">def</span> <span class="nf">ecdf</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
     <span class="c1">#your code here</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span>
 
+<span class="c1">#Fit the parametric distribution to the extreme observations</span>
+<span class="n">params_YM</span> <span class="o">=</span> <span class="c1">#your code here</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'GEV parameters are: </span><span class="si">{:.3f}</span><span class="s1">, </span><span class="si">{:.3f}</span><span class="s1">, </span><span class="si">{:.3f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">params_YM</span><span class="p">))</span>
+
+<span class="c1">#Compare both the empirical and parametric distributions in semilog scale</span>
 <span class="c1">#your plot here</span>
 </pre></div>
 </div>
@@ -7783,78 +7768,28 @@ Compute PDF and the empirical cumulative distribution function of the observatio
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=850d6d0c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d9d7835-bde2-4522-a331-7ba07194f573">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-3:-Distribution-Fitting">Task 3: Distribution Fitting<a class="anchor-link" href="#Task-3:-Distribution-Fitting">¶</a></h2><p>We did this a lot at the end of Q1---refer to your previous work as needed!</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cdd955cc-3b18-4ee8-9e14-d627745a5b2a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-<p>
-<b>Task 3:</b>   
-Fit a distribution to the monthly maxima. Print the values of the obtained parameters and interpret them:
+<h2 id="Task-3:-POT-and-GPD">Task 3: POT and GPD<a class="anchor-link" href="#Task-3:-POT-and-GPD">¶</a></h2><p>Let's go for Peak Over Threshold (POT)---make sure you <strong>read</strong> this section carefully, as there are some important tips for implementing the method correctly!</p>
+<p>As described in the book: <em>when performing EVA with POT, we model <strong>excesses</strong> over the threshold, not the actual value of the extreme event.</em> In principle, this can simply be described as follows:</p>
+$$
+X = th + E
+$$<p>where $X$ is the random variable of interest (rain, in this case), $th$ is the threshold and $E$ is the <em>excess</em> (also a random variable). In other words, the distribution-fitting part of our EVA is performed on $E$. However, it is not practical to verify/validate or make inference with our distribution on the random variable $E$ for two key reasons:</p>
 <ol>
-<li>Do the location and scale parameters match the data?</li>
-<li>According to the shape parameter, what type of distribution is this?</li>
-<li>What type of tail does the distribution have (refer to EVA Chapter 7.2 of the book)?</li>
-<li>Does the distribution have an upper bound? If so, compute it!</li>
+<li>It is more convenient to think in terms of $X$, and</li>
+<li>We often need to calibrate the threshold value, which produces countless different sets of sampled extremes, distributions and random variables, $E$, which cannot be compared easily.</li>
 </ol>
-</p>
+<p>As such, we continue to perform our analysis in terms of $X$, while making sure to address the fact that our POT data and distributions are defined in terms of $E$. In practical terms, this means we need to <em>add and subtract the threshold value at certain points in the analysis.</em></p>
+<p>Note: the threshold and declustering time evaluation is outside the scope of MUDE.</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=57f062c7-4fc1-4c9a-9c25-0cf6ce378c0c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>Use <a href="https://docs.scipy.org/doc/scipy/reference/stats.html" target="_blank">scipy.stats</a> built in functions (watch out with the parameter definitions!), similar to Week 1.7 and use the DataFrame created in Task 2.
-</p></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9ff84ed1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">params_T</span> <span class="o">=</span> <span class="c1">#your code here</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">params_T</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=33ad10d9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-4:-Goodness-of-Fit">Task 4: Goodness of Fit<a class="anchor-link" href="#Task-4:-Goodness-of-Fit">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4f5e84d-e930-48d7-8a58-d8fb31c447fa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66d85d8b-8e5a-49e0-b93f-780a2ca8c5f5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7862,72 +7797,21 @@ Fit a distribution to the monthly maxima. Print the values of the obtained param
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
-<b>Task 4:</b>   
-Assess the goodness of fit of the selected distribution using the exceedance probability plot in semi-log scale.
-<p>Consider the following questions:</p>
-<ol>
-<li>How well do the probabilities of the fitted distribution match the empirical distribution? Is there an over- or under-prediction?</li>
-<li>Is the tail type of this GEV distribution appropriate for the data?</li>
-</ol>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a344a7cb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=79850b53-75e0-4e96-87d4-f1d1759451c7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-5:-Return-Levels">Task 5: Return Levels<a class="anchor-link" href="#Task-5:-Return-Levels">¶</a></h2><p>It was previously indicated that the structure should be designed for a lifespan of 50 years with a probability of failure of 0.1 along the design life.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3ee90f7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-<p>
-<b>Task 5.1:</b>
-<p>Compute the design return period using both the Binomial and Poisson model for extremes. Compare the obtained return.</p>
+<b>Task 3.1:</b>   
+Apply POT on the timeseries using a declustering time of 48 hours and a threshold of 40mm. Plot the sampled extremes on the timeseries as blue dots.
 </p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=45c439b3-d3d2-4926-ac19-c8c94e457131">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=144dc09c-74ef-4278-99b4-9448503a7a97">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
-<p>
-<b>Task 5.2:</b>
-<p>Considering that you have sampled monthly maxima, compute and plot the return level plot: values of the random variable in the x-axis and return periods on the y-axis. Y-axis in logscale.</p>
-</p>
-</div>
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">Hint: you can use the function <code>find_peaks</code> from Scipy, as done in PA 2.7.</div>
 </div>
 </div>
 </div>
@@ -7939,15 +7823,17 @@ Assess the goodness of fit of the selected distribution using the exceedance pro
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">RT_range</span> <span class="o">=</span> <span class="c1">#range of values of return level</span>
-<span class="n">monthly_probs</span> <span class="o">=</span> <span class="c1">#compute monthly probabilities</span>
-<span class="n">eval_temp</span> <span class="o">=</span> <span class="c1">#compute the values of the random variable for those probabilities</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="n">distance</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#days</span>
+<span class="n">peaks</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="c1">#your code here</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The shape of the sampled extremes is:'</span><span class="p">,</span> <span class="n">peaks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eval_temp</span><span class="p">,</span> <span class="n">RT_range</span><span class="p">,</span> <span class="s1">'k'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Temperature [mm]'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'RT [years]'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="s1">'Prec'</span><span class="p">],</span><span class="s1">'k'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">peaks</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">P</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">peaks</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">'cornflowerblue'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Precipitation [mm]'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7955,7 +7841,7 @@ Assess the goodness of fit of the selected distribution using the exceedance pro
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3073e5e-605c-4356-a88f-b1f64cf2fe01">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f0841e5c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7963,14 +7849,24 @@ Assess the goodness of fit of the selected distribution using the exceedance pro
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
-<b>Task 5.3:</b>   
-Compute the design value of temperature. Choose the return level you prefer within the Poisson and Binomial model.
+<b>Task 3.2:</b>   Compute the empirical cumulative distribution function of the sampled maxima. Fit the appropriate extreme value distribution function using <code>scipy.stats</code> and assess the fit via an exceedance plot with semi-log scale.
 </p>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e3197994-1ce2-4083-b854-1db9a5fea416">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24c29446-500a-4259-a8d3-511cdc50a72b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">Hint: you need to fit the appropriate distribution with a location parameter of 0 on the excesses. You can force the fitting of a distribution with a given value of the parameters using the keyword argument <code>floc</code>.</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a8225377-2dc0-4629-8f28-c8fd7d6055bc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7978,19 +7874,129 @@ Compute the design value of temperature. Choose the return level you prefer with
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">RT_design</span> <span class="o">=</span> <span class="c1">#value of the return period</span>
-<span class="n">monthly_design</span> <span class="o">=</span> <span class="c1">#compute the monthly probability</span>
-<span class="n">design_T</span> <span class="o">=</span> <span class="c1">#compute the design value</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">params_POT</span> <span class="o">=</span> <span class="c1">#your code here</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'GPD parameters are: </span><span class="si">{:.3f}</span><span class="s1">, </span><span class="si">{:.3f}</span><span class="s1">, </span><span class="si">{:.3f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">params_POT</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'The design value of temperature is:'</span><span class="p">,</span>
-      <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">design_T</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="c1">#your plot here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d976adb0-b5d6-4959-ba0e-05f90a170597">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Time series plot with both sets of extremes</span>
+<span class="c1"># For Report_solution.md</span>
+
+<span class="c1">#your plot here</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8bb613a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c3afa672-64a2-4cc0-9763-4e9b5057e24e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Task-4:-Computing-Return-Levels">Task 4: Computing Return Levels<a class="anchor-link" href="#Task-4:-Computing-Return-Levels">¶</a></h2><p>In this section, we are going to use the distributions found in the previous two Tasks to compute the return periods that correspond to the flood of October 2024 and compare the results that both EVA methods provide.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e41a1a60-c143-420e-b404-14c27e911c67">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 4.1:</b> create the return level plot for both EVA approaches (values of the random variable in the x-axis and return period on the y-axis; the y-axis in log scale). Consider return periods up to at least 800 years. Add also the return level plot generated using the empirical CDF for both sampling approaches. Plot a line to indicate the magnitude of the event of October 2024 (771mm). 
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=740c7fa9-1f1b-4fb9-8425-024ea95b606c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>Remember you can use tuple unpacking as an argument for methods of <code>scipy.stats.rv_continuous</code>, like this: <code>*params</code> (see WS 2.7 solution for examples).</p></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3b50e43c-d801-4779-ac0a-8cef194ceac7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># YOUR_CODE_HERE (more than one line!)</span>
+
+<span class="c1"># plt.figure(figsize=(10, 6))</span>
+<span class="c1"># plt.plot(YM_range, RT_range, 'r', label = 'YM&amp;GEV')</span>
+<span class="c1"># plt.plot(POT_range, RT_range, 'cornflowerblue', label = 'POT&amp;GPD')</span>
+<span class="c1"># YOUR_FIGURE_FORMATTING_CODE_HERE (more than one line!)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bd32595e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
+<p>
+<b>Task 4.2:</b> What would be the return period associated with the event of October 2024? Compare the answer provided by both approaches and reflect on these differences.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ef7a89c5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#YM&amp;GEV</span>
+<span class="n">YM_RT</span> <span class="o">=</span> <span class="c1">#return period obtained with YM</span>
+
+<span class="c1">#POT&amp;GPD</span>
+<span class="n">average_n_excesses</span> <span class="o">=</span> <span class="c1">#average numbr of excesses per year</span>
+<span class="n">POT_prob</span> <span class="o">=</span> <span class="c1">#non exceedance probability</span>
+<span class="n">RT_POT</span> <span class="o">=</span> <span class="c1">#return period obtained with POT</span>
+
+<span class="c1">#Print</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'The return period obtained with YM+GEV is </span><span class="si">{</span><span class="n">YM_RT</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span>
+          <span class="sa">f</span><span class="s1">'The return period obtained with POT+GPD is </span><span class="si">{</span><span class="n">RT_POT</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9c17f83d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
