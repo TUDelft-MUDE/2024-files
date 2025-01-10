@@ -1,6 +1,6 @@
 # README for Group Assignment 2.7
 
-*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/).: Week 2.7, Friday, Jan 10, 2025.*
+*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.7, Friday, Jan 10, 2025.*
 
 The focus of this assignment is to use extreme value analysis to analyze the flooding last October in Turís (close to Valencia, Spain), where 771 mm of rain fell in a single day!
 
