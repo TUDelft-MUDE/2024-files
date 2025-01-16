@@ -6,7 +6,7 @@ The focus of this assignment is having fun! Oh yeah...and also learning about ri
 
 You will evaluate the distribution of profit for the Ice Classic, generate a risk curve, then determine what an appropriate bet could be.
 
-Remember that the Ice Classic is betting game where you buy a ticket and guess the **minute** at which the ice in the Nenana River in Alaska breaks. Everyone with the winning ticket splits the prize money, which is typically around $300,000! 
+Remember that the Ice Classic is betting game where you buy a ticket and guess the **minute** at which the ice in the Nenana River in Alaska breaks. Everyone with the winning ticket splits the prize money, which is typically around $300,000! Remember that each ticket costs $3.
 
 ## Overview of material
 
