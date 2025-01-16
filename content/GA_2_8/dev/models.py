@@ -573,8 +573,8 @@ class RadialDist():
         plt.hist(counts, bins=bins, color='b', alpha=0.7, label='Counts',
                 density=density)
 
-        x = np.arange(0, max,1)
-        plt.plot(x, self.kde(x), color='r', label='KDE Fit')
+     
+        plt.plot( self.kde, color='r', label='KDE Fit')
         plt.xlabel('Number of Tickets Bought for Range of Minutes')
         if density:
             plt.ylabel('Probability Mass Function for Ticket Count')
@@ -583,16 +583,20 @@ class RadialDist():
         plt.title(f'Ticket Distribution for Minutes between {self.range[0]:.2f} and {self.range[1]:.2f} Std Dev of Joint Mean')
         
         return plt.gcf(),self.kde
-    def fit_KDE(self,include_zeros='False', bandwidth='scott'):
+    def fit_KDE(self, include_zeros=False, bandwidth='scott'):
         if include_zeros:
             counts = np.append(self.counts, np.zeros(self.N_unchosen))
         else:
             counts = self.counts
-        kde = stats.gaussian_kde(counts, bw_method=bandwidth) # we have to pass bandwidth method or 'width' , otherwise cannot be pikled
-    #if description:
-        # do we need to compute cdf,and moments? if not .mean, and .mode are methods of kde object 
-        # the kde can be initialize it as kde(x)
-           
-        return kde
-  
+
+        kde = stats.gaussian_kde(counts, bw_method=bandwidth)
+
+        values = np.arange(0, np.max(counts) + 1, 1)
+        kde_values = kde(values)
+        
+        #Kde is for continuos distribution, therefore density could be above 1, but we care about discrete, so we need to normalize
+        kde_values_normalized = kde_values / np.sum(kde_values)
+
+        return kde_values_normalized
+
 
