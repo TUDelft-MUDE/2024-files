@@ -29,7 +29,7 @@ on init set_ticket_model sets up a dict and will create a function
 to modify, change dict value then run self.get_ticket_model()
 
 """
-
+import random
 import scipy.stats as stats
 import numpy as np
 import matplotlib.pyplot as plt
@@ -600,3 +600,55 @@ class RadialDist():
         return kde_values_normalized
 
 
+def sample_integer(probabilities, size=1):
+    """Get sample given array of integer probabilities.
+
+    Used for sampling ticket numbers for each minute.
+
+    Parameters:
+    probabilities (ndarray): An ndarray of probabilities for each discrete integer value.
+    size (int): The number of samples to generate.
+
+    Returns:
+    ndarray: An ndarray of generated samples.
+    """
+    values = np.arange(len(probabilities))
+    sample = random.choices(values, weights=probabilities, k=size)
+    if size == 1:
+        return int(sample[0])
+    else:
+        return np.array(sample, dtype=int)
+
+def sample_ticket(probabilities, cov, N_min,
+                  N_max=1000, verbose=False):
+    """Sample ticket numbers for each minute."""
+
+    def get_cov_sample(sample, n):
+        mean = sample.mean()
+        std = sample.std()
+        return std/mean/np.sqrt(n)
+
+    sample = sample_integer(probabilities, N_min)
+
+    if np.all(sample == 0):
+        if verbose:
+            print("All values in the sample are 0.")
+        return np.array(sample, dtype=int)
+    
+    cov_sample = get_cov_sample(sample, N_min)
+    max_N_reached = False
+    
+    while cov_sample > cov:
+        N_min += 1
+        sample = sample_integer(probabilities, N_min)
+        cov_sample = get_cov_sample(sample, N_min)
+        if N_min > N_max:
+            max_N_reached = True
+            break
+
+    if verbose:
+        print(f"Sample size: {N_min}, CoV: {cov_sample:0.3f}")
+        if max_N_reached:
+            print(f"  (maximum sample size reached)")
+    
+    return np.array(sample, dtype=int)
