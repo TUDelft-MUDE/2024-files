@@ -462,7 +462,7 @@ class Tickets:
             print(f"Update successful! Currently have {self.N()} tickets.\n")
 
 class Models:
-    def __init__(self, model_id:str=0):
+    def __init__(self, model_id:str=2):
         self.winnings = 300000
         self.cost = 3
         self.moments_day = (33, 6.5)

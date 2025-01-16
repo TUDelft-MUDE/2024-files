@@ -11,7 +11,10 @@ Remember that the Ice Classic is betting game where you buy a ticket and guess t
 ## Overview of material
 
 - stuff
+- `tickets_per_minute.pkl` (in subdirectory `pickles/`)
 - The [Solution from GA 1.1](https://mude.citg.tudelft.nl/2024/files/Week_1_1/), which is a PDF that contains a **lot** of good summary information about the Ice Classic that will be useful for the end of the GA, especially where you need to consider a "future" bet.
+
+Note in particular that the file `tools.py` contains a _lot_ of poorly documented code. It can do a lot, but only Robert and Gabriel have any idea how to use it, so find them if you want to do something special. Otherwise, everything you need for the GA is illustrated somewhere in the notebooks. 
 
 ## Python Environments
 
