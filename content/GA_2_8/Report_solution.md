@@ -1,6 +1,9 @@
 # GA 2.8 Report: [Ice Ice Baby](https://www.youtube.com/watch?v=rog8ou-ZepE)
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/).*
+
+_Questions 3 and 4 are the most important for this assignment. They are weighted roughly 2-3 times more than the others._
+
 ## Questions
 
 **Questions 1: Describe the probability associated with winning the Ice Classic when purchasing a single ticket. Describe the range of values possible and illustrate your description using values reported in a Markdown table.**
@@ -9,7 +12,7 @@ _Your answer here._
 
 **Question 2: Notebook 3 illustrates how you can change the probability model for breakup day and time. Using the information in the PDF from Week 1.1, make an adjustment to the probability model and report how this improves the probability of winning.**
 
-_The PDF can be found [here](https://mude.citg.tudelft.nl/2024/files/Week_1_1/)._
+_The PDF can be found [here](https://mude.citg.tudelft.nl/2024/files/Week_1_1/). This question simply quantifies the change you made lists the reasons why it may increase your chances of winning._
 
 _Your answer here._
 
@@ -19,7 +22,7 @@ _In this question you should try to indicate how the data informs your decision 
 
 _Your answer here._
 
-**Question 4: come up with a ticket combination that seems to maximize your chances of winning. Explain your thought process for selecting the chosen ticket combination. You are free to use the original distribution or an altered one (as long as you justify it).**
+**Question 4: come up with a ticket combination that seems to maximize your chances of winning, without taking on an undesirable level of (financial) risk. Explain your thought process for selecting the chosen ticket combination. You are free to use the original distribution or an altered one (as long as you justify it).**
 
 _Your answer here._
 
