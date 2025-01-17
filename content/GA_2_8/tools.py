@@ -462,11 +462,12 @@ class Tickets:
             print(f"Update successful! Currently have {self.N()} tickets.\n")
 
 class Models:
-    def __init__(self, model_id:str=2):
+    def __init__(self, model_id:str=2, moments_day:tuple=(33, 6.5),
+                 moments_min:tuple=(863, 190)):
         self.winnings = 300000
         self.cost = 3
-        self.moments_day = (33, 6.5)
-        self.moments_min = (863, 190)
+        self.moments_day = moments_day
+        self.moments_min = moments_min
         self.distribution_day = stats.norm(self.moments_day[0],
                                            self.moments_day[1])
         self.distribution_min = stats.norm(self.moments_min[0],
@@ -912,7 +913,16 @@ class Models:
                 +f"days out of bounds: {count_days_out_of_bounds} "
                 +f"({count_days_out_of_bounds/len(tickets)*100:.2f}%)")
         return matrix
-
+    @staticmethod
+    def reset_prob_pickle():
+        """reset probability pickle"""
+        import os
+        try:
+            os.remove('pickles/breakup_prob_hist.pkl')
+            print("Pickle reset.")
+        except:
+            print("Pickle not found.")
+        return None
 
 
 def get_values_in_range(min, max, array1, array2):
@@ -1074,3 +1084,39 @@ def sample_ticket(probabilities, cov, N_min,
             print(f"  (maximum sample size reached)")
     
     return np.array(sample, dtype=int)
+
+def plot_hist_and_cdf(sampled_profit, xlim=None, ylim=None):
+    fig, ax1 = plt.subplots()
+
+    # Plot histogram
+    ax1.hist(sampled_profit, bins=50, edgecolor='k', density=True, alpha=0.6, label='Histogram')
+    ax1.set_xlabel('Winnings, thousands of USD')
+    ax1.set_ylabel('Density')
+    ax1.legend(loc='upper left')
+
+    # Create a second y-axis for the cumulative distribution
+    ax2 = ax1.twinx()
+    sorted_samples = np.sort(sampled_profit)
+    cdf = np.arange(1, len(sorted_samples) + 1) / (len(sorted_samples) + 1)
+    ax2.plot(sorted_samples, cdf, color='red', label='CDF')
+    ax2.set_ylabel('Cumulative Probability')
+    ax2.legend(loc='upper right')
+
+    # plt.title('Histogram and Cumulative Distribution of Sample Benefits')
+    plt.show()
+
+    # Plot exceedance probability
+    fig, ax = plt.subplots()
+    exceedance_prob = 1 - cdf
+    ax.plot(sorted_samples, exceedance_prob, color='blue', label='Exceedance Probability')
+    ax.vlines(300, 0, 1, color='grey', linestyle='--', label='300k threshold')
+    ax.set_xlabel('Winnings, thousands of USD')
+    ax.set_ylabel('Exceedance Probability')
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+    if xlim is not None:
+        ax.set_xlim(*xlim)
+    if ylim is not None:
+        ax.set_ylim(*ylim)
+    ax.legend(loc='upper right')
+    plt.show()

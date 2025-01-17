@@ -3,23 +3,33 @@
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/).*
 ## Questions
 
-**Questions 1: **
+**Questions 1: Describe the probability associated with winning the Ice Classic when purchasing a single ticket. Describe the range of values possible and illustrate your description using values reported in a Markdown table.**
 
 _Your answer here._
 
-**Question : **
+**Question 2: Notebook 3 illustrates how you can change the probability model for breakup day and time. Using the information in the PDF from Week 1.1, make an adjustment to the probability model and report how this improves the probability of winning.**
+
+_The PDF can be found [here](https://mude.citg.tudelft.nl/2024/files/Week_1_1/)._
 
 _Your answer here._
 
-**Question : **
+**Question 3: Justify why you changed the distribution in Question 3 and indicate how MUDE methods would help you quantify this decision, if you had more time.**
+
+_In this question you should try to indicate how the data informs your decision to change the distribution parameters. To explain how this could be quantified, list three examples of analyses that could be completed using MUDE methods. You should also provide a brief explanation of why each analysis would be useful and which data it would use._
 
 _Your answer here._
 
-**Question : **
+**Question 4: come up with a ticket combination that seems to maximize your chances of winning. Explain your thought process for selecting the chosen ticket combination. You are free to use the original distribution or an altered one (as long as you justify it).**
 
 _Your answer here._
 
-**Question : confirm that you did the following.**
+**Question 5: Make a Bet! Fill out the file `ticket.md` and also submit a paper ticket.**
+
+_This question can be completely unrelated to the more formal analysis above---have fun with it! Decide with your group what your bet will be with your real Ice Classic ticket. Remember that the closest MUDE group to the real minute will win a prize from Robert, and if one of us wins the real thing we will all split the payout!_
+
+_You don't need to write anything in this file, only the `ticket.md` file._
+
+**Question 6: confirm that you did the following.**
 
 _Did you know you can use checkboxes in Markdown? Try it out as you mark each task as complete by filling the empty `[ ]` with an `x` like this `[x]`._
 
