@@ -2,6 +2,8 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Week 2.8, Friday, Jan 16th, 2025.*
 
+_You can access this assignment with the following link: [classroom.github.com/a/8ARaIcmZzvfEsUZV](https://classroom.github.com/a/mZzvfEsU)._
+
 The focus of this assignment is risk analysis.
 
 You will evaluate the distribution of profit for the Ice Classic, generate a risk curve, then determine what an appropriate bet could be.
