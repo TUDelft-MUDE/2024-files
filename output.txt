@@ -1,0 +1,54 @@
+group_name	month	day	hour	minute	justification
+hind1	05	16	14	10	The first thought was to maximize the chance of winning
+hind2	04	30	13	47	2024 was a very warm year and we think because of that the day will be earlier than the mean. For the time we just took a guess close to the mean.""
+hind3	04	28	14	06	Because we each picked a number and that's what we came up with"""
+hind4	04	25	14	43	For this question we keep the original distribution
+hind5	04	30	15	12	Birthday of Jarno's mother""
+hind6	04	26	14	39	On the 26th April in 1986 Chernobyl nuclear power plant catastrophy happened 39 years ago. At 14:00 the Kiev electrical grid controller requested that the further reduction of Chernobyl's output be postponed
+hind7	05	14	14	23	The distribution of 2025 resembles the distribution of 2013. The breaking day in 2013 was 12th of May. We then put values around May 12 (whole day) into our model and checked the profits. It showcased that May 14 maximized the profits. For May 14
+hind8	05	12	14	48	Our ticket guess is based on our findings stated in our report based on the notebooks and GA 1.1.
+hind9	05	02	14	21	The weather prediction shows it's a bit warmer than previous years. And since the time per day is not really affected by this warmer period
+hind10	05	9	15	35	Educated Gamble"""
+hind11	04	24	11	11	We looked at the PDF-file of 1.1 and we also googled the latest breakup day of 2024 (27 april). Giving it was the hottest year ever recorded
+hind12	04	22	12	34	We are basing our bet on the historical mean
+hind13	05	4	14	29	869 min from time 00:00""
+hind14	05	03	14	38	The minute is the historical average of a day
+hind15	04	22	13	34	The vibes and aura of this date and time are feeling right.""
+hind16	05	05	13	16	Liberty day!""
+ming1	05	3	14	17	The reasoning behind choosing such date is that the mdoel has been model based on May 12th. Due to the effects of climate change
+ming2	04	30	13	05	We chose a day and time independently
+ming3	05	12	14	40	the 4th of May has the highest probability but we made our choice based on the Monte Carlo simulation. The date and time above gave the highest profit that we could find four one tickets after trying dates and times iteratively. We used the time of the mean of the historical data
+ming4	04	28	13	22	From our analysis and personal intuition it seems a great choice""
+ming5	05	02	15	33	The range we got from the data. However
+ming6	04	14	13	34	We asked ChatGPT to run an extensive recursion analysis on the data of the last couple of years and take into account the trend of the climate change
+ming7	05	05	16	00	THE PROFITS SEEMED TO BE FAVOURABLE ON THIS DATE AND TIME.""
+ming8	04	22	13	04	This is the birthday of one of our groupmates
+ming9	04	20	16	20	On that day
+ming10	04	30	14	34	Based on the distribution we obtained / chose
+ming11	04	29	15	11	we are feeling luckywe accounted for climate change and recent years and used all 18 weeks worth of MUDE knowledge
+ming12	04	30	14	43	For the date component
+ming13	04	30	15	30	Just a gut feeling...""
+ming14	04	13	18	22	To tackle the human bias in choosing a time and date
+ming15	04	15	16	23	To maximize our chances of winning and increase our potential payout in the Ice Classic
+ming16	05	01	14	01	The day before the day with highest probability
+riba1	04	27	15	33	This is the peak time on King's day. And based on our notebooks we expect the ice breaking in the afternoon. Also we don't want to bet on a number ending on a nice even number like 10.""
+riba2	05	12	14 	23	We hebben deze datum uit onze duimen gezogen""
+riba3	04	21	16	21	Due to climate change we expect the date te be before the average (since it is getting warmer the ice will melt quicker) Also weather pattern """El Nino""" will increase the temperature of the Pacific Ocean which in turn increases the temperature in Alaska which will let the ice melt quicker. This is not in compliance with our estimation from the notebooks since the notebook does not take increasing global temperatures due to climate change into account.""
+riba4	04	25	17	57	We chose a random time that nobody else is guessing to have a high probability of winning!!!""
+riba5	04	30	14	59	We followed the breakup trend of the overall years for the date. For the minutes
+riba6	05	20	15	39	By checking the data from 2013
+riba7	05	05	13	07	on the Q3 and Q4""
+riba8	04	30	14	09	The finest guesswork""
+riba9	05	5	15	38	Close to the mean but slighly over due to colder weather""
+riba10	04	27	13	45	We wanted to choose a ticket that is a bit earlier than the tickets most of the other groups will choose. Besides that this year the winter does not seem to be that cold
+riba11	04	20	15	24	Intuition for early date due to higher temperatures over december 24/ january 25 compared to historical.Also lower ice thickness in december than usual. Hour is the mode. Minute is the average age of the group members.""
+soga1	04	19	14	30	Temperatures are high so probably an early break thats still within the bounds of what normally happens. And this day follows from our data.""
+soga2	04	20	14	02	Based on our fantastic analysis
+soga3	04	26	15	01	Looking at the historical temperatures in Nenana we see an increase in as well average temperature as maximum temperature over the last decade or so. Moreover
+soga4	04	27	14	29	We wanted to be close to mean
+soga5	04	22	12	53	We checked online and according to an article
+soga6	04	15	14	33	Ice breakup is likely to happen in the afternoon
+soga7	04	25	14	13	By looking at our results from question 3 and 4
+soga8	04	24	16	12	We chose this time as it is at the start of the interval that we think is relevant and that we bought tickets for in the report. Since it is at the front of our interval
+soga9	05	01	12	37	This is the birthday of one of our group members.The hour of the day is to be the beginning of the afternoon. This time of day has shown
+soga10	04	15	14	26	It has the highest profit with the distribution that we used (mean of 23 for the break up day)""
