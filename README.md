@@ -94,3 +94,13 @@ Contributors:
 Materials not included in CC BY license:
 
 _WORK IN PROGRESS_
+
+### Week 2.3: Signal Processing
+
+Authors:
+
+Contributors:
+
+Note that the source code for the solution for GA 2.3 is not included here, as the intention is to use the same analysis in future years; a PDF in the `src/` directory provides results from the solution without the source code.
+
+Materials not included in CC BY license:
