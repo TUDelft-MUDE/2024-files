@@ -1,0 +1,32 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Modelling, Uncertainty and Data for Engineers (MUDE) Files
+message: >-
+  See the README for complete information.
+type: software
+authors:
+  - given-names: Robert
+    family-names: Lanzafame
+  - family-names: MUDE Team
+
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.xxxxxxx
+    description: Zenodo DOI
+repository-code: 'https://github.com/TUDelft-MUDE/2024-files'
+abstract: >-
+  Work in progress.
+keywords:
+  - open interactive textbook
+  - education
+  - teachbooks
+  - engineering
+  - civil
+  - environmental
+  - geoscience
+  - python
+  - jupyter
+license: CC-BY-4.0
