@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13272,17 +13271,13 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <p>First we will create a regular Numpy matrix to use as a starting point for making a sparse one.</p>
 <ul>
 <li>Create a function (<code>create_dense</code>) which returns a square matrix of arbitrary size filled with zero and non-zero values between 0 and 1.</li>
 <li>The function should take as input the size N (such that the matrix is N x N) and one float between 0 and 1, which represents the approximate fraction of the elements of the matrix which are non-zero.</li>
 <li>Use <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.rand.html"></a>numpy.random.rand to create a random set of values between 0 and 1</li>
-<li>Remove a portion of the values by using simple boolean expression to set the fraction specified by <code></code>percentage to zero.
-
-
-</li>
+<li>Remove a portion of the values by using simple boolean expression to set the fraction specified by <code></code>percentage to zero.</li>
 </ul>
 </div>
 </div>
@@ -13458,8 +13453,7 @@ Compared to the normal matrix, BSR uses this fraction of space: 0.002000
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#FAE99E !important;">
 <p>
-<b>Solution:</b>
-</p></div>
+<b>Solution:</b></p></div>
 <p>As we can see in the output, the sparse methods reduce the size of the matrix by about 10x than the non-sparse method. This is nearly identical to the target percentage!</p>
 </div>
 </div>
@@ -13468,7 +13462,7 @@ Compared to the normal matrix, BSR uses this fraction of space: 0.002000
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Task-2:-What-is-love?">Task 2: <a href="https://www.youtube.com/watch?v=HEXWRTEbj1I">What is love?</a><a class="anchor-link" href="#Task-2:-What-is-love?">¶</a></h2><p>Let's look into a small example of how sparse matrices can also help improve calculation speeds. We'll study the mysterious case of a massive friend group with a concerning love circle and how we can predict how each person feels with respect to the other. This is quantified by the amount of love, $n_i$, that is "felt" by person $i$. In fact, the feelings grow stronger with time, which means they can be described with a simple differential relationship between <em>neighbors</em>, where each person in the group is happy when the other is sad, but the opposite is true for the other person, which can be defined like this:</p>
-<p>$$
+$$
 \begin{pmatrix}
 \cfrac{dn_1}{dt}\\
 \cfrac{dn_2}{dt} \\
@@ -13482,8 +13476,7 @@ Compared to the normal matrix, BSR uses this fraction of space: 0.002000
 n_1\\
 n_2 \\
 \end{pmatrix} 
-$$</p>
-<p>So in this case, person 2 doesn't like it when person 1 is happy but person 2 likes it when person 1 is happy. If we extend this to a four case scenario we'd get the following matrix:
+$$<p>So in this case, person 2 doesn't like it when person 1 is happy but person 2 likes it when person 1 is happy. If we extend this to a four case scenario we'd get the following matrix:
 $$
 \begin{pmatrix}
 \cfrac{dn_1}{dt}\\
@@ -13517,8 +13510,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.0:</b>
-</p></div>
+<b>Task 2.0:</b></p></div>
 <p>Read and modify the code cell below until you are confident you understand how the <code></code>ix_ method works.</p>
 </div>
 </div>
@@ -13570,8 +13562,7 @@ $$</p>
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
 <b>Task 2.1:</b>   
-Generate the matrix <code>relationship</code> for the differential equation for 1000 people. Use the <a href="https://numpy.org/doc/stable/reference/generated/numpy.ix_.html"><code>numpy.ix_</code></a> function to make your life easier.
-</p></div>
+Generate the matrix <code>relationship</code> for the differential equation for 1000 people. Use the <a href="https://numpy.org/doc/stable/reference/generated/numpy.ix_.html"><code>numpy.ix_</code></a> function to make your life easier.</p></div>
 <p>Note that we have already provided an easy way to place the smaller sub-matrices in the right place.</p>
 </div>
 </div>
@@ -13697,8 +13688,7 @@ Generate the matrix <code>relationship</code> for the differential equation for 
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
 <b>Task 2.4:</b>   
-Find the time it takes to evaluate the relationship using <code>timeit</code> by entering the function you wish to evaluate as a string.
-</p></div>
+Find the time it takes to evaluate the relationship using <code>timeit</code> by entering the function you wish to evaluate as a string.</p></div>
 <p>HINT: you have already learned how to convert a matrix into a sparse format, and the function is defined for you. Run the code cell and compare the performances of the different matrix formats. Which one is faster? How much space do they take?</p>
 </div>
 </div>
@@ -13776,8 +13766,7 @@ BSR: 0.0110
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.5:</b>
-</p></div>
+<b>Task 2.5:</b></p></div>
 <p>What is the change in performance by using the sparse matrices?</p>
 </div>
 </div>
@@ -13794,8 +13783,7 @@ BSR: 0.0110
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#FAE99E !important;">
 <p>
-<b>Solution:</b>
-</p></div>
+<b>Solution:</b></p></div>
 <p>As we can see in the output, the sparse methods perform similarly, each around 10x faster than the non-sparse method.</p>
 </div>
 </div>
@@ -13807,7 +13795,7 @@ BSR: 0.0110
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=2bd3ff2c"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=24d03ef8"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13824,9 +13812,11 @@ BSR: 0.0110
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

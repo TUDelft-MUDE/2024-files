@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13276,8 +13275,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <ul>
 <li>Create a function (<code>create_dense</code>) which returns a square matrix of arbitrary size.</li>
 <li>The function will take as input the size N (such that the matrix is N x N) and one float between 0 and 1, which represents the approximate fraction of the elements of the matrix which are non-zero (it doesn't have to be super accurate).</li>
@@ -13426,7 +13424,7 @@ Compared to the normal matrix, BSR uses this fraction of space: 0.100
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We know there is a certain pecking order in this group, and neighbours in this order have a love-hate relationship which can be quantified with a simple differential equation:</p>
-<p>$$
+$$
 \begin{pmatrix}
 \cfrac{dn_1}{dt}\\
 \cfrac{dn_2}{dt} \\
@@ -13440,7 +13438,7 @@ Compared to the normal matrix, BSR uses this fraction of space: 0.100
 n_1\\
 n_2 \\
 \end{pmatrix} 
-$$</p>
+$$
 </div>
 </div>
 </div>
@@ -13605,7 +13603,7 @@ BSR: 0.0085
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=e5d5b2bf"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=0041c13d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13622,9 +13620,11 @@ BSR: 0.0085
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

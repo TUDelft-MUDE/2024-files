@@ -13,7 +13,7 @@
 <h2 style="height: 10px">
 </h2>
 
-*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Extreme Value Analysis, Week 2.7, Wednesday, Jan 8, 2024.*
+*[CEGM1000 MUDE](http://mude.citg.tudelft.nl/): Extreme Value Analysis, Week 2.7, Wednesday, Jan 8, 2025.*
 
 
 In this session, you will work with the uncertainty of extreme temperatures in the airport of Barcelona to assess the extreme loads induced by temperature in a steel structure in the area. You have daily observations of the maximum temperature for several years. The dataset was retrieved from the Spanish Agency of Metheorology [AEMET](https://www.aemet.es/es/portada). Your goal is to design the structure for a _lifespan of 50 years_ with a _probability of failure of 0.1_ during the design life. 
@@ -155,7 +155,7 @@ Here, we will continue with the analysis to show the procedure but in practice y
 
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
-<b>Task 2.3:</b>   
+<b>Task 2.4:</b>   
 Compute PDF and the empirical cumulative distribution function of the observations and the sampled monthly maxima. Plot the ECDF in log-scale. Where are the sampled monthly maxima located with respect with the CDF of all the observations?
 </p>
 </div>
@@ -337,10 +337,10 @@ Note the unpacking of the distribution parameters, <code>*params_P</code>, which
 ```python
 RT_range = np.linspace(1, 500, 500)
 monthly_probs = 1/(RT_range*12)
-eval_nitrogen = stats.genextreme.ppf(1-monthly_probs, *params_T)
+eval_temp = stats.genextreme.ppf(1-monthly_probs, *params_T)
 
 plt.figure(figsize=(10, 6))
-plt.plot(eval_nitrogen, RT_range, 'k')
+plt.plot(eval_temp, RT_range, 'k')
 plt.xlabel('Temperature [mm]')
 plt.ylabel('RT [years]')
 plt.yscale('log') 
@@ -350,7 +350,7 @@ plt.grid()
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%">
 <p>
 <b>Task 5.3:</b>   
-Compute the design value of nitrogen. Choose the return level you prefer within the Poisson and Binomial model.
+Compute the design value of temperature. Choose the return level you prefer within the Poisson and Binomial model.
 </p>
 </div>
 
@@ -389,8 +389,10 @@ print('The design value of temperature is:',
     </a>
   </div>
   <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
-    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+    By <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE Team</a>
+    &copy; 2024 TU Delft. 
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    <a rel="Zenodo DOI" href="https://doi.org/10.5281/zenodo.16782515"><img style="width:auto; height:15; vertical-align:middle" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" alt="DOI https://doi.org/10.5281/zenodo.16782515"></a>
   </div>
 </div>
 

@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13265,10 +13264,9 @@ div#notebook {
 <li>Accuracy is relative to the propagation of uncertainty through the function based on the assumed distributions of the input random variables. In other words, MCS can't help you if your function and distributions are poor representations of reality!</li>
 </ol>
 <h3 id="Application:-Sewer-Pipe-Flow-Velocity">Application: Sewer Pipe Flow Velocity<a class="anchor-link" href="#Application:-Sewer-Pipe-Flow-Velocity">¶</a></h3><p>We will apply Manning's formula for the flow velocity $V$ in a sewer:</p>
-<p>$$
+$$
 V =\frac{1}{n}R^{2/3}S^{1/2}
-$$</p>
-<p>where $R$ is the hydraulic radius of the sewer pipe (in $m$), $S$ the slope of the pipe (in $m/m$), and $n$ is the coefficient of roughness [$-$].</p>
+$$<p>where $R$ is the hydraulic radius of the sewer pipe (in $m$), $S$ the slope of the pipe (in $m/m$), and $n$ is the coefficient of roughness [$-$].</p>
 <p>Both $R$ and $S$ are random variables, as it is known that sewer pipes are susceptible to deformations; $n$ is assumed to be deterministic and in our case $n=0.013$ $s/m^{1/3}$. The sewer pipe considered here has mean values $\mu_R$, $\mu_S$, and standard deviations $\sigma_R$ and $\sigma_S$; $R$ and $S$ are independent.</p>
 <p>We are now interested in the mean flow velocity in the sewer as well as the uncertainty expressed by the standard deviation. This is important for the design of the sewer system.</p>
 <p><em>Disclaimer: the dimensions of the pipe come from a real case study, but some aspects of the exercise are...less realistic.</em></p>
@@ -13276,7 +13274,7 @@ $$</p>
 <p>Some of the functions below uses <em></em>keyword arguments to specify some of the parameter values; this is a way of setting "default" values. You can override them when using the function by specifying an alternative syntax. For example, the function here can be used in the following way to return <code>x=5</code> and <code>x=6</code>, respectively:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span>
-   
+
 <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
 </pre></div>
@@ -13309,13 +13307,10 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Theory:-Propagation-laws-for-a-function-of-2-random-variables">Theory: Propagation laws for a function of 2 random variables<a class="anchor-link" href="#Theory:-Propagation-laws-for-a-function-of-2-random-variables">¶</a></h3><p>We are interested in the mean and variance of $X$, which is a function of 2 random variables: $X=q(Y_1,Y_2)$. The mean and covariance matrix of $Y$ are assumed to be known:</p>
-<p>$$\mu_Y = [\mu_1\;\mu_2]^T$$</p>
-<p>$$\Sigma_Y = \begin{bmatrix} \sigma^2_1 &amp; Cov(Y_1,Y_2) \\ Cov(Y_1,Y_2) &amp; \sigma^2_2\end{bmatrix}$$</p>
-<p>The second-order Taylor series approximation of the mean $\mu_X$ is then given by:</p>
-<p>$$\mu_X=\mathbb{E}(q(Y))\approx q(\mu_Y )+\frac{1}{2}\frac{\partial^2 q(\mu_Y )}{\partial Y_1^2 } \sigma_1^2+\frac{1}{2}\frac{\partial^2 q(\mu_Y )}{\partial Y_2^2 }\sigma_2^2+\frac{\partial^2 q(\mu_Y )}{\partial Y_1 \partial Y_2 } Cov(Y_1,Y_2) $$</p>
-<p>In most practical situations, the second-order approximation suffices.</p>
+$$\mu_Y = [\mu_1\;\mu_2]^T$$$$\Sigma_Y = \begin{bmatrix} \sigma^2_1 &amp; Cov(Y_1,Y_2) \\ Cov(Y_1,Y_2) &amp; \sigma^2_2\end{bmatrix}$$<p>The second-order Taylor series approximation of the mean $\mu_X$ is then given by:</p>
+$$\mu_X=\mathbb{E}(q(Y))\approx q(\mu_Y )+\frac{1}{2}\frac{\partial^2 q(\mu_Y )}{\partial Y_1^2 } \sigma_1^2+\frac{1}{2}\frac{\partial^2 q(\mu_Y )}{\partial Y_2^2 }\sigma_2^2+\frac{\partial^2 q(\mu_Y )}{\partial Y_1 \partial Y_2 } Cov(Y_1,Y_2) $$<p>In most practical situations, the second-order approximation suffices.</p>
 <p>For the variance $\sigma_X^2$ it is common to use only the first-order approximation, given by:</p>
-<p>$$\sigma^2_X \approx \left(\frac{\partial q(\mu_Y )}{\partial Y_1 } \right)^2 \sigma^2_1 +\left(\frac{\partial q(\mu_Y )}{\partial Y_2 } \right)^2 \sigma^2_2 + 2\left(\frac{\partial q(\mu_Y )}{\partial Y_1 } \right) \left(\frac{\partial q(\mu_Y )}{\partial Y_2 } \right)  Cov(Y_1,Y_2)$$</p>
+$$\sigma^2_X \approx \left(\frac{\partial q(\mu_Y )}{\partial Y_1 } \right)^2 \sigma^2_1 +\left(\frac{\partial q(\mu_Y )}{\partial Y_2 } \right)^2 \sigma^2_2 + 2\left(\frac{\partial q(\mu_Y )}{\partial Y_1 } \right) \left(\frac{\partial q(\mu_Y )}{\partial Y_2 } \right)  Cov(Y_1,Y_2)$$
 </div>
 </div>
 </div>
@@ -13331,8 +13326,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <p>Use the Taylor series approximation to find the expression for $\mu_V$ and $\sigma_V$ as function of $\mu_R$, $\sigma_R$, $\mu_S$, $\sigma_S$. Write your answer on paper or using a tablet; later we will learn how to include images directly in our notebooks! For now you can skip this step, as you are not turning this notebook in.</p>
 </div>
 </div>
@@ -13342,8 +13336,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2:</b>
-</p></div>
+<b>Task 1.2:</b></p></div>
 <p>Complete the function below, such that <code></code>moments_of_taylor_approximation will compute the approximated $\mu_V$ and $\sigma_V$, as found in the previous Task.</p>
 </div>
 </div>
@@ -13513,8 +13506,7 @@ Complete the functions <code>function_of_random_variables</code> and <code>get_s
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=5fe4cf2c"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-</div>
+<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;"></div>
 <p>$\textbf{Task 2.2:}$<br/>
 Are the results similar for the linearized and simulated values? Describe the difference quantitatively. Check your result also for the range of values of $\sigma_R$ from 0.01 to 0.10; are they consistent?</p>
 </div>
@@ -13530,8 +13522,7 @@ Are the results similar for the linearized and simulated values? Describe the di
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=97f3a877"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-</div>
+<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;"></div>
 <p>$\textbf{Task 2.3:}$<br/>
 Run the cell with the sampling algorithm above repeatedly and look at the values printed in the cell output. Which values change? Which values do <em></em>not change? Explain why, in each case.</p>
 </div>
@@ -13654,8 +13645,7 @@ Complete the function <code>validate_distribution</code> below (instructions are
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=48dc608a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-</div>
+<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;"></div>
 <p>$\textbf{Task 3.2:}$
 Run the cell below, then play with the slider to change $\sigma_R$. How well does the error propagation law match the "true" distribution (the samples)? State your conclusion and explain why. Check also whether there is an impact for different $\sigma_R$ values.</p>
 </div>
@@ -13684,8 +13674,7 @@ Run the cell below, then play with the slider to change $\sigma_R$. How well doe
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=35c20211"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-</div>
+<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;"></div>
 <p>$\textbf{Task 3.3:}$
 To further validate the error propagation law, estimate the probability that the "true" velocity of the tunnel is in the inaccurate range of values (assuming that the Normal distribution is a suitable model for the distribution of the function of random variables).</p>
 <p><em></em>Hint: recall that in this notebook a quantile, $q$, is defined as a standard deviation, and that the probability of observing a random variable $X$ such that $P[X\lt q]$ can be found with the CDF of the standard Normal distribution, evaluated in Python using <code></code>scipy.stats.norm.cdf(q).</p>
@@ -13695,8 +13684,7 @@ To further validate the error propagation law, estimate the probability that the
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=adbd9933"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p><em>
-</em></p></div>
+<div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p><em></em></p></div>
 <p>$\textbf{Note:}$
 As we saw in 3.2, the Normal distribution does not fit the tails of the distribution of the function of random variables perfectly. Although this means using the Normal distribution may not be a good way of estimating the probability of "being in the tails," the approach in this Task is still suitable for getting an idea of the order of magnitude, and observing how sever this "error" maybe for different assumptions of $\sigma_R$.</p>
 </div>
@@ -13722,7 +13710,7 @@ As we saw in 3.2, the Normal distribution does not fit the tails of the distribu
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=f6549814"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=302eb655"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13739,9 +13727,11 @@ As we saw in 3.2, the Normal distribution does not fit the tails of the distribu
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -27,7 +27,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13237,8 +13236,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>NOTE:</b>
-</p></div>
+<b>NOTE:</b></p></div>
 <p>The cell below allows you to edit the contents of helper and incorporate the changes in the notebook without restarting the kernel.</p>
 <p>Keep in mind, however, that error messages do not always display properly when using this feature; if you find that the Python traceback does not make sense while doing this assignment you should restart the kernal!</p>
 </div>
@@ -13272,8 +13270,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <p>First take a couple minutes to open the file <code></code>city.py and <b></b>read the contents. We will refer back to this file many times, so at this stage it is only necessary to look at the <code></code><strong>init</strong> method to see how the class can be instantiated, as well as scrolling through the file to get an overview for the (many!) and various types of methods that have been implemented.</p>
 <p>Once you have read through the file, run the cell below to import the class.</p>
 </div>
@@ -13302,8 +13299,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2:</b>
-</p></div>
+<b>Task 1.2:</b></p></div>
 <p>The cell below defines the coordinates of the student houses, all of which are spaced 2 units apart. Use this information to instantiate the class.</p>
 </div>
 </div>
@@ -13347,8 +13343,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3:</b>
-</p></div>
+<b>Task 1.3:</b></p></div>
 <p>Visualize the layout of student houses by using the method <code></code>plot_coordinates.</p>
 </div>
 </div>
@@ -13409,8 +13404,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1:</b>
-</p></div>
+<b>Task 2.1:</b></p></div>
 <p>The code below is set up to illustrate how you can use the methods to try out various triangle specifications. Running the cell below will throw and assertion error because it begins with a poorly-defined triangle. Change the vertices of the triangle until you successfully define an equilateral triangle defined by 3 student houses.</p>
 <p><em></em>There will be some warnings and tips in the output to help with this entire output. For this task you only need to define one triangle.</p>
 </div>
@@ -13453,8 +13447,7 @@ All triangles seem to be defined correctly!
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2:</b>
-</p></div>
+<b>Task 2.2:</b></p></div>
 <p>Now let's define all of the triangles! Once you have successfully defined all 10 triangles, you will no longer see any error messages and the plot will be filled with green areas between all of the coordinates.</p>
 </div>
 </div>
@@ -13506,8 +13499,7 @@ All triangles seem to be defined correctly!
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3:</b>
-</p></div>
+<b>Task 2.3:</b></p></div>
 <p>Once you have successfully defined all triangles above, you can add these as an attribute of the class: <code></code>triangles. Once you read the code in <code></code>city.py and identify the right attribute to define, the method <code></code>plot_triangles will work successfully and should produce an identical plot to that in the previous task.</p>
 </div>
 </div>
@@ -13565,8 +13557,7 @@ All triangles seem to be defined correctly!
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.4:</b>
-</p></div>
+<b>Task 2.4:</b></p></div>
 <p>The code cell below defines a shared side and two adjacent triangles <em></em>incorrectly. Fix it by changing the values of the coordinates and/or triangles!</p>
 <p><em></em>You can verify you have done it correctly if two adjacent green triangles are highlighted, along with the shared side being highlighted as a red dashed line.</p>
 <p><em></em>Note: depending on the way in which you defined triangles above, there is a tiny chance the code cell below actually is correct for your case.</p>
@@ -13602,8 +13593,7 @@ All triangles seem to be defined correctly!
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.5:</b>
-</p></div>
+<b>Task 2.5:</b></p></div>
 <p>Now let's define all of the shared sides! Once you have successfully done so, you will no longer see any error messages and the plot will be filled with green green triangles and red dashed shared sides.</p>
 </div>
 </div>
@@ -13648,8 +13638,7 @@ All triangles seem to be defined correctly!
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.6:</b>
-</p></div>
+<b>Task 2.6:</b></p></div>
 <p>Once you have successfully defined all shared sides above, you can add these as an attribute of the class: <code></code>shared_sides. If the plotting function succesfully runs without arguments (as written below), it confirms you did it correctly.</p>
 </div>
 </div>
@@ -13693,8 +13682,7 @@ All triangles seem to be defined correctly!
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.1:</b>
-</p></div>
+<b>Task 3.1:</b></p></div>
 <p>Complete the method <code></code>get_bar_coordinates to find the optimal location of the bars. Note that there are many ways to do this; our suggestion is to first identify the key calculation that should be made and how it relates to each triangle. Then implementing the calculation can be accomplished with a simple loop.</p>
 <p>You can check your work by executing the cell below, which will return errors and warnings until a plot with the correct points is produced.</p>
 </div>
@@ -13727,8 +13715,7 @@ All triangles seem to be defined correctly!
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.2:</b>
-</p></div>
+<b>Task 3.2:</b></p></div>
 <p>Complete the method <code></code>get_kapsalon_coordinates to find the optimal location of the kapsalon shops. As with the bars, there are many ways to do this; this time you should consider how to take advantage of the shared sides defined earlier.</p>
 <p>You can check your work by executing the cell below, which will return errors and warnings until a plot with the correct points is produced.</p>
 </div>
@@ -13756,7 +13743,7 @@ All triangles seem to be defined correctly!
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=078b9223"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=5e809136"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13773,9 +13760,11 @@ All triangles seem to be defined correctly!
 </img></a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

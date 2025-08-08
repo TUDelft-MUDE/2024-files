@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13269,12 +13268,13 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1</b>
-</p></div>
+<b>Task 1</b></p></div>
 <p>The equation to solve using Newton-Rhapson is</p>
-<p>$$
+$$
 x^2=9
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -13283,18 +13283,16 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1</b>
-</p></div>
+<b>Task 1.1</b></p></div>
 <p>Formally Newton-Rhapson is implemented iterating the solution as follows:
 $$
 z_{j+1} = z_{j} - g(z_j)/g'(z_j)
 $$
 where $g(z_j) = 0$ and $z_j$ is a guess and $z_{j+1}$ is the improved guess.</p>
 <p>As we do not care about retaining the values of every guess, it can be written in code as:</p>
-<p>$$
+$$
 x = x - g(x)/g'(x)
-$$</p>
-<p><strong>Transform the equation $x^2=9$ to g(x) and write it below, together with g'(x).</strong></p>
+$$<p><strong>Transform the equation $x^2=9$ to g(x) and write it below, together with g'(x).</strong></p>
 </div>
 </div>
 </div>
@@ -13303,12 +13301,10 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>$$
+<b>Solution</b></p></div>
+$$
 g(x) = x^2-9 \text{ and } g'(x) = 2x
-$$</p>
-<p>so
+$$<p>so
 $$
 x = x - \frac{x^2-9}{2x}
 $$</p>
@@ -13320,8 +13316,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2</b>
-</p></div>
+<b>Task 1.2</b></p></div>
 <p>Implement your equations $g(x)$ and $g'(x)$ in the code below, as well as the Newton-Rhapson expression inside the loop. Test the code with the initial guess of $x=10$.</p>
 </div>
 </div>
@@ -13387,8 +13382,7 @@ The solution found is  3.000000000008298  it took  11  iterations to converge.
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3</b>
-</p></div>
+<b>Task 1.3</b></p></div>
 <p>The code is taking 100 iterations without stopping. <strong>Add a condition to the code above to stop the loop once the solution is good enough</strong>, i.e., when the solution is closer than $\epsilon = 10^{-6}$ to the exact solution. How many iterations does it take now to converge?</p>
 </div>
 </div>
@@ -13398,8 +13392,7 @@ The solution found is  3.000000000008298  it took  11  iterations to converge.
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
+<b>Solution</b></p></div>
 <p>4 iterations</p>
 </div>
 </div>
@@ -13409,8 +13402,7 @@ The solution found is  3.000000000008298  it took  11  iterations to converge.
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.4</b>
-</p></div>
+<b>Task 1.4</b></p></div>
 <p>Change the intial guess to  $x=0.01$, which is closer to the exact solution than the initial guess in the previous task. How many iterations does it take to converge? Explain the difference.</p>
 </div>
 </div>
@@ -13420,8 +13412,7 @@ The solution found is  3.000000000008298  it took  11  iterations to converge.
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
+<b>Solution</b></p></div>
 <p>It takes 11 iterations, 7 more than in the previous case despite the guess being closer to the solution. This is because at that location the derivative is close to 0 and if first goes far away from the solution.</p>
 </div>
 </div>
@@ -13431,13 +13422,11 @@ The solution found is  3.000000000008298  it took  11  iterations to converge.
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2</b>
-</p></div>
+<b>Task 2</b></p></div>
 <p>Solve the following ODE using Explicit and Implicit Euler.</p>
-<p>$$
+$$
 \frac{dy}{dt} = \sin(y^3)+\sin(t)
-$$</p>
-<p>with initial value $y(t=0) = 1$</p>
+$$<p>with initial value $y(t=0) = 1$</p>
 </div>
 </div>
 </div>
@@ -13446,8 +13435,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1</b>
-</p></div>
+<b>Task 2.1</b></p></div>
 <p>Write in paper the Explicit and Implicit Euler schemes of the equation above.</p>
 </div>
 </div>
@@ -13457,8 +13445,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
+<b>Solution</b></p></div>
 <p>The Explicit Euler Scheme:
 $$
 y_{i+1} = y_{i} + \Delta t (\sin(y_i^3)+\sin(t_i))
@@ -13475,8 +13462,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2</b>
-</p></div>
+<b>Task 2.2</b></p></div>
 <p>Just as before, Newton-Rhapson must be implemented following:
 $$
 z_{j+1} = z_{j} - g(z_j)/g'(z_j)
@@ -13491,15 +13477,15 @@ where $g(z_j) = 0$ and $z_j$ is a guess and $z_{j+1}$ is the improved guess.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>$$
+<b>Solution</b></p></div>
+$$
 g(y_{i+1}) = y_{i+1}-y_{i} - \Delta t (\sin(y_{i+1}^3)+\sin(t_{i+1}))
-$$</p>
-<p>and</p>
-<p>$$
+$$<p>and</p>
+$$
 g'(y_{i+1}) = 1 - 3\Delta ty_{i+1}^2\cos(y_{i+1}^3)
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -13508,8 +13494,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3</b>
-</p></div>
+<b>Task 2.3</b></p></div>
 <p>Implement the Explicit Euler and Implicit Euler schemes by filling the lines of code below:</p>
 <ul>
 <li>a) Code the functions g() and g'()</li>
@@ -13656,13 +13641,14 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3</b>
-</p></div>
+<b>Task 3</b></p></div>
 <p>Solve the diffusion equation using Central Differences in space and Forward Differences in time. You will do this step by step in the following sub-tasks.</p>
 <p>For convenience we write here the diffusion equation with the temperature variable:</p>
-<p>$$
+$$
 \frac{\partial T}{\partial t}=v\frac{\partial^2 T}{\partial x^2}
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -13671,8 +13657,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.1:</b>
-</p></div>
+<b>Task 3.1:</b></p></div>
 <p>How many constraints are needed in the 1D diffusion equation to have a well-posed problem?</p>
 </div>
 </div>
@@ -13682,8 +13667,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
+<b>Solution</b></p></div>
 <p>One initial condition and two boundary conditions are needed.</p>
 </div>
 </div>
@@ -13693,8 +13677,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.2:</b>
-</p></div>
+<b>Task 3.2:</b></p></div>
 <p>Draw a grid of 6 points with subindexes. Although your actual grid will be much larger, 6 points are enough to visualize the procedure. The initial condition states that the temperature of the rod is $7^o$ C. Does that mean that one single point of your grid is initialized or all of them?</p>
 </div>
 </div>
@@ -13704,11 +13687,12 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>\begin{array}{|c|c|c|c|c|c|c|}
+<b>Solution</b></p></div>
+\begin{array}{|c|c|c|c|c|c|c|}
 T_0^{j} &amp; T_1^{j} &amp; T_2^{j} &amp; T_3^{j} &amp; T_4^{j} &amp; T_5^{j} \\
-\end{array}</p>
+\end{array}
+
+
 </div>
 </div>
 </div>
@@ -13717,8 +13701,7 @@ T_0^{j} &amp; T_1^{j} &amp; T_2^{j} &amp; T_3^{j} &amp; T_4^{j} &amp; T_5^{j} \\
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.3:</b>
-</p></div>
+<b>Task 3.3:</b></p></div>
 <p>Now, the differential equation needs to be expressed in algebraic form using central differences in space AND forward differences in time. <strong>Start by just transforming the PDE into a first-order ODE by ONLY applying Central Differences to the spatial derivative term.</strong></p>
 </div>
 </div>
@@ -13728,11 +13711,12 @@ T_0^{j} &amp; T_1^{j} &amp; T_2^{j} &amp; T_3^{j} &amp; T_4^{j} &amp; T_5^{j} \\
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>$$ 
+<b>Solution</b></p></div>
+$$ 
 \frac{\partial T}{\partial t}\bigg|_i = \nu \frac{T_{i+1}-2T_i+T_{i-1}}{\Delta x^2}
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -13741,10 +13725,9 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.4:</b>
-</p></div>
+<b>Task 3.4:</b></p></div>
 <p>Before applying Forward Differences in time to the equation. You need to add a superscript to the notation that indicates the time step: $T^j_i$. So, $i$ indicates the spatial location and $j$ the time location. For example, $T^0_2$ indicates the temperature at the node $i=2$ and at the initial moment $j=0 (t=0)$.</p>
-<p><em><strong>Hint</strong></em>: To express in a general form node $i$ at the next time step, you can write $T^{j+1}_i$.</p>
+<p>*<strong>Hint</strong>*: To express in a general form node $i$ at the next time step, you can write $T^{j+1}_i$.</p>
 <p><strong>Apply Forward Differences to the equation to obtain an algebraic expression.</strong></p>
 </div>
 </div>
@@ -13754,11 +13737,12 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>$$ 
+<b>Solution</b></p></div>
+$$ 
 T^{j+1}_{i} = T^j_i + \frac{\nu \Delta t}{\Delta x^2} \left(T^j_{i+1}-2T^j_i+T^j_{i-1}\right)
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -13767,8 +13751,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.5:</b>
-</p></div>
+<b>Task 3.5:</b></p></div>
 <p>Finally, some coding! Let's start with defining the parameters and creating the grid. <strong>Fill in the missing parts of the code.</strong></p>
 </div>
 </div>
@@ -13821,8 +13804,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.6:</b>
-</p></div>
+<b>Task 3.6:</b></p></div>
 <p>Define the initial conditions and the boundary conditions. <strong>Fill in the missing parts of the code.</strong></p>
 <p>We define a 2-dimensional Numpy array <code></code>T where the first index, <code></code>j, represents time and the second index, <code></code>i, represents space, for example: <code></code>T[j, i]. Initialize <code></code>T with a matrix of zeros.</p>
 </div>
@@ -13855,8 +13837,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.7:</b>
-</p></div>
+<b>Task 3.7:</b></p></div>
 <p>Write in paper the equations that come out from your algebraic representation of the diffusion equation, solving for the unknowns. Use it then to write the matrix A, the unknown vector T and vector b. As in the workshop and textbook, the <code></code>A matrix consists only of the unknowns in the problem.</p>
 </div>
 </div>
@@ -13866,9 +13847,8 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>$$
+<b>Solution</b></p></div>
+$$
 AT = b\\
 
 T = \begin{bmatrix}
@@ -13894,7 +13874,9 @@ T^j_{n-1} + \frac{\nu \Delta t}{\Delta x^2} \left(T^j_{n-2}-2T^j_{n-1}+T^j_{n}\r
 \end{bmatrix}
 
 
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -13927,8 +13909,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.8:</b>
-</p></div>
+<b>Task 3.8:</b></p></div>
 <p>Use this code cell if you would like to verify your numerical implementation. For example, to visualize the temperature profile at different time steps.</p>
 </div>
 </div>
@@ -13974,8 +13955,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>NOTE</b>
-</p></div>
+<b>NOTE</b></p></div>
 <p>The widget will not work in html form. Here is an image with sample values of t:</p>
 <p><img alt="image3" src=".%5Cfigures%5Cts.png"/></p>
 </div>
@@ -13986,8 +13966,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.9:</b>
-</p></div>
+<b>Task 3.9:</b></p></div>
 <p>Describe the time evolution of the temperature along the rod. Does the temperature reach a steady-state? What does that mean for heat flow?</p>
 <p>Write your answer in the following markdown cell.</p>
 </div>
@@ -13998,8 +13977,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
+<b>Solution</b></p></div>
 <p>Your plots should show at the beginning temperatures of $38^oC$ and $25^oC$ at the edges and $7^oC$ elsewhere. As time progresses, you can notice how the temperature increases through the rod and eventually becomes a constant gradient across the length of the rod, indicating a steady-state.</p>
 </div>
 </div>
@@ -14009,13 +13987,11 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4</b>
-</p></div>
+<b>Task 4</b></p></div>
 <p>Alter the right boundary condition, with the following equation:</p>
-<p>$$
+$$
 u^t_{x=L} = 25 + 10 \sin \left(\frac{2\pi t}{period}\right)
-$$</p>
-<p>where L refers to the last point of the rod. Put your whole code together in a single cell. Copy the code cells from task 3.5 until task 3.8. Modify the right boundary condition as stated above, the period is 6000 seconds.</p>
+$$<p>where L refers to the last point of the rod. Put your whole code together in a single cell. Copy the code cells from task 3.5 until task 3.8. Modify the right boundary condition as stated above, the period is 6000 seconds.</p>
 </div>
 </div>
 </div>
@@ -14077,8 +14053,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>NOTE</b>
-</p></div>
+<b>NOTE</b></p></div>
 <p>The widget will not work in html form. Here is an image with sample values of t:</p>
 <p><img alt="image3" src=".%5Cfigures%5Cts.png"/></p>
 </div>
@@ -14089,8 +14064,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 5</b>
-</p></div>
+<b>Task 5</b></p></div>
 <p>Solve the diffusion equation using Central Differences in space but <strong>now with Backward Differences in time</strong>. You will do this step by step (subtasks). Just as before.</p>
 </div>
 </div>
@@ -14100,8 +14074,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 5.1:</b>
-</p></div>
+<b>Task 5.1:</b></p></div>
 <p>Draw the stencils (two in total) of this equation when solving it with Central Differences in space and <strong>Forward Differences in time</strong> and when solving it with Central Differences in space and <strong>Backward Differences in time</strong>.</p>
 </div>
 </div>
@@ -14111,8 +14084,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
+<b>Solution</b></p></div>
 <p><img alt="image3" src=".%5Cfigures%5Cstencils.png"/></p>
 </div>
 </div>
@@ -14122,8 +14094,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 5.2:</b>
-</p></div>
+<b>Task 5.2:</b></p></div>
 <p>Now, the differential equation needs to be expressed in algebraic form using central differences in space and forward differences in time. <strong>Start by just transforming the PDE into a first-order ODE by ONLY applying Central Differences to the spatial derivative term.</strong></p>
 </div>
 </div>
@@ -14133,11 +14104,12 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>$$ 
+<b>Solution</b></p></div>
+$$ 
 \frac{\partial T}{\partial t}\bigg|_i = \nu \frac{T_{i+1}-2T_i+T_{i-1}}{\Delta x^2}
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -14146,8 +14118,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 5.3:</b>
-</p></div>
+<b>Task 5.3:</b></p></div>
 <p><strong>Apply Backward Differences to the equation to obtain an algebraic expression.</strong></p>
 </div>
 </div>
@@ -14157,11 +14128,12 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>$$ 
+<b>Solution</b></p></div>
+$$ 
 T^{j+1}_{i} = T^j_i + \frac{\nu \Delta t}{\Delta x^2} \left(T^{j+1}_{i+1}-2T^{j+1}_i+T^{j+1}_{i-1}\right)
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -14170,8 +14142,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 5.4:</b>
-</p></div>
+<b>Task 5.4:</b></p></div>
 <p>Write in paper the equations that come out from your algebraic representation of the diffusion equation, solving for the unknowns. Use it then to write the matrix A, the unknown vector T and vector b.</p>
 </div>
 </div>
@@ -14181,9 +14152,8 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution</b>
-</p></div>
-<p>$$
+<b>Solution</b></p></div>
+$$
 AT = b\\
 
 T = \begin{bmatrix}
@@ -14209,7 +14179,9 @@ T_{N-1}^j + \frac{\nu \Delta t}{\Delta x^2}T_N^j
 \end{bmatrix}
 
 
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -14218,8 +14190,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 5.5</b>
-</p></div>
+<b>Task 5.5</b></p></div>
 <p>Copy the code of task 4 and make sure to use the Dirichlet conditions of task 3: constant Dirichlet conditions. Implement the Implicit scheme by modifying the code of how the matrix A and vector b are built.</p>
 </div>
 </div>
@@ -14285,8 +14256,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>NOTE</b>
-</p></div>
+<b>NOTE</b></p></div>
 <p>The widget will not work in html form. Here is a gif of the widget in action:</p>
 </div>
 </div>
@@ -14296,14 +14266,13 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
 <p>
-<b>NOTE</b>
-</p></div>
+<b>NOTE</b></p></div>
 <p>If strange "spikes" are occurring near the boundaries of your grid, this is caused by the way we assign the values of <code></code>b and the way in which they are stored in the computer memory by Numpy. We won't go into the details here, but the "fix" to make your plot look correct is to add <code></code>.copy() when defining <code></code>b. For example:</p>
 <p><code></code>b = T[YOUR_CODE_HERE, YOUR_CODE_HERE].copy()</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=256c8bd7"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=c8a9f5d7"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14320,9 +14289,11 @@ $$</p>
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

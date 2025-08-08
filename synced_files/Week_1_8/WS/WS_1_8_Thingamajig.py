@@ -391,8 +391,10 @@ axes.grid()
 #     </a>
 #   </div>
 #   <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-#     &copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a> TU Delft. 
-#     This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+#     By <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE Team</a>
+#     &copy; 2024 TU Delft. 
+#     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+#     <a rel="Zenodo DOI" href="https://doi.org/10.5281/zenodo.16782515"><img style="width:auto; height:15; vertical-align:middle" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" alt="DOI https://doi.org/10.5281/zenodo.16782515"></a>
 #   </div>
 # </div>
 #

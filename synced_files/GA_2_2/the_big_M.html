@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -27,7 +27,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13213,40 +13212,26 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Finite-element-formulation-for-the-diffusion-equation">Finite element formulation for the diffusion equation<a class="anchor-link" href="#Finite-element-formulation-for-the-diffusion-equation">¶</a></h2><p>In this assignment we will model the heat equation in 2D on a geometry that is non-trivial. Let us first recall the diffusion equation with source term:</p>
-<p>$$\frac{\partial u}{\partial t} = \nu \left(\frac{\partial^{2} u}{{\partial x}^{2}} + \frac{\partial^{2} u}{{\partial y}^{2}}\right) + f$$</p>
-<p>with Dirichlet boundary conditions (prescribed values $\bar{u}$) on part of the boundary ($\Gamma_D$) and Neumann boundary conditions (prescribed flux $h$) on the remainder of the boundary ($\Gamma_N$):</p>
-<p>$$
+$$\frac{\partial u}{\partial t} = \nu \left(\frac{\partial^{2} u}{{\partial x}^{2}} + \frac{\partial^{2} u}{{\partial y}^{2}}\right) + f$$<p>with Dirichlet boundary conditions (prescribed values $\bar{u}$) on part of the boundary ($\Gamma_D$) and Neumann boundary conditions (prescribed flux $h$) on the remainder of the boundary ($\Gamma_N$):</p>
+$$
 u =\bar{u} \quad \text{on} \quad \Gamma_D \\
 \nu \nabla u\cdot \mathbf{n} = h \quad \text{on} \quad \Gamma_N
-$$</p>
-<p>Here, the diffusion equation is interpreted as the heat equation, meaning that the unknown field $u(x,y,t)$ is the temperature and the source term $f$ is a heat source. This equation can be turned into a discretized form with the standard finite element procedure. Finite elements are only used for the discretization in space, discretization in time will be discussed later.</p>
-<p>$$ \left[\int_{\Omega} \mathbf{N}^T \mathbf{N} \,d \Omega\right] \dot{\mathbf{u}} + \left[\int_{\Omega} \mathbf{B}^T \nu \mathbf{B} \,d \Omega\right] \mathbf{u} = \int_{\Omega} \mathbf{N}^T f \,d \Omega + \int_{\Gamma_N} \mathbf{N}^T h \,d \Gamma$$</p>
-<p>With respect to the Poisson equation in 1D there are several differences:</p>
+$$<p>Here, the diffusion equation is interpreted as the heat equation, meaning that the unknown field $u(x,y,t)$ is the temperature and the source term $f$ is a heat source. This equation can be turned into a discretized form with the standard finite element procedure. Finite elements are only used for the discretization in space, discretization in time will be discussed later.</p>
+$$ \left[\int_{\Omega} \mathbf{N}^T \mathbf{N} \,d \Omega\right] \dot{\mathbf{u}} + \left[\int_{\Omega} \mathbf{B}^T \nu \mathbf{B} \,d \Omega\right] \mathbf{u} = \int_{\Omega} \mathbf{N}^T f \,d \Omega + \int_{\Gamma_N} \mathbf{N}^T h \,d \Gamma$$<p>With respect to the Poisson equation in 1D there are several differences:</p>
 <ul>
 <li>There is a time-dependent term</li>
 <li>Neumann boundary conditions are evaluated in a boundary integral which is now a line integral</li>
 <li>The $\mathbf{B}$-matrix is now truly a matrix (no longer a row vector) defined as $\nabla\mathbf{N}$</li>
 </ul>
 <p>Using the  symbol $\mathbf{M}$ for the matrix associated with $\dot{\mathbf{u}}$, we can write:</p>
-<p>$$ \mathbf{M \dot{u}} + \mathbf{K u} = \mathbf{f}$$</p>
-<p>where:</p>
-<p>$$ \mathbf{M} = \int_{\Omega} \mathbf{N}^T \mathbf{N} \,d \Omega$$</p>
-<p>$$ \mathbf{K} = \int_{\Omega} \mathbf{B}^T \nu \mathbf{B} $$</p>
-<p>$$ \mathbf{f} = \int_{\Omega} \mathbf{N}^T f \,d \Omega + \int_{\Gamma_N} \mathbf{N}^T h \,d \Gamma $$</p>
-<p>Now we have introduced a spatial discretization of the time-dependent Partial Differential Equation, we still need to find a way to solve it in time. Suppose we know the solution up to time step $n$ (in the beginning of the analysis, that will be the initial conditions). To compute the result at time-step $n+1$ we want to solve the following equation:</p>
-<p>$$ \mathbf{M \dot{u}}_{n+1} + \mathbf{K u}_{n+1} = \mathbf{f}_{n+1}$$</p>
-<p>The problem is however that there are two unknown vectors in this equation. The nodal temperatures $\mathbf{u}$ at as well as their time derivative. However, these two are not independent. We can express  at time step $n+1$ as a function of the temperature and the rate of change at time step $n$ using backward Euler:</p>
-<p>$$ \mathbf{u}_{n+1} = \mathbf{u}_{n} + \Delta t \space \mathbf{\dot{u}}_{n+1}$$</p>
-<p>Rearranging this equation gives:</p>
-<p>$$ \mathbf{\dot{u}}_{n+1} = \frac{\mathbf{u}_{n+1} - \mathbf{u}_{n}}{\Delta t}$$</p>
-<p>This relation is applied on every entry in the $\mathbf{\dot{u}}$ vector to arrive at an equation with only one vector with unknown values:</p>
-<p>$$ \mathbf{M} \frac{\mathbf{u}_{n+1} - \mathbf{u}_{n}}{\Delta t} + \mathbf{K u}_{n+1} = \mathbf{f}_{n+1}$$</p>
-<p>Rearranging to get all the unknown terms to the left hand side gives:</p>
-<p>$$ \mathbf{M} \frac{\mathbf{u}_{n+1}}{\Delta t} + \mathbf{K u}_{n+1} = \mathbf{M} \frac{\mathbf{u}_{n}}{\Delta t} + \mathbf{f}_{n+1}$$</p>
-<p>$$ \left(\frac{1}{\Delta t} \mathbf{M}  + \mathbf{K} \right) \mathbf{u}_{n+1} = \frac{1}{\Delta t} \mathbf{M} \mathbf{u}_{n} + \mathbf{f}_{n+1}$$</p>
-<p>which is a linear system of equations that can be solved for $\mathbf{u}_{n+1}$:</p>
-<p>$$ \mathbf{u}_{n+1} = \left(\frac{1}{\Delta t} \mathbf{M}  + \mathbf{K} \right)^{-1} \left( \frac{1}{\Delta t} \mathbf{M} \mathbf{u}_{n} + \mathbf{f}_{n+1} \right)$$</p>
-<p><strong>Remark</strong>: although we are working with the finite element method, for the time discretization we have introduced an approximation for the derivative, just as in the finite difference method. It is also possible to discretize in time with shape functions, to arrive at the <em>space-time finite element method</em>, but the option chosen in this notebook is the more common one.</p>
+$$ \mathbf{M \dot{u}} + \mathbf{K u} = \mathbf{f}$$<p>where:</p>
+$$ \mathbf{M} = \int_{\Omega} \mathbf{N}^T \mathbf{N} \,d \Omega$$$$ \mathbf{K} = \int_{\Omega} \mathbf{B}^T \nu \mathbf{B} $$$$ \mathbf{f} = \int_{\Omega} \mathbf{N}^T f \,d \Omega + \int_{\Gamma_N} \mathbf{N}^T h \,d \Gamma $$<p>Now we have introduced a spatial discretization of the time-dependent Partial Differential Equation, we still need to find a way to solve it in time. Suppose we know the solution up to time step $n$ (in the beginning of the analysis, that will be the initial conditions). To compute the result at time-step $n+1$ we want to solve the following equation:</p>
+$$ \mathbf{M \dot{u}}_{n+1} + \mathbf{K u}_{n+1} = \mathbf{f}_{n+1}$$<p>The problem is however that there are two unknown vectors in this equation. The nodal temperatures $\mathbf{u}$ at as well as their time derivative. However, these two are not independent. We can express  at time step $n+1$ as a function of the temperature and the rate of change at time step $n$ using backward Euler:</p>
+$$ \mathbf{u}_{n+1} = \mathbf{u}_{n} + \Delta t \space \mathbf{\dot{u}}_{n+1}$$<p>Rearranging this equation gives:</p>
+$$ \mathbf{\dot{u}}_{n+1} = \frac{\mathbf{u}_{n+1} - \mathbf{u}_{n}}{\Delta t}$$<p>This relation is applied on every entry in the $\mathbf{\dot{u}}$ vector to arrive at an equation with only one vector with unknown values:</p>
+$$ \mathbf{M} \frac{\mathbf{u}_{n+1} - \mathbf{u}_{n}}{\Delta t} + \mathbf{K u}_{n+1} = \mathbf{f}_{n+1}$$<p>Rearranging to get all the unknown terms to the left hand side gives:</p>
+$$ \mathbf{M} \frac{\mathbf{u}_{n+1}}{\Delta t} + \mathbf{K u}_{n+1} = \mathbf{M} \frac{\mathbf{u}_{n}}{\Delta t} + \mathbf{f}_{n+1}$$$$ \left(\frac{1}{\Delta t} \mathbf{M}  + \mathbf{K} \right) \mathbf{u}_{n+1} = \frac{1}{\Delta t} \mathbf{M} \mathbf{u}_{n} + \mathbf{f}_{n+1}$$<p>which is a linear system of equations that can be solved for $\mathbf{u}_{n+1}$:</p>
+$$ \mathbf{u}_{n+1} = \left(\frac{1}{\Delta t} \mathbf{M}  + \mathbf{K} \right)^{-1} \left( \frac{1}{\Delta t} \mathbf{M} \mathbf{u}_{n} + \mathbf{f}_{n+1} \right)$$<p><strong>Remark</strong>: although we are working with the finite element method, for the time discretization we have introduced an approximation for the derivative, just as in the finite difference method. It is also possible to discretize in time with shape functions, to arrive at the <em>space-time finite element method</em>, but the option chosen in this notebook is the more common one.</p>
 </div>
 </div>
 </div>
@@ -13255,8 +13240,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Todays task</b>
-</p></div>
+<b>Todays task</b></p></div>
 <p>Below, the code for analysis of a 2D diffusion problem is given. The implementation follows the formulation introduced above. Run the analysis and inspect code and results to answer the questions in  <code></code>Report.md.</p>
 </div>
 </div>
@@ -13667,7 +13651,7 @@ For the sliders in the second and third visualization to work, it is recommended
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=65b56fe1"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=be98ee04"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13684,9 +13668,11 @@ For the sliders in the second and third visualization to work, it is recommended
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

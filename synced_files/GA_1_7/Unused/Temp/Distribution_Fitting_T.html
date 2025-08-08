@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13239,16 +13238,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=b26d81da-b5a7-44b0-8049-eec218ab84e2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Case-1:-Wave-impacts-on-a-crest-wall">Case 1: Wave impacts on a crest wall<a class="anchor-link" href="#Case-1:-Wave-impacts-on-a-crest-wall">¶</a></h2><p>**What's the propagated uncertainty? *How large will be the horizontal force?***</p>
+<h2 id="Case-1:-Wave-impacts-on-a-crest-wall">Case 1: Wave impacts on a crest wall<a class="anchor-link" href="#Case-1:-Wave-impacts-on-a-crest-wall">¶</a></h2><p><strong>What's the propagated uncertainty? *How large will be the horizontal force?</strong>*</p>
 <p>In this project, you have chosen to work on the uncertainty of wave periods and wave heights in the Alboran sea to estimate the impacts on a crest wall: a concrete element installed on top of mound breakwater. You have observations from buoys of the significant wave height ($H$) and the peak wave period ($T$) each hour for several years. As you know, $H$ and $T$ are hydrodynamic variables relevant to estimate wave impacts on the structure. The maximum horizontal force (exceeded by 0.1% of incoming waves) can be estimated using the following equation (USACE, 2002).</p>
-<p>$$
+$$
 F_h = \left( A_1 + A_2 \frac{H}{A_c} \right) \rho g C_h L_{0p}
-$$</p>
-<p>where $A_1=-0.016$ and $A_2=0.025$ are coefficients that depend on the geometry of the structure, $A_c=3m$ is the elevation of the frontal berm of the structure, $\rho$ is the density of water, $g$ is the gravity acceleration, $C_h=2m$ is the crown wall height, and $L_{0p}=\frac{gT^2}{2\pi}$ is the wave length in deep waves. Thus, the previous equation is reduced to</p>
-<p>$$
+$$<p>where $A_1=-0.016$ and $A_2=0.025$ are coefficients that depend on the geometry of the structure, $A_c=3m$ is the elevation of the frontal berm of the structure, $\rho$ is the density of water, $g$ is the gravity acceleration, $C_h=2m$ is the crown wall height, and $L_{0p}=\frac{gT^2}{2\pi}$ is the wave length in deep waves. Thus, the previous equation is reduced to</p>
+$$
 F_h = 255.4 H T^2 -490.4 T^2
-$$</p>
-<p><strong>The goal of this project is:</strong></p>
+$$<p><strong>The goal of this project is:</strong></p>
 <ol>
 <li>Choose a reasonable distribution function for $H$ and $T$.</li>
 <li>Fit the chosen distributions to the observations of $H$ and $T$.</li>
@@ -13719,8 +13716,7 @@ Interpret the results of the GOF techniques. How does the selected parametric di
 <p>Using the fitted distributions, we are going to propagate the uncertainty from $H$ and $T$ to $F_h$ <strong>assuming that $H$ and $T$ are independent</strong>.</p>
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 7:</b>
-</p></div>
+<b>Task 7:</b></p></div>
 <ol>
 <li><p>Draw 10,000 random samples from the fitted distribution functions for $H$ and $T$.</p>
 </li>
@@ -13816,8 +13812,7 @@ Interpret the figures above, answering the following questions:
 <p>If you run the code in the cell below, you will obtain a scatter plot of both variables. Explore the relationship between both variables and answer the following questions:</p>
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 9:</b>
-</p></div>
+<b>Task 9:</b></p></div>
 <ol>
 <li><p>Observe the plot below. What differences do you observe between the generated samples and the observations?</p>
 </li>
@@ -13856,7 +13851,7 @@ Interpret the figures above, answering the following questions:
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=e126a9db"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=2e3dae8b"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13873,9 +13868,11 @@ Interpret the figures above, answering the following questions:
 </img></a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

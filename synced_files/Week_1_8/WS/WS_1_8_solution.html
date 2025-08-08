@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13242,34 +13241,28 @@ div#notebook {
 <h2 id="Objective">Objective<a class="anchor-link" href="#Objective">¶</a></h2><p>This workshop focuses fundamental skills for building, using and understanding multivariate distributions: in particular when our variables are no longer statistically independent.</p>
 <p>For our case study we will use a Thingamajig: an imaginary object for which we have limited information. One thing we <em>do</em> know, however, is that it is very much influenced by two random variables, $X_1$ and $X_2$: high values for these variables can cause the Thingamajig to fail. We will use a multivariate probability distribution to compute the probability of interest under various <em>cases</em> (we aren't sure which one is relevant, so we consider them all!). We will also use a comparison of distributions drawn from our multivariate probability model with the empirical distributions to validate the model.</p>
 <h3 id="Multivariate-Distribution">Multivariate Distribution<a class="anchor-link" href="#Multivariate-Distribution">¶</a></h3><p>In this assignment we will build a multivariate distribution, which is defined by a probability density function. From now on, we will call it <em>bivariate</em>, since there are only two random variables:</p>
-<p>$$
+$$
 f_{X_1,X_2}(x_1,x_2)
-$$</p>
-<p>This distribution is implemented in <code>scipy.stats.multivariate_normal</code>. The bivariate normal distribution is defined by 5 parameters: the parameters of the Gaussian distribution for $X_1$ and $X_2$, as well as the correlation coefficient between them, $\rho_{X_1,X_2}$. In this case we often refer to $X_1$ and $X_2$ as the marginal variables (univariate) and the bivariate distribution as the joint distribution. We will use the bivariate PDF to create contour plots of probability density, as well as the CDF to evaluate probabilities of different cases:</p>
-<p>$$
+$$<p>This distribution is implemented in <code>scipy.stats.multivariate_normal</code>. The bivariate normal distribution is defined by 5 parameters: the parameters of the Gaussian distribution for $X_1$ and $X_2$, as well as the correlation coefficient between them, $\rho_{X_1,X_2}$. In this case we often refer to $X_1$ and $X_2$ as the marginal variables (univariate) and the bivariate distribution as the joint distribution. We will use the bivariate PDF to create contour plots of probability density, as well as the CDF to evaluate probabilities of different cases:</p>
+$$
 F_{X_1,X_2}(x_1,x_2)
-$$</p>
-<h3 id="Cases">Cases<a class="anchor-link" href="#Cases">¶</a></h3><p>We will consider three different cases and see how the probability of interest is different for each, as well as how they are influenced by the dependence structure of the data. The cases are described here; although they vary slightly, they have something in common: <em>they are all integrals of the bivariate PDF over some domain of interest $\Omega$.</em></p>
+$$<h3 id="Cases">Cases<a class="anchor-link" href="#Cases">¶</a></h3><p>We will consider three different cases and see how the probability of interest is different for each, as well as how they are influenced by the dependence structure of the data. The cases are described here; although they vary slightly, they have something in common: <em>they are all integrals of the bivariate PDF over some domain of interest $\Omega$.</em></p>
 <h4 id="Case-1:-Union-(OR)">Case 1: Union (OR)<a class="anchor-link" href="#Case-1:-Union-(OR)">¶</a></h4><p>The union case is relevant if the Thingamajig fails when either or both random variable exceeds a specified value:</p>
-<p>$$
+$$
 P[X_1&gt;x_1 \;\cup\; X_2&gt;x_2]
-$$</p>
-<p>This is also called the "OR" probability because it considers either one variable <em>or</em> the other <em>or</em> both exceeding a specified value.</p>
+$$<p>This is also called the "OR" probability because it considers either one variable <em>or</em> the other <em>or</em> both exceeding a specified value.</p>
 <h4 id="Case-2:-Intersection-(AND)">Case 2: Intersection (AND)<a class="anchor-link" href="#Case-2:-Intersection-(AND)">¶</a></h4><p>The intersection case is relevant if the Thingamajig fails when the specified interval for each random variable are exceeded together:</p>
-<p>$$
+$$
 P[X_1&gt;x_1 \;\cap\; X_2&gt;x_2]
-$$</p>
-<p>This is also called the "AND" probability because it considers <em>both</em> variables exceeding a specified value.</p>
+$$<p>This is also called the "AND" probability because it considers <em>both</em> variables exceeding a specified value.</p>
 <h4 id="Case-3:-Function-of-Random-Variables">Case 3: Function of Random Variables<a class="anchor-link" href="#Case-3:-Function-of-Random-Variables">¶</a></h4><p>Often it is not possible to describe a region of interest $\Omega$ as a simple union or intersection probability. Instead, there are many combinations of $X_1$ and $X_2$ that define $\Omega$. If we can integrate the probability density function over this region we can evaluate the probability.</p>
 <p>Luckily, it turns out there is some extra information about the Thingamajig: a function that describes some aspect of its behavior that we are very very interested in:</p>
-<p>$$
+$$
 Z(X_{1},X_{2}) = 800 - X_{1}^2 - 20X_{2}
-$$</p>
-<p>where the condition in which we are interested occurs when $Z(X_{1},X_{2})&lt;0$. Thus, the probability of interest is:</p>
-<p>$$
+$$<p>where the condition in which we are interested occurs when $Z(X_{1},X_{2})&lt;0$. Thus, the probability of interest is:</p>
+$$
 P[X_1,X_2:\; Z&lt;0]
-$$</p>
-<h4 id="Evaluating-Probabilities-in-Task-2">Evaluating Probabilities in Task 2<a class="anchor-link" href="#Evaluating-Probabilities-in-Task-2">¶</a></h4><p>Cases 1 and 2 can be evaluated with the bivariate cdf directly because the integral bounds are relatively simple (be aware that some arithmetic and thinking is required, it's not so simple as <code>multivariate.cdf()</code>).</p>
+$$<h4 id="Evaluating-Probabilities-in-Task-2">Evaluating Probabilities in Task 2<a class="anchor-link" href="#Evaluating-Probabilities-in-Task-2">¶</a></h4><p>Cases 1 and 2 can be evaluated with the bivariate cdf directly because the integral bounds are relatively simple (be aware that some arithmetic and thinking is required, it's not so simple as <code>multivariate.cdf()</code>).</p>
 <p>Case 3 is not easy to evaluate because it must be integrated over a complicated region. Instead, we will approximate the integral numerically using <em>Monte Carlo simulation</em> (MCS). This is also how we will evaluate the distribution of the function of random variables in Task 3. Remember, there are four essential steps to MCS:</p>
 <ol>
 <li>Define distributions for random variables (probability density over a domain)</li>
@@ -13414,8 +13407,7 @@ In addition to the code above, you should use some of the techniques from WS 1.7
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
 <b>Task 1.2:</b>   
-Write two functions to compute the covariance and correlation coefficient between the two random variables. Print the results.
-</p></div>
+Write two functions to compute the covariance and correlation coefficient between the two random variables. Print the results.</p></div>
 <p><b></b>The input arguments should be Numpy arrays and you should calculate each value without using a pre-existing Python package or method.</p>
 </div>
 </div>
@@ -13499,8 +13491,7 @@ Build the bivariate distribution using <code>scipy.stats.multivariate_normal</co
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=f9ee9c39-6e6a-4257-9746-fdf118eef8aa"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Use the helper function <code>plot_contour</code> in <code>helper.py</code>; it was already imported above. Either look in the file to read it, or view the documentation in the notebook with <code>plot_contour?</code></p>
-</div>
+<div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Use the helper function <code>plot_contour</code> in <code>helper.py</code>; it was already imported above. Either look in the file to read it, or view the documentation in the notebook with <code>plot_contour?</code></p></div>
 <p><em>Hint: for this Task use the optional </em><code>data</code><em> argument!.</em></p>
 </div>
 </div>
@@ -13560,8 +13551,7 @@ Build the bivariate distribution using <code>scipy.stats.multivariate_normal</co
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=16238d69"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>The next cell illustrates how one could fit the multivariate Gaussian distribution using scipy.stats and MLE. Look at the resulting mean vector and covariance matrix...cool, the Gaussian distribution is the same regardless of whether you use the MLE or method of moments!
-</p></div>
+<div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>The next cell illustrates how one could fit the multivariate Gaussian distribution using scipy.stats and MLE. Look at the resulting mean vector and covariance matrix...cool, the Gaussian distribution is the same regardless of whether you use the MLE or method of moments!</p></div>
 <p><em></em>Note: this is not true for all multivariate distributions; the multivariate Gaussian is a special case.</p>
 </div>
 </div>
@@ -13626,8 +13616,7 @@ Overall the fit looks good:
 <li>Highest density of points is near the center of the contours (mode)</li>
 <li>Diagonal trend (positive correlation!) is captured well</li>
 <li>There are a few clusters of points that "stick out" from the contours, especially in the upper right</li>
-</ol>
-</p></div>
+</ol></p></div>
 </div>
 </div>
 </div>
@@ -13648,8 +13637,7 @@ Overall the fit looks good:
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2:</b>
-</p></div>
+<b>Task 2:</b></p></div>
 <p>For each of the three cases, do the following:</p>
 <ul>
 <li>Compute the requested probability using the empirical distribution.</li>
@@ -13664,8 +13652,7 @@ Overall the fit looks good:
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=bdab1a35-4e2f-42a2-804c-17f7f0917b6a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Note that the optional arguments in the helper function <code>plot_contour</code> will be useful here--<b>also for the Project on Friday!</b>
-</p></div>
+<div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Note that the optional arguments in the helper function <code>plot_contour</code> will be useful here--<b>also for the Project on Friday!</b></p></div>
 <p>Here is an example code that shows you what it can do (the values are meaningless)</p>
 </div>
 </div>
@@ -13700,8 +13687,7 @@ Overall the fit looks good:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 2.1 and 2.2: create cells below to carry out the OR and AND calculations.</p>
 </div>
 </div>
@@ -13723,8 +13709,7 @@ Overall the fit looks good:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 2.3: create cells below to carry out the Case 3 calculations.</p>
 <p>Note that in this case you need to make the plot to visualize the region over which we want to integrate. We need to define the boundary of the region of interest by solving the equation $Z(X_1,X_2)$ for $X_2$ when $Z=0$.</p>
 </div>
@@ -13734,10 +13719,9 @@ Overall the fit looks good:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The equation can be defined as follows:</p>
-<p>$$
+$$
 \textrm{WRITE THE EQUATION HERE}
-$$</p>
-<p>which is then defined in Python and included in the <code>plot_contours</code> function as an array for the keyword argument <code>region</code>.</p>
+$$<p>which is then defined in Python and included in the <code>plot_contours</code> function as an array for the keyword argument <code>region</code>.</p>
 </div>
 </div>
 </div>
@@ -13927,9 +13911,9 @@ Case 2, Intersection: 0.00100
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Case-3">Case 3<a class="anchor-link" href="#Case-3">¶</a></h3><p>Now for the function of random variables. First we will make the plot to visualize the region over which we want to integrate. We need to define the boundary of the region of interest by solving the equation $Z(X_1,X_2)$ for $X_2$ when $Z=0$:</p>
-<p>$$
+$$
 X_2 = 40 - \frac{X_1^2}{20}
-$$</p>
+$$
 </div>
 </div>
 </div>
@@ -14126,8 +14110,7 @@ The empirical probability is 0.002.
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-We do not include the calculations for the different correlation coefficients here for compactness. All you need to do is define a new mulitivariate normal object and redefine the covariance matrix, then re-run the analyses (actually, it's best to do it in a function, which returns the probabilities of interest).
-</p></div>
+We do not include the calculations for the different correlation coefficients here for compactness. All you need to do is define a new mulitivariate normal object and redefine the covariance matrix, then re-run the analyses (actually, it's best to do it in a function, which returns the probabilities of interest).</p></div>
 <p>Some key observations about the calculated probabilities (not exhaustive):</p>
 <ol>
 <li>Higher positive dependence increases probability for all cases.</li>
@@ -14135,7 +14118,6 @@ We do not include the calculations for the different correlation coefficients he
 <li>Negative correlation decreases probability for cases 2 and 3, but increases probability for case 1.</li>
 </ol>
 You should be able to confirm these observations by considering how the contours of probability density change relative to the region of interest, as well as by computing them numerically.
-
 
 
 
@@ -14171,8 +14153,7 @@ You should be able to confirm these observations by considering how the contours
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 3:}$</p>
 <p>Do the following:</p>
 <ul>
@@ -14189,8 +14170,7 @@ You should be able to confirm these observations by considering how the contours
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution}$</p>
 <p>Two plots were created below to compare the distributions from the data (empirical) and MCS sample, which is based on the probability "model"---our bivariate distribution. It is clear that the fit is not great: although the upper tail looks like a good fit (third figure), the first and second figures clearly show that the lower tail (see, e.g., value of $Z=0$) and center of the distribution (see, e.g., the mode) differ by around 100 units.</p>
 <p>The reason why is best explained by looking at the bivariate plot above from Task 1: we can see that the data is not well matched by the probability density contours in the upper right corner of the figure, which is precisely where our region of interest is (when $Z&lt;0$). Whether or not the model is "good enough" depends on what values of $Z$ we are interested (we might need more information about the Thingamajig). Since we have focused on the condition where $Z&lt;0$, which does not have a good fit, we should not accept this model and consider a different multivariate model for $f_{X_1,X_2}(x_1,x_2)$.</p>
@@ -14211,8 +14191,7 @@ You should be able to confirm these observations by considering how the contours
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 3.1: Plot histograms of $Z$ based on the Monte Carlo samples, and based on the data. Note that you probably already computed the samples in Part 2.</p>
 </div>
 </div>
@@ -14263,8 +14242,7 @@ You should be able to confirm these observations by considering how the contours
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 3.2: Define a function to compute the ecdf.</p>
 </div>
 </div>
@@ -14295,8 +14273,7 @@ You should be able to confirm these observations by considering how the contours
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 3.3: Create a semi-log plot of the non-exceedance probability.</p>
 </div>
 </div>
@@ -14351,8 +14328,7 @@ You should be able to confirm these observations by considering how the contours
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 3.4: Create a semi-log plot of the exceedance probability.</p>
 </div>
 </div>
@@ -14410,7 +14386,7 @@ You should be able to confirm these observations by considering how the contours
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=80a78489"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=cd4537d9"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14427,9 +14403,11 @@ You should be able to confirm these observations by considering how the contours
 </img></a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

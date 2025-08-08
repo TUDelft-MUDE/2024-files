@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13254,10 +13253,9 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You have 12 monthly measurements of the height of a point on a glacier. The measurements are obtained from a satellite laser altimeter. The observations are given in the code below.</p>
 <p>We will fit a model assuming a linear trend (constant velocity) to account for the melting, plus an annual signal due to the seasonal impact on ice. Formulating a generalized form of this model is part of your task below. Note, however, that the periodic signal can be implemented in many ways. For this assignment you can assume that the periodic term is implemented as follows:</p>
-<p>$$
+$$
 \cos(2 \pi t / 12 + \phi)
-$$</p>
-<p>where $\phi$ is the phase angle, which we will assume is 0 for this workshop and will leave out of the model formulation in order to keep our model linear (i.e., leave the $\phi$ out of the A-matrix).</p>
+$$<p>where $\phi$ is the phase angle, which we will assume is 0 for this workshop and will leave out of the model formulation in order to keep our model linear (i.e., leave the $\phi$ out of the A-matrix).</p>
 <p>The precision (1 $\sigma$) of the first six observations is 0.7 meter, the last six observations have a precision of 2 meter due to a change in the settings of the instrument. All observations are mutually independent.</p>
 </div>
 </div>
@@ -13266,14 +13264,12 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution (note)}$</p>
 <p>One goal of the assignment was to formulate the model yourself (via the A-matrix). The complete form can also be described using the following analytic expression:</p>
-<p>$$
+$$
 y = x_1 + x_2 t + x_3cos(2 \pi t / 12 + \phi)
-$$</p>
-<p>Although it may initially seem that the periodic term leaves out the amplitude, you should recognize that the amplitude is in fact implicitly included in the model due to the way $x_3$ is included in the A matrix (i.e., as a linear parameter with the cosine term).</p>
+$$<p>Although it may initially seem that the periodic term leaves out the amplitude, you should recognize that the amplitude is in fact implicitly included in the model due to the way $x_3$ is included in the A matrix (i.e., as a linear parameter with the cosine term).</p>
 <p>It is important to confirm that your own A-matrix (found during the session) includes all three terms as illustrated above.</p>
 <p>Note also that this formulation was part of the reading in the textbook in the exercise page of the Least Squares chapter (3.2). <a href="https://mude.citg.tudelft.nl/2024/book/observation_theory/02_LeastSquares_NB.html" target="_blank"></a>Here is a link.</p>
 </div>
@@ -13308,8 +13304,7 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 1.1}:$</p>
 <p>Complete the definition of the observation time array <code></code>times and define the other variables such that the print statements correctly describe the design matrix <code></code>A.</p>
 <p><em></em>Use <code></code>times=0 as the first point.</p>
@@ -13417,8 +13412,7 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 1.2}:$</p>
 <p>Complete the $\mathrm{A}$-matrix (design matrix) and covariance matrix $\Sigma_Y$ (stochastic model) as a linear trend with an annual signal. The <code></code>assert statement is used to confirm that the dimensions of your design matrix are correct (an error will occur if not).</p>
 </div>
@@ -13472,8 +13466,7 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 2.1}$</p>
 <p>Apply least-squares, and best linear unbiased estimation to estimate $\mathrm{x}$. The code cell below outlines how you should compute the inverse of $\Sigma_Y$. Compute the least squares estimates then the best linear unbiased estimate.</p>
 </div>
@@ -13690,8 +13683,7 @@ Weighted squared norm of residuals with BLU estimation: 8.147
 <ul>
 <li>With LS we give equal weight to all observations, while with BLU the first six observations get larger weight and therefore the fitted line is closer to those observations such that the corresponding residuals are smaller.</li>
 <li>By only looking at figure, we cannot conclude which model fits better, since it does not show that some observations are more precise than others. Therefore we often add error bars.</li>
-</ul>
-</p></div>
+</ul></p></div>
 </div>
 </div>
 </div>
@@ -13710,8 +13702,7 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 4.1}$</p>
 <p>Complete the code below to calculate the 98% confidence intervals of both the observations $y$ <b></b>and the adjusted observations $\hat{y}$ (model values for both LS and BLU).</p>
 <p>Use <code></code>norm.ppf to compute $k_{98}$. Also try different percentages.</p>
@@ -13831,8 +13822,7 @@ Discuss the shape of the confidence bounds. Do you think the model (linear trend
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>The LS method does not take into account the precision of the observations; this is why there are no error bars plotted on the left figure.</p>
 <p>By including the precision of the observations (the error bars in the right figure), as done in the BLU method, you can better assess whether the fit is good.</p>
 <p>With BLU: higher precision of first 6 observations, results in tighter confidence intervals as expected.</p>
@@ -13926,7 +13916,7 @@ Can we conclude the glacier is melting due to climate change?
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=2512a67c"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=bd3033a3"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13943,9 +13933,11 @@ Can we conclude the glacier is melting due to climate change?
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

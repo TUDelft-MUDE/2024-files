@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13246,10 +13245,9 @@ div#notebook {
 <li>Validate the distribution using the distribution of the function of random variables, $Z(X_1,X_2)$.</li>
 </ol>
 <h3 id="Multivariate-Distribution-(Task-1)">Multivariate Distribution (Task 1)<a class="anchor-link" href="#Multivariate-Distribution-(Task-1)">¶</a></h3><p>As with WS 1.8, we will build a multivariate distribution, but this time we will include non-Gaussian marginal distributions using a Gaussian Copula:</p>
-<p>$$
+$$
 F_{X_1,X_2}(x_1,x_2) = C[F_{X_1}(x_1)F_{X_2}(x_2)]
-$$</p>
-<p>In this case, the Copula requires one parameter: the Pearson correlation coefficient, $\rho$.</p>
+$$<p>In this case, the Copula requires one parameter: the Pearson correlation coefficient, $\rho$.</p>
 <p>This distribution has been implemented in the class <code>Bivariate</code> within <code>helper.py</code>. You can define an instance of the class using:</p>
 <pre><code>my_bivariate_dist = Bivariate(marginal_1, marginal_2, rho)
 </code></pre>
@@ -13257,14 +13255,12 @@ $$</p>
 <p>Note that the function <code>plot_contours</code> will also work, but due to the way <code>Bivariate</code> is implemented, it is slow to make the plots, so you may want to use small sample sizes.</p>
 <h4 id="Python-Package:-pyvinecopulib">Python Package: <code>pyvinecopulib</code><a class="anchor-link" href="#Python-Package:-pyvinecopulib">¶</a></h4><p>A package <code>pyvinecopulib</code> is required for the Bivariate class. It is only available on PyPI, so it has to be installed using <code>pip</code>. Fortunately you should already have done this as part of PA 1.8, so all you need to do is remember to use your environment <code>mude-week-8</code>.</p>
 <h3 id="Probability-Calculations-for-3-Cases-(Task-2)">Probability Calculations for 3 Cases (Task 2)<a class="anchor-link" href="#Probability-Calculations-for-3-Cases-(Task-2)">¶</a></h3><p>For each data set, we will use the 90th percentile of each random variable to evaluate the AND, OR and function of random variable cases. In other words:</p>
-<p>$$
+$$
 x_{1,90} = F_{X_1}^{-1}(0.90) \;\;\textrm{and}\;\; x_{2,90} = F_{X_2}^{-1}(0.90)
-$$</p>
-<p>Since there were three data sets to choose from last week, each with different functions and variables, this notebook uses the notation $Z(X_1,X_2)$ to represent the function of random variables for your particular case. As we did in WS 1.8, we would like to evaluate $Z$ for a threshold condition (in WS 1.8 it was $Z&lt;0$ for the Thingamajig). For this assignment, consider the threshold case to be all combinations of $x_1$ and $x_2$ such that:</p>
-<p>$$
+$$<p>Since there were three data sets to choose from last week, each with different functions and variables, this notebook uses the notation $Z(X_1,X_2)$ to represent the function of random variables for your particular case. As we did in WS 1.8, we would like to evaluate $Z$ for a threshold condition (in WS 1.8 it was $Z&lt;0$ for the Thingamajig). For this assignment, consider the threshold case to be all combinations of $x_1$ and $x_2$ such that:</p>
+$$
 Z&gt;Z(x_{1,90},z_{2,90})
-$$</p>
-<h3 id="Propagating-Uncertainty-(Task-3)">Propagating Uncertainty (Task 3)<a class="anchor-link" href="#Propagating-Uncertainty-(Task-3)">¶</a></h3><p>This proceeds as in WS 1.8 as well, where you will use the samples generated in Task 2 to evaluate the distribution of $Z$ and compare to the empirical data set.</p>
+$$<h3 id="Propagating-Uncertainty-(Task-3)">Propagating Uncertainty (Task 3)<a class="anchor-link" href="#Propagating-Uncertainty-(Task-3)">¶</a></h3><p>This proceeds as in WS 1.8 as well, where you will use the samples generated in Task 2 to evaluate the distribution of $Z$ and compare to the empirical data set.</p>
 </div>
 </div>
 </div>
@@ -13351,8 +13347,7 @@ The cell below is only for the solution.
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <p>Import your data set from last week and define the marginal distributions as frozen scipy stats objects.</p>
 <p><em></em>The cell below illustrates how to create a frozen Gaussian distribution</p>
 </div>
@@ -13588,8 +13583,7 @@ Build the bivariate distribution by instantiating the <code>Bivariate</code> cla
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2:</b>
-</p></div>
+<b>Task 2:</b></p></div>
 <p>For each of the three cases, do the following:</p>
 <ul>
 <li>Compute the requested probability using the empirical distribution.</li>
@@ -13604,8 +13598,7 @@ Build the bivariate distribution by instantiating the <code>Bivariate</code> cla
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=bdab1a35-4e2f-42a2-804c-17f7f0917b6a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Note that the optional arguments in the helper function <code>plot_contour</code> will be useful here.
-</p></div>
+<div style="background-color:#facb8e; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>Note that the optional arguments in the helper function <code>plot_contour</code> will be useful here.</p></div>
 <p>Here is an example code that shows you what it can do (the values are meaningless)</p>
 </div>
 </div>
@@ -13640,8 +13633,7 @@ Build the bivariate distribution by instantiating the <code>Bivariate</code> cla
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 2.1 and 2.2: create cells below to carry out the OR and AND calculations.</p>
 </div>
 </div>
@@ -13663,8 +13655,7 @@ Build the bivariate distribution by instantiating the <code>Bivariate</code> cla
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 2.3: create cells below to carry out the Case 3 calculations.</p>
 <p>Note that in this case you need to make the plot to visualize the region over which we want to integrate. We need to define the boundary of the region of interest by solving the equation $Z(X_1,X_2)$ for $X_2$ when $Z=Z(x_{1,90},x_{2,90})$.</p>
 </div>
@@ -13674,10 +13665,9 @@ Build the bivariate distribution by instantiating the <code>Bivariate</code> cla
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The equation can be defined as follows:</p>
-<p>$$
+$$
 \textrm{WRITE THE EQUATION HERE}
-$$</p>
-<p>which is then defined in Python and included in the <code>plot_contours</code> function as an array for the keyword argument <code>region</code>.</p>
+$$<p>which is then defined in Python and included in the <code>plot_contours</code> function as an array for the keyword argument <code>region</code>.</p>
 </div>
 </div>
 </div>
@@ -13950,8 +13940,7 @@ The c.o.v. is of p is 0.408.
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 3:}$</p>
 <p>Do the following:</p>
 <ul>
@@ -13968,8 +13957,7 @@ The c.o.v. is of p is 0.408.
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 3.1: Plot histograms of $Z$ based on the Monte Carlo samples, and based on the data. Note that you probably already computed the samples in Part 2.</p>
 </div>
 </div>
@@ -14020,8 +14008,7 @@ The c.o.v. is of p is 0.408.
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 3.2: Define a function to compute the ecdf.</p>
 </div>
 </div>
@@ -14052,8 +14039,7 @@ The c.o.v. is of p is 0.408.
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 3.3: Create a semi-log plot of the non-exceedance probability.</p>
 </div>
 </div>
@@ -14108,8 +14094,7 @@ The c.o.v. is of p is 0.408.
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p><b></b>Task 3.4: Create a semi-log plot of the exceedance probability.</p>
 </div>
 </div>
@@ -14167,7 +14152,7 @@ The c.o.v. is of p is 0.408.
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=77da9942"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=559fc8bd"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14184,9 +14169,11 @@ The c.o.v. is of p is 0.408.
 </img></a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

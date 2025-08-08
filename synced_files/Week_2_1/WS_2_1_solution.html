@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13330,12 +13329,12 @@ Nx -&gt; Nx, Ny
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <p>Write by hand for FMV the <code></code>advection_1D equation, compute the convective fluxes of $\phi$ at the surfaces using a linear interpolation (central averaging). Then apply Forward Euler in time to the resulting ODE. Make sure you use the right indexing (maximum index should be <code></code>i).</p>
-<p>$$
+$$
 \frac{\partial \phi}{\partial t} + c\frac{\partial \phi}{\partial x} = 0
-$$</p>
+$$
+
 </div>
 </div>
 </div>
@@ -13344,8 +13343,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2:</b>
-</p></div>
+<b>Task 1.2:</b></p></div>
 <p><b></b>Read. Read the code to understand the problem that has been set up for you. Check the arguments and return values; the docstrings are purposefully ommitted so you can focus on the code. You might as well re-read the instructions above one more time, as well (let's be honest, you probably just skimmed over it anyway...)</p>
 </div>
 </div>
@@ -13371,8 +13369,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3:</b>
-</p></div>
+<b>Task 1.3:</b></p></div>
 <p>Implement the scheme in the function <code></code>advection_1D. Make sure you use the right indexing (maximum index should be <code></code>i).</p>
 </div>
 </div>
@@ -13866,8 +13863,7 @@ CFL: 1.00e-01
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.1:</b>
-</p></div>
+<b>Task 3.1:</b></p></div>
 <p>Derive the upwind scheme and apply Forward Euler to the resulting ODE. Then implement it in the function <code></code>advection_1D. Re-run the analysis after setting the <code></code>central flag to <code></code>False.</p>
 </div>
 </div>
@@ -13892,8 +13888,7 @@ CFL: 1.00e-01
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.2:</b>
-</p></div>
+<b>Task 3.2:</b></p></div>
 <p>In the previous task you should have seen that the method is unstable. Experiment with different time step $\Delta t$ to see if you can find a limit above/below which the method is stable. Write down your $\Delta t$ values and whether or not they were stable, as we will reflect on them later.</p>
 </div>
 </div>
@@ -14051,8 +14046,7 @@ CFL: 2.00e-02
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4.2:</b>
-</p></div>
+<b>Task 4.2:</b></p></div>
 <p>Now use the CFL to compute the time step $\Delta t$ that defines the boundary between the stable and unstable region. Then re-run the analysis for this value, as well as a value that is slightly above and below that threshold $\Delta t$.</p>
 </div>
 </div>
@@ -14083,8 +14077,7 @@ CFL: 2.00e-02
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4.3:</b>
-</p></div>
+<b>Task 4.3:</b></p></div>
 <p>Find $\Delta t$ such that CFL is 0.8 and re-run the analysis. What do you observe?</p>
 <p><em></em>Make sure you look at the complete solution, not just the first few steps.</p>
 </div>
@@ -14106,8 +14099,7 @@ CFL: 2.00e-02
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4.4:</b>
-</p></div>
+<b>Task 4.4:</b></p></div>
 <p>Describe what you observe in the result of the previous task and state (yes/no) whether or not this should be expected, given the PDE we are solving. Explain your answer in a couple sentences.</p>
 </div>
 </div>
@@ -14117,8 +14109,7 @@ CFL: 2.00e-02
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution:</b>
-</p></div>
+<b>Solution:</b></p></div>
 <p>The phenomenon you saw in the previous task is <em></em>numerical, or <em></em>false diffusion.
 ...</p>
 <p>No!</p>
@@ -14143,11 +14134,11 @@ CFL: 2.00e-02
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
 <b>Task 5.1:</b>
-Apply FVM by hand to the 2D advection equation. The volumes are rectangular. This is a good example of an exam problem.
-</p></div>
-<p>$$
+Apply FVM by hand to the 2D advection equation. The volumes are rectangular. This is a good example of an exam problem.</p></div>
+$$
 \frac{\partial \phi}{\partial t} + c_x\frac{\partial \phi}{\partial x} + c_y\frac{\partial \phi}{\partial y} = 0
-$$</p>
+$$
+
 </div>
 </div>
 </div>
@@ -14378,8 +14369,7 @@ CFL, direction y: 2.50e-01
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-By default the central difference scheme is used, so you should see the numerical instability just as we did before in the 1D case.
-</p></div>
+By default the central difference scheme is used, so you should see the numerical instability just as we did before in the 1D case.</p></div>
 </div>
 </div>
 </div>
@@ -14440,8 +14430,7 @@ CFL, direction y: 2.50e-01
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-Switching to the upwind scheme gives a stable solution. Note the numerical diffusion (change from cubic to bell shape). Also, as the edges of the bell shape spread outside of the X-Y domain, you will see them appear on the corners: this is a result of the fact that the iteration loops over X and Y in the meshgrid format don't properly find the "neighbor" volumes. To understand this, refer to the textbook where the matrix form of the 2D solution is presented and see how the index of the neighbor volumes is not sequential as in the for loops.
-</p></div>
+Switching to the upwind scheme gives a stable solution. Note the numerical diffusion (change from cubic to bell shape). Also, as the edges of the bell shape spread outside of the X-Y domain, you will see them appear on the corners: this is a result of the fact that the iteration loops over X and Y in the meshgrid format don't properly find the "neighbor" volumes. To understand this, refer to the textbook where the matrix form of the 2D solution is presented and see how the index of the neighbor volumes is not sequential as in the for loops.</p></div>
 </div>
 </div>
 </div>
@@ -14497,7 +14486,7 @@ CFL, direction y: 2.50e-01
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=2ad2c8da"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=44f01db4"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14514,9 +14503,11 @@ CFL, direction y: 2.50e-01
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

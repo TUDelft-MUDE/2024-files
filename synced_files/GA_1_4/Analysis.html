@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13240,10 +13239,9 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Part-0:-Recap-of-GA-1.3">Part 0: Recap of GA 1.3<a class="anchor-link" href="#Part-0:-Recap-of-GA-1.3">¶</a></h2><p>As you (hopefully!) recall, last week we investigated observed displacements of a road in the Green Heart of the Netherlands, where groundwater levels play a significant role. The model was defined as:</p>
-<p>$$
-d = d_0 + vt + k \ \textrm{GW},
 $$
-where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater level (that we assume to be deterministic).</p>
+d = d_0 + vt + k \ \textrm{GW},
+$$<p>where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater level (that we assume to be deterministic).</p>
 <p>Therefore, the model has 3 unknowns:</p>
 <ol>
 <li>$d_0$, as the initial displacement at $t_0$;</li>
@@ -13281,8 +13279,7 @@ where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 0.1: </b>
-</p></div>
+<b>Task 0.1: </b></p></div>
 <p>Run the cell below to load two dictionaries (objects) into the Python variable space, <code></code>m1 and <code></code>m2. You can run the code to check the key:value pairs.</p>
 </div>
 </div>
@@ -13290,8 +13287,7 @@ where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater 
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=a32822ae"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#facb8e; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p>
-</p></div>
+<div style="background-color:#facb8e; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px"> <p></p></div>
 <p>Note that the objects are stored in and loaded from "pickle" files, a native Python serialization format (in non-technical speak: a pickle file saves our variables to use them later, like we do here). The model dictionaries were defined and saved in the file <code></code>setup.py, which you are welcome to read if you are curious.</p>
 </div>
 </div>
@@ -13351,8 +13347,7 @@ where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 0.2: </b>
-</p></div>
+<b>Task 0.2: </b></p></div>
 <p>Run the cell below to activate the widget. Play with the parameter values until you are completely familiar with what each one does, and confirm that the model results from last week are indeed those that minimize the mean of the squared residuals.</p>
 </div>
 </div>
@@ -13386,8 +13381,7 @@ where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 0.3: </b>
-</p></div>
+<b>Task 0.3: </b></p></div>
 <p>Run the cell below to initialize the dictionaries for our non-linear least squares models. Once again, we will have a model for GNSS and another for INSAR data.</p>
 </div>
 </div>
@@ -13422,8 +13416,7 @@ where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater 
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 0.4: </b>
-</p></div>
+<b>Task 0.4: </b></p></div>
 <p>Confirm that the stochastic model is transferred properly by printing the appropriate key-value pair in the dictionary.</p>
 <p><em></em>Hint: use the for loop in one of the tasks above to see the keys. VS Code should also auto-fill a list of suggestions as you type.</p>
 </div>
@@ -13470,8 +13463,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <p>Read the code below to understand the model (and fill in the missing parameter values). Be sure to understand which objects are the parameters of interest, and what the auxiliary arguments are (type and number).</p>
 </div>
 </div>
@@ -13522,8 +13514,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2: </b>
-</p></div>
+<b>Task 1.2: </b></p></div>
 <p>Use the widget below to gain understanding of the non-linear model and its parameters, as well as the role that the deterministic parameters (observation times and groundwater measurements). You can use this widget to help select your initial unknown parameter values for the Gauss-Newton iteration.</p>
 </div>
 </div>
@@ -13551,8 +13542,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3: </b>
-</p></div>
+<b>Task 1.3: </b></p></div>
 <p>Choose initial values for the model parameters using the widget above. The tuple will be used later as an input to one of our functions.</p>
 </div>
 </div>
@@ -13578,8 +13568,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.4: </b>
-</p></div>
+<b>Task 1.4: </b></p></div>
 <p>Using a notebook, derive the partial derivatives of the non-linear model and then set up the Jacobian matrix for the non-linear least-squares by completing the function below.</p>
 </div>
 </div>
@@ -13631,8 +13620,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.5: </b>
-</p></div>
+<b>Task 1.5: </b></p></div>
 <p>Confirm that the Jacobian function works properly by using it with the initial parameter values established above. If the function is called successfully, check the result by printing the first few rows of the Jacobian matrix and checking the dimensions.</p>
 <p><em></em>Tip: it would be useful for the Report if you also printed the dimensions and/or redundancy of the model.</p>
 </div>
@@ -13673,8 +13661,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1: </b>
-</p></div>
+<b>Task 2.1: </b></p></div>
 <p>Set up a Gauss-Newton iteration algorithm by completing the function below.</p>
 </div>
 </div>
@@ -13683,8 +13670,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>
-<b>Important Note about Implmentation</b>
-</p></div>
+<b>Important Note about Implmentation</b></p></div>
 <p>The iteration scheme reuses the function <code></code>BLUE() from last week, which has been included in the files <code></code>functions.py (imported at the top of this notebook). During the iteration scheme, specific values of the dictionary are "repurposed" to create a <em></em>linear system of equations. This facilitates the use of BLUE, which otherwise can only solve for <em></em>linear models.</p>
 <p>After the iteration is completed successfully, the function should reset the "repurposed" values in the dictionary to their true value (i.e., values representing the non-linear system).</p>
 </div>
@@ -13694,8 +13680,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>
-<b>Tips</b>
-</p></div>
+<b>Tips</b></p></div>
 <p>If you find this task challenging, try jumping back and forth between this task and the next <b></b>two tasks where you <em></em>use the function and plot convergence of the parameters for each iteration. You can work out the bugs one by one.</p>
 <p>You can comment out the code near the end of the function (that adds summary information to the dictionary) and focus on implementing the code in the <code></code>while-loop first. Once that part of the function is working you can return to the summary information. </p>
 </div>
@@ -13777,8 +13762,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2: </b>
-</p></div>
+<b>Task 2.2: </b></p></div>
 <p>Apply Gauss-Newton iteration on your model.</p>
 <p>A few simple print statements are provided to help you observe the (completed) iterations.</p>
 </div>
@@ -13788,8 +13772,7 @@ where $d$ is the displacement, $t$ is the time and $\textrm{GW}$ is the groundwa
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>
-<b>Tips</b>
-</p></div>
+<b>Tips</b></p></div>
 <p>It may take several tries to perfect the function above. If you are having trouble getting the function to run without errors, it can be useful to add print statements to the function to check where things go wrong. For example, something like this will indicate how the values of X_hat change on each iteration. If you see that the values stay at zero in each iteration, you probably are assigning variable values or indexing the arrays incorrectly; if you see that the values quickly become large (e.g., approaching infinity), you may have a mistake in your Jacobian.</p>
 <pre>
 <code>
@@ -13827,8 +13810,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3: </b>
-</p></div>
+<b>Task 2.3: </b></p></div>
 <p>Once your iteration scheme runs successfully, complete the code cell below to visualize the convergence of each parameter. This is useful for verifying that things worked properly.</p>
 <p>For each unknown parameter, plot your estimates versus the iteration number (horizontal axis: iteration number, vertical axis: your estimate per iteration).</p>
 <p>Once complete, confirm whether or not each parameter converges, and observe the approximate number of iterations needed (you may need this information in your report).</p>
@@ -13839,8 +13821,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>
-<b>Tip</b>
-</p></div>
+<b>Tip</b></p></div>
 <p>Remember we stored all iterations in the dictionary as an ndarray with key <code></code>x_hat_all_iterations. To slice an ndarray inside a dictionary you can use the following syntax: <code></code>my_dict['key_to_ndarray'][1, :], which would return the second row in the ndarray.</p>
 </div>
 </div>
@@ -13890,8 +13871,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>
-<b>Bonus Widget</b>
-</p></div>
+<b>Bonus Widget</b></p></div>
 <p>Having trouble understanding how the Gauss-Newton scheme works? Do you want to visualize how the parameters and model change on each iteration? Try uncommenting the cell below to create an interactive plot!</p>
 <p>It is set up to visualize the model on each iteration. You can gain insight into the way convergence occurs by changing the value of <code></code>initial_guess_alternative and rerunning the cell.</p>
 </div>
@@ -13923,8 +13903,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.1: Precision of Estimates</b>
-</p></div>
+<b>Task 3.1: Precision of Estimates</b></p></div>
 <p>What is the quality of the final estimates?</p>
 <p>First complete the function for printing standard deviations of the estimate of each unknown parameter. Then run the cell to print the full covariance matrix of your estimates.</p>
 <p>We can re-use the function <code></code>model_summary() from Part 0 of this notebook to verify that you have correctly computed the standard deviations of the estimates.</p>
@@ -13972,8 +13951,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.2: Visualizing Results</b>
-</p></div>
+<b>Task 3.2: Visualizing Results</b></p></div>
 <p>Create a plot of the model predictions and residuals, along with a confidence interval of 96% for each plot. Include also the empirical and theoretical distribution of residuals.</p>
 <p>The file <code></code>functions.py includes the functions <code></code>get_CI(), <code></code>plot_model(), <code></code>plot_residual() and <code></code>plot_residual_histogram() from GA 1.3 last week.</p>
 <p>Prior to using the functions you will need to compute the modeled displacements, $\hat{\mathrm{Y}}$ using a function defined previously in this notebook.</p>
@@ -13985,8 +13963,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#facb8e; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"> <p>
-<b>Tip</b>
-</p></div>
+<b>Tip</b></p></div>
 <p>Open
 <code></code>functions.py and read the contents if you cannot recall how each function is used. You can also use the <code></code>help() method in Python to print a docstring (try it in the cell below!).</p>
 </div>
@@ -14050,8 +14027,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4.1: </b>
-</p></div>
+<b>Task 4.1: </b></p></div>
 <p>Identify the appropriate test statistic and compute the critical value with level of significance $\alpha=0.005$.</p>
 </div>
 </div>
@@ -14073,8 +14049,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4.2: </b>
-</p></div>
+<b>Task 4.2: </b></p></div>
 <p>Compute the test statistic for InSAR data.</p>
 </div>
 </div>
@@ -14098,8 +14073,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4.3: </b>
-</p></div>
+<b>Task 4.3: </b></p></div>
 <p>Compute the test statistic for GNSS data.</p>
 </div>
 </div>
@@ -14118,7 +14092,7 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=469bc169"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=5950f6b7"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14135,9 +14109,11 @@ print(f'On iteration {iteration} X_hat_i is:', X_hat_i[iteration+1,:])
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

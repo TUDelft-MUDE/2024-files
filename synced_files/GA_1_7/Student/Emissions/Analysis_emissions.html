@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13239,12 +13238,11 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=b26d81da-b5a7-44b0-8049-eec218ab84e2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Case-2:-$CO_2$-emissions-from-traffic">Case 2: $CO_2$ emissions from traffic<a class="anchor-link" href="#Case-2:-$CO_2$-emissions-from-traffic">¶</a></h2><p>**What's the propagated uncertainty? *How large will be the $CO_2$ emissions?***</p>
+<h2 id="Case-2:-$CO_2$-emissions-from-traffic">Case 2: $CO_2$ emissions from traffic<a class="anchor-link" href="#Case-2:-$CO_2$-emissions-from-traffic">¶</a></h2><p><strong>What's the propagated uncertainty? *How large will be the $CO_2$ emissions?</strong>*</p>
 <p>In this project, you have chosen to work on the uncertainty of the number of cars and heavy vehicles to estimate their $CO_2$ emissions. You have observations every five minutes of the number of cars, $C$, and the number of heavy vehicles, $H$ (more on the dataset <a href="https://www.kaggle.com/datasets/hasibullahaman/traffic-prediction-dataset">here</a>). As you know, traffic is an important source of $CO_2$ emissions that contribute to the greenhouse effect. Here, the emitted $CO_2$ will be estimated for a trip of 1km using the emissions intensities from <a href="https://sumitomoelectric.com/sites/default/files/2023-10/download_documents/E97-03.pdf">Nishimura and Haga (2023)</a>, assuming that the cars use gasolite as fuel and the heavy vehicles, diesel. Emissions can be computed as</p>
-<p>$$
+$$
 CO2 = 143 C + 469 H
-$$</p>
-<p><strong>The goal of this project is:</strong></p>
+$$<p><strong>The goal of this project is:</strong></p>
 <ol>
 <li>Choose a reasonable distribution function for $H$ and $C$.</li>
 <li>Fit the chosen distributions to the observations of $H$ and $C$.</li>
@@ -13347,15 +13345,11 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1:</b>
-</p></div>
+<b>Task 1:</b></p></div>
 <p>Describe the data based on the previous statistics:</p>
 <ul>
 <li>Which variable presents a higher variability?</li>
-<li>What does the skewness coefficient means? Which kind of distribution functions should we consider to fit them?
-
-
-</li>
+<li>What does the skewness coefficient means? Which kind of distribution functions should we consider to fit them?</li>
 </ul>
 </div>
 </div>
@@ -13379,8 +13373,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2:</b>
-</p></div>
+<b>Task 2:</b></p></div>
 <p>Define a function to compute the empirical CDF.</p>
 </div>
 </div>
@@ -13414,8 +13407,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3:</b>
-</p></div>
+<b>Task 3:</b></p></div>
 <p>Based on the results of Task 1 and the empirical PDF and CDF, select <b></b>one distribution to fit to each variable. For $H$, select between Gumbel or Gaussian distribution, while for $C$ choose between Uniform or Lognormal.</p>
 </div>
 </div>
@@ -13432,8 +13424,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4:</b>
-</p></div>
+<b>Task 4:</b></p></div>
 <p>Fit the selected distributions to the observations using MLE.</p>
 <p>Hint: Use <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">Scipy</a> built in functions (watch out with the parameters definition!).</p>
 </div>
@@ -13462,15 +13453,11 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 5:</b>
-</p></div>
+<b>Task 5:</b></p></div>
 <p>Assess the goodness of fit of the selected distribution using:</p>
 <ul>
 <li>One graphical method: QQplot or Logscale. Choose one.</li>
-<li>Kolmogorov-Smirnov test.
-
-
-</li>
+<li>Kolmogorov-Smirnov test.</li>
 </ul>
 <p>Hint: You have Kolmogorov-Smirnov test implemented in <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">Scipy</a>.</p>
 </div>
@@ -13492,8 +13479,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 6:</b>
-</p></div>
+<b>Task 6:</b></p></div>
 <p>Interpret the results of the GOF techniques. How does the selected parametric distribution perform?</p>
 </div>
 </div>
@@ -13511,8 +13497,7 @@ $$</p>
 <p>Using the fitted distributions, we are going to propagate the uncertainty from $H$ and $C$ to the emissions of $CO_2$ <strong>assuming that $H$ and $C$ are independent</strong>.</p>
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 7:</b>
-</p></div>
+<b>Task 7:</b></p></div>
 <ol>
 <li><p>Draw 10,000 random samples from the fitted distribution functions for $H$ and $C$.</p>
 </li>
@@ -13554,11 +13539,10 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 8:</b>
-</p></div>
+<b>Task 8:</b></p></div>
 <p>Interpret the figures above, answering the following questions:
-<li></li>Are there differences between the two computed distributions for $F_h$?
-<li></li>What are the advantages and disadvantages of using the simulations?</p>
+    <li></li>Are there differences between the two computed distributions for $F_h$?
+    <li></li>What are the advantages and disadvantages of using the simulations?</p>
 </div>
 </div>
 </div>
@@ -13568,8 +13552,7 @@ $$</p>
 <p>If you run the code in the cell below, you will obtain a scatter plot of both variables. Explore the relationship between both variables and answer the following questions:</p>
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 9:</b>
-</p></div>
+<b>Task 9:</b></p></div>
 <ol>
 <li><p>Observe the plot below. What differences do you observe between the generated samples and the observations?</p>
 </li>
@@ -13609,7 +13592,7 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=10e1d585"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ba255a45"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13626,9 +13609,11 @@ $$</p>
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13285,8 +13284,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 0.1}$</p>
 <p>Read and run the cell below to make sure you remember how to use a dictionary.</p>
 <p>Modify the function to print some of the other key-value pairs of the dictionary.</p>
@@ -13345,8 +13343,7 @@ hello
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 0.2}$</p>
 <p>Test your knowledge by adding a new key <code></code>new_key and then executing the function to print the value.</p>
 </div>
@@ -13424,8 +13421,7 @@ new_key exists and has value: new_value
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <p>Once you have used the cell above to import the data, investigate the data sets using the code cell below. Then provide some relevant summary information in the Markdown cell.</p>
 <p><em></em>Hint: at the least, you should be able to tell how many data points are in each data set and get an understanding of the mean and standard deviation of each. Make sure you compare the different datasets and use consistent units.</p>
 </div>
@@ -13572,8 +13568,7 @@ Last value =   -117.268
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution}$</p>
 <p>There are a lot more GNSS data points than InSAR or groundwater. The GNSS observations also have more noise, and what seem to be outliers. In this case the mean and standard deviation do not mean much, because there is clearly a trend with time. We can at least confirm that the time periods of measurements overlap, although the intervals between measurements is certainly not uniform (note that you don't need to do anything with the times, since they are pandas time series and we have not covered them yet).</p>
 </div>
@@ -13636,8 +13631,7 @@ Last value =   -117.268
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2:</b>
-</p></div>
+<b>Task 1.2:</b></p></div>
 <p>Answer/complete the code and Markdown cells below:</p>
 <ol>
 <li>What is <code>interp</code>? (what kind of object is it, and how does it work?)</li>
@@ -13711,8 +13705,7 @@ First values of GW_at_GNSS_times:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution}$</p>
 <ol>
 <li><code>interp</code> is a function that will return a value (gw level) for the input(s) (date(s)). The interpolated value is found by linearly interpolating between the two nearest times in the gw observations.</li>
@@ -13726,8 +13719,7 @@ First values of GW_at_GNSS_times:
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3:</b>
-</p></div>
+<b>Task 1.3:</b></p></div>
 <p>Create a single plot to compare observed displacement for the GNSS and InSAR data sets.</p>
 </div>
 </div>
@@ -13786,8 +13778,7 @@ Describe the datasets based on the figure above and your observations from the p
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution}$</p>
 <p>The points obviously show subsidence, the displacement shows a similar pattern for both datasets. The GNSS data is much noisier than InSAR (range is around 60 mm versus only a few mm), but has a higher sampling rate. Also there seem to be more outliers in the GNSS data compared to InSAR, especially at the start of the observation period. InSAR has only observations every 6 days but is less noisy.</p>
 </div>
@@ -13806,8 +13797,7 @@ Describe the datasets based on the figure above and your observations from the p
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.5:</b>
-</p></div>
+<b>Task 1.5:</b></p></div>
 <p>Run the cell below to define a dictionary for storing information about the two (future) models.</p>
 </div>
 </div>
@@ -13836,7 +13826,7 @@ Describe the datasets based on the figure above and your observations from the p
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=76c9115b"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Task-2:-Set-up-linear-functional-model">Task 2: Set-up linear functional model<a class="anchor-link" href="#Task-2:-Set-up-linear-functional-model">¶</a></h2><p>We want to investigate how we could model the observed displacements of the road. Because the road is built in the Green Heart we expect that the observed displacements are related to the groundwater level. Furthermore, we assume that the displacements can be modeled using a constant velocity. The model is defined as
+<h2 id="Task-2:-Set-up-linear-functional-model">Task 2: Set-up linear functional model<a class="anchor-link" href="#Task-2:-Set-up-linear-functional-model">¶</a></h2><p>We want to investigate how we could model the observed displacements of the road. Because the road is built in the Green Heart we expect that the observed displacements are related to the groundwater level. Furthermore, we assume that the displacements can be modeled using a constant velocity. The model is defined as 
 $$
 d = d_0 + vt + k \ \textrm{GW},
 $$
@@ -13847,7 +13837,7 @@ where $d$ is the displacement, $t$ is time and $\textrm{GW}$ is the groundwater 
 <li>$v$, as the displacement velocity;</li>
 <li>$k$, as the 'groundwater factor', which can be seen as the response of the soil to changes in the groundwater level.</li>
 </ol>
-<p>As a group you will construct the <strong>functional model</strong> that is defined as
+<p>As a group you will construct the <strong>functional model</strong> that is defined as 
 $$
 \mathbb{E}(Y) = \mathrm{A x}.
 $$</p>
@@ -13859,8 +13849,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1:</b>
-</p></div>
+<b>Task 2.1:</b></p></div>
 <p>Construct the design matrix $A$ (for both InSAR and GNSS observations), then show the first 5 observations and confirm the dimensions of $A$.</p>
 </div>
 </div>
@@ -13960,8 +13949,7 @@ m = 730 and n = 3
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 2.2}$</p>
 <p>Answer the following questions:</p>
 <ul>
@@ -13976,8 +13964,7 @@ m = 730 and n = 3
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution}$</p>
 <p>For InSAR:</p>
 <ol>
@@ -13999,8 +13986,7 @@ m = 730 and n = 3
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3:</b>
-</p></div>
+<b>Task 2.3:</b></p></div>
 <p>Add the A matrix to the dictionaries for each model. This will be used to plot results later in the notebook.</p>
 </div>
 </div>
@@ -14067,8 +14053,7 @@ where $\Sigma_{Y}$ is the covariance matrix of the observables' vector.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.1:</b>
-</p></div>
+<b>Task 3.1:</b></p></div>
 <p>Construct the covariance matrix for each type of data and assume that</p>
 <ul>
 <li><p>the observables are independent</p>
@@ -14164,8 +14149,7 @@ Sigma_Y (GNSS) is defined as:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Task 3.2}$</p>
 <p>Answer the following questions:</p>
 <ul>
@@ -14188,17 +14172,13 @@ Sigma_Y (GNSS) is defined as:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution}$</p>
 <ul>
 <li>The covariance matrix contains information on the quality of the observations, where an entry on the diagonal represents the variance of one observation at a particular epoch. If there is an indication that for instance the quality for a particular time interval differs, different $\sigma$ values can be put in the stochastic model for these epochs.</li>
 <li>The off-diagonal terms in the matrix are related to the correlation between observations at different epochs, where a zero value on the off-diagonal indicates zero correlation.</li>
 <li>The dimension of the matrix is 61x61 for InSAR and 730x730 for GNSS.</li>
-<li>See code.
-
-
-</li>
+<li>See code.</li>
 </ul>
 </div>
 </div>
@@ -14208,8 +14188,7 @@ Sigma_Y (GNSS) is defined as:
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.3:</b>
-</p></div>
+<b>Task 3.3:</b></p></div>
 <p>Add <code></code>Sigma_Y to the dictionaries for each model.</p>
 </div>
 </div>
@@ -14242,8 +14221,7 @@ Sigma_Y (GNSS) is defined as:
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4.1:</b>
-</p></div>
+<b>Task 4.1:</b></p></div>
 <p>Write a function to apply BLUE in the cell below and use the function to estimate the unknowns for the model using the data.</p>
 <p>Compute the modeled displacements ($\hat{\mathrm{y}}$), and corresponding residuals ($\hat{\mathrm{\epsilon}}$), as well as associated values (as requested by the blank code lines).</p>
 </div>
@@ -14321,8 +14299,7 @@ _1</code>). To make this assignment easier for you to implement we have split th
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 4.2:</b>
-</p></div>
+<b>Task 4.2:</b></p></div>
 <p>Now that you have completed the function, apply it to our two models and then print values for the estimated parameters.</p>
 </div>
 </div>
@@ -14383,8 +14360,7 @@ The GNSS-estimated GW factor is 0.16 [-]
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
 <b>Task 4.3:</b>   
-Do the values that you just estimated make sense? Explain, using quantitative results.
-</p></div>
+Do the values that you just estimated make sense? Explain, using quantitative results.</p></div>
 <p><em></em>Hint: all you need to do is use the figures created above to verify that the parameter values printed above are reasonable (e.g., order of magnitude, units, etc).</p>
 </div>
 </div>
@@ -14393,8 +14369,7 @@ Do the values that you just estimated make sense? Explain, using quantitative re
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution}$</p>
 <p>As long as the velocity is negative and around -0.02 mm/day or -10 mm/yr it makes sense if you compare with what you see in the plots with observations. Since load is applied on soil layers we expect the road to subside. We also expect to see a positive value for the GW factor.</p>
 </div>
@@ -14412,8 +14387,7 @@ Do the values that you just estimated make sense? Explain, using quantitative re
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 5:</b>
-</p></div>
+<b>Task 5:</b></p></div>
 <p>What is the precision of the final estimates?</p>
 <p>Print the full covariance matrix of your estimates, and give an interpretation of the numbers in the covariance matrix.</p>
 </div>
@@ -14487,8 +14461,7 @@ The standard deviation for the GNSS-estimated GW factor is 0.035 [-]
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution}$</p>
 <p>As shown above, the standard deviations of the estimated parameters are equal to the square root of the diagonal elements. Compared with the estimated values, the standard deviations seem quite small, except for the estimated offsets. Meaning that the complete estimated model can be shifted up or down.</p>
 <p>The off-diagonal elements show the covariances between the estimated parameters, which are non-zeros since the estimates are all computed as function of the same vector of observations and the same model. A different value for the estimated velocity would imply a different value for the GW factor and offset.</p>
@@ -14507,8 +14480,7 @@ The standard deviation for the GNSS-estimated GW factor is 0.035 [-]
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 6.1:</b>
-</p></div>
+<b>Task 6.1:</b></p></div>
 <p>Complete the function below to help us compute the confidence intervals, then apply the function. Use a confidence interval of 96% in your analysis.</p>
 <p><em></em>Hint: it can be used in exactly the same way as the <code></code>BLUE function above, although it has one extra input.</p>
 </div>
@@ -14644,8 +14616,7 @@ CI_Y_hat         --&gt;    &lt;class 'numpy.ndarray'&gt;
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 6.2:</b>
-</p></div>
+<b>Task 6.2:</b></p></div>
 <p>Read the contents of file <code></code>functions.py and identify what it is doing: you should be able to recognize that they use our model dictionary as an input and create three different figures. Note also that the function to create the figures have already been imported at the top of this notebook.</p>
 <p>Use the functions provided to visualize the results of our two models.</p>
 </div>
@@ -14765,8 +14736,7 @@ The standard deviation of the GNSS residuals is 15.393 mm
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<p>
-</p></div>
+<p></p></div>
 <p>$\textbf{Solution: the True Model}$</p>
 <p>The data used in this exercise was generated using Monte Carlo Simulation. It is added to the plots here to illustrate where and how our models differ (it is your job to interpret "why").</p>
 </div>
@@ -14888,7 +14858,7 @@ The standard deviation of the GNSS residuals is 15.393 mm
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=8aac061a"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=4dac2bc7"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14905,9 +14875,11 @@ The standard deviation of the GNSS residuals is 15.393 mm
 </img></a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

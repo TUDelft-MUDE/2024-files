@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13254,10 +13253,9 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Part-1:-Using-Just-Your-Hands">Part 1: Using Just Your Hands<a class="anchor-link" href="#Part-1:-Using-Just-Your-Hands">¶</a></h2><p>The diffusion equation expressed in its reduced form is:</p>
-<p>$$
+$$
 \frac{\partial \phi}{\partial t} = \nabla \cdot D \nabla \phi
-$$</p>
-<p>Note that for triangle shape volumes, the fluxes are not necessarily directed in the $x$ direction. Rather, in the normal direction to the surfaces of each volume, as the flux direction is given by the $\phi$ gradients and the information propagates in all directions.</p>
+$$<p>Note that for triangle shape volumes, the fluxes are not necessarily directed in the $x$ direction. Rather, in the normal direction to the surfaces of each volume, as the flux direction is given by the $\phi$ gradients and the information propagates in all directions.</p>
 <p>Over the next tasks, you will write step by step its derivation.</p>
 </div>
 </div>
@@ -13267,8 +13265,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1</b>
-</p></div>
+<b>Task 1.1</b></p></div>
 <p>Integrate the PDE over triangle volumes of interest.</p>
 </div>
 </div>
@@ -13285,8 +13282,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2</b>
-</p></div>
+<b>Task 1.2</b></p></div>
 <p>Transform the corresponding volume integral into a surface integral using Gauss's theorem.</p>
 </div>
 </div>
@@ -13303,8 +13299,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3</b>
-</p></div>
+<b>Task 1.3</b></p></div>
 <p>Approximate the integrals using numerical integration, using the midpoint rule. Write explicitly the three surface fluxes.</p>
 </div>
 </div>
@@ -13321,8 +13316,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.4</b>
-</p></div>
+<b>Task 1.4</b></p></div>
 <p>Divide both sides of the equation by $\Delta V$. The "depth" of the volume is common with the surface flux area. Write down the resulting equation.</p>
 </div>
 </div>
@@ -13339,8 +13333,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.5</b>
-</p></div>
+<b>Task 1.5</b></p></div>
 <p>Approximate the derivatives! Use central differences in space and Forward Euler in time. The subindices can be defined by arbitrarily naming the volume of interest and the adjacent volumes.</p>
 </div>
 </div>
@@ -13357,12 +13350,13 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.5</b>
-</p></div>
+<b>Task 1.5</b></p></div>
 <p>The equation you derived above describes volumes with <b></b>three interior sides. For a volume with <b></b>one side being an exterior one, modify the equation above to implement the following Neumann condition (which replaces the discretized gradient term):</p>
-<p>$$
+$$
 \frac{\partial \phi }{\partial n} = 10 [C^o/m]
-$$</p>
+$$
+
+
 </div>
 </div>
 </div>
@@ -13399,8 +13393,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.0</b>
-</p></div>
+<b>Task 2.0</b></p></div>
 <p>Execute the cell below and study the resulting geometry until you are comfortable recognizing the problem that will be solved. In particular, check that you can identify which boundary conditions are applied, and where, before moving on.</p>
 <p>If you are not sure how to interpret the code or figures, refer to <code></code>mesh_tips.ipynb.</p>
 </div>
@@ -13452,8 +13445,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1</b>
-</p></div>
+<b>Task 2.1</b></p></div>
 <p>Write down the similarities between the housing-bar-kapsalon problem (PA 2.1) and the FVM representation of the diffusion equation here. Specifically, the locations and quantities associated with each of the three things.</p>
 </div>
 </div>
@@ -13477,8 +13469,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2</b>
-</p></div>
+<b>Task 2.2</b></p></div>
 <p>Suppose <strong>just for this single task</strong> that the FDM would be used, sketch the potential grid points and draw the boundaries that would represent the same domain in $x$ and $y$ as defined by <code></code>coordinates in the previous task.</p>
 <p>This is to illustrate one of the contrasts between FDM and FVM.</p>
 </div>
@@ -13503,8 +13494,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3</b>
-</p></div>
+<b>Task 2.3</b></p></div>
 <p>First, use the method <code></code>set_initial_temperature() to define the initial conditions for the volumes. The initial temperature should be 20 degrees everywhere except at the volume in the middle, where the temperature is 40 degrees.</p>
 </div>
 </div>
@@ -13527,8 +13517,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.4</b>
-</p></div>
+<b>Task 2.4</b></p></div>
 <p><strong>Solve</strong>.</p>
 <p>Using the <code></code>solve method, solve the problem for conditions where $t_{final}=20$, $N_t=100$ and $D=50$.</p>
 <p>Use the resulting plot to see if you reach the solution you expect. Remember to consider the boundary conditions that were defined for you as well, not only the initial conditions.</p>
@@ -13553,8 +13542,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.5</b>
-</p></div>
+<b>Task 2.5</b></p></div>
 <p><strong>What's going on?!</strong></p>
 <p>In the previous task, you should have realized that the solution is <em>not</em> what we expect.</p>
 <p>It turns out we screwed up! In the massive file <code></code>utilities.py, there is one line of code that needs to be fixed in order to solve this problem. Can you find it and fix it?</p>
@@ -13569,8 +13557,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.6</b>
-</p></div>
+<b>Task 2.6</b></p></div>
 <p><strong>Refine</strong></p>
 <p>Refine the mesh and create a plot to check visually how the geometry has changed.</p>
 </div>
@@ -13593,8 +13580,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.7</b>
-</p></div>
+<b>Task 2.7</b></p></div>
 <p><strong>Solve</strong>.</p>
 <p>Solve the problem for the new mesh using the same time and diffusion parameters as before.</p>
 <p><em></em>Hint: copy/paste the same code from when you solved it the first time!</p>
@@ -13617,8 +13603,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.8</b>
-</p></div>
+<b>Task 2.8</b></p></div>
 <p><strong>Broken again?!</strong></p>
 <p>The solution for the refined mesh did not work---this time it is not a problem with the code, but another issue. See if you can make some adjustments and fix the solution!</p>
 <p>Note that you will be asked about stability in the Report, so you might as well calculate this and record the values now.</p>
@@ -13638,8 +13623,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.1:</b>
-</p></div>
+<b>Task 3.1:</b></p></div>
 <p>The vertex coordinates of the first triangle to be analyzed are: [0,0] , [0,1] , [1,0]. The second triangle share the first two vertices and have coordinates [0,0] , [0,1] , [-1,0].</p>
 <p>Plot the vertices and the triangles edges.</p>
 </div>
@@ -13680,8 +13664,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.2:</b>
-</p></div>
+<b>Task 3.2:</b></p></div>
 <p>Plot the centroid of each triangle, its connecting line and the middle distance. For the scheme you implemented in the previous task, write down what this implies for the <strong>numerical integration approximation of the flux at the surface</strong>.</p>
 <p>Specifically, consider the location where the flux is calculated, as implied by the numerical scheme, as well as the integration that is implied by the analytic surface integral over the surface of the shared triangle side.</p>
 </div>
@@ -13727,8 +13710,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.3:</b>
-</p></div>
+<b>Task 3.3:</b></p></div>
 <p>Now lets analyze a different situation and change the coordinates of the second triangle to [0,0] , [0,1] , [-1,1].</p>
 <p>Plot the centroid of each triangle, its connecting line and the middle distance. For the numerical scheme you implemented, write the implication for the <strong>numerical derivative approximation of the flux at the surface</strong>.</p>
 <p>Specifically, consider the <em>direction</em> in which the flux is calculated, as implied by the numerical scheme, as well as the quantity demanded by the analytic expression (i.e., the surface integral).</p>
@@ -13775,8 +13757,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width: 95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 3.4:</b>
-</p></div>
+<b>Task 3.4:</b></p></div>
 <p>Now lets analyze one last situation and change the coordinates of the second triangle to [0,0] , [0,1] , [-1.5,1].</p>
 <p>Plot the centroid of each triangle, its connecting line and the middle distance. Write down what this implies for the <strong>numerical derivative approximation of the flux normal to the surface</strong>.</p>
 </div>
@@ -13817,7 +13798,7 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=c4517a00"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=e41cdea6"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13834,9 +13815,11 @@ $$</p>
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

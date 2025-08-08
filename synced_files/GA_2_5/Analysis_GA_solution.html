@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -27,7 +27,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13276,7 +13275,7 @@ Basic Components of a Genetic Algorithm:</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Problem-definition-and-formulation">Problem definition and formulation<a class="anchor-link" href="#Problem-definition-and-formulation">¶</a></h2><p>Here is the problem formulation as presented in the previous Jupyter notebook</p>
-<p>$$\begin{align}
+$$\begin{align}
   min  \quad  &amp; \sum_{(i,j) \in A}{t^0_{ij} . x_{ij}} + \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij}} - \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij} . y_{ij}} + \sum_{(i,j) \in A}{t^0_{ij}.(\beta /c^1_{ij}) . x^2_{ij} . y_{ij}}  \\
   s.t.  \quad \\
   &amp; \sum_{(i,j) \in A}{ y_{ij}} = B \\
@@ -13285,8 +13284,7 @@ Basic Components of a Genetic Algorithm:</p>
   &amp; y_{ij} \in \{0, 1\} \quad \forall (i,j) \in A \\
   &amp; x_{ij} \geq 0 \quad \forall (i,j) \in A \\
   &amp; x_{ijs} \geq 0 \quad \forall (i,j) \in A, \forall s \in D \\
-\end{align}$$</p>
-<p>You can check the NDP notebook for details. But here we deal with it slightly differently to be able to use GA. Essentially, we break down the problem into two sub-problems: 1) the traffic assignment (TA) problem: the route choices of the drivers, and the 2) the road network design problem (NDP): where we select which links should be upgraded. We solve the problem by iteratively going between the Traffic assignment and the Design Problem. The idea is for the GA to move to better networks as generations pass which are evaluated by the traffic assignment process that you have learned.
+\end{align}$$<p>You can check the NDP notebook for details. But here we deal with it slightly differently to be able to use GA. Essentially, we break down the problem into two sub-problems: 1) the traffic assignment (TA) problem: the route choices of the drivers, and the 2) the road network design problem (NDP): where we select which links should be upgraded. We solve the problem by iteratively going between the Traffic assignment and the Design Problem. The idea is for the GA to move to better networks as generations pass which are evaluated by the traffic assignment process that you have learned.
 We use Gurobi to solve the Traffic Assignment sub-problems, which provide us with the objective function (or fitness function within the context of GA) value of the decision problem (which will be dealt with using GA). This is usually referred to as the iterative-optimization-assignment method since we iteratively improve the objective function value of the NDP using the assignment problem.</p>
 <p>So let's see how that works.</p>
 </div>
@@ -13296,13 +13294,12 @@ We use Gurobi to solve the Traffic Assignment sub-problems, which provide us wit
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="The-network-design-sub-problem">The network design sub-problem<a class="anchor-link" href="#The-network-design-sub-problem">¶</a></h3><p>The network desing is where we use the genetic algorithm. As explained before, GA uses a population of solutions and iteratively improves this population to evolve to new generations of populations with a better objective function value (being that minimization or maximization). In this problem, the decision variables are links for capacity expansion and the objective function value is the total system travel time that we want to minimize.</p>
-<p>\begin{align}
+\begin{align}
   min  \quad  &amp; \sum_{(i,j) \in A}{t^0_{ij} . x_{ij}} + \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij}} - \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij} . y_{ij}} + \sum_{(i,j) \in A}{t^0_{ij}.(\beta /c^1_{ij}) . x^2_{ij} . y_{ij}}  \\
   s.t.  \quad \\
   &amp; \sum_{(i,j) \in A}{ y_{ij}} = B \\
   &amp; y_{ij} \in \{0, 1\} \quad \forall (i,j) \in A \\
-\end{align}</p>
-<p>Where the values of $x_{ij}$ are not decision variables anymore, they will be obtained from solving the Traffic Assignment problem with Gurobi which evaluates the travel times on the network. This part of the problem will not be solved mathematically anymore, the $y_{ij}$ variables are decided by the genetic algorithm through the process you learned.</p>
+\end{align}<p>Where the values of $x_{ij}$ are not decision variables anymore, they will be obtained from solving the Traffic Assignment problem with Gurobi which evaluates the travel times on the network. This part of the problem will not be solved mathematically anymore, the $y_{ij}$ variables are decided by the genetic algorithm through the process you learned.</p>
 </div>
 </div>
 </div>
@@ -13310,15 +13307,14 @@ We use Gurobi to solve the Traffic Assignment sub-problems, which provide us wit
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="The-traffic-assignment-sub-problem">The traffic assignment sub-problem<a class="anchor-link" href="#The-traffic-assignment-sub-problem">¶</a></h3><p>This is just part of the original NDP that assigns traffic to the network based on a set of given capacity values, which are defined based on the values of the DP decision variables (links selected for capacity expansion). The main difference (and the advantage) here is that by separating the binary decision variables, instead of a mixed integer programming problem, which are hard to solve, here we have a quadratic programming problem with continuous decision variables, which will be transformed to a linear problem that Gurobi can solve very fast.</p>
-<p>\begin{align}
+\begin{align}
   min  \quad  &amp; \sum_{(i,j) \in A}{t^0_{ij} . x_{ij}} + \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij}} - \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij} . y_{ij}} + \sum_{(i,j) \in A}{t^0_{ij}.(\beta /c^1_{ij}) . x^2_{ij} . y_{ij}}  \\
   s.t.  \quad \\
   &amp; \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A  \\
   &amp; \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D \\
   &amp; x_{ij} \geq 0 \quad \forall (i,j) \in A \\
   &amp; x_{ijs} \geq 0 \quad \forall (i,j) \in A, \forall s \in D \\
-\end{align}</p>
-<p>Where the values of $y_{ij}$ are constant and are defined by GA.</p>
+\end{align}<p>Where the values of $y_{ij}$ are constant and are defined by GA.</p>
 </div>
 </div>
 </div>
@@ -13342,15 +13338,11 @@ We use Gurobi to solve the Traffic Assignment sub-problems, which provide us wit
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1:</b>
-</p></div>
+<b>Task 1:</b></p></div>
 <p>Run the script below.</p>
 <ul>
 <li>The first two blocks imports all the required functions and packages</li>
-<li>The next blocks visualises the network.
-
-
-</li>
+<li>The next blocks visualises the network.</li>
 </ul>
 </div>
 </div>
@@ -13490,8 +13482,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1:</b>
-</p></div>
+<b>Task 2.1:</b></p></div>
 <p>Run the scripts below all the way to the end. You do not have to change anything in the code for the first run. Take note of the convergence curve and the final network map.</p>
 </div>
 </div>
@@ -13621,8 +13612,7 @@ Here we wrap the code in a function so that we can use it later within the GA.</
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2:</b>
-</p></div>
+<b>Task 2.2:</b></p></div>
 <p>After running the whole script with no changes, come back to this task.
 As part of question 6, change the given parameters around and see how your convergence curve and network map changes. Unlike the LP notebook, you do not need to restart the notebook kernel!</p>
 </div>
@@ -13809,7 +13799,7 @@ As part of question 6, change the given parameters around and see how your conve
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=4c8e2a76"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=5727bd5e"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13826,9 +13816,11 @@ As part of question 6, change the given parameters around and see how your conve
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

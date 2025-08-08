@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -27,7 +27,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13224,8 +13223,7 @@ div#notebook {
 <p>There are a variety of approaches to dealing with the road network design problem with capacity expansion. One common approach is to use mathematical optimization models. In this assignment we use a simplified example to show how optimization can be used to tackle road NDPs.</p>
 <p>The following (main) assumptions and simplifications are made to make the problem solvable using methods and algorithms that you have learned so far:</p>
 <h3 id="1.-Link-travel-time-function">1. Link travel time function<a class="anchor-link" href="#1.-Link-travel-time-function">¶</a></h3><p>Travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/hour) on that link and the capacity of the link (maximum of vehicles/hour). The most common function to calculate travel time on a link is the so-called Bureau of Public Roads (BPR) function, which is a polynomial (degree 4) function:</p>
-<p>$${t_{ij}} = t_{ij}^0\left( {1 + \alpha {{\left( {\cfrac{x_{ij}}{c_{ij}}} \right)}^\beta }} \right) \quad \left( {i,j} \right) \in A$$</p>
-<p>Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $c_{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are calibration parameters. More details are provided within the formulation section.</p>
+$${t_{ij}} = t_{ij}^0\left( {1 + \alpha {{\left( {\cfrac{x_{ij}}{c_{ij}}} \right)}^\beta }} \right) \quad \left( {i,j} \right) \in A$$<p>Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $c_{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are calibration parameters. More details are provided within the formulation section.</p>
 <p>Here, we assumme a simplified linear function where travel time grows linearly with the flow of vehicles on a road link, which will be described later in the notebook.</p>
 <h3 id="2.-Route-choice-behavior">2. Route choice behavior<a class="anchor-link" href="#2.-Route-choice-behavior">¶</a></h3><p>In order to assess the quality of the road capacity expansion problem, one must know what the effect of the added capacity is on travel time. The route choice behavior of drivers within congested networks often follows the so-called User Equilibrium (UE) principle where each traveller tries to minimize their own individual generalized travel time.</p>
 <p>However, calculating the UE requires advanced methods which are not covered in the MUDE. Therefore, here we assume the route choice behaviour follows the so-called System Optimal (SO) principle, which implies that route choices are made in such a way that the total travel time is minimized (summed over all the drivers). That means that some cars will drive longer routes so that other cars can save time. But have in mind that in real life road networks you can hardly obtain a system optimal traffic distribution!</p>
@@ -13252,16 +13250,12 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1:</b>
-</p></div>
+<b>Task 1:</b></p></div>
 <p>Run the script below.</p>
 <ul>
 <li>The first two blocks imports all the required functions and packages</li>
 <li>The next blocks visualises the network.</li>
-<li>The last block loads the OD matrix and visualises it in a heatmap.
-
-
-</li>
+<li>The last block loads the OD matrix and visualises it in a heatmap.</li>
 </ul>
 </div>
 </div>
@@ -13434,8 +13428,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1:</b>
-</p></div>
+<b>Task 2.1:</b></p></div>
 <p>Run the script below. Take some time to look at the defined parameters and try to relate them to what they represent. This will be useful for answering the questions later.</p>
 </div>
 </div>
@@ -13478,8 +13471,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2:</b>
-</p></div>
+<b>Task 2.2:</b></p></div>
 <p>Run the model setup below, which includes initiating the decision variables, objective function, and constraints.</p>
 </div>
 </div>
@@ -13507,12 +13499,11 @@ div#notebook {
 <p>We also have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$ in cars per hour, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$.</p>
 <p>The first is the number of total cars passing on that road, and the second is the number of cars that are passing on the road which are specifically going to destination $s$. Summing the latter over all $s$ results in the former for a link $(i,j)$.</p>
 <p>Therefore, mathematically we define the domain of the variables as follows:</p>
-<p>\begin{align}
+\begin{align}
   &amp; y_{ij} \in \{0, 1\} \quad \forall (i,j) \in A \\
   &amp; x_{ij} \geq 0 \quad \forall (i,j) \in A \\
   &amp; x_{ijs} \geq 0 \quad \forall (i,j) \in A, \forall s \in D \\
-\end{align}</p>
-<p>As you will see below in the code block, we have one extra set of variables called x2 (x square). This is to help Gurobi isolate quadratic terms and perform required transformations based on MCE to keep the problem linear. This is not part of your learning goals.</p>
+\end{align}<p>As you will see below in the code block, we have one extra set of variables called x2 (x square). This is to help Gurobi isolate quadratic terms and perform required transformations based on MCE to keep the problem linear. This is not part of your learning goals.</p>
 </div>
 </div>
 </div>
@@ -13552,10 +13543,9 @@ div#notebook {
 <p>Which leads to the following extended objective funtion:</p>
 <p>$ Z = \sum_{(i,j) \in A}{ x_{ij} . (t^0_{ij} . ( 1 + \beta (x_{ij} * ((1 - y_{ij})/c^0_{ij} +  y_{ij}/c^1_{ij} ))))} $</p>
 <p>Now, for gurobi (and other solvers as well), we have to keep binary variables and quadratic terms clean and separate so that it can perform the required transformations to linearize the problem. Therefore, the equation below, despite being very big, would be the most solver-friendly formulation of our objective function:</p>
-<p>\begin{align}
+\begin{align}
   Z = \sum_{(i,j) \in A}{t^0_{ij} . x_{ij}} + \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij}} - \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij} . y_{ij}} + \sum_{(i,j) \in A}{t^0_{ij}.(\beta /c^1_{ij}) . x^2_{ij} . y_{ij}}  \\
-\end{align}</p>
-<p>Therefore, we use this equation to model our objective function in gurobi. You do not need to know fully understand this equation.</p>
+\end{align}<p>Therefore, we use this equation to model our objective function in gurobi. You do not need to know fully understand this equation.</p>
 </div>
 </div>
 </div>
@@ -13582,7 +13572,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Constraints">Constraints<a class="anchor-link" href="#Constraints">¶</a></h3><p>We have four sets of constraints for this problem. Let's go through them one by one and add them to the model.</p>
 <h4 id="1.-Budget-constraint">1. Budget constraint<a class="anchor-link" href="#1.-Budget-constraint">¶</a></h4><p>We can only extend the capacity of certain number of links based on the available budget. So first, we have to make sure to limit the number of extended links to the max number that can be expanded:</p>
-<p>$$ \sum_{(i,j) \in A}{ y_{ij}} \leq B $$</p>
+$$ \sum_{(i,j) \in A}{ y_{ij}} \leq B $$
 </div>
 </div>
 </div>
@@ -13675,8 +13665,7 @@ $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3:</b>
-</p></div>
+<b>Task 2.3:</b></p></div>
 <p>After running the whole model once for 300s, come back and set up a new constraint as instructed in the report. After doing this, reset your kernel and rerun the whole model, with this additional constraint.</p>
 </div>
 </div>
@@ -13684,8 +13673,7 @@ $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b>
-</p></div>
+<div style="background-color:#ffa6a6; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%"><p><b>Note:</b></p></div>
 <p>The cell below only has to be used when adding the constraint.  </p>
 </div>
 </div>
@@ -13766,7 +13754,7 @@ $ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let's visualize the results showcasing congested traffic flows and the selected links for expansion.
+<p>Now, let's visualize the results showcasing congested traffic flows and the selected links for expansion. 
 In this graph, we'll observe the network's topology using node coordinates and links. Our graph will be <strong>directional</strong> to represent the road network.</p>
 <p>Nodes are depicted in blue, while selected nodes and links are highlighted in pink and red.</p>
 </div>
@@ -13777,8 +13765,7 @@ In this graph, we'll observe the network's topology using node coordinates and l
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; width:95%; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.4:</b>
-</p></div>
+<b>Task 2.4:</b></p></div>
 <p>Run the visualisation scripts. Note that you can also view the printout of the labels if it is difficult to read.</p>
 </div>
 </div>
@@ -13843,7 +13830,7 @@ In this graph, we'll observe the network's topology using node coordinates and l
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=cb8ecd0a"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=8541be93"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13860,9 +13847,11 @@ In this graph, we'll observe the network's topology using node coordinates and l
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

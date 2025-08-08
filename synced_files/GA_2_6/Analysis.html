@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -27,7 +27,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13213,8 +13212,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<b>Questions:</b>
-</div>
+<b>Questions:</b></div>
 <p>This notebook includes boxes with the formatting shown here to list the questions you are expected to answer in your report. You are not expected to write your answers here.</p>
 </div>
 </div>
@@ -13392,8 +13390,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 1.1:</b>
-</div>
+<b>Task 1.1:</b></div>
 <p>In machine learning, it is common to split the dataset into three parts: a training set, a validation set, and a test set.</p>
 <p>Your task is to write a Python code snippet that splits a given dataset into these three parts. The dataset consists of <code>features</code> and <code>targets</code>.</p>
 <p>The dataset should be split as follows:</p>
@@ -13451,8 +13448,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 1.2:</b>
-</div>
+<b>Task 1.2:</b></div>
 <p>In machine learning, it is often beneficial to normalize the feature variables to a specific range. This can help the model converge faster during training and can also prevent certain features from dominating others due to their scale.</p>
 <p>Your task is to write a Python code snippet that normalizes the feature variables of a training set and a validation set to the range [0, 1]. The feature variables are stored in the variables <code>X_train</code> and <code>X_val</code>.</p>
 <p>You should use the <code>MinMaxScaler</code> class from the <code>sklearn.preprocessing</code> module to perform the normalization. This class scales and translates each feature individually such that it is in the given range on the training set. Remember we should fit the normalizer with <strong>only the training dataset</strong>!</p>
@@ -13481,8 +13477,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 1.3:</b>
-</div>
+<b>Task 1.3:</b></div>
 <p>We now do the same for the targets. Your task is to write a Python code snippet that normalizes the target variables of a training set and a validation set to the range [0, 1]. The target variables are stored in the variables <code>t_train</code> and <code>t_val</code>.</p>
 <p>The normalized targets should be stored in the variables <code>normalized_t_train</code> and <code>normalized_t_val</code>.</p>
 <p><strong>Hint</strong>: See how we did this in the workshop assignment!</p>
@@ -13509,8 +13504,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<b>Questions:</b>
-</div>
+<b>Questions:</b></div>
 <p>1.1) What is the purpose of splitting a dataset into training, validation, and test sets in the context of machine learning?</p>
 <p>1.2) Why should the <code>MinMaxScaler</code> be fitted on the training data only?</p>
 <p>1.3) Why is it crucial that the exact same scaler is used to transform the validation dataset?</p>
@@ -13616,11 +13610,9 @@ Define the following hyperparameters:</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 2.1:</b>
-</div>
+<b>Task 2.1:</b></div>
 <p>In this exercise, you are tasked with implementing a function to train a neural network model. The function should also compute and store the loss on the training and validation sets at each epoch. The loss function to be used is the Mean Squared Error (MSE), which is defined as:</p>
-<p>$$ MSE = \frac{1}{N} \sum_{n=1}^{N} (t_n - y_n)^2 $$</p>
-<p>where $t_n$ is the actual target, $y_n$ is the predicted value, and $N$ is the number of samples.</p>
+$$ MSE = \frac{1}{N} \sum_{n=1}^{N} (t_n - y_n)^2 $$<p>where $t_n$ is the actual target, $y_n$ is the predicted value, and $N$ is the number of samples.</p>
 <p>The function should be named <code>train_model</code> and should take the following parameters:</p>
 <ul>
 <li><code>model</code>: An instance of a neural network model that we want to train.</li>
@@ -13693,8 +13685,7 @@ Define the following hyperparameters:</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <b>Task 2.2:</b>   
-You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should have the following characteristics:
-</div>
+You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should have the following characteristics:</div>
 <ul>
 <li>The hidden layer sizes are defined as a tuple. For this task we want to have two hidden layers with 10 and 5 neurons, respectively, so we should write: hidden_layer_sizes=(10,5). Notice that we only specify the hidden layer sizes, the input and output sizes will be automatically inferred when we train the model.</li>
 <li>The activation function can be one of the following: 'identity', 'logistic', 'tanh', 'relu'. But for this task you should set it to 'tanh'.</li>
@@ -13769,8 +13760,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 2.4:</b>
-</div>
+<b>Task 2.4:</b></div>
 <p>Now let us look at how well our model performs. With only one input feature, one easy way to do this is by just plotting $y(x)$ for the whole range of $x$. Since we have normalized our inputs with a <code>MinMaxScaler</code>, it is reasonable to form a simple <code>linspace</code> in $[0,1]$. We can then plot this function $y(x)$ together with our training and validation data to have an idea of how close model predictions are.</p>
 <p>In the block below we already prepare a <code>normalized_X_range</code> for you to feed to the model (remember the network learned to use normalized inputs). Your task is to compute model predictions and store them in <code>t_range</code>. Remember to de-normalize what comes out of the network.</p>
 <p>Add these plots to your report.</p>
@@ -13812,8 +13802,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 2.5:</b>
-</div>
+<b>Task 2.5:</b></div>
 <p>Another useful way to visualize our results is to use a so-called <strong>parity plot</strong>. This consists in plotting targets on the x-axis against network predictions on the y-axis, in other words a $t$ versus $y$ plot. For a model that always makes perfect predictions, $y=t$ for all instances of the target, which would make all points in the plot lie on the diagonal line $y=x$. In practice model predictions are often far from perfect, and this deviation would be seen as the points drifting away from the diagonal.</p>
 <p>Your task is to set up two parity plots for this model, one for training data and one for validation data.</p>
 <p>Add these plots to your report.</p>
@@ -13858,8 +13847,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<b>Questions:</b>
-</div>
+<b>Questions:</b></div>
 <p>2.1) Based on the shape of the loss curves, what can you indicate about the fitting capabilities of the model? (Is it overfitting, underfitting, or neither?)</p>
 <p>2.2) Why is the model performing so poorly? Can you give an explanation based on the physics of the problem? Is there a crack location for which this model does make a good prediction? Why is that the case?</p>
 <p>2.3) Can you explain why the model performs poorly in light of the assumptions we made for our observation model $p(t\vert x)=\mathcal{N}\left(t\lvert y(x),\beta^{-1}\right)$?</p>
@@ -13884,8 +13872,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 3.1:</b>
-</div>
+<b>Task 3.1:</b></div>
 <p>Use this block to set up a new neural network that now takes all three input features (displacements at three different sensors). The $[1000\times 3]$ feature matrix <code>features</code> and the $[1000\times 1]$ target vector <code>targets</code> are already done for you.</p>
 <p>Now get all the code you need from the code blocks in Part 2 and paste them here. You need to (i) split your dataset again since it has changed; (ii) normalize features and targets; (iii) adjust the number of epochs and model architecture until you are satisfied with the model; (iv) set up an <code>MLPRegressor</code> and call <code>train_model</code>.</p>
 <p>To reach a good architecture and number of epochs you will need to also complete Task 3.2 and rerun these two blocks until you are satisfied with the number you picked. Try out different activation functions to see what works best.</p>
@@ -13917,8 +13904,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 3.2:</b>
-</div>
+<b>Task 3.2:</b></div>
 <p>Use this block to plot how the losses evolve with epochs. Once again you can reuse code from before.</p>
 <p>Add the plots to your report. Include only results from your final model (the one you are most satisfied with)</p>
 </div>
@@ -13946,8 +13932,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 3.3:</b>
-</div>
+<b>Task 3.3:</b></div>
 <p>Use this block to make parity plots for your new model for both training and validation datasets. Once again you can reuse code from before.</p>
 <p>Add the plots to your report. Include only results from your final model (the one you are most satisfied with)</p>
 </div>
@@ -13968,8 +13953,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<b>Questions:</b>
-</div>
+<b>Questions:</b></div>
 <p>3.1) Based on the shape of the loss curves, what can you indicate about the fitting capabilities of the model? (Is it overfitting, underfitting, or neither?)</p>
 <p>3.2) What criterion did you use to measure the quality of your model when trying out different architectures?</p>
 <p>3.3) How well does your final model do compared to the one in Part 2? Use the parity plots you obtained to make your argument. Can you give a physical explanation for why this is the case?</p>
@@ -13988,8 +13972,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 4.1:</b>
-</div>
+<b>Task 4.1:</b></div>
 <p>Create a grid-search strategy to find hyperparameters that give the best prediction on the validation set. Vary the number of layers and number of hidden units per layer. You can assume that all the hidden layers have the same number of hidden units.</p>
 <p>Based on your trials in Part 3, set up lists for <code>layer_sizes</code> and <code>layer_numbers</code> to create a grid of models to be tested. You do not need to code anything else. Do not be too ambitious with your setup, the number of models to be trained is <code>len(layer_sizes)*len(layer_numbers)</code>, so if you use too many combinations the block will take a while to run!</p>
 <p>Note that the activation function is fixed to <code>tanh</code> right now, but also try out <code>relu</code> and <code>logistic</code> and keep the one that gives the best results.</p>
@@ -14086,8 +14069,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
-<b>Task 4.2:</b>
-</div>
+<b>Task 4.2:</b></div>
 <p>It is finally time to plot the performance of our best model in detail! In the next block we set up and train again the best model found by the grid search procedure.</p>
 <p>Your task is to use this trained model to produce parity plots for training and validation, like the ones from Parts 2 and 3. Use the code you already developed!</p>
 <p>But now we can also finally take a look at the <strong>test dataset</strong> that we never touched (we did not use it for training nor for selecting the architecture). The error on the test set should serve as the final check for your model, on data that the model has really never seen, directly or indirectly.</p>
@@ -14129,8 +14111,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FFC5CB; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<b>Questions:</b>
-</div>
+<b>Questions:</b></div>
 <p>4.1) How does hyperparameter tuning in machine learning relate to the concept of model complexity?</p>
 <p>4.2) Given a comprehensive list of layer sizes and numbers, and given a relatively small training dataset, we expect the top left corner of the heatmap to have high validation errors. Why is that?</p>
 <p>4.3) Following up on the previous question, we also expect the bottom right corner of the heatmap to have high validation errors. Why is that?</p>
@@ -14138,7 +14119,7 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=e97e2538"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=fda28b15"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14155,9 +14136,11 @@ You are tasked with setting up a Multi-Layer Perceptron (MLP). The MLP should ha
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

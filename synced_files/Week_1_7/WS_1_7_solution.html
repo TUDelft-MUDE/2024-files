@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13354,14 +13353,10 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<b>Solution:</b>
-</div>
+<b>Solution:</b></div>
 <ul>
 <li>Gumbel.</li>
-<li>Uniform and Gaussian distributions are symmetric so they are not appropriate to model the observations. We can see it by computing the difference between the minimum value and the P50% and between the maximum value and P50%. $d_{min, 50}= 33.87-2.33 = 31.54 &lt; d_{max, 50} = 82.60 - 33.87 = 48.72$.
-
-
-</li>
+<li>Uniform and Gaussian distributions are symmetric so they are not appropriate to model the observations. We can see it by computing the difference between the minimum value and the P50% and between the maximum value and P50%. $d_{min, 50}= 33.87-2.33 = 31.54 &lt; d_{max, 50} = 82.60 - 33.87 = 48.72$.</li>
 </ul>
 </div>
 </div>
@@ -13404,8 +13399,7 @@ Fit the selected distribution by moments.
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <b>Solution:</b>
-    Fitting by moments a distribution implies equating the moments of the observations to those of the parametric distribution. Applying then the expressions of the mean and variance of the Gumbel distribution we obtain:
-</div>
+    Fitting by moments a distribution implies equating the moments of the observations to those of the parametric distribution. Applying then the expressions of the mean and variance of the Gumbel distribution we obtain:</div>
 <p>$
     \mathbb{V}ar(X) = \cfrac{\pi^2}{6} \beta^2 \to \beta = \sqrt{\cfrac{6\mathbb{V}ar(X)}{\pi^2}}=\sqrt{\cfrac{6 \cdot 16.797^2}{\pi^2}}= 13.097
 $</p>
@@ -13486,8 +13480,7 @@ You can summarize you answers in the following table (report your values with 3-
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
-<b>Solution:</b>
-</div>
+<b>Solution:</b></div>
 <table>
 <thead>
 <tr>
@@ -13526,8 +13519,8 @@ You can summarize you answers in the following table (report your values with 3-
 </tr>
 </tbody>
 </table>
-<p>Note: you can compute the values of the random variable using the inverse of the CDF of the Gumbel distribution:
-$
+<p>Note: you can compute the values of the random variable using the inverse of the CDF of the Gumbel distribution:</p>
+<p>$
 F(x) = e^{\normalsize -e^{\normalsize-\cfrac{x-\mu}{\beta}}} \to x = -\beta \ln\left(-\ln F\left(x\right)\right) + \mu
 $</p>
 <p>Compare and assess:</p>
@@ -13753,13 +13746,12 @@ Assess the goodness of fit of the fitted distribution by:
 <b>Solution:</b>
 <li> Comparing the PDF: The fitted distribution approximately follows the bell shape of the observations with a right tale, so Gumbel distribution seems an appropriate choice considering the shape of the PDF. </li>
 <li> Logscale plot: This technique allows to visually assess the fitting of the parametric distribution to the tail of the empirical distribution. We can see that actually the tail of the empirical distribution is not well fitted. Gumbel distribution provides estimates of the random variable higher than the actual values, being on the safe side in this case. We would need to reflect whether this values are reasonable and have a physical meaning. </li>
-<li> QQplot: Again, we can see that the distribution performs well around the central moments and left tail, but the right tail is not properly fitted.</li>
-</div>
+<li> QQplot: Again, we can see that the distribution performs well around the central moments and left tail, but the right tail is not properly fitted.</li></div>
 <p>The conclusions reached with this analysis are similar to those obtained in the analytical part (pen and paper), since the techniques are equivalent. We can make use of the computer power to obtain more robust conclusions.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=cb0c87e6"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=12c8cec8"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13776,9 +13768,11 @@ Assess the goodness of fit of the fitted distribution by:
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

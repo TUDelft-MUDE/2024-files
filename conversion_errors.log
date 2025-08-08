@@ -1,4 +1,4 @@
-INFO: === Starting synchronization at 2025-01-07 02:13:50 ===
+INFO: === Starting synchronization at 2025-08-08 12:46:32 ===
 ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
 
 Failed validating 'additionalProperties' in markdown_cell:
@@ -6,6 +6,39 @@ Failed validating 'additionalProperties' in markdown_cell:
 On instance['cells'][61]:
 {'cell_type': 'markdown',
  'id': '2d17d1d2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][61]:
+{'cell_type': 'markdown',
+ 'id': '2d17d1d2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][61]:
+{'cell_type': 'markdown',
+ 'id': '2d17d1d2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][61]:
+{'cell_type': 'markdown',
+ 'id': 'eb67b69f',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -25,9 +58,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '8be7bef6',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '8be7bef6',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '8efffbd7',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][21]:
 {'cell_type': 'markdown',
  'id': '11b698a8',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][21]:
+{'cell_type': 'markdown',
+ 'id': '11b698a8',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][21]:
+{'cell_type': 'markdown',
+ 'id': '11b698a8',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][21]:
+{'cell_type': 'markdown',
+ 'id': 'd77232c1',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -47,6 +146,39 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][31]:
+{'cell_type': 'markdown',
+ 'id': '73688964',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][31]:
+{'cell_type': 'markdown',
+ 'id': '73688964',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][31]:
+{'cell_type': 'markdown',
+ 'id': '3633036b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][49]:
 {'cell_type': 'markdown',
  'id': '1f20a790',
@@ -58,9 +190,31 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
-On instance['cells'][54]:
+On instance['cells'][49]:
 {'cell_type': 'markdown',
- 'id': 'b35cce29',
+ 'id': '1f20a790',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][49]:
+{'cell_type': 'markdown',
+ 'id': '1f20a790',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][49]:
+{'cell_type': 'markdown',
+ 'id': 'ae7c9043',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -80,9 +234,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][48]:
+{'cell_type': 'markdown',
+ 'id': '9ce5ef3c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][48]:
+{'cell_type': 'markdown',
+ 'id': '9ce5ef3c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][48]:
+{'cell_type': 'markdown',
+ 'id': 'a285c9d9',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][63]:
 {'cell_type': 'markdown',
  'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': '82305e8e',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -104,7 +324,73 @@ Failed validating 'additionalProperties' in markdown_cell:
 
 On instance['cells'][41]:
 {'cell_type': 'markdown',
+ 'id': '9623200b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '9623200b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '7cf4ae7b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
  'id': '4c8e2a76',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '4c8e2a76',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '4c8e2a76',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][41]:
+{'cell_type': 'markdown',
+ 'id': '5727bd5e',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -126,7 +412,73 @@ Failed validating 'additionalProperties' in markdown_cell:
 
 On instance['cells'][50]:
 {'cell_type': 'markdown',
+ 'id': 'cb8ecd0a',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': 'cb8ecd0a',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': '8541be93',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
  'id': 'afe52867',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': 'afe52867',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': 'afe52867',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': '17955a24',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -148,7 +500,337 @@ Failed validating 'additionalProperties' in markdown_cell:
 
 On instance['cells'][63]:
 {'cell_type': 'markdown',
+ 'id': 'e97e2538',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'e97e2538',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'fda28b15',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
  'id': 'd49f6732',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'd49f6732',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'd49f6732',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][63]:
+{'cell_type': 'markdown',
+ 'id': 'e3d26d0d',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][39]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][39]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][39]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][39]:
+{'cell_type': 'markdown',
+ 'id': 'bd031739',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][40]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][40]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][40]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][40]:
+{'cell_type': 'markdown',
+ 'id': 'ac6b6047',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][28]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][28]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][28]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][28]:
+{'cell_type': 'markdown',
+ 'id': '61146d4c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][29]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][29]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][29]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][29]:
+{'cell_type': 'markdown',
+ 'id': 'fafb3698',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': 'e908d913',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': '1dd5ed0c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][13]:
+{'cell_type': 'markdown',
+ 'id': 'c60fcf04',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -168,9 +850,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': '6e512e24',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': '6e512e24',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][50]:
+{'cell_type': 'markdown',
+ 'id': '19447d8b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][57]:
 {'cell_type': 'markdown',
  'id': '60de6e23',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][57]:
+{'cell_type': 'markdown',
+ 'id': '60de6e23',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][57]:
+{'cell_type': 'markdown',
+ 'id': '60de6e23',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][57]:
+{'cell_type': 'markdown',
+ 'id': 'a1453bb9',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -190,9 +938,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][36]:
+{'cell_type': 'markdown',
+ 'id': 'a7ca91cf',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][36]:
+{'cell_type': 'markdown',
+ 'id': 'a7ca91cf',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][36]:
+{'cell_type': 'markdown',
+ 'id': 'b510208c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][42]:
 {'cell_type': 'markdown',
  'id': '2512a67c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][42]:
+{'cell_type': 'markdown',
+ 'id': '2512a67c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][42]:
+{'cell_type': 'markdown',
+ 'id': '2512a67c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][42]:
+{'cell_type': 'markdown',
+ 'id': 'bd3033a3',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -212,9 +1026,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][30]:
+{'cell_type': 'markdown',
+ 'id': 'b6495720',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][30]:
+{'cell_type': 'markdown',
+ 'id': 'b6495720',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][30]:
+{'cell_type': 'markdown',
+ 'id': 'b324bee3',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][33]:
 {'cell_type': 'markdown',
  'id': '6b38ca88',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '6b38ca88',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '6b38ca88',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': 'c9e2e809',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -234,9 +1114,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][7]:
+{'cell_type': 'markdown',
+ 'id': '0b4c0735',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][7]:
+{'cell_type': 'markdown',
+ 'id': '0b4c0735',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][7]:
+{'cell_type': 'markdown',
+ 'id': 'e283c199',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][10]:
 {'cell_type': 'markdown',
  'id': 'a8389eaa',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': 'a8389eaa',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': 'a8389eaa',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': '2ef7b2fd',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -256,9 +1202,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][2]:
+{'cell_type': 'markdown',
+ 'id': 'fe32d45f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][2]:
+{'cell_type': 'markdown',
+ 'id': 'fe32d45f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][2]:
+{'cell_type': 'markdown',
+ 'id': 'e30455d2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][4]:
 {'cell_type': 'markdown',
  'id': '1fcb6770',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][4]:
+{'cell_type': 'markdown',
+ 'id': '1fcb6770',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][4]:
+{'cell_type': 'markdown',
+ 'id': '1fcb6770',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][4]:
+{'cell_type': 'markdown',
+ 'id': '3f285bc2',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -278,9 +1290,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][44]:
+{'cell_type': 'markdown',
+ 'id': 'f1845f70',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][44]:
+{'cell_type': 'markdown',
+ 'id': 'f1845f70',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][44]:
+{'cell_type': 'markdown',
+ 'id': 'bbdff7dc',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][53]:
 {'cell_type': 'markdown',
  'id': '826fb763',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][53]:
+{'cell_type': 'markdown',
+ 'id': '826fb763',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][53]:
+{'cell_type': 'markdown',
+ 'id': '826fb763',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][53]:
+{'cell_type': 'markdown',
+ 'id': '6e925056',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -300,6 +1378,39 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][55]:
+{'cell_type': 'markdown',
+ 'id': 'f06deab7',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][55]:
+{'cell_type': 'markdown',
+ 'id': 'f06deab7',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][55]:
+{'cell_type': 'markdown',
+ 'id': '56164bcc',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][56]:
 {'cell_type': 'markdown',
  'id': '8a4f50a4',
@@ -311,9 +1422,9 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
-On instance['cells'][9]:
+On instance['cells'][56]:
 {'cell_type': 'markdown',
- 'id': 'b8af792e',
+ 'id': '8a4f50a4',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -322,9 +1433,108 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
-On instance['cells'][13]:
+On instance['cells'][56]:
+{'cell_type': 'markdown',
+ 'id': '8a4f50a4',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][56]:
+{'cell_type': 'markdown',
+ 'id': '24efbc80',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
 {'cell_type': 'markdown',
  'id': 'c2f76fae',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': 'c2f76fae',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': 'c2f76fae',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '13dbe517',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][24]:
+{'cell_type': 'markdown',
+ 'id': 'c2f76fae',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][24]:
+{'cell_type': 'markdown',
+ 'id': 'c2f76fae',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][24]:
+{'cell_type': 'markdown',
+ 'id': 'c2f76fae',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][24]:
+{'cell_type': 'markdown',
+ 'id': 'e2dec694',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -344,9 +1554,262 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': '3e769ca2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': '3e769ca2',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': 'e2f76811',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][39]:
+{'cell_type': 'markdown',
+ 'id': '0861706f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][40]:
+{'cell_type': 'markdown',
+ 'id': '5805ee1d',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][43]:
+{'cell_type': 'markdown',
+ 'id': '88f217c4',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][20]:
+{'cell_type': 'markdown',
+ 'id': 'b2588bed',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][11]:
+{'cell_type': 'markdown',
+ 'id': '2d4fabf0',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': '0ca18838',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][7]:
+{'cell_type': 'markdown',
+ 'id': '9e5df930',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': 'f911d8ec',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][17]:
+{'cell_type': 'markdown',
+ 'id': 'cdb70779',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][17]:
+{'cell_type': 'markdown',
+ 'id': '5cdcfd14',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][3]:
+{'cell_type': 'markdown',
+ 'id': 'a77e78cc',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': 'ff4277c9',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': '4dfde27b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': 'f71f3bfc',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][4]:
+{'cell_type': 'markdown',
+ 'id': 'a8a9f87d',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '841667d4',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][12]:
+{'cell_type': 'markdown',
+ 'id': 'aeb2f039',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][14]:
 {'cell_type': 'markdown',
  'id': '27c60a7f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][14]:
+{'cell_type': 'markdown',
+ 'id': '27c60a7f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][14]:
+{'cell_type': 'markdown',
+ 'id': '27c60a7f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][14]:
+{'cell_type': 'markdown',
+ 'id': 'beba8604',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -366,6 +1829,39 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': '9beb84ff',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': '9beb84ff',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][10]:
+{'cell_type': 'markdown',
+ 'id': 'bfdd6990',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][6]:
 {'cell_type': 'markdown',
  'id': 'b3f65c9d',
@@ -377,9 +1873,75 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][6]:
+{'cell_type': 'markdown',
+ 'id': 'b3f65c9d',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][6]:
+{'cell_type': 'markdown',
+ 'id': 'b3f65c9d',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][6]:
+{'cell_type': 'markdown',
+ 'id': '6f5b6179',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][5]:
 {'cell_type': 'markdown',
  'id': '9e812924',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][5]:
+{'cell_type': 'markdown',
+ 'id': '9e812924',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][5]:
+{'cell_type': 'markdown',
+ 'id': '9e812924',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][5]:
+{'cell_type': 'markdown',
+ 'id': '98984bba',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -401,7 +1963,73 @@ Failed validating 'additionalProperties' in markdown_cell:
 
 On instance['cells'][15]:
 {'cell_type': 'markdown',
+ 'id': 'cefafb54',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': 'cefafb54',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': 'ca3c2995',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
  'id': '21f73bef',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': '21f73bef',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': '21f73bef',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][15]:
+{'cell_type': 'markdown',
+ 'id': 'ebe7e43f',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -413,6 +2041,39 @@ Failed validating 'additionalProperties' in markdown_cell:
 On instance['cells'][8]:
 {'cell_type': 'markdown',
  'id': 'e707ed58',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': 'e707ed58',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': 'e707ed58',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][8]:
+{'cell_type': 'markdown',
+ 'id': '9aa1be2e',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -434,7 +2095,73 @@ Failed validating 'additionalProperties' in markdown_cell:
 
 On instance['cells'][33]:
 {'cell_type': 'markdown',
+ 'id': '23d8351c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '23d8351c',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '79eb4585',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
  'id': '078b9223',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '078b9223',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '078b9223',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][33]:
+{'cell_type': 'markdown',
+ 'id': '5e809136',
  'metadata': {},
  'source': '**End of notebook.**\n'
            '\n'
@@ -454,6 +2181,39 @@ ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was
 
 Failed validating 'additionalProperties' in markdown_cell:
 
+On instance['cells'][22]:
+{'cell_type': 'markdown',
+ 'id': 'e8d48f9f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][22]:
+{'cell_type': 'markdown',
+ 'id': 'e8d48f9f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][22]:
+{'cell_type': 'markdown',
+ 'id': '3f141068',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
 On instance['cells'][9]:
 {'cell_type': 'markdown',
  'id': 'be902968',
@@ -461,375 +2221,1846 @@ On instance['cells'][9]:
  'source': '**End of notebook.**\n'
            '\n'
            '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': 'be902968',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': 'be902968',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][9]:
+{'cell_type': 'markdown',
+ 'id': '7cb8987b',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
 INFO: === Footer Check Summary ===
-INFO: Total notebooks: 120
-INFO: Standard footers: 120
-INFO: Non-standard footers: 0
-INFO: Fixed footers: 0
+INFO: Total notebooks: 145
+INFO: Standard footers: 0
+INFO: Non-standard footers: 145
+INFO: Fixed footers: 145
 INFO: Errors: 0
 INFO: 
 === Detailed Results ===
-INFO: OK: GA_1_1\Task_2_solution.ipynb - Has standard footer
-INFO: OK: GA_1_2\Analysis.ipynb - Has standard footer
-INFO: OK: GA_1_2\Analysis_solution.ipynb - Has standard footer
-INFO: OK: GA_1_3\Analysis.ipynb - Has standard footer
-INFO: OK: GA_1_3\Analysis_Solution.ipynb - Has standard footer
-INFO: OK: GA_1_3\Warmup.ipynb - Has standard footer
-INFO: OK: GA_1_4\Analysis.ipynb - Has standard footer
-INFO: OK: GA_1_4\Analysis_solution.ipynb - Has standard footer
-INFO: OK: GA_1_5\Analysis.ipynb - Has standard footer
-INFO: OK: GA_1_5\Analysis_solution.ipynb - Has standard footer
-INFO: OK: GA_1_5\central_diff_illustration.ipynb - Has standard footer
-INFO: OK: GA_1_6\Analysis.ipynb - Has standard footer
-INFO: OK: GA_1_6\Analysis_solution.ipynb - Has standard footer
-INFO: OK: GA_1_8\Analysis.ipynb - Has standard footer
-INFO: OK: GA_2_1\Analysis.ipynb - Has standard footer
-INFO: OK: GA_2_1\Analysis_solution.ipynb - Has standard footer
-INFO: OK: GA_2_1\mesh_dev.ipynb - Has standard footer
-INFO: OK: GA_2_1\mesh_tips.ipynb - Has standard footer
-INFO: OK: GA_2_2\the_big_M.ipynb - Has standard footer
-INFO: OK: GA_2_3\Analysis.ipynb - Has standard footer
-INFO: OK: GA_2_3\Analysis_solution.ipynb - Has standard footer
-INFO: OK: GA_2_4\GA_2_4_Beary_Icy.ipynb - Has standard footer
-INFO: OK: GA_2_4\GA_2_4_solution.ipynb - Has standard footer
-INFO: OK: GA_2_5\Analysis_GA.ipynb - Has standard footer
-INFO: OK: GA_2_5\Analysis_GA_solution.ipynb - Has standard footer
-INFO: OK: GA_2_5\Analysis_LP.ipynb - Has standard footer
-INFO: OK: GA_2_5\Analysis_LP_solution.ipynb - Has standard footer
-INFO: OK: GA_2_6\Analysis.ipynb - Has standard footer
-INFO: OK: GA_2_6\Analysis_solution.ipynb - Has standard footer
-INFO: OK: GA_2_7\rain_solution.ipynb - Has standard footer
-INFO: OK: week_1_1\PA_1_1_Catch_Them_All.ipynb - Has standard footer
-INFO: OK: Week_1_2\In_Class_Activity.ipynb - Has standard footer
-INFO: OK: Week_1_2\In_Class_Activity_Solution.ipynb - Has standard footer
-INFO: OK: Week_1_2\PA_1_2_Random_Adventure.ipynb - Has standard footer
-INFO: OK: Week_1_2\PA_1_2_solution.ipynb - Has standard footer
-INFO: OK: Week_1_2\WS_1_2_Pipe_Dreams.ipynb - Has standard footer
-INFO: OK: Week_1_2\WS_1_2_solution.ipynb - Has standard footer
-INFO: OK: week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb - Has standard footer
-INFO: OK: week_1_3\PA_1_3_solution.ipynb - Has standard footer
-INFO: OK: week_1_3\WS_1_3_Moving_Ice.ipynb - Has standard footer
-INFO: OK: week_1_3\WS_1_3_solution.ipynb - Has standard footer
-INFO: OK: Week_1_4\WS_1_4_Nonlinear_Rain.ipynb - Has standard footer
-INFO: OK: Week_1_4\WS_1_4_solution.ipynb - Has standard footer
-INFO: OK: week_1_5\WS_1_5_dont_integr_hate.ipynb - Has standard footer
-INFO: OK: week_1_5\WS_1_5_solution.ipynb - Has standard footer
-INFO: OK: Week_1_6\WS_1_6_solution.ipynb - Has standard footer
-INFO: OK: Week_1_6\WS_1_6_time_to_c_ode.ipynb - Has standard footer
-INFO: OK: Week_1_7\scipy_stats.ipynb - Has standard footer
-INFO: OK: Week_1_7\WS_1_7_lets_be_concrete.ipynb - Has standard footer
-INFO: OK: Week_1_7\WS_1_7_solution.ipynb - Has standard footer
-INFO: OK: Week_1_8\data.ipynb - Has standard footer
-INFO: OK: Week_1_8\intersection.ipynb - Has standard footer
-INFO: OK: Week_1_8\test_bivariate.ipynb - Has standard footer
-INFO: OK: Week_2_1\WS_2_1_solution.ipynb - Has standard footer
-INFO: OK: Week_2_1\WS_2_1_wiggle.ipynb - Has standard footer
-INFO: OK: Week_2_1\WS_2_1_wiggle_test_ci.ipynb - Has standard footer
-INFO: OK: Week_2_2\PA_2_2_love_is_sparse.ipynb - Has standard footer
-INFO: OK: Week_2_2\PA_2_2_solution.ipynb - Has standard footer
-INFO: OK: Week_2_2\WS_2_2_more_support.ipynb - Has standard footer
-INFO: OK: Week_2_2\WS_2_2_solution.ipynb - Has standard footer
-INFO: OK: Week_2_3\WS_2_3_DFT_you_try_meow.ipynb - Has standard footer
-INFO: OK: Week_2_3\WS_2_3_solution.ipynb - Has standard footer
-INFO: OK: Week_2_4\WS_2_4_Feel_the_Pressure.ipynb - Has standard footer
-INFO: OK: Week_2_4\WS_2_4_solution.ipynb - Has standard footer
-INFO: OK: Week_2_5\WS_2_5_Profit_vs_Planet.ipynb - Has standard footer
-INFO: OK: Week_2_5\WS_2_5_solution.ipynb - Has standard footer
-INFO: OK: Week_2_6\WS_2_6_be_a_NN.ipynb - Has standard footer
-INFO: OK: Week_2_6\WS_2_6_solution.ipynb - Has standard footer
-INFO: OK: Week_2_7\WS_2_7_solution.ipynb - Has standard footer
-INFO: OK: Week_2_7\WS_2_7_student.ipynb - Has standard footer
-INFO: OK: Week_2_8\WS_2_8_dirty_water.ipynb - Has standard footer
-INFO: OK: Week_2_8\WS_2_8_solution.ipynb - Has standard footer
-INFO: OK: GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb - Has standard footer
-INFO: OK: GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb - Has standard footer
-INFO: OK: GA_1_7\Solution\Force\Analysis_force_solution.ipynb - Has standard footer
-INFO: OK: GA_1_7\Student\Discharge\Analysis_discharge.ipynb - Has standard footer
-INFO: OK: GA_1_7\Student\Emissions\Analysis_emissions.ipynb - Has standard footer
-INFO: OK: GA_1_7\Student\Force\Analysis_force.ipynb - Has standard footer
-INFO: OK: GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb - Has standard footer
-INFO: OK: GA_1_8\solution\GA_1_8_solution_HT.ipynb - Has standard footer
-INFO: OK: GA_1_8\solution\GA_1_8_solution_hu.ipynb - Has standard footer
-INFO: OK: GA_1_8\solution\GA_1_8_solution_traffic.ipynb - Has standard footer
-INFO: OK: GA_2_1\mesh\mesh.ipynb - Has standard footer
-INFO: OK: tutorials\Week_1_3\Analysis.ipynb - Has standard footer
-INFO: OK: tutorials\Week_1_5\Tutorial.ipynb - Has standard footer
-INFO: OK: tutorials\Week_1_6\Tutorial.ipynb - Has standard footer
-INFO: OK: week_1_5\PA\PA_1_5_solution.ipynb - Has standard footer
-INFO: OK: week_1_5\PA\PA_1_5_useful_tricks.ipynb - Has standard footer
-INFO: OK: week_1_5\PA_ice\PA_plots.ipynb - Has standard footer
-INFO: OK: Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb - Has standard footer
-INFO: OK: Week_1_6\PA\PA_1_6_solution.ipynb - Has standard footer
-INFO: OK: Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb - Has standard footer
-INFO: OK: Week_1_7\PA\PA_1_7_solution.ipynb - Has standard footer
-INFO: OK: Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb - Has standard footer
-INFO: OK: Week_1_8\PA\PA_1_8_solution.ipynb - Has standard footer
-INFO: OK: Week_1_8\WS\linearity_or_not.ipynb - Has standard footer
-INFO: OK: Week_1_8\WS\WS_1_8_solution.ipynb - Has standard footer
-INFO: OK: Week_1_8\WS\WS_1_8_Thingamajig.ipynb - Has standard footer
-INFO: OK: Week_2_1\PA\PA_2_1_classy_city.ipynb - Has standard footer
-INFO: OK: Week_2_1\PA\PA_2_1_solution.ipynb - Has standard footer
-INFO: OK: Week_2_1\PA\PA_dev.ipynb - Has standard footer
-INFO: OK: Week_2_1\PA\U.ipynb - Has standard footer
-INFO: OK: Week_2_2\old\old_PA10_Love_is_Sparse.ipynb - Has standard footer
-INFO: OK: Week_2_2\old\old_PA10_solution_sympy.ipynb - Has standard footer
-INFO: OK: Week_2_2\old\PA_2_1_solution.ipynb - Has standard footer
-INFO: OK: Week_2_2\old\PA_2_1_solution_sympy.ipynb - Has standard footer
-INFO: OK: Week_2_2\old\WS_2_2_more_support.ipynb - Has standard footer
-INFO: OK: Week_2_2\PA\PA_2_2_love_is_sparse.ipynb - Has standard footer
-INFO: OK: Week_2_2\PA\PA_2_2_solution.ipynb - Has standard footer
-INFO: OK: Week_2_3\PA\PA_2_3_iter_remoto.ipynb - Has standard footer
-INFO: OK: Week_2_3\PA\PA_2_3_solution.ipynb - Has standard footer
-INFO: OK: Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb - Has standard footer
-INFO: OK: Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb - Has standard footer
-INFO: OK: Week_2_4\PA\PA_2_4_B_solution.ipynb - Has standard footer
-INFO: OK: Week_2_5\PA\PA_2_5_data_framework.ipynb - Has standard footer
-INFO: OK: Week_2_5\PA\PA_2_5_solution.ipynb - Has standard footer
-INFO: OK: Week_2_6\PA\PA_2_6_3_way_split.ipynb - Has standard footer
-INFO: OK: Week_2_6\PA\PA_2_6_solution.ipynb - Has standard footer
-INFO: OK: Week_2_7\PA\PA_2_7_solution.ipynb - Has standard footer
-INFO: OK: Week_2_7\PA\PA_2_7_Times_Tables.ipynb - Has standard footer
-INFO: Searching in: C:\Users\ncore\Desktop\2024-files\content
-INFO: Found 120 notebooks
-INFO: [1/120] Checking GA_1_1\Task_2_solution.ipynb
-INFO: No changes detected for GA_1_1\Task_2_solution.ipynb
-INFO: [2/120] Checking GA_1_2\Analysis.ipynb
-INFO: No changes detected for GA_1_2\Analysis.ipynb
-INFO: [3/120] Checking GA_1_2\Analysis_solution.ipynb
-INFO: No changes detected for GA_1_2\Analysis_solution.ipynb
-INFO: [4/120] Checking GA_1_3\Analysis.ipynb
-INFO: No changes detected for GA_1_3\Analysis.ipynb
-INFO: [5/120] Checking GA_1_3\Analysis_Solution.ipynb
-INFO: No changes detected for GA_1_3\Analysis_Solution.ipynb
-INFO: [6/120] Checking GA_1_3\Warmup.ipynb
-INFO: No changes detected for GA_1_3\Warmup.ipynb
-INFO: [7/120] Checking GA_1_4\Analysis.ipynb
-INFO: No changes detected for GA_1_4\Analysis.ipynb
-INFO: [8/120] Checking GA_1_4\Analysis_solution.ipynb
-INFO: No changes detected for GA_1_4\Analysis_solution.ipynb
-INFO: [9/120] Checking GA_1_5\Analysis.ipynb
-INFO: No changes detected for GA_1_5\Analysis.ipynb
-INFO: [10/120] Checking GA_1_5\Analysis_solution.ipynb
-INFO: No changes detected for GA_1_5\Analysis_solution.ipynb
-INFO: [11/120] Checking GA_1_5\central_diff_illustration.ipynb
-INFO: No changes detected for GA_1_5\central_diff_illustration.ipynb
-INFO: [12/120] Checking GA_1_6\Analysis.ipynb
-INFO: No changes detected for GA_1_6\Analysis.ipynb
-INFO: [13/120] Checking GA_1_6\Analysis_solution.ipynb
-INFO: No changes detected for GA_1_6\Analysis_solution.ipynb
-INFO: [14/120] Checking GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-INFO: No changes detected for GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
-INFO: [15/120] Checking GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-INFO: No changes detected for GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
-INFO: [16/120] Checking GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-INFO: No changes detected for GA_1_7\Solution\Force\Analysis_force_solution.ipynb
-INFO: [17/120] Checking GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-INFO: No changes detected for GA_1_7\Student\Discharge\Analysis_discharge.ipynb
-INFO: [18/120] Checking GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-INFO: No changes detected for GA_1_7\Student\Emissions\Analysis_emissions.ipynb
-INFO: [19/120] Checking GA_1_7\Student\Force\Analysis_force.ipynb
-INFO: No changes detected for GA_1_7\Student\Force\Analysis_force.ipynb
-INFO: [20/120] Checking GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-INFO: No changes detected for GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
-INFO: [21/120] Checking GA_1_8\Analysis.ipynb
-INFO: No changes detected for GA_1_8\Analysis.ipynb
-INFO: [22/120] Checking GA_1_8\solution\GA_1_8_solution_HT.ipynb
-INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_HT.ipynb
-INFO: [23/120] Checking GA_1_8\solution\GA_1_8_solution_hu.ipynb
-INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_hu.ipynb
-INFO: [24/120] Checking GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-INFO: No changes detected for GA_1_8\solution\GA_1_8_solution_traffic.ipynb
-INFO: [25/120] Checking GA_2_1\Analysis.ipynb
-INFO: No changes detected for GA_2_1\Analysis.ipynb
-INFO: [26/120] Checking GA_2_1\Analysis_solution.ipynb
-INFO: No changes detected for GA_2_1\Analysis_solution.ipynb
-INFO: [27/120] Checking GA_2_1\mesh_dev.ipynb
-INFO: No changes detected for GA_2_1\mesh_dev.ipynb
-INFO: [28/120] Checking GA_2_1\mesh_tips.ipynb
-INFO: No changes detected for GA_2_1\mesh_tips.ipynb
-INFO: [29/120] Checking GA_2_1\mesh\mesh.ipynb
-INFO: No changes detected for GA_2_1\mesh\mesh.ipynb
-INFO: [30/120] Checking GA_2_2\the_big_M.ipynb
-INFO: No changes detected for GA_2_2\the_big_M.ipynb
-INFO: [31/120] Checking GA_2_3\Analysis.ipynb
-INFO: No changes detected for GA_2_3\Analysis.ipynb
-INFO: [32/120] Checking GA_2_3\Analysis_solution.ipynb
-INFO: No changes detected for GA_2_3\Analysis_solution.ipynb
-INFO: [33/120] Checking GA_2_4\GA_2_4_Beary_Icy.ipynb
-INFO: No changes detected for GA_2_4\GA_2_4_Beary_Icy.ipynb
-INFO: [34/120] Checking GA_2_4\GA_2_4_solution.ipynb
-INFO: No changes detected for GA_2_4\GA_2_4_solution.ipynb
-INFO: [35/120] Checking GA_2_5\Analysis_GA.ipynb
-INFO: No changes detected for GA_2_5\Analysis_GA.ipynb
-INFO: [36/120] Checking GA_2_5\Analysis_GA_solution.ipynb
-INFO: No changes detected for GA_2_5\Analysis_GA_solution.ipynb
-INFO: [37/120] Checking GA_2_5\Analysis_LP.ipynb
-INFO: No changes detected for GA_2_5\Analysis_LP.ipynb
-INFO: [38/120] Checking GA_2_5\Analysis_LP_solution.ipynb
-INFO: No changes detected for GA_2_5\Analysis_LP_solution.ipynb
-INFO: [39/120] Checking GA_2_6\Analysis.ipynb
-INFO: No changes detected for GA_2_6\Analysis.ipynb
-INFO: [40/120] Checking GA_2_6\Analysis_solution.ipynb
-INFO: No changes detected for GA_2_6\Analysis_solution.ipynb
-INFO: [41/120] Checking GA_2_7\rain_solution.ipynb
-INFO: No changes detected for GA_2_7\rain_solution.ipynb
-INFO: [42/120] Checking tutorials\Week_1_3\Analysis.ipynb
-INFO: No changes detected for tutorials\Week_1_3\Analysis.ipynb
-INFO: [43/120] Checking tutorials\Week_1_5\Tutorial.ipynb
-INFO: No changes detected for tutorials\Week_1_5\Tutorial.ipynb
-INFO: [44/120] Checking tutorials\Week_1_6\Tutorial.ipynb
-INFO: No changes detected for tutorials\Week_1_6\Tutorial.ipynb
-INFO: [45/120] Checking week_1_1\PA_1_1_Catch_Them_All.ipynb
-INFO: No changes detected for week_1_1\PA_1_1_Catch_Them_All.ipynb
-INFO: [46/120] Checking Week_1_2\In_Class_Activity.ipynb
-INFO: No changes detected for Week_1_2\In_Class_Activity.ipynb
-INFO: [47/120] Checking Week_1_2\In_Class_Activity_Solution.ipynb
-INFO: No changes detected for Week_1_2\In_Class_Activity_Solution.ipynb
-INFO: [48/120] Checking Week_1_2\PA_1_2_Random_Adventure.ipynb
-INFO: No changes detected for Week_1_2\PA_1_2_Random_Adventure.ipynb
-INFO: [49/120] Checking Week_1_2\PA_1_2_solution.ipynb
-INFO: No changes detected for Week_1_2\PA_1_2_solution.ipynb
-INFO: [50/120] Checking Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-INFO: No changes detected for Week_1_2\WS_1_2_Pipe_Dreams.ipynb
-INFO: [51/120] Checking Week_1_2\WS_1_2_solution.ipynb
-INFO: No changes detected for Week_1_2\WS_1_2_solution.ipynb
-INFO: [52/120] Checking week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-INFO: No changes detected for week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
-INFO: [53/120] Checking week_1_3\PA_1_3_solution.ipynb
-INFO: No changes detected for week_1_3\PA_1_3_solution.ipynb
-INFO: [54/120] Checking week_1_3\WS_1_3_Moving_Ice.ipynb
-INFO: No changes detected for week_1_3\WS_1_3_Moving_Ice.ipynb
-INFO: [55/120] Checking week_1_3\WS_1_3_solution.ipynb
-INFO: No changes detected for week_1_3\WS_1_3_solution.ipynb
-INFO: [56/120] Checking Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-INFO: No changes detected for Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
-INFO: [57/120] Checking Week_1_4\WS_1_4_solution.ipynb
-INFO: No changes detected for Week_1_4\WS_1_4_solution.ipynb
-INFO: [58/120] Checking week_1_5\WS_1_5_dont_integr_hate.ipynb
-INFO: No changes detected for week_1_5\WS_1_5_dont_integr_hate.ipynb
-INFO: [59/120] Checking week_1_5\WS_1_5_solution.ipynb
-INFO: No changes detected for week_1_5\WS_1_5_solution.ipynb
-INFO: [60/120] Checking week_1_5\PA\PA_1_5_solution.ipynb
-INFO: No changes detected for week_1_5\PA\PA_1_5_solution.ipynb
-INFO: [61/120] Checking week_1_5\PA\PA_1_5_useful_tricks.ipynb
-INFO: No changes detected for week_1_5\PA\PA_1_5_useful_tricks.ipynb
-INFO: [62/120] Checking week_1_5\PA_ice\PA_plots.ipynb
-INFO: No changes detected for week_1_5\PA_ice\PA_plots.ipynb
-INFO: [63/120] Checking Week_1_6\WS_1_6_solution.ipynb
-INFO: No changes detected for Week_1_6\WS_1_6_solution.ipynb
-INFO: [64/120] Checking Week_1_6\WS_1_6_time_to_c_ode.ipynb
-INFO: No changes detected for Week_1_6\WS_1_6_time_to_c_ode.ipynb
-INFO: [65/120] Checking Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-INFO: No changes detected for Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
-INFO: [66/120] Checking Week_1_6\PA\PA_1_6_solution.ipynb
-INFO: No changes detected for Week_1_6\PA\PA_1_6_solution.ipynb
-INFO: [67/120] Checking Week_1_7\scipy_stats.ipynb
-INFO: No changes detected for Week_1_7\scipy_stats.ipynb
-INFO: [68/120] Checking Week_1_7\WS_1_7_lets_be_concrete.ipynb
-INFO: No changes detected for Week_1_7\WS_1_7_lets_be_concrete.ipynb
-INFO: [69/120] Checking Week_1_7\WS_1_7_solution.ipynb
-INFO: No changes detected for Week_1_7\WS_1_7_solution.ipynb
-INFO: [70/120] Checking Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-INFO: No changes detected for Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
-INFO: [71/120] Checking Week_1_7\PA\PA_1_7_solution.ipynb
-INFO: No changes detected for Week_1_7\PA\PA_1_7_solution.ipynb
-INFO: [72/120] Checking Week_1_8\data.ipynb
-INFO: No changes detected for Week_1_8\data.ipynb
-INFO: [73/120] Checking Week_1_8\intersection.ipynb
-INFO: No changes detected for Week_1_8\intersection.ipynb
-INFO: [74/120] Checking Week_1_8\test_bivariate.ipynb
-INFO: No changes detected for Week_1_8\test_bivariate.ipynb
-INFO: [75/120] Checking Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-INFO: No changes detected for Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
-INFO: [76/120] Checking Week_1_8\PA\PA_1_8_solution.ipynb
-INFO: No changes detected for Week_1_8\PA\PA_1_8_solution.ipynb
-INFO: [77/120] Checking Week_1_8\WS\linearity_or_not.ipynb
-INFO: No changes detected for Week_1_8\WS\linearity_or_not.ipynb
-INFO: [78/120] Checking Week_1_8\WS\WS_1_8_solution.ipynb
-INFO: No changes detected for Week_1_8\WS\WS_1_8_solution.ipynb
-INFO: [79/120] Checking Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-INFO: No changes detected for Week_1_8\WS\WS_1_8_Thingamajig.ipynb
-INFO: [80/120] Checking Week_2_1\WS_2_1_solution.ipynb
-INFO: No changes detected for Week_2_1\WS_2_1_solution.ipynb
-INFO: [81/120] Checking Week_2_1\WS_2_1_wiggle.ipynb
-INFO: No changes detected for Week_2_1\WS_2_1_wiggle.ipynb
-INFO: [82/120] Checking Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-INFO: No changes detected for Week_2_1\WS_2_1_wiggle_test_ci.ipynb
-INFO: [83/120] Checking Week_2_1\PA\PA_2_1_classy_city.ipynb
-INFO: No changes detected for Week_2_1\PA\PA_2_1_classy_city.ipynb
-INFO: [84/120] Checking Week_2_1\PA\PA_2_1_solution.ipynb
-INFO: No changes detected for Week_2_1\PA\PA_2_1_solution.ipynb
-INFO: [85/120] Checking Week_2_1\PA\PA_dev.ipynb
-INFO: No changes detected for Week_2_1\PA\PA_dev.ipynb
-INFO: [86/120] Checking Week_2_1\PA\U.ipynb
-INFO: No changes detected for Week_2_1\PA\U.ipynb
-INFO: [87/120] Checking Week_2_2\PA_2_2_love_is_sparse.ipynb
-INFO: No changes detected for Week_2_2\PA_2_2_love_is_sparse.ipynb
-INFO: [88/120] Checking Week_2_2\PA_2_2_solution.ipynb
-INFO: No changes detected for Week_2_2\PA_2_2_solution.ipynb
-INFO: [89/120] Checking Week_2_2\WS_2_2_more_support.ipynb
-INFO: No changes detected for Week_2_2\WS_2_2_more_support.ipynb
-INFO: [90/120] Checking Week_2_2\WS_2_2_solution.ipynb
-INFO: No changes detected for Week_2_2\WS_2_2_solution.ipynb
-INFO: [91/120] Checking Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-INFO: No changes detected for Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
-INFO: [92/120] Checking Week_2_2\old\old_PA10_solution_sympy.ipynb
-INFO: No changes detected for Week_2_2\old\old_PA10_solution_sympy.ipynb
-INFO: [93/120] Checking Week_2_2\old\PA_2_1_solution.ipynb
-INFO: No changes detected for Week_2_2\old\PA_2_1_solution.ipynb
-INFO: [94/120] Checking Week_2_2\old\PA_2_1_solution_sympy.ipynb
-INFO: No changes detected for Week_2_2\old\PA_2_1_solution_sympy.ipynb
-INFO: [95/120] Checking Week_2_2\old\WS_2_2_more_support.ipynb
-INFO: No changes detected for Week_2_2\old\WS_2_2_more_support.ipynb
-INFO: [96/120] Checking Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-INFO: No changes detected for Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
-INFO: [97/120] Checking Week_2_2\PA\PA_2_2_solution.ipynb
-INFO: No changes detected for Week_2_2\PA\PA_2_2_solution.ipynb
-INFO: [98/120] Checking Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-INFO: No changes detected for Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
-INFO: [99/120] Checking Week_2_3\WS_2_3_solution.ipynb
-INFO: No changes detected for Week_2_3\WS_2_3_solution.ipynb
-INFO: [100/120] Checking Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-INFO: No changes detected for Week_2_3\PA\PA_2_3_iter_remoto.ipynb
-INFO: [101/120] Checking Week_2_3\PA\PA_2_3_solution.ipynb
-INFO: No changes detected for Week_2_3\PA\PA_2_3_solution.ipynb
-INFO: [102/120] Checking Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-INFO: No changes detected for Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
-INFO: [103/120] Checking Week_2_4\WS_2_4_solution.ipynb
-INFO: No changes detected for Week_2_4\WS_2_4_solution.ipynb
-INFO: [104/120] Checking Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-INFO: No changes detected for Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
-INFO: [105/120] Checking Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-INFO: No changes detected for Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
-INFO: [106/120] Checking Week_2_4\PA\PA_2_4_B_solution.ipynb
-INFO: No changes detected for Week_2_4\PA\PA_2_4_B_solution.ipynb
-INFO: [107/120] Checking Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-INFO: No changes detected for Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
-INFO: [108/120] Checking Week_2_5\WS_2_5_solution.ipynb
-INFO: No changes detected for Week_2_5\WS_2_5_solution.ipynb
-INFO: [109/120] Checking Week_2_5\PA\PA_2_5_data_framework.ipynb
-INFO: No changes detected for Week_2_5\PA\PA_2_5_data_framework.ipynb
-INFO: [110/120] Checking Week_2_5\PA\PA_2_5_solution.ipynb
-INFO: No changes detected for Week_2_5\PA\PA_2_5_solution.ipynb
-INFO: [111/120] Checking Week_2_6\WS_2_6_be_a_NN.ipynb
-INFO: No changes detected for Week_2_6\WS_2_6_be_a_NN.ipynb
-INFO: [112/120] Checking Week_2_6\WS_2_6_solution.ipynb
-INFO: No changes detected for Week_2_6\WS_2_6_solution.ipynb
-INFO: [113/120] Checking Week_2_6\PA\PA_2_6_3_way_split.ipynb
-INFO: No changes detected for Week_2_6\PA\PA_2_6_3_way_split.ipynb
-INFO: [114/120] Checking Week_2_6\PA\PA_2_6_solution.ipynb
-INFO: No changes detected for Week_2_6\PA\PA_2_6_solution.ipynb
-INFO: [115/120] Checking Week_2_7\WS_2_7_solution.ipynb
-INFO: No changes detected for Week_2_7\WS_2_7_solution.ipynb
-INFO: [116/120] Checking Week_2_7\WS_2_7_student.ipynb
-INFO: No changes detected for Week_2_7\WS_2_7_student.ipynb
-INFO: [117/120] Checking Week_2_7\PA\PA_2_7_solution.ipynb
-INFO: No changes detected for Week_2_7\PA\PA_2_7_solution.ipynb
-INFO: [118/120] Checking Week_2_7\PA\PA_2_7_Times_Tables.ipynb
-INFO: No changes detected for Week_2_7\PA\PA_2_7_Times_Tables.ipynb
-INFO: [119/120] Checking Week_2_8\WS_2_8_dirty_water.ipynb
-INFO: No changes detected for Week_2_8\WS_2_8_dirty_water.ipynb
-INFO: [120/120] Checking Week_2_8\WS_2_8_solution.ipynb
-INFO: No changes detected for Week_2_8\WS_2_8_solution.ipynb
+INFO: FIXED: GA_1_1\Task_2_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_2\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_2\Analysis_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_3\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_3\Analysis_Solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_3\Warmup.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_4\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_4\Analysis_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_5\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_5\Analysis_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_5\central_diff_illustration.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_6\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_6\Analysis_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_8\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_1\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_1\Analysis_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_1\mesh_dev.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_1\mesh_tips.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_2\the_big_M.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_3\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_4\GA_2_4_Beary_Icy.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_4\GA_2_4_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_5\Analysis_GA.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_5\Analysis_GA_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_5\Analysis_LP.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_5\Analysis_LP_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_6\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_6\Analysis_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_7\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_7\Analysis_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\Analysis_01.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\Analysis_01_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\Analysis_02.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\Analysis_02_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\Analysis_03.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\Analysis_03_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_1\PA_1_1_Catch_Them_All.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_2\In_Class_Activity.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_2\In_Class_Activity_Solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_2\PA_1_2_Random_Adventure.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_2\PA_1_2_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_2\WS_1_2_Pipe_Dreams.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_2\WS_1_2_solution.ipynb - Has non-standard footer
+INFO: FIXED: week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb - Has non-standard footer
+INFO: FIXED: week_1_3\PA_1_3_solution.ipynb - Has non-standard footer
+INFO: FIXED: week_1_3\WS_1_3_Moving_Ice.ipynb - Has non-standard footer
+INFO: FIXED: week_1_3\WS_1_3_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_4\WS_1_4_Nonlinear_Rain.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_4\WS_1_4_solution.ipynb - Has non-standard footer
+INFO: FIXED: week_1_5\WS_1_5_dont_integr_hate.ipynb - Has non-standard footer
+INFO: FIXED: week_1_5\WS_1_5_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_6\WS_1_6_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_6\WS_1_6_time_to_c_ode.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_7\scipy_stats.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_7\WS_1_7_lets_be_concrete.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_7\WS_1_7_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_8\data.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_8\intersection.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_8\test_bivariate.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_1\WS_2_1_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_1\WS_2_1_wiggle.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_1\WS_2_1_wiggle_test_ci.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\PA_2_2_love_is_sparse.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\PA_2_2_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\WS_2_2_more_support.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\WS_2_2_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_3\WS_2_3_DFT_you_try_meow.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_3\WS_2_3_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_4\WS_2_4_Feel_the_Pressure.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_4\WS_2_4_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_5\WS_2_5_Profit_vs_Planet.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_5\WS_2_5_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_6\WS_2_6_be_a_NN.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_6\WS_2_6_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_7\WS_2_7_its_cold_in_here.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_7\WS_2_7_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_8\WS_2_8_dirty_water.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_8\WS_2_8_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_7\Solution\Force\Analysis_force_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_7\Student\Discharge\Analysis_discharge.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_7\Student\Emissions\Analysis_emissions.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_7\Student\Force\Analysis_force.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_8\solution\GA_1_8_solution_HT.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_8\solution\GA_1_8_solution_hu.ipynb - Has non-standard footer
+INFO: FIXED: GA_1_8\solution\GA_1_8_solution_traffic.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_1\mesh\mesh.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\2023\data_analysis.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\2023\data_analysis_solution.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\2023\data_plots.ipynb - Has non-standard footer
+INFO: FIXED: GA_2_8\2023\data_processing.ipynb - No footer found
+INFO: FIXED: GA_2_8\2023\ice_bet_dani.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\betting_pattern.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\expected_benefit.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\KDE_list_test copy.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\KDE_list_test_R.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\list_of_radial_object_creator.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\mcs copy.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\mcs.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\minutes_transform.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\minute_and_tickets.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\models.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\model_exp_tickets.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\model_prob.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\ticket_distribution.ipynb - No footer found
+INFO: FIXED: GA_2_8\dev\ticket_dist_kernel.ipynb - No footer found
+INFO: FIXED: tutorials\Week_1_3\Analysis.ipynb - Has non-standard footer
+INFO: FIXED: tutorials\Week_1_5\Tutorial.ipynb - Has non-standard footer
+INFO: FIXED: tutorials\Week_1_6\Tutorial.ipynb - Has non-standard footer
+INFO: FIXED: week_1_5\PA\PA_1_5_solution.ipynb - Has non-standard footer
+INFO: FIXED: week_1_5\PA\PA_1_5_useful_tricks.ipynb - Has non-standard footer
+INFO: FIXED: week_1_5\PA_ice\PA_plots.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_6\PA\PA_1_6_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_7\PA\PA_1_7_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_8\PA\PA_1_8_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_8\WS\linearity_or_not.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_8\WS\WS_1_8_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_1_8\WS\WS_1_8_Thingamajig.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_1\PA\PA_2_1_classy_city.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_1\PA\PA_2_1_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_1\PA\PA_dev.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_1\PA\U.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\old\old_PA10_Love_is_Sparse.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\old\old_PA10_solution_sympy.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\old\PA_2_1_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\old\PA_2_1_solution_sympy.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\old\WS_2_2_more_support.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\PA\PA_2_2_love_is_sparse.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_2\PA\PA_2_2_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_3\PA\PA_2_3_iter_remoto.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_3\PA\PA_2_3_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_4\PA\PA_2_4_B_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_5\PA\PA_2_5_data_framework.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_5\PA\PA_2_5_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_6\PA\PA_2_6_3_way_split.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_6\PA\PA_2_6_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_7\PA\PA_2_7_solution.ipynb - Has non-standard footer
+INFO: FIXED: Week_2_7\PA\PA_2_7_Times_Tables.ipynb - Has non-standard footer
+INFO: Searching in: C:\Users\rlanzafame\code\MUDE\2024-files\content
+INFO: Found 145 notebooks
+INFO: [1/145] Checking GA_1_1\Task_2_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_1\Task_2_solution.ipynb (hash mismatch)
+INFO: Processing GA_1_1\Task_2_solution.ipynb
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][61]:
+{'cell_type': 'markdown',
+ 'id': 'eb67b69f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+INFO: Stats: 62 cells (21 code, 41 markdown), 421 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][61]:
+{'cell_type': 'markdown',
+ 'id': 'eb67b69f',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.10 seconds
+INFO: [2/145] Checking GA_1_2\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_2\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_1_2\Analysis.ipynb
+INFO: Stats: 21 cells (7 code, 14 markdown), 252 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.07 seconds
+INFO: [3/145] Checking GA_1_2\Analysis_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_2\Analysis_solution.ipynb (hash mismatch)
+INFO: Processing GA_1_2\Analysis_solution.ipynb
+INFO: Stats: 21 cells (7 code, 14 markdown), 294 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.20 seconds
+INFO: [4/145] Checking GA_1_3\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_1_3\Analysis.ipynb
+INFO: Stats: 60 cells (23 code, 37 markdown), 477 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.03 seconds
+INFO: [5/145] Checking GA_1_3\Analysis_Solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Analysis_Solution.ipynb (hash mismatch)
+INFO: Processing GA_1_3\Analysis_Solution.ipynb
+INFO: Stats: 75 cells (29 code, 46 markdown), 801 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 14 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.53 seconds
+INFO: [6/145] Checking GA_1_3\Warmup.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_3\Warmup.ipynb (hash mismatch)
+INFO: Processing GA_1_3\Warmup.ipynb
+INFO: Stats: 22 cells (10 code, 12 markdown), 185 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.67 seconds
+INFO: [7/145] Checking GA_1_4\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_1_4\Analysis.ipynb
+INFO: Stats: 57 cells (23 code, 34 markdown), 583 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.18 seconds
+INFO: [8/145] Checking GA_1_4\Analysis_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_4\Analysis_solution.ipynb (hash mismatch)
+INFO: Processing GA_1_4\Analysis_solution.ipynb
+INFO: Stats: 58 cells (23 code, 35 markdown), 747 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 10 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.14 seconds
+INFO: [9/145] Checking GA_1_5\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_1_5\Analysis.ipynb
+INFO: Stats: 52 cells (15 code, 37 markdown), 474 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.98 seconds
+INFO: [10/145] Checking GA_1_5\Analysis_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\Analysis_solution.ipynb (hash mismatch)
+INFO: Processing GA_1_5\Analysis_solution.ipynb
+INFO: Stats: 55 cells (15 code, 40 markdown), 663 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 12 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.36 seconds
+INFO: [11/145] Checking GA_1_5\central_diff_illustration.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_5\central_diff_illustration.ipynb (hash mismatch)
+INFO: Processing GA_1_5\central_diff_illustration.ipynb
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '8efffbd7',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+INFO: Stats: 19 cells (8 code, 11 markdown), 193 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+ERROR: Notebook JSON is invalid: Additional properties are not allowed ('id' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][18]:
+{'cell_type': 'markdown',
+ 'id': '8efffbd7',
+ 'metadata': {},
+ 'source': '**End of notebook.**\n'
+           '\n'
+           '<div style="margin-top: 50px; padding-top:...'}
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.79 seconds
+INFO: [12/145] Checking GA_1_6\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_1_6\Analysis.ipynb
+INFO: Stats: 61 cells (10 code, 51 markdown), 477 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.25 seconds
+INFO: [13/145] Checking GA_1_6\Analysis_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_6\Analysis_solution.ipynb (hash mismatch)
+INFO: Processing GA_1_6\Analysis_solution.ipynb
+INFO: Stats: 60 cells (9 code, 51 markdown), 857 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.18 seconds
+INFO: [14/145] Checking GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb (hash mismatch)
+INFO: Processing GA_1_7\Solution\Discharge\Analysis_discharge_solution.ipynb
+INFO: Stats: 38 cells (13 code, 25 markdown), 345 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.37 seconds
+INFO: [15/145] Checking GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb (hash mismatch)
+INFO: Processing GA_1_7\Solution\Emissions\Analysis_emissions_solution.ipynb
+INFO: Stats: 38 cells (13 code, 25 markdown), 341 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.36 seconds
+INFO: [16/145] Checking GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Solution\Force\Analysis_force_solution.ipynb (hash mismatch)
+INFO: Processing GA_1_7\Solution\Force\Analysis_force_solution.ipynb
+INFO: Stats: 38 cells (13 code, 25 markdown), 350 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.66 seconds
+INFO: [17/145] Checking GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Discharge\Analysis_discharge.ipynb (hash mismatch)
+INFO: Processing GA_1_7\Student\Discharge\Analysis_discharge.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 208 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.14 seconds
+INFO: [18/145] Checking GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Emissions\Analysis_emissions.ipynb (hash mismatch)
+INFO: Processing GA_1_7\Student\Emissions\Analysis_emissions.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 202 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.09 seconds
+INFO: [19/145] Checking GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Student\Force\Analysis_force.ipynb (hash mismatch)
+INFO: Processing GA_1_7\Student\Force\Analysis_force.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 209 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.33 seconds
+INFO: [20/145] Checking GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb (hash mismatch)
+INFO: Processing GA_1_7\Unused\Temp\Distribution_Fitting_T.ipynb
+INFO: Stats: 36 cells (12 code, 24 markdown), 323 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.26 seconds
+INFO: [21/145] Checking GA_1_8\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_1_8\Analysis.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 273 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.23 seconds
+INFO: [22/145] Checking GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_HT.ipynb (hash mismatch)
+INFO: Processing GA_1_8\solution\GA_1_8_solution_HT.ipynb
+INFO: Stats: 48 cells (18 code, 30 markdown), 507 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 10 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.60 seconds
+INFO: [23/145] Checking GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_hu.ipynb (hash mismatch)
+INFO: Processing GA_1_8\solution\GA_1_8_solution_hu.ipynb
+INFO: Stats: 48 cells (18 code, 30 markdown), 510 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 10 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.55 seconds
+INFO: [24/145] Checking GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_1_8\solution\GA_1_8_solution_traffic.ipynb (hash mismatch)
+INFO: Processing GA_1_8\solution\GA_1_8_solution_traffic.ipynb
+INFO: Stats: 48 cells (18 code, 30 markdown), 506 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 10 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.70 seconds
+INFO: [25/145] Checking GA_2_1\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_2_1\Analysis.ipynb
+INFO: Stats: 49 cells (10 code, 39 markdown), 390 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.55 seconds
+INFO: [26/145] Checking GA_2_1\Analysis_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\Analysis_solution.ipynb (hash mismatch)
+INFO: Processing GA_2_1\Analysis_solution.ipynb
+INFO: Stats: 63 cells (11 code, 52 markdown), 642 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 14 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.96 seconds
+INFO: [27/145] Checking GA_2_1\mesh_dev.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_dev.ipynb (hash mismatch)
+INFO: Processing GA_2_1\mesh_dev.ipynb
+INFO: Stats: 22 cells (19 code, 3 markdown), 80 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 11 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.30 seconds
+INFO: [28/145] Checking GA_2_1\mesh_tips.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh_tips.ipynb (hash mismatch)
+INFO: Processing GA_2_1\mesh_tips.ipynb
+INFO: Stats: 32 cells (16 code, 16 markdown), 147 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 12 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.35 seconds
+INFO: [29/145] Checking GA_2_1\mesh\mesh.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_1\mesh\mesh.ipynb (hash mismatch)
+INFO: Processing GA_2_1\mesh\mesh.ipynb
+INFO: Stats: 9 cells (8 code, 1 markdown), 46 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.10 seconds
+INFO: [30/145] Checking GA_2_2\the_big_M.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_2\the_big_M.ipynb (hash mismatch)
+INFO: Processing GA_2_2\the_big_M.ipynb
+INFO: Stats: 15 cells (6 code, 9 markdown), 435 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.54 seconds
+INFO: [31/145] Checking GA_2_3\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_3\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_2_3\Analysis.ipynb
+INFO: Stats: 50 cells (13 code, 37 markdown), 535 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 7 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.72 seconds
+INFO: [32/145] Checking GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_Beary_Icy.ipynb (hash mismatch)
+INFO: Processing GA_2_4\GA_2_4_Beary_Icy.ipynb
+INFO: Stats: 49 cells (12 code, 37 markdown), 637 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.36 seconds
+INFO: [33/145] Checking GA_2_4\GA_2_4_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_4\GA_2_4_solution.ipynb (hash mismatch)
+INFO: Processing GA_2_4\GA_2_4_solution.ipynb
+INFO: Stats: 64 cells (12 code, 52 markdown), 906 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 17 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.89 seconds
+INFO: [34/145] Checking GA_2_5\Analysis_GA.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA.ipynb (hash mismatch)
+INFO: Processing GA_2_5\Analysis_GA.ipynb
+INFO: Stats: 42 cells (14 code, 28 markdown), 392 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.51 seconds
+INFO: [35/145] Checking GA_2_5\Analysis_GA_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_GA_solution.ipynb (hash mismatch)
+INFO: Processing GA_2_5\Analysis_GA_solution.ipynb
+INFO: Stats: 42 cells (14 code, 28 markdown), 392 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.34 seconds
+INFO: [36/145] Checking GA_2_5\Analysis_LP.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP.ipynb (hash mismatch)
+INFO: Processing GA_2_5\Analysis_LP.ipynb
+INFO: Stats: 51 cells (20 code, 31 markdown), 378 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.47 seconds
+INFO: [37/145] Checking GA_2_5\Analysis_LP_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_5\Analysis_LP_solution.ipynb (hash mismatch)
+INFO: Processing GA_2_5\Analysis_LP_solution.ipynb
+INFO: Stats: 51 cells (20 code, 31 markdown), 381 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.21 seconds
+INFO: [38/145] Checking GA_2_6\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis.ipynb (hash mismatch)
+INFO: Processing GA_2_6\Analysis.ipynb
+INFO: Stats: 65 cells (20 code, 45 markdown), 597 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.43 seconds
+INFO: [39/145] Checking GA_2_6\Analysis_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\GA_2_6\Analysis_solution.ipynb (hash mismatch)
+INFO: Processing GA_2_6\Analysis_solution.ipynb
+INFO: Stats: 64 cells (20 code, 44 markdown), 718 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 14 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.69 seconds
+INFO: [40/145] Checking GA_2_7\Analysis.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_7\Analysis.ipynb
+INFO: Processing GA_2_7\Analysis.ipynb
+INFO: Stats: 30 cells (11 code, 19 markdown), 212 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.90 seconds
+INFO: [41/145] Checking GA_2_7\Analysis_solution.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_7\Analysis_solution.ipynb
+INFO: Processing GA_2_7\Analysis_solution.ipynb
+INFO: Stats: 34 cells (13 code, 21 markdown), 364 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 10 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.58 seconds
+INFO: [42/145] Checking GA_2_8\Analysis_01.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\Analysis_01.ipynb
+INFO: Processing GA_2_8\Analysis_01.ipynb
+INFO: Stats: 40 cells (16 code, 24 markdown), 278 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.80 seconds
+INFO: [43/145] Checking GA_2_8\Analysis_01_solution.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\Analysis_01_solution.ipynb
+INFO: Processing GA_2_8\Analysis_01_solution.ipynb
+INFO: Stats: 41 cells (16 code, 25 markdown), 313 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 11 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.62 seconds
+INFO: [44/145] Checking GA_2_8\Analysis_02.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\Analysis_02.ipynb
+INFO: Processing GA_2_8\Analysis_02.ipynb
+INFO: Stats: 29 cells (9 code, 20 markdown), 289 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.69 seconds
+INFO: [45/145] Checking GA_2_8\Analysis_02_solution.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\Analysis_02_solution.ipynb
+INFO: Processing GA_2_8\Analysis_02_solution.ipynb
+INFO: Stats: 30 cells (9 code, 21 markdown), 296 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 7 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.55 seconds
+INFO: [46/145] Checking GA_2_8\Analysis_03.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\Analysis_03.ipynb
+INFO: Processing GA_2_8\Analysis_03.ipynb
+INFO: Stats: 14 cells (7 code, 7 markdown), 120 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.29 seconds
+INFO: [47/145] Checking GA_2_8\Analysis_03_solution.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\Analysis_03_solution.ipynb
+INFO: Processing GA_2_8\Analysis_03_solution.ipynb
+INFO: Stats: 14 cells (7 code, 7 markdown), 120 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 7 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.47 seconds
+INFO: [48/145] Checking GA_2_8\2023\data_analysis.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\2023\data_analysis.ipynb
+INFO: Processing GA_2_8\2023\data_analysis.ipynb
+INFO: Stats: 40 cells (19 code, 21 markdown), 323 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.96 seconds
+INFO: [49/145] Checking GA_2_8\2023\data_analysis_solution.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\2023\data_analysis_solution.ipynb
+INFO: Processing GA_2_8\2023\data_analysis_solution.ipynb
+INFO: Stats: 41 cells (19 code, 22 markdown), 341 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 5 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.75 seconds
+INFO: [50/145] Checking GA_2_8\2023\data_plots.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\2023\data_plots.ipynb
+INFO: Processing GA_2_8\2023\data_plots.ipynb
+INFO: Stats: 44 cells (22 code, 22 markdown), 398 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 7 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.93 seconds
+INFO: [51/145] Checking GA_2_8\2023\data_processing.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\2023\data_processing.ipynb
+INFO: Processing GA_2_8\2023\data_processing.ipynb
+INFO: Stats: 6 cells (5 code, 1 markdown), 75 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.01 seconds
+INFO: [52/145] Checking GA_2_8\2023\ice_bet_dani.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\2023\ice_bet_dani.ipynb
+INFO: Processing GA_2_8\2023\ice_bet_dani.ipynb
+INFO: Stats: 26 cells (16 code, 10 markdown), 260 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.30 seconds
+INFO: [53/145] Checking GA_2_8\dev\betting_pattern.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\betting_pattern.ipynb
+INFO: Processing GA_2_8\dev\betting_pattern.ipynb
+INFO: Stats: 21 cells (15 code, 6 markdown), 449 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.42 seconds
+INFO: [54/145] Checking GA_2_8\dev\expected_benefit.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\expected_benefit.ipynb
+INFO: Processing GA_2_8\dev\expected_benefit.ipynb
+INFO: Stats: 12 cells (11 code, 1 markdown), 104 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 1 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.18 seconds
+INFO: [55/145] Checking GA_2_8\dev\KDE_list_test copy.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\KDE_list_test copy.ipynb
+INFO: Processing GA_2_8\dev\KDE_list_test copy.ipynb
+INFO: Stats: 11 cells (10 code, 1 markdown), 172 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 10.62 seconds
+INFO: [56/145] Checking GA_2_8\dev\KDE_list_test_R.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\KDE_list_test_R.ipynb
+INFO: Processing GA_2_8\dev\KDE_list_test_R.ipynb
+INFO: Stats: 8 cells (7 code, 1 markdown), 127 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.76 seconds
+INFO: [57/145] Checking GA_2_8\dev\list_of_radial_object_creator.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\list_of_radial_object_creator.ipynb
+INFO: Processing GA_2_8\dev\list_of_radial_object_creator.ipynb
+INFO: Stats: 10 cells (8 code, 2 markdown), 125 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 1 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.41 seconds
+INFO: [58/145] Checking GA_2_8\dev\mcs copy.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\mcs copy.ipynb
+INFO: Processing GA_2_8\dev\mcs copy.ipynb
+INFO: Stats: 18 cells (14 code, 4 markdown), 195 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.48 seconds
+INFO: [59/145] Checking GA_2_8\dev\mcs.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\mcs.ipynb
+INFO: Processing GA_2_8\dev\mcs.ipynb
+INFO: Stats: 18 cells (14 code, 4 markdown), 213 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.14 seconds
+INFO: [60/145] Checking GA_2_8\dev\minutes_transform.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\minutes_transform.ipynb
+INFO: Processing GA_2_8\dev\minutes_transform.ipynb
+INFO: Stats: 4 cells (3 code, 1 markdown), 56 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 1 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.99 seconds
+INFO: [61/145] Checking GA_2_8\dev\minute_and_tickets.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\minute_and_tickets.ipynb
+INFO: Processing GA_2_8\dev\minute_and_tickets.ipynb
+INFO: Stats: 9 cells (7 code, 2 markdown), 54 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.15 seconds
+INFO: [62/145] Checking GA_2_8\dev\models.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\models.ipynb
+INFO: Processing GA_2_8\dev\models.ipynb
+INFO: Stats: 10 cells (9 code, 1 markdown), 104 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.26 seconds
+INFO: [63/145] Checking GA_2_8\dev\model_exp_tickets.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\model_exp_tickets.ipynb
+INFO: Processing GA_2_8\dev\model_exp_tickets.ipynb
+INFO: Stats: 9 cells (7 code, 2 markdown), 124 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.05 seconds
+INFO: [64/145] Checking GA_2_8\dev\model_prob.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\model_prob.ipynb
+INFO: Processing GA_2_8\dev\model_prob.ipynb
+INFO: Stats: 5 cells (4 code, 1 markdown), 35 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 1 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.47 seconds
+INFO: [65/145] Checking GA_2_8\dev\ticket_distribution.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\ticket_distribution.ipynb
+INFO: Processing GA_2_8\dev\ticket_distribution.ipynb
+INFO: Stats: 19 cells (16 code, 3 markdown), 173 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 25 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.54 seconds
+INFO: [66/145] Checking GA_2_8\dev\ticket_dist_kernel.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\GA_2_8\dev\ticket_dist_kernel.ipynb
+INFO: Processing GA_2_8\dev\ticket_dist_kernel.ipynb
+INFO: Stats: 13 cells (11 code, 2 markdown), 180 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 1 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.39 seconds
+INFO: [67/145] Checking tutorials\Week_1_3\Analysis.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_3\Analysis.ipynb (hash mismatch)
+INFO: Processing tutorials\Week_1_3\Analysis.ipynb
+INFO: Stats: 15 cells (13 code, 2 markdown), 85 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 5 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.93 seconds
+INFO: [68/145] Checking tutorials\Week_1_5\Tutorial.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_5\Tutorial.ipynb (hash mismatch)
+INFO: Processing tutorials\Week_1_5\Tutorial.ipynb
+INFO: Stats: 11 cells (6 code, 5 markdown), 150 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 7.00 seconds
+INFO: [69/145] Checking tutorials\Week_1_6\Tutorial.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\tutorials\Week_1_6\Tutorial.ipynb (hash mismatch)
+INFO: Processing tutorials\Week_1_6\Tutorial.ipynb
+INFO: Stats: 7 cells (4 code, 3 markdown), 66 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 4.98 seconds
+INFO: [70/145] Checking Week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_1\PA_1_1_Catch_Them_All.ipynb (hash mismatch)
+INFO: Processing Week_1_1\PA_1_1_Catch_Them_All.ipynb
+INFO: Stats: 20 cells (6 code, 14 markdown), 123 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.15 seconds
+INFO: [71/145] Checking Week_1_2\In_Class_Activity.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity.ipynb (hash mismatch)
+INFO: Processing Week_1_2\In_Class_Activity.ipynb
+INFO: Stats: 51 cells (21 code, 30 markdown), 332 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.53 seconds
+INFO: [72/145] Checking Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\In_Class_Activity_Solution.ipynb (hash mismatch)
+INFO: Processing Week_1_2\In_Class_Activity_Solution.ipynb
+INFO: Stats: 58 cells (21 code, 37 markdown), 387 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.72 seconds
+INFO: [73/145] Checking Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_Random_Adventure.ipynb (hash mismatch)
+INFO: Processing Week_1_2\PA_1_2_Random_Adventure.ipynb
+INFO: Stats: 52 cells (18 code, 34 markdown), 306 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.25 seconds
+INFO: [74/145] Checking Week_1_2\PA_1_2_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\PA_1_2_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_2\PA_1_2_solution.ipynb
+INFO: Stats: 55 cells (19 code, 36 markdown), 359 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 9 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.88 seconds
+INFO: [75/145] Checking Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_Pipe_Dreams.ipynb (hash mismatch)
+INFO: Processing Week_1_2\WS_1_2_Pipe_Dreams.ipynb
+INFO: Stats: 32 cells (7 code, 25 markdown), 368 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.33 seconds
+INFO: [76/145] Checking Week_1_2\WS_1_2_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_2\WS_1_2_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_2\WS_1_2_solution.ipynb
+INFO: Stats: 35 cells (7 code, 28 markdown), 447 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.42 seconds
+INFO: [77/145] Checking week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb (hash mismatch)
+INFO: Processing week_1_3\PA_1_3_Data_Cleaning_and_Boosting_Productivity.ipynb
+INFO: Stats: 71 cells (22 code, 49 markdown), 287 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.34 seconds
+INFO: [78/145] Checking week_1_3\PA_1_3_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\PA_1_3_solution.ipynb (hash mismatch)
+INFO: Processing week_1_3\PA_1_3_solution.ipynb
+INFO: Stats: 71 cells (22 code, 49 markdown), 291 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 7 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.30 seconds
+INFO: [79/145] Checking week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_Moving_Ice.ipynb (hash mismatch)
+INFO: Processing week_1_3\WS_1_3_Moving_Ice.ipynb
+INFO: Stats: 37 cells (10 code, 27 markdown), 272 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.31 seconds
+INFO: [80/145] Checking week_1_3\WS_1_3_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_3\WS_1_3_solution.ipynb (hash mismatch)
+INFO: Processing week_1_3\WS_1_3_solution.ipynb
+INFO: Stats: 43 cells (10 code, 33 markdown), 400 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.34 seconds
+INFO: [81/145] Checking Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_Nonlinear_Rain.ipynb (hash mismatch)
+INFO: Processing Week_1_4\WS_1_4_Nonlinear_Rain.ipynb
+INFO: Stats: 31 cells (10 code, 21 markdown), 373 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.66 seconds
+INFO: [82/145] Checking Week_1_4\WS_1_4_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_4\WS_1_4_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_4\WS_1_4_solution.ipynb
+INFO: Stats: 34 cells (10 code, 24 markdown), 458 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 7 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.51 seconds
+INFO: [83/145] Checking week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_dont_integr_hate.ipynb (hash mismatch)
+INFO: Processing week_1_5\WS_1_5_dont_integr_hate.ipynb
+INFO: Stats: 49 cells (15 code, 34 markdown), 387 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.26 seconds
+INFO: [84/145] Checking week_1_5\WS_1_5_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\WS_1_5_solution.ipynb (hash mismatch)
+INFO: Processing week_1_5\WS_1_5_solution.ipynb
+INFO: Stats: 50 cells (16 code, 34 markdown), 402 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.92 seconds
+INFO: [85/145] Checking week_1_5\PA\PA_1_5_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_solution.ipynb (hash mismatch)
+INFO: Processing week_1_5\PA\PA_1_5_solution.ipynb
+INFO: Stats: 42 cells (13 code, 29 markdown), 372 lines
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\my_bar_chart.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\my_figure.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\my_figure.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\figures\my_figure.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\test\my_figure.svg
+INFO: Successfully processed markdown format
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\my_bar_chart.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\my_figure.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\my_figure.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\figures\my_figure.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\test\my_figure.svg
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.27 seconds
+INFO: [86/145] Checking week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\PA_1_5_useful_tricks.ipynb (hash mismatch)
+INFO: Processing week_1_5\PA\PA_1_5_useful_tricks.ipynb
+INFO: Stats: 41 cells (13 code, 28 markdown), 336 lines
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\my_bar_chart.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\figures\my_figure.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\test\my_figure.svg
+INFO: Successfully processed markdown format
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\my_bar_chart.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\figures\my_figure.svg
+WARNING: Image not found: C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA\test\my_figure.svg
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.21 seconds
+INFO: [87/145] Checking week_1_5\PA_ice\PA_plots.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\week_1_5\PA_ice\PA_plots.ipynb (hash mismatch)
+INFO: Processing week_1_5\PA_ice\PA_plots.ipynb
+INFO: Stats: 6 cells (4 code, 2 markdown), 199 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 1 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.16 seconds
+INFO: [88/145] Checking Week_1_6\WS_1_6_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_6\WS_1_6_solution.ipynb
+INFO: Stats: 52 cells (8 code, 44 markdown), 864 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 5 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.94 seconds
+INFO: [89/145] Checking Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\WS_1_6_time_to_c_ode.ipynb (hash mismatch)
+INFO: Processing Week_1_6\WS_1_6_time_to_c_ode.ipynb
+INFO: Stats: 49 cells (9 code, 40 markdown), 472 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.37 seconds
+INFO: [90/145] Checking Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb (hash mismatch)
+INFO: Processing Week_1_6\PA\PA_1_6_Boxes_and_Bugs.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 257 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.44 seconds
+INFO: [91/145] Checking Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_6\PA\PA_1_6_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_6\PA\PA_1_6_solution.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 328 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 7 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.34 seconds
+INFO: [92/145] Checking Week_1_7\scipy_stats.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\scipy_stats.ipynb (hash mismatch)
+INFO: Processing Week_1_7\scipy_stats.ipynb
+INFO: Stats: 8 cells (5 code, 3 markdown), 51 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.03 seconds
+INFO: [93/145] Checking Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_lets_be_concrete.ipynb (hash mismatch)
+INFO: Processing Week_1_7\WS_1_7_lets_be_concrete.ipynb
+INFO: Stats: 27 cells (7 code, 20 markdown), 179 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.24 seconds
+INFO: [94/145] Checking Week_1_7\WS_1_7_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\WS_1_7_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_7\WS_1_7_solution.ipynb
+INFO: Stats: 34 cells (7 code, 27 markdown), 289 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.27 seconds
+INFO: [95/145] Checking Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb (hash mismatch)
+INFO: Processing Week_1_7\PA\PA_1_7_Classy_Distributions.ipynb
+INFO: Stats: 24 cells (8 code, 16 markdown), 194 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.43 seconds
+INFO: [96/145] Checking Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_7\PA\PA_1_7_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_7\PA\PA_1_7_solution.ipynb
+INFO: Stats: 24 cells (8 code, 16 markdown), 224 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 6 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.13 seconds
+INFO: [97/145] Checking Week_1_8\data.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\data.ipynb (hash mismatch)
+INFO: Processing Week_1_8\data.ipynb
+INFO: Stats: 11 cells (10 code, 1 markdown), 110 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.47 seconds
+INFO: [98/145] Checking Week_1_8\intersection.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\intersection.ipynb (hash mismatch)
+INFO: Processing Week_1_8\intersection.ipynb
+INFO: Stats: 3 cells (2 code, 1 markdown), 64 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 1 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.07 seconds
+INFO: [99/145] Checking Week_1_8\test_bivariate.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\test_bivariate.ipynb (hash mismatch)
+INFO: Processing Week_1_8\test_bivariate.ipynb
+INFO: Stats: 5 cells (3 code, 2 markdown), 80 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.10 seconds
+INFO: [100/145] Checking Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb (hash mismatch)
+INFO: Processing Week_1_8\PA\PA_1_8_Equations_Done_Symply.ipynb
+INFO: Stats: 16 cells (8 code, 8 markdown), 115 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.20 seconds
+INFO: [101/145] Checking Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\PA\PA_1_8_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_8\PA\PA_1_8_solution.ipynb
+INFO: Stats: 16 cells (8 code, 8 markdown), 139 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.13 seconds
+INFO: [102/145] Checking Week_1_8\WS\linearity_or_not.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\linearity_or_not.ipynb (hash mismatch)
+INFO: Processing Week_1_8\WS\linearity_or_not.ipynb
+INFO: Stats: 9 cells (8 code, 1 markdown), 182 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.32 seconds
+INFO: [103/145] Checking Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_solution.ipynb (hash mismatch)
+INFO: Processing Week_1_8\WS\WS_1_8_solution.ipynb
+INFO: Stats: 66 cells (26 code, 40 markdown), 610 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 11 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.59 seconds
+INFO: [104/145] Checking Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_1_8\WS\WS_1_8_Thingamajig.ipynb (hash mismatch)
+INFO: Processing Week_1_8\WS\WS_1_8_Thingamajig.ipynb
+INFO: Stats: 37 cells (15 code, 22 markdown), 315 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.15 seconds
+INFO: [105/145] Checking Week_2_1\WS_2_1_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_1\WS_2_1_solution.ipynb
+INFO: Stats: 62 cells (21 code, 41 markdown), 601 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.67 seconds
+INFO: [106/145] Checking Week_2_1\WS_2_1_wiggle.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle.ipynb (hash mismatch)
+INFO: Processing Week_2_1\WS_2_1_wiggle.ipynb
+INFO: Stats: 46 cells (16 code, 30 markdown), 469 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.38 seconds
+INFO: [107/145] Checking Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\WS_2_1_wiggle_test_ci.ipynb (hash mismatch)
+INFO: Processing Week_2_1\WS_2_1_wiggle_test_ci.ipynb
+INFO: Stats: 46 cells (16 code, 30 markdown), 469 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.66 seconds
+INFO: [108/145] Checking Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_classy_city.ipynb (hash mismatch)
+INFO: Processing Week_2_1\PA\PA_2_1_classy_city.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 256 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 4.99 seconds
+INFO: [109/145] Checking Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_2_1_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_1\PA\PA_2_1_solution.ipynb
+INFO: Stats: 34 cells (12 code, 22 markdown), 301 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 11 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.28 seconds
+INFO: [110/145] Checking Week_2_1\PA\PA_dev.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\PA_dev.ipynb (hash mismatch)
+INFO: Processing Week_2_1\PA\PA_dev.ipynb
+INFO: Stats: 23 cells (21 code, 2 markdown), 110 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 8 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.18 seconds
+INFO: [111/145] Checking Week_2_1\PA\U.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_1\PA\U.ipynb (hash mismatch)
+INFO: Processing Week_2_1\PA\U.ipynb
+INFO: Stats: 10 cells (9 code, 1 markdown), 47 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.00 seconds
+INFO: [112/145] Checking Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_love_is_sparse.ipynb (hash mismatch)
+INFO: Processing Week_2_2\PA_2_2_love_is_sparse.ipynb
+INFO: Stats: 26 cells (9 code, 17 markdown), 195 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.13 seconds
+INFO: [113/145] Checking Week_2_2\PA_2_2_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA_2_2_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_2\PA_2_2_solution.ipynb
+INFO: Stats: 26 cells (9 code, 17 markdown), 202 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.64 seconds
+INFO: [114/145] Checking Week_2_2\WS_2_2_more_support.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_more_support.ipynb (hash mismatch)
+INFO: Processing Week_2_2\WS_2_2_more_support.ipynb
+INFO: Stats: 11 cells (3 code, 8 markdown), 120 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.29 seconds
+INFO: [115/145] Checking Week_2_2\WS_2_2_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\WS_2_2_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_2\WS_2_2_solution.ipynb
+INFO: Stats: 15 cells (4 code, 11 markdown), 288 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.18 seconds
+INFO: [116/145] Checking Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_Love_is_Sparse.ipynb (hash mismatch)
+INFO: Processing Week_2_2\old\old_PA10_Love_is_Sparse.ipynb
+INFO: Stats: 26 cells (9 code, 17 markdown), 193 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.11 seconds
+INFO: [117/145] Checking Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\old_PA10_solution_sympy.ipynb (hash mismatch)
+INFO: Processing Week_2_2\old\old_PA10_solution_sympy.ipynb
+INFO: Stats: 36 cells (15 code, 21 markdown), 219 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.10 seconds
+INFO: [118/145] Checking Week_2_2\old\PA_2_1_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_2\old\PA_2_1_solution.ipynb
+INFO: Stats: 27 cells (9 code, 18 markdown), 204 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.27 seconds
+INFO: [119/145] Checking Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\PA_2_1_solution_sympy.ipynb (hash mismatch)
+INFO: Processing Week_2_2\old\PA_2_1_solution_sympy.ipynb
+INFO: Stats: 36 cells (15 code, 21 markdown), 219 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.34 seconds
+INFO: [120/145] Checking Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\old\WS_2_2_more_support.ipynb (hash mismatch)
+INFO: Processing Week_2_2\old\WS_2_2_more_support.ipynb
+INFO: Stats: 10 cells (2 code, 8 markdown), 118 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.08 seconds
+INFO: [121/145] Checking Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_love_is_sparse.ipynb (hash mismatch)
+INFO: Processing Week_2_2\PA\PA_2_2_love_is_sparse.ipynb
+INFO: Stats: 36 cells (11 code, 25 markdown), 245 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.31 seconds
+INFO: [122/145] Checking Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_2\PA\PA_2_2_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_2\PA\PA_2_2_solution.ipynb
+INFO: Stats: 38 cells (11 code, 27 markdown), 318 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.38 seconds
+INFO: [123/145] Checking Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_DFT_you_try_meow.ipynb (hash mismatch)
+INFO: Processing Week_2_3\WS_2_3_DFT_you_try_meow.ipynb
+INFO: Stats: 27 cells (10 code, 17 markdown), 195 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.25 seconds
+INFO: [124/145] Checking Week_2_3\WS_2_3_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\WS_2_3_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_3\WS_2_3_solution.ipynb
+INFO: Stats: 26 cells (9 code, 17 markdown), 218 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 10 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.20 seconds
+INFO: [125/145] Checking Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_iter_remoto.ipynb (hash mismatch)
+INFO: Processing Week_2_3\PA\PA_2_3_iter_remoto.ipynb
+INFO: Stats: 53 cells (20 code, 33 markdown), 307 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.44 seconds
+INFO: [126/145] Checking Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_3\PA\PA_2_3_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_3\PA\PA_2_3_solution.ipynb
+INFO: Stats: 54 cells (20 code, 34 markdown), 351 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 4 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.45 seconds
+INFO: [127/145] Checking Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_Feel_the_Pressure.ipynb (hash mismatch)
+INFO: Processing Week_2_4\WS_2_4_Feel_the_Pressure.ipynb
+INFO: Stats: 45 cells (10 code, 35 markdown), 449 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.37 seconds
+INFO: [128/145] Checking Week_2_4\WS_2_4_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\WS_2_4_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_4\WS_2_4_solution.ipynb
+INFO: Stats: 54 cells (11 code, 43 markdown), 527 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 10 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.80 seconds
+INFO: [129/145] Checking Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb (hash mismatch)
+INFO: Processing Week_2_4\PA\PA_2_4_A_gurobilicious.ipynb
+INFO: Stats: 11 cells (2 code, 9 markdown), 130 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.20 seconds
+INFO: [130/145] Checking Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb (hash mismatch)
+INFO: Processing Week_2_4\PA\PA_2_4_B_axis_of_awesome.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 132 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.27 seconds
+INFO: [131/145] Checking Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_4\PA\PA_2_4_B_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_4\PA\PA_2_4_B_solution.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 141 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.31 seconds
+INFO: [132/145] Checking Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_Profit_vs_Planet.ipynb (hash mismatch)
+INFO: Processing Week_2_5\WS_2_5_Profit_vs_Planet.ipynb
+INFO: Stats: 16 cells (5 code, 11 markdown), 129 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.17 seconds
+INFO: [133/145] Checking Week_2_5\WS_2_5_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\WS_2_5_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_5\WS_2_5_solution.ipynb
+INFO: Stats: 18 cells (6 code, 12 markdown), 237 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.20 seconds
+INFO: [134/145] Checking Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_data_framework.ipynb (hash mismatch)
+INFO: Processing Week_2_5\PA\PA_2_5_data_framework.ipynb
+INFO: Stats: 39 cells (16 code, 23 markdown), 169 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.26 seconds
+INFO: [135/145] Checking Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_5\PA\PA_2_5_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_5\PA\PA_2_5_solution.ipynb
+INFO: Stats: 39 cells (16 code, 23 markdown), 190 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.33 seconds
+INFO: [136/145] Checking Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_be_a_NN.ipynb (hash mismatch)
+INFO: Processing Week_2_6\WS_2_6_be_a_NN.ipynb
+INFO: Stats: 56 cells (25 code, 31 markdown), 536 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.67 seconds
+INFO: [137/145] Checking Week_2_6\WS_2_6_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\WS_2_6_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_6\WS_2_6_solution.ipynb
+INFO: Stats: 57 cells (25 code, 32 markdown), 596 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 14 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.95 seconds
+INFO: [138/145] Checking Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_3_way_split.ipynb (hash mismatch)
+INFO: Processing Week_2_6\PA\PA_2_6_3_way_split.ipynb
+INFO: Stats: 33 cells (11 code, 22 markdown), 281 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.64 seconds
+INFO: [139/145] Checking Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_6\PA\PA_2_6_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_6\PA\PA_2_6_solution.ipynb
+INFO: Stats: 33 cells (11 code, 22 markdown), 322 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 3 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.25 seconds
+INFO: [140/145] Checking Week_2_7\WS_2_7_its_cold_in_here.ipynb
+INFO: Output file does not exist: C:\Users\rlanzafame\code\MUDE\2024-files\synced_files\Week_2_7\WS_2_7_its_cold_in_here.ipynb
+INFO: Processing Week_2_7\WS_2_7_its_cold_in_here.ipynb
+INFO: Stats: 31 cells (11 code, 20 markdown), 191 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 6.19 seconds
+INFO: [141/145] Checking Week_2_7\WS_2_7_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\WS_2_7_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_7\WS_2_7_solution.ipynb
+INFO: Stats: 41 cells (12 code, 29 markdown), 315 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 7 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.94 seconds
+INFO: [142/145] Checking Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\PA\PA_2_7_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_7\PA\PA_2_7_solution.ipynb
+INFO: Stats: 53 cells (18 code, 34 markdown), 354 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 5 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.43 seconds
+INFO: [143/145] Checking Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_7\PA\PA_2_7_Times_Tables.ipynb (hash mismatch)
+INFO: Processing Week_2_7\PA\PA_2_7_Times_Tables.ipynb
+INFO: Stats: 53 cells (18 code, 34 markdown), 345 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.46 seconds
+INFO: [144/145] Checking Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_8\WS_2_8_dirty_water.ipynb (hash mismatch)
+INFO: Processing Week_2_8\WS_2_8_dirty_water.ipynb
+INFO: Stats: 19 cells (5 code, 14 markdown), 176 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 2 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.37 seconds
+INFO: [145/145] Checking Week_2_8\WS_2_8_solution.ipynb
+INFO: Content changed for C:\Users\rlanzafame\code\MUDE\2024-files\content\Week_2_8\WS_2_8_solution.ipynb (hash mismatch)
+INFO: Processing Week_2_8\WS_2_8_solution.ipynb
+INFO: Stats: 25 cells (5 code, 20 markdown), 361 lines
+INFO: Successfully processed markdown format
+INFO: Successfully processed python format
+INFO: Successfully processed clean_python format
+WARNING: Alternative text is missing on 5 image(s).
+INFO: Successfully processed html format
+INFO: Successfully processed formats: ['markdown', 'python', 'clean_python', 'html']
+INFO: Completed in 5.94 seconds
 INFO: Skipping cleanup due to replace_all=False
-INFO: === Completed at 2025-01-07 02:13:52 (Duration: 0:00:01.718820) ===
+INFO: === Completed at 2025-08-08 13:00:45 (Duration: 0:14:13.019149) ===

@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -27,7 +27,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13498,8 +13497,7 @@ Slope m = -0.085
 <b>Task 1:</b> Based on the obtained coefficient of determination, assess the performance of the model. Answer in the cell below using markdown:
 <ol>
 <li> What does the coefficient of determination mean in this context?</li>
-<li> Is the developed model accurate? </li>
-</ol></p></div>
+<li> Is the developed model accurate? </li></ol></p></div>
 </div>
 </div>
 </div>
@@ -13609,8 +13607,7 @@ Slope m = -0.085
 <p>
 <b>Task 2:</b>
 <p>Interpret the figures above. Do the previous plots fit with the result given by the coefficient of determination? Are they aligned?</p>
-<ol>
-</ol></p></div>
+<ol></ol></p></div>
 </div>
 </div>
 </div>
@@ -13619,8 +13616,7 @@ Slope m = -0.085
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
-<b>Solution:</b>
-</p></div>
+<b>Solution:</b></p></div>
 <p>In the plot (a), we observe that the observations have a high scatter around the fitted line, but how much is that? That is why we use metrics!</p>
 <p>In the plot (b), we compare the observations with the predictions of the model. The perfect fit would correspond to the 45-degrees line in black. Thus, the model has a poor performance as we already quantified using the coefficient of determination. Both results are aligned.</p>
 </div>
@@ -13693,8 +13689,7 @@ Slope m = -0.085
     Based on the obtained RMSE, assess the performance of the model. Answer in the cell below using markdown:
 <ol>
 <li> What does RMSE mean in this context?</li>
-<li> Is the developed model accurate according to RMSE? </li>
-</ol></p></div>
+<li> Is the developed model accurate according to RMSE? </li></ol></p></div>
 </div>
 </div>
 </div>
@@ -13800,8 +13795,7 @@ Slope m = -0.085
 <b>Task 5:</b>   
     Based on all the computed GOF metrics, Is the fitted model a good model? Would you...
     <li> ...bet 3€?</li>
-<li> ...bet 1,000€?</li>
-</p></div>
+<li> ...bet 1,000€?</li></p></div>
 <ol>
 </ol>
 </div>
@@ -14135,8 +14129,7 @@ rbias = 0.002
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#FAE99E !important;">
 <p>
 <b>Solution:</b>   
-No! The GOF metrics are actually similar while the non-linear model is more complicated (e.g., it includes more parameters to fit).
-</p></div>
+No! The GOF metrics are actually similar while the non-linear model is more complicated (e.g., it includes more parameters to fit).</p></div>
 <p>At the same time we can see that the observations do fall quite well within the 95% confidence bounds. Moreover, the 'misfit' is clearly due to large year-to-year variability in the observed number of days. This variability might be explainable by the year-to-year weather conditions (e.g., number of heatwaves). The question is then: can we find a model by including a weather-related explanatory variable to get a better fit? But also, is this really needed? That depends on whether you are interested in predicting the number of days on the short term (e.g., next year) or the number of days in the long term (e.g., in 10 years or longer).</p>
 <p>We will revisit this problem in the part on Sensing and Observation Theory in week 1.4.</p>
 </div>
@@ -14170,7 +14163,7 @@ No right answer, that depends on the risk you want to take ;)
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=2d17d1d2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=eb67b69f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14187,9 +14180,11 @@ No right answer, that depends on the risk you want to take ;)
 </img></a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script><script>
 (function() {
@@ -54,7 +54,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13228,8 +13227,7 @@ div#notebook {
         article { position: relative }
     </style>
 <img alt="No description has been provided for this image" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/tu-logo/TU_P1_full-color.png" style="width:100px"/>
-<img alt="No description has been provided for this image" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" style="width:100px"/>
-</h1>
+<img alt="No description has been provided for this image" src="https://gitlab.tudelft.nl/mude/public/-/raw/main/mude-logo/MUDE_Logo-small.png" style="width:100px"/></h1>
 <h2 style="height: 10px">
 </h2>
 <p><em><a href="http://mude.citg.tudelft.nl/">CEGM1000 MUDE</a>: Week 1.6. For: 9th October, 2024.</em></p>
@@ -13241,8 +13239,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h2><p>This assignment is aimed to develop an understanding of the <strong>Ordinary Differential Equation (ODE)</strong>. There will be two sections about cooling and heating scenerios, corresponding to the first-order and the second-order ODEs. Please go through the text that follows and perform all steps outlined therein.</p>
 <h2 id="Part-1:-First-order-ODE">Part 1: First-order ODE<a class="anchor-link" href="#Part-1:-First-order-ODE">¶</a></h2><p>In the study of heat transfer, <strong>Newton's law of cooling</strong> is a physical law which states that the rate of heat loss of a body is directly proportional to the difference in the temperatures between the body and its environment. It can be expressed in the form of ODE, as below:</p>
-<p>$$\frac{dT}{dt}=-k(T - T_s)$$</p>
-<p>where $T$ is the temperature of the object at time $t$, $T_s$ is the temperature of the surrounding and assumed to be constant, and $k$ is the constant that characterizes the ability of the object to exchange the
+$$\frac{dT}{dt}=-k(T - T_s)$$<p>where $T$ is the temperature of the object at time $t$, $T_s$ is the temperature of the surrounding and assumed to be constant, and $k$ is the constant that characterizes the ability of the object to exchange the
 heat energy (unit 1/s), which depends on the specific material properties.</p>
 <p>Now, Let's consider an object with the initial temperature of  50°C in a surrounding environment with constant temperature at 20°C. The constant of heat exchange between the object and the environment is 0.5 $s^{-1}$.</p>
 </div>
@@ -13253,8 +13250,7 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1:</b>
-</p></div>
+<b>Task 1.1:</b></p></div>
 <p>Suppose the considered period of time is long enough (bring it to steady state), what will be the final temperature of the object?</p>
 <p><strong>Write your answer in the following markdown cell.</strong></p>
 </div>
@@ -13278,8 +13274,7 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2:</b>
-</p></div>
+<b>Task 1.2:</b></p></div>
 <p>Write the algebraic representation of the ODE using Explicit Euler.</p>
 </div>
 </div>
@@ -13295,8 +13290,7 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3:</b>
-</p></div>
+<b>Task 1.3:</b></p></div>
 <p>Compute the temperature evolution in the next 60 seconds.</p>
 <p><strong>Please complete the missing parts of the code in each step below, which is divided into 5 substeps (a through e).</strong></p>
 </div>
@@ -13307,8 +13301,7 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3a:</b>
-</p></div>
+<b>Task 1.3a:</b></p></div>
 <p>The time step of 5 seconds is constant. Discretize the time points, the solution vector $T$ and define the initial condition.</p>
 </div>
 </div>
@@ -13340,8 +13333,7 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3b:</b>
-</p></div>
+<b>Task 1.3b:</b></p></div>
 <p>Implement your time discretization and find the solution from $t=0$ until $t=60$ sec.</p>
 </div>
 </div>
@@ -13368,8 +13360,7 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3c:</b>
-</p></div>
+<b>Task 1.3c:</b></p></div>
 <p>Try different time steps to check the stability of the calculation. At which value the solution is stable?</p>
 </div>
 </div>
@@ -13385,8 +13376,7 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3d:</b>
-</p></div>
+<b>Task 1.3d:</b></p></div>
 <p>Obtain the mathematical expression that proves your stability criteria.</p>
 </div>
 </div>
@@ -13402,8 +13392,7 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3e:</b>
-</p></div>
+<b>Task 1.3e:</b></p></div>
 <p>Now, discretize the equation using Implicit (Backward) Euler. Can you find a time step that makes the problem unstable?</p>
 </div>
 </div>
@@ -13439,10 +13428,9 @@ heat energy (unit 1/s), which depends on the specific material properties.</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Part-2:-Second-order-ODE">Part 2: Second-order ODE<a class="anchor-link" href="#Part-2:-Second-order-ODE">¶</a></h2><p>The following 1D equation describes the steady state solution of the temperature along a pin that sticks out of a furnace. The rest of the pin is exposed to the ambient.</p>
-<p>$$
+$$
 \frac{d^2T}{dx^2} -\alpha(T-T_s)=0
-$$</p>
-<p>The ambient temperature is $T_s= 30^o$ C and the temperature at the wall is $250^o$ C. The length of the pin is 0.1m. Your grid should have a spatial step of 0.02 m. Finally, $\alpha=500$.</p>
+$$<p>The ambient temperature is $T_s= 30^o$ C and the temperature at the wall is $250^o$ C. The length of the pin is 0.1m. Your grid should have a spatial step of 0.02 m. Finally, $\alpha=500$.</p>
 </div>
 </div>
 </div>
@@ -13466,8 +13454,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1:</b>
-</p></div>
+<b>Task 2.1:</b></p></div>
 <p>This task has three parts: a) discretize the analytic expression into a system of equations using central differences, b) write the system of equations by hand (e.g., the matrices), and c) implement the discretized system of equations in a code cell.</p>
 <p><em></em>Parts 2.1b and 2.1c do not need to be completed in order; in fact, it may be useful to go back and forth between the two in order to understand the problem.</p>
 </div>
@@ -13478,8 +13465,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1a:</b>
-</p></div>
+<b>Task 2.1a:</b></p></div>
 <p>Discretize the analytic expression into a system of equations for a grid with 6 points using central differences.</p>
 <p><em></em>Write your answer by hand using paper/tablet and include the image below.</p>
 </div>
@@ -13497,8 +13483,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1b:</b>
-</p></div>
+<b>Task 2.1b:</b></p></div>
 <p>Write the system of equations by hand for a grid with 6 points. In other words, construct the matrix A and vectors T and b.</p>
 <p><em></em>Write your answer by hand using paper/tablet and include the image below.</p>
 </div>
@@ -13516,8 +13501,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1c:</b>
-</p></div>
+<b>Task 2.1c:</b></p></div>
 <p>Implement the discretized system of equations in a code cell.</p>
 <p><em></em>We have already done this for you! Your task is to read the cell and make sure you understand how the matrices are implemented. Reading the code should help you formulate the matrices in Task 2.1b.</p>
 </div>
@@ -13585,8 +13569,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2:</b>
-</p></div>
+<b>Task 2.2:</b></p></div>
 <p>This task will adapt the problem from 2.1 to incorporate Neumann boundary conditions in three steps: a) writing the new matrix by hand, b) adapting the code from 2.1c, c) reflecting on what this represents physically.</p>
 </div>
 </div>
@@ -13596,8 +13579,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2a:</b>
-</p></div>
+<b>Task 2.2a:</b></p></div>
 <p>Write the system of equations by hand for a grid with 6 points, incorporating the Neumann condition.</p>
 <p>Approximate the Neuman boundary $\frac{dT}{dx}=0$ by using the Backward difference for first order differential equation of first order accuracy.</p>
 <p><em></em>Write your answer by hand using paper/tablet and include the image below.</p>
@@ -13616,8 +13598,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2b:</b>
-</p></div>
+<b>Task 2.2b:</b></p></div>
 <p>Now adapt the code from Task 2.1c and revise it to incorporate the Neumann boundary condition.</p>
 <p><em></em>Copy and past the code from 2.1c below, then modify it.</p>
 </div>
@@ -13639,8 +13620,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2c:</b>
-</p></div>
+<b>Task 2.2c:</b></p></div>
 <p>Reflect on the difference between the problem solved in Task 2.1 in comparison to 2.2. How are we changing the physics of the problem being solved by changing the boundary condition? What does this mean in reality for the temperature distribution in the bar over time?</p>
 </div>
 </div>
@@ -13707,8 +13687,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3:</b>
-</p></div>
+<b>Task 2.3:</b></p></div>
 <p>Just as we did in Task 2.1, this task has three parts: a) discretize the analytic expression into a system of equations using <b></b>forward differences, b) write the system of equations by hand (e.g., the matrices), and c) implement the discretized system of equations in a code cell.</p>
 <p>Here we focus on <b></b>Dirichlet conditions again.</p>
 </div>
@@ -13719,8 +13698,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3a:</b>
-</p></div>
+<b>Task 2.3a:</b></p></div>
 <p>Discretize the analytic expression into a system of equations for a grid with 6 points using <b></b>forward differences.</p>
 <p><em></em>Write your answer by hand using paper/tablet and include the image below.</p>
 </div>
@@ -13738,8 +13716,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3b:</b>
-</p></div>
+<b>Task 2.3b:</b></p></div>
 <p>Write the system of equations by hand for a grid with 6 points. In other words, construct the matrix A and vectors T and b.</p>
 <p><em></em>Write your answer by hand using paper/tablet and include the image below.</p>
 </div>
@@ -13757,8 +13734,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%;vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3c:</b>
-</p></div>
+<b>Task 2.3c:</b></p></div>
 <p>Implement the discretized system of equations in a code cell.</p>
 <p><b></b>This time we did not do it for you! Copy the code from Task 2.1c and revise it to solve the system of equations using <b></b>Forward Differences. Keep the Dirichlet conditions.</p>
 </div>
@@ -13780,8 +13756,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.4:</b>
-</p></div>
+<b>Task 2.4:</b></p></div>
 <p>How much finer does your grid has to be in the forward difference implementation to get a similar value at x = 0.02 as in the central difference implementation? Vary your dx.</p>
 </div>
 </div>
@@ -13798,8 +13773,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; width:95%; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Bonus Task</b>
-</p></div>
+<b>Bonus Task</b></p></div>
 <p>The matrix inversion using numpy is one way to solve the system, another is the <code></code>gauss_jordan method, written below, and another one is the sparse matrix-based method in the cell afterwards. Here, we will just have a brief comparison to see how these solvers perform when the matrix is large. Change <code></code>dx to 0.0002 of the original code that solves the second degree ODE and test the time it takes by each method.</p>
 </div>
 </div>
@@ -13889,7 +13863,7 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=0b087f9e"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=18b443e7"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -13906,9 +13880,11 @@ $$</p>
 </a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>

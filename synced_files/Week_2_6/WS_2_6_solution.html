@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -27,7 +27,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
 .highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #008400 } /* Generic.Inserted */
@@ -13233,7 +13232,7 @@ div#notebook {
 </ol>
 <p>By using these predefined functions, we can save time and effort when building and training machine learning models.</p>
 <p>In this notebook, we start with a very simple dataset with an underlying linear pattern. We then train a simple Multilayer Perceptron (MLP) on it and discuss matters related to model complexity and overfitting. Finally, we move to a more realistic dataset you have already seen before during MUDE.</p>
-<h3 id="Python-Environment">Python Environment<a class="anchor-link" href="#Python-Environment">¶</a></h3><p>You will need the package scikit-learn for this workshop (in addition to a few other typical packages). You can import it to one of your existing conda environments from the conda-forge as (i.e., <code> conda install -c conda-forge scikit-learn</code>), or you can create a new environment from the <code>*.yml</code> file included in this repository (<code>conda env create -f environment    .yml</code>). But remember: <em>if you already have sklearn installed in an environment, you don't have to do anything besides use it!</em></p>
+<h3 id="Python-Environment">Python Environment<a class="anchor-link" href="#Python-Environment">¶</a></h3><p>You will need the package scikit-learn for this workshop (in addition to a few other typical packages). You can import it to one of your existing conda environments from the conda-forge as (i.e., <code>conda install -c conda-forge scikit-learn</code>), or you can create a new environment from the <code>*.yml</code> file included in this repository (<code>conda env create -f environment .yml</code>). But remember: <em>if you already have sklearn installed in an environment, you don't have to do anything besides use it!</em></p>
 </div>
 </div>
 </div>
@@ -13242,8 +13241,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#C8FFFF; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#C8FFFF !important;">
 <p>
-<b>Hint:</b>
-</p></div>
+<b>Hint:</b></p></div>
 <p>We will use boxes with this type of formatting to introduce you to the <code></code>scikit-learn package and help you with some programming tips.</p>
 </div>
 </div>
@@ -13283,20 +13281,17 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Machine learning models learn from data and therefore we need data to train our models. For this assignment we will exemplify the use of machine learning in a simple dataset. First, let's create these dummy data.</p>
 <p><code></code>data_x represents a general independent variable which has a linear relationship with a target variable $y$. In this case, the ground truth $t$ is:</p>
-<p>$$
+$$
 t = 0.8x+4.75
-$$</p>
-<p>To make the problem a bit more interesting (and realistic!), we also add Gaussian noise with unit variance to our observations:</p>
-<p>$$
+$$<p>To make the problem a bit more interesting (and realistic!), we also add Gaussian noise with unit variance to our observations:</p>
+$$
 t = 0.8x+4.75+\epsilon\quad\quad\epsilon\sim\mathcal{N}(0,1)
-$$</p>
-<p>Finally, we introduce a <em>dense validation dataset</em> to evaluate our model complexity. Normally you would <strong>split the original dataset</strong> into training and validation sets (as done in PA14), but since our dataset is very small this is not a feasible strategy. For this demonstration we will instead simply evaluate the actual loss through dense integration with a <code>linspace</code>:</p>
-<p>$$
+$$<p>Finally, we introduce a <em>dense validation dataset</em> to evaluate our model complexity. Normally you would <strong>split the original dataset</strong> into training and validation sets (as done in PA14), but since our dataset is very small this is not a feasible strategy. For this demonstration we will instead simply evaluate the actual loss through dense integration with a <code>linspace</code>:</p>
+$$
 \mathbb{E}[L]=\displaystyle\int\int\left(t-y(x,\mathbf{w})\right)^2p(x,t)\,dx\,dt
 \approx
 \displaystyle\frac{1}{N_\mathrm{val}}\sum_{n=1}^{N_\mathrm{val}}\left(t_n-y(x_n)\right)^2
-$$</p>
-<p>As you can see, this expected loss is based on the squared error, where $t$ is the true value and $y(x)$ is our model.</p>
+$$<p>As you can see, this expected loss is based on the squared error, where $t$ is the true value and $y(x)$ is our model.</p>
 </div>
 </div>
 </div>
@@ -13305,8 +13300,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 0:</b>
-</p></div>
+<b>Task 0:</b></p></div>
 <p>Read the code below, making sure you understand what the data is, as well as the validation set and how it is created. Then execute the cells to visualize the data.</p>
 </div>
 </div>
@@ -13374,8 +13368,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.1: Implement an MLP</b>
-</p></div>
+<b>Task 1.1: Implement an MLP</b></p></div>
 <p>We now try to fit this data with a Multilayer Perceptron (MLP), also known as a Feedforward Neural Network (FNN), with input, hidden and output layers, each with a specified number of neurons. For such models we also need to specify some hyperparameters. In Scikit-learn, the MLP is defined in the <code></code>MLPRegressor class, you can see the documentation <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html">here</a>.
 You should start with a linear MLP, so with <code>identity</code> activation and without hidden layers.</p>
 </div>
@@ -13386,8 +13379,7 @@ You should start with a linear MLP, so with <code>identity</code> activation and
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#C8FFFF; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#C8FFFF !important;">
 <p>
-<b>Hint:</b>
-</p></div>
+<b>Hint:</b></p></div>
 <p>You can create the model using the method and two arguments.</p>
 <p>Specifying <code></code>hidden_layer_sizes=() implies that the Neural Network does not have hidden layers. There is only one input layer and one output layer and therefore it is transforming directly $x$ into $y$ without going through intermediate steps.</p>
 <p>Specifying <code></code>activation = 'identity' means that we are not going to alter the output of the model with an activation function such as ReLU, tanh, or sigmoid (the most popular activation functions for Neural Networks).</p>
@@ -13412,8 +13404,7 @@ You should start with a linear MLP, so with <code>identity</code> activation and
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.2: Train the MLP</b>
-</p></div>
+<b>Task 1.2: Train the MLP</b></p></div>
 <p>So far the model has not been trained yet. This is something we can do using the <code></code>partial_fit method and then make predictions with the <code></code>predict method. Fill in the code below to find the model predictions for the training and validation sets (defined above)</p>
 </div>
 </div>
@@ -13470,8 +13461,7 @@ Epoch:   9999/10000, MSE: 0.4820, Real loss: 1.1025
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#C8FFFF; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#C8FFFF !important;">
 <p>
-<b>Hint:</b>
-</p></div>
+<b>Hint:</b></p></div>
 <p><b></b>Be careful about re-running cells! If you executed the cell above more than once, you may have noticed that the values of loss sand MSE stopped changing. Note carefully that in the for loop above we are operating on <code></code>model, which is an object with type <code></code>sklearn.neural_network.<em>multilayer_perceptron.MLPRegressor. You can "ask" the model about its status by checking how many epochs have been evaluated with the <code></code>t</em> attribute (try it!). If you need to "reset" the model, simply redefine the variable <code></code>model.</p>
 </div>
 </div>
@@ -13566,8 +13556,7 @@ Model intercepts: [array([5.00054026])]
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.3: Increase MLP complexity</b>
-</p></div>
+<b>Task 1.3: Increase MLP complexity</b></p></div>
 <p>Now let us see if it is a good idea to use a much more flexible model. Initialize and train another MLP, but this time with <strong>two hidden layers with 50 units each</strong> and <strong>tanh</strong> activation.</p>
 </div>
 </div>
@@ -13674,8 +13663,7 @@ Epoch:   9999/10000, MSE: 0.0000, Real loss: 1.6453
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; background-color:#AABAB2 !important;">
 <p>
-<b>Task 1.4: Control MLP complexity</b>
-</p></div>
+<b>Task 1.4: Control MLP complexity</b></p></div>
 <p>The previous model is way too flexible and we ended up overfitting the noise in the data. So we should use a smaller model, but tweaking the architecture can be annoying.</p>
 <p>For this part you can try something different: <strong>Keep the same network size but add an $L_2$ regularization term</strong> to your model. In <code>scikit-learn</code> you can do this by setting the <code>alpha</code> parameter you give to <code>MLPRegressor</code> to your desired value of $\lambda$.</p>
 <p>Try different values in the interval $0&lt;\lambda\leq1$ and see what happens to model complexity. <strong>What is the value of $\lambda$ that leads to the lowest value for the real loss?</strong></p>
@@ -13852,8 +13840,7 @@ Epoch:   9999/10000, MSE: 0.4712, Real loss: 1.1925
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.1: Split the data</b>
-</p></div>
+<b>Task 2.1: Split the data</b></p></div>
 <p>Define what <code></code>X and <code></code>t are.</p>
 <p>Then use the function <code></code>train_test_split from <code></code>sklearn.model_selection library to split the initial dataset into a training and validation dataset. Check the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">documentation here</a>.</p>
 <p>Use <strong>80%</strong> and <strong>20%</strong> of the data for training and validation, respectively. Also make sure that <code></code>random_state = 42.</p>
@@ -13865,8 +13852,7 @@ Epoch:   9999/10000, MSE: 0.4712, Real loss: 1.1925
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#C8FFFF; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#C8FFFF !important;">
 <p>
-<b>Hint:</b>
-</p></div>
+<b>Hint:</b></p></div>
 <p>You will need to reshape your arrays in order to first standardize the data and consequently train the model. To do so check <a href="https://numpy.org/doc/stable/reference/generated/numpy.reshape.html">this function</a>. The new shape should be <code></code>(-1,1). We do this for you ;)</p>
 </div>
 </div>
@@ -13929,8 +13915,7 @@ Epoch:   9999/10000, MSE: 0.4712, Real loss: 1.1925
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2: Normalize the data</b>
-</p></div>
+<b>Task 2.2: Normalize the data</b></p></div>
 <p>Before training the model you need to standardize your data. To do so you need <code></code>StandardScaler from <code></code>sklearn.preprocessing library. Check the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">documentation here</a>.</p>
 <p>Make sure to standardize both <code></code>X datasets and save them in different arrays.</p>
 <p>Using <strong>a different</strong> <code>StandardScaler</code>, normalize the outputs <code>t_train</code> and <code>t_val</code> as well.</p>
@@ -13942,8 +13927,7 @@ Epoch:   9999/10000, MSE: 0.4712, Real loss: 1.1925
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#C8FFFF; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#C8FFFF !important;">
 <p>
-<b>Hint:</b>
-</p></div>
+<b>Hint:</b></p></div>
 <p>You first need to standardize just <code></code>X_train and <code>t_train</code>. Only then you can standardize the validation dataset. This will guarantee that the validation data is normalized in the same way as the training data, otherwise the network will get confused when it is time to make predictions. We do this for you ;)</p>
 </div>
 </div>
@@ -13999,8 +13983,7 @@ Epoch:   9999/10000, MSE: 0.4712, Real loss: 1.1925
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.2B: Check the Figure!</b>
-</p></div>
+<b>Task 2.2B: Check the Figure!</b></p></div>
 <p>Look at the figure above and notice how the data has been changed by the normalization process.</p>
 </div>
 </div>
@@ -14010,8 +13993,7 @@ Epoch:   9999/10000, MSE: 0.4712, Real loss: 1.1925
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.3: Create a linear MLP</b>
-</p></div>
+<b>Task 2.3: Create a linear MLP</b></p></div>
 <p>As you have done in Task 1 using <code></code>MLPRegressor, create the Neural Network with no hidden layers and <code></code>identity activation function.</p>
 <p>In the <code></code>MLPRegressor you can specify several hyperparameters. Some of the default values are <code></code>solver='adam' for the optimizer and <code></code>learning_rate_init=0.001 for the initial learning rate $\eta$. For the moment we keep these values fixed, but later you can try to change some of them and see what you get.</p>
 </div>
@@ -14036,8 +14018,7 @@ Epoch:   9999/10000, MSE: 0.4712, Real loss: 1.1925
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.4: Train the MLP</b>
-</p></div>
+<b>Task 2.4: Train the MLP</b></p></div>
 <p>Now you can effectively train the model and then test it. In both cases you want to compute the loss and save it.</p>
 <p>You are required to do the following:</p>
 <ol>
@@ -14212,8 +14193,7 @@ Epoch 5000/5000, Training Loss: 0.9789, Validation Loss: 0.9167
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="background-color:#AABAB2; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#AABAB2 !important;">
 <p>
-<b>Task 2.5: Use a more complex network</b>
-</p></div>
+<b>Task 2.5: Use a more complex network</b></p></div>
 <p>Now it is time to make the network a bit more complex. You can change different hyperparameters as we have seen. See <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html">documentation here</a> for the next tasks.
 Go back to the model and do the following:</p>
 <ol>
@@ -14350,12 +14330,11 @@ Epoch 5000/5000 - Training Loss: 0.9204, Validation Loss: 0.8863
 <div style="background-color:#FAE99E; color: black; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px; width: 95%; background-color:#FAE99E !important;">
 <p>
 <b>Solution:</b>   
-Note that the example shown above in this document is not the <b>best</b> solution! It was simply the last one we tried (you were supposed to experiment with several combinations). This looks like a case of overfitting, which you can also see in the validation plot above (the final epoch is not the minimum validation loss).
-</p></div>
+Note that the example shown above in this document is not the <b>best</b> solution! It was simply the last one we tried (you were supposed to experiment with several combinations). This looks like a case of overfitting, which you can also see in the validation plot above (the final epoch is not the minimum validation loss).</p></div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=8a4f50a4"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=24efbc80"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>End of notebook.</strong></p>
@@ -14372,9 +14351,11 @@ Note that the example shown above in this document is not the <b>best</b> soluti
 </img></a>
 </div>
 <div style="font-size: 75%; margin-top: 10px; text-align: right;">
-    © Copyright 2024 <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE</a> TU Delft. 
-    This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0 License</a>.
-  </div>
+    By <a href="http://mude.citg.tudelft.nl/" rel="MUDE">MUDE Team</a>
+    © 2024 TU Delft. 
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+    <a href="https://doi.org/10.5281/zenodo.16782515" rel="Zenodo DOI"><img alt="DOI https://doi.org/10.5281/zenodo.16782515" src="https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg" style="width:auto; height:15; vertical-align:middle"/></a>
+</div>
 </div>
 <!--tested with WS_2_8_solution.ipynb-->
 </div>
