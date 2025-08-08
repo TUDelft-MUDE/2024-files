@@ -77,6 +77,8 @@ This includes files: `README_sync.md`, `sync_notebooks.py` and `config_sync.yml`
 
 The materials released herein were originally developed using the TU Delft instance of GitLab (`gitlab.tudelft.nl`), with a TU Delft Ubuntu server used for CI/CD pipelines and serving files to students (Files, as well as the MUDE Textbook and website). Beginning with the 2025-26 academic year, the MUDE Team will be using GitHub and GitHub pages for storing source code and serving files and website to students. Although the original GitLab repository and TU Delft server was operational at the time of writing (August, 2025), its continued maintenance is not guaranteed. Therefore, the files herein are also published on GitHub under the Organization TUDelft-MUDE. A Zenodo record is linked to this repository to provide "permanent" storage of the source code.
 
+This Git repository is stored on TU Delft GitLab ([gitlab.tudelft.nl/mude/2024-files](https://gitlab.tudelft.nl/mude/2024-files)) and GitHub ([github.com/TUDelft-MUDE/2024-files](https://github.com/TUDelft-MUDE/2024-files)).
+
 ## MUDE Topics in Detail
 
 Unless otherwise noted, authors typically were teachers, PhD's and postdocs that played a significant role in designing and developing the materials, whereas contributors played a valuable role, albeit a relatively minor one, for example: reviewing materials, suggesting case studies, formatting digital files and (especially for teaching assistants) giving valuable feedback as to the appropriate level of difficulty and quality of the assignments.
