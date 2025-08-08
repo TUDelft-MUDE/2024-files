@@ -70,4 +70,4 @@ _Use this space to let us know if you ran into any challenges while working on t
 **End of file.**
 
 <span style="font-size: 75%">
-&copy; Copyright 2024 <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE</a>, TU Delft. This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a>.
+By <a rel="MUDE" href="http://mude.citg.tudelft.nl/">MUDE Team</a> &copy; 2024 TU Delft. <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. doi: <a rel="Zenodo DOI" href="https://doi.org/10.5281/zenodo.16782515">10.5281/zenodo.16782515</a>.
