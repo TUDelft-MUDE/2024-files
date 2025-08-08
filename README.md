@@ -1,10 +1,12 @@
 # MUDE Files 2024
 
+<a rel="Zenodo DOI" href="https://doi.org/10.5281/zenodo.16782515">10.5281/zenodo.16782515</a>
+
 This repository primarily contains MUDE Files from the 2024-25 academic year. MUDE stands for Modelling, Uncertainty and Data for Engineers, a required module in the MSc programs from the faculty of Civil Engineering and Geosciences at Delft University of Technology in the Netherlands. Note that the MUDE Textbook is published separately: for the 2024-25 academic year, see [mude.citg.tudelft.nl/book/2024/credits](https://mude.citg.tudelft.nl/book/2024/credits).
 
-The primary purpose of this repository is to share the weekly assignments and solutions: programming assignments (PA), workshops (WS) and group assignments (GA). These are located in directory `content/`.
+The primary purpose of this repository is to share the weekly assignments and solutions: programming assignments (PA), workshops (WS) and group assignments (GA). This is almost entirely Jupyter Notebooks. We have really shared everything, work in progress and all, so while there is a tremendous amount of material here, it will certainly take some time to sort through it if you are not intimately familiar with MUDE. To help with this matter, you might want to have a look at the presentation the presentation _Enhancing Student Experience While Modernizing the Curriculum,_ available at [doi.org/10.5281/zenodo.10879193](https://doi.org/10.5281/zenodo.10879193): the target audience was TU Delft staff in other faculties, but there is a general overview of MUDE that may be helpful.
 
-In addition, this repository contains several other types of files:
+The assignments mentioned above (PA, WS, GA) are located in directory `content/`. In addition, this repository contains several other types of files:
 
 1. Files uploaded to TU Delft webserver for student access (copies of assignment notebooks/source code, as well as readable versions of assignments converted to HTML). These are located in directory `src/` and include a number of files released under a CC BY license, but for which the source code is not available, for example: PDF copies of PowerPoint Slides and PDF copies of Exams and Solutions.
 2. A directory `synced_files/` that contains automatically generated files that are Git-friendly (see below).
@@ -74,6 +76,8 @@ The synchronization script is _not_ released as part of the CC BY license of thi
 > Lee, Kwangjin and Lanzafame, Robert (2024) Synchronization script for MUDE Files (v1.0.0). https://github.com/TUDelft-MUDE/2024-files. MIT License.
 
 This includes files: `README_sync.md`, `sync_notebooks.py` and `config_sync.yml` and associated output files.
+
+See file `README_sync.md` for more information about the synchronization script (unfortunately it is not yet completely documented).
 
 ## Technical Details
 
