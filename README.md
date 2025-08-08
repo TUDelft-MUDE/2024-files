@@ -46,11 +46,34 @@ The notebooks were intended to be executed using a Conda environment created dur
 
 In addition to the generous support of the faculty of Civil Engineering and Geosciences at Delft University of Technology (as also described on the [Credits page of the MUDE Textbook](https://mude.citg.tudelft.nl/book/2024/credits)), a tremendous thank you goes out to our MUDE students for their role in the constant refinement of MUDE materials. In particular: the first year students whose constant feedback helped influence the redesign of MUDE for year 2 (2023-24); as well as the many MUDE teaching assistants: for those in the first year (2022-23) who, like the MUDE teachers themselves had no idea what MUDE was (yet!); and the brave students from the first and second years who were motivated to help teachers make MUDE even better for the next generation of students. Finally, a special thank you goes to the colleagues who overcame fears and challenges associated with the "new" (to us) way of working with Jupyter ecosystem: your willingness to learn and adapt to improve your teaching is truly inspiring!
 
+Tom van Woudenberg gets a special mention for his thorough review of every file in all of the weeks he was involved in MUDE as a teacher, which was most of them (far above average). Robert Lanzafame was responsible for implementing many of the changes in year 2 that gave MUDE its unique (albeit complicated) character: for example, a consistent notebook structure, assignment types and use of open source websites. Sandra Verhagen is a hero for leading the MUDE Team as Module Manager of year 1: keeping over 50 colleagues on track to deliver a brand new module based on Jupyter notebooks and Python when very few of us had any experience with it, during a year where the entire curriculum was new, all while keeping students satisfied and producing overall positive results---miraculous.
+
+As it is impossible to indicate the contributions of all MUDE TA's individually, they are listed here (with some exceptional contributions listed below):
+
+- Anastasios Stamou
+- Antonio Magherini
+- Berend Bouvy
+- Caspar Jungbacker
+- Daniel van der Hoorn
+- Gabriel Follet
+- Guilherme Ferreira Sêco de Alvarenga
+- Isabel Slingerland
+- Jelle Knibbe
+- João Moura Pereira de Lucas Teixeira
+- Kwangjin Lee
+- Max Guichard
+- Mona Devos
+- Nora Kovacs
+- Renat Piscorschi
+- Rok Stular
+- Sophie Keemink
+- Thirza Feenstra
+
 ## Overview of MUDE Topics
 
 This is a list of topics, each of which has its own subsection herein containing lists of authors, contributors and materials that are _not_ included in the CC BY license of this repository, along with any additional information that may be relevant. The topics are listed here in weekly order as they were covered during the 2024-25 academic year. The numbering "Week Q.W," where "Q" refers to Quarter 1 or 2, each of which has 8 weeks of instruction ("W"):
 
-- Week 1.1: Modelling Concepts
+- Week 1.1: Introduction to MUDE and Modelling Concepts
 - Week 1.2: Uncertainty Propagation
 - Week 1.3-1.4: Observation Theory
 - Week 1.5-1.6: Numerical Modelling
@@ -96,22 +119,99 @@ To make a correction to this repository, do the following:
 
 This section describes specific information about each topic, as well as identifying the key authors and contributors. Unless otherwise noted, authors typically were teachers, PhD's and postdocs that played a significant role in designing and developing the materials, whereas contributors played a valuable role, albeit a relatively minor one, for example: reviewing materials, suggesting case studies, formatting digital files and (especially for teaching assistants) giving valuable feedback as to the appropriate level of difficulty and quality of the assignments.
 
-### Week 1.1: Modelling Concepts
+### Week 1.1: Introduction to MUDE and Modelling Concepts
 
-Authors: 
+GA 1.1 is included as PDF's in the students handout as it is based on a Power Point slide, except for the Task 2 notebook.
 
-Contributors: 
+Authors: Robert Lanzafame
 
-Materials not included in CC BY license:
+Contributors: Patricia Mares Nasarre, Antonio Magherini, Anastasios Stamou were essential for filling in details of some of the assignment tasks related to the Nenana Ice Classic case study.
 
-_WORK IN PROGRESS_
+Materials _not_ included in CC BY license:
+
+- All images and data related to the Nenana Ice Classic, which were reused here and assembled from publicly available sources on the internet.
+- Screenshots taken of BSc thesis projects included in the Nenana Ice Classic case study (see slides).
+
+### Week 1.2: Uncertainty Propagation
+
+Authors: Sandra Verhagen, Patricia Mares Nasarre, Robert Lanzafame
+
+Contributors: Jeroen Hoving provided an excellent non-linear equation and some reference slides for ice thickness application.
+
+### Week 1.3-1.4: Observation Theory
+
+Authors: Sandra Verhagen
+
+Contributors: Lotfi Massarweh, Chengyu Yin, Wietske Brower
+
+### Week 1.5-1.6: Numerical Modelling
+
+Authors: Jaime Arriaga Garcia, Justin Pittman, Robert Lanzafame
+
+Contributors: Dhruv Mehta provided an outline of some assignments and Ajay Jagadeesh provided feedback.
+
+### Week 1.7-1.8: Univariate and Multivariate Continuous Distributions
+
+Authors: Patricia Mares Nasarre, Robert Lanzafame
+
+Contributors: (anonymized) data sets were provided by Miguel Mendoza Lugo, Gina Torres Alves, Patricia Mares Nasarre, Rieke Santjer. Oswaldo Morales Napoles provided critical feedback on the theoretical aspects.
+
+### Week 2.1: Finite Volume Method
+
+Authors: Jaime Arriaga Garcia, Robert Lanzafame
+
+Contributors: Dhruv Mehta provided an outline of some assignments and Ajay Jagadeesh provided feedback. The triangular meshing script was developed by Robert with significant contributions from GitHub Copilot.
+
+### Week 2.2: Finite Element Method
+
+Authors: Frans van der Meer
 
 ### Week 2.3: Signal Processing
 
 The source code for the solution for GA 2.3 is not included here, as the intention is to use the same analysis in future years; a PDF in the `src/` directory provides results from the solution without the source code.
 
-Authors:
+Authors: Christian Tiberius
 
-Contributors:
+Contributors: Serge Kaplev, Lucas Alvarez Navarro.
 
-Materials not included in CC BY license:
+### Week 2.4: Time Series Analysis
+
+Authors: Christiaan Tiberius, Sandra Verhagen, Berend Bouvy
+
+Contributors: Serge Kaplev, Alireza Amiri-Simkooei developed earler versions of the Sea Level Rise assignment.
+
+### Week 2.5: Optimization
+
+Authors: Bahman Ahmadi, Gonçalo Homem de Almeida Correia, Jie Gao, 
+
+Contributors: Nadia Pourmohammadzia, Jialei Ding and Tom van Woudenberg.
+
+### Week 2.6: Machine Learning
+
+Authors: Iuri Rocha, Anne Poot, Joep Storm, Leon Riccius, Alexander Garzón Díaz
+
+### Week 2.7: Extreme Value Analysis
+
+Authors: Patricia Mares Nasarre
+
+Contributors: Elisa Ragno, Oswaldo Morales Napoles and Robert Lanzafame.
+
+### Week 2.8: Risk Analysis
+
+Authors: Robert Lanzafame
+
+Contributors: Gabriel Follet was essential for processing the ice classic data. The scripts for the Ice Classic part were developed by Robert with significant contributions from GitHub Copilot.
+
+Materials _not_ included in CC BY license:
+
+- All images and data related to the Nenana Ice Classic, which were reused here and assembled from publicly available sources on the internet.
+
+### Programming Assignments (all weeks)
+
+Authors: Robert Lanzafame, Tom van Woudenberg
+
+Contributors: Patricia Mares Nasarre provided content for the data processing PA; Max Guichard for the Object Oriented Programming PA with `scipy.stats` and Riccardo Toarmina for the machine learning PA. Tom developed many of the Git and GitHub related assignments.
+
+Materials _not_ included in CC BY license:
+
+- some PA's include content reused from others under Creative Commons licenses, and is documented in the specific files.
