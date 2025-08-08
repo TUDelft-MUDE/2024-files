@@ -148,7 +148,7 @@ Contributors: Lotfi Massarweh, Chengyu Yin, Wietske Brower
 
 Authors: Jaime Arriaga Garcia, Justin Pittman, Robert Lanzafame
 
-Contributors: Dhruv Mehta provided an outline of some assignments and Ajay Jagadeesh provided feedback.
+Contributors: Isabel Slingerland provided critical feedback and suggestions for improving the assignments. Dhruv Mehta provided an outline of some assignments and Ajay Jagadeesh provided feedback.
 
 ### Week 1.7-1.8: Univariate and Multivariate Continuous Distributions
 
@@ -160,7 +160,7 @@ Contributors: (anonymized) data sets were provided by Miguel Mendoza Lugo, Gina 
 
 Authors: Jaime Arriaga Garcia, Robert Lanzafame
 
-Contributors: Dhruv Mehta provided an outline of some assignments and Ajay Jagadeesh provided feedback. The triangular meshing script was developed by Robert with significant contributions from GitHub Copilot.
+Contributors: Isabel Slingerland provided critical feedback and suggestions for improving the assignments. Dhruv Mehta provided an outline of some assignments and Ajay Jagadeesh provided feedback. The triangular meshing script was developed by Robert with significant contributions from GitHub Copilot.
 
 ### Week 2.2: Finite Element Method
 
@@ -170,19 +170,19 @@ Authors: Frans van der Meer
 
 The source code for the solution for GA 2.3 is not included here, as the intention is to use the same analysis in future years; a PDF in the `src/` directory provides results from the solution without the source code.
 
-Authors: Christian Tiberius
+Authors: Christiaan Tiberius
 
 Contributors: Serge Kaplev, Lucas Alvarez Navarro.
 
 ### Week 2.4: Time Series Analysis
 
-Authors: Christiaan Tiberius, Sandra Verhagen, Berend Bouvy
+Authors: Christiaan Tiberius, Sandra Verhagen, Berend Bouvy, Alireza Amiri-Simkooei
 
-Contributors: Serge Kaplev, Alireza Amiri-Simkooei developed earler versions of the Sea Level Rise assignment.
+Contributors: Serge Kaplev.
 
 ### Week 2.5: Optimization
 
-Authors: Bahman Ahmadi, Gonçalo Homem de Almeida Correia, Jie Gao, 
+Authors: Bahman Ahmadi, Gonçalo Homem de Almeida Correia, Jie Gao
 
 Contributors: Nadia Pourmohammadzia, Jialei Ding and Tom van Woudenberg.
 

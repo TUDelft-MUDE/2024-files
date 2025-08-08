@@ -11,7 +11,40 @@ type: software
 authors:
   - given-names: Robert
     family-names: Lanzafame
-  - family-names: MUDE Team
+  - given-names: Patricia
+    family-names: Mares Nasarre
+  - given-names: Sandra
+    family-names: Verhagen
+  - given-names: Jaime
+    family-names: Arriaga Garcia
+  - given-names: Justin
+    family-names: Pittman
+  - given-names: Frans
+    family-names: van der Meer
+  - given-names: Christiaan
+    family-names: Tiberius
+  - given-names: Berend
+    family-names: Bouvy
+  - given-names: Alireza
+    family-names: Amiri-Simkooei
+  - given-names: Gonçalo
+    family-names: Homem de Almeida Correia
+  - given-names: Bahman
+    family-names: Ahmadi
+  - given-names: Jie
+    family-names: Gao
+  - given-names: Iuri
+    family-names: Rocha
+  - given-names: Anne
+    family-names: Poot
+  - given-names: Joep
+    family-names: Storm
+  - given-names: Leon
+    family-names: Riccius
+  - given-names: Alexander
+    family-names: Garzón Díaz
+  - given-names: Tom
+    family-names: van Woudenberg
 identifiers:
   - type: doi
     value: 10.5281/zenodo.16782515
