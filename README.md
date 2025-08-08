@@ -36,7 +36,7 @@ The easiest way to vew the contents of this repository is to clone it and use an
 
 There are also several ways to view the files without cloning the repository, using a conventional web browser:
 
-1. GitLab/GitHub will automatically render Jupyter notebooks; however, note that the assignments use a number of Markdown and HTML formats that were meant for viewing on VS Code or Jupyter Lab, and may not render correctly in a web browser.
+1. When browsing the files on GitLab/GitHub Jupyter notebooks will be automatically rendered; however, note that the assignments use a number of Markdown and HTML formats that were meant for viewing on VS Code or Jupyter Lab, and may not render correctly in a web browser. Remember that the source code is available in the `content/` directory, and rendered files are in `src/`, in particular `src/students/` (`src/teachers/` was used to store solution prior to release to students, and does not contain files like lecture slides or exams).
 2. The original "Files Page" shared with students during the 2024-25 academic year is available at [mude.citg.tudelft.nl/files/2024](https://mude.citg.tudelft.nl/files/2024) (though it may not be maintained indefinitely).
 3. A GitHub Pages site may be set up to view the files in a similar way to the original Files Page _(this is not yet implemented)._
 
@@ -79,7 +79,7 @@ This includes files: `README_sync.md`, `sync_notebooks.py` and `config_sync.yml`
 
 See file `README_sync.md` for more information about the synchronization script (unfortunately it is not yet completely documented).
 
-## Technical Details
+## Technical Details for the Respository
 
 This Git repository is stored on TU Delft GitLab ([gitlab.tudelft.nl/mude/2024-files](https://gitlab.tudelft.nl/mude/2024-files)) and GitHub ([github.com/TUDelft-MUDE/2024-files](https://github.com/TUDelft-MUDE/2024-files)).
 
@@ -94,7 +94,7 @@ To make a correction to this repository, do the following:
 
 ## MUDE Topics in Detail
 
-Unless otherwise noted, authors typically were teachers, PhD's and postdocs that played a significant role in designing and developing the materials, whereas contributors played a valuable role, albeit a relatively minor one, for example: reviewing materials, suggesting case studies, formatting digital files and (especially for teaching assistants) giving valuable feedback as to the appropriate level of difficulty and quality of the assignments.
+This section describes specific information about each topic, as well as identifying the key authors and contributors. Unless otherwise noted, authors typically were teachers, PhD's and postdocs that played a significant role in designing and developing the materials, whereas contributors played a valuable role, albeit a relatively minor one, for example: reviewing materials, suggesting case studies, formatting digital files and (especially for teaching assistants) giving valuable feedback as to the appropriate level of difficulty and quality of the assignments.
 
 ### Week 1.1: Modelling Concepts
 
@@ -108,10 +108,10 @@ _WORK IN PROGRESS_
 
 ### Week 2.3: Signal Processing
 
+The source code for the solution for GA 2.3 is not included here, as the intention is to use the same analysis in future years; a PDF in the `src/` directory provides results from the solution without the source code.
+
 Authors:
 
 Contributors:
-
-Note that the source code for the solution for GA 2.3 is not included here, as the intention is to use the same analysis in future years; a PDF in the `src/` directory provides results from the solution without the source code.
 
 Materials not included in CC BY license:
