@@ -1,6 +1,6 @@
 # MUDE Files 2024
 
-<a rel="Zenodo DOI" href="https://doi.org/10.5281/zenodo.16782515">10.5281/zenodo.16782515</a>
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16782515.svg)](https://doi.org/10.5281/zenodo.16782515)
 
 This repository primarily contains MUDE Files from the 2024-25 academic year. MUDE stands for Modelling, Uncertainty and Data for Engineers, a required module in the MSc programs from the faculty of Civil Engineering and Geosciences at Delft University of Technology in the Netherlands. Note that the MUDE Textbook is published separately: for the 2024-25 academic year, see [mude.citg.tudelft.nl/book/2024/credits](https://mude.citg.tudelft.nl/book/2024/credits).
 
