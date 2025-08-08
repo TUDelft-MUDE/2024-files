@@ -14,7 +14,7 @@ authors:
 
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.xxxxxxx
+    value: 10.5281/zenodo.16782515
     description: Zenodo DOI
 repository-code: 'https://github.com/TUDelft-MUDE/2024-files'
 abstract: >-
