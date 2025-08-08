@@ -26,6 +26,8 @@ where fields `<AUTHORS>` and `<TOPIC>` are replaced with the appropriate values 
 
 > Lanzafame, Robert (2024) Risk Analysis Files from Modelling, Uncertainty and Data for Engineers (MUDE). https://github.com/TUDelft-MUDE/2024-files. CC BY 4.0 License. [doi: 10.5281/zenodo.xxxxxxx]().
 
+Due to the complex nature of MUDE and the large size of the MUDE Team, the metadata associated with this release of files is likely to require correction; therefore versioning is used to document updates to the source code. The version number has format `v2024.B.C` where minor corections will advance C and more significant updates (e.g., adding missing authors, updating licensing information, etc.) will advance B. The "2024" part of the version number will never change, as this will help distinguish releases in future years, as well as to be comparable with the MUDE Textbook, which uses a similar versioning scheme (e.g., MUDE Textbook and MUDE Files from the 2024-25 academic year are both versioned as `v2024.B.C`). A complete list of versions can be found in the GitHub Releases page or the Zenodo page.
+
 ### How to View and Use the Files Herein
 
 The easiest way to vew the contents of this repository is to clone it and use an IDE that is capable of rendering Jupyter notebooks, HTML, Markdown and Python files. For example, Visual Studio Code or Jupyter Lab.
