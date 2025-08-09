@@ -27,6 +27,7 @@ jobs:
       - name: Recursive usage # (Optional)
         run: |
             for dir in $(find . -type d -not -path '*/\.*' -not -path '.'); do
+                echo "Processing directory: $dir"
                 if [ "$dir" != "." ]; then
                     cd "$dir"
                     php ../directory-listing.php
