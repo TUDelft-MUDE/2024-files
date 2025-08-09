@@ -1,5 +1,5 @@
 # GitHub Actions demo to create a directory listing for the repository files to publish to GitHub Pages
-
+# Modified by Robert Lanzafame using GitHub Copilot to process all subdirectories rescursively
 name: Demo Action
 
 on:
