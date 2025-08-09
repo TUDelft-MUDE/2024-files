@@ -16,7 +16,9 @@ The explanation in this file is written by Robert Lanzafame, the MUDE Module Man
 
 ## License and Referencing
 
-Unless otherwise specified herein, all files in this repository are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license. This means that you can share and adapt the material in any medium or format, even for commercial purposes, as long as you give appropriate credit, provide a link to the license, and indicate if changes were made. We ask that you use the following citation when referencing these materials:
+Unless otherwise specified herein, all files in this repository are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license. This means that you can share and adapt the material in any medium or format, even for commercial purposes, as long as you give appropriate credit, provide a link to the license, and indicate if changes were made.
+
+In general, we ask that you use the following citation when referencing these materials:
 
 > MUDE Team (2024) Modelling, Uncertainty and Data for Engineers (MUDE) Files. https://github.com/TUDelft-MUDE/2024-files. CC BY 4.0 License. [doi: 10.5281/zenodo.16782515](https://doi.org/10.5281/zenodo.16782515).
 
@@ -29,6 +31,17 @@ where fields `<AUTHORS>` and `<TOPIC>` are replaced with the appropriate values 
 > Lanzafame, Robert (2024) Risk Analysis Files from Modelling, Uncertainty and Data for Engineers (MUDE). https://github.com/TUDelft-MUDE/2024-files. CC BY 4.0 License. [doi: 10.5281/zenodo.16782515](https://doi.org/10.5281/zenodo.16782515).
 
 Due to the complex nature of MUDE and the large size of the MUDE Team, the metadata associated with this release of files is likely to require correction; therefore versioning is used to document updates to the source code. The version number has format `v2024.B.C` where minor corections will advance C and more significant updates (e.g., adding missing authors, updating licensing information, etc.) will advance B. The "2024" part of the version number will never change, as this will help distinguish releases in future years, as well as to be comparable with the MUDE Textbook, which uses a similar versioning scheme (e.g., MUDE Textbook and MUDE Files from the 2024-25 academic year are both versioned as `v2024.B.C`). A complete list of versions can be found in the GitHub Releases page or the Zenodo page. As we are not editing the contents of the files, only the metadata associated with them, we do not anticipate that it is necessary to include the version number in the citation recommended above.
+
+### Using MUDE Materials with Your Students
+
+We understand that it can be distracting to students to include information about licenses and references in the materials you share with them. To avoid such distractions, yet still conform to the terms of use described above, we recommend that you do the following:
+
+1. On any file that is derived from MUDE Files, include a small note such as: "MUDE (2024)" or "Made with MUDE Materials (2024)," depending on the extent to which materials have been reused.
+2. On the course syllabus, website or within other general course information, include the reference (as described above), as well as an explanation about which files were used and how they were modified (if at all). 
+
+In any application, if you find it useful to include a hyperlink, use the doi, as it is the most stable long-term: `https://doi.org/10.5281/zenodo.16782515` (often formatted with this abbreviated text `doi: 10.5281/zenodo.16782515`).
+
+Finally, if you use MUDE materials, please let us know! We are sharing them with an open license because we think they are useful, but we also hope that it will encourage others to do the same. Pull requests or emails (MUDE-CEG@tudelft.nl) are always welcome.
 
 ### How to View and Use the Files Herein
 
