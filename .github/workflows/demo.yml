@@ -24,10 +24,6 @@ jobs:
       - name: Run Directory Listing Script
         run: php directory-listing.php
 
-      - name: Recursive usage # (Optional)
-        run: |
-          ./directory-listing.php
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
