@@ -30,7 +30,13 @@ jobs:
                 echo "Processing directory: $dir"
                 if [ "$dir" != "." ]; then
                     cd "$dir"
-                    php ../directory-listing.php
+                    # Calculate the relative path to directory-listing.php from $dir
+                    depth=$(echo "$dir" | awk -F'/' '{print NF-1}')
+                    rel_path=""
+                    for i in $(seq 1 $depth); do
+                        rel_path="../$rel_path"
+                    done
+                    php "${rel_path}directory-listing.php"
                     cd - > /dev/null
                 fi
             done
