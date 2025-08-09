@@ -45,19 +45,22 @@ Finally, if you use MUDE materials, please let us know! We are sharing them with
 
 ### How to View and Use the Files Herein
 
-The easiest way to vew the contents of this repository is to clone it and use an IDE that is capable of rendering Jupyter notebooks, HTML, Markdown and Python files. For example, Visual Studio Code or Jupyter Lab.
+The easiest way to vew the contents of this repository is to clone it and use an IDE that is capable of rendering Jupyter notebooks, HTML, Markdown and Python files. For example, Visual Studio Code or Jupyter Lab. Final versions of most assignments and their solutions (Jupyter notebooks and instructions in `README.md` files) can be viewed using the "Files Page," which is how files were shared with students during the 2024-25 academic year. This is preserved in two places online:
 
-There are also several ways to view the files without cloning the repository, using a conventional web browser:
+1. The original "Files Page"  is available at [mude.citg.tudelft.nl/2024/files/2024](https://archive.mude.citg.tudelft.nl/2024/files/) (though it may not be maintained indefinitely).
+2. A GitHub Pages site has been set up to view the files, similar to the original "Files Page". It is available at: [mude.citg.tudelft.nl/2024-files](https://mude.citg.tudelft.nl/2024-files) (the setup of this site is described in the "Technical Details" section below).
 
-1. When browsing the files on GitLab/GitHub Jupyter notebooks will be automatically rendered; however, note that the assignments use a number of Markdown and HTML formats that were meant for viewing on VS Code or Jupyter Lab, and may not render correctly in a web browser. Remember that the source code is available in the `content/` directory, and rendered files are in `src/`, in particular `src/students/` (`src/teachers/` was used to store solution prior to release to students, and does not contain files like lecture slides or exams).
-2. The original "Files Page" shared with students during the 2024-25 academic year is available at [mude.citg.tudelft.nl/files/2024](https://mude.citg.tudelft.nl/files/2024) (though it may not be maintained indefinitely).
-3. A GitHub Pages site may be set up to view the files in a similar way to the original Files Page _(this is not yet implemented)._
+Many files in `content/` are not included in the "Files Pages" above. If you do not want to clone the repository, all source files can also be explored via the file system viewer of the GitHub repository at [github.com/TUDelft-MUDE/2024-files](https://github.com/TUDelft-MUDE/2024-files) or the TU Delft GitLab repository at [gitlab.tudelft.nl/mude/2024-files](https://gitlab.tudelft.nl/mude/2024-files).These websites will automatically render Jupyter notebook files; however, note that the assignments use a number of Markdown and HTML formats that were meant for viewing on VS Code or Jupyter Lab, and may not render correctly in the browser.
 
-The notebooks were intended to be executed using a Conda environment created during week 1 of the module; a specification can be found at `./content/Week_1_1/environment.yml`. Note that packages were added sequentially in each week on an as-needed basis, so you may need to add packages manually. In some cases (e.g., Week 2.5 Optimization or Week 1.8), a new package was created for that particular week, and instructions can typically be found in the various assignment files.
+For all cases, note: source code for all files is in the `content/` directory; rendered files are in `src/`, in particular `src/students/` contains the files available on "Files Pages" listed above; subdirectory `src/teachers/` was used to share solutions with in-class teachers, protected by a password, prior to release to students (this subdirectory does not contain files like lecture slides or exams).
+
+The Jupyter notebooks were designed to be executed by students on their personal computers using a Conda environment created during week 1 of the module and used regularly by students throughout the semester; a specification can be found at `./content/Week_1_1/environment.yml`. Note that packages were added sequentially in each week on an as-needed basis, so you may need to add packages manually for some assignments. In some cases (e.g., Week 2.5 Optimization or Week 1.8), a new environment was created for a particular week, and instructions can typically be found in the various assignment files.
 
 ### Acknowledgements
 
 In addition to the generous support of the faculty of Civil Engineering and Geosciences at Delft University of Technology (as also described on the [Credits page of the MUDE Textbook](https://mude.citg.tudelft.nl/book/2024/credits)), a tremendous thank you goes out to our MUDE students for their role in the constant refinement of MUDE materials. In particular: the first year students whose constant feedback helped influence the redesign of MUDE for year 2 (2023-24); as well as the many MUDE teaching assistants: for those in the first year (2022-23) who, like the MUDE teachers themselves had no idea what MUDE was (yet!); and the brave students from the first and second years who were motivated to help teachers make MUDE even better for the next generation of students. Finally, a special thank you goes to the colleagues who overcame fears and challenges associated with the "new" (to us) way of working with Jupyter ecosystem: your willingness to learn and adapt to improve your teaching is truly inspiring!
+
+Rok Stular developed the original web server and CI/CD pipeline concepts for the 2023-24 academic year. These were completely revised and set up for the 2024-25 academic year by Kwangjin Lee.
 
 Tom van Woudenberg gets a special mention for his thorough review of every file in all of the weeks he was involved in MUDE as a teacher, which was most of them (far above average). Robert Lanzafame was responsible for implementing many of the changes in year 2 that gave MUDE its unique (albeit complicated) character: for example, a consistent notebook structure, assignment types and use of open source websites. Sandra Verhagen is a hero for leading the MUDE Team as Module Manager of year 1: keeping over 50 colleagues on track to deliver a brand new module based on Jupyter notebooks and Python when very few of us had any experience with it, during a year where the entire curriculum was new, all while keeping students satisfied and producing overall positive results---miraculous.
 
@@ -117,16 +120,25 @@ See file `README_sync.md` for more information about the synchronization script 
 
 ## Technical Details for the Respository
 
-This Git repository is stored on TU Delft GitLab ([gitlab.tudelft.nl/mude/2024-files](https://gitlab.tudelft.nl/mude/2024-files)) and GitHub ([github.com/TUDelft-MUDE/2024-files](https://github.com/TUDelft-MUDE/2024-files)).
+This Git repository is stored on the TU Delft GitLab ([gitlab.tudelft.nl/mude/2024-files](https://gitlab.tudelft.nl/mude/2024-files)) _and_ GitHub ([github.com/TUDelft-MUDE/2024-files](https://github.com/TUDelft-MUDE/2024-files)).
 
-The materials released herein were originally developed using the TU Delft instance of GitLab (`gitlab.tudelft.nl`), with a TU Delft Ubuntu server used for CI/CD pipelines and serving files to students (Files, as well as the MUDE Textbook and website). Beginning with the 2025-26 academic year, the MUDE Team will be using GitHub and GitHub pages for storing source code and serving files and website to students. Although the original GitLab repository and TU Delft server was operational at the time of writing (August, 2025), its continued maintenance is not guaranteed. Therefore, the files herein are also published on GitHub under the Organization TUDelft-MUDE.
+The materials released herein were originally developed using the TU Delft instance of GitLab (`gitlab.tudelft.nl`), with a TU Delft Ubuntu server used for CI/CD pipelines and serving files to students (Files, as well as the MUDE Textbook and website), all set up and maintained by Kwangjin Lee. Beginning with the 2025-26 academic year, the MUDE Team will be using GitHub and GitHub pages for storing source code and serving files and website to students. Although the original GitLab repository and TU Delft server was operational at the time of writing (August, 2025), its continued maintenance is not guaranteed. Therefore, the files herein are also published on GitHub under the Organization TUDelft-MUDE.
 
 A Zenodo record is linked to this repository to provide "permanent" storage of the source code, and is (nearly) automatically updated every time a new release is created on GitHub. Whenever a new release is made, the text description in the Zenodo record should be updated manually by copying and pasting the contents the of this README.
 
-To make a correction to this repository, do the following:
+When making a correction to files in this repository, do the following:
 
 1. Make a commit and push it to GitHub _and_ GitLab (two upstream remotes are configured; Google it, there are plenty of how-to's).
 2. Use GitHub to create a new release and tag (note that the tag will not automatically go to GitLab, which is OK).
+
+### Files Pages
+
+The original "Files Page" consisted of an FTP-style webpage built using a custom CI/CD pipeline on the TU Delft GitLab amd MUDE web server. The CI/CD pipeline was set up to deploy files to the web server when pushed to branch `release`. It was left intact after the 2024-25 academic year, but it may not me maintained long-term, as the MUDE Team is shifting IT tooling to GitHub. The MUDE web server is being maintained simply to preserve files from before the 2024 academic year and maintain a NetID login for a small number of
+sensitive files.
+
+The new "Files Page" is built using GitHub Pages and the [php-directory-listing script](https://github.com/caendesilva/php-directory-listing) by Caen De Silva. Specifically: the Pages setting for the repository uses GitHub Actions; on branch `gh-pages`, all files from `main` are deleted except those in `src/students/`, which are moved to root; several new files are added in this branch only (e.g., `.nojekyll`, the PHP script and the workflow file). To build the website, the workflow file `demo.yml` is modified to recursively list all files in all subdirectories (thank you GitHub Copilot). To modify the files on this (reincarnated) "Files Page," manually replace any files in the `gh-pages` branch with those modified on `main` (and consider using `git checkout ...` from branch `gh-pages` to easily update specific files). 
+
+Remember that any changes made to the repository should be pushed to both remote repositories (GitHub and GitLab); for the "Files Pages" an additional step is to merge the `main` branch into `release` (GitLab) and replace changed files on the `gh-pages` branch manually (GitHub).
 
 ## MUDE Topics in Detail
 
