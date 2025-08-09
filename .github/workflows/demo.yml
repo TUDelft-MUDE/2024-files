@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Set path label # (Optional)
-        run: echo "2024 MUDE Files (/src/students/ only).\nFor more information, see README in github.com/TUDelft-MUDE/2024-files)" > .dl-pathlabel
+        run: echo "2024 MUDE Files (/src/students/ only). For more information, see README in github.com/TUDelft-MUDE/2024-files)" > .dl-pathlabel
 
       - name: Run Directory Listing Script
         run: php directory-listing.php
