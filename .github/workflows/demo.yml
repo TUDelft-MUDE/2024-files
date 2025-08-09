@@ -22,11 +22,11 @@ jobs:
         run: echo "2024 MUDE Files (only /src/students/)" > .dl-pathlabel
 
       - name: Run Directory Listing Script
-        run: php ./directory-listing.php
+        run: php directory-listing.php
 
       - name: Recursive usage # (Optional)
         run: |
-          directory-listing.php
+          ./directory-listing.php
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
