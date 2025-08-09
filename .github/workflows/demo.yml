@@ -26,7 +26,13 @@ jobs:
 
       - name: Recursive usage # (Optional)
         run: |
-          cd Exams && php ../directory-listing.php
+            for dir in $(find . -type d -not -path '*/\.*' -not -path '.'); do
+                if [ "$dir" != "." ]; then
+                    cd "$dir"
+                    php ../directory-listing.php
+                    cd - > /dev/null
+                fi
+            done
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
