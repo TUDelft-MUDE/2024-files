@@ -1,9 +1,0 @@
-name: mude-week-2-6
-dependencies:
-  - python=3.12
-  - numpy
-  - matplotlib
-  - pandas
-  - pip
-  - conda-forge::scikit-learn
-  - conda-forge::jupyterlab
