@@ -118,7 +118,7 @@ This includes files: `README_sync.md`, `sync_notebooks.py` and `config_sync.yml`
 
 See file `README_sync.md` for more information about the synchronization script (unfortunately it is not yet completely documented).
 
-## Technical Details for the Respository
+## Technical Details for the Repository
 
 This Git repository is stored on the TU Delft GitLab ([gitlab.tudelft.nl/mude/2024-files](https://gitlab.tudelft.nl/mude/2024-files)) _and_ GitHub ([github.com/TUDelft-MUDE/2024-files](https://github.com/TUDelft-MUDE/2024-files)).
 
@@ -167,7 +167,7 @@ Contributors: Jeroen Hoving provided an excellent non-linear equation and some r
 
 Authors: Sandra Verhagen
 
-Contributors: Lotfi Massarweh, Chengyu Yin, Wietske Brower
+Contributors: Lotfi Massarweh, Chengyu Yin, Wietske Brouwer
 
 ### Week 1.5-1.6: Numerical Modelling
 
