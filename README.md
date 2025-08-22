@@ -20,15 +20,15 @@ Unless otherwise specified herein, all files in this repository are released und
 
 In general, we ask that you use the following citation when referencing these materials:
 
-> MUDE Team (2024) Modelling, Uncertainty and Data for Engineers (MUDE) Files. https://github.com/TUDelft-MUDE/2024-files. CC BY 4.0 License. [doi: 10.5281/zenodo.16782515](https://doi.org/10.5281/zenodo.16782515).
+> Lanzafame, Robert (Ed.) (2024) Modelling, Uncertainty and Data for Engineers (MUDE) Files. https://github.com/TUDelft-MUDE/2024-files. v2024.1.0, CC BY 4.0. [doi: 10.5281/zenodo.16782515](https://doi.org/10.5281/zenodo.16782515).
 
 A complete list of contributors is maintained in the file `CITATION.cff`, and can be used in place of "MUDE Team" in the citation above, as desired. If you wish to refer to a subset of files, please refer to a specific _topic_ in its entirety, using the following format:
 
-> `<AUTHORS>` (2024) `<TOPIC>` Files from Modelling, Uncertainty and Data for Engineers (MUDE). https://github.com/TUDelft-MUDE/2024-files. CC BY 4.0 License. [doi: 10.5281/zenodo.16782515](https://doi.org/10.5281/zenodo.16782515).
+> `<AUTHORS>` (2024) `<TOPIC>` Files from Modelling, Uncertainty and Data for Engineers (MUDE). https://github.com/TUDelft-MUDE/2024-files. CC BY 4.0. [doi: 10.5281/zenodo.16782515](https://doi.org/10.5281/zenodo.16782515).
 
 where fields `<AUTHORS>` and `<TOPIC>` are replaced with the appropriate values as described in the sections herein. For example, if you wish to refer to the files for Week 2.8, you would use:
 
-> Lanzafame, Robert (2024) Risk Analysis Files from Modelling, Uncertainty and Data for Engineers (MUDE). https://github.com/TUDelft-MUDE/2024-files. CC BY 4.0 License. [doi: 10.5281/zenodo.16782515](https://doi.org/10.5281/zenodo.16782515).
+> Lanzafame, Robert (2024) Risk Analysis Files from Modelling, Uncertainty and Data for Engineers (MUDE). https://github.com/TUDelft-MUDE/2024-files. CC BY 4.0. [doi: 10.5281/zenodo.16782515](https://doi.org/10.5281/zenodo.16782515).
 
 Due to the complex nature of MUDE and the large size of the MUDE Team, the metadata associated with this release of files is likely to require correction; therefore versioning is used to document updates to the source code. The version number has format `v2024.B.C` where minor corections will advance C and more significant updates (e.g., adding missing authors, updating licensing information, etc.) will advance B. The "2024" part of the version number will never change, as this will help distinguish releases in future years, as well as to be comparable with the MUDE Textbook, which uses a similar versioning scheme (e.g., MUDE Textbook and MUDE Files from the 2024-25 academic year are both versioned as `v2024.B.C`). A complete list of versions can be found in the GitHub Releases page or the Zenodo page. As we are not editing the contents of the files, only the metadata associated with them, we do not anticipate that it is necessary to include the version number in the citation recommended above.
 

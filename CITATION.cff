@@ -5,8 +5,8 @@ cff-version: 1.2.0
 title: >-
   Modelling, Uncertainty and Data for Engineers (MUDE) Files
 message: >-
-  Complete information is provided in the README for This
-  repository at https://github.com/TUDelft-MUDE/2024-files.
+  Complete information is provided in the README for this
+  repository at https://github.com/TUDelft-MUDE/2024-files
 type: software
 authors:
   - given-names: Robert
